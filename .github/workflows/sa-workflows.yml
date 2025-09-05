@@ -53,6 +53,7 @@ jobs:
           pip install -r requires.txt
       - name: SureAdhere Tests with pytest
         env:
+          DIMAGIQA_ENV: ${{ matrix.environment }}
           DIMAGIQA_URL: ${{ secrets.DIMAGIQA_URL }}
           DIMAGIQA_LOGIN_USERNAME: ${{ secrets.DIMAGIQA_LOGIN_USERNAME }}
           DIMAGIQA_LOGIN_PASSWORD: ${{ secrets.DIMAGIQA_LOGIN_PASSWORD }}

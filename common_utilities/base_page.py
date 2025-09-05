@@ -660,7 +660,6 @@ class BasePage:
             return False
 
     def launch_url(self, url: str):
-        print("url")
         self.sb.open(url)
         self.sb.wait_for_ready_state_complete(timeout=CLICK_TIMEOUT)
 

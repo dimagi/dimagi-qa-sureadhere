@@ -6,7 +6,7 @@ from configparser import ConfigParser
 
 def load_settings():
     env_keys = [
-        "url", "admin_username", "admin_password", "login_username", "login_password", "bs_user", "bs_key", "imap_password"
+        "url", "admin_username", "admin_password", "login_username", "login_password", "bs_user", "bs_key"
     ]
     settings = {}
     for key in env_keys:
@@ -14,7 +14,19 @@ def load_settings():
         if env_var in os.environ:
             settings[key] = os.environ[env_var]
 
+    if os.environ.get("CI") == "true":
+        settings["CI"] = "true"
+        if any(x not in settings for x in env_keys):
+            lines = settings.__doc__.splitlines()
+            vars_ = "\n  ".join(line.strip() for line in lines if "DIMAGIQA_" in line)
+            raise RuntimeError(
+                f"Environment variables not set:\n  {vars_}\n\n"
+                "See https://docs.github.com/en/actions/reference/encrypted-secrets "
+                "for instructions on how to set them."
+            )
+        return settings
     if "url" not in settings:
+        env = os.environ.get("DIMAGIQA_ENV") or "staging"
         cfg_path = Path(__file__).parent.parent / "settings.cfg"
         if not cfg_path.exists():
             raise FileNotFoundError(f"Missing settings.cfg at: {cfg_path}")
