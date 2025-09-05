@@ -1,0 +1,775 @@
+{
+  "html_Client_Tes_0": {
+    "tag": "html",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Patient chat @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//html[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\npat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nPatient chat\n            @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "body_Client_Tes_30": {
+    "class": "pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done ng-tns-0-0",
+    "tag": "body",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Patient chat @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//body[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\npat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nPatient chat\n            @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div__31": {
+    "class": "pace pace-inactive",
+    "tag": "div",
+    "xpath": "//div[@class='pace pace-inactive']"
+  },
+  "div__32": {
+    "class": "pace-progress",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress']"
+  },
+  "div__33": {
+    "class": "pace-progress-inner",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress-inner']"
+  },
+  "div__34": {
+    "class": "pace-activity",
+    "tag": "div",
+    "xpath": "//div[@class='pace-activity']"
+  },
+  "app_Client_Tes_35": {
+    "tag": "app",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Patient chat @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//app[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\npat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nPatient chat\n            @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_Client_Tes_36": {
+    "class": "custom-toolbar",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "div__37": {
+    "class": "logo",
+    "tag": "div",
+    "xpath": "//div[@class='logo']"
+  },
+  "div_Client_Tes_38": {
+    "class": "client-name d-none d-md-inline-flex",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "span__39": {
+    "class": "right-navbar ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='right-navbar ng-star-inserted']"
+  },
+  "client-header__40": {
+    "tag": "client-header",
+    "xpath": "//client-header"
+  },
+  "div__41": {
+    "class": "header-actions",
+    "tag": "div",
+    "xpath": "//div[@class='header-actions']"
+  },
+  "button__42": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat ng-star-inserted",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat ng-star-inserted' and @type='submit']"
+  },
+  "span__43": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__44": {
+    "class": "ng-fa-icon toolbar-icon text-success",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-success']"
+  },
+  "svg__45": {
+    "class": "svg-inline--fa fa-user-plus",
+    "data-icon": "user-plus",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-plus']"
+  },
+  "path__46": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__47": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__48": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__49": {
+    "class": "ng-fa-icon toolbar-icon text-warning",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-warning']"
+  },
+  "svg__50": {
+    "class": "svg-inline--fa fa-circle-question",
+    "data-icon": "circle-question",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-question']"
+  },
+  "path__51": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__52": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__53": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__54": {
+    "class": "ng-fa-icon toolbar-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon']"
+  },
+  "svg__55": {
+    "class": "svg-inline--fa fa-circle-user",
+    "data-icon": "circle-user",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-user']"
+  },
+  "path__56": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "kendo-drawer-container_Dashboard _57": {
+    "class": "k-drawer-container k-drawer-mini k-drawer-push",
+    "tag": "kendo-drawer-container",
+    "text": "Dashboard Patients Staff Reports pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Patient chat @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//kendo-drawer-container[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\npat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nPatient chat\n            @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "kendo-drawer_Dashboard _58": {
+    "class": "border-0 k-drawer k-drawer-start",
+    "tag": "kendo-drawer",
+    "text": "Dashboard Patients Staff Reports",
+    "xpath": "//kendo-drawer[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports')]"
+  },
+  "div_Dashboard _59": {
+    "class": "k-drawer-wrapper",
+    "tag": "div",
+    "text": "Dashboard Patients Staff Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports')]"
+  },
+  "ul_Dashboard _60": {
+    "class": "k-drawer-items",
+    "tag": "ul",
+    "text": "Dashboard Patients Staff Reports",
+    "xpath": "//ul[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports')]"
+  },
+  "li_Dashboard_61": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Dashboard",
+    "xpath": "//li[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "div_Dashboard_62": {
+    "tag": "div",
+    "text": "Dashboard",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "fa-icon__63": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__64": {
+    "class": "svg-inline--fa fa-house",
+    "data-icon": "house",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-house']"
+  },
+  "path__65": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Dashboard_66": {
+    "tag": "p",
+    "text": "Dashboard",
+    "xpath": "//p[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "li_Patients_67": {
+    "class": "k-drawer-item k-selected",
+    "tag": "li",
+    "text": "Patients",
+    "xpath": "//li[contains(normalize-space(text()), 'Patients')]"
+  },
+  "div_Patients_68": {
+    "tag": "div",
+    "text": "Patients",
+    "xpath": "//div[contains(normalize-space(text()), 'Patients')]"
+  },
+  "fa-icon__69": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__70": {
+    "class": "svg-inline--fa fa-user-large",
+    "data-icon": "user-large",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-large']"
+  },
+  "path__71": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Patients_72": {
+    "tag": "p",
+    "text": "Patients",
+    "xpath": "//p[contains(normalize-space(text()), 'Patients')]"
+  },
+  "li_Staff_73": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Staff",
+    "xpath": "//li[contains(normalize-space(text()), 'Staff')]"
+  },
+  "div_Staff_74": {
+    "tag": "div",
+    "text": "Staff",
+    "xpath": "//div[contains(normalize-space(text()), 'Staff')]"
+  },
+  "fa-icon__75": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__76": {
+    "class": "svg-inline--fa fa-user-nurse",
+    "data-icon": "user-nurse",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-nurse']"
+  },
+  "path__77": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Staff_78": {
+    "tag": "p",
+    "text": "Staff",
+    "xpath": "//p[contains(normalize-space(text()), 'Staff')]"
+  },
+  "li_Reports_79": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Reports",
+    "xpath": "//li[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div_Reports_80": {
+    "tag": "div",
+    "text": "Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
+  },
+  "fa-icon__81": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__82": {
+    "class": "svg-inline--fa fa-file-waveform",
+    "data-icon": "file-waveform",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-file-waveform']"
+  },
+  "path__83": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Reports_84": {
+    "tag": "p",
+    "text": "Reports",
+    "xpath": "//p[contains(normalize-space(text()), 'Reports')]"
+  },
+  "kendo-drawer-content_pat_1 pat__85": {
+    "class": "k-drawer-content",
+    "tag": "kendo-drawer-content",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Patient chat @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//kendo-drawer-content[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nPatient chat\n            @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "adherence_pat_1 pat__87": {
+    "class": "ng-star-inserted",
+    "tag": "adherence",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Patient chat @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//adherence[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nPatient chat\n            @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "ng-sidebar-container_pat_1 pat__88": {
+    "class": "adherence-wrapper",
+    "tag": "ng-sidebar-container",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Patient chat @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//ng-sidebar-container[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nPatient chat\n            @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_pat_1 pat__89": {
+    "class": "ng-sidebar__content ng-sidebar__content--animate",
+    "tag": "div",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Patient chat @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nPatient chat\n            @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_pat_1 pat__90": {
+    "class": "main-container",
+    "tag": "div",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Patient chat @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nPatient chat\n            @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_pat_1 pat__91": {
+    "class": "patient-adherence-header",
+    "tag": "div",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone')]"
+  },
+  "div_pat_1 pat__92": {
+    "class": "patient-info ng-star-inserted",
+    "tag": "div",
+    "text": "pat_1 pat_1 | Site_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US')]"
+  },
+  "div_pat_1 pat__93": {
+    "class": "patient-name",
+    "tag": "div",
+    "text": "pat_1 pat_1 | Site_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US')]"
+  },
+  "span_| Site_1_U_94": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "| Site_1_US",
+    "xpath": "//span[contains(normalize-space(text()), '| Site_1_US')]"
+  },
+  "div_Treatment _95": {
+    "class": "info-wrapper ng-star-inserted",
+    "tag": "div",
+    "text": "Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone')]"
+  },
+  "div_Treatment _96": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Treatment start date None",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment start date\nNone')]"
+  },
+  "h6_Treatment _97": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Treatment start date",
+    "xpath": "//h6[contains(normalize-space(text()), 'Treatment start date')]"
+  },
+  "span_None_98": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "None",
+    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+  },
+  "div_Exp. end d_99": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Exp. end date None",
+    "xpath": "//div[contains(normalize-space(text()), 'Exp. end date\nNone')]"
+  },
+  "h6_Exp. end d_100": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Exp. end date",
+    "xpath": "//h6[contains(normalize-space(text()), 'Exp. end date')]"
+  },
+  "span_None_101": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "None",
+    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+  },
+  "div_MRN e12345_102": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "MRN e1234567",
+    "xpath": "//div[contains(normalize-space(text()), 'MRN\ne1234567')]"
+  },
+  "h6_MRN_103": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "MRN",
+    "xpath": "//h6[contains(normalize-space(text()), 'MRN')]"
+  },
+  "div_SA-ID SA-7_104": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "SA-ID SA-7469",
+    "xpath": "//div[contains(normalize-space(text()), 'SA-ID\nSA-7469')]"
+  },
+  "h6_SA-ID_105": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "SA-ID",
+    "xpath": "//h6[contains(normalize-space(text()), 'SA-ID')]"
+  },
+  "span_SA-7469_106": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "SA-7469",
+    "xpath": "//span[contains(normalize-space(text()), 'SA-7469')]"
+  },
+  "div_Patient ma_107": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Patient manager None",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient manager\nNone')]"
+  },
+  "h6_Patient ma_108": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Patient manager",
+    "xpath": "//h6[contains(normalize-space(text()), 'Patient manager')]"
+  },
+  "span_None_109": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "None",
+    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+  },
+  "div_Treatment _110": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Treatment monitor None",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment monitor\nNone')]"
+  },
+  "h6_Treatment _111": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Treatment monitor",
+    "xpath": "//h6[contains(normalize-space(text()), 'Treatment monitor')]"
+  },
+  "span_None_112": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "None",
+    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+  },
+  "main_Overview A_113": {
+    "class": "main adherence-content",
+    "tag": "main",
+    "text": "Overview Adherence Regimen Profile Messages Reports Patient chat",
+    "xpath": "//main[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports\nPatient chat')]"
+  },
+  "kendo-tabstrip_Overview A_114": {
+    "class": "ng-tns-c655264150-1 k-tabstrip k-pos-relative k-tabstrip-top ng-star-inserted",
+    "tag": "kendo-tabstrip",
+    "text": "Overview Adherence Regimen Profile Messages Reports Patient chat",
+    "xpath": "//kendo-tabstrip[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports\nPatient chat')]"
+  },
+  "div_Overview A_115": {
+    "class": "k-tabstrip-items-wrapper ng-tns-c655264150-1 k-hstack ng-star-inserted",
+    "tag": "div",
+    "text": "Overview Adherence Regimen Profile Messages Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports')]"
+  },
+  "ul_Overview A_116": {
+    "class": "k-reset k-tabstrip-items ng-tns-c655264150-1",
+    "tag": "ul",
+    "text": "Overview Adherence Regimen Profile Messages Reports",
+    "xpath": "//ul[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports')]"
+  },
+  "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-0": {
+    "id": "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-0",
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Overview",
+    "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-0']"
+  },
+  "span_Overview_118": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Overview",
+    "xpath": "//span[contains(normalize-space(text()), 'Overview')]"
+  },
+  "div_Overview_119": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Overview",
+    "xpath": "//div[contains(normalize-space(text()), 'Overview')]"
+  },
+  "span_Overview_120": {
+    "tag": "span",
+    "text": "Overview",
+    "xpath": "//span[contains(normalize-space(text()), 'Overview')]"
+  },
+  "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-1": {
+    "id": "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-1",
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Adherence",
+    "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-1']"
+  },
+  "span_Adherence_122": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Adherence",
+    "xpath": "//span[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "div_Adherence_123": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Adherence",
+    "xpath": "//div[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "span_Adherence_124": {
+    "tag": "span",
+    "text": "Adherence",
+    "xpath": "//span[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-2": {
+    "id": "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-2",
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Regimen",
+    "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-2']"
+  },
+  "span_Regimen_126": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Regimen",
+    "xpath": "//span[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "div_Regimen_127": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Regimen",
+    "xpath": "//div[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "span_Regimen_128": {
+    "tag": "span",
+    "text": "Regimen",
+    "xpath": "//span[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-3": {
+    "id": "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-3",
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Profile",
+    "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-3']"
+  },
+  "span_Profile_130": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Profile",
+    "xpath": "//span[contains(normalize-space(text()), 'Profile')]"
+  },
+  "div_Profile_131": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Profile",
+    "xpath": "//div[contains(normalize-space(text()), 'Profile')]"
+  },
+  "span_Profile_132": {
+    "tag": "span",
+    "text": "Profile",
+    "xpath": "//span[contains(normalize-space(text()), 'Profile')]"
+  },
+  "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-4": {
+    "id": "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-4",
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "text": "Messages",
+    "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-4']"
+  },
+  "span_Messages_134": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Messages",
+    "xpath": "//span[contains(normalize-space(text()), 'Messages')]"
+  },
+  "div_Messages_135": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Messages",
+    "xpath": "//div[contains(normalize-space(text()), 'Messages')]"
+  },
+  "span_Messages_136": {
+    "tag": "span",
+    "text": "Messages",
+    "xpath": "//span[contains(normalize-space(text()), 'Messages')]"
+  },
+  "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-5": {
+    "id": "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-5",
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Reports",
+    "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-5']"
+  },
+  "span_Reports_138": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Reports",
+    "xpath": "//span[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div_Reports_139": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
+  },
+  "span_Reports_140": {
+    "tag": "span",
+    "text": "Reports",
+    "xpath": "//span[contains(normalize-space(text()), 'Reports')]"
+  },
+  "k-tabstrip-tabpanel-72171804-dc41-4a92-887b-579f7d106b7a-4": {
+    "id": "k-tabstrip-tabpanel-72171804-dc41-4a92-887b-579f7d106b7a-4",
+    "class": "ng-tns-c655264150-1 ng-trigger ng-trigger-state k-tabstrip-content k-active ng-star-inserted",
+    "tag": "div",
+    "text": "Patient chat",
+    "xpath": "//div[@id='k-tabstrip-tabpanel-72171804-dc41-4a92-887b-579f7d106b7a-4']"
+  },
+  "app-communications_Patient ch_142": {
+    "class": "ng-star-inserted",
+    "tag": "app-communications",
+    "text": "Patient chat",
+    "xpath": "//app-communications[contains(normalize-space(text()), 'Patient chat')]"
+  },
+  "div_Patient ch_143": {
+    "class": "communication-wrapper",
+    "tag": "div",
+    "text": "Patient chat",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient chat')]"
+  },
+  "div_Patient ch_144": {
+    "class": "row mt-2 comm-content-wrapper ng-star-inserted",
+    "tag": "div",
+    "text": "Patient chat",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient chat')]"
+  },
+  "div_Patient ch_145": {
+    "class": "col-md-6",
+    "tag": "div",
+    "text": "Patient chat",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient chat')]"
+  },
+  "div_Patient ch_146": {
+    "class": "h-75",
+    "tag": "div",
+    "text": "Patient chat",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient chat')]"
+  },
+  "h4_Patient ch_147": {
+    "class": "h3-label",
+    "tag": "h4",
+    "text": "Patient chat",
+    "xpath": "//h4[contains(normalize-space(text()), 'Patient chat')]"
+  },
+  "kendo-chat__148": {
+    "class": "k-chat",
+    "tag": "kendo-chat",
+    "xpath": "//kendo-chat[@class='k-chat']"
+  },
+  "div__149": {
+    "aria-label": "Message list",
+    "class": "k-message-list k-avatars",
+    "tag": "div",
+    "xpath": "//div[@aria-label='Message list']"
+  },
+  "kendo-chat-message-list__150": {
+    "class": "k-message-list-content",
+    "tag": "kendo-chat-message-list",
+    "xpath": "//kendo-chat-message-list[@class='k-message-list-content']"
+  },
+  "kendo-resize-sensor__151": {
+    "tag": "kendo-resize-sensor",
+    "xpath": "//kendo-resize-sensor"
+  },
+  "kendo-message-box__152": {
+    "class": "k-input k-input-md k-input-solid k-message-box k-rounded-md",
+    "tag": "kendo-message-box",
+    "xpath": "//kendo-message-box[@class='k-input k-input-md k-input-solid k-message-box k-rounded-md']"
+  },
+  "kendo-textarea__153": {
+    "placeholder": "Enter a message...",
+    "class": "k-textarea k-input !k-flex-col k-input-md k-rounded-md k-input-solid ng-star-inserted",
+    "tag": "kendo-textarea",
+    "xpath": "//kendo-textarea[@placeholder='Enter a message...']"
+  },
+  "k-626c97a5-1db7-427d-b87e-0c9226ad5000": {
+    "id": "k-626c97a5-1db7-427d-b87e-0c9226ad5000",
+    "placeholder": "Enter a message...",
+    "class": "k-input-inner !k-overflow-auto !k-overflow-y-auto k-resize-none !k-flex-none",
+    "type": "textarea",
+    "tag": "textarea",
+    "xpath": "//textarea[@id='k-626c97a5-1db7-427d-b87e-0c9226ad5000']"
+  },
+  "kendo-textarea-suffix__155": {
+    "class": "custom-suffix k-input-suffix",
+    "tag": "kendo-textarea-suffix",
+    "xpath": "//kendo-textarea-suffix[@class='custom-suffix k-input-suffix']"
+  },
+  "span__156": {
+    "class": "k-flex-1",
+    "tag": "span",
+    "xpath": "//span[@class='k-flex-1']"
+  },
+  "kendo-input-separator__157": {
+    "class": "k-text-base k-input-separator",
+    "tag": "kendo-input-separator",
+    "xpath": "//kendo-input-separator[@class='k-text-base k-input-separator']"
+  },
+  "button__158": {
+    "class": "send-button k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='send-button k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__159": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "svg__160": {
+    "tag": "svg",
+    "xpath": "//svg"
+  },
+  "path__161": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "div__162": {
+    "class": "col-md-6",
+    "tag": "div",
+    "xpath": "//div[@class='col-md-6']"
+  },
+  "popover__163": {
+    "tag": "popover",
+    "xpath": "//popover"
+  },
+  "client-footer_@2025 Sure_164": {
+    "tag": "client-footer",
+    "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//client-footer[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "footer_@2025 Sure_165": {
+    "class": "footer pt-0 footer-height",
+    "tag": "footer",
+    "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//footer[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "p_@2025 Sure_166": {
+    "tag": "p",
+    "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//p[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "a_Privacy Po_167": {
+    "tag": "a",
+    "text": "Privacy Policy and Terms of Service",
+    "xpath": "//a[contains(normalize-space(text()), 'Privacy Policy and Terms of Service')]"
+  },
+  "popover__168": {
+    "tag": "popover",
+    "xpath": "//popover"
+  }
+}

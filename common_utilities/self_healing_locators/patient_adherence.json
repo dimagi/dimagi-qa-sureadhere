@@ -1,0 +1,1798 @@
+{
+  "html_Client_Tes_0": {
+    "tag": "html",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 Dose details - Aug. 22, 2025 Events This dose All There are no uploaded events yet @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//html[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\npat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\nDose details - Aug. 22, 2025\nEvents\nThis dose\nAll\nThere are no uploaded events yet\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "body_Client_Tes_28": {
+    "class": "pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done ng-tns-0-0",
+    "tag": "body",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 Dose details - Aug. 22, 2025 Events This dose All There are no uploaded events yet @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//body[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\npat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\nDose details - Aug. 22, 2025\nEvents\nThis dose\nAll\nThere are no uploaded events yet\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div__29": {
+    "class": "pace pace-inactive",
+    "tag": "div",
+    "xpath": "//div[@class='pace pace-inactive']"
+  },
+  "div__30": {
+    "class": "pace-progress",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress']"
+  },
+  "div__31": {
+    "class": "pace-progress-inner",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress-inner']"
+  },
+  "div__32": {
+    "class": "pace-activity",
+    "tag": "div",
+    "xpath": "//div[@class='pace-activity']"
+  },
+  "app_Client_Tes_33": {
+    "tag": "app",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 Dose details - Aug. 22, 2025 Events This dose All There are no uploaded events yet @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//app[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\npat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\nDose details - Aug. 22, 2025\nEvents\nThis dose\nAll\nThere are no uploaded events yet\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_Client_Tes_34": {
+    "class": "custom-toolbar",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "div__35": {
+    "class": "logo",
+    "tag": "div",
+    "xpath": "//div[@class='logo']"
+  },
+  "div_Client_Tes_36": {
+    "class": "client-name d-none d-md-inline-flex",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "span__37": {
+    "class": "right-navbar ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='right-navbar ng-star-inserted']"
+  },
+  "client-header__38": {
+    "tag": "client-header",
+    "xpath": "//client-header"
+  },
+  "div__39": {
+    "class": "header-actions",
+    "tag": "div",
+    "xpath": "//div[@class='header-actions']"
+  },
+  "button__40": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat ng-star-inserted",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat ng-star-inserted' and @type='submit']"
+  },
+  "span__41": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__42": {
+    "class": "ng-fa-icon toolbar-icon text-success",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-success']"
+  },
+  "svg__43": {
+    "class": "svg-inline--fa fa-user-plus",
+    "data-icon": "user-plus",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-plus']"
+  },
+  "path__44": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__45": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__46": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__47": {
+    "class": "ng-fa-icon toolbar-icon text-warning",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-warning']"
+  },
+  "svg__48": {
+    "class": "svg-inline--fa fa-circle-question",
+    "data-icon": "circle-question",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-question']"
+  },
+  "path__49": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__50": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__51": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__52": {
+    "class": "ng-fa-icon toolbar-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon']"
+  },
+  "svg__53": {
+    "class": "svg-inline--fa fa-circle-user",
+    "data-icon": "circle-user",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-user']"
+  },
+  "path__54": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "kendo-drawer-container_Dashboard _55": {
+    "class": "k-drawer-container k-drawer-mini k-drawer-push",
+    "tag": "kendo-drawer-container",
+    "text": "Dashboard Patients Staff Reports pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 Dose details - Aug. 22, 2025 Events This dose All There are no uploaded events yet @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//kendo-drawer-container[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\npat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\nDose details - Aug. 22, 2025\nEvents\nThis dose\nAll\nThere are no uploaded events yet\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "kendo-drawer_Dashboard _56": {
+    "class": "border-0 k-drawer k-drawer-start",
+    "tag": "kendo-drawer",
+    "text": "Dashboard Patients Staff Reports",
+    "xpath": "//kendo-drawer[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports')]"
+  },
+  "div_Dashboard _57": {
+    "class": "k-drawer-wrapper",
+    "tag": "div",
+    "text": "Dashboard Patients Staff Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports')]"
+  },
+  "ul_Dashboard _58": {
+    "class": "k-drawer-items",
+    "tag": "ul",
+    "text": "Dashboard Patients Staff Reports",
+    "xpath": "//ul[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports')]"
+  },
+  "li_Dashboard_59": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Dashboard",
+    "xpath": "//li[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "div_Dashboard_60": {
+    "tag": "div",
+    "text": "Dashboard",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "fa-icon__61": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__62": {
+    "class": "svg-inline--fa fa-house",
+    "data-icon": "house",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-house']"
+  },
+  "path__63": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Dashboard_64": {
+    "tag": "p",
+    "text": "Dashboard",
+    "xpath": "//p[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "li_Patients_65": {
+    "class": "k-drawer-item k-selected",
+    "tag": "li",
+    "text": "Patients",
+    "xpath": "//li[contains(normalize-space(text()), 'Patients')]"
+  },
+  "div_Patients_66": {
+    "tag": "div",
+    "text": "Patients",
+    "xpath": "//div[contains(normalize-space(text()), 'Patients')]"
+  },
+  "fa-icon__67": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__68": {
+    "class": "svg-inline--fa fa-user-large",
+    "data-icon": "user-large",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-large']"
+  },
+  "path__69": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Patients_70": {
+    "tag": "p",
+    "text": "Patients",
+    "xpath": "//p[contains(normalize-space(text()), 'Patients')]"
+  },
+  "li_Staff_71": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Staff",
+    "xpath": "//li[contains(normalize-space(text()), 'Staff')]"
+  },
+  "div_Staff_72": {
+    "tag": "div",
+    "text": "Staff",
+    "xpath": "//div[contains(normalize-space(text()), 'Staff')]"
+  },
+  "fa-icon__73": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__74": {
+    "class": "svg-inline--fa fa-user-nurse",
+    "data-icon": "user-nurse",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-nurse']"
+  },
+  "path__75": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Staff_76": {
+    "tag": "p",
+    "text": "Staff",
+    "xpath": "//p[contains(normalize-space(text()), 'Staff')]"
+  },
+  "li_Reports_77": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Reports",
+    "xpath": "//li[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div_Reports_78": {
+    "tag": "div",
+    "text": "Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
+  },
+  "fa-icon__79": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__80": {
+    "class": "svg-inline--fa fa-file-waveform",
+    "data-icon": "file-waveform",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-file-waveform']"
+  },
+  "path__81": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Reports_82": {
+    "tag": "p",
+    "text": "Reports",
+    "xpath": "//p[contains(normalize-space(text()), 'Reports')]"
+  },
+  "kendo-drawer-content_pat_1 pat__83": {
+    "class": "k-drawer-content",
+    "tag": "kendo-drawer-content",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 Dose details - Aug. 22, 2025 Events This dose All There are no uploaded events yet @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//kendo-drawer-content[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\nDose details - Aug. 22, 2025\nEvents\nThis dose\nAll\nThere are no uploaded events yet\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "adherence_pat_1 pat__85": {
+    "class": "ng-star-inserted",
+    "tag": "adherence",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 Dose details - Aug. 22, 2025 Events This dose All There are no uploaded events yet @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//adherence[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\nDose details - Aug. 22, 2025\nEvents\nThis dose\nAll\nThere are no uploaded events yet\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "ng-sidebar-container_pat_1 pat__86": {
+    "class": "adherence-wrapper",
+    "tag": "ng-sidebar-container",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 Dose details - Aug. 22, 2025 Events This dose All There are no uploaded events yet @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//ng-sidebar-container[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\nDose details - Aug. 22, 2025\nEvents\nThis dose\nAll\nThere are no uploaded events yet\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_pat_1 pat__87": {
+    "class": "ng-sidebar__content ng-sidebar__content--animate",
+    "tag": "div",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 Dose details - Aug. 22, 2025 Events This dose All There are no uploaded events yet @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\nDose details - Aug. 22, 2025\nEvents\nThis dose\nAll\nThere are no uploaded events yet\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_pat_1 pat__88": {
+    "class": "main-container",
+    "tag": "div",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 Dose details - Aug. 22, 2025 Events This dose All There are no uploaded events yet @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\nDose details - Aug. 22, 2025\nEvents\nThis dose\nAll\nThere are no uploaded events yet\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_pat_1 pat__89": {
+    "class": "patient-adherence-header",
+    "tag": "div",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone')]"
+  },
+  "div_pat_1 pat__90": {
+    "class": "patient-info ng-star-inserted",
+    "tag": "div",
+    "text": "pat_1 pat_1 | Site_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US')]"
+  },
+  "div_pat_1 pat__91": {
+    "class": "patient-name",
+    "tag": "div",
+    "text": "pat_1 pat_1 | Site_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US')]"
+  },
+  "span_| Site_1_U_92": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "| Site_1_US",
+    "xpath": "//span[contains(normalize-space(text()), '| Site_1_US')]"
+  },
+  "div_Treatment _93": {
+    "class": "info-wrapper ng-star-inserted",
+    "tag": "div",
+    "text": "Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone')]"
+  },
+  "div_Treatment _94": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Treatment start date None",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment start date\nNone')]"
+  },
+  "h6_Treatment _95": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Treatment start date",
+    "xpath": "//h6[contains(normalize-space(text()), 'Treatment start date')]"
+  },
+  "span_None_96": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "None",
+    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+  },
+  "div_Exp. end d_97": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Exp. end date None",
+    "xpath": "//div[contains(normalize-space(text()), 'Exp. end date\nNone')]"
+  },
+  "h6_Exp. end d_98": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Exp. end date",
+    "xpath": "//h6[contains(normalize-space(text()), 'Exp. end date')]"
+  },
+  "span_None_99": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "None",
+    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+  },
+  "div_MRN e12345_100": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "MRN e1234567",
+    "xpath": "//div[contains(normalize-space(text()), 'MRN\ne1234567')]"
+  },
+  "h6_MRN_101": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "MRN",
+    "xpath": "//h6[contains(normalize-space(text()), 'MRN')]"
+  },
+  "div_SA-ID SA-7_102": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "SA-ID SA-7469",
+    "xpath": "//div[contains(normalize-space(text()), 'SA-ID\nSA-7469')]"
+  },
+  "h6_SA-ID_103": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "SA-ID",
+    "xpath": "//h6[contains(normalize-space(text()), 'SA-ID')]"
+  },
+  "span_SA-7469_104": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "SA-7469",
+    "xpath": "//span[contains(normalize-space(text()), 'SA-7469')]"
+  },
+  "div_Patient ma_105": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Patient manager None",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient manager\nNone')]"
+  },
+  "h6_Patient ma_106": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Patient manager",
+    "xpath": "//h6[contains(normalize-space(text()), 'Patient manager')]"
+  },
+  "span_None_107": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "None",
+    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+  },
+  "div_Treatment _108": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Treatment monitor None",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment monitor\nNone')]"
+  },
+  "h6_Treatment _109": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Treatment monitor",
+    "xpath": "//h6[contains(normalize-space(text()), 'Treatment monitor')]"
+  },
+  "span_None_110": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "None",
+    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+  },
+  "main_Overview A_111": {
+    "class": "main adherence-content",
+    "tag": "main",
+    "text": "Overview Adherence Regimen Profile Messages Reports August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 Dose details - Aug. 22, 2025 Events This dose All There are no uploaded events yet",
+    "xpath": "//main[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\nDose details - Aug. 22, 2025\nEvents\nThis dose\nAll\nThere are no uploaded events yet')]"
+  },
+  "kendo-tabstrip_Overview A_112": {
+    "class": "ng-tns-c655264150-1 k-tabstrip k-pos-relative k-tabstrip-top ng-star-inserted",
+    "tag": "kendo-tabstrip",
+    "text": "Overview Adherence Regimen Profile Messages Reports August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 Dose details - Aug. 22, 2025 Events This dose All There are no uploaded events yet",
+    "xpath": "//kendo-tabstrip[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\nDose details - Aug. 22, 2025\nEvents\nThis dose\nAll\nThere are no uploaded events yet')]"
+  },
+  "div_Overview A_113": {
+    "class": "k-tabstrip-items-wrapper ng-tns-c655264150-1 k-hstack ng-star-inserted",
+    "tag": "div",
+    "text": "Overview Adherence Regimen Profile Messages Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports')]"
+  },
+  "ul_Overview A_114": {
+    "class": "k-reset k-tabstrip-items ng-tns-c655264150-1",
+    "tag": "ul",
+    "text": "Overview Adherence Regimen Profile Messages Reports",
+    "xpath": "//ul[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports')]"
+  },
+  "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-0": {
+    "id": "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-0",
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Overview",
+    "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-0']"
+  },
+  "span_Overview_116": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Overview",
+    "xpath": "//span[contains(normalize-space(text()), 'Overview')]"
+  },
+  "div_Overview_117": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Overview",
+    "xpath": "//div[contains(normalize-space(text()), 'Overview')]"
+  },
+  "span_Overview_118": {
+    "tag": "span",
+    "text": "Overview",
+    "xpath": "//span[contains(normalize-space(text()), 'Overview')]"
+  },
+  "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-1": {
+    "id": "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-1",
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "text": "Adherence",
+    "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-1']"
+  },
+  "span_Adherence_120": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Adherence",
+    "xpath": "//span[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "div_Adherence_121": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Adherence",
+    "xpath": "//div[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "span_Adherence_122": {
+    "tag": "span",
+    "text": "Adherence",
+    "xpath": "//span[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-2": {
+    "id": "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-2",
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Regimen",
+    "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-2']"
+  },
+  "span_Regimen_124": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Regimen",
+    "xpath": "//span[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "div_Regimen_125": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Regimen",
+    "xpath": "//div[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "span_Regimen_126": {
+    "tag": "span",
+    "text": "Regimen",
+    "xpath": "//span[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-3": {
+    "id": "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-3",
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Profile",
+    "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-3']"
+  },
+  "span_Profile_128": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Profile",
+    "xpath": "//span[contains(normalize-space(text()), 'Profile')]"
+  },
+  "div_Profile_129": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Profile",
+    "xpath": "//div[contains(normalize-space(text()), 'Profile')]"
+  },
+  "span_Profile_130": {
+    "tag": "span",
+    "text": "Profile",
+    "xpath": "//span[contains(normalize-space(text()), 'Profile')]"
+  },
+  "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-4": {
+    "id": "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-4",
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Messages",
+    "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-4']"
+  },
+  "span_Messages_132": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Messages",
+    "xpath": "//span[contains(normalize-space(text()), 'Messages')]"
+  },
+  "div_Messages_133": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Messages",
+    "xpath": "//div[contains(normalize-space(text()), 'Messages')]"
+  },
+  "span_Messages_134": {
+    "tag": "span",
+    "text": "Messages",
+    "xpath": "//span[contains(normalize-space(text()), 'Messages')]"
+  },
+  "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-5": {
+    "id": "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-5",
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Reports",
+    "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-5']"
+  },
+  "span_Reports_136": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Reports",
+    "xpath": "//span[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div_Reports_137": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
+  },
+  "span_Reports_138": {
+    "tag": "span",
+    "text": "Reports",
+    "xpath": "//span[contains(normalize-space(text()), 'Reports')]"
+  },
+  "k-tabstrip-tabpanel-72171804-dc41-4a92-887b-579f7d106b7a-1": {
+    "id": "k-tabstrip-tabpanel-72171804-dc41-4a92-887b-579f7d106b7a-1",
+    "class": "ng-tns-c655264150-1 ng-trigger ng-trigger-state k-tabstrip-content k-active ng-star-inserted",
+    "tag": "div",
+    "text": "August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 Dose details - Aug. 22, 2025 Events This dose All There are no uploaded events yet",
+    "xpath": "//div[@id='k-tabstrip-tabpanel-72171804-dc41-4a92-887b-579f7d106b7a-1']"
+  },
+  "div_August 202_140": {
+    "class": "adherence-tab-wrapper ng-star-inserted",
+    "tag": "div",
+    "text": "August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 Dose details - Aug. 22, 2025 Events This dose All There are no uploaded events yet",
+    "xpath": "//div[contains(normalize-space(text()), 'August 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\nDose details - Aug. 22, 2025\nEvents\nThis dose\nAll\nThere are no uploaded events yet')]"
+  },
+  "div_August 202_141": {
+    "class": "adherence-tab-content",
+    "tag": "div",
+    "text": "August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 Dose details - Aug. 22, 2025 Events This dose All There are no uploaded events yet",
+    "xpath": "//div[contains(normalize-space(text()), 'August 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\nDose details - Aug. 22, 2025\nEvents\nThis dose\nAll\nThere are no uploaded events yet')]"
+  },
+  "div_August 202_142": {
+    "class": "row",
+    "tag": "div",
+    "text": "August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 Dose details - Aug. 22, 2025 Events This dose All There are no uploaded events yet",
+    "xpath": "//div[contains(normalize-space(text()), 'August 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\nDose details - Aug. 22, 2025\nEvents\nThis dose\nAll\nThere are no uploaded events yet')]"
+  },
+  "div_August 202_143": {
+    "class": "col-lg-9",
+    "tag": "div",
+    "text": "August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 Dose details - Aug. 22, 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'August 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\nDose details - Aug. 22, 2025')]"
+  },
+  "adherence-edit_August 202_144": {
+    "tag": "adherence-edit",
+    "text": "August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 Dose details - Aug. 22, 2025",
+    "xpath": "//adherence-edit[contains(normalize-space(text()), 'August 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\nDose details - Aug. 22, 2025')]"
+  },
+  "div_August 202_145": {
+    "class": "row ng-star-inserted",
+    "tag": "div",
+    "text": "August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 Dose details - Aug. 22, 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'August 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\nDose details - Aug. 22, 2025')]"
+  },
+  "div_August 202_146": {
+    "class": "col-lg-6 col-md-6",
+    "tag": "div",
+    "text": "August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6",
+    "xpath": "//div[contains(normalize-space(text()), 'August 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6')]"
+  },
+  "div_August 202_147": {
+    "class": "doses-wrapper",
+    "tag": "div",
+    "text": "August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6",
+    "xpath": "//div[contains(normalize-space(text()), 'August 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6')]"
+  },
+  "div_August 202_148": {
+    "class": "doses-calendar-title",
+    "tag": "div",
+    "text": "August 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'August 2025')]"
+  },
+  "div_August 202_149": {
+    "class": "title-item",
+    "tag": "div",
+    "text": "August 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'August 2025')]"
+  },
+  "div__150": {
+    "class": "k-button k-button-md",
+    "tag": "div",
+    "xpath": "//div[@class='k-button k-button-md']"
+  },
+  "span__151": {
+    "class": "icon-keyboard_arrow_left",
+    "tag": "span",
+    "xpath": "//span[@class='icon-keyboard_arrow_left']"
+  },
+  "div_August 202_152": {
+    "class": "calendar-header",
+    "tag": "div",
+    "text": "August 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'August 2025')]"
+  },
+  "div__153": {
+    "class": "k-button k-button-md",
+    "tag": "div",
+    "xpath": "//div[@class='k-button k-button-md']"
+  },
+  "span__154": {
+    "class": "icon-keyboard_arrow_right",
+    "tag": "span",
+    "xpath": "//span[@class='icon-keyboard_arrow_right']"
+  },
+  "div_Sunday Mon_155": {
+    "class": "schedule-content ng-star-inserted",
+    "tag": "div",
+    "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6",
+    "xpath": "//div[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6')]"
+  },
+  "div_Sunday Mon_156": {
+    "tag": "div",
+    "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6",
+    "xpath": "//div[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6')]"
+  },
+  "mwl-calendar-month-view_Sunday Mon_157": {
+    "tag": "mwl-calendar-month-view",
+    "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6",
+    "xpath": "//mwl-calendar-month-view[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6')]"
+  },
+  "div_Sunday Mon_158": {
+    "class": "cal-month-view",
+    "tag": "div",
+    "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6",
+    "xpath": "//div[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6')]"
+  },
+  "mwl-calendar-month-view-header_Sunday Mon_159": {
+    "tag": "mwl-calendar-month-view-header",
+    "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday",
+    "xpath": "//mwl-calendar-month-view-header[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday')]"
+  },
+  "div_Sunday Mon_160": {
+    "class": "cal-cell-row cal-header ng-star-inserted",
+    "tag": "div",
+    "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday",
+    "xpath": "//div[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday')]"
+  },
+  "div_Sunday_161": {
+    "class": "cal-cell cal-past cal-weekend ng-star-inserted",
+    "tag": "div",
+    "text": "Sunday",
+    "xpath": "//div[contains(normalize-space(text()), 'Sunday')]"
+  },
+  "div_Monday_162": {
+    "class": "cal-cell cal-past ng-star-inserted",
+    "tag": "div",
+    "text": "Monday",
+    "xpath": "//div[contains(normalize-space(text()), 'Monday')]"
+  },
+  "div_Tuesday_163": {
+    "class": "cal-cell cal-past ng-star-inserted",
+    "tag": "div",
+    "text": "Tuesday",
+    "xpath": "//div[contains(normalize-space(text()), 'Tuesday')]"
+  },
+  "div_Wednesday_164": {
+    "class": "cal-cell cal-past ng-star-inserted",
+    "tag": "div",
+    "text": "Wednesday",
+    "xpath": "//div[contains(normalize-space(text()), 'Wednesday')]"
+  },
+  "div_Thursday_165": {
+    "class": "cal-cell cal-past ng-star-inserted",
+    "tag": "div",
+    "text": "Thursday",
+    "xpath": "//div[contains(normalize-space(text()), 'Thursday')]"
+  },
+  "div_Friday_166": {
+    "class": "cal-cell cal-today ng-star-inserted",
+    "tag": "div",
+    "text": "Friday",
+    "xpath": "//div[contains(normalize-space(text()), 'Friday')]"
+  },
+  "div_Saturday_167": {
+    "class": "cal-cell cal-future cal-weekend ng-star-inserted",
+    "tag": "div",
+    "text": "Saturday",
+    "xpath": "//div[contains(normalize-space(text()), 'Saturday')]"
+  },
+  "div_27 28 29 3_168": {
+    "class": "cal-days",
+    "tag": "div",
+    "text": "27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6",
+    "xpath": "//div[contains(normalize-space(text()), '27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6')]"
+  },
+  "div_27 28 29 3_169": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "27 28 29 30 31 1 2",
+    "xpath": "//div[contains(normalize-space(text()), '27\n28\n29\n30\n31\n1\n2')]"
+  },
+  "div_27 28 29 3_170": {
+    "class": "cal-cell-row",
+    "tag": "div",
+    "text": "27 28 29 30 31 1 2",
+    "xpath": "//div[contains(normalize-space(text()), '27\n28\n29\n30\n31\n1\n2')]"
+  },
+  "mwl-calendar-month-cell_27_171": {
+    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-out-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "27",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '27')]"
+  },
+  "div_27_172": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "27",
+    "xpath": "//div[contains(normalize-space(text()), '27')]"
+  },
+  "span_27_173": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "27",
+    "xpath": "//span[contains(normalize-space(text()), '27')]"
+  },
+  "mwl-calendar-month-cell_28_174": {
+    "class": "cal-cell cal-day-cell cal-past cal-out-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "28",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '28')]"
+  },
+  "div_28_175": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "28",
+    "xpath": "//div[contains(normalize-space(text()), '28')]"
+  },
+  "span_28_176": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "28",
+    "xpath": "//span[contains(normalize-space(text()), '28')]"
+  },
+  "mwl-calendar-month-cell_29_177": {
+    "class": "cal-cell cal-day-cell cal-past cal-out-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "29",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '29')]"
+  },
+  "div_29_178": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "29",
+    "xpath": "//div[contains(normalize-space(text()), '29')]"
+  },
+  "span_29_179": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "29",
+    "xpath": "//span[contains(normalize-space(text()), '29')]"
+  },
+  "mwl-calendar-month-cell_30_180": {
+    "class": "cal-cell cal-day-cell cal-past cal-out-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "30",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '30')]"
+  },
+  "div_30_181": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "30",
+    "xpath": "//div[contains(normalize-space(text()), '30')]"
+  },
+  "span_30_182": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "30",
+    "xpath": "//span[contains(normalize-space(text()), '30')]"
+  },
+  "mwl-calendar-month-cell_31_183": {
+    "class": "cal-cell cal-day-cell cal-past cal-out-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "31",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '31')]"
+  },
+  "div_31_184": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "31",
+    "xpath": "//div[contains(normalize-space(text()), '31')]"
+  },
+  "span_31_185": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "31",
+    "xpath": "//span[contains(normalize-space(text()), '31')]"
+  },
+  "mwl-calendar-month-cell_1_186": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "1",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '1')]"
+  },
+  "div_1_187": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "1",
+    "xpath": "//div[contains(normalize-space(text()), '1')]"
+  },
+  "span_1_188": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "1",
+    "xpath": "//span[contains(normalize-space(text()), '1')]"
+  },
+  "mwl-calendar-month-cell_2_189": {
+    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "2",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '2')]"
+  },
+  "div_2_190": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "2",
+    "xpath": "//div[contains(normalize-space(text()), '2')]"
+  },
+  "span_2_191": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "2",
+    "xpath": "//span[contains(normalize-space(text()), '2')]"
+  },
+  "mwl-calendar-open-day-events__192": {
+    "class": "ng-tns-c820047117-10 ng-star-inserted",
+    "tag": "mwl-calendar-open-day-events",
+    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-10 ng-star-inserted']"
+  },
+  "div_3 4 5 6 7 _193": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "3 4 5 6 7 8 9",
+    "xpath": "//div[contains(normalize-space(text()), '3\n4\n5\n6\n7\n8\n9')]"
+  },
+  "div_3 4 5 6 7 _194": {
+    "class": "cal-cell-row",
+    "tag": "div",
+    "text": "3 4 5 6 7 8 9",
+    "xpath": "//div[contains(normalize-space(text()), '3\n4\n5\n6\n7\n8\n9')]"
+  },
+  "mwl-calendar-month-cell_3_195": {
+    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "3",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '3')]"
+  },
+  "div_3_196": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "3",
+    "xpath": "//div[contains(normalize-space(text()), '3')]"
+  },
+  "span_3_197": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "3",
+    "xpath": "//span[contains(normalize-space(text()), '3')]"
+  },
+  "mwl-calendar-month-cell_4_198": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "4",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '4')]"
+  },
+  "div_4_199": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "4",
+    "xpath": "//div[contains(normalize-space(text()), '4')]"
+  },
+  "span_4_200": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "4",
+    "xpath": "//span[contains(normalize-space(text()), '4')]"
+  },
+  "mwl-calendar-month-cell_5_201": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "5",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '5')]"
+  },
+  "div_5_202": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "5",
+    "xpath": "//div[contains(normalize-space(text()), '5')]"
+  },
+  "span_5_203": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "5",
+    "xpath": "//span[contains(normalize-space(text()), '5')]"
+  },
+  "mwl-calendar-month-cell_6_204": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "6",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '6')]"
+  },
+  "div_6_205": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "6",
+    "xpath": "//div[contains(normalize-space(text()), '6')]"
+  },
+  "span_6_206": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "6",
+    "xpath": "//span[contains(normalize-space(text()), '6')]"
+  },
+  "mwl-calendar-month-cell_7_207": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "7",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '7')]"
+  },
+  "div_7_208": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "7",
+    "xpath": "//div[contains(normalize-space(text()), '7')]"
+  },
+  "span_7_209": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "7",
+    "xpath": "//span[contains(normalize-space(text()), '7')]"
+  },
+  "mwl-calendar-month-cell_8_210": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "8",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '8')]"
+  },
+  "div_8_211": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "8",
+    "xpath": "//div[contains(normalize-space(text()), '8')]"
+  },
+  "span_8_212": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "8",
+    "xpath": "//span[contains(normalize-space(text()), '8')]"
+  },
+  "mwl-calendar-month-cell_9_213": {
+    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "9",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '9')]"
+  },
+  "div_9_214": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "9",
+    "xpath": "//div[contains(normalize-space(text()), '9')]"
+  },
+  "span_9_215": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "9",
+    "xpath": "//span[contains(normalize-space(text()), '9')]"
+  },
+  "mwl-calendar-open-day-events__216": {
+    "class": "ng-tns-c820047117-11 ng-star-inserted",
+    "tag": "mwl-calendar-open-day-events",
+    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-11 ng-star-inserted']"
+  },
+  "div_10 11 12 1_217": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "10 11 12 13 14 15 16",
+    "xpath": "//div[contains(normalize-space(text()), '10\n11\n12\n13\n14\n15\n16')]"
+  },
+  "div_10 11 12 1_218": {
+    "class": "cal-cell-row",
+    "tag": "div",
+    "text": "10 11 12 13 14 15 16",
+    "xpath": "//div[contains(normalize-space(text()), '10\n11\n12\n13\n14\n15\n16')]"
+  },
+  "mwl-calendar-month-cell_10_219": {
+    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "10",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '10')]"
+  },
+  "div_10_220": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "10",
+    "xpath": "//div[contains(normalize-space(text()), '10')]"
+  },
+  "span_10_221": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "10",
+    "xpath": "//span[contains(normalize-space(text()), '10')]"
+  },
+  "mwl-calendar-month-cell_11_222": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "11",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '11')]"
+  },
+  "div_11_223": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "11",
+    "xpath": "//div[contains(normalize-space(text()), '11')]"
+  },
+  "span_11_224": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "11",
+    "xpath": "//span[contains(normalize-space(text()), '11')]"
+  },
+  "mwl-calendar-month-cell_12_225": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "12",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '12')]"
+  },
+  "div_12_226": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "12",
+    "xpath": "//div[contains(normalize-space(text()), '12')]"
+  },
+  "span_12_227": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "12",
+    "xpath": "//span[contains(normalize-space(text()), '12')]"
+  },
+  "mwl-calendar-month-cell_13_228": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "13",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '13')]"
+  },
+  "div_13_229": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "13",
+    "xpath": "//div[contains(normalize-space(text()), '13')]"
+  },
+  "span_13_230": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "13",
+    "xpath": "//span[contains(normalize-space(text()), '13')]"
+  },
+  "mwl-calendar-month-cell_14_231": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "14",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '14')]"
+  },
+  "div_14_232": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "14",
+    "xpath": "//div[contains(normalize-space(text()), '14')]"
+  },
+  "span_14_233": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "14",
+    "xpath": "//span[contains(normalize-space(text()), '14')]"
+  },
+  "mwl-calendar-month-cell_15_234": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "15",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '15')]"
+  },
+  "div_15_235": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "15",
+    "xpath": "//div[contains(normalize-space(text()), '15')]"
+  },
+  "span_15_236": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "15",
+    "xpath": "//span[contains(normalize-space(text()), '15')]"
+  },
+  "mwl-calendar-month-cell_16_237": {
+    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "16",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '16')]"
+  },
+  "div_16_238": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "16",
+    "xpath": "//div[contains(normalize-space(text()), '16')]"
+  },
+  "span_16_239": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "16",
+    "xpath": "//span[contains(normalize-space(text()), '16')]"
+  },
+  "mwl-calendar-open-day-events__240": {
+    "class": "ng-tns-c820047117-12 ng-star-inserted",
+    "tag": "mwl-calendar-open-day-events",
+    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-12 ng-star-inserted']"
+  },
+  "div_17 18 19 2_241": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "17 18 19 20 21 22 23",
+    "xpath": "//div[contains(normalize-space(text()), '17\n18\n19\n20\n21\n22\n23')]"
+  },
+  "div_17 18 19 2_242": {
+    "class": "cal-cell-row",
+    "tag": "div",
+    "text": "17 18 19 20 21 22 23",
+    "xpath": "//div[contains(normalize-space(text()), '17\n18\n19\n20\n21\n22\n23')]"
+  },
+  "mwl-calendar-month-cell_17_243": {
+    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "17",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '17')]"
+  },
+  "div_17_244": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "17",
+    "xpath": "//div[contains(normalize-space(text()), '17')]"
+  },
+  "span_17_245": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "17",
+    "xpath": "//span[contains(normalize-space(text()), '17')]"
+  },
+  "mwl-calendar-month-cell_18_246": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "18",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '18')]"
+  },
+  "div_18_247": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "18",
+    "xpath": "//div[contains(normalize-space(text()), '18')]"
+  },
+  "span_18_248": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "18",
+    "xpath": "//span[contains(normalize-space(text()), '18')]"
+  },
+  "mwl-calendar-month-cell_19_249": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "19",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '19')]"
+  },
+  "div_19_250": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "19",
+    "xpath": "//div[contains(normalize-space(text()), '19')]"
+  },
+  "span_19_251": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "19",
+    "xpath": "//span[contains(normalize-space(text()), '19')]"
+  },
+  "mwl-calendar-month-cell_20_252": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "20",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '20')]"
+  },
+  "div_20_253": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "20",
+    "xpath": "//div[contains(normalize-space(text()), '20')]"
+  },
+  "span_20_254": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "20",
+    "xpath": "//span[contains(normalize-space(text()), '20')]"
+  },
+  "mwl-calendar-month-cell_21_255": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "21",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '21')]"
+  },
+  "div_21_256": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "21",
+    "xpath": "//div[contains(normalize-space(text()), '21')]"
+  },
+  "span_21_257": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "21",
+    "xpath": "//span[contains(normalize-space(text()), '21')]"
+  },
+  "mwl-calendar-month-cell_22_258": {
+    "class": "cal-cell cal-day-cell cal-day-selected cal-today cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "22",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '22')]"
+  },
+  "div_22_259": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "22",
+    "xpath": "//div[contains(normalize-space(text()), '22')]"
+  },
+  "span_22_260": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "22",
+    "xpath": "//span[contains(normalize-space(text()), '22')]"
+  },
+  "mwl-calendar-month-cell_23_261": {
+    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "23",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '23')]"
+  },
+  "div_23_262": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "23",
+    "xpath": "//div[contains(normalize-space(text()), '23')]"
+  },
+  "span_23_263": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "23",
+    "xpath": "//span[contains(normalize-space(text()), '23')]"
+  },
+  "mwl-calendar-open-day-events__264": {
+    "class": "ng-tns-c820047117-13 ng-star-inserted",
+    "tag": "mwl-calendar-open-day-events",
+    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-13 ng-star-inserted']"
+  },
+  "div_24 25 26 2_265": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "24 25 26 27 28 29 30",
+    "xpath": "//div[contains(normalize-space(text()), '24\n25\n26\n27\n28\n29\n30')]"
+  },
+  "div_24 25 26 2_266": {
+    "class": "cal-cell-row",
+    "tag": "div",
+    "text": "24 25 26 27 28 29 30",
+    "xpath": "//div[contains(normalize-space(text()), '24\n25\n26\n27\n28\n29\n30')]"
+  },
+  "mwl-calendar-month-cell_24_267": {
+    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "24",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '24')]"
+  },
+  "div_24_268": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "24",
+    "xpath": "//div[contains(normalize-space(text()), '24')]"
+  },
+  "span_24_269": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "24",
+    "xpath": "//span[contains(normalize-space(text()), '24')]"
+  },
+  "mwl-calendar-month-cell_25_270": {
+    "class": "cal-cell cal-day-cell cal-future cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "25",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '25')]"
+  },
+  "div_25_271": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "25",
+    "xpath": "//div[contains(normalize-space(text()), '25')]"
+  },
+  "span_25_272": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "25",
+    "xpath": "//span[contains(normalize-space(text()), '25')]"
+  },
+  "mwl-calendar-month-cell_26_273": {
+    "class": "cal-cell cal-day-cell cal-future cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "26",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '26')]"
+  },
+  "div_26_274": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "26",
+    "xpath": "//div[contains(normalize-space(text()), '26')]"
+  },
+  "span_26_275": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "26",
+    "xpath": "//span[contains(normalize-space(text()), '26')]"
+  },
+  "mwl-calendar-month-cell_27_276": {
+    "class": "cal-cell cal-day-cell cal-future cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "27",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '27')]"
+  },
+  "div_27_277": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "27",
+    "xpath": "//div[contains(normalize-space(text()), '27')]"
+  },
+  "span_27_278": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "27",
+    "xpath": "//span[contains(normalize-space(text()), '27')]"
+  },
+  "mwl-calendar-month-cell_28_279": {
+    "class": "cal-cell cal-day-cell cal-future cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "28",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '28')]"
+  },
+  "div_28_280": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "28",
+    "xpath": "//div[contains(normalize-space(text()), '28')]"
+  },
+  "span_28_281": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "28",
+    "xpath": "//span[contains(normalize-space(text()), '28')]"
+  },
+  "mwl-calendar-month-cell_29_282": {
+    "class": "cal-cell cal-day-cell cal-future cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "29",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '29')]"
+  },
+  "div_29_283": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "29",
+    "xpath": "//div[contains(normalize-space(text()), '29')]"
+  },
+  "span_29_284": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "29",
+    "xpath": "//span[contains(normalize-space(text()), '29')]"
+  },
+  "mwl-calendar-month-cell_30_285": {
+    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "30",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '30')]"
+  },
+  "div_30_286": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "30",
+    "xpath": "//div[contains(normalize-space(text()), '30')]"
+  },
+  "span_30_287": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "30",
+    "xpath": "//span[contains(normalize-space(text()), '30')]"
+  },
+  "mwl-calendar-open-day-events__288": {
+    "class": "ng-tns-c820047117-14 ng-star-inserted",
+    "tag": "mwl-calendar-open-day-events",
+    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-14 ng-star-inserted']"
+  },
+  "div_31 1 2 3 4_289": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "31 1 2 3 4 5 6",
+    "xpath": "//div[contains(normalize-space(text()), '31\n1\n2\n3\n4\n5\n6')]"
+  },
+  "div_31 1 2 3 4_290": {
+    "class": "cal-cell-row",
+    "tag": "div",
+    "text": "31 1 2 3 4 5 6",
+    "xpath": "//div[contains(normalize-space(text()), '31\n1\n2\n3\n4\n5\n6')]"
+  },
+  "mwl-calendar-month-cell_31_291": {
+    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "31",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '31')]"
+  },
+  "div_31_292": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "31",
+    "xpath": "//div[contains(normalize-space(text()), '31')]"
+  },
+  "span_31_293": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "31",
+    "xpath": "//span[contains(normalize-space(text()), '31')]"
+  },
+  "mwl-calendar-month-cell_1_294": {
+    "class": "cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "1",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '1')]"
+  },
+  "div_1_295": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "1",
+    "xpath": "//div[contains(normalize-space(text()), '1')]"
+  },
+  "span_1_296": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "1",
+    "xpath": "//span[contains(normalize-space(text()), '1')]"
+  },
+  "mwl-calendar-month-cell_2_297": {
+    "class": "cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "2",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '2')]"
+  },
+  "div_2_298": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "2",
+    "xpath": "//div[contains(normalize-space(text()), '2')]"
+  },
+  "span_2_299": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "2",
+    "xpath": "//span[contains(normalize-space(text()), '2')]"
+  },
+  "mwl-calendar-month-cell_3_300": {
+    "class": "cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "3",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '3')]"
+  },
+  "div_3_301": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "3",
+    "xpath": "//div[contains(normalize-space(text()), '3')]"
+  },
+  "span_3_302": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "3",
+    "xpath": "//span[contains(normalize-space(text()), '3')]"
+  },
+  "mwl-calendar-month-cell_4_303": {
+    "class": "cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "4",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '4')]"
+  },
+  "div_4_304": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "4",
+    "xpath": "//div[contains(normalize-space(text()), '4')]"
+  },
+  "span_4_305": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "4",
+    "xpath": "//span[contains(normalize-space(text()), '4')]"
+  },
+  "mwl-calendar-month-cell_5_306": {
+    "class": "cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "5",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '5')]"
+  },
+  "div_5_307": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "5",
+    "xpath": "//div[contains(normalize-space(text()), '5')]"
+  },
+  "span_5_308": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "5",
+    "xpath": "//span[contains(normalize-space(text()), '5')]"
+  },
+  "mwl-calendar-month-cell_6_309": {
+    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-out-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "6",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '6')]"
+  },
+  "div_6_310": {
+    "class": "day-and-status ng-star-inserted",
+    "tag": "div",
+    "text": "6",
+    "xpath": "//div[contains(normalize-space(text()), '6')]"
+  },
+  "span_6_311": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "6",
+    "xpath": "//span[contains(normalize-space(text()), '6')]"
+  },
+  "mwl-calendar-open-day-events__312": {
+    "class": "ng-tns-c820047117-15 ng-star-inserted",
+    "tag": "mwl-calendar-open-day-events",
+    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-15 ng-star-inserted']"
+  },
+  "div_Dose detai_313": {
+    "class": "col-lg-6 col-md-6",
+    "tag": "div",
+    "text": "Dose details - Aug. 22, 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'Dose details - Aug. 22, 2025')]"
+  },
+  "div_Dose detai_314": {
+    "class": "details-wrapper",
+    "tag": "div",
+    "text": "Dose details - Aug. 22, 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'Dose details - Aug. 22, 2025')]"
+  },
+  "h3_Dose detai_315": {
+    "tag": "h3",
+    "text": "Dose details - Aug. 22, 2025",
+    "xpath": "//h3[contains(normalize-space(text()), 'Dose details - Aug. 22, 2025')]"
+  },
+  "div__316": {
+    "class": "details-content",
+    "tag": "div",
+    "xpath": "//div[@class='details-content']"
+  },
+  "doses_tab_1": {
+    "id": "doses_tab_1",
+    "tag": "div",
+    "xpath": "//div[@id='doses_tab_1']"
+  },
+  "popover__318": {
+    "tag": "popover",
+    "xpath": "//popover"
+  },
+  "div_Events Thi_319": {
+    "class": "col-lg-3",
+    "tag": "div",
+    "text": "Events This dose All There are no uploaded events yet",
+    "xpath": "//div[contains(normalize-space(text()), 'Events\nThis dose\nAll\nThere are no uploaded events yet')]"
+  },
+  "div_Events Thi_320": {
+    "class": "events-wrapper ng-star-inserted",
+    "tag": "div",
+    "text": "Events This dose All There are no uploaded events yet",
+    "xpath": "//div[contains(normalize-space(text()), 'Events\nThis dose\nAll\nThere are no uploaded events yet')]"
+  },
+  "h3_Events_321": {
+    "tag": "h3",
+    "text": "Events",
+    "xpath": "//h3[contains(normalize-space(text()), 'Events')]"
+  },
+  "kendo-tabstrip_This dose _322": {
+    "class": "shadow-none ng-tns-c655264150-8 k-tabstrip k-pos-relative k-tabstrip-top ng-star-inserted",
+    "tag": "kendo-tabstrip",
+    "text": "This dose All There are no uploaded events yet",
+    "xpath": "//kendo-tabstrip[contains(normalize-space(text()), 'This dose\nAll\nThere are no uploaded events yet')]"
+  },
+  "div_This dose _323": {
+    "class": "k-tabstrip-items-wrapper ng-tns-c655264150-8 k-hstack ng-star-inserted",
+    "tag": "div",
+    "text": "This dose All",
+    "xpath": "//div[contains(normalize-space(text()), 'This dose\nAll')]"
+  },
+  "ul_This dose _324": {
+    "class": "k-reset k-tabstrip-items ng-tns-c655264150-8",
+    "tag": "ul",
+    "text": "This dose All",
+    "xpath": "//ul[contains(normalize-space(text()), 'This dose\nAll')]"
+  },
+  "k-tabstrip-tab-ded9b428-0077-494c-a9a5-38da3b8a4bc3-0": {
+    "id": "k-tabstrip-tab-ded9b428-0077-494c-a9a5-38da3b8a4bc3-0",
+    "class": "ng-tns-c655264150-8 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "This dose",
+    "xpath": "//li[@id='k-tabstrip-tab-ded9b428-0077-494c-a9a5-38da3b8a4bc3-0']"
+  },
+  "span_This dose_326": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "This dose",
+    "xpath": "//span[contains(normalize-space(text()), 'This dose')]"
+  },
+  "k-tabstrip-tab-ded9b428-0077-494c-a9a5-38da3b8a4bc3-1": {
+    "id": "k-tabstrip-tab-ded9b428-0077-494c-a9a5-38da3b8a4bc3-1",
+    "class": "ng-tns-c655264150-8 k-item k-state-default k-active ng-star-inserted",
+    "tag": "li",
+    "text": "All",
+    "xpath": "//li[@id='k-tabstrip-tab-ded9b428-0077-494c-a9a5-38da3b8a4bc3-1']"
+  },
+  "span_All_328": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "All",
+    "xpath": "//span[contains(normalize-space(text()), 'All')]"
+  },
+  "k-tabstrip-tabpanel-ded9b428-0077-494c-a9a5-38da3b8a4bc3-1": {
+    "id": "k-tabstrip-tabpanel-ded9b428-0077-494c-a9a5-38da3b8a4bc3-1",
+    "class": "ng-tns-c655264150-8 ng-trigger ng-trigger-state k-tabstrip-content k-active ng-star-inserted",
+    "tag": "div",
+    "text": "There are no uploaded events yet",
+    "xpath": "//div[@id='k-tabstrip-tabpanel-ded9b428-0077-494c-a9a5-38da3b8a4bc3-1']"
+  },
+  "div_There are _330": {
+    "class": "overflow-auto ng-star-inserted",
+    "tag": "div",
+    "text": "There are no uploaded events yet",
+    "xpath": "//div[contains(normalize-space(text()), 'There are no uploaded events yet')]"
+  },
+  "div_There are _331": {
+    "class": "empty-events-caption ng-star-inserted",
+    "tag": "div",
+    "text": "There are no uploaded events yet",
+    "xpath": "//div[contains(normalize-space(text()), 'There are no uploaded events yet')]"
+  },
+  "div_There are _332": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "There are no uploaded events yet",
+    "xpath": "//div[contains(normalize-space(text()), 'There are no uploaded events yet')]"
+  },
+  "client-footer_@2025 Sure_333": {
+    "tag": "client-footer",
+    "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//client-footer[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "footer_@2025 Sure_334": {
+    "class": "footer pt-0 footer-height",
+    "tag": "footer",
+    "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//footer[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "p_@2025 Sure_335": {
+    "tag": "p",
+    "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//p[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "a_Privacy Po_336": {
+    "tag": "a",
+    "text": "Privacy Policy and Terms of Service",
+    "xpath": "//a[contains(normalize-space(text()), 'Privacy Policy and Terms of Service')]"
+  },
+  "popover__337": {
+    "tag": "popover",
+    "xpath": "//popover"
+  }
+}

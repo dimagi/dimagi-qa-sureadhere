@@ -53,6 +53,7 @@ jobs:
           pip install -r requires.txt
       - name: SureAdhere Tests with pytest
         env:
+          DIMAGIQA_ENV: ${{ matrix.environment }}
           DIMAGIQA_URL: ${{ secrets.DIMAGIQA_URL }}
           DIMAGIQA_LOGIN_USERNAME: ${{ secrets.DIMAGIQA_LOGIN_USERNAME }}
           DIMAGIQA_LOGIN_PASSWORD: ${{ secrets.DIMAGIQA_LOGIN_PASSWORD }}
@@ -70,7 +71,7 @@ jobs:
           google-chrome --version || true
           pytest -v testCases \
             --browser=chrome --headless --headless2 \
-            --timeout=60 --reruns 1 --maxfail=1 \
+            --reruns 1 --maxfail=1 \
             --dashboard --html=report.html
 
       - name: Parse test counts
@@ -81,6 +82,15 @@ jobs:
           while IFS= read -r line; do
             echo "::set-output name=${line%=*}::${line#*=}"
           done < sa_test_counts_${{ matrix.environment }}.txt
+
+#      - name: Archive test results
+#        id: artifact-upload-step
+#        if: ${{ success() || failure() }}
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: test-result-reports-${{ matrix.environment }}-${{ github.run_id }}
+#          path: /home/runner/work/dimagi-sa/dimagi-sa/cleanup_report_${{ matrix.environment }}.html
+#          retention-days: 2
 
       - name: Upload reports & logs
         if: always()

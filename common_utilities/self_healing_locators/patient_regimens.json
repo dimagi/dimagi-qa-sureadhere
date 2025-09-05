@@ -1,0 +1,2587 @@
+{
+  "html_Client_Tes_0": {
+    "tag": "html",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports pat_3 pat_3 | Site_1_US Treatment start date None Exp. end date None MRN g1234567 SA-ID SA-7506 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Active TB SAVE NEW SCHEDULE New Drug Schedule Schedule Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE Calendar preview August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 31 1 2 3 4 5 6 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//html[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\npat_3 pat_3 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ng1234567\nSA-ID\nSA-7506\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nActive TB\nSAVE\nNEW SCHEDULE\nNew Drug Schedule\nSchedule\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE\nCalendar preview\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n31\n1\n2\n3\n4\n5\n6\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "body_Client_Tes_32": {
+    "class": "pace-done pace-done pace-done ng-tns-0-0",
+    "tag": "body",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports pat_3 pat_3 | Site_1_US Treatment start date None Exp. end date None MRN g1234567 SA-ID SA-7506 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Active TB SAVE NEW SCHEDULE New Drug Schedule Schedule Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE Calendar preview August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 31 1 2 3 4 5 6 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//body[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\npat_3 pat_3 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ng1234567\nSA-ID\nSA-7506\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nActive TB\nSAVE\nNEW SCHEDULE\nNew Drug Schedule\nSchedule\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE\nCalendar preview\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n31\n1\n2\n3\n4\n5\n6\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div__33": {
+    "class": "pace pace-inactive",
+    "tag": "div",
+    "xpath": "//div[@class='pace pace-inactive']"
+  },
+  "div__34": {
+    "class": "pace-progress",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress']"
+  },
+  "div__35": {
+    "class": "pace-progress-inner",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress-inner']"
+  },
+  "div__36": {
+    "class": "pace-activity",
+    "tag": "div",
+    "xpath": "//div[@class='pace-activity']"
+  },
+  "app_Client_Tes_37": {
+    "tag": "app",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports pat_3 pat_3 | Site_1_US Treatment start date None Exp. end date None MRN g1234567 SA-ID SA-7506 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Active TB SAVE NEW SCHEDULE New Drug Schedule Schedule Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE Calendar preview August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 31 1 2 3 4 5 6 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//app[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\npat_3 pat_3 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ng1234567\nSA-ID\nSA-7506\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nActive TB\nSAVE\nNEW SCHEDULE\nNew Drug Schedule\nSchedule\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE\nCalendar preview\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n31\n1\n2\n3\n4\n5\n6\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_Client_Tes_38": {
+    "class": "custom-toolbar",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "div__39": {
+    "class": "logo",
+    "tag": "div",
+    "xpath": "//div[@class='logo']"
+  },
+  "div_Client_Tes_40": {
+    "class": "client-name d-none d-md-inline-flex",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "span__41": {
+    "class": "right-navbar ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='right-navbar ng-star-inserted']"
+  },
+  "client-header__42": {
+    "tag": "client-header",
+    "xpath": "//client-header"
+  },
+  "div__43": {
+    "class": "header-actions",
+    "tag": "div",
+    "xpath": "//div[@class='header-actions']"
+  },
+  "button__44": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat ng-star-inserted",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat ng-star-inserted' and @type='submit']"
+  },
+  "span__45": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__46": {
+    "class": "ng-fa-icon toolbar-icon text-success",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-success']"
+  },
+  "svg__47": {
+    "class": "svg-inline--fa fa-user-plus",
+    "data-icon": "user-plus",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-plus']"
+  },
+  "path__48": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__49": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__50": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__51": {
+    "class": "ng-fa-icon toolbar-icon text-warning",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-warning']"
+  },
+  "svg__52": {
+    "class": "svg-inline--fa fa-circle-question",
+    "data-icon": "circle-question",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-question']"
+  },
+  "path__53": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__54": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__55": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__56": {
+    "class": "ng-fa-icon toolbar-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon']"
+  },
+  "svg__57": {
+    "class": "svg-inline--fa fa-circle-user",
+    "data-icon": "circle-user",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-user']"
+  },
+  "path__58": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "kendo-drawer-container_Dashboard _59": {
+    "class": "k-drawer-container k-drawer-mini k-drawer-push",
+    "tag": "kendo-drawer-container",
+    "text": "Dashboard Patients Staff Reports pat_3 pat_3 | Site_1_US Treatment start date None Exp. end date None MRN g1234567 SA-ID SA-7506 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Active TB SAVE NEW SCHEDULE New Drug Schedule Schedule Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE Calendar preview August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 31 1 2 3 4 5 6 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//kendo-drawer-container[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\npat_3 pat_3 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ng1234567\nSA-ID\nSA-7506\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nActive TB\nSAVE\nNEW SCHEDULE\nNew Drug Schedule\nSchedule\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE\nCalendar preview\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n31\n1\n2\n3\n4\n5\n6\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "kendo-drawer_Dashboard _60": {
+    "class": "border-0 k-drawer k-drawer-start",
+    "tag": "kendo-drawer",
+    "text": "Dashboard Patients Staff Reports",
+    "xpath": "//kendo-drawer[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports')]"
+  },
+  "div_Dashboard _61": {
+    "class": "k-drawer-wrapper",
+    "tag": "div",
+    "text": "Dashboard Patients Staff Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports')]"
+  },
+  "ul_Dashboard _62": {
+    "class": "k-drawer-items",
+    "tag": "ul",
+    "text": "Dashboard Patients Staff Reports",
+    "xpath": "//ul[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports')]"
+  },
+  "li_Dashboard_63": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Dashboard",
+    "xpath": "//li[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "div_Dashboard_64": {
+    "tag": "div",
+    "text": "Dashboard",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "fa-icon__65": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__66": {
+    "class": "svg-inline--fa fa-house",
+    "data-icon": "house",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-house']"
+  },
+  "path__67": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Dashboard_68": {
+    "tag": "p",
+    "text": "Dashboard",
+    "xpath": "//p[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "li_Patients_69": {
+    "class": "k-drawer-item k-selected",
+    "tag": "li",
+    "text": "Patients",
+    "xpath": "//li[contains(normalize-space(text()), 'Patients')]"
+  },
+  "div_Patients_70": {
+    "tag": "div",
+    "text": "Patients",
+    "xpath": "//div[contains(normalize-space(text()), 'Patients')]"
+  },
+  "fa-icon__71": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__72": {
+    "class": "svg-inline--fa fa-user-large",
+    "data-icon": "user-large",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-large']"
+  },
+  "path__73": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Patients_74": {
+    "tag": "p",
+    "text": "Patients",
+    "xpath": "//p[contains(normalize-space(text()), 'Patients')]"
+  },
+  "li_Staff_75": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Staff",
+    "xpath": "//li[contains(normalize-space(text()), 'Staff')]"
+  },
+  "div_Staff_76": {
+    "tag": "div",
+    "text": "Staff",
+    "xpath": "//div[contains(normalize-space(text()), 'Staff')]"
+  },
+  "fa-icon__77": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__78": {
+    "class": "svg-inline--fa fa-user-nurse",
+    "data-icon": "user-nurse",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-nurse']"
+  },
+  "path__79": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Staff_80": {
+    "tag": "p",
+    "text": "Staff",
+    "xpath": "//p[contains(normalize-space(text()), 'Staff')]"
+  },
+  "li_Reports_81": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Reports",
+    "xpath": "//li[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div_Reports_82": {
+    "tag": "div",
+    "text": "Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
+  },
+  "fa-icon__83": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__84": {
+    "class": "svg-inline--fa fa-file-waveform",
+    "data-icon": "file-waveform",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-file-waveform']"
+  },
+  "path__85": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Reports_86": {
+    "tag": "p",
+    "text": "Reports",
+    "xpath": "//p[contains(normalize-space(text()), 'Reports')]"
+  },
+  "kendo-drawer-content_pat_3 pat__87": {
+    "class": "k-drawer-content",
+    "tag": "kendo-drawer-content",
+    "text": "pat_3 pat_3 | Site_1_US Treatment start date None Exp. end date None MRN g1234567 SA-ID SA-7506 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Active TB SAVE NEW SCHEDULE New Drug Schedule Schedule Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE Calendar preview August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 31 1 2 3 4 5 6 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//kendo-drawer-content[contains(normalize-space(text()), 'pat_3 pat_3 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ng1234567\nSA-ID\nSA-7506\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nActive TB\nSAVE\nNEW SCHEDULE\nNew Drug Schedule\nSchedule\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE\nCalendar preview\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n31\n1\n2\n3\n4\n5\n6\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "adherence_pat_3 pat__89": {
+    "class": "ng-star-inserted",
+    "tag": "adherence",
+    "text": "pat_3 pat_3 | Site_1_US Treatment start date None Exp. end date None MRN g1234567 SA-ID SA-7506 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Active TB SAVE NEW SCHEDULE New Drug Schedule Schedule Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE Calendar preview August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 31 1 2 3 4 5 6 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//adherence[contains(normalize-space(text()), 'pat_3 pat_3 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ng1234567\nSA-ID\nSA-7506\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nActive TB\nSAVE\nNEW SCHEDULE\nNew Drug Schedule\nSchedule\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE\nCalendar preview\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n31\n1\n2\n3\n4\n5\n6\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "ng-sidebar-container_pat_3 pat__90": {
+    "class": "adherence-wrapper",
+    "tag": "ng-sidebar-container",
+    "text": "pat_3 pat_3 | Site_1_US Treatment start date None Exp. end date None MRN g1234567 SA-ID SA-7506 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Active TB SAVE NEW SCHEDULE New Drug Schedule Schedule Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE Calendar preview August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 31 1 2 3 4 5 6 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//ng-sidebar-container[contains(normalize-space(text()), 'pat_3 pat_3 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ng1234567\nSA-ID\nSA-7506\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nActive TB\nSAVE\nNEW SCHEDULE\nNew Drug Schedule\nSchedule\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE\nCalendar preview\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n31\n1\n2\n3\n4\n5\n6\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_pat_3 pat__91": {
+    "class": "ng-sidebar__content ng-sidebar__content--animate",
+    "tag": "div",
+    "text": "pat_3 pat_3 | Site_1_US Treatment start date None Exp. end date None MRN g1234567 SA-ID SA-7506 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Active TB SAVE NEW SCHEDULE New Drug Schedule Schedule Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE Calendar preview August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 31 1 2 3 4 5 6 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_3 pat_3 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ng1234567\nSA-ID\nSA-7506\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nActive TB\nSAVE\nNEW SCHEDULE\nNew Drug Schedule\nSchedule\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE\nCalendar preview\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n31\n1\n2\n3\n4\n5\n6\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_pat_3 pat__92": {
+    "class": "main-container",
+    "tag": "div",
+    "text": "pat_3 pat_3 | Site_1_US Treatment start date None Exp. end date None MRN g1234567 SA-ID SA-7506 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Active TB SAVE NEW SCHEDULE New Drug Schedule Schedule Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE Calendar preview August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 31 1 2 3 4 5 6 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_3 pat_3 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ng1234567\nSA-ID\nSA-7506\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nActive TB\nSAVE\nNEW SCHEDULE\nNew Drug Schedule\nSchedule\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE\nCalendar preview\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n31\n1\n2\n3\n4\n5\n6\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_pat_3 pat__93": {
+    "class": "patient-adherence-header",
+    "tag": "div",
+    "text": "pat_3 pat_3 | Site_1_US Treatment start date None Exp. end date None MRN g1234567 SA-ID SA-7506 Patient manager None Treatment monitor None",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_3 pat_3 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ng1234567\nSA-ID\nSA-7506\nPatient manager\nNone\nTreatment monitor\nNone')]"
+  },
+  "div_pat_3 pat__94": {
+    "class": "patient-info ng-star-inserted",
+    "tag": "div",
+    "text": "pat_3 pat_3 | Site_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_3 pat_3 | Site_1_US')]"
+  },
+  "div_pat_3 pat__95": {
+    "class": "patient-name",
+    "tag": "div",
+    "text": "pat_3 pat_3 | Site_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_3 pat_3 | Site_1_US')]"
+  },
+  "span_| Site_1_U_96": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "| Site_1_US",
+    "xpath": "//span[contains(normalize-space(text()), '| Site_1_US')]"
+  },
+  "div_Treatment _97": {
+    "class": "info-wrapper ng-star-inserted",
+    "tag": "div",
+    "text": "Treatment start date None Exp. end date None MRN g1234567 SA-ID SA-7506 Patient manager None Treatment monitor None",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment start date\nNone\nExp. end date\nNone\nMRN\ng1234567\nSA-ID\nSA-7506\nPatient manager\nNone\nTreatment monitor\nNone')]"
+  },
+  "div_Treatment _98": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Treatment start date None",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment start date\nNone')]"
+  },
+  "h6_Treatment _99": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Treatment start date",
+    "xpath": "//h6[contains(normalize-space(text()), 'Treatment start date')]"
+  },
+  "span_None_100": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "None",
+    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+  },
+  "div_Exp. end d_101": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Exp. end date None",
+    "xpath": "//div[contains(normalize-space(text()), 'Exp. end date\nNone')]"
+  },
+  "h6_Exp. end d_102": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Exp. end date",
+    "xpath": "//h6[contains(normalize-space(text()), 'Exp. end date')]"
+  },
+  "span_None_103": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "None",
+    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+  },
+  "div_MRN g12345_104": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "MRN g1234567",
+    "xpath": "//div[contains(normalize-space(text()), 'MRN\ng1234567')]"
+  },
+  "h6_MRN_105": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "MRN",
+    "xpath": "//h6[contains(normalize-space(text()), 'MRN')]"
+  },
+  "div_SA-ID SA-7_106": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "SA-ID SA-7506",
+    "xpath": "//div[contains(normalize-space(text()), 'SA-ID\nSA-7506')]"
+  },
+  "h6_SA-ID_107": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "SA-ID",
+    "xpath": "//h6[contains(normalize-space(text()), 'SA-ID')]"
+  },
+  "span_SA-7506_108": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "SA-7506",
+    "xpath": "//span[contains(normalize-space(text()), 'SA-7506')]"
+  },
+  "div_Patient ma_109": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Patient manager None",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient manager\nNone')]"
+  },
+  "h6_Patient ma_110": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Patient manager",
+    "xpath": "//h6[contains(normalize-space(text()), 'Patient manager')]"
+  },
+  "span_None_111": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "None",
+    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+  },
+  "div_Treatment _112": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Treatment monitor None",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment monitor\nNone')]"
+  },
+  "h6_Treatment _113": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Treatment monitor",
+    "xpath": "//h6[contains(normalize-space(text()), 'Treatment monitor')]"
+  },
+  "span_None_114": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "None",
+    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+  },
+  "main_Overview A_115": {
+    "class": "main adherence-content",
+    "tag": "main",
+    "text": "Overview Adherence Regimen Profile Messages Reports Active TB SAVE NEW SCHEDULE New Drug Schedule Schedule Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE Calendar preview August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 31 1 2 3 4 5 6",
+    "xpath": "//main[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports\nActive TB\nSAVE\nNEW SCHEDULE\nNew Drug Schedule\nSchedule\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE\nCalendar preview\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n31\n1\n2\n3\n4\n5\n6')]"
+  },
+  "kendo-tabstrip_Overview A_116": {
+    "class": "ng-tns-c655264150-1 k-tabstrip k-pos-relative k-tabstrip-top ng-star-inserted",
+    "tag": "kendo-tabstrip",
+    "text": "Overview Adherence Regimen Profile Messages Reports Active TB SAVE NEW SCHEDULE New Drug Schedule Schedule Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE Calendar preview August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 31 1 2 3 4 5 6",
+    "xpath": "//kendo-tabstrip[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports\nActive TB\nSAVE\nNEW SCHEDULE\nNew Drug Schedule\nSchedule\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE\nCalendar preview\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n31\n1\n2\n3\n4\n5\n6')]"
+  },
+  "div_Overview A_117": {
+    "class": "k-tabstrip-items-wrapper ng-tns-c655264150-1 k-hstack ng-star-inserted",
+    "tag": "div",
+    "text": "Overview Adherence Regimen Profile Messages Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports')]"
+  },
+  "ul_Overview A_118": {
+    "class": "k-reset k-tabstrip-items ng-tns-c655264150-1",
+    "tag": "ul",
+    "text": "Overview Adherence Regimen Profile Messages Reports",
+    "xpath": "//ul[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports')]"
+  },
+  "k-tabstrip-tab-7829f04f-461b-497f-be11-c44abfa65b2b-0": {
+    "id": "k-tabstrip-tab-7829f04f-461b-497f-be11-c44abfa65b2b-0",
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Overview",
+    "xpath": "//li[@id='k-tabstrip-tab-7829f04f-461b-497f-be11-c44abfa65b2b-0']"
+  },
+  "span_Overview_120": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Overview",
+    "xpath": "//span[contains(normalize-space(text()), 'Overview')]"
+  },
+  "div_Overview_121": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Overview",
+    "xpath": "//div[contains(normalize-space(text()), 'Overview')]"
+  },
+  "span_Overview_122": {
+    "tag": "span",
+    "text": "Overview",
+    "xpath": "//span[contains(normalize-space(text()), 'Overview')]"
+  },
+  "k-tabstrip-tab-7829f04f-461b-497f-be11-c44abfa65b2b-1": {
+    "id": "k-tabstrip-tab-7829f04f-461b-497f-be11-c44abfa65b2b-1",
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Adherence",
+    "xpath": "//li[@id='k-tabstrip-tab-7829f04f-461b-497f-be11-c44abfa65b2b-1']"
+  },
+  "span_Adherence_124": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Adherence",
+    "xpath": "//span[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "div_Adherence_125": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Adherence",
+    "xpath": "//div[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "span_Adherence_126": {
+    "tag": "span",
+    "text": "Adherence",
+    "xpath": "//span[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "k-opened-tabstrip-tab": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab') and @aria-selected='true']//div/span"
+  },
+  "k-tabstrip-tab-Regimen": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "text": "Regimen",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "span_Regimen": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Regimen",
+    "xpath": "//span[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "div_Regimen": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Regimen",
+    "xpath": "//div[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "div-span_Regimen": {
+    "tag": "span",
+    "text": "Regimen",
+    "xpath": "//div/span[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "k-tabstrip-tab-7829f04f-461b-497f-be11-c44abfa65b2b-3": {
+    "id": "k-tabstrip-tab-7829f04f-461b-497f-be11-c44abfa65b2b-3",
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Profile",
+    "xpath": "//li[@id='k-tabstrip-tab-7829f04f-461b-497f-be11-c44abfa65b2b-3']"
+  },
+  "span_Profile_132": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Profile",
+    "xpath": "//span[contains(normalize-space(text()), 'Profile')]"
+  },
+  "div_Profile_133": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Profile",
+    "xpath": "//div[contains(normalize-space(text()), 'Profile')]"
+  },
+  "span_Profile_134": {
+    "tag": "span",
+    "text": "Profile",
+    "xpath": "//span[contains(normalize-space(text()), 'Profile')]"
+  },
+  "k-tabstrip-tab-7829f04f-461b-497f-be11-c44abfa65b2b-4": {
+    "id": "k-tabstrip-tab-7829f04f-461b-497f-be11-c44abfa65b2b-4",
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Messages",
+    "xpath": "//li[@id='k-tabstrip-tab-7829f04f-461b-497f-be11-c44abfa65b2b-4']"
+  },
+  "span_Messages_136": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Messages",
+    "xpath": "//span[contains(normalize-space(text()), 'Messages')]"
+  },
+  "div_Messages_137": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Messages",
+    "xpath": "//div[contains(normalize-space(text()), 'Messages')]"
+  },
+  "span_Messages_138": {
+    "tag": "span",
+    "text": "Messages",
+    "xpath": "//span[contains(normalize-space(text()), 'Messages')]"
+  },
+  "k-tabstrip-tab-7829f04f-461b-497f-be11-c44abfa65b2b-5": {
+    "id": "k-tabstrip-tab-7829f04f-461b-497f-be11-c44abfa65b2b-5",
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Reports",
+    "xpath": "//li[@id='k-tabstrip-tab-7829f04f-461b-497f-be11-c44abfa65b2b-5']"
+  },
+  "span_Reports_140": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Reports",
+    "xpath": "//span[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div_Reports_141": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
+  },
+  "span_Reports_142": {
+    "tag": "span",
+    "text": "Reports",
+    "xpath": "//span[contains(normalize-space(text()), 'Reports')]"
+  },
+  "k-tabstrip-tabpanel-7829f04f-461b-497f-be11-c44abfa65b2b-2": {
+    "id": "k-tabstrip-tabpanel-7829f04f-461b-497f-be11-c44abfa65b2b-2",
+    "class": "ng-tns-c655264150-1 ng-trigger ng-trigger-state k-tabstrip-content k-active ng-star-inserted",
+    "tag": "div",
+    "text": "Active TB SAVE NEW SCHEDULE New Drug Schedule Schedule Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE Calendar preview August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 31 1 2 3 4 5 6",
+    "xpath": "//div[@id='k-tabstrip-tabpanel-7829f04f-461b-497f-be11-c44abfa65b2b-2']"
+  },
+  "new-regimens_Active TB _144": {
+    "class": "ng-star-inserted",
+    "tag": "new-regimens",
+    "text": "Active TB SAVE NEW SCHEDULE New Drug Schedule Schedule Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE Calendar preview August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 31 1 2 3 4 5 6",
+    "xpath": "//new-regimens[contains(normalize-space(text()), 'Active TB\nSAVE\nNEW SCHEDULE\nNew Drug Schedule\nSchedule\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE\nCalendar preview\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n31\n1\n2\n3\n4\n5\n6')]"
+  },
+  "div_Active TB _145": {
+    "class": "regimens-wrapper",
+    "tag": "div",
+    "text": "Active TB SAVE NEW SCHEDULE New Drug Schedule Schedule Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE Calendar preview August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 31 1 2 3 4 5 6",
+    "xpath": "//div[contains(normalize-space(text()), 'Active TB\nSAVE\nNEW SCHEDULE\nNew Drug Schedule\nSchedule\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE\nCalendar preview\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n31\n1\n2\n3\n4\n5\n6')]"
+  },
+  "div_Active TB _146": {
+    "class": "regimens-content",
+    "tag": "div",
+    "text": "Active TB SAVE NEW SCHEDULE New Drug Schedule Schedule Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE Calendar preview August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 31 1 2 3 4 5 6",
+    "xpath": "//div[contains(normalize-space(text()), 'Active TB\nSAVE\nNEW SCHEDULE\nNew Drug Schedule\nSchedule\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE\nCalendar preview\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n31\n1\n2\n3\n4\n5\n6')]"
+  },
+  "div_Active TB _147": {
+    "class": "row",
+    "tag": "div",
+    "text": "Active TB SAVE NEW SCHEDULE New Drug Schedule Schedule Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE Calendar preview August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 31 1 2 3 4 5 6",
+    "xpath": "//div[contains(normalize-space(text()), 'Active TB\nSAVE\nNEW SCHEDULE\nNew Drug Schedule\nSchedule\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE\nCalendar preview\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n31\n1\n2\n3\n4\n5\n6')]"
+  },
+  "div_Active TB _148": {
+    "class": "col-md-6 regimen-mid-section",
+    "tag": "div",
+    "text": "Active TB SAVE NEW SCHEDULE New Drug Schedule Schedule Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE",
+    "xpath": "//div[contains(normalize-space(text()), 'Active TB\nSAVE\nNEW SCHEDULE\nNew Drug Schedule\nSchedule\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE')]"
+  },
+  "div_Active TB _149": {
+    "class": "view-schedules-wrapper",
+    "tag": "div",
+    "text": "Active TB SAVE NEW SCHEDULE New Drug Schedule Schedule Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE",
+    "xpath": "//div[contains(normalize-space(text()), 'Active TB\nSAVE\nNEW SCHEDULE\nNew Drug Schedule\nSchedule\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE')]"
+  },
+  "regimenErrors": {
+    "id": "regimenErrors",
+    "class": "errors",
+    "tag": "div",
+    "xpath": "//div[@id='regimenErrors']"
+  },
+  "div__151": {
+    "class": "alert alert-danger mt-3",
+    "tag": "div",
+    "xpath": "//div[@class='alert alert-danger mt-3']"
+  },
+  "div_Active TB _152": {
+    "class": "view-regimens-title",
+    "tag": "div",
+    "text": "Active TB SAVE NEW SCHEDULE",
+    "xpath": "//div[contains(normalize-space(text()), 'Active TB\nSAVE\nNEW SCHEDULE')]"
+  },
+  "div_Active TB _153": {
+    "class": "row",
+    "tag": "div",
+    "text": "Active TB SAVE NEW SCHEDULE",
+    "xpath": "//div[contains(normalize-space(text()), 'Active TB\nSAVE\nNEW SCHEDULE')]"
+  },
+  "div__154": {
+    "class": "col-lg-3 ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='col-lg-3 ng-star-inserted']"
+  },
+  "input_regimen_name": {
+    "placeholder": "Enter regimen name (optional)",
+    "class": "ng-untouched ng-pristine ng-valid k-textbox k-input k-input-md k-rounded-md k-input-solid",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@placeholder='Enter regimen name (optional)']"
+  },
+  "div_Active TB_156": {
+    "class": "col-lg-3 mt-lg-0 mt-2 ng-star-inserted",
+    "tag": "div",
+    "text": "Active TB",
+    "xpath": "//div[contains(normalize-space(text()), 'Active TB')]"
+  },
+ "kendo-dropdownlist-Disease": {
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "xpath": "//kendo-dropdownlist"
+  },
+  "k-7a291120-dd67-415a-9103-7232ef53b8d9": {
+    "id": "k-7a291120-dd67-415a-9103-7232ef53b8d9",
+    "class": "k-input-inner",
+    "tag": "span",
+    "text": "Active TB",
+    "xpath": "//span[@id='k-7a291120-dd67-415a-9103-7232ef53b8d9']"
+  },
+  "span_Active TB_159": {
+    "class": "k-input-value-text",
+    "tag": "span",
+    "text": "Active TB",
+    "xpath": "//span[contains(normalize-space(text()), 'Active TB')]"
+  },
+  "button__160": {
+    "aria-label": "Select",
+    "class": "k-input-button k-button k-icon-button k-button-md k-button-solid k-button-solid-base",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Select']"
+  },
+  "kendo-icon-wrapper__161": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__162": {
+    "class": "k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__163": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "responsive-renderer__165": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__166": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div_SAVE": {
+    "class": "col-lg-2 mt-3 mt-lg-0 ng-star-inserted",
+    "tag": "div",
+    "text": "SAVE",
+    "xpath": "//div[contains(normalize-space(text()), 'SAVE')]"
+  },
+  "button_SAVE": {
+    "class": "w-100 k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid",
+    "type": "submit",
+    "tag": "button",
+    "text": "SAVE",
+    "xpath": "//button[contains(normalize-space(text()), 'SAVE')]"
+  },
+  "span_SAVE": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "SAVE",
+    "xpath": "//span[contains(normalize-space(text()), 'SAVE')]"
+  },
+  "div_NEW_SCHEDULE": {
+    "class": "col-lg-4 mt-3 mt-lg-0",
+    "tag": "div",
+    "text": "NEW SCHEDULE",
+    "xpath": "//div[contains(normalize-space(text()), 'NEW SCHEDULE')]"
+  },
+  "button_NEW_SCHEDULE": {
+    "class": "w-100 k-button k-button-md k-rounded-md k-button-solid-base k-button-solid",
+    "type": "submit",
+    "tag": "button",
+    "text": "NEW SCHEDULE",
+    "xpath": "//button[contains(normalize-space(text()), 'NEW SCHEDULE')]"
+  },
+  "span_NEW_SCHEDULE": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "NEW SCHEDULE",
+    "xpath": "//span[contains(normalize-space(text()), 'NEW SCHEDULE')]"
+  },
+  "i__173": {
+    "class": "bi bi-plus-lg me-2",
+    "tag": "i",
+    "xpath": "//i[@class='bi bi-plus-lg me-2']"
+  },
+  "div__174": {
+    "class": "regimens-options row ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='regimens-options row ng-star-inserted']"
+  },
+  "div__175": {
+    "class": "col-md-6 text-md-start text-center mb-sm-3",
+    "tag": "div",
+    "xpath": "//div[@class='col-md-6 text-md-start text-center mb-sm-3']"
+  },
+  "div_New Drug S_176": {
+    "class": "schedule-container-md",
+    "tag": "div",
+    "text": "New Drug Schedule Schedule(14 doses in total) Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE",
+    "xpath": "//div[contains(normalize-space(text()), 'New Drug Schedule\nSchedule(14 doses in total)\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE')]"
+  },
+  "div_New Drug S_177": {
+    "class": "schedule me-2 ng-star-inserted",
+    "tag": "div",
+    "text": "New Drug Schedule Schedule(14 doses in total) Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE",
+    "xpath": "//div[contains(normalize-space(text()), 'New Drug Schedule\nSchedule(14 doses in total)\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE')]"
+  },
+  "div_New Drug S_178": {
+    "class": "schd",
+    "tag": "div",
+    "text": "New Drug Schedule Schedule(14 doses in total) Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks CANCEL CREATE",
+    "xpath": "//div[contains(normalize-space(text()), 'New Drug Schedule\nSchedule(14 doses in total)\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks\nCANCEL\nCREATE')]"
+  },
+  "div_New Drug S_179": {
+    "class": "float-end bg-success bg-opacity-10 text-success rounded-pill px-3 py-1 mb-3 ng-star-inserted",
+    "tag": "div",
+    "text": "New Drug Schedule",
+    "xpath": "//div[contains(normalize-space(text()), 'New Drug Schedule')]"
+  },
+  "small_New Drug S_180": {
+    "tag": "small",
+    "text": "New Drug Schedule",
+    "xpath": "//small[contains(normalize-space(text()), 'New Drug Schedule')]"
+  },
+  "i__181": {
+    "class": "bi bi-capsule ms-2",
+    "tag": "i",
+    "xpath": "//i[@class='bi bi-capsule ms-2']"
+  },
+  "div_Schedule(1_182": {
+    "class": "schedule-form ng-star-inserted",
+    "tag": "div",
+    "text": "Schedule(14 doses in total) Drugs Bup Film Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml) Start date Time Repeats Daily Number of weeks",
+    "xpath": "//div[contains(normalize-space(text()), 'Schedule(14 doses in total)\nDrugs\nBup Film\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)\nStart date\nTime\nRepeats\nDaily\nNumber of weeks')]"
+  },
+  "drugsErrors_0": {
+    "id": "drugsErrors_0",
+    "class": "section-title",
+    "tag": "h5",
+    "text": "Schedule(14 doses in total)",
+    "xpath": "//h5[@id='drugsErrors_0']"
+  },
+  "div__184": {
+    "class": "errors",
+    "tag": "div",
+    "xpath": "//div[@class='errors']"
+  },
+  "div__185": {
+    "class": "alert alert-danger",
+    "tag": "div",
+    "xpath": "//div[@class='alert alert-danger']"
+  },
+  "div_Bup Film_187": {
+    "class": "col-12 mb-4",
+    "tag": "div",
+    "text": "Bup Film",
+    "xpath": "//div[contains(normalize-space(text()), 'Bup Film')]"
+  },
+  "input_drugs": {
+    "placeholder": "You can add multiple drugs on this schedule",
+    "class": "k-input-inner",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@placeholder='You can add multiple drugs on this schedule']"
+  },
+  "kendo-multiselect-drugs": {
+    "placeholder": "You can add multiple drugs on this schedule",
+    "class": "k-input-md k-rounded-md k-input-solid k-multiselect k-input ng-valid ng-dirty ng-touched",
+    "tag": "kendo-multiselect",
+    "xpath": "//kendo-multiselect[@placeholder='You can add multiple drugs on this schedule']"
+  },
+  "div_Bup Film_189": {
+    "class": "k-input-values",
+    "tag": "div",
+    "text": "Bup Film",
+    "xpath": "//div[contains(normalize-space(text()), 'Bup Film')]"
+  },
+  "k-baea46aa-2433-40ca-b3e0-e01f5b581599": {
+    "id": "k-baea46aa-2433-40ca-b3e0-e01f5b581599",
+    "class": "k-chip-list-md k-chip-list k-selection-multiple",
+    "tag": "kendo-taglist",
+    "text": "Bup Film",
+    "xpath": "//kendo-taglist[@id='k-baea46aa-2433-40ca-b3e0-e01f5b581599']"
+  },
+  "tag-6e716644-0490-44e5-b178-eb2e67ae0aca-25": {
+    "id": "tag-6e716644-0490-44e5-b178-eb2e67ae0aca-25",
+    "class": "k-chip k-chip-md k-rounded-md k-chip-solid k-chip-solid-base ng-star-inserted",
+    "tag": "div",
+    "text": "Bup Film",
+    "xpath": "//div[@id='tag-6e716644-0490-44e5-b178-eb2e67ae0aca-25']"
+  },
+  "span_Bup Film_192": {
+    "class": "k-chip-content",
+    "tag": "span",
+    "text": "Bup Film",
+    "xpath": "//span[contains(normalize-space(text()), 'Bup Film')]"
+  },
+  "span_Bup Film_193": {
+    "class": "k-chip-label k-text-ellipsis ng-star-inserted",
+    "tag": "span",
+    "text": "Bup Film",
+    "xpath": "//span[contains(normalize-space(text()), 'Bup Film')]"
+  },
+  "span__194": {
+    "class": "k-chip-actions",
+    "tag": "span",
+    "xpath": "//span[@class='k-chip-actions']"
+  },
+  "span__195": {
+    "aria-label": "delete",
+    "class": "k-chip-action k-chip-remove-action",
+    "tag": "span",
+    "xpath": "//span[@aria-label='delete']"
+  },
+  "x-circle": {
+    "name": "x-circle",
+    "class": "k-icon-wrapper-host",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@name='x-circle']"
+  },
+  "kendo-svgicon__197": {
+    "class": "k-svg-i-x-circle k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-x-circle k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__198": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "kendo-searchbar__200": {
+    "class": "k-searchbar",
+    "tag": "kendo-searchbar",
+    "xpath": "//kendo-searchbar[@class='k-searchbar']"
+  },
+  "k-3255853e-e2c9-49bd-a36b-368436f00073": {
+    "id": "k-3255853e-e2c9-49bd-a36b-368436f00073",
+    "class": "k-input-inner",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@id='k-3255853e-e2c9-49bd-a36b-368436f00073']"
+  },
+  "span__202": {
+    "class": "k-clear-value ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-clear-value ng-star-inserted']"
+  },
+  "x": {
+    "name": "x",
+    "class": "k-icon k-icon-wrapper-host",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@name='x']"
+  },
+  "kendo-svgicon__204": {
+    "class": "k-svg-i-x k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-x k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__205": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "responsive-renderer__207": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__208": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div_Drug name _209": {
+    "class": "row ng-star-inserted",
+    "tag": "div",
+    "text": "Drug name Bup Film Number of pills Dose per pill (mg/ml) Total dose (mg/ml)",
+    "xpath": "//div[contains(normalize-space(text()), 'Dose per pill is required and must be greater than 0\nNumber of tablets/pills is required and must be greater than 0\nDrug name\nBup Film\nNumber of pills\nDose per pill (mg/ml)\nTotal dose (mg/ml)')]"
+  },
+  "div_Drug name _210": {
+    "class": "col-xl-3 col-md-6 schedule-item d-flex align-items-center",
+    "tag": "div",
+    "text": "Drug name Bup Film",
+    "xpath": "//div[contains(normalize-space(text()), 'Drug name\nBup Film')]"
+  },
+  "span_drug_colour": {
+    "class": "drug-color-dot",
+    "tag": "span",
+    "xpath": "//span[@class='drug-color-dot']"
+  },
+  "div_Drug name _212": {
+    "class": "schedule-field flex-grow-1",
+    "tag": "div",
+    "text": "Drug name Bup Film",
+    "xpath": "//div[contains(normalize-space(text()), 'Drug name\nBup Film')]"
+  },
+  "label_Drug_name": {
+    "class": "regiment-label",
+    "tag": "label",
+    "text": "Drug name",
+    "xpath": "//label[contains(normalize-space(text()), 'Drug name')]"
+  },
+  "label_Drug_name_text": {
+    "class": "mb-0 fs-5 fw-medium",
+    "tag": "label",
+    "xpath": "//label[@class='mb-0 fs-5 fw-medium']"
+  },
+  "div_Number of _215": {
+    "class": "col-xl-3 col-md-6 schedule-item",
+    "tag": "div",
+    "text": "Number of pills",
+    "xpath": "//div[contains(normalize-space(text()), 'Number of pills')]"
+  },
+  "div_Number_of_pills": {
+    "class": "schedule-field",
+    "tag": "div",
+    "text": "Number of pills",
+    "xpath": "//div[contains(normalize-space(text()), 'Number of pills')]"
+  },
+  "label_Number_of_pills": {
+    "class": "regiment-label",
+    "tag": "label",
+    "text": "Number of pills",
+    "xpath": "//label[contains(normalize-space(text()), 'Number of pills')]"
+  },
+  "input_Number_of_pills": {
+    "class": "w-100 ng-untouched ng-pristine ng-invalid k-textbox k-input k-input-md k-rounded-md k-input-solid",
+    "type": "number",
+    "tag": "input",
+    "xpath": "//input[@class='w-100 ng-untouched ng-pristine ng-invalid k-textbox k-input k-input-md k-rounded-md k-input-solid' and @type='number']"
+  },
+  "div_Dose per p_219": {
+    "class": "col-xl-3 col-md-6 schedule-item",
+    "tag": "div",
+    "text": "Dose per pill (mg/ml)",
+    "xpath": "//div[contains(normalize-space(text()), 'Dose per pill (mg/ml)')]"
+  },
+  "div_Dose_per_pill": {
+    "class": "schedule-field",
+    "tag": "div",
+    "text": "Dose per pill (mg/ml)",
+    "xpath": "//div[contains(normalize-space(text()), 'Dose per pill (mg/ml)')]"
+  },
+  "label_Dose_per_pill": {
+    "class": "regiment-label",
+    "tag": "label",
+    "text": "Dose per pill (mg/ml)",
+    "xpath": "//label[contains(normalize-space(text()), 'Dose per pill (mg/ml)')]"
+  },
+  "input_Dose_per_pill": {
+    "class": "ng-untouched ng-pristine ng-invalid k-textbox k-input k-input-md k-rounded-md k-input-solid",
+    "type": "number",
+    "tag": "input",
+    "xpath": "//input[@class='ng-untouched ng-pristine ng-invalid k-textbox k-input k-input-md k-rounded-md k-input-solid' and @type='number']"
+  },
+  "div_Total_dose_223": {
+    "class": "col-xl-3 col-md-6 schedule-item",
+    "tag": "div",
+    "text": "Total dose (mg/ml)",
+    "xpath": "//div[contains(normalize-space(text()), 'Total dose (mg/ml)')]"
+  },
+  "div_Total_dose": {
+    "class": "schedule-field",
+    "tag": "div",
+    "text": "Total dose (mg/ml)",
+    "xpath": "//div[contains(normalize-space(text()), 'Total dose (mg/ml)')]"
+  },
+  "label_Total_dose": {
+    "class": "regiment-label",
+    "tag": "label",
+    "text": "Total dose (mg/ml)",
+    "xpath": "//label[contains(normalize-space(text()), 'Total dose (mg/ml)')]"
+  },
+  "div_Total_dose_text": {
+    "class": "form-control-plaintext",
+    "tag": "div",
+    "xpath": "//label[contains(normalize-space(text()), 'Total dose (mg/ml)')]//following-sibling::div[@class='form-control-plaintext']"
+  },
+  "div__227": {
+    "class": "errors",
+    "tag": "div",
+    "xpath": "//div[@class='errors']"
+  },
+  "div__228": {
+    "class": "alert alert-danger mt-3",
+    "tag": "div",
+    "xpath": "//div[@class='alert alert-danger mt-3']"
+  },
+  "div__229": {
+    "class": "alert alert-secondary mt-3",
+    "tag": "div",
+    "xpath": "//div[@class='alert alert-secondary mt-3']"
+  },
+  "div_Start date_230": {
+    "class": "row mt-1 w-100",
+    "tag": "div",
+    "text": "Start date Time Repeats Daily Number of weeks",
+    "xpath": "//div[contains(normalize-space(text()), 'Start date\nTime\nRepeats\nDaily\nNumber of weeks')]"
+  },
+  "div_Start date_231": {
+    "class": "col-xl-3 col-md-6 schedule-item",
+    "tag": "div",
+    "text": "Start date",
+    "xpath": "//div[contains(normalize-space(text()), 'Start date')]"
+  },
+  "div_Start date_232": {
+    "class": "schedule-field",
+    "tag": "div",
+    "text": "Start date",
+    "xpath": "//div[contains(normalize-space(text()), 'Start date')]"
+  },
+  "label_Start date_233": {
+    "class": "regiment-label",
+    "tag": "label",
+    "text": "Start date",
+    "xpath": "//label[contains(normalize-space(text()), 'Start date')]"
+  },
+  "div__234": {
+    "class": "datepicker w-100",
+    "tag": "div",
+    "xpath": "//div[@class='datepicker w-100']"
+  },
+  "startdate": {
+    "id": "startdate",
+    "placeholder": "Start date",
+    "class": "ng-untouched ng-pristine ng-valid",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//label[contains(normalize-space(text()), 'Start date')]//following::input[@id='startdate']"
+  },
+  "span__236": {
+    "class": "k-select",
+    "tag": "span",
+    "xpath": "//span[@class='k-select']"
+  },
+  "span__237": {
+    "class": "bi-calendar",
+    "tag": "span",
+    "xpath": "//span[@class='bi-calendar']"
+  },
+  "div_Time_238": {
+    "class": "col-xl-3 col-md-6 schedule-item",
+    "tag": "div",
+    "text": "Time",
+    "xpath": "//div[contains(normalize-space(text()), 'Time')]"
+  },
+  "div_Time_239": {
+    "class": "schedule-field",
+    "tag": "div",
+    "text": "Time",
+    "xpath": "//div[contains(normalize-space(text()), 'Time')]"
+  },
+  "label_Time_240": {
+    "class": "regiment-label",
+    "tag": "label",
+    "text": "Time",
+    "xpath": "//label[contains(normalize-space(text()), 'Time')]"
+  },
+  "div__241": {
+    "class": "time-item",
+    "tag": "div",
+    "xpath": "//div[@class='time-item']"
+  },
+  "start-time": {
+    "id": "start-time",
+    "placeholder": "Set Time",
+    "class": "k-timepicker k-input ng-untouched ng-pristine ng-valid k-input-md k-rounded-md k-input-solid",
+    "tag": "kendo-timepicker",
+    "xpath": "//kendo-timepicker[@id='start-time']"
+  },
+  "kendo-dateinput__243": {
+    "class": "k-input-solid k-rounded-md k-input-md k-input k-dateinput",
+    "tag": "kendo-dateinput",
+    "xpath": "//kendo-dateinput[@class='k-input-solid k-rounded-md k-input-md k-input k-dateinput']"
+  },
+  "timepicker": {
+    "id": "timepicker",
+    "placeholder": "Set Time",
+    "class": "k-input-inner",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[contains(@id,'timepicker') and @placeholder='Set Time']"
+  },
+  "button__245": {
+    "aria-label": "Toggle time list",
+    "class": "k-input-button k-button k-icon-button k-button-md k-button-solid k-button-solid-base",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Toggle time list']"
+  },
+  "clock": {
+    "name": "clock",
+    "class": "k-icon-wrapper-host",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@name='clock']"
+  },
+  "kendo-svgicon__247": {
+    "class": "k-svg-i-clock k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-clock k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__248": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "path__249": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "kendo-actionsheet__250": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div_Repeats Da_251": {
+    "class": "col-xl-3 col-md-6 schedule-item ng-star-inserted",
+    "tag": "div",
+    "text": "Repeats Daily",
+    "xpath": "//div[contains(normalize-space(text()), 'Repeats\nDaily')]"
+  },
+  "div_Repeats Da_252": {
+    "class": "schedule-field",
+    "tag": "div",
+    "text": "Repeats Daily",
+    "xpath": "//div[contains(normalize-space(text()), 'Repeats\nDaily')]"
+  },
+  "label_Repeats_253": {
+    "class": "regiment-label",
+    "tag": "label",
+    "text": "Repeats",
+    "xpath": "//label[contains(normalize-space(text()), 'Repeats')]"
+  },
+  "kendo-dropdownlist-Repeats": {
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "xpath": "//label[contains(normalize-space(text()), 'Repeats')]//following-sibling::kendo-dropdownlist"
+  },
+  "k-c372edec-3541-434d-8015-9f8528d9d100": {
+    "id": "k-c372edec-3541-434d-8015-9f8528d9d100",
+    "class": "k-input-inner",
+    "tag": "span",
+    "text": "Daily",
+    "xpath": "//span[@id='k-c372edec-3541-434d-8015-9f8528d9d100']"
+  },
+  "span_Daily_256": {
+    "class": "k-input-value-text",
+    "tag": "span",
+    "text": "Daily",
+    "xpath": "//span[contains(normalize-space(text()), 'Daily')]"
+  },
+  "button__257": {
+    "aria-label": "Select",
+    "class": "k-input-button k-button k-icon-button k-button-md k-button-solid k-button-solid-base",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Select']"
+  },
+  "kendo-icon-wrapper__258": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__259": {
+    "class": "k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__260": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "responsive-renderer__262": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__263": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div_Number of _264": {
+    "class": "col-xl-3 col-md-6 schedule-item",
+    "tag": "div",
+    "text": "Number of weeks",
+    "xpath": "//div[contains(normalize-space(text()), 'Number of weeks')]"
+  },
+  "div_Number of _265": {
+    "class": "schedule-field",
+    "tag": "div",
+    "text": "Number of weeks",
+    "xpath": "//div[contains(normalize-space(text()), 'Number of weeks')]"
+  },
+"label_Number_of_weeks": {
+    "class": "regiment-label ng-star-inserted",
+    "tag": "label",
+    "text": "Number of weeks",
+    "xpath": "//label[contains(normalize-space(text()), 'Number of weeks')]"
+  },
+  "input_Enter_weeks": {
+    "placeholder": "Enter weeks",
+    "class": "ng-untouched ng-pristine ng-invalid k-textbox k-input k-input-md k-rounded-md k-input-solid ng-star-inserted",
+    "type": "number",
+    "tag": "input",
+    "xpath": "//input[@placeholder='Enter weeks']"
+  },
+  "div__268": {
+    "class": "row",
+    "tag": "div",
+    "xpath": "//div[@class='row']"
+  },
+  "div_CANCEL CRE_269": {
+    "class": "col-md-12 text-md-end text-center z-3 position-relative mt-3 ng-star-inserted",
+    "tag": "div",
+    "text": "CANCEL CREATE",
+    "xpath": "//div[contains(normalize-space(text()), 'CANCEL\nCREATE')]"
+  },
+  "button_CANCEL": {
+    "class": "me-2 k-button k-button-md k-rounded-md k-button-solid-base k-button-solid",
+    "type": "submit",
+    "tag": "button",
+    "text": "CANCEL",
+    "xpath": "//button[contains(normalize-space(text()), 'CANCEL')]"
+  },
+  "button_DELETE": {
+    "class": "float-start me-2 text-white bg-danger k-button k-button-md k-rounded-md k-button-solid-base k-button-solid ng-star-inserted",
+    "role": "button",
+    "tag": "button",
+    "text": "DELETE",
+    "xpath": "//button[contains(normalize-space(text()), 'DELETE')]"
+  },
+  "button_schedule_SAVE": {
+    "class": "k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid ng-star-inserted",
+    "role": "button",
+    "tag": "button",
+    "text": "SAVE",
+    "xpath": "//button[contains(normalize-space(text()), 'SAVE')]"
+  },
+  "span_CANCEL_271": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "CANCEL",
+    "xpath": "//span[contains(normalize-space(text()), 'CANCEL')]"
+  },
+  "button_CREATE": {
+    "class": "k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid ng-star-inserted",
+    "type": "submit",
+    "tag": "button",
+    "text": "CREATE",
+    "xpath": "//button[contains(normalize-space(text()), 'CREATE')]"
+  },
+  "span_CREATE_273": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "CREATE",
+    "xpath": "//span[contains(normalize-space(text()), 'CREATE')]"
+  },
+  "div-schedule-summary": {
+    "class": "schedule-summary ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='schedule-summary ng-star-inserted']"
+  },
+  "div-schedule-info": {
+    "class": "schedule-info",
+    "tag": "div",
+    "xpath": "//div[@class='schedule-info']"
+  },
+  "button-schedule-edit": {
+    "class": "k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid",
+    "tag": "button",
+    "role": "button",
+    "text": "EDIT",
+    "xpath": "//div[@class='schedule-summary ng-star-inserted']//button[contains(normalize-space(text()), 'EDIT')]"
+  },
+  "div_Calendar p_274": {
+    "class": "col-md-6",
+    "tag": "div",
+    "text": "Calendar preview August 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30",
+    "xpath": "//div[contains(normalize-space(text()), 'Calendar preview\nAugust 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30')]"
+  },
+  "div_Calendar p_275": {
+    "class": "doses-calendar-title",
+    "tag": "div",
+    "text": "Calendar preview August 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'Calendar preview\nAugust 2025')]"
+  },
+  "h4_Calendar p_276": {
+    "class": "fw-bold color-gray",
+    "tag": "h4",
+    "text": "Calendar preview",
+    "xpath": "//h4[contains(normalize-space(text()), 'Calendar preview')]"
+  },
+  "div_August 202_277": {
+    "class": "title-item",
+    "tag": "div",
+    "text": "August 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'August 2025')]"
+  },
+  "div_prev_month": {
+    "class": "k-button k-button-md",
+    "tag": "div",
+    "xpath": "//div[@class='k-button k-button-md']"
+  },
+  "cal_prev_btn": {
+    "class": "icon-keyboard_arrow_left",
+    "tag": "span",
+    "xpath": "//span[@class='icon-keyboard_arrow_left']"
+  },
+  "calendar-header": {
+    "class": "calendar-header",
+    "tag": "div",
+    "xpath": "//div[@class='calendar-header']"
+  },
+  "div__281": {
+    "class": "k-button k-button-md",
+    "tag": "div",
+    "xpath": "//div[@class='k-button k-button-md']"
+  },
+  "cal_next_btn": {
+    "class": "icon-keyboard_arrow_right",
+    "tag": "span",
+    "xpath": "//span[@class='icon-keyboard_arrow_right']"
+  },
+  "mwl-calendar-month-view_Sunday Mon_283": {
+    "tag": "mwl-calendar-month-view",
+    "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30",
+    "xpath": "//mwl-calendar-month-view[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30')]"
+  },
+  "div_Sunday Mon_284": {
+    "class": "cal-month-view",
+    "tag": "div",
+    "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30",
+    "xpath": "//div[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30')]"
+  },
+  "mwl-calendar-month-view-header_Sunday Mon_285": {
+    "tag": "mwl-calendar-month-view-header",
+    "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday",
+    "xpath": "//mwl-calendar-month-view-header[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday')]"
+  },
+  "div_Sunday Mon_286": {
+    "class": "cal-cell-row cal-header ng-star-inserted",
+    "tag": "div",
+    "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday",
+    "xpath": "//div[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday')]"
+  },
+  "div_Sunday_287": {
+    "class": "cal-cell cal-past cal-weekend ng-star-inserted",
+    "tag": "div",
+    "text": "Sunday",
+    "xpath": "//div[contains(normalize-space(text()), 'Sunday')]"
+  },
+  "div_Monday_288": {
+    "class": "cal-cell cal-past ng-star-inserted",
+    "tag": "div",
+    "text": "Monday",
+    "xpath": "//div[contains(normalize-space(text()), 'Monday')]"
+  },
+  "div_Tuesday_289": {
+    "class": "cal-cell cal-past ng-star-inserted",
+    "tag": "div",
+    "text": "Tuesday",
+    "xpath": "//div[contains(normalize-space(text()), 'Tuesday')]"
+  },
+  "div_Wednesday_290": {
+    "class": "cal-cell cal-today ng-star-inserted",
+    "tag": "div",
+    "text": "Wednesday",
+    "xpath": "//div[contains(normalize-space(text()), 'Wednesday')]"
+  },
+  "div_Thursday_291": {
+    "class": "cal-cell cal-future ng-star-inserted",
+    "tag": "div",
+    "text": "Thursday",
+    "xpath": "//div[contains(normalize-space(text()), 'Thursday')]"
+  },
+  "div_Friday_292": {
+    "class": "cal-cell cal-future ng-star-inserted",
+    "tag": "div",
+    "text": "Friday",
+    "xpath": "//div[contains(normalize-space(text()), 'Friday')]"
+  },
+  "div_Saturday_293": {
+    "class": "cal-cell cal-future cal-weekend ng-star-inserted",
+    "tag": "div",
+    "text": "Saturday",
+    "xpath": "//div[contains(normalize-space(text()), 'Saturday')]"
+  },
+  "div_27 28 29 3_294": {
+    "class": "cal-days",
+    "tag": "div",
+    "text": "27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30",
+    "xpath": "//div[contains(normalize-space(text()), '27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30')]"
+  },
+  "div_27 28 29 3_295": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "27 28 29 30 31 1 2",
+    "xpath": "//div[contains(normalize-space(text()), '27\n28\n29\n30\n31\n1\n2')]"
+  },
+  "div_27 28 29 3_296": {
+    "class": "cal-cell-row",
+    "tag": "div",
+    "text": "27 28 29 30 31 1 2",
+    "xpath": "//div[contains(normalize-space(text()), '27\n28\n29\n30\n31\n1\n2')]"
+  },
+  "mwl-calendar-month-cell_27_297": {
+    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-out-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "27",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '27')]"
+  },
+  "div_27_298": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "27",
+    "xpath": "//div[contains(normalize-space(text()), '27')]"
+  },
+  "span_27_299": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "27",
+    "xpath": "//span[contains(normalize-space(text()), '27')]"
+  },
+  "div__300": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_28_301": {
+    "class": "cal-cell cal-day-cell cal-past cal-out-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "28",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '28')]"
+  },
+  "div_28_302": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "28",
+    "xpath": "//div[contains(normalize-space(text()), '28')]"
+  },
+  "span_28_303": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "28",
+    "xpath": "//span[contains(normalize-space(text()), '28')]"
+  },
+  "div__304": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_29_305": {
+    "class": "cal-cell cal-day-cell cal-past cal-out-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "29",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '29')]"
+  },
+  "div_29_306": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "29",
+    "xpath": "//div[contains(normalize-space(text()), '29')]"
+  },
+  "span_29_307": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "29",
+    "xpath": "//span[contains(normalize-space(text()), '29')]"
+  },
+  "div__308": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_30_309": {
+    "class": "cal-cell cal-day-cell cal-past cal-out-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "30",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '30')]"
+  },
+  "div_30_310": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "30",
+    "xpath": "//div[contains(normalize-space(text()), '30')]"
+  },
+  "span_30_311": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "30",
+    "xpath": "//span[contains(normalize-space(text()), '30')]"
+  },
+  "div__312": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_31_313": {
+    "class": "cal-cell cal-day-cell cal-past cal-out-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "31",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '31')]"
+  },
+  "div_31_314": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "31",
+    "xpath": "//div[contains(normalize-space(text()), '31')]"
+  },
+  "span_31_315": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "31",
+    "xpath": "//span[contains(normalize-space(text()), '31')]"
+  },
+  "div__316": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_1_317": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "1",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '1')]"
+  },
+  "div_1_318": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "1",
+    "xpath": "//div[contains(normalize-space(text()), '1')]"
+  },
+  "span_1_319": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "1",
+    "xpath": "//span[contains(normalize-space(text()), '1')]"
+  },
+  "div__320": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_2_321": {
+    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "2",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '2')]"
+  },
+  "div_2_322": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "2",
+    "xpath": "//div[contains(normalize-space(text()), '2')]"
+  },
+  "span_2_323": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "2",
+    "xpath": "//span[contains(normalize-space(text()), '2')]"
+  },
+  "div__324": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-open-day-events__325": {
+    "class": "ng-tns-c820047117-2 ng-star-inserted",
+    "tag": "mwl-calendar-open-day-events",
+    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-2 ng-star-inserted']"
+  },
+  "div_3 4 5 6 7 _326": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "3 4 5 6 7 8 9",
+    "xpath": "//div[contains(normalize-space(text()), '3\n4\n5\n6\n7\n8\n9')]"
+  },
+  "div_3 4 5 6 7 _327": {
+    "class": "cal-cell-row",
+    "tag": "div",
+    "text": "3 4 5 6 7 8 9",
+    "xpath": "//div[contains(normalize-space(text()), '3\n4\n5\n6\n7\n8\n9')]"
+  },
+  "mwl-calendar-month-cell_3_328": {
+    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "3",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '3')]"
+  },
+  "div_3_329": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "3",
+    "xpath": "//div[contains(normalize-space(text()), '3')]"
+  },
+  "span_3_330": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "3",
+    "xpath": "//span[contains(normalize-space(text()), '3')]"
+  },
+  "div__331": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_4_332": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "4",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '4')]"
+  },
+  "div_4_333": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "4",
+    "xpath": "//div[contains(normalize-space(text()), '4')]"
+  },
+  "span_4_334": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "4",
+    "xpath": "//span[contains(normalize-space(text()), '4')]"
+  },
+  "div__335": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_5_336": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "5",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '5')]"
+  },
+  "div_5_337": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "5",
+    "xpath": "//div[contains(normalize-space(text()), '5')]"
+  },
+  "span_5_338": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "5",
+    "xpath": "//span[contains(normalize-space(text()), '5')]"
+  },
+  "div__339": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_6_340": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "6",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '6')]"
+  },
+  "div_6_341": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "6",
+    "xpath": "//div[contains(normalize-space(text()), '6')]"
+  },
+  "span_6_342": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "6",
+    "xpath": "//span[contains(normalize-space(text()), '6')]"
+  },
+  "div__343": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_7_344": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "7",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '7')]"
+  },
+  "div_7_345": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "7",
+    "xpath": "//div[contains(normalize-space(text()), '7')]"
+  },
+  "span_7_346": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "7",
+    "xpath": "//span[contains(normalize-space(text()), '7')]"
+  },
+  "div__347": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_8_348": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "8",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '8')]"
+  },
+  "div_8_349": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "8",
+    "xpath": "//div[contains(normalize-space(text()), '8')]"
+  },
+  "span_8_350": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "8",
+    "xpath": "//span[contains(normalize-space(text()), '8')]"
+  },
+  "div__351": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_9_352": {
+    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "9",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '9')]"
+  },
+  "div_9_353": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "9",
+    "xpath": "//div[contains(normalize-space(text()), '9')]"
+  },
+  "span_9_354": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "9",
+    "xpath": "//span[contains(normalize-space(text()), '9')]"
+  },
+  "div__355": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-open-day-events__356": {
+    "class": "ng-tns-c820047117-3 ng-star-inserted",
+    "tag": "mwl-calendar-open-day-events",
+    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-3 ng-star-inserted']"
+  },
+  "div_10 11 12 1_357": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "10 11 12 13 14 15 16",
+    "xpath": "//div[contains(normalize-space(text()), '10\n11\n12\n13\n14\n15\n16')]"
+  },
+  "div_10 11 12 1_358": {
+    "class": "cal-cell-row",
+    "tag": "div",
+    "text": "10 11 12 13 14 15 16",
+    "xpath": "//div[contains(normalize-space(text()), '10\n11\n12\n13\n14\n15\n16')]"
+  },
+  "mwl-calendar-month-cell_10_359": {
+    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "10",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '10')]"
+  },
+  "div_10_360": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "10",
+    "xpath": "//div[contains(normalize-space(text()), '10')]"
+  },
+  "span_10_361": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "10",
+    "xpath": "//span[contains(normalize-space(text()), '10')]"
+  },
+  "div__362": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_11_363": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "11",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '11')]"
+  },
+  "div_11_364": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "11",
+    "xpath": "//div[contains(normalize-space(text()), '11')]"
+  },
+  "span_11_365": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "11",
+    "xpath": "//span[contains(normalize-space(text()), '11')]"
+  },
+  "div__366": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_12_367": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "12",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '12')]"
+  },
+  "div_12_368": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "12",
+    "xpath": "//div[contains(normalize-space(text()), '12')]"
+  },
+  "span_12_369": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "12",
+    "xpath": "//span[contains(normalize-space(text()), '12')]"
+  },
+  "div__370": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_13_371": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "13",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '13')]"
+  },
+  "div_13_372": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "13",
+    "xpath": "//div[contains(normalize-space(text()), '13')]"
+  },
+  "span_13_373": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "13",
+    "xpath": "//span[contains(normalize-space(text()), '13')]"
+  },
+  "div__374": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_14_375": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "14",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '14')]"
+  },
+  "div_14_376": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "14",
+    "xpath": "//div[contains(normalize-space(text()), '14')]"
+  },
+  "span_14_377": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "14",
+    "xpath": "//span[contains(normalize-space(text()), '14')]"
+  },
+  "div__378": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_15_379": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "15",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '15')]"
+  },
+  "div_15_380": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "15",
+    "xpath": "//div[contains(normalize-space(text()), '15')]"
+  },
+  "span_15_381": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "15",
+    "xpath": "//span[contains(normalize-space(text()), '15')]"
+  },
+  "div__382": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_16_383": {
+    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "16",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '16')]"
+  },
+  "div_16_384": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "16",
+    "xpath": "//div[contains(normalize-space(text()), '16')]"
+  },
+  "span_16_385": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "16",
+    "xpath": "//span[contains(normalize-space(text()), '16')]"
+  },
+  "div__386": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-open-day-events__387": {
+    "class": "ng-tns-c820047117-4 ng-star-inserted",
+    "tag": "mwl-calendar-open-day-events",
+    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-4 ng-star-inserted']"
+  },
+  "div_17 18 19 2_388": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "17 18 19 20 21 22 23",
+    "xpath": "//div[contains(normalize-space(text()), '17\n18\n19\n20\n21\n22\n23')]"
+  },
+  "div_17 18 19 2_389": {
+    "class": "cal-cell-row",
+    "tag": "div",
+    "text": "17 18 19 20 21 22 23",
+    "xpath": "//div[contains(normalize-space(text()), '17\n18\n19\n20\n21\n22\n23')]"
+  },
+  "mwl-calendar-month-cell_17_390": {
+    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "17",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '17')]"
+  },
+  "div_17_391": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "17",
+    "xpath": "//div[contains(normalize-space(text()), '17')]"
+  },
+  "span_17_392": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "17",
+    "xpath": "//span[contains(normalize-space(text()), '17')]"
+  },
+  "div__393": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_18_394": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "18",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '18')]"
+  },
+  "div_18_395": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "18",
+    "xpath": "//div[contains(normalize-space(text()), '18')]"
+  },
+  "span_18_396": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "18",
+    "xpath": "//span[contains(normalize-space(text()), '18')]"
+  },
+  "div__397": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_19_398": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "19",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '19')]"
+  },
+  "div_19_399": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "19",
+    "xpath": "//div[contains(normalize-space(text()), '19')]"
+  },
+  "span_19_400": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "19",
+    "xpath": "//span[contains(normalize-space(text()), '19')]"
+  },
+  "div__401": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_20_402": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "20",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '20')]"
+  },
+  "div_20_403": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "20",
+    "xpath": "//div[contains(normalize-space(text()), '20')]"
+  },
+  "span_20_404": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "20",
+    "xpath": "//span[contains(normalize-space(text()), '20')]"
+  },
+  "div__405": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_21_406": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "21",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '21')]"
+  },
+  "div_21_407": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "21",
+    "xpath": "//div[contains(normalize-space(text()), '21')]"
+  },
+  "span_21_408": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "21",
+    "xpath": "//span[contains(normalize-space(text()), '21')]"
+  },
+  "div__409": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_22_410": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "22",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '22')]"
+  },
+  "div_22_411": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "22",
+    "xpath": "//div[contains(normalize-space(text()), '22')]"
+  },
+  "span_22_412": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "22",
+    "xpath": "//span[contains(normalize-space(text()), '22')]"
+  },
+  "div__413": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_23_414": {
+    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "23",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '23')]"
+  },
+  "div_23_415": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "23",
+    "xpath": "//div[contains(normalize-space(text()), '23')]"
+  },
+  "span_23_416": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "23",
+    "xpath": "//span[contains(normalize-space(text()), '23')]"
+  },
+  "div__417": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-open-day-events__418": {
+    "class": "ng-tns-c820047117-5 ng-star-inserted",
+    "tag": "mwl-calendar-open-day-events",
+    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-5 ng-star-inserted']"
+  },
+  "div_24 25 26 2_419": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "24 25 26 27 28 29 30",
+    "xpath": "//div[contains(normalize-space(text()), '24\n25\n26\n27\n28\n29\n30')]"
+  },
+  "div_24 25 26 2_420": {
+    "class": "cal-cell-row",
+    "tag": "div",
+    "text": "24 25 26 27 28 29 30",
+    "xpath": "//div[contains(normalize-space(text()), '24\n25\n26\n27\n28\n29\n30')]"
+  },
+  "mwl-calendar-month-cell_24_421": {
+    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "24",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '24')]"
+  },
+  "div_24_422": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "24",
+    "xpath": "//div[contains(normalize-space(text()), '24')]"
+  },
+  "span_24_423": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "24",
+    "xpath": "//span[contains(normalize-space(text()), '24')]"
+  },
+  "div__424": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_25_425": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "25",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '25')]"
+  },
+  "div_25_426": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "25",
+    "xpath": "//div[contains(normalize-space(text()), '25')]"
+  },
+  "span_25_427": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "25",
+    "xpath": "//span[contains(normalize-space(text()), '25')]"
+  },
+  "div__428": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_26_429": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+    "tag": "mwl-calendar-month-cell",
+    "text": "26",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '26')]"
+  },
+  "div_26_430": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "26",
+    "xpath": "//div[contains(normalize-space(text()), '26')]"
+  },
+  "span_26_431": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "26",
+    "xpath": "//span[contains(normalize-space(text()), '26')]"
+  },
+  "div__432": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_27_433": {
+    "class": "cal-cell cal-day-cell cal-day-selected cal-today cal-in-month ng-star-inserted cal-has-events",
+    "tag": "mwl-calendar-month-cell",
+    "text": "27",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '27')]"
+  },
+  "div_27_434": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "27",
+    "xpath": "//div[contains(normalize-space(text()), '27')]"
+  },
+  "span_27_435": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "27",
+    "xpath": "//span[contains(normalize-space(text()), '27')]"
+  },
+  "div__436": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_28_437": {
+    "class": "cal-cell cal-day-cell cal-future cal-in-month ng-star-inserted cal-has-events",
+    "tag": "mwl-calendar-month-cell",
+    "text": "28",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '28')]"
+  },
+  "div_28_438": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "28",
+    "xpath": "//div[contains(normalize-space(text()), '28')]"
+  },
+  "span_28_439": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "28",
+    "xpath": "//span[contains(normalize-space(text()), '28')]"
+  },
+  "div__440": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_29_441": {
+    "class": "cal-cell cal-day-cell cal-future cal-in-month ng-star-inserted cal-has-events",
+    "tag": "mwl-calendar-month-cell",
+    "text": "29",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '29')]"
+  },
+  "div_29_442": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "29",
+    "xpath": "//div[contains(normalize-space(text()), '29')]"
+  },
+  "span_29_443": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "29",
+    "xpath": "//span[contains(normalize-space(text()), '29')]"
+  },
+  "div__444": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell_30_445": {
+    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-in-month ng-star-inserted cal-has-events",
+    "tag": "mwl-calendar-month-cell",
+    "text": "30",
+    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '30')]"
+  },
+  "div_30_446": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "text": "30",
+    "xpath": "//div[contains(normalize-space(text()), '30')]"
+  },
+  "span_30_447": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "text": "30",
+    "xpath": "//span[contains(normalize-space(text()), '30')]"
+  },
+  "div__448": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-open-day-events__449": {
+    "class": "ng-tns-c820047117-6 ng-star-inserted",
+    "tag": "mwl-calendar-open-day-events",
+    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-6 ng-star-inserted']"
+  },
+  "div__450": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='ng-star-inserted']"
+  },
+  "div__451": {
+    "class": "cal-cell-row",
+    "tag": "div",
+    "xpath": "//div[@class='cal-cell-row']"
+  },
+  "mwl-calendar-month-cell__452": {
+    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-in-month ng-star-inserted cal-has-events",
+    "tag": "mwl-calendar-month-cell",
+    "xpath": "//mwl-calendar-month-cell[@class='cal-cell cal-day-cell cal-future cal-weekend cal-in-month ng-star-inserted cal-has-events']"
+  },
+  "div__453": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='calendar-cell-content ng-star-inserted']"
+  },
+  "span__454": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "xpath": "//span[@class='cal-day-number']"
+  },
+  "div__455": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell__456": {
+    "class": "cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted cal-has-events",
+    "tag": "mwl-calendar-month-cell",
+    "xpath": "//mwl-calendar-month-cell[@class='cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted cal-has-events']"
+  },
+  "div__457": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='calendar-cell-content ng-star-inserted']"
+  },
+  "span__458": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "xpath": "//span[@class='cal-day-number']"
+  },
+  "div__459": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell__460": {
+    "class": "cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted cal-has-events",
+    "tag": "mwl-calendar-month-cell",
+    "xpath": "//mwl-calendar-month-cell[@class='cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted cal-has-events']"
+  },
+  "div__461": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='calendar-cell-content ng-star-inserted']"
+  },
+  "span__462": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "xpath": "//span[@class='cal-day-number']"
+  },
+  "div__463": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell__464": {
+    "class": "cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted cal-has-events",
+    "tag": "mwl-calendar-month-cell",
+    "xpath": "//mwl-calendar-month-cell[@class='cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted cal-has-events']"
+  },
+  "div__465": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='calendar-cell-content ng-star-inserted']"
+  },
+  "span__466": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "xpath": "//span[@class='cal-day-number']"
+  },
+  "div__467": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell__468": {
+    "class": "cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted cal-has-events",
+    "tag": "mwl-calendar-month-cell",
+    "xpath": "//mwl-calendar-month-cell[@class='cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted cal-has-events']"
+  },
+  "div__469": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='calendar-cell-content ng-star-inserted']"
+  },
+  "span__470": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "xpath": "//span[@class='cal-day-number']"
+  },
+  "div__471": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell__472": {
+    "class": "cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted cal-has-events",
+    "tag": "mwl-calendar-month-cell",
+    "xpath": "//mwl-calendar-month-cell[@class='cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted cal-has-events']"
+  },
+  "div__473": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='calendar-cell-content ng-star-inserted']"
+  },
+  "span__474": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "xpath": "//span[@class='cal-day-number']"
+  },
+  "div__475": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-month-cell__476": {
+    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-out-month ng-star-inserted cal-has-events",
+    "tag": "mwl-calendar-month-cell",
+    "xpath": "//mwl-calendar-month-cell[@class='cal-cell cal-day-cell cal-future cal-weekend cal-out-month ng-star-inserted cal-has-events']"
+  },
+  "div__477": {
+    "class": "calendar-cell-content ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='calendar-cell-content ng-star-inserted']"
+  },
+  "span__478": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "xpath": "//span[@class='cal-day-number']"
+  },
+  "div__479": {
+    "class": "drug-dots-preview",
+    "tag": "div",
+    "xpath": "//div[@class='drug-dots-preview']"
+  },
+  "mwl-calendar-open-day-events__480": {
+    "class": "ng-tns-c820047117-7 ng-star-inserted",
+    "tag": "mwl-calendar-open-day-events",
+    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-7 ng-star-inserted']"
+  },
+  "popover__481": {
+    "tag": "popover",
+    "xpath": "//popover"
+  },
+  "popover__482": {
+    "tag": "popover",
+    "xpath": "//popover"
+  },
+  "client-footer_@2025 Sure_483": {
+    "tag": "client-footer",
+    "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//client-footer[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "footer_@2025 Sure_484": {
+    "class": "footer pt-0 footer-height",
+    "tag": "footer",
+    "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//footer[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "p_@2025 Sure_485": {
+    "tag": "p",
+    "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//p[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "a_Privacy Po_486": {
+    "tag": "a",
+    "text": "Privacy Policy and Terms of Service",
+    "xpath": "//a[contains(normalize-space(text()), 'Privacy Policy and Terms of Service')]"
+  },
+  "popover__487": {
+    "tag": "popover",
+    "xpath": "//popover"
+  }
+}

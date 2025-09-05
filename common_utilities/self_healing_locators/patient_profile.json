@@ -1,0 +1,1664 @@
+{
+  "html_Client_Tes_0": {
+    "tag": "html",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Account setup Account is active Test account Account First name Last name Username* MRN/ID* SA-ID* SA-7469 Contact Email Phone country United States Phone* +1 Alternate phone country Virtual care preferences Preferred language English Reminder settings Opt In IN OUT Contact Preference Phone Verification status Verified Messaging settings Opt In IN OUT Treatment team Patient Manager Treatment Monitor Send/Reset PIN CANCEL SAVE @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//html[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\npat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAccount setup\nAccount is active  \nTest account\nAccount\nFirst name\nLast name\nUsername*\nMRN/ID*\nSA-ID*\nSA-7469\nContact\nEmail\nPhone country\nUnited States\nPhone*\n+1\nAlternate phone country\nVirtual care preferences\nPreferred language\nEnglish\nReminder settings\nOpt In\nIN\nOUT\nContact Preference\nPhone\nVerification status\nVerified\nMessaging settings\nOpt In\nIN\nOUT\nTreatment team\nPatient Manager\nTreatment Monitor\nSend/Reset PIN\nCANCEL\nSAVE\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "body_Client_Tes_31": {
+    "class": "pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done ng-tns-0-0",
+    "tag": "body",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Account setup Account is active Test account Account First name Last name Username* MRN/ID* SA-ID* SA-7469 Contact Email Phone country United States Phone* +1 Alternate phone country Virtual care preferences Preferred language English Reminder settings Opt In IN OUT Contact Preference Phone Verification status Verified Messaging settings Opt In IN OUT Treatment team Patient Manager Treatment Monitor Send/Reset PIN CANCEL SAVE @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//body[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\npat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAccount setup\nAccount is active  \nTest account\nAccount\nFirst name\nLast name\nUsername*\nMRN/ID*\nSA-ID*\nSA-7469\nContact\nEmail\nPhone country\nUnited States\nPhone*\n+1\nAlternate phone country\nVirtual care preferences\nPreferred language\nEnglish\nReminder settings\nOpt In\nIN\nOUT\nContact Preference\nPhone\nVerification status\nVerified\nMessaging settings\nOpt In\nIN\nOUT\nTreatment team\nPatient Manager\nTreatment Monitor\nSend/Reset PIN\nCANCEL\nSAVE\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div__32": {
+    "class": "pace pace-inactive",
+    "tag": "div",
+    "xpath": "//div[@class='pace pace-inactive']"
+  },
+  "div__33": {
+    "class": "pace-progress",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress']"
+  },
+  "div__34": {
+    "class": "pace-progress-inner",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress-inner']"
+  },
+  "div__35": {
+    "class": "pace-activity",
+    "tag": "div",
+    "xpath": "//div[@class='pace-activity']"
+  },
+  "app_Client_Tes_36": {
+    "tag": "app",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Account setup Account is active Test account Account First name Last name Username* MRN/ID* SA-ID* SA-7469 Contact Email Phone country United States Phone* +1 Alternate phone country Virtual care preferences Preferred language English Reminder settings Opt In IN OUT Contact Preference Phone Verification status Verified Messaging settings Opt In IN OUT Treatment team Patient Manager Treatment Monitor Send/Reset PIN CANCEL SAVE @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//app[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\npat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAccount setup\nAccount is active  \nTest account\nAccount\nFirst name\nLast name\nUsername*\nMRN/ID*\nSA-ID*\nSA-7469\nContact\nEmail\nPhone country\nUnited States\nPhone*\n+1\nAlternate phone country\nVirtual care preferences\nPreferred language\nEnglish\nReminder settings\nOpt In\nIN\nOUT\nContact Preference\nPhone\nVerification status\nVerified\nMessaging settings\nOpt In\nIN\nOUT\nTreatment team\nPatient Manager\nTreatment Monitor\nSend/Reset PIN\nCANCEL\nSAVE\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_Client_Tes_37": {
+    "class": "custom-toolbar",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "div__38": {
+    "class": "logo",
+    "tag": "div",
+    "xpath": "//div[@class='logo']"
+  },
+  "div_Client_Tes_39": {
+    "class": "client-name d-none d-md-inline-flex",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "span__40": {
+    "class": "right-navbar ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='right-navbar ng-star-inserted']"
+  },
+  "client-header__41": {
+    "tag": "client-header",
+    "xpath": "//client-header"
+  },
+  "div__42": {
+    "class": "header-actions",
+    "tag": "div",
+    "xpath": "//div[@class='header-actions']"
+  },
+  "button__43": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat ng-star-inserted",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat ng-star-inserted' and @type='submit']"
+  },
+  "span__44": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__45": {
+    "class": "ng-fa-icon toolbar-icon text-success",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-success']"
+  },
+  "svg__46": {
+    "class": "svg-inline--fa fa-user-plus",
+    "data-icon": "user-plus",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-plus']"
+  },
+  "path__47": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__48": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__49": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__50": {
+    "class": "ng-fa-icon toolbar-icon text-warning",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-warning']"
+  },
+  "svg__51": {
+    "class": "svg-inline--fa fa-circle-question",
+    "data-icon": "circle-question",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-question']"
+  },
+  "path__52": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__53": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__54": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__55": {
+    "class": "ng-fa-icon toolbar-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon']"
+  },
+  "svg__56": {
+    "class": "svg-inline--fa fa-circle-user",
+    "data-icon": "circle-user",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-user']"
+  },
+  "path__57": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "kendo-drawer-container_Dashboard _58": {
+    "class": "k-drawer-container k-drawer-mini k-drawer-push",
+    "tag": "kendo-drawer-container",
+    "text": "Dashboard Patients Staff Reports pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Account setup Account is active Test account Account First name Last name Username* MRN/ID* SA-ID* SA-7469 Contact Email Phone country United States Phone* +1 Alternate phone country Virtual care preferences Preferred language English Reminder settings Opt In IN OUT Contact Preference Phone Verification status Verified Messaging settings Opt In IN OUT Treatment team Patient Manager Treatment Monitor Send/Reset PIN CANCEL SAVE @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//kendo-drawer-container[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\npat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAccount setup\nAccount is active  \nTest account\nAccount\nFirst name\nLast name\nUsername*\nMRN/ID*\nSA-ID*\nSA-7469\nContact\nEmail\nPhone country\nUnited States\nPhone*\n+1\nAlternate phone country\nVirtual care preferences\nPreferred language\nEnglish\nReminder settings\nOpt In\nIN\nOUT\nContact Preference\nPhone\nVerification status\nVerified\nMessaging settings\nOpt In\nIN\nOUT\nTreatment team\nPatient Manager\nTreatment Monitor\nSend/Reset PIN\nCANCEL\nSAVE\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "kendo-drawer_Dashboard _59": {
+    "class": "border-0 k-drawer k-drawer-start",
+    "tag": "kendo-drawer",
+    "text": "Dashboard Patients Staff Reports",
+    "xpath": "//kendo-drawer[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports')]"
+  },
+  "div_Dashboard _60": {
+    "class": "k-drawer-wrapper",
+    "tag": "div",
+    "text": "Dashboard Patients Staff Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports')]"
+  },
+  "ul_Dashboard _61": {
+    "class": "k-drawer-items",
+    "tag": "ul",
+    "text": "Dashboard Patients Staff Reports",
+    "xpath": "//ul[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports')]"
+  },
+  "li_Dashboard_62": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Dashboard",
+    "xpath": "//li[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "div_Dashboard_63": {
+    "tag": "div",
+    "text": "Dashboard",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "fa-icon__64": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__65": {
+    "class": "svg-inline--fa fa-house",
+    "data-icon": "house",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-house']"
+  },
+  "path__66": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Dashboard_67": {
+    "tag": "p",
+    "text": "Dashboard",
+    "xpath": "//p[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "li_Patients_68": {
+    "class": "k-drawer-item k-selected",
+    "tag": "li",
+    "text": "Patients",
+    "xpath": "//li[contains(normalize-space(text()), 'Patients')]"
+  },
+  "div_Patients_69": {
+    "tag": "div",
+    "text": "Patients",
+    "xpath": "//div[contains(normalize-space(text()), 'Patients')]"
+  },
+  "fa-icon__70": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__71": {
+    "class": "svg-inline--fa fa-user-large",
+    "data-icon": "user-large",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-large']"
+  },
+  "path__72": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Patients_73": {
+    "tag": "p",
+    "text": "Patients",
+    "xpath": "//p[contains(normalize-space(text()), 'Patients')]"
+  },
+  "li_Staff_74": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Staff",
+    "xpath": "//li[contains(normalize-space(text()), 'Staff')]"
+  },
+  "div_Staff_75": {
+    "tag": "div",
+    "text": "Staff",
+    "xpath": "//div[contains(normalize-space(text()), 'Staff')]"
+  },
+  "fa-icon__76": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__77": {
+    "class": "svg-inline--fa fa-user-nurse",
+    "data-icon": "user-nurse",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-nurse']"
+  },
+  "path__78": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Staff_79": {
+    "tag": "p",
+    "text": "Staff",
+    "xpath": "//p[contains(normalize-space(text()), 'Staff')]"
+  },
+  "li_Reports_80": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Reports",
+    "xpath": "//li[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div_Reports_81": {
+    "tag": "div",
+    "text": "Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
+  },
+  "fa-icon__82": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__83": {
+    "class": "svg-inline--fa fa-file-waveform",
+    "data-icon": "file-waveform",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-file-waveform']"
+  },
+  "path__84": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Reports_85": {
+    "tag": "p",
+    "text": "Reports",
+    "xpath": "//p[contains(normalize-space(text()), 'Reports')]"
+  },
+  "kendo-drawer-content_pat_1 pat__86": {
+    "class": "k-drawer-content",
+    "tag": "kendo-drawer-content",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Account setup Account is active Test account Account First name Last name Username* MRN/ID* SA-ID* SA-7469 Contact Email Phone country United States Phone* +1 Alternate phone country Virtual care preferences Preferred language English Reminder settings Opt In IN OUT Contact Preference Phone Verification status Verified Messaging settings Opt In IN OUT Treatment team Patient Manager Treatment Monitor Send/Reset PIN CANCEL SAVE @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//kendo-drawer-content[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAccount setup\nAccount is active  \nTest account\nAccount\nFirst name\nLast name\nUsername*\nMRN/ID*\nSA-ID*\nSA-7469\nContact\nEmail\nPhone country\nUnited States\nPhone*\n+1\nAlternate phone country\nVirtual care preferences\nPreferred language\nEnglish\nReminder settings\nOpt In\nIN\nOUT\nContact Preference\nPhone\nVerification status\nVerified\nMessaging settings\nOpt In\nIN\nOUT\nTreatment team\nPatient Manager\nTreatment Monitor\nSend/Reset PIN\nCANCEL\nSAVE\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "adherence_pat_1 pat__88": {
+    "class": "ng-star-inserted",
+    "tag": "adherence",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Account setup Account is active Test account Account First name Last name Username* MRN/ID* SA-ID* SA-7469 Contact Email Phone country United States Phone* +1 Alternate phone country Virtual care preferences Preferred language English Reminder settings Opt In IN OUT Contact Preference Phone Verification status Verified Messaging settings Opt In IN OUT Treatment team Patient Manager Treatment Monitor Send/Reset PIN CANCEL SAVE @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//adherence[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAccount setup\nAccount is active  \nTest account\nAccount\nFirst name\nLast name\nUsername*\nMRN/ID*\nSA-ID*\nSA-7469\nContact\nEmail\nPhone country\nUnited States\nPhone*\n+1\nAlternate phone country\nVirtual care preferences\nPreferred language\nEnglish\nReminder settings\nOpt In\nIN\nOUT\nContact Preference\nPhone\nVerification status\nVerified\nMessaging settings\nOpt In\nIN\nOUT\nTreatment team\nPatient Manager\nTreatment Monitor\nSend/Reset PIN\nCANCEL\nSAVE\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "ng-sidebar-container_pat_1 pat__89": {
+    "class": "adherence-wrapper",
+    "tag": "ng-sidebar-container",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Account setup Account is active Test account Account First name Last name Username* MRN/ID* SA-ID* SA-7469 Contact Email Phone country United States Phone* +1 Alternate phone country Virtual care preferences Preferred language English Reminder settings Opt In IN OUT Contact Preference Phone Verification status Verified Messaging settings Opt In IN OUT Treatment team Patient Manager Treatment Monitor Send/Reset PIN CANCEL SAVE @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//ng-sidebar-container[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAccount setup\nAccount is active  \nTest account\nAccount\nFirst name\nLast name\nUsername*\nMRN/ID*\nSA-ID*\nSA-7469\nContact\nEmail\nPhone country\nUnited States\nPhone*\n+1\nAlternate phone country\nVirtual care preferences\nPreferred language\nEnglish\nReminder settings\nOpt In\nIN\nOUT\nContact Preference\nPhone\nVerification status\nVerified\nMessaging settings\nOpt In\nIN\nOUT\nTreatment team\nPatient Manager\nTreatment Monitor\nSend/Reset PIN\nCANCEL\nSAVE\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_pat_1 pat__90": {
+    "class": "ng-sidebar__content ng-sidebar__content--animate",
+    "tag": "div",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Account setup Account is active Test account Account First name Last name Username* MRN/ID* SA-ID* SA-7469 Contact Email Phone country United States Phone* +1 Alternate phone country Virtual care preferences Preferred language English Reminder settings Opt In IN OUT Contact Preference Phone Verification status Verified Messaging settings Opt In IN OUT Treatment team Patient Manager Treatment Monitor Send/Reset PIN CANCEL SAVE @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAccount setup\nAccount is active  \nTest account\nAccount\nFirst name\nLast name\nUsername*\nMRN/ID*\nSA-ID*\nSA-7469\nContact\nEmail\nPhone country\nUnited States\nPhone*\n+1\nAlternate phone country\nVirtual care preferences\nPreferred language\nEnglish\nReminder settings\nOpt In\nIN\nOUT\nContact Preference\nPhone\nVerification status\nVerified\nMessaging settings\nOpt In\nIN\nOUT\nTreatment team\nPatient Manager\nTreatment Monitor\nSend/Reset PIN\nCANCEL\nSAVE\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_pat_1 pat__91": {
+    "class": "main-container",
+    "tag": "div",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Account setup Account is active Test account Account First name Last name Username* MRN/ID* SA-ID* SA-7469 Contact Email Phone country United States Phone* +1 Alternate phone country Virtual care preferences Preferred language English Reminder settings Opt In IN OUT Contact Preference Phone Verification status Verified Messaging settings Opt In IN OUT Treatment team Patient Manager Treatment Monitor Send/Reset PIN CANCEL SAVE @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAccount setup\nAccount is active  \nTest account\nAccount\nFirst name\nLast name\nUsername*\nMRN/ID*\nSA-ID*\nSA-7469\nContact\nEmail\nPhone country\nUnited States\nPhone*\n+1\nAlternate phone country\nVirtual care preferences\nPreferred language\nEnglish\nReminder settings\nOpt In\nIN\nOUT\nContact Preference\nPhone\nVerification status\nVerified\nMessaging settings\nOpt In\nIN\nOUT\nTreatment team\nPatient Manager\nTreatment Monitor\nSend/Reset PIN\nCANCEL\nSAVE\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_pat_1 pat__92": {
+    "class": "patient-adherence-header",
+    "tag": "div",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone')]"
+  },
+  "div_patient_site": {
+    "class": "patient-info ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='patient-info ng-star-inserted']"
+  },
+  "div_patient_name": {
+    "class": "patient-name",
+    "tag": "div",
+    "xpath": "//div[@class='patient-name']"
+  },
+  "span_site_name": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "xpath": "//div[@class='patient-name']//span[@class='ng-star-inserted']"
+  },
+  "div_pat_1 pat__94": {
+    "class": "patient-name",
+    "tag": "div",
+    "text": "pat_1 pat_1 | Site_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US')]"
+  },
+  "span_| Site_1_U_95": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "| Site_1_US",
+    "xpath": "//span[contains(normalize-space(text()), '| Site_1_US')]"
+  },
+  "div_Treatment _96": {
+    "class": "info-wrapper ng-star-inserted",
+    "tag": "div",
+    "text": "Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone')]"
+  },
+  "div_Treatment _97": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Treatment start date None",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment start date\nNone')]"
+  },
+  "h6_Treatment _98": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Treatment start date",
+    "xpath": "//h6[contains(normalize-space(text()), 'Treatment start date')]"
+  },
+  "span_None_99": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "None",
+    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+  },
+  "div_Exp. end d_100": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Exp. end date None",
+    "xpath": "//div[contains(normalize-space(text()), 'Exp. end date\nNone')]"
+  },
+  "h6_Exp. end d_101": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Exp. end date",
+    "xpath": "//h6[contains(normalize-space(text()), 'Exp. end date')]"
+  },
+  "span_None_102": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "None",
+    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+  },
+  "div_MRN e12345_103": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "MRN e1234567",
+    "xpath": "//div[contains(normalize-space(text()), 'MRN\ne1234567')]"
+  },
+  "h6_MRN_104": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "MRN",
+    "xpath": "//h6[contains(normalize-space(text()), 'MRN')]"
+  },
+  "div_SA-ID SA-7_105": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "SA-ID SA-7469",
+    "xpath": "//div[contains(normalize-space(text()), 'SA-ID\nSA-7469')]"
+  },
+  "h6_SA-ID_106": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "SA-ID",
+    "xpath": "//h6[contains(normalize-space(text()), 'SA-ID')]"
+  },
+  "span_SA-7469_107": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "SA-7469",
+    "xpath": "//span[contains(normalize-space(text()), 'SA-7469')]"
+  },
+  "div_Patient ma_108": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Patient manager None",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient manager\nNone')]"
+  },
+  "h6_Patient ma_109": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Patient manager",
+    "xpath": "//h6[contains(normalize-space(text()), 'Patient manager')]"
+  },
+  "span_None_110": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "None",
+    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+  },
+  "div_Treatment _111": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Treatment monitor None",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment monitor\nNone')]"
+  },
+  "h6_Treatment _112": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Treatment monitor",
+    "xpath": "//h6[contains(normalize-space(text()), 'Treatment monitor')]"
+  },
+  "span_None_113": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "None",
+    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+  },
+  "main_Overview A_114": {
+    "class": "main adherence-content",
+    "tag": "main",
+    "text": "Overview Adherence Regimen Profile Messages Reports Account setup Account is active Test account Account First name Last name Username* MRN/ID* SA-ID* SA-7469 Contact Email Phone country United States Phone* +1 Alternate phone country Virtual care preferences Preferred language English Reminder settings Opt In IN OUT Contact Preference Phone Verification status Verified Messaging settings Opt In IN OUT Treatment team Patient Manager Treatment Monitor Send/Reset PIN CANCEL SAVE",
+    "xpath": "//main[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAccount setup\nAccount is active  \nTest account\nAccount\nFirst name\nLast name\nUsername*\nMRN/ID*\nSA-ID*\nSA-7469\nContact\nEmail\nPhone country\nUnited States\nPhone*\n+1\nAlternate phone country\nVirtual care preferences\nPreferred language\nEnglish\nReminder settings\nOpt In\nIN\nOUT\nContact Preference\nPhone\nVerification status\nVerified\nMessaging settings\nOpt In\nIN\nOUT\nTreatment team\nPatient Manager\nTreatment Monitor\nSend/Reset PIN\nCANCEL\nSAVE')]"
+  },
+  "kendo-tabstrip_Overview A_115": {
+    "class": "ng-tns-c655264150-1 k-tabstrip k-pos-relative k-tabstrip-top ng-star-inserted",
+    "tag": "kendo-tabstrip",
+    "text": "Overview Adherence Regimen Profile Messages Reports Account setup Account is active Test account Account First name Last name Username* MRN/ID* SA-ID* SA-7469 Contact Email Phone country United States Phone* +1 Alternate phone country Virtual care preferences Preferred language English Reminder settings Opt In IN OUT Contact Preference Phone Verification status Verified Messaging settings Opt In IN OUT Treatment team Patient Manager Treatment Monitor Send/Reset PIN CANCEL SAVE",
+    "xpath": "//kendo-tabstrip[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports\nAccount setup\nAccount is active  \nTest account\nAccount\nFirst name\nLast name\nUsername*\nMRN/ID*\nSA-ID*\nSA-7469\nContact\nEmail\nPhone country\nUnited States\nPhone*\n+1\nAlternate phone country\nVirtual care preferences\nPreferred language\nEnglish\nReminder settings\nOpt In\nIN\nOUT\nContact Preference\nPhone\nVerification status\nVerified\nMessaging settings\nOpt In\nIN\nOUT\nTreatment team\nPatient Manager\nTreatment Monitor\nSend/Reset PIN\nCANCEL\nSAVE')]"
+  },
+  "div_Overview A_116": {
+    "class": "k-tabstrip-items-wrapper ng-tns-c655264150-1 k-hstack ng-star-inserted",
+    "tag": "div",
+    "text": "Overview Adherence Regimen Profile Messages Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports')]"
+  },
+  "ul_Overview A_117": {
+    "class": "k-reset k-tabstrip-items ng-tns-c655264150-1",
+    "tag": "ul",
+    "text": "Overview Adherence Regimen Profile Messages Reports",
+    "xpath": "//ul[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports')]"
+  },
+  "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-0": {
+    "id": "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-0",
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Overview",
+    "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-0']"
+  },
+  "span_Overview_119": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Overview",
+    "xpath": "//span[contains(normalize-space(text()), 'Overview')]"
+  },
+  "div_Overview_120": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Overview",
+    "xpath": "//div[contains(normalize-space(text()), 'Overview')]"
+  },
+  "span_Overview_121": {
+    "tag": "span",
+    "text": "Overview",
+    "xpath": "//span[contains(normalize-space(text()), 'Overview')]"
+  },
+  "k-tabstrip-tab-Adherence": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Adherence",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "k-span_Adherence": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Adherence",
+    "xpath": "//span[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "div_Adherence": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Adherence",
+    "xpath": "//div[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "span_Adherence": {
+    "tag": "span",
+    "text": "Adherence",
+    "xpath": "//div/span[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "k-tabstrip-tab-Regimen": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Regimen",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "k-span_Regimen": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Regimen",
+    "xpath": "//span[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "div_Regimen": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Regimen",
+    "xpath": "//div[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "span_Regimen": {
+    "tag": "span",
+    "text": "Regimen",
+    "xpath": "//div/span[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "k-opened-tabstrip-tab": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab') and @aria-selected='true']//div/span"
+  },
+  "k-tabstrip-tab-Profile": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "text": "Profile",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Profile')]"
+  },
+  "k-span_Profile": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Profile",
+    "xpath": "//span[contains(normalize-space(text()), 'Profile')]"
+  },
+  "div_Profile": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Profile",
+    "xpath": "//div[contains(normalize-space(text()), 'Profile')]"
+  },
+  "div-span_Profile": {
+    "tag": "span",
+    "text": "Profile",
+    "xpath": "//div/span[contains(normalize-space(text()), 'Profile')]"
+  },
+  "k-tabstrip-tab-Messages": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Messages",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Messages')]"
+  },
+  "k-span_Messages": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Messages",
+    "xpath": "//span[contains(normalize-space(text()), 'Messages')]"
+  },
+  "div_Messages": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Messages",
+    "xpath": "//div[contains(normalize-space(text()), 'Messages')]"
+  },
+  "span_Messages": {
+    "tag": "span",
+    "text": "Messages",
+    "xpath": "//div/span[contains(normalize-space(text()), 'Messages')]"
+  },
+  "k-tabstrip-tab-Reports": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Reports",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Reports')]"
+  },
+  "k-span_Reports": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Reports",
+    "xpath": "//span[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div_Reports": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
+  },
+  "span_Reports": {
+    "tag": "span",
+    "text": "Reports",
+    "xpath": "//div/span[contains(normalize-space(text()), 'Reports')]"
+  },
+  "k-tabstrip-tabpanel-72171804-dc41-4a92-887b-579f7d106b7a-3": {
+    "id": "k-tabstrip-tabpanel-72171804-dc41-4a92-887b-579f7d106b7a-3",
+    "class": "ng-tns-c655264150-1 ng-trigger ng-trigger-state k-tabstrip-content k-active ng-star-inserted",
+    "tag": "div",
+    "text": "Account setup Account is active Test account Account First name Last name Username* MRN/ID* SA-ID* SA-7469 Contact Email Phone country United States Phone* +1 Alternate phone country Virtual care preferences Preferred language English Reminder settings Opt In IN OUT Contact Preference Phone Verification status Verified Messaging settings Opt In IN OUT Treatment team Patient Manager Treatment Monitor Send/Reset PIN CANCEL SAVE",
+    "xpath": "//div[@id='k-tabstrip-tabpanel-72171804-dc41-4a92-887b-579f7d106b7a-3']"
+  },
+  "profile_Account se_143": {
+    "class": "ng-star-inserted",
+    "tag": "profile",
+    "text": "Account setup Account is active Test account Account First name Last name Username* MRN/ID* SA-ID* SA-7469 Contact Email Phone country United States Phone* +1 Alternate phone country Virtual care preferences Preferred language English Reminder settings Opt In IN OUT Contact Preference Phone Verification status Verified Messaging settings Opt In IN OUT Treatment team Patient Manager Treatment Monitor Send/Reset PIN CANCEL SAVE",
+    "xpath": "//profile[contains(normalize-space(text()), 'Account setup\nAccount is active  \nTest account\nAccount\nFirst name\nLast name\nUsername*\nMRN/ID*\nSA-ID*\nSA-7469\nContact\nEmail\nPhone country\nUnited States\nPhone*\n+1\nAlternate phone country\nVirtual care preferences\nPreferred language\nEnglish\nReminder settings\nOpt In\nIN\nOUT\nContact Preference\nPhone\nVerification status\nVerified\nMessaging settings\nOpt In\nIN\nOUT\nTreatment team\nPatient Manager\nTreatment Monitor\nSend/Reset PIN\nCANCEL\nSAVE')]"
+  },
+  "div_Account se_144": {
+    "class": "profile-wrapper",
+    "tag": "div",
+    "text": "Account setup Account is active Test account Account First name Last name Username* MRN/ID* SA-ID* SA-7469 Contact Email Phone country United States Phone* +1 Alternate phone country Virtual care preferences Preferred language English Reminder settings Opt In IN OUT Contact Preference Phone Verification status Verified Messaging settings Opt In IN OUT Treatment team Patient Manager Treatment Monitor Send/Reset PIN CANCEL SAVE",
+    "xpath": "//div[contains(normalize-space(text()), 'Account setup\nAccount is active  \nTest account\nAccount\nFirst name\nLast name\nUsername*\nMRN/ID*\nSA-ID*\nSA-7469\nContact\nEmail\nPhone country\nUnited States\nPhone*\n+1\nAlternate phone country\nVirtual care preferences\nPreferred language\nEnglish\nReminder settings\nOpt In\nIN\nOUT\nContact Preference\nPhone\nVerification status\nVerified\nMessaging settings\nOpt In\nIN\nOUT\nTreatment team\nPatient Manager\nTreatment Monitor\nSend/Reset PIN\nCANCEL\nSAVE')]"
+  },
+  "div_Account se_145": {
+    "class": "profile-content ng-star-inserted",
+    "tag": "div",
+    "text": "Account setup Account is active Test account Account First name Last name Username* MRN/ID* SA-ID* SA-7469 Contact Email Phone country United States Phone* +1 Alternate phone country Virtual care preferences Preferred language English Reminder settings Opt In IN OUT Contact Preference Phone Verification status Verified Messaging settings Opt In IN OUT Treatment team Patient Manager Treatment Monitor Send/Reset PIN CANCEL SAVE",
+    "xpath": "//div[contains(normalize-space(text()), 'Account setup\nAccount is active  \nTest account\nAccount\nFirst name\nLast name\nUsername*\nMRN/ID*\nSA-ID*\nSA-7469\nContact\nEmail\nPhone country\nUnited States\nPhone*\n+1\nAlternate phone country\nVirtual care preferences\nPreferred language\nEnglish\nReminder settings\nOpt In\nIN\nOUT\nContact Preference\nPhone\nVerification status\nVerified\nMessaging settings\nOpt In\nIN\nOUT\nTreatment team\nPatient Manager\nTreatment Monitor\nSend/Reset PIN\nCANCEL\nSAVE')]"
+  },
+  "div_Account se_146": {
+    "class": "row",
+    "tag": "div",
+    "text": "Account setup Account is active Test account Account First name Last name Username* MRN/ID* SA-ID* SA-7469 Contact Email Phone country United States Phone* +1 Alternate phone country Virtual care preferences Preferred language English Reminder settings Opt In IN OUT Contact Preference Phone Verification status Verified Messaging settings Opt In IN OUT Treatment team Patient Manager Treatment Monitor Send/Reset PIN CANCEL SAVE",
+    "xpath": "//div[contains(normalize-space(text()), 'Account setup\nAccount is active  \nTest account\nAccount\nFirst name\nLast name\nUsername*\nMRN/ID*\nSA-ID*\nSA-7469\nContact\nEmail\nPhone country\nUnited States\nPhone*\n+1\nAlternate phone country\nVirtual care preferences\nPreferred language\nEnglish\nReminder settings\nOpt In\nIN\nOUT\nContact Preference\nPhone\nVerification status\nVerified\nMessaging settings\nOpt In\nIN\nOUT\nTreatment team\nPatient Manager\nTreatment Monitor\nSend/Reset PIN\nCANCEL\nSAVE')]"
+  },
+  "div_Account se_147": {
+    "class": "col-lg-6",
+    "tag": "div",
+    "text": "Account setup Account is active Test account Account First name Last name Username* MRN/ID* SA-ID* SA-7469 Contact Email Phone country United States Phone* +1 Alternate phone country Virtual care preferences Preferred language English Reminder settings Opt In IN OUT Contact Preference Phone Verification status Verified Messaging settings Opt In IN OUT Treatment team Patient Manager Treatment Monitor",
+    "xpath": "//div[contains(normalize-space(text()), 'Account setup\nAccount is active  \nTest account\nAccount\nFirst name\nLast name\nUsername*\nMRN/ID*\nSA-ID*\nSA-7469\nContact\nEmail\nPhone country\nUnited States\nPhone*\n+1\nAlternate phone country\nVirtual care preferences\nPreferred language\nEnglish\nReminder settings\nOpt In\nIN\nOUT\nContact Preference\nPhone\nVerification status\nVerified\nMessaging settings\nOpt In\nIN\nOUT\nTreatment team\nPatient Manager\nTreatment Monitor')]"
+  },
+  "div_Account se_148": {
+    "class": "acc_is_active",
+    "tag": "div",
+    "text": "Account setup Account is active Test account",
+    "xpath": "//div[contains(normalize-space(text()), 'Account setup\nAccount is active  \nTest account')]"
+  },
+  "h4_Account se_149": {
+    "tag": "h4",
+    "text": "Account setup",
+    "xpath": "//h4[contains(normalize-space(text()), 'Account setup')]"
+  },
+  "div_Account is_150": {
+    "tag": "div",
+    "text": "Account is active Test account",
+    "xpath": "//div[contains(normalize-space(text()), 'Account is active  \nTest account')]"
+  },
+  "div_Account is_151": {
+    "tag": "div",
+    "text": "Account is active",
+    "xpath": "//div[contains(normalize-space(text()), 'Account is active')]"
+  },
+  "accountIsActiv_chb": {
+    "id": "accountIsActiv_chb",
+    "class": "k-checkbox k-checkbox-md ng-untouched ng-pristine ng-valid",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='accountIsActiv_chb']"
+  },
+  "label_AccountIsActive": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "text": "Account is active",
+    "xpath": "//label[contains(normalize-space(text()), 'Account is active')]"
+  },
+  "div_Test accou_154": {
+    "tag": "div",
+    "text": "Test account",
+    "xpath": "//div[contains(normalize-space(text()), 'Test account')]"
+  },
+  "accountIsTest_chb": {
+    "id": "accountIsTest_chb",
+    "name": "accountIsTest_chb",
+    "class": "k-checkbox k-checkbox-md ng-untouched ng-pristine ng-valid",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='accountIsTest_chb']"
+  },
+  "label_Test accou_156": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "text": "Test account",
+    "xpath": "//label[contains(normalize-space(text()), 'Test account')]"
+  },
+  "div_Account Fi_157": {
+    "class": "account",
+    "tag": "div",
+    "text": "Account First name Last name Username* MRN/ID* SA-ID* SA-7469",
+    "xpath": "//div[contains(normalize-space(text()), 'Account\nFirst name\nLast name\nUsername*\nMRN/ID*\nSA-ID*\nSA-7469')]"
+  },
+  "h4_Account_158": {
+    "tag": "h4",
+    "text": "Account",
+    "xpath": "//h4[contains(normalize-space(text()), 'Account')]"
+  },
+  "div_First_name_159": {
+    "class": "row",
+    "tag": "div",
+    "text": "First name Last name",
+    "xpath": "//div[contains(normalize-space(text()), 'First name\nLast name')]"
+  },
+  "div_First_name": {
+    "class": "k-form-field col-lg-6 col-md-6 col-sm-6",
+    "tag": "div",
+    "text": "First name",
+    "xpath": "//div[contains(normalize-space(text()), 'First name')]"
+  },
+  "label_First_name": {
+    "tag": "label",
+    "text": "First name",
+    "xpath": "//label[contains(normalize-space(text()), 'First name')]"
+  },
+  "input_First_name": {
+    "placeholder": "First name",
+    "class": "k-input k-textbox ng-untouched ng-pristine ng-valid",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@placeholder='First name']"
+  },
+  "div_Last_name": {
+    "class": "k-form-field col-lg-6 col-md-6 col-sm-6",
+    "tag": "div",
+    "text": "Last name",
+    "xpath": "//div[contains(normalize-space(text()), 'Last name')]"
+  },
+  "label_Last_name": {
+    "tag": "label",
+    "text": "Last name",
+    "xpath": "//label[contains(normalize-space(text()), 'Last name')]"
+  },
+  "input_Last_name": {
+    "placeholder": "Last name",
+    "class": "k-input k-textbox ng-untouched ng-pristine ng-valid",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@placeholder='Last name']"
+  },
+  "div_Username*": {
+    "class": "row",
+    "tag": "div",
+    "text": "Username*",
+    "xpath": "//div[contains(normalize-space(text()), 'Username*')]"
+  },
+  "div_Username*_167": {
+    "class": "k-form-field col-lg-6 col-md-6 col-sm-6",
+    "tag": "div",
+    "text": "Username*",
+    "xpath": "//div[contains(normalize-space(text()), 'Username*')]"
+  },
+  "label_Username*": {
+    "tag": "label",
+    "text": "Username*",
+    "xpath": "//label[contains(normalize-space(text()), 'Username*')]"
+  },
+  "span__169": {
+    "class": "chart-icon icon-help_outline",
+    "tag": "span",
+    "xpath": "//span[@class='chart-icon icon-help_outline']"
+  },
+  "user_name": {
+    "name": "user_name",
+    "placeholder": "Username",
+    "class": "k-input k-textbox ng-untouched ng-pristine",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@placeholder='Username']"
+  },
+  "div_MRN/ID* SA_171": {
+    "class": "row",
+    "tag": "div",
+    "text": "MRN/ID* SA-ID* SA-7469",
+    "xpath": "//div[contains(normalize-space(text()), 'MRN/ID*\nSA-ID*\nSA-7469')]"
+  },
+  "div_MRN/ID*": {
+    "class": "k-form-field col-lg-6 col-md-6 col-sm-6",
+    "tag": "div",
+    "text": "MRN/ID*",
+    "xpath": "//div[contains(normalize-space(text()), 'MRN/ID*')]"
+  },
+  "label_MRN/ID*": {
+    "tag": "label",
+    "text": "MRN/ID*",
+    "xpath": "//label[contains(normalize-space(text()), 'MRN/ID*')]"
+  },
+  "span__174": {
+    "class": "chart-icon icon-help_outline",
+    "tag": "span",
+    "xpath": "//span[@class='chart-icon icon-help_outline']"
+  },
+  "input-mrn": {
+    "id": "mrn",
+    "name": "mrn",
+    "placeholder": "MRN/ID",
+    "class": "k-input k-textbox ng-untouched ng-pristine ng-valid",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@id='mrn']"
+  },
+  "MRNlist": {
+    "id": "MRNlist",
+    "name": "MRNlist",
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "xpath": "//kendo-dropdownlist[@id='MRNlist']"
+  },
+  "k-da11fc6a-cf90-40d3-a7ea-ba972b3c1fcd": {
+    "id": "k-da11fc6a-cf90-40d3-a7ea-ba972b3c1fcd",
+    "class": "k-input-inner",
+    "tag": "span",
+    "xpath": "//span[@id='k-da11fc6a-cf90-40d3-a7ea-ba972b3c1fcd']"
+  },
+  "span__178": {
+    "class": "k-input-value-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-input-value-text']"
+  },
+  "button__179": {
+    "aria-label": "Select",
+    "class": "k-input-button k-button k-icon-button k-button-md k-button-solid k-button-solid-base",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Select']"
+  },
+  "kendo-icon-wrapper__180": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__181": {
+    "class": "k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__182": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "responsive-renderer__184": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__185": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div_SA-ID* SA-_186": {
+    "class": "k-form-field col-lg-6 col-md-6 col-sm-6",
+    "tag": "div",
+    "text": "SA-ID* SA-7469",
+    "xpath": "//div[contains(normalize-space(text()), 'SA-ID*\nSA-7469')]"
+  },
+  "label_SA-ID*_187": {
+    "tag": "label",
+    "text": "SA-ID*",
+    "xpath": "//label[contains(normalize-space(text()), 'SA-ID*')]"
+  },
+  "span__188": {
+    "class": "chart-icon icon-help_outline",
+    "tag": "span",
+    "xpath": "//span[@class='chart-icon icon-help_outline']"
+  },
+  "label_SA_ID_value": {
+    "class": "static-value",
+    "tag": "label",
+    "xpath": "//label[@class='static-value' and starts-with(normalize-space(text()), 'SA-')]"
+  },
+  "div_Contact Em_190": {
+    "class": "contact",
+    "tag": "div",
+    "text": "Contact Email Phone country United States Phone* +1 Alternate phone country",
+    "xpath": "//div[contains(normalize-space(text()), 'Contact\nEmail\nPhone country\nUnited States\nPhone*\n+1\nAlternate phone country')]"
+  },
+  "h4_Contact_191": {
+    "tag": "h4",
+    "text": "Contact",
+    "xpath": "//h4[contains(normalize-space(text()), 'Contact')]"
+  },
+  "div_Email_192": {
+    "class": "row",
+    "tag": "div",
+    "text": "Email",
+    "xpath": "//div[contains(normalize-space(text()), 'Email')]"
+  },
+  "div_Email_193": {
+    "class": "k-form-field col-lg-6 col-md-6 col-sm-6",
+    "tag": "div",
+    "text": "Email",
+    "xpath": "//div[contains(normalize-space(text()), 'Email')]"
+  },
+  "label_Email_194": {
+    "tag": "label",
+    "text": "Email",
+    "xpath": "//label[contains(normalize-space(text()), 'Email')]"
+  },
+  "email": {
+    "name": "email",
+    "placeholder": "Email",
+    "class": "k-input k-textbox ng-untouched ng-pristine ng-valid",
+    "type": "email",
+    "tag": "input",
+    "xpath": "//input[@placeholder='Email']"
+  },
+  "div_Phone coun_196": {
+    "class": "row",
+    "tag": "div",
+    "text": "Phone country United States Phone* +1",
+    "xpath": "//div[contains(normalize-space(text()), 'Phone country\nUnited States\nPhone*\n+1')]"
+  },
+  "div_Phone coun_197": {
+    "class": "k-form-field col-lg-6 col-md-6 col-sm-6",
+    "tag": "div",
+    "text": "Phone country United States",
+    "xpath": "//div[contains(normalize-space(text()), 'Phone country\nUnited States')]"
+  },
+  "label_Phone coun_198": {
+    "tag": "label",
+    "text": "Phone country",
+    "xpath": "//label[contains(normalize-space(text()), 'Phone country')]"
+  },
+  "kendo-dropdownlist-phone-country": {
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "text": "United States",
+    "xpath": "//label[contains(normalize-space(text()), 'Phone country')]/following-sibling::kendo-dropdownlist"
+  },
+  "k-921ab1cd-1d9b-4e79-a0af-f85fdc6ad217": {
+    "id": "k-921ab1cd-1d9b-4e79-a0af-f85fdc6ad217",
+    "class": "k-input-inner",
+    "tag": "span",
+    "text": "United States",
+    "xpath": "//span[@id='k-921ab1cd-1d9b-4e79-a0af-f85fdc6ad217']"
+  },
+  "span_United Sta_201": {
+    "class": "k-input-value-text",
+    "tag": "span",
+    "text": "United States",
+    "xpath": "//span[contains(normalize-space(text()), 'United States')]"
+  },
+  "button__202": {
+    "aria-label": "Select",
+    "class": "k-input-button k-button k-icon-button k-button-md k-button-solid k-button-solid-base",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Select']"
+  },
+  "kendo-icon-wrapper__203": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__204": {
+    "class": "k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__205": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "responsive-renderer__207": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__208": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div_Phone* +1_209": {
+    "class": "k-form-field col-lg-6 col-md-6 col-sm-6",
+    "tag": "div",
+    "text": "Phone* +1",
+    "xpath": "//div[contains(normalize-space(text()), 'Phone*\n+1')]"
+  },
+  "label_Phone*_210": {
+    "tag": "label",
+    "text": "Phone*",
+    "xpath": "//label[contains(normalize-space(text()), 'Phone*')]"
+  },
+  "div_+1_211": {
+    "class": "phone-input-container",
+    "tag": "div",
+    "text": "+1",
+    "xpath": "//div[contains(normalize-space(text()), '+1')]"
+  },
+  "div_+1_212": {
+    "class": "phone-prefix",
+    "tag": "div",
+    "text": "+1",
+    "xpath": "//div[contains(normalize-space(text()), '+1')]"
+  },
+  "phone_number": {
+    "name": "phone_number",
+    "class": "k-input k-textbox k-phone-input ng-untouched ng-valid ng-dirty",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@name='phone_number']"
+  },
+  "div_Alternate _214": {
+    "class": "row",
+    "tag": "div",
+    "text": "Alternate phone country",
+    "xpath": "//div[contains(normalize-space(text()), 'Alternate phone country')]"
+  },
+  "div_Alternate _215": {
+    "class": "k-form-field col-lg-6 col-md-6 col-sm-6",
+    "tag": "div",
+    "text": "Alternate phone country",
+    "xpath": "//div[contains(normalize-space(text()), 'Alternate phone country')]"
+  },
+  "label_Alternate _216": {
+    "tag": "label",
+    "text": "Alternate phone country",
+    "xpath": "//label[contains(normalize-space(text()), 'Alternate phone country')]"
+  },
+  "k-56428529-132f-4e0c-8429-5a69a48ac64c": {
+    "id": "k-56428529-132f-4e0c-8429-5a69a48ac64c",
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "xpath": "//kendo-dropdownlist[@id='k-56428529-132f-4e0c-8429-5a69a48ac64c']"
+  },
+  "k-0c182717-b987-45ce-a42d-fa1ec03f80d6": {
+    "id": "k-0c182717-b987-45ce-a42d-fa1ec03f80d6",
+    "class": "k-input-inner",
+    "tag": "span",
+    "xpath": "//span[@id='k-0c182717-b987-45ce-a42d-fa1ec03f80d6']"
+  },
+  "span__219": {
+    "class": "k-input-value-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-input-value-text']"
+  },
+  "button__220": {
+    "aria-label": "Select",
+    "class": "k-input-button k-button k-icon-button k-button-md k-button-solid k-button-solid-base",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Select']"
+  },
+  "kendo-icon-wrapper__221": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__222": {
+    "class": "k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__223": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "responsive-renderer__225": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__226": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div__227": {
+    "class": "k-form-field col-lg-6 col-md-6 col-sm-6",
+    "tag": "div",
+    "xpath": "//div[@class='k-form-field col-lg-6 col-md-6 col-sm-6']"
+  },
+  "label__228": {
+    "tag": "label",
+    "xpath": "//label"
+  },
+  "div__229": {
+    "class": "phone-input-container",
+    "tag": "div",
+    "xpath": "//div[@class='phone-input-container']"
+  },
+  "div__230": {
+    "class": "phone-prefix",
+    "tag": "div",
+    "xpath": "//div[@class='phone-prefix']"
+  },
+  "alternate_phone_number": {
+    "name": "alternate_phone_number",
+    "class": "k-input k-textbox k-phone-input ng-untouched ng-valid ng-dirty",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@name='alternate_phone_number']"
+  },
+  "div_Virtual ca_232": {
+    "class": "preferences",
+    "tag": "div",
+    "text": "Virtual care preferences Preferred language English Reminder settings Opt In IN OUT Contact Preference Phone Verification status Verified Messaging settings Opt In IN OUT",
+    "xpath": "//div[contains(normalize-space(text()), 'Virtual care preferences\nPreferred language\nEnglish\nReminder settings\nOpt In\nIN\nOUT\nContact Preference\nPhone\nVerification status\nVerified\nMessaging settings\nOpt In\nIN\nOUT')]"
+  },
+  "h4_Virtual ca_233": {
+    "tag": "h4",
+    "text": "Virtual care preferences",
+    "xpath": "//h4[contains(normalize-space(text()), 'Virtual care preferences')]"
+  },
+  "div_Preferred _234": {
+    "class": "row",
+    "tag": "div",
+    "text": "Preferred language English",
+    "xpath": "//div[contains(normalize-space(text()), 'Preferred language\nEnglish')]"
+  },
+  "div_Preferred _235": {
+    "class": "k-form-field col-lg-6 col-md-6 col-sm-6",
+    "tag": "div",
+    "text": "Preferred language English",
+    "xpath": "//div[contains(normalize-space(text()), 'Preferred language\nEnglish')]"
+  },
+  "label_Preferred _236": {
+    "tag": "label",
+    "text": "Preferred language",
+    "xpath": "//label[contains(normalize-space(text()), 'Preferred language')]"
+  },
+  "k-faa1f812-60a9-46a5-b163-493b2be8cbfd": {
+    "id": "k-faa1f812-60a9-46a5-b163-493b2be8cbfd",
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "text": "English",
+    "xpath": "//kendo-dropdownlist[@id='k-faa1f812-60a9-46a5-b163-493b2be8cbfd']"
+  },
+  "k-913fb7a4-3d34-4729-8d91-7daffef1ccf4": {
+    "id": "k-913fb7a4-3d34-4729-8d91-7daffef1ccf4",
+    "class": "k-input-inner",
+    "tag": "span",
+    "text": "English",
+    "xpath": "//span[@id='k-913fb7a4-3d34-4729-8d91-7daffef1ccf4']"
+  },
+  "span_English_239": {
+    "class": "k-input-value-text",
+    "tag": "span",
+    "text": "English",
+    "xpath": "//span[contains(normalize-space(text()), 'English')]"
+  },
+  "button__240": {
+    "aria-label": "Select",
+    "class": "k-input-button k-button k-icon-button k-button-md k-button-solid k-button-solid-base",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Select']"
+  },
+  "kendo-icon-wrapper__241": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__242": {
+    "class": "k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__243": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "responsive-renderer__245": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__246": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div_Reminder s_247": {
+    "class": "row reminder-sms-row",
+    "tag": "div",
+    "text": "Reminder settings Opt In IN OUT Contact Preference Phone Verification status Verified",
+    "xpath": "//div[contains(normalize-space(text()), 'Reminder settings\nOpt In\nIN\nOUT\nContact Preference\nPhone\nVerification status\nVerified')]"
+  },
+  "div_Reminder s_248": {
+    "tag": "div",
+    "text": "Reminder settings",
+    "xpath": "//div[contains(normalize-space(text()), 'Reminder settings')]"
+  },
+  "b_Reminder s_249": {
+    "tag": "b",
+    "text": "Reminder settings",
+    "xpath": "//b[contains(normalize-space(text()), 'Reminder settings')]"
+  },
+  "div_Opt In IN _250": {
+    "class": "k-form-field col-lg-3 col-md-3 col-sm-3 px-2",
+    "tag": "div",
+    "text": "Opt In IN OUT",
+    "xpath": "//div[contains(normalize-space(text()), 'Opt In\nIN\nOUT')]"
+  },
+  "kendo-label_Opt In IN _251": {
+    "tag": "kendo-label",
+    "text": "Opt In IN OUT",
+    "xpath": "//kendo-label[contains(normalize-space(text()), 'Opt In\nIN\nOUT')]"
+  },
+  "k-e8edbc2c-2806-40e2-8350-474af6131427": {
+    "id": "k-e8edbc2c-2806-40e2-8350-474af6131427",
+    "class": "k-label",
+    "tag": "label",
+    "text": "Opt In",
+    "xpath": "//label[@id='k-e8edbc2c-2806-40e2-8350-474af6131427']"
+  },
+  "k-8e1ab00f-d022-447e-b750-a3f8443bed87": {
+    "id": "k-8e1ab00f-d022-447e-b750-a3f8443bed87",
+    "name": "switch",
+    "class": "k-switch ng-untouched ng-pristine k-switch-sm k-rounded-full k-switch-on k-disabled",
+    "tag": "kendo-switch",
+    "text": "IN OUT",
+    "xpath": "//kendo-switch[@id='k-8e1ab00f-d022-447e-b750-a3f8443bed87']"
+  },
+  "span_IN OUT_254": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "text": "IN OUT",
+    "xpath": "//span[contains(normalize-space(text()), 'IN\nOUT')]"
+  },
+  "span_IN_255": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "text": "IN",
+    "xpath": "//span[contains(normalize-space(text()), 'IN')]"
+  },
+  "span_OUT_256": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "text": "OUT",
+    "xpath": "//span[contains(normalize-space(text()), 'OUT')]"
+  },
+  "span__257": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__258": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Contact Pr_259": {
+    "class": "k-form-field col-lg-5 col-md-5 col-sm-5",
+    "tag": "div",
+    "text": "Contact Preference Phone",
+    "xpath": "//div[contains(normalize-space(text()), 'Contact Preference\nPhone')]"
+  },
+  "kendo-label_Contact Pr_260": {
+    "tag": "kendo-label",
+    "text": "Contact Preference Phone",
+    "xpath": "//kendo-label[contains(normalize-space(text()), 'Contact Preference\nPhone')]"
+  },
+  "k-ac0747e2-681d-4ce0-8042-2a4c4ddb9b7a": {
+    "id": "k-ac0747e2-681d-4ce0-8042-2a4c4ddb9b7a",
+    "class": "k-label",
+    "tag": "label",
+    "text": "Contact Preference",
+    "xpath": "//label[@id='k-ac0747e2-681d-4ce0-8042-2a4c4ddb9b7a']"
+  },
+  "k-44f1fca5-6f7b-4446-8437-71b09fdea53e": {
+    "id": "k-44f1fca5-6f7b-4446-8437-71b09fdea53e",
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine k-disabled",
+    "tag": "kendo-dropdownlist",
+    "text": "Phone",
+    "xpath": "//kendo-dropdownlist[@id='k-44f1fca5-6f7b-4446-8437-71b09fdea53e']"
+  },
+  "k-fa7f2592-5b31-4e39-b15e-adb1bb610757": {
+    "id": "k-fa7f2592-5b31-4e39-b15e-adb1bb610757",
+    "class": "k-input-inner",
+    "tag": "span",
+    "text": "Phone",
+    "xpath": "//span[@id='k-fa7f2592-5b31-4e39-b15e-adb1bb610757']"
+  },
+  "span_Phone_264": {
+    "class": "k-input-value-text",
+    "tag": "span",
+    "text": "Phone",
+    "xpath": "//span[contains(normalize-space(text()), 'Phone')]"
+  },
+  "button__265": {
+    "aria-label": "Select",
+    "class": "k-input-button k-button k-icon-button k-button-md k-button-solid k-button-solid-base",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Select']"
+  },
+  "kendo-icon-wrapper__266": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__267": {
+    "class": "k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__268": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "responsive-renderer__270": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__271": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div__272": {
+    "class": "col-lg-1 col-md-1 col-sm-1",
+    "tag": "div",
+    "xpath": "//div[@class='col-lg-1 col-md-1 col-sm-1']"
+  },
+  "div_Verificati_273": {
+    "class": "k-form-field status col-lg-3 col-md-3 col-sm-3 ng-star-inserted",
+    "tag": "div",
+    "text": "Verification status Verified",
+    "xpath": "//div[contains(normalize-space(text()), 'Verification status\nVerified')]"
+  },
+  "kendo-label_Verificati_274": {
+    "tag": "kendo-label",
+    "text": "Verification status Verified",
+    "xpath": "//kendo-label[contains(normalize-space(text()), 'Verification status\nVerified')]"
+  },
+  "label_Verificati_275": {
+    "class": "k-label",
+    "tag": "label",
+    "text": "Verification status",
+    "xpath": "//label[contains(normalize-space(text()), 'Verification status')]"
+  },
+  "span_Verified_276": {
+    "tag": "span",
+    "text": "Verified",
+    "xpath": "//span[contains(normalize-space(text()), 'Verified')]"
+  },
+  "div__277": {
+    "class": "px-2",
+    "tag": "div",
+    "xpath": "//div[@class='px-2']"
+  },
+  "div_Messaging _278": {
+    "class": "row reminder-sms-row ng-star-inserted",
+    "tag": "div",
+    "text": "Messaging settings Opt In IN OUT",
+    "xpath": "//div[contains(normalize-space(text()), 'Messaging settings\nOpt In\nIN\nOUT')]"
+  },
+  "div_Messaging _279": {
+    "tag": "div",
+    "text": "Messaging settings",
+    "xpath": "//div[contains(normalize-space(text()), 'Messaging settings')]"
+  },
+  "b_Messaging _280": {
+    "tag": "b",
+    "text": "Messaging settings",
+    "xpath": "//b[contains(normalize-space(text()), 'Messaging settings')]"
+  },
+  "div_Opt In IN _281": {
+    "class": "k-form-field col-lg-3 col-md-3 col-sm-3 px-2",
+    "tag": "div",
+    "text": "Opt In IN OUT",
+    "xpath": "//div[contains(normalize-space(text()), 'Opt In\nIN\nOUT')]"
+  },
+  "kendo-label_Opt In IN _282": {
+    "tag": "kendo-label",
+    "text": "Opt In IN OUT",
+    "xpath": "//kendo-label[contains(normalize-space(text()), 'Opt In\nIN\nOUT')]"
+  },
+  "k-fdd55ab6-6981-4d4a-8aec-e67f862cab8f": {
+    "id": "k-fdd55ab6-6981-4d4a-8aec-e67f862cab8f",
+    "class": "k-label",
+    "tag": "label",
+    "text": "Opt In",
+    "xpath": "//label[@id='k-fdd55ab6-6981-4d4a-8aec-e67f862cab8f']"
+  },
+  "k-6b70e0f7-1e9e-49dc-ac31-70cbfba245b9": {
+    "id": "k-6b70e0f7-1e9e-49dc-ac31-70cbfba245b9",
+    "name": "switch",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine k-switch-sm k-rounded-full k-disabled",
+    "tag": "kendo-switch",
+    "text": "IN OUT",
+    "xpath": "//kendo-switch[@id='k-6b70e0f7-1e9e-49dc-ac31-70cbfba245b9']"
+  },
+  "span_IN OUT_285": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "text": "IN OUT",
+    "xpath": "//span[contains(normalize-space(text()), 'IN\nOUT')]"
+  },
+  "span_IN_286": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "text": "IN",
+    "xpath": "//span[contains(normalize-space(text()), 'IN')]"
+  },
+  "span_OUT_287": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "text": "OUT",
+    "xpath": "//span[contains(normalize-space(text()), 'OUT')]"
+  },
+  "span__288": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__289": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Treatment _290": {
+    "class": "managers",
+    "tag": "div",
+    "text": "Treatment team Patient Manager Treatment Monitor",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment team\nPatient Manager\nTreatment Monitor')]"
+  },
+  "h4_Treatment _291": {
+    "tag": "h4",
+    "text": "Treatment team",
+    "xpath": "//h4[contains(normalize-space(text()), 'Treatment team')]"
+  },
+  "div_Patient Ma_292": {
+    "class": "row",
+    "tag": "div",
+    "text": "Patient Manager Treatment Monitor",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient Manager\nTreatment Monitor')]"
+  },
+  "div_Patient Ma_293": {
+    "class": "k-form-field col-lg-6 col-md-6 col-sm-6",
+    "tag": "div",
+    "text": "Patient Manager",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient Manager')]"
+  },
+  "label_Patient_Manager": {
+    "tag": "label",
+    "text": "Patient Manager",
+    "xpath": "//label[contains(normalize-space(text()), 'Patient Manager')]"
+  },
+  "kendo-dropdownlist-patient-manager": {
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "xpath": "//label[contains(normalize-space(text()), 'Patient Manager')]//following-sibling::kendo-dropdownlist"
+  },
+  "k-934be8e5-0064-4d9e-a3d7-8135ca25d62a": {
+    "id": "k-934be8e5-0064-4d9e-a3d7-8135ca25d62a",
+    "class": "k-input-inner",
+    "tag": "span",
+    "xpath": "//span[@id='k-934be8e5-0064-4d9e-a3d7-8135ca25d62a']"
+  },
+  "span__297": {
+    "class": "k-input-value-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-input-value-text']"
+  },
+  "button__298": {
+    "aria-label": "Select",
+    "class": "k-input-button k-button k-icon-button k-button-md k-button-solid k-button-solid-base",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Select']"
+  },
+  "kendo-icon-wrapper__299": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__300": {
+    "class": "k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__301": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "responsive-renderer__303": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__304": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div_Treatment _305": {
+    "class": "k-form-field col-lg-6 col-md-6 col-sm-6",
+    "tag": "div",
+    "text": "Treatment Monitor",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment Monitor')]"
+  },
+  "label_Treatment _306": {
+    "tag": "label",
+    "text": "Treatment Monitor",
+    "xpath": "//label[contains(normalize-space(text()), 'Treatment Monitor')]"
+  },
+  "k-c0994393-6267-4d3d-96d9-360271b7ab05": {
+    "id": "k-c0994393-6267-4d3d-96d9-360271b7ab05",
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "xpath": "//kendo-dropdownlist[@id='k-c0994393-6267-4d3d-96d9-360271b7ab05']"
+  },
+  "k-0bad0bed-4f93-4ce8-8c2d-954d20f66ec5": {
+    "id": "k-0bad0bed-4f93-4ce8-8c2d-954d20f66ec5",
+    "class": "k-input-inner",
+    "tag": "span",
+    "xpath": "//span[@id='k-0bad0bed-4f93-4ce8-8c2d-954d20f66ec5']"
+  },
+  "span__309": {
+    "class": "k-input-value-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-input-value-text']"
+  },
+  "button__310": {
+    "aria-label": "Select",
+    "class": "k-input-button k-button k-icon-button k-button-md k-button-solid k-button-solid-base",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Select']"
+  },
+  "kendo-icon-wrapper__311": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__312": {
+    "class": "k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__313": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "responsive-renderer__315": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__316": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div__317": {
+    "class": "col-lg-6",
+    "tag": "div",
+    "xpath": "//div[@class='col-lg-6']"
+  },
+  "div_SEND/RESET_318": {
+    "class": "col-12",
+    "tag": "div",
+    "text": "Send/Reset PIN CANCEL SAVE",
+    "xpath": "//div[contains(normalize-space(text()), 'Send/Reset PIN\nCANCEL\nSAVE')]"
+  },
+  "div_SEND/RESET_319": {
+    "class": "profile-options",
+    "tag": "div",
+    "text": "Send/Reset PIN CANCEL SAVE",
+    "xpath": "//div[contains(normalize-space(text()), 'Send/Reset PIN\nCANCEL\nSAVE')]"
+  },
+  "button_SEND/RESET": {
+    "class": "mx-1 k-button k-button-md k-rounded-md k-button-solid-base k-button-solid",
+    "role": "button",
+    "tag": "button",
+    "text": "SEND/RESET PIN",
+    "xpath": "//button[@role='button'][./span[contains(normalize-space(text()), 'SEND/RESET PIN')]]"
+  },
+  "span_SEND/RESET": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "SEND/RESET PIN",
+    "xpath": "//span[@class='k-button-text' and contains(normalize-space(text()), 'SEND/RESET PIN')]"
+  },
+  "button_CANCEL_322": {
+    "class": "mx-1 k-button k-button-md k-rounded-md k-button-solid-base k-button-solid",
+    "type": "submit",
+    "tag": "button",
+    "text": "CANCEL",
+    "xpath": "//button[contains(normalize-space(text()), 'CANCEL')]"
+  },
+  "span_CANCEL_323": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "CANCEL",
+    "xpath": "//span[contains(normalize-space(text()), 'CANCEL')]"
+  },
+  "button_SAVE": {
+    "class": "mx-1 k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid",
+    "type": "submit",
+    "tag": "button",
+    "text": "SAVE",
+    "xpath": "//button[contains(normalize-space(text()), 'SAVE')]"
+  },
+  "span_SAVE": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "SAVE",
+    "xpath": "//span[contains(normalize-space(text()), 'SAVE')]"
+  },
+  "popover__326": {
+    "tag": "popover",
+    "xpath": "//popover"
+  },
+  "client-footer_@2025 Sure_327": {
+    "tag": "client-footer",
+    "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//client-footer[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "footer_@2025 Sure_328": {
+    "class": "footer pt-0 footer-height",
+    "tag": "footer",
+    "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//footer[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "p_@2025 Sure_329": {
+    "tag": "p",
+    "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//p[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "a_Privacy Po_330": {
+    "tag": "a",
+    "text": "Privacy Policy and Terms of Service",
+    "xpath": "//a[contains(normalize-space(text()), 'Privacy Policy and Terms of Service')]"
+  },
+  "popover__331": {
+    "tag": "popover",
+    "xpath": "//popover"
+  }
+}
