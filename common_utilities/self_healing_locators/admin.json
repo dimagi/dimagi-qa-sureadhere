@@ -1,0 +1,1123 @@
+{
+  "html_Client_Tes_0": {
+    "tag": "html",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports Admin Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Countries Diseases Drugs Languages Site Languages Observation Types Side Effects",
+    "xpath": "//html[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\nAdmin\nAdmin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nCountries\nDiseases\nDrugs\nLanguages\nSite Languages\nObservation Types\nSide Effects')]"
+  },
+  "body_Client_Tes_32": {
+    "class": "pace-running pace-done pace-done ng-tns-0-0",
+    "tag": "body",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports Admin Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Countries Diseases Drugs Languages Site Languages Observation Types Side Effects",
+    "xpath": "//body[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\nAdmin\nAdmin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nCountries\nDiseases\nDrugs\nLanguages\nSite Languages\nObservation Types\nSide Effects')]"
+  },
+  "div__33": {
+    "class": "pace pace-active",
+    "tag": "div",
+    "xpath": "//div[@class='pace pace-active']"
+  },
+  "div__34": {
+    "class": "pace-progress",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress']"
+  },
+  "div__35": {
+    "class": "pace-progress-inner",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress-inner']"
+  },
+  "div__36": {
+    "class": "pace-activity",
+    "tag": "div",
+    "xpath": "//div[@class='pace-activity']"
+  },
+  "app_Client_Tes_37": {
+    "tag": "app",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports Admin Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Countries Diseases Drugs Languages Site Languages Observation Types Side Effects",
+    "xpath": "//app[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\nAdmin\nAdmin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nCountries\nDiseases\nDrugs\nLanguages\nSite Languages\nObservation Types\nSide Effects')]"
+  },
+  "div_Client_Tes_38": {
+    "class": "custom-toolbar",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "div__39": {
+    "class": "logo",
+    "tag": "div",
+    "xpath": "//div[@class='logo']"
+  },
+  "div_Client_Tes_40": {
+    "class": "client-name d-none d-md-inline-flex",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "span__41": {
+    "class": "right-navbar",
+    "tag": "span",
+    "xpath": "//span[@class='right-navbar']"
+  },
+  "client-header__42": {
+    "tag": "client-header",
+    "xpath": "//client-header"
+  },
+  "div__43": {
+    "class": "header-actions",
+    "tag": "div",
+    "xpath": "//div[@class='header-actions']"
+  },
+  "button__44": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__45": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__46": {
+    "class": "ng-fa-icon toolbar-icon text-success",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-success']"
+  },
+  "svg__47": {
+    "class": "svg-inline--fa fa-user-plus",
+    "data-icon": "user-plus",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-plus']"
+  },
+  "path__48": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__49": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__50": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__51": {
+    "class": "ng-fa-icon toolbar-icon text-warning",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-warning']"
+  },
+  "svg__52": {
+    "class": "svg-inline--fa fa-circle-question",
+    "data-icon": "circle-question",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-question']"
+  },
+  "path__53": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__54": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__55": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__56": {
+    "class": "ng-fa-icon toolbar-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon']"
+  },
+  "svg__57": {
+    "class": "svg-inline--fa fa-circle-user",
+    "data-icon": "circle-user",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-user']"
+  },
+  "path__58": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "kendo-drawer-container_Dashboard _59": {
+    "class": "k-drawer-container k-drawer-mini k-drawer-push",
+    "tag": "kendo-drawer-container",
+    "text": "Dashboard Patients Staff Reports Admin Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Countries Diseases Drugs Languages Site Languages Observation Types Side Effects",
+    "xpath": "//kendo-drawer-container[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin\nAdmin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nCountries\nDiseases\nDrugs\nLanguages\nSite Languages\nObservation Types\nSide Effects')]"
+  },
+  "kendo-drawer_Dashboard _60": {
+    "class": "border-0 k-drawer k-drawer-start",
+    "tag": "kendo-drawer",
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//kendo-drawer[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "div_Dashboard _61": {
+    "class": "k-drawer-wrapper",
+    "tag": "div",
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "ul_Dashboard _62": {
+    "class": "k-drawer-items",
+    "tag": "ul",
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//ul[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "li_Dashboard_63": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Dashboard",
+    "xpath": "//li[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "div_Dashboard_64": {
+    "tag": "div",
+    "text": "Dashboard",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "fa-icon__65": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__66": {
+    "class": "svg-inline--fa fa-house",
+    "data-icon": "house",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-house']"
+  },
+  "path__67": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Dashboard_68": {
+    "tag": "p",
+    "text": "Dashboard",
+    "xpath": "//p[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "li_Patients_69": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Patients",
+    "xpath": "//li[contains(normalize-space(text()), 'Patients')]"
+  },
+  "div_Patients_70": {
+    "tag": "div",
+    "text": "Patients",
+    "xpath": "//div[contains(normalize-space(text()), 'Patients')]"
+  },
+  "fa-icon__71": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__72": {
+    "class": "svg-inline--fa fa-user-large",
+    "data-icon": "user-large",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-large']"
+  },
+  "path__73": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Patients_74": {
+    "tag": "p",
+    "text": "Patients",
+    "xpath": "//p[contains(normalize-space(text()), 'Patients')]"
+  },
+  "li_Staff_75": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Staff",
+    "xpath": "//li[contains(normalize-space(text()), 'Staff')]"
+  },
+  "div_Staff_76": {
+    "tag": "div",
+    "text": "Staff",
+    "xpath": "//div[contains(normalize-space(text()), 'Staff')]"
+  },
+  "fa-icon__77": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__78": {
+    "class": "svg-inline--fa fa-user-nurse",
+    "data-icon": "user-nurse",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-nurse']"
+  },
+  "path__79": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Staff_80": {
+    "tag": "p",
+    "text": "Staff",
+    "xpath": "//p[contains(normalize-space(text()), 'Staff')]"
+  },
+  "li_Reports_81": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Reports",
+    "xpath": "//li[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div_Reports_82": {
+    "tag": "div",
+    "text": "Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
+  },
+  "fa-icon__83": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__84": {
+    "class": "svg-inline--fa fa-file-waveform",
+    "data-icon": "file-waveform",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-file-waveform']"
+  },
+  "path__85": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Reports_86": {
+    "tag": "p",
+    "text": "Reports",
+    "xpath": "//p[contains(normalize-space(text()), 'Reports')]"
+  },
+  "li_Admin_87": {
+    "class": "k-drawer-item k-selected",
+    "tag": "li",
+    "text": "Admin",
+    "xpath": "//li[contains(normalize-space(text()), 'Admin')]"
+  },
+  "div_Admin_88": {
+    "tag": "div",
+    "text": "Admin",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin')]"
+  },
+  "fa-icon__89": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__90": {
+    "class": "svg-inline--fa fa-gear",
+    "data-icon": "gear",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-gear']"
+  },
+  "path__91": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Admin_92": {
+    "tag": "p",
+    "text": "Admin",
+    "xpath": "//p[contains(normalize-space(text()), 'Admin')]"
+  },
+  "kendo-drawer-content_Admin Sett_93": {
+    "class": "k-drawer-content",
+    "tag": "kendo-drawer-content",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Countries Diseases Drugs Languages Site Languages Observation Types Side Effects",
+    "xpath": "//kendo-drawer-content[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nCountries\nDiseases\nDrugs\nLanguages\nSite Languages\nObservation Types\nSide Effects')]"
+  },
+  "app-admin_Admin Sett_95": {
+    "class": "ng-star-inserted",
+    "tag": "app-admin",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Countries Diseases Drugs Languages Site Languages Observation Types Side Effects",
+    "xpath": "//app-admin[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nCountries\nDiseases\nDrugs\nLanguages\nSite Languages\nObservation Types\nSide Effects')]"
+  },
+  "sidebar-filter_Admin Sett_96": {
+    "tag": "sidebar-filter",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Countries Diseases Drugs Languages Site Languages Observation Types Side Effects",
+    "xpath": "//sidebar-filter[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nCountries\nDiseases\nDrugs\nLanguages\nSite Languages\nObservation Types\nSide Effects')]"
+  },
+  "main_Admin Sett_97": {
+    "class": "main",
+    "tag": "main",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Countries Diseases Drugs Languages Site Languages Observation Types Side Effects",
+    "xpath": "//main[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nCountries\nDiseases\nDrugs\nLanguages\nSite Languages\nObservation Types\nSide Effects')]"
+  },
+  "ng-sidebar-container_Admin Sett_98": {
+    "class": "wrapper-with-sidebar",
+    "tag": "ng-sidebar-container",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Countries Diseases Drugs Languages Site Languages Observation Types Side Effects",
+    "xpath": "//ng-sidebar-container[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nCountries\nDiseases\nDrugs\nLanguages\nSite Languages\nObservation Types\nSide Effects')]"
+  },
+  "ng-sidebar__99": {
+    "tag": "ng-sidebar",
+    "xpath": "//ng-sidebar"
+  },
+  "aside__100": {
+    "class": "ng-sidebar--inert ng-sidebar ng-sidebar--closed ng-sidebar--right ng-sidebar--push",
+    "tag": "aside",
+    "xpath": "//aside[@class='ng-sidebar--inert ng-sidebar ng-sidebar--closed ng-sidebar--right ng-sidebar--push']"
+  },
+  "div__101": {
+    "class": "clear-filters",
+    "tag": "div",
+    "xpath": "//div[@class='clear-filters']"
+  },
+  "div__102": {
+    "class": "close-filterbar",
+    "tag": "div",
+    "xpath": "//div[@class='close-filterbar']"
+  },
+  "span__103": {
+    "class": "icon-close2 position-relative",
+    "tag": "span",
+    "xpath": "//span[@class='icon-close2 position-relative']"
+  },
+  "div__104": {
+    "class": "header-filterbar",
+    "tag": "div",
+    "xpath": "//div[@class='header-filterbar']"
+  },
+  "div__105": {
+    "class": "sidebar-filter",
+    "tag": "div",
+    "xpath": "//div[@class='sidebar-filter']"
+  },
+  "kendo-panelbar__106": {
+    "class": "k-panelbar k-pos-relative",
+    "tag": "kendo-panelbar",
+    "xpath": "//kendo-panelbar[@class='k-panelbar k-pos-relative']"
+  },
+  "k-panelbar-4-item-sites": {
+    "id": "k-panelbar-4-item-sites",
+    "class": "ng-tns-c3003368627-25 k-level-0 k-panelbar-item k-state-default k-expanded k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-4-item-sites']"
+  },
+  "span__108": {
+    "class": "ng-tns-c3003368627-25 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-25 k-link']"
+  },
+  "span__109": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-25 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-25 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__110": {
+    "class": "ng-tns-c3003368627-25 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-25 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__111": {
+    "class": "k-svg-i-chevron-up k-panelbar-toggle k-panelbar-collapse k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-up k-panelbar-toggle k-panelbar-collapse k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__112": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "div__114": {
+    "class": "ng-tns-c3003368627-25 ng-trigger ng-trigger-toggle ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='ng-tns-c3003368627-25 ng-trigger ng-trigger-toggle ng-star-inserted']"
+  },
+  "div__115": {
+    "class": "k-content k-panelbar-content ng-tns-c3003368627-25 ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='k-content k-panelbar-content ng-tns-c3003368627-25 ng-star-inserted']"
+  },
+  "sites_bar": {
+    "id": "sites_bar",
+    "class": "ng-star-inserted",
+    "tag": "ul",
+    "xpath": "//ul[@id='sites_bar']"
+  },
+  "k-panelbar-4-item-treatment_monitors": {
+    "id": "k-panelbar-4-item-treatment_monitors",
+    "class": "ng-tns-c3003368627-26 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-4-item-treatment_monitors']"
+  },
+  "span__119": {
+    "class": "ng-tns-c3003368627-26 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-26 k-link']"
+  },
+  "span__120": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-26 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-26 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__121": {
+    "class": "ng-tns-c3003368627-26 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-26 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__122": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__123": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "k-panelbar-4-item-patient_managers": {
+    "id": "k-panelbar-4-item-patient_managers",
+    "class": "ng-tns-c3003368627-27 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-4-item-patient_managers']"
+  },
+  "span__126": {
+    "class": "ng-tns-c3003368627-27 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-27 k-link']"
+  },
+  "span__127": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-27 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-27 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__128": {
+    "class": "ng-tns-c3003368627-27 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-27 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__129": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__130": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "k-panelbar-4-item-diseases": {
+    "id": "k-panelbar-4-item-diseases",
+    "class": "ng-tns-c3003368627-28 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-4-item-diseases']"
+  },
+  "span__133": {
+    "class": "ng-tns-c3003368627-28 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-28 k-link']"
+  },
+  "span__134": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-28 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-28 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__135": {
+    "class": "ng-tns-c3003368627-28 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-28 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__136": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__137": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "k-panelbar-4-item-observation_types": {
+    "id": "k-panelbar-4-item-observation_types",
+    "class": "ng-tns-c3003368627-29 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-4-item-observation_types']"
+  },
+  "span__140": {
+    "class": "ng-tns-c3003368627-29 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-29 k-link']"
+  },
+  "span__141": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-29 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-29 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__142": {
+    "class": "ng-tns-c3003368627-29 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-29 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__143": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__144": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "div_Admin Sett_146": {
+    "class": "ng-sidebar__content ng-sidebar__content--animate",
+    "tag": "div",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Countries Diseases Drugs Languages Site Languages Observation Types Side Effects",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nCountries\nDiseases\nDrugs\nLanguages\nSite Languages\nObservation Types\nSide Effects')]"
+  },
+  "div_Admin Sett_147": {
+    "class": "content-wrapper",
+    "tag": "div",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Countries Diseases Drugs Languages Site Languages Observation Types Side Effects",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nCountries\nDiseases\nDrugs\nLanguages\nSite Languages\nObservation Types\nSide Effects')]"
+  },
+  "div_Admin Sett_148": {
+    "class": "sub-header",
+    "tag": "div",
+    "text": "Admin Settings",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings')]"
+  },
+  "div_Admin Sett_149": {
+    "class": "sub-nav",
+    "tag": "div",
+    "text": "Admin Settings",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings')]"
+  },
+  "div_Admin Sett_150": {
+    "class": "breadcrumb-custom",
+    "tag": "div",
+    "text": "Admin Settings",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings')]"
+  },
+  "span_Admin Sett_151": {
+    "class": "my-header-name",
+    "tag": "span",
+    "text": "Admin Settings",
+    "xpath": "//span[contains(normalize-space(text()), 'Admin Settings')]"
+  },
+  "div__152": {
+    "class": "sidebar-toggle-icon ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='sidebar-toggle-icon ng-star-inserted']"
+  },
+  "span__153": {
+    "class": "icon-funnel",
+    "tag": "span",
+    "xpath": "//span[@class='icon-funnel']"
+  },
+  "div_Configurab_154": {
+    "class": "my-page-content pb-50px",
+    "tag": "div",
+    "text": "Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Countries Diseases Drugs Languages Site Languages Observation Types Side Effects",
+    "xpath": "//div[contains(normalize-space(text()), 'Configurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nCountries\nDiseases\nDrugs\nLanguages\nSite Languages\nObservation Types\nSide Effects')]"
+  },
+  "kendo-tabstrip_Configurab_155": {
+    "class": "ng-tns-c655264150-24 k-tabstrip k-pos-relative k-tabstrip-top ng-star-inserted",
+    "tag": "kendo-tabstrip",
+    "text": "Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Countries Diseases Drugs Languages Site Languages Observation Types Side Effects",
+    "xpath": "//kendo-tabstrip[contains(normalize-space(text()), 'Configurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nCountries\nDiseases\nDrugs\nLanguages\nSite Languages\nObservation Types\nSide Effects')]"
+  },
+  "div_Configurab_156": {
+    "class": "k-tabstrip-items-wrapper ng-tns-c655264150-24 k-hstack ng-star-inserted",
+    "tag": "div",
+    "text": "Configurable Lookups Feature Flags Announcements",
+    "xpath": "//div[contains(normalize-space(text()), 'Configurable Lookups\nFeature Flags\nAnnouncements')]"
+  },
+  "ul_Configurab_157": {
+    "class": "k-reset k-tabstrip-items ng-tns-c655264150-24",
+    "tag": "ul",
+    "text": "Configurable Lookups Feature Flags Announcements",
+    "xpath": "//ul[contains(normalize-space(text()), 'Configurable Lookups\nFeature Flags\nAnnouncements')]"
+  },
+  "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-0": {
+    "id": "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-0",
+    "class": "ng-tns-c655264150-24 k-item k-state-default k-active ng-star-inserted",
+    "tag": "li",
+    "text": "Configurable Lookups",
+    "xpath": "//li[@id='k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-0']"
+  },
+  "span_Configurab_159": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Configurable Lookups",
+    "xpath": "//span[contains(normalize-space(text()), 'Configurable Lookups')]"
+  },
+  "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-1": {
+    "id": "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-1",
+    "class": "ng-tns-c655264150-24 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Feature Flags",
+    "xpath": "//li[@id='k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-1']"
+  },
+  "span_Feature Fl_161": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Feature Flags",
+    "xpath": "//span[contains(normalize-space(text()), 'Feature Flags')]"
+  },
+  "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-2": {
+    "id": "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-2",
+    "class": "ng-tns-c655264150-24 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Announcements",
+    "xpath": "//li[@id='k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-2']"
+  },
+  "span_Announceme_163": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Announcements",
+    "xpath": "//span[contains(normalize-space(text()), 'Announcements')]"
+  },
+  "k-tabstrip-tabpanel-4de49805-c2fd-4373-94e9-15b798ab48e0-0": {
+    "id": "k-tabstrip-tabpanel-4de49805-c2fd-4373-94e9-15b798ab48e0-0",
+    "class": "ng-tns-c655264150-24 ng-trigger ng-trigger-state k-tabstrip-content k-active ng-star-inserted",
+    "tag": "div",
+    "text": "Choose client: Client_Test_1_US Countries Diseases Drugs Languages Site Languages Observation Types Side Effects",
+    "xpath": "//div[@id='k-tabstrip-tabpanel-4de49805-c2fd-4373-94e9-15b798ab48e0-0']"
+  },
+  "div_Choose cli_165": {
+    "class": "main-container ng-star-inserted",
+    "tag": "div",
+    "text": "Choose client: Client_Test_1_US Countries Diseases Drugs Languages Site Languages Observation Types Side Effects",
+    "xpath": "//div[contains(normalize-space(text()), 'Choose client:\nClient_Test_1_US\nCountries\nDiseases\nDrugs\nLanguages\nSite Languages\nObservation Types\nSide Effects')]"
+  },
+  "div_Choose cli_166": {
+    "class": "clients-list",
+    "tag": "div",
+    "text": "Choose client: Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Choose client:\nClient_Test_1_US')]"
+  },
+  "kendo-dropdownlist-Client": {
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "xpath": "//kendo-dropdownlist"
+  },
+  "kendo-dropdownlist-input-Client": {
+    "class": "k-input-inner",
+    "tag": "span",
+    "xpath": "//kendo-dropdownlist//span[@class='k-input-inner']"
+  },
+  "kendo-dropdownlist-input-value-Client": {
+    "class": "k-input-value-text",
+    "tag": "span",
+    "xpath": "//kendo-dropdownlist//span[@class='k-input-value-text']"
+  },
+  "button__170": {
+    "aria-label": "Select",
+    "class": "k-input-button k-button k-icon-button k-button-md k-button-solid k-button-solid-base",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Select']"
+  },
+  "kendo-icon-wrapper__171": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__172": {
+    "class": "k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__173": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "responsive-renderer__175": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__176": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div_Countries _177": {
+    "class": "lookup-lists ng-star-inserted",
+    "tag": "div",
+    "text": "Countries Diseases Drugs Languages Site Languages Observation Types Side Effects",
+    "xpath": "//div[contains(normalize-space(text()), 'Countries\nDiseases\nDrugs\nLanguages\nSite Languages\nObservation Types\nSide Effects')]"
+  },
+  "kendo-expansionpanel_Countries": {
+    "class": "k-expander ng-star-inserted",
+    "tag": "kendo-expansionpanel",
+    "text": "Countries",
+    "xpath": "//kendo-expansionpanel[@class='k-expander ng-star-inserted'][.//span[contains(normalize-space(text()), 'Countries')]]"
+  },
+  "div_Countries": {
+    "class": "k-expander-header",
+    "tag": "div",
+    "text": "Countries",
+    "xpath": "//div[@class='k-expander-header'][.//span[contains(normalize-space(text()), 'Countries')]]"
+  },
+  "span_Countries": {
+    "class": "list-title ng-star-inserted",
+    "tag": "span",
+    "text": "Countries",
+    "xpath": "//kendo-expansionpanel[@class='k-expander ng-star-inserted']//span[contains(normalize-space(text()), 'Countries')]"
+  },
+  "span__182": {
+    "class": "k-expander-indicator",
+    "tag": "span",
+    "xpath": "//span[@class='k-expander-indicator']"
+  },
+  "kendo-icon-wrapper__183": {
+    "class": "k-icon-wrapper-host",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host']"
+  },
+  "kendo-svgicon__184": {
+    "class": "k-svg-i-caret-alt-down k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__185": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "div__187": {
+    "class": "k-expander-content-wrapper k-hidden",
+    "tag": "div",
+    "xpath": "//div[@class='k-expander-content-wrapper k-hidden']"
+  },
+  "div__188": {
+    "class": "k-expander-content",
+    "tag": "div",
+    "xpath": "//div[@class='k-expander-content']"
+  },
+  "div__189": {
+    "class": "content",
+    "tag": "div",
+    "xpath": "//div[@class='content']"
+  },
+  "kendo-expansionpanel_Diseases": {
+    "class": "k-expander ng-star-inserted",
+    "tag": "kendo-expansionpanel",
+    "text": "Diseases",
+    "xpath": "//kendo-expansionpanel[contains(@class,'k-expander ng-star-inserted')][.//span[contains(normalize-space(text()), 'Diseases')]]"
+  },
+  "div_Diseases": {
+    "class": "k-expander-header",
+    "tag": "div",
+    "text": "Diseases",
+    "xpath": "//div[@class='k-expander-header'][.//span[contains(normalize-space(text()), 'Diseases')]]"
+  },
+  "span_Diseases": {
+    "class": "list-title ng-star-inserted",
+    "tag": "span",
+    "text": "Diseases",
+    "xpath": "//kendo-expansionpanel[@class='k-expander ng-star-inserted']//span[contains(normalize-space(text()), 'Diseases')]"
+  },
+  "span_generic_lookup-Diseases": {
+    "xpath_template": "//kendo-expansionpanel[@class='k-expander ng-star-inserted']//span[contains(normalize-space(text()), 'Diseases')]",
+    "defaults": {
+      "class": "list-title ng-star-inserted",
+      "tag": "span",
+      "text": "Diseases"
+    }
+  },
+  "span_indicator-Diseases": {
+    "class": "k-expander-indicator",
+    "tag": "span",
+    "xpath": "//span[@class='k-expander-indicator']"
+  },
+  "kendo-icon-wrapper_Diseases": {
+    "class": "k-icon-wrapper-host",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host']"
+  },
+  "kendo-svgicon__196": {
+    "class": "k-svg-i-caret-alt-down k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__197": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "div__199": {
+    "class": "k-expander-content-wrapper k-hidden",
+    "tag": "div",
+    "xpath": "//div[@class='k-expander-content-wrapper k-hidden']"
+  },
+  "div__200": {
+    "class": "k-expander-content",
+    "tag": "div",
+    "xpath": "//div[@class='k-expander-content']"
+  },
+  "div__201": {
+    "class": "content",
+    "tag": "div",
+    "xpath": "//div[@class='content']"
+  },
+  "kendo-expansionpanel_Drugs": {
+    "class": "k-expander ng-star-inserted",
+    "tag": "kendo-expansionpanel",
+    "text": "Drugs",
+    "xpath": "//kendo-expansionpanel[contains(@class,'k-expander ng-star-inserted')][.//span[contains(normalize-space(text()), 'Drugs')]]"
+  },
+  "div_Drugs": {
+    "class": "k-expander-header",
+    "tag": "div",
+    "text": "Drugs",
+    "xpath": "//div[@class='k-expander-header'][.//span[contains(normalize-space(text()), 'Drugs')]]"
+  },
+  "span_Drugs": {
+    "class": "list-title ng-star-inserted",
+    "tag": "span",
+    "text": "Drugs",
+    "xpath": "//kendo-expansionpanel[@class='k-expander ng-star-inserted']//span[contains(normalize-space(text()), 'Drugs')]"
+  },
+  "span__206": {
+    "class": "k-expander-indicator",
+    "tag": "span",
+    "xpath": "//span[@class='k-expander-indicator']"
+  },
+  "kendo-icon-wrapper__207": {
+    "class": "k-icon-wrapper-host",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host']"
+  },
+  "kendo-svgicon__208": {
+    "class": "k-svg-i-caret-alt-down k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__209": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "div__211": {
+    "class": "k-expander-content-wrapper k-hidden",
+    "tag": "div",
+    "xpath": "//div[@class='k-expander-content-wrapper k-hidden']"
+  },
+  "div__212": {
+    "class": "k-expander-content",
+    "tag": "div",
+    "xpath": "//div[@class='k-expander-content']"
+  },
+  "div__213": {
+    "class": "content",
+    "tag": "div",
+    "xpath": "//div[@class='content']"
+  },
+  "kendo-expansionpanel_Languages": {
+    "class": "k-expander ng-star-inserted",
+    "tag": "kendo-expansionpanel",
+    "text": "Languages",
+    "xpath": "//kendo-expansionpanel[@class='k-expander ng-star-inserted'][.//span[contains(normalize-space(text()), 'Languages')]]"
+  },
+  "div_Languages": {
+    "class": "k-expander-header",
+    "tag": "div",
+    "text": "Languages",
+    "xpath": "//div[@class='k-expander-header'][.//span[contains(normalize-space(text()), 'Languages')]]"
+  },
+  "span_Languages": {
+    "class": "list-title ng-star-inserted",
+    "tag": "span",
+    "text": "Languages",
+    "xpath": "//kendo-expansionpanel[@class='k-expander ng-star-inserted']//span[contains(normalize-space(text()), 'Languages')]"
+  },
+  "span__218": {
+    "class": "k-expander-indicator",
+    "tag": "span",
+    "xpath": "//span[@class='k-expander-indicator']"
+  },
+  "kendo-icon-wrapper__219": {
+    "class": "k-icon-wrapper-host",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host']"
+  },
+  "kendo-svgicon__220": {
+    "class": "k-svg-i-caret-alt-down k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__221": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "div__223": {
+    "class": "k-expander-content-wrapper k-hidden",
+    "tag": "div",
+    "xpath": "//div[@class='k-expander-content-wrapper k-hidden']"
+  },
+  "div__224": {
+    "class": "k-expander-content",
+    "tag": "div",
+    "xpath": "//div[@class='k-expander-content']"
+  },
+  "div__225": {
+    "class": "content",
+    "tag": "div",
+    "xpath": "//div[@class='content']"
+  },
+  "kendo-expansionpanel_SiteLanguage": {
+    "class": "k-expander ng-star-inserted",
+    "tag": "kendo-expansionpanel",
+    "text": "Site Languages",
+    "xpath": "//kendo-expansionpanel[@class='k-expander ng-star-inserted'][.//span[contains(normalize-space(text()), 'Site Languages')]]"
+  },
+  "div_SiteLanguage": {
+    "class": "k-expander-header",
+    "tag": "div",
+    "text": "Site Languages",
+    "xpath": "//div[@class='k-expander-header'][.//span[contains(normalize-space(text()), 'Site Languages')]]"
+  },
+  "span_SiteLanguage": {
+    "class": "list-title ng-star-inserted",
+    "tag": "span",
+    "text": "Site Languages",
+    "xpath": "//kendo-expansionpanel[@class='k-expander ng-star-inserted']//span[contains(normalize-space(text()), 'Site Languages')]"
+  },
+  "span__229": {
+    "class": "k-expander-indicator",
+    "tag": "span",
+    "xpath": "//span[@class='k-expander-indicator']"
+  },
+  "kendo-icon-wrapper__230": {
+    "class": "k-icon-wrapper-host",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host']"
+  },
+  "kendo-svgicon__231": {
+    "class": "k-svg-i-caret-alt-down k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__232": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "div__234": {
+    "class": "k-expander-content-wrapper k-hidden",
+    "tag": "div",
+    "xpath": "//div[@class='k-expander-content-wrapper k-hidden']"
+  },
+  "div__235": {
+    "class": "k-expander-content",
+    "tag": "div",
+    "xpath": "//div[@class='k-expander-content']"
+  },
+  "div__236": {
+    "class": "content",
+    "tag": "div",
+    "xpath": "//div[@class='content']"
+  },
+  "kendo-expansionpanel_Observation": {
+    "class": "k-expander ng-star-inserted",
+    "tag": "kendo-expansionpanel",
+    "text": "Observation Types",
+    "xpath": "//kendo-expansionpanel[@class='k-expander ng-star-inserted'][.//span[contains(normalize-space(text()), 'Observation Types')]]"
+  },
+  "div_Observation": {
+    "class": "k-expander-header",
+    "tag": "div",
+    "text": "Observation Types",
+    "xpath": "//div[@class='k-expander-header'][.//span[contains(normalize-space(text()), 'Observation Types')]]"
+  },
+  "span_Observation": {
+    "class": "list-title ng-star-inserted",
+    "tag": "span",
+    "text": "Observation Types",
+    "xpath": "//kendo-expansionpanel[@class='k-expander ng-star-inserted']//span[contains(normalize-space(text()), 'Observation Types')]"
+  },
+  "span__241": {
+    "class": "k-expander-indicator",
+    "tag": "span",
+    "xpath": "//span[@class='k-expander-indicator']"
+  },
+  "kendo-icon-wrapper__242": {
+    "class": "k-icon-wrapper-host",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host']"
+  },
+  "kendo-svgicon__243": {
+    "class": "k-svg-i-caret-alt-down k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__244": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "div__246": {
+    "class": "k-expander-content-wrapper k-hidden",
+    "tag": "div",
+    "xpath": "//div[@class='k-expander-content-wrapper k-hidden']"
+  },
+  "div__247": {
+    "class": "k-expander-content",
+    "tag": "div",
+    "xpath": "//div[@class='k-expander-content']"
+  },
+  "div__248": {
+    "class": "content",
+    "tag": "div",
+    "xpath": "//div[@class='content']"
+  },
+  "kendo-expansionpanel_SideEffects": {
+    "class": "k-expander ng-star-inserted",
+    "tag": "kendo-expansionpanel",
+    "text": "Side Effects",
+    "xpath": "//kendo-expansionpanel[@class='k-expander ng-star-inserted'][.//span[contains(normalize-space(text()), 'Side Effects')]]"
+  },
+  "div_SideEffects": {
+    "class": "k-expander-header",
+    "tag": "div",
+    "text": "Side Effects",
+    "xpath": "//div[@class='k-expander-header'][.//span[contains(normalize-space(text()), 'Side Effects')]]"
+  },
+  "span_SideEffects": {
+    "class": "list-title ng-star-inserted",
+    "tag": "span",
+    "text": "Side Effects",
+    "xpath": "//kendo-expansionpanel[@class='k-expander ng-star-inserted']//span[contains(normalize-space(text()), 'Side Effects')]"
+  },
+  "span__253": {
+    "class": "k-expander-indicator",
+    "tag": "span",
+    "xpath": "//span[@class='k-expander-indicator']"
+  },
+  "kendo-icon-wrapper__254": {
+    "class": "k-icon-wrapper-host",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host']"
+  },
+  "kendo-svgicon__255": {
+    "class": "k-svg-i-caret-alt-down k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__256": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "div__258": {
+    "class": "k-expander-content-wrapper k-hidden",
+    "tag": "div",
+    "xpath": "//div[@class='k-expander-content-wrapper k-hidden']"
+  },
+  "div__259": {
+    "class": "k-expander-content",
+    "tag": "div",
+    "xpath": "//div[@class='k-expander-content']"
+  },
+  "div__260": {
+    "class": "content",
+    "tag": "div",
+    "xpath": "//div[@class='content']"
+  }
+}

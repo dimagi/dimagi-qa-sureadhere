@@ -1,0 +1,282 @@
+{
+  "body_Welcome! S_13": {
+    "tag": "body",
+    "text": "Welcome! Sign in Sign in with your social account Sign in with SSO OR Sign in with your email address Email Address Password Forgot your password? Sign in OR Dont have an account?Sign up now",
+    "xpath": "//body[contains(normalize-space(text()), 'Welcome!\nSign in\nSign in with your social account\nSign in with SSO\nOR\nSign in with your email address\nEmail Address\nPassword Forgot your password?\nSign in\nOR\nDon't have an account?Sign up now')]"
+  },
+  "no_cookie": {
+    "id": "no_cookie",
+    "class": "no_display",
+    "tag": "div",
+    "xpath": "//div[@id='no_cookie']"
+  },
+  "div__16": {
+    "class": "error_container",
+    "tag": "div",
+    "xpath": "//div[@class='error_container']"
+  },
+  "div__17": {
+    "tag": "div",
+    "xpath": "//div"
+  },
+  "h1__18": {
+    "tag": "h1",
+    "xpath": "//h1"
+  },
+  "p__19": {
+    "tag": "p",
+    "xpath": "//p"
+  },
+  "p__20": {
+    "tag": "p",
+    "xpath": "//p"
+  },
+  "div_Welcome! S_22": {
+    "class": "container unified_container",
+    "tag": "div",
+    "text": "Welcome! Sign in with SSO Email Address Password Forgot your password? Sign in",
+    "xpath": "//div[contains(normalize-space(text()), 'Welcome!\nSign in with SSO\nEmail Address\nPassword\nForgot your password?\nSign in')]"
+  },
+  "div_Welcome! S_23": {
+    "class": "row",
+    "tag": "div",
+    "text": "Welcome! Sign in with SSO Email Address Password Forgot your password? Sign in",
+    "xpath": "//div[contains(normalize-space(text()), 'Welcome!\nSign in with SSO\nEmail Address\nPassword\nForgot your password?\nSign in')]"
+  },
+  "div_Welcome! S_24": {
+    "class": "col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2",
+    "tag": "div",
+    "text": "Welcome! Sign in with SSO Email Address Password Forgot your password? Sign in",
+    "xpath": "//div[contains(normalize-space(text()), 'Welcome!\nSign in with SSO\nEmail Address\nPassword\nForgot your password?\nSign in')]"
+  },
+  "div_Welcome! S_25": {
+    "class": "panel panel-default",
+    "tag": "div",
+    "text": "Welcome! Sign in with SSO Email Address Password Forgot your password? Sign in",
+    "xpath": "//div[contains(normalize-space(text()), 'Welcome!\nSign in with SSO\nEmail Address\nPassword\nForgot your password?\nSign in')]"
+  },
+  "div__26": {
+    "class": "panel-header",
+    "tag": "div",
+    "xpath": "//div[@class='panel-header']"
+  },
+  "div__27": {
+    "class": "panel-header-logo",
+    "tag": "div",
+    "xpath": "//div[@class='panel-header-logo']"
+  },
+  "div_Welcome! S_28": {
+    "class": "panel-body",
+    "tag": "div",
+    "text": "Welcome! Sign in with SSO Email Address Password Forgot your password? Sign in",
+    "xpath": "//div[contains(normalize-space(text()), 'Welcome!\nSign in with SSO\nEmail Address\nPassword\nForgot your password?\nSign in')]"
+  },
+  "h1_Welcome!_29": {
+    "class": "text-center",
+    "tag": "h1",
+    "text": "Welcome!",
+    "xpath": "//h1[contains(normalize-space(text()), 'Welcome!')]"
+  },
+  "api": {
+    "id": "api",
+    "tag": "div",
+    "text": "Sign in with SSO Email Address Password Forgot your password? Sign in",
+    "xpath": "//div[@id='api']"
+  },
+  "div__31": {
+    "class": "heading",
+    "tag": "div",
+    "xpath": "//div[@class='heading']"
+  },
+  "h1__32": {
+    "tag": "h1",
+    "xpath": "//h1"
+  },
+  "div_Sign in wi_33": {
+    "aria-label": "Sign in with your social account",
+    "class": "claims-provider-list-buttons social",
+    "tag": "div",
+    "text": "Sign in with SSO",
+    "xpath": "//div[@aria-label='Sign in with your social account']"
+  },
+  "div__34": {
+    "class": "intro",
+    "tag": "div",
+    "xpath": "//div[@class='intro']"
+  },
+  "h2__35": {
+    "tag": "h2",
+    "xpath": "//h2"
+  },
+  "div_Sign in wi_36": {
+    "class": "options",
+    "tag": "div",
+    "text": "Sign in with SSO",
+    "xpath": "//div[contains(normalize-space(text()), 'Sign in with SSO')]"
+  },
+  "div_Sign in wi_37": {
+    "tag": "div",
+    "text": "Sign in with SSO",
+    "xpath": "//div[contains(normalize-space(text()), 'Sign in with SSO')]"
+  },
+  "SigninwithSSO": {
+    "id": "SigninwithSSO",
+    "class": "accountButton firstButton claims-provider-selection",
+    "type": "submit",
+    "tag": "button",
+    "text": "Sign in with SSO",
+    "xpath": "//button[@id='SigninwithSSO']"
+  },
+  "div__39": {
+    "class": "divider",
+    "tag": "div",
+    "xpath": "//div[@class='divider']"
+  },
+  "h2__40": {
+    "tag": "h2",
+    "xpath": "//h2"
+  },
+  "localAccountForm": {
+    "id": "localAccountForm",
+    "aria-label": "Sign in with your email address",
+    "class": "localAccount",
+    "tag": "form",
+    "text": "Email Address Password Forgot your password? Sign in",
+    "xpath": "//form[@id='localAccountForm']"
+  },
+  "div__42": {
+    "class": "intro",
+    "tag": "div",
+    "xpath": "//div[@class='intro']"
+  },
+  "h2__43": {
+    "tag": "h2",
+    "xpath": "//h2"
+  },
+  "div__44": {
+    "class": "error pageLevel",
+    "tag": "div",
+    "xpath": "//div[@class='error pageLevel']"
+  },
+  "p__45": {
+    "tag": "p",
+    "xpath": "//p"
+  },
+  "div_Email Addr_46": {
+    "class": "entry",
+    "tag": "div",
+    "text": "Email Address Password Forgot your password? Sign in",
+    "xpath": "//div[contains(normalize-space(text()), 'Email Address\nPassword\nForgot your password?\nSign in')]"
+  },
+  "div_Email Addr_47": {
+    "class": "entry-item",
+    "tag": "div",
+    "text": "Email Address",
+    "xpath": "//div[contains(normalize-space(text()), 'Email Address')]"
+  },
+  "label_Email Addr_48": {
+    "tag": "label",
+    "text": "Email Address",
+    "xpath": "//label[contains(normalize-space(text()), 'Email Address')]"
+  },
+  "div__49": {
+    "class": "error itemLevel",
+    "tag": "div",
+    "xpath": "//div[@class='error itemLevel']"
+  },
+  "p__50": {
+    "tag": "p",
+    "xpath": "//p"
+  },
+  "email": {
+    "id": "email",
+    "name": "Email Address",
+    "placeholder": "Email Address",
+    "aria-label": "Email Address",
+    "type": "email",
+    "tag": "input",
+    "xpath": "//input[@id='email']"
+  },
+  "div_Password F_52": {
+    "class": "entry-item",
+    "tag": "div",
+    "text": "Password Forgot your password?",
+    "xpath": "//div[contains(normalize-space(text()), 'Password\nForgot your password?')]"
+  },
+  "div_Password F_53": {
+    "class": "password-label",
+    "tag": "div",
+    "text": "Password Forgot your password?",
+    "xpath": "//div[contains(normalize-space(text()), 'Password\nForgot your password?')]"
+  },
+  "label_Password_54": {
+    "tag": "label",
+    "text": "Password",
+    "xpath": "//label[contains(normalize-space(text()), 'Password')]"
+  },
+  "forgotPassword": {
+    "id": "forgotPassword",
+    "tag": "a",
+    "text": "Forgot your password?",
+    "xpath": "//a[@id='forgotPassword']"
+  },
+  "div__56": {
+    "class": "error itemLevel",
+    "tag": "div",
+    "xpath": "//div[@class='error itemLevel']"
+  },
+  "p__57": {
+    "tag": "p",
+    "xpath": "//p"
+  },
+  "password": {
+    "id": "password",
+    "name": "Password",
+    "placeholder": "Password",
+    "aria-label": "Password",
+    "type": "password",
+    "tag": "input",
+    "xpath": "//input[@id='password']"
+  },
+  "div__59": {
+    "class": "working",
+    "tag": "div",
+    "xpath": "//div[@class='working']"
+  },
+  "div_Sign in_60": {
+    "class": "buttons",
+    "tag": "div",
+    "text": "Sign in",
+    "xpath": "//div[contains(normalize-space(text()), 'Sign in')]"
+  },
+  "next": {
+    "id": "next2",
+    "type": "submit",
+    "tag": "button",
+    "text": "Sign in",
+    "xpath": "//button[@id='next2']"
+  },
+  "div__62": {
+    "class": "divider",
+    "tag": "div",
+    "xpath": "//div[@class='divider']"
+  },
+  "h2__63": {
+    "tag": "h2",
+    "xpath": "//h2"
+  },
+  "div__64": {
+    "class": "create",
+    "tag": "div",
+    "xpath": "//div[@class='create']"
+  },
+  "p__65": {
+    "tag": "p",
+    "xpath": "//p"
+  },
+  "createAccount": {
+    "id": "createAccount",
+    "tag": "a",
+    "xpath": "//a[@id='createAccount']"
+  }
+}

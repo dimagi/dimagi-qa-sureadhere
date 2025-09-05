@@ -1,0 +1,241 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: SureAdhere Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to run tests against'
+        required: true
+        default: 'banner'
+        type: choice
+        options:
+          - banner
+
+concurrency:
+  group: sa-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  set_matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix-manual.outputs.matrix || steps.set-matrix-default.outputs.matrix }}
+    steps:
+      - id: set-matrix-manual
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: |
+          echo "::set-output name=matrix::{\"environment\": [\"${{ inputs.environment }}\"]}"
+      - id: set-matrix-default
+        if: ${{ !contains(github.event_name , 'dispatch') }}
+        run: |
+          echo "::set-output name=matrix::{\"environment\": [\"banner\"]}"
+          
+  build:
+    needs: set_matrix
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.set_matrix.outputs.matrix) }}
+    name: SA Tests on '${{ matrix.environment }}'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.13
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requires.txt
+      - name: SureAdhere Tests with pytest
+        env:
+          DIMAGIQA_URL: ${{ secrets.DIMAGIQA_URL }}
+          DIMAGIQA_LOGIN_USERNAME: ${{ secrets.DIMAGIQA_LOGIN_USERNAME }}
+          DIMAGIQA_LOGIN_PASSWORD: ${{ secrets.DIMAGIQA_LOGIN_PASSWORD }}
+          DIMAGIQA_ADMIN_USERNAME: ${{ secrets.DIMAGIQA_ADMIN_USERNAME }}
+          DIMAGIQA_ADMIN_PASSWORD: ${{ secrets.DIMAGIQA_ADMIN_PASSWORD }}
+          DIMAGIQA_BS_USER: ${{ secrets.DIMAGIQA_BS_USER }}
+          DIMAGIQA_BS_KEY: ${{ secrets.DIMAGIQA_BS_KEY }}
+
+        run: |
+          echo "client_payload: ${{ toJson(github.event.client_payload) }}"
+          echo "matrix environment: ${{ matrix.environment }}"
+          echo "NOW=$(date +'%m-%d %H:%M')" >> $GITHUB_ENV
+          echo ${{env.NOW}}
+          echo ${{env.DIMAGIQA_ENV}}
+          google-chrome --version || true
+          pytest -v testCases \
+            --browser=chrome --headless --headless2 \
+            --timeout=60 --reruns 1 --maxfail=1 \
+            --dashboard --html=report.html
+
+      - name: Parse test counts
+        id: parse_counts
+        if: always()
+        run: |
+          # Extract variables from the api_test_counts.txt file
+          while IFS= read -r line; do
+            echo "::set-output name=${line%=*}::${line#*=}"
+          done < sa_test_counts_${{ matrix.environment }}.txt
+
+#      - name: Archive test results
+#        id: artifact-upload-step
+#        if: ${{ success() || failure() }}
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: test-result-reports-${{ matrix.environment }}-${{ github.run_id }}
+#          path: /home/runner/work/dimagi-sa/dimagi-sa/cleanup_report_${{ matrix.environment }}.html
+#          retention-days: 2
+
+      - name: Upload reports & logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbase-artifacts
+          path: |
+            report.html
+            latest_logs/**
+            dashboard.html
+
+#      - name: Post to Slack channel on Failure
+#        id: slack_fail
+#        uses: slackapi/slack-github-action@v1.23.0
+#        if: failure()
+#        with:
+#          payload: |
+#            {
+#            	"attachments": [
+#            		{
+#            			"color": "#FF0000",
+#            			"blocks": [
+#            				{
+#            					"type": "section",
+#            					"text": {
+#            						"type": "mrkdwn",
+#            						"text": " Konnichiwa :bye_boo: \n*${{ github.workflow }}* were just triggered! \n"
+#            					}
+#            				},
+#            				{
+#            					"type": "section",
+#            					"text": {
+#            						"type": "mrkdwn",
+#            						"text": "*Passed:* ${{ steps.parse_counts.outputs.PASSED }} *Failed:* ${{ steps.parse_counts.outputs.FAILED }} *Error:* ${{ steps.parse_counts.outputs.ERROR }} *Skipped:* ${{ steps.parse_counts.outputs.SKIPPED }} *XFail:* ${{ steps.parse_counts.outputs.XFAIL }}\n"
+#            					}
+#            				},
+#            				{
+#            					"type": "context",
+#            					"elements": [
+#            						{
+#            							"type": "mrkdwn",
+#            							"text": "*Environment: *\n ${{ matrix.environment }}  \n"
+#            						},
+#            						{
+#            							"type": "mrkdwn",
+#            							"text": " "
+#            						},
+#            						{
+#            							"type": "mrkdwn",
+#            							"text": "*Status: *\n ${{ job.status }}  :x:"
+#            						}
+#            					]
+#            				},
+#            				{
+#            					"type": "section",
+#            					"text": {
+#            						"type": "mrkdwn",
+#            						"text": "Here's the corresponding report :arrow_right::arrow_right:"
+#            					},
+#            					"accessory": {
+#            						"type": "button",
+#            						"text": {
+#            							"type": "plain_text",
+#            							"text": "Click to Downlaod",
+#            							"emoji": true
+#            						},
+#            						"value": "click_me_123",
+#            						"url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}",
+#            						"action_id": "button-action",
+#            						"style": "danger"
+#            					}
+#            				}
+#            			]
+#            		}
+#            	]
+#            }
+#        env:
+#          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_BHA }}
+#          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+#
+#      - name: Post to Slack channel on Success
+#        id: slack_pass
+#        uses: slackapi/slack-github-action@v1.23.0
+#        if: success()
+#        with:
+#          payload: |
+#            {
+#            	"attachments": [
+#            		{
+#            			"color": "#36a64f",
+#            			"blocks": [
+#            				{
+#            					"type": "section",
+#            					"text": {
+#            						"type": "mrkdwn",
+#            						"text": " Konnichiwa :bye_boo: \n*${{ github.workflow }}* were just triggered! \n"
+#            					}
+#            				},
+#            				{
+#            					"type": "section",
+#            					"text": {
+#            						"type": "mrkdwn",
+#            						"text": "*Passed:* ${{ steps.parse_counts.outputs.PASSED }} *Failed:* ${{ steps.parse_counts.outputs.FAILED }} *Error:* ${{ steps.parse_counts.outputs.ERROR }} *Skipped:* ${{ steps.parse_counts.outputs.SKIPPED }} *XFail:* ${{ steps.parse_counts.outputs.XFAIL }}\n"
+#            					}
+#            				},
+#            				{
+#            					"type": "context",
+#            					"elements": [
+#            						{
+#            							"type": "mrkdwn",
+#            							"text": "*Environment: *\n ${{ matrix.environment }}  \n"
+#            						},
+#            						{
+#            							"type": "mrkdwn",
+#            							"text": " "
+#            						},
+#            						{
+#            							"type": "mrkdwn",
+#            							"text": "*Status: *\n ${{ job.status }}  :white_check_mark:"
+#            						}
+#            					]
+#            				},
+#            				{
+#            					"type": "section",
+#            					"text": {
+#            						"type": "mrkdwn",
+#            						"text": "Here's the corresponding report :arrow_right::arrow_right:"
+#            					},
+#            					"accessory": {
+#            						"type": "button",
+#            						"text": {
+#            							"type": "plain_text",
+#            							"text": "Click to Download",
+#            							"emoji": true
+#            						},
+#            						"value": "click_me_123",
+#            						"url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}",
+#            						"action_id": "button-action",
+#            						"style": "primary"
+#            					}
+#            				}
+#            			]
+#            		}
+#            	]
+#            }
+#
+#        env:
+#          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_BHA }}
+#          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK

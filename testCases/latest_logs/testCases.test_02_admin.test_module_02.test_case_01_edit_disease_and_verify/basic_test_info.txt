@@ -1,0 +1,17 @@
+testCases/test_02_admin.py::test_module_02::test_case_01_edit_disease_and_verify
+--------------------------------------------------------------------
+Last Page: https://banner.sureadherelabs.com/adherence/7509
+ Duration: 352.06s
+  Browser: Chrome 139.0.7258.155
+   Driver: chromedriver 139.0.7258.68
+Timestamp: 1757001571  (Unix Timestamp)
+     Date: Thursday, 4 September 2025
+     Time: 9:29:31 PM  (India Standard Time, UTC+05:30)
+--------------------------------------------------------------------
+Traceback:
+  File "C:\Users\dsi-user\PycharmProjects\dimagi-sa\testCases\test_02_admin.py", line 79, in test_case_01_edit_disease_and_verify
+    p_regimen.verify_diseases_present(disease_name, disease_switch_now)
+  File "C:\Users\dsi-user\PycharmProjects\dimagi-sa\testPages\patient_tab_pages\patient_regimen_page.py", line 158, in verify_diseases_present
+    assert name in values, f"The disease {name} is not present in the disease dropdown list {values}"
+           ^^^^^^^^^^^^^^
+Exception: The disease Hepatitis C is not present in the disease dropdown list ['Active TB', 'HIV', 'Latent TB', 'Opioid use disorder', 'Directly Observed Preventative Treatment', 'TB/HIV Co-infection', 'Diabetes', 'Acne', 'COVID-19']

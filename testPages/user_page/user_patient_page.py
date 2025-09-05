@@ -1,0 +1,45 @@
+import time
+
+from common_utilities.base_page import BasePage
+from common_utilities.generate_random_string import fetch_random_string, fetch_random_digit
+from user_inputs.user_data import UserData
+
+
+class UserPatientPage(BasePage):
+    first_name_text = "pat_fn_" + fetch_random_string()
+    last_name_text = "pat_ln_" + fetch_random_string()
+    email = "pat_"+fetch_random_string() + "@testmail.com"
+    mrn = "mrn_"+fetch_random_digit()
+    username = "user_"+fetch_random_string()
+
+    def __init__(self, sb, page_name):
+        super().__init__(sb, page_name=page_name)
+
+
+    def fill_patient_form(self, site):
+        self.wait_for_page_to_load()
+        self.wait_for_element('first_name')
+        self.wait_for_element('button_SAVE')
+        self.type('first_name', self.first_name_text)
+        self.type('last_name', self.last_name_text)
+        self.type('mrn', self.mrn)
+        self.type('email', self.email)
+        self.type('phone_number', UserData.phone_number)
+        self.type('user_name', self.username)
+
+        site_text = self.kendo_dd_get_selected_text('kendo-dropdownlist-site')
+        print(site_text, site)
+        phn_country_text = self.kendo_dd_get_selected_text('kendo-dropdownlist-phone-country')
+        print(site_text, phn_country_text)
+
+        assert site_text == site
+
+
+        self.click('button_SAVE')
+        self.wait_for_invisible('button_SAVE')
+
+        print(f"Patient Created: {self.first_name_text}, {self.last_name_text}, {self.mrn},{self.email}, {self.username}, {UserData.phone_number}, {phn_country_text}")
+        return self.first_name_text, self.last_name_text, self.mrn, self.email, self.username, UserData.phone_number, phn_country_text
+
+
+

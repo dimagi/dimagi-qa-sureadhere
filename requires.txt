@@ -1,0 +1,16 @@
+## Stores information about all the libraries, modules, and packages that are used in this project.
+
+seleniumbase
+flake8
+pandas
+openpyxl
+matplotlib
+pytest-json-report
+pytest-order
+Appium-Python-Client
+pyotp
+imap-tools
+beautifulsoup4
+html5lib
+joblib
+scikit-learn

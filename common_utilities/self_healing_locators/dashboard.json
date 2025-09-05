@@ -1,0 +1,1710 @@
+{
+  "html_Client_Tes_0": {
+    "tag": "html",
+    "text": "Client_Test_1_US happy bday. have a nice day. Dashboard Patients Staff Reports Admin Dashboard Adherence for doses in the last 7 days Recent Videos No recent videos to display. Dose summary: Last 7 days 0 Open 0 Taken 0 Missed 0 Unknown 0 0.2 0.4 0.6 0.8 1 1.2 New patient videos (0) New messages (0) Todays virtual visits (0) Urgent follow-Up needed (0) Open doses (0) Patient Recorded Uploaded Patient manager Treatment monitor 0 - NaN of items @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//html[contains(normalize-space(text()), 'Client_Test_1_US\nhappy bday. have a nice day.\nDashboard\nPatients\nStaff\nReports\nAdmin\nDashboard\nAdherence\nfor doses in the last 7 days\nRecent Videos\nNo recent videos to display.\nDose summary:\nLast 7 days\n0\nOpen\n0\nTaken\n0\nMissed\n0\nUnknown\n0\n0.2\n0.4\n0.6\n0.8\n1\n1.2\nNew patient videos (0)\nNew messages (0)\nToday's virtual visits (0)\nUrgent follow-Up needed (0)\nOpen doses (0)\nPatient\nRecorded\nUploaded\nPatient manager\nTreatment monitor\n0 - NaN of items\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "body_Client_Tes_28": {
+    "class": "pace-running pace-running pace-running ng-tns-0-0",
+    "tag": "body",
+    "text": "Client_Test_1_US happy bday. have a nice day. Dashboard Patients Staff Reports Admin Dashboard Adherence for doses in the last 7 days Recent Videos No recent videos to display. Dose summary: Last 7 days 0 Open 0 Taken 0 Missed 0 Unknown 0 0.2 0.4 0.6 0.8 1 1.2 New patient videos (0) New messages (0) Todays virtual visits (0) Urgent follow-Up needed (0) Open doses (0) Patient Recorded Uploaded Patient manager Treatment monitor 0 - NaN of items @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//body[contains(normalize-space(text()), 'Client_Test_1_US\nhappy bday. have a nice day.\nDashboard\nPatients\nStaff\nReports\nAdmin\nDashboard\nAdherence\nfor doses in the last 7 days\nRecent Videos\nNo recent videos to display.\nDose summary:\nLast 7 days\n0\nOpen\n0\nTaken\n0\nMissed\n0\nUnknown\n0\n0.2\n0.4\n0.6\n0.8\n1\n1.2\nNew patient videos (0)\nNew messages (0)\nToday's virtual visits (0)\nUrgent follow-Up needed (0)\nOpen doses (0)\nPatient\nRecorded\nUploaded\nPatient manager\nTreatment monitor\n0 - NaN of items\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div__29": {
+    "class": "pace pace-active",
+    "tag": "div",
+    "xpath": "//div[@class='pace pace-active']"
+  },
+  "div__30": {
+    "class": "pace-progress",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress']"
+  },
+  "div__31": {
+    "class": "pace-progress-inner",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress-inner']"
+  },
+  "div__32": {
+    "class": "pace-activity",
+    "tag": "div",
+    "xpath": "//div[@class='pace-activity']"
+  },
+  "app_Client_Tes_33": {
+    "tag": "app",
+    "text": "Client_Test_1_US happy bday. have a nice day. Dashboard Patients Staff Reports Admin Dashboard Adherence for doses in the last 7 days Recent Videos No recent videos to display. Dose summary: Last 7 days 0 Open 0 Taken 0 Missed 0 Unknown 0 0.2 0.4 0.6 0.8 1 1.2 New patient videos (0) New messages (0) Todays virtual visits (0) Urgent follow-Up needed (0) Open doses (0) Patient Recorded Uploaded Patient manager Treatment monitor 0 - NaN of items @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//app[contains(normalize-space(text()), 'Client_Test_1_US\nhappy bday. have a nice day.\nDashboard\nPatients\nStaff\nReports\nAdmin\nDashboard\nAdherence\nfor doses in the last 7 days\n3.13%\nRecent Videos\nNo recent videos to display.\nDose summary: Today\nLast 7 days\n23\nOpen\n0\nTaken\n0\nMissed\n0\nUnknown\nSat\nAug 9\nSun\nAug 10\nMon\nAug 11\nTue\nAug 12\nWed\nAug 13\nYesterday\nToday\n0\n5\n10\n15\n20\n25\n30\nNew patient videos (58)\nNew messages (16)\nToday's virtual visits (0)\nUrgent follow-Up needed (50)\nOpen doses (52)\nPatient\nRecorded\nUploaded\nPatient manager\nTreatment monitor\n232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM\n1\n2\n3\n4\n5\n6\n1 - 10 of 58 items\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_Client_Tes_34": {
+    "class": "custom-toolbar",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "div__35": {
+    "class": "logo",
+    "tag": "div",
+    "xpath": "//div[@class='logo']"
+  },
+  "div_Client_Tes_36": {
+    "class": "client-name d-none d-md-inline-flex",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "span__37": {
+    "class": "right-navbar",
+    "tag": "span",
+    "xpath": "//span[@class='right-navbar']"
+  },
+  "client-header__38": {
+    "tag": "client-header",
+    "xpath": "//client-header"
+  },
+  "div__39": {
+    "class": "header-actions",
+    "tag": "div",
+    "xpath": "//div[@class='header-actions']"
+  },
+  "button_add_user": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat ng-star-inserted",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat ng-star-inserted']"
+  },
+  "span__41": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon_add_user": {
+    "class": "ng-fa-icon toolbar-icon text-success",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-success']"
+  },
+  "svg_add_user": {
+    "class": "svg-inline--fa fa-user-plus",
+    "data-icon": "user-plus",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-plus']"
+  },
+  "path__44": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__45": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat']"
+  },
+  "span__46": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__47": {
+    "class": "ng-fa-icon toolbar-icon text-warning",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-warning']"
+  },
+  "svg__48": {
+    "class": "svg-inline--fa fa-circle-question",
+    "data-icon": "circle-question",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-question']"
+  },
+  "path__49": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button_user_profile": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat'][.//*[contains(@class,'circle-user')]]"
+  },
+  "span__51": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__52": {
+    "class": "ng-fa-icon toolbar-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon']"
+  },
+  "svg__53": {
+    "class": "svg-inline--fa fa-circle-user",
+    "data-icon": "circle-user",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-user']"
+  },
+  "path__54": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "div_happy bday_55": {
+    "class": "banner-wrapper ng-star-inserted",
+    "tag": "div",
+    "text": "happy bday. have a nice day.",
+    "xpath": "//div[contains(normalize-space(text()), 'happy bday. have a nice day.')]"
+  },
+  "div_happy bday_56": {
+    "class": "alert alert-dismissible full-width-banner",
+    "tag": "div",
+    "text": "happy bday. have a nice day.",
+    "xpath": "//div[contains(normalize-space(text()), 'happy bday. have a nice day.')]"
+  },
+  "div_happy bday_57": {
+    "class": "white-links",
+    "tag": "div",
+    "text": "happy bday. have a nice day.",
+    "xpath": "//div[contains(normalize-space(text()), 'happy bday. have a nice day.')]"
+  },
+  "p_happy bday_58": {
+    "tag": "p",
+    "text": "happy bday. have a nice day.",
+    "xpath": "//p[contains(normalize-space(text()), 'happy bday. have a nice day.')]"
+  },
+  "button__59": {
+    "aria-label": "Close",
+    "class": "btn-close",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Close']"
+  },
+  "kendo-drawer-container_Dashboard _60": {
+    "class": "k-drawer-container k-drawer-mini k-drawer-push",
+    "tag": "kendo-drawer-container",
+    "text": "Dashboard Patients Staff Reports Admin Dashboard Adherence for doses in the last 7 days 3.13% Recent Videos No recent videos to display. Dose summary: Today Last 7 days 23 Open 0 Taken 0 Missed 0 Unknown Sat Aug 9 Sun Aug 10 Mon Aug 11 Tue Aug 12 Wed Aug 13 Yesterday Today 0 5 10 15 20 25 30 New patient videos (58) New messages (16) Todays virtual visits (0) Urgent follow-Up needed (50) Open doses (52) Patient Recorded Uploaded Patient manager Treatment monitor 232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM 1 2 3 4 5 6 1 - 10 of 58 items @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//kendo-drawer-container[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin\nDashboard\nAdherence\nfor doses in the last 7 days\n3.13%\nRecent Videos\nNo recent videos to display.\nDose summary: Today\nLast 7 days\n23\nOpen\n0\nTaken\n0\nMissed\n0\nUnknown\nSat\nAug 9\nSun\nAug 10\nMon\nAug 11\nTue\nAug 12\nWed\nAug 13\nYesterday\nToday\n0\n5\n10\n15\n20\n25\n30\nNew patient videos (58)\nNew messages (16)\nToday's virtual visits (0)\nUrgent follow-Up needed (50)\nOpen doses (52)\nPatient\nRecorded\nUploaded\nPatient manager\nTreatment monitor\n232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM\n1\n2\n3\n4\n5\n6\n1 - 10 of 58 items\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "kendo-drawer_Dashboard _61": {
+    "class": "border-0 k-drawer k-drawer-start",
+    "tag": "kendo-drawer",
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//kendo-drawer[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "div_Dashboard _62": {
+    "class": "k-drawer-wrapper",
+    "tag": "div",
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "ul_Dashboard _63": {
+    "class": "k-drawer-items",
+    "tag": "ul",
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//ul[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "li_Dashboard_64": {
+    "class": "k-drawer-item k-selected",
+    "tag": "li",
+    "text": "Dashboard",
+    "xpath": "//li[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "div_Dashboard_65": {
+    "tag": "div",
+    "text": "Dashboard",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "fa-icon__66": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__67": {
+    "class": "svg-inline--fa fa-house",
+    "data-icon": "house",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-house']"
+  },
+  "path__68": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Dashboard": {
+    "tag": "p",
+    "text": "Dashboard",
+    "xpath": "//p[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "li_Patients": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Patients",
+    "xpath": "//li[contains(normalize-space(text()), 'Patients')]"
+  },
+  "div_Patients": {
+    "tag": "div",
+    "text": "Patients",
+    "xpath": "//div[contains(normalize-space(text()), 'Patients')]"
+  },
+  "fa-icon__72": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__73": {
+    "class": "svg-inline--fa fa-user-large",
+    "data-icon": "user-large",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-large']"
+  },
+  "path__74": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Patients": {
+    "tag": "p",
+    "text": "Patients",
+    "xpath": "//p[contains(normalize-space(text()), 'Patients')]"
+  },
+  "li_Staff": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Staff",
+    "xpath": "//li[contains(normalize-space(text()), 'Staff')]"
+  },
+  "div_Staff": {
+    "tag": "div",
+    "text": "Staff",
+    "xpath": "//div[contains(normalize-space(text()), 'Staff')]"
+  },
+  "fa-icon__78": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__79": {
+    "class": "svg-inline--fa fa-user-nurse",
+    "data-icon": "user-nurse",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-nurse']"
+  },
+  "path__80": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Staff": {
+    "tag": "p",
+    "text": "Staff",
+    "xpath": "//p[contains(normalize-space(text()), 'Staff')]"
+  },
+  "li_Reports_82": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Reports",
+    "xpath": "//li[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div_Reports_83": {
+    "tag": "div",
+    "text": "Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
+  },
+  "fa-icon__84": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__85": {
+    "class": "svg-inline--fa fa-file-waveform",
+    "data-icon": "file-waveform",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-file-waveform']"
+  },
+  "path__86": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Reports_87": {
+    "tag": "p",
+    "text": "Reports",
+    "xpath": "//p[contains(normalize-space(text()), 'Reports')]"
+  },
+  "li_Admin_88": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Admin",
+    "xpath": "//li[contains(normalize-space(text()), 'Admin')]"
+  },
+  "div_Admin_89": {
+    "tag": "div",
+    "text": "Admin",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin')]"
+  },
+  "fa-icon__90": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__91": {
+    "class": "svg-inline--fa fa-gear",
+    "data-icon": "gear",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-gear']"
+  },
+  "path__92": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Admin": {
+    "tag": "p",
+    "text": "Admin",
+    "xpath": "//p[contains(normalize-space(text()), 'Admin')]"
+  },
+  "kendo-drawer-content_Dashboard _94": {
+    "class": "k-drawer-content",
+    "tag": "kendo-drawer-content",
+    "text": "Dashboard Adherence for doses in the last 7 days 3.13% Recent Videos No recent videos to display. Dose summary: Today Last 7 days 23 Open 0 Taken 0 Missed 0 Unknown Sat Aug 9 Sun Aug 10 Mon Aug 11 Tue Aug 12 Wed Aug 13 Yesterday Today 0 5 10 15 20 25 30 New patient videos (58) New messages (16) Todays virtual visits (0) Urgent follow-Up needed (50) Open doses (52) Patient Recorded Uploaded Patient manager Treatment monitor 232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM 1 2 3 4 5 6 1 - 10 of 58 items @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//kendo-drawer-content[contains(normalize-space(text()), 'Dashboard\nAdherence\nfor doses in the last 7 days\n3.13%\nRecent Videos\nNo recent videos to display.\nDose summary: Today\nLast 7 days\n23\nOpen\n0\nTaken\n0\nMissed\n0\nUnknown\nSat\nAug 9\nSun\nAug 10\nMon\nAug 11\nTue\nAug 12\nWed\nAug 13\nYesterday\nToday\n0\n5\n10\n15\n20\n25\n30\nNew patient videos (58)\nNew messages (16)\nToday's virtual visits (0)\nUrgent follow-Up needed (50)\nOpen doses (52)\nPatient\nRecorded\nUploaded\nPatient manager\nTreatment monitor\n232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM\n1\n2\n3\n4\n5\n6\n1 - 10 of 58 items\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "dashboard_Dashboard _96": {
+    "class": "ng-star-inserted",
+    "tag": "dashboard",
+    "text": "Dashboard Adherence for doses in the last 7 days 3.13% Recent Videos No recent videos to display. Dose summary: Today Last 7 days 23 Open 0 Taken 0 Missed 0 Unknown Sat Aug 9 Sun Aug 10 Mon Aug 11 Tue Aug 12 Wed Aug 13 Yesterday Today 0 5 10 15 20 25 30 New patient videos (58) New messages (16) Todays virtual visits (0) Urgent follow-Up needed (50) Open doses (52) Patient Recorded Uploaded Patient manager Treatment monitor 232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM 1 2 3 4 5 6 1 - 10 of 58 items @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//dashboard[contains(normalize-space(text()), 'Dashboard\nAdherence\nfor doses in the last 7 days\n3.13%\nRecent Videos\nNo recent videos to display.\nDose summary: Today\nLast 7 days\n23\nOpen\n0\nTaken\n0\nMissed\n0\nUnknown\nSat\nAug 9\nSun\nAug 10\nMon\nAug 11\nTue\nAug 12\nWed\nAug 13\nYesterday\nToday\n0\n5\n10\n15\n20\n25\n30\nNew patient videos (58)\nNew messages (16)\nToday's virtual visits (0)\nUrgent follow-Up needed (50)\nOpen doses (52)\nPatient\nRecorded\nUploaded\nPatient manager\nTreatment monitor\n232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM\n1\n2\n3\n4\n5\n6\n1 - 10 of 58 items\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "sidebar-filter_Dashboard _97": {
+    "class": "dashboard",
+    "tag": "sidebar-filter",
+    "text": "Dashboard Adherence for doses in the last 7 days 3.13% Recent Videos No recent videos to display. Dose summary: Today Last 7 days 23 Open 0 Taken 0 Missed 0 Unknown Sat Aug 9 Sun Aug 10 Mon Aug 11 Tue Aug 12 Wed Aug 13 Yesterday Today 0 5 10 15 20 25 30 New patient videos (58) New messages (16) Todays virtual visits (0) Urgent follow-Up needed (50) Open doses (52) Patient Recorded Uploaded Patient manager Treatment monitor 232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM 1 2 3 4 5 6 1 - 10 of 58 items @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//sidebar-filter[contains(normalize-space(text()), 'Dashboard\nAdherence\nfor doses in the last 7 days\n3.13%\nRecent Videos\nNo recent videos to display.\nDose summary: Today\nLast 7 days\n23\nOpen\n0\nTaken\n0\nMissed\n0\nUnknown\nSat\nAug 9\nSun\nAug 10\nMon\nAug 11\nTue\nAug 12\nWed\nAug 13\nYesterday\nToday\n0\n5\n10\n15\n20\n25\n30\nNew patient videos (58)\nNew messages (16)\nToday's virtual visits (0)\nUrgent follow-Up needed (50)\nOpen doses (52)\nPatient\nRecorded\nUploaded\nPatient manager\nTreatment monitor\n232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM\n1\n2\n3\n4\n5\n6\n1 - 10 of 58 items\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "main_Dashboard _98": {
+    "class": "main",
+    "tag": "main",
+    "text": "Dashboard Adherence for doses in the last 7 days 3.13% Recent Videos No recent videos to display. Dose summary: Today Last 7 days 23 Open 0 Taken 0 Missed 0 Unknown Sat Aug 9 Sun Aug 10 Mon Aug 11 Tue Aug 12 Wed Aug 13 Yesterday Today 0 5 10 15 20 25 30 New patient videos (58) New messages (16) Todays virtual visits (0) Urgent follow-Up needed (50) Open doses (52) Patient Recorded Uploaded Patient manager Treatment monitor 232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM 1 2 3 4 5 6 1 - 10 of 58 items @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//main[contains(normalize-space(text()), 'Dashboard\nAdherence\nfor doses in the last 7 days\n3.13%\nRecent Videos\nNo recent videos to display.\nDose summary: Today\nLast 7 days\n23\nOpen\n0\nTaken\n0\nMissed\n0\nUnknown\nSat\nAug 9\nSun\nAug 10\nMon\nAug 11\nTue\nAug 12\nWed\nAug 13\nYesterday\nToday\n0\n5\n10\n15\n20\n25\n30\nNew patient videos (58)\nNew messages (16)\nToday's virtual visits (0)\nUrgent follow-Up needed (50)\nOpen doses (52)\nPatient\nRecorded\nUploaded\nPatient manager\nTreatment monitor\n232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM\n1\n2\n3\n4\n5\n6\n1 - 10 of 58 items\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "ng-sidebar-container_Dashboard _99": {
+    "class": "wrapper-with-sidebar",
+    "tag": "ng-sidebar-container",
+    "text": "Dashboard Adherence for doses in the last 7 days 3.13% Recent Videos No recent videos to display. Dose summary: Today Last 7 days 23 Open 0 Taken 0 Missed 0 Unknown Sat Aug 9 Sun Aug 10 Mon Aug 11 Tue Aug 12 Wed Aug 13 Yesterday Today 0 5 10 15 20 25 30 New patient videos (58) New messages (16) Todays virtual visits (0) Urgent follow-Up needed (50) Open doses (52) Patient Recorded Uploaded Patient manager Treatment monitor 232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM 1 2 3 4 5 6 1 - 10 of 58 items @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//ng-sidebar-container[contains(normalize-space(text()), 'Dashboard\nAdherence\nfor doses in the last 7 days\n3.13%\nRecent Videos\nNo recent videos to display.\nDose summary: Today\nLast 7 days\n23\nOpen\n0\nTaken\n0\nMissed\n0\nUnknown\nSat\nAug 9\nSun\nAug 10\nMon\nAug 11\nTue\nAug 12\nWed\nAug 13\nYesterday\nToday\n0\n5\n10\n15\n20\n25\n30\nNew patient videos (58)\nNew messages (16)\nToday's virtual visits (0)\nUrgent follow-Up needed (50)\nOpen doses (52)\nPatient\nRecorded\nUploaded\nPatient manager\nTreatment monitor\n232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM\n1\n2\n3\n4\n5\n6\n1 - 10 of 58 items\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "ng-sidebar__100": {
+    "tag": "ng-sidebar",
+    "xpath": "//ng-sidebar"
+  },
+  "aside__101": {
+    "class": "ng-sidebar--inert ng-sidebar ng-sidebar--closed ng-sidebar--right ng-sidebar--push",
+    "tag": "aside",
+    "xpath": "//aside[@class='ng-sidebar--inert ng-sidebar ng-sidebar--closed ng-sidebar--right ng-sidebar--push']"
+  },
+  "div__102": {
+    "class": "clear-filters",
+    "tag": "div",
+    "xpath": "//div[@class='clear-filters']"
+  },
+  "div__103": {
+    "class": "close-filterbar",
+    "tag": "div",
+    "xpath": "//div[@class='close-filterbar']"
+  },
+  "span__104": {
+    "class": "icon-close2 position-relative",
+    "tag": "span",
+    "xpath": "//span[@class='icon-close2 position-relative']"
+  },
+  "div__105": {
+    "class": "header-filterbar",
+    "tag": "div",
+    "xpath": "//div[@class='header-filterbar']"
+  },
+  "div__106": {
+    "class": "sidebar-filter",
+    "tag": "div",
+    "xpath": "//div[@class='sidebar-filter']"
+  },
+  "kendo-panelbar__107": {
+    "class": "k-panelbar k-pos-relative",
+    "tag": "kendo-panelbar",
+    "xpath": "//kendo-panelbar[@class='k-panelbar k-pos-relative']"
+  },
+  "k-panelbar-0-item-sites": {
+    "id": "k-panelbar-0-item-sites",
+    "class": "ng-tns-c3003368627-1 k-level-0 k-panelbar-item k-state-default k-expanded k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-0-item-sites']"
+  },
+  "span__109": {
+    "class": "ng-tns-c3003368627-1 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-1 k-link']"
+  },
+  "span__110": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-1 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-1 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__111": {
+    "class": "ng-tns-c3003368627-1 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-1 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__112": {
+    "class": "k-svg-i-chevron-up k-panelbar-toggle k-panelbar-collapse k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-up k-panelbar-toggle k-panelbar-collapse k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__113": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "div__115": {
+    "class": "ng-tns-c3003368627-1 ng-trigger ng-trigger-toggle ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='ng-tns-c3003368627-1 ng-trigger ng-trigger-toggle ng-star-inserted']"
+  },
+  "div__116": {
+    "class": "k-content k-panelbar-content ng-tns-c3003368627-1 ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='k-content k-panelbar-content ng-tns-c3003368627-1 ng-star-inserted']"
+  },
+  "sites_bar": {
+    "id": "sites_bar",
+    "class": "ng-star-inserted",
+    "tag": "ul",
+    "xpath": "//ul[@id='sites_bar']"
+  },
+  "k-panelbar-0-item-treatment_monitors": {
+    "id": "k-panelbar-0-item-treatment_monitors",
+    "class": "ng-tns-c3003368627-3 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-0-item-treatment_monitors']"
+  },
+  "span__120": {
+    "class": "ng-tns-c3003368627-3 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-3 k-link']"
+  },
+  "span__121": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-3 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-3 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__122": {
+    "class": "ng-tns-c3003368627-3 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-3 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__123": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__124": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "k-panelbar-0-item-patient_managers": {
+    "id": "k-panelbar-0-item-patient_managers",
+    "class": "ng-tns-c3003368627-4 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-0-item-patient_managers']"
+  },
+  "span__127": {
+    "class": "ng-tns-c3003368627-4 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-4 k-link']"
+  },
+  "span__128": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-4 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-4 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__129": {
+    "class": "ng-tns-c3003368627-4 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-4 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__130": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__131": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "k-panelbar-0-item-diseases": {
+    "id": "k-panelbar-0-item-diseases",
+    "class": "ng-tns-c3003368627-5 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-0-item-diseases']"
+  },
+  "span__134": {
+    "class": "ng-tns-c3003368627-5 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-5 k-link']"
+  },
+  "span__135": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-5 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-5 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__136": {
+    "class": "ng-tns-c3003368627-5 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-5 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__137": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__138": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "k-panelbar-0-item-observation_types": {
+    "id": "k-panelbar-0-item-observation_types",
+    "class": "ng-tns-c3003368627-6 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-0-item-observation_types']"
+  },
+  "span__141": {
+    "class": "ng-tns-c3003368627-6 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-6 k-link']"
+  },
+  "span__142": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-6 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-6 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__143": {
+    "class": "ng-tns-c3003368627-6 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-6 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__144": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__145": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "div_Dashboard _147": {
+    "class": "ng-sidebar__content ng-sidebar__content--animate",
+    "tag": "div",
+    "text": "Dashboard Adherence for doses in the last 7 days 3.13% Recent Videos No recent videos to display. Dose summary: Today Last 7 days 23 Open 0 Taken 0 Missed 0 Unknown Sat Aug 9 Sun Aug 10 Mon Aug 11 Tue Aug 12 Wed Aug 13 Yesterday Today 0 5 10 15 20 25 30 New patient videos (58) New messages (16) Todays virtual visits (0) Urgent follow-Up needed (50) Open doses (52) Patient Recorded Uploaded Patient manager Treatment monitor 232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM 1 2 3 4 5 6 1 - 10 of 58 items @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard\nAdherence\nfor doses in the last 7 days\n3.13%\nRecent Videos\nNo recent videos to display.\nDose summary: Today\nLast 7 days\n23\nOpen\n0\nTaken\n0\nMissed\n0\nUnknown\nSat\nAug 9\nSun\nAug 10\nMon\nAug 11\nTue\nAug 12\nWed\nAug 13\nYesterday\nToday\n0\n5\n10\n15\n20\n25\n30\nNew patient videos (58)\nNew messages (16)\nToday's virtual visits (0)\nUrgent follow-Up needed (50)\nOpen doses (52)\nPatient\nRecorded\nUploaded\nPatient manager\nTreatment monitor\n232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM\n1\n2\n3\n4\n5\n6\n1 - 10 of 58 items\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_Dashboard _148": {
+    "class": "content-wrapper",
+    "tag": "div",
+    "text": "Dashboard Adherence for doses in the last 7 days 3.13% Recent Videos No recent videos to display. Dose summary: Today Last 7 days 23 Open 0 Taken 0 Missed 0 Unknown Sat Aug 9 Sun Aug 10 Mon Aug 11 Tue Aug 12 Wed Aug 13 Yesterday Today 0 5 10 15 20 25 30 New patient videos (58) New messages (16) Todays virtual visits (0) Urgent follow-Up needed (50) Open doses (52) Patient Recorded Uploaded Patient manager Treatment monitor 232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM 1 2 3 4 5 6 1 - 10 of 58 items @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard\nAdherence\nfor doses in the last 7 days\n3.13%\nRecent Videos\nNo recent videos to display.\nDose summary: Today\nLast 7 days\n23\nOpen\n0\nTaken\n0\nMissed\n0\nUnknown\nSat\nAug 9\nSun\nAug 10\nMon\nAug 11\nTue\nAug 12\nWed\nAug 13\nYesterday\nToday\n0\n5\n10\n15\n20\n25\n30\nNew patient videos (58)\nNew messages (16)\nToday's virtual visits (0)\nUrgent follow-Up needed (50)\nOpen doses (52)\nPatient\nRecorded\nUploaded\nPatient manager\nTreatment monitor\n232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM\n1\n2\n3\n4\n5\n6\n1 - 10 of 58 items\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_Dashboard_149": {
+    "class": "sub-header",
+    "tag": "div",
+    "text": "Dashboard",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "div_Dashboard_150": {
+    "class": "sub-nav",
+    "tag": "div",
+    "text": "Dashboard",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "div_Dashboard_151": {
+    "class": "breadcrumb-custom",
+    "tag": "div",
+    "text": "Dashboard",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "span_Dashboard_152": {
+    "class": "my-header-name",
+    "tag": "span",
+    "text": "Dashboard",
+    "xpath": "//span[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "div__153": {
+    "class": "sidebar-toggle-icon ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='sidebar-toggle-icon ng-star-inserted']"
+  },
+  "span__154": {
+    "class": "icon-funnel",
+    "tag": "span",
+    "xpath": "//span[@class='icon-funnel']"
+  },
+  "div_Adherence _155": {
+    "class": "my-page-content dashboard",
+    "tag": "div",
+    "text": "Adherence for doses in the last 7 days 3.13% Recent Videos No recent videos to display. Dose summary: Today Last 7 days 23 Open 0 Taken 0 Missed 0 Unknown Sat Aug 9 Sun Aug 10 Mon Aug 11 Tue Aug 12 Wed Aug 13 Yesterday Today 0 5 10 15 20 25 30 New patient videos (58) New messages (16) Todays virtual visits (0) Urgent follow-Up needed (50) Open doses (52) Patient Recorded Uploaded Patient manager Treatment monitor 232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM 1 2 3 4 5 6 1 - 10 of 58 items @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//div[contains(normalize-space(text()), 'Adherence\nfor doses in the last 7 days\n3.13%\nRecent Videos\nNo recent videos to display.\nDose summary: Today\nLast 7 days\n23\nOpen\n0\nTaken\n0\nMissed\n0\nUnknown\nSat\nAug 9\nSun\nAug 10\nMon\nAug 11\nTue\nAug 12\nWed\nAug 13\nYesterday\nToday\n0\n5\n10\n15\n20\n25\n30\nNew patient videos (58)\nNew messages (16)\nToday's virtual visits (0)\nUrgent follow-Up needed (50)\nOpen doses (52)\nPatient\nRecorded\nUploaded\nPatient manager\nTreatment monitor\n232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM\n1\n2\n3\n4\n5\n6\n1 - 10 of 58 items\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_Adherence _156": {
+    "class": "d-md-flex ng-star-inserted",
+    "tag": "div",
+    "text": "Adherence for doses in the last 7 days 3.13% Recent Videos No recent videos to display.",
+    "xpath": "//div[contains(normalize-space(text()), 'Adherence\nfor doses in the last 7 days\n3.13%\nRecent Videos\nNo recent videos to display.')]"
+  },
+  "div_Adherence _157": {
+    "class": "item overlay-container col-xs-12 col-md-3 col-lg-3 col-xl-2",
+    "tag": "div",
+    "text": "Adherence for doses in the last 7 days 3.13%",
+    "xpath": "//div[contains(normalize-space(text()), 'Adherence\nfor doses in the last 7 days\n3.13%')]"
+  },
+  "div_Adherence_158": {
+    "class": "k-font-size-xl k-font-semibold",
+    "tag": "div",
+    "text": "Adherence",
+    "xpath": "//div[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "div_for doses _159": {
+    "class": "k-font-size-md",
+    "tag": "div",
+    "text": "for doses in the last 7 days",
+    "xpath": "//div[contains(normalize-space(text()), 'for doses in the last 7 days')]"
+  },
+  "h1_3.13%_160": {
+    "class": "mt-2",
+    "tag": "h1",
+    "text": "3.13%",
+    "xpath": "//h1[contains(normalize-space(text()), '3.13%')]"
+  },
+  "div_Recent Vid_165": {
+    "class": "item col-xs-12 col-md-6 col-lg-6 col-xl-4",
+    "tag": "div",
+    "text": "Recent Videos No recent videos to display.",
+    "xpath": "//div[contains(normalize-space(text()), 'Recent Videos\nNo recent videos to display.')]"
+  },
+  "div_Recent Vid_166": {
+    "class": "k-font-size-xl k-font-semibold",
+    "tag": "div",
+    "text": "Recent Videos",
+    "xpath": "//div[contains(normalize-space(text()), 'Recent Videos')]"
+  },
+  "div_No recent _167": {
+    "class": "k-d-flex k-align-items-center k-pb-1 k-pt-1 k-border-bottom k-gap-3 ng-star-inserted",
+    "tag": "div",
+    "text": "No recent videos to display.",
+    "xpath": "//div[contains(normalize-space(text()), 'No recent videos to display.')]"
+  },
+  "span_No recent _168": {
+    "class": "k-color-subtle k-font-size-medium",
+    "tag": "span",
+    "text": "No recent videos to display.",
+    "xpath": "//span[contains(normalize-space(text()), 'No recent videos to display.')]"
+  },
+  "div_Dose summa_169": {
+    "class": "item overlay-container",
+    "tag": "div",
+    "text": "Dose summary: Today Last 7 days 23 Open 0 Taken 0 Missed 0 Unknown Sat Aug 9 Sun Aug 10 Mon Aug 11 Tue Aug 12 Wed Aug 13 Yesterday Today 0 5 10 15 20 25 30",
+    "xpath": "//div[contains(normalize-space(text()), 'Dose summary: Today\nLast 7 days\n23\nOpen\n0\nTaken\n0\nMissed\n0\nUnknown\nSat\nAug 9\nSun\nAug 10\nMon\nAug 11\nTue\nAug 12\nWed\nAug 13\nYesterday\nToday\n0\n5\n10\n15\n20\n25\n30')]"
+  },
+  "div_Dose summa_175": {
+    "class": "chart-header row",
+    "tag": "div",
+    "text": "Dose summary: Today Last 7 days",
+    "xpath": "//div[contains(normalize-space(text()), 'Dose summary: Today\nLast 7 days')]"
+  },
+  "div_Dose summa_176": {
+    "class": "col-md-6 k-font-size-xl k-font-semibold",
+    "tag": "div",
+    "text": "Dose summary: Today",
+    "xpath": "//div[contains(normalize-space(text()), 'Dose summary: Today')]"
+  },
+  "div_Last 7 day_177": {
+    "class": "col-md-6",
+    "tag": "div",
+    "text": "Last 7 days",
+    "xpath": "//div[contains(normalize-space(text()), 'Last 7 days')]"
+  },
+  "div_Last 7 day_178": {
+    "class": "chart-menu float-md-end",
+    "tag": "div",
+    "text": "Last 7 days",
+    "xpath": "//div[contains(normalize-space(text()), 'Last 7 days')]"
+  },
+  "k-31b62c1f-df31-4002-ab56-b29bed2559c2": {
+    "id": "k-31b62c1f-df31-4002-ab56-b29bed2559c2",
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "text": "Last 7 days",
+    "xpath": "//kendo-dropdownlist[@id='k-31b62c1f-df31-4002-ab56-b29bed2559c2']"
+  },
+  "k-8e4b4abe-cea1-47c1-9e62-f8b8c7f47a11": {
+    "id": "k-8e4b4abe-cea1-47c1-9e62-f8b8c7f47a11",
+    "class": "k-input-inner",
+    "tag": "span",
+    "text": "Last 7 days",
+    "xpath": "//span[@id='k-8e4b4abe-cea1-47c1-9e62-f8b8c7f47a11']"
+  },
+  "span_Last 7 day_181": {
+    "class": "k-input-value-text",
+    "tag": "span",
+    "text": "Last 7 days",
+    "xpath": "//span[contains(normalize-space(text()), 'Last 7 days')]"
+  },
+  "button__182": {
+    "aria-label": "Select",
+    "class": "k-input-button k-button k-icon-button k-button-md k-button-solid k-button-solid-base",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Select']"
+  },
+  "kendo-icon-wrapper__183": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__184": {
+    "class": "k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__185": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "responsive-renderer__187": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__188": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "span__189": {
+    "class": "button-group",
+    "tag": "span",
+    "xpath": "//span[@class='button-group']"
+  },
+  "columnChart": {
+    "id": "columnChart",
+    "class": "k-button k-state-disabled icon-button",
+    "tag": "div",
+    "xpath": "//div[@id='columnChart']"
+  },
+  "span__191": {
+    "class": "icon-chart-bars",
+    "tag": "span",
+    "xpath": "//span[@class='icon-chart-bars']"
+  },
+  "areaChart": {
+    "id": "areaChart",
+    "class": "k-button icon-button",
+    "tag": "div",
+    "xpath": "//div[@id='areaChart']"
+  },
+  "span__193": {
+    "class": "icon-chart-area",
+    "tag": "span",
+    "xpath": "//span[@class='icon-chart-area']"
+  },
+  "span__194": {
+    "class": "button-group",
+    "tag": "span",
+    "xpath": "//span[@class='button-group']"
+  },
+  "moveChartLeft": {
+    "id": "moveChartLeft",
+    "class": "k-button icon-button",
+    "tag": "div",
+    "xpath": "//div[@id='moveChartLeft']"
+  },
+  "span__196": {
+    "class": "icon-keyboard_arrow_left",
+    "tag": "span",
+    "xpath": "//span[@class='icon-keyboard_arrow_left']"
+  },
+  "moveChartRight": {
+    "id": "moveChartRight",
+    "class": "k-button icon-button",
+    "tag": "div",
+    "xpath": "//div[@id='moveChartRight']"
+  },
+  "span__198": {
+    "class": "icon-keyboard_arrow_right",
+    "tag": "span",
+    "xpath": "//span[@class='icon-keyboard_arrow_right']"
+  },
+  "div_23 Open 0 _199": {
+    "class": "row",
+    "tag": "div",
+    "text": "23 Open 0 Taken 0 Missed 0 Unknown Sat Aug 9 Sun Aug 10 Mon Aug 11 Tue Aug 12 Wed Aug 13 Yesterday Today 0 5 10 15 20 25 30",
+    "xpath": "//div[contains(normalize-space(text()), '23\nOpen\n0\nTaken\n0\nMissed\n0\nUnknown\nSat\nAug 9\nSun\nAug 10\nMon\nAug 11\nTue\nAug 12\nWed\nAug 13\nYesterday\nToday\n0\n5\n10\n15\n20\n25\n30')]"
+  },
+  "div_23 Open 0 _200": {
+    "class": "icons col-lg-2 col-md-12",
+    "tag": "div",
+    "text": "23 Open 0 Taken 0 Missed 0 Unknown",
+    "xpath": "//div[contains(normalize-space(text()), '23\nOpen\n0\nTaken\n0\nMissed\n0\nUnknown')]"
+  },
+  "div_23 Open 0 _201": {
+    "class": "row",
+    "tag": "div",
+    "text": "23 Open 0 Taken 0 Missed 0 Unknown",
+    "xpath": "//div[contains(normalize-space(text()), '23\nOpen\n0\nTaken\n0\nMissed\n0\nUnknown')]"
+  },
+  "div__202": {
+    "class": "center-line d-lg-none",
+    "tag": "div",
+    "xpath": "//div[@class='center-line d-lg-none']"
+  },
+  "div_23 Open_203": {
+    "class": "status-icons col-3 col-lg-12",
+    "tag": "div",
+    "text": "23 Open",
+    "xpath": "//div[contains(normalize-space(text()), '23\nOpen')]"
+  },
+  "div__204": {
+    "class": "chart-icon open-dose-icon",
+    "tag": "div",
+    "xpath": "//div[@class='chart-icon open-dose-icon']"
+  },
+  "span_23_205": {
+    "class": "icon-data",
+    "tag": "span",
+    "text": "23",
+    "xpath": "//span[contains(normalize-space(text()), '23')]"
+  },
+  "p_Open_206": {
+    "class": "icon-text",
+    "tag": "p",
+    "text": "Open",
+    "xpath": "//p[contains(normalize-space(text()), 'Open')]"
+  },
+  "div_0 Taken_207": {
+    "class": "status-icons col-3 col-lg-12",
+    "tag": "div",
+    "text": "0 Taken",
+    "xpath": "//div[contains(normalize-space(text()), '0\nTaken')]"
+  },
+  "span__208": {
+    "class": "chart-icon taken-dose-icon",
+    "tag": "span",
+    "xpath": "//span[@class='chart-icon taken-dose-icon']"
+  },
+  "span_0_209": {
+    "class": "icon-data",
+    "tag": "span",
+    "text": "0",
+    "xpath": "//span[contains(normalize-space(text()), '0')]"
+  },
+  "p_Taken_210": {
+    "class": "icon-text",
+    "tag": "p",
+    "text": "Taken",
+    "xpath": "//p[contains(normalize-space(text()), 'Taken')]"
+  },
+  "div_0 Missed_211": {
+    "class": "status-icons col-3 col-lg-12",
+    "tag": "div",
+    "text": "0 Missed",
+    "xpath": "//div[contains(normalize-space(text()), '0\nMissed')]"
+  },
+  "span__212": {
+    "class": "chart-icon missed-dose-icon",
+    "tag": "span",
+    "xpath": "//span[@class='chart-icon missed-dose-icon']"
+  },
+  "span_0_213": {
+    "class": "icon-data",
+    "tag": "span",
+    "text": "0",
+    "xpath": "//span[contains(normalize-space(text()), '0')]"
+  },
+  "p_Missed_214": {
+    "class": "icon-text",
+    "tag": "p",
+    "text": "Missed",
+    "xpath": "//p[contains(normalize-space(text()), 'Missed')]"
+  },
+  "div_0 Unknown_215": {
+    "class": "status-icons col-3 col-lg-12",
+    "tag": "div",
+    "text": "0 Unknown",
+    "xpath": "//div[contains(normalize-space(text()), '0\nUnknown')]"
+  },
+  "span__216": {
+    "class": "chart-icon unknown-dose-icon",
+    "tag": "span",
+    "xpath": "//span[@class='chart-icon unknown-dose-icon']"
+  },
+  "span_0_217": {
+    "class": "icon-data",
+    "tag": "span",
+    "text": "0",
+    "xpath": "//span[contains(normalize-space(text()), '0')]"
+  },
+  "p_Unknown_218": {
+    "class": "icon-text",
+    "tag": "p",
+    "text": "Unknown",
+    "xpath": "//p[contains(normalize-space(text()), 'Unknown')]"
+  },
+  "div_Sat Aug 9 _219": {
+    "class": "col-lg-10 col-md-12 chart-content",
+    "tag": "div",
+    "text": "Sat Aug 9 Sun Aug 10 Mon Aug 11 Tue Aug 12 Wed Aug 13 Yesterday Today 0 5 10 15 20 25 30",
+    "xpath": "//div[contains(normalize-space(text()), 'Sat\nAug 9\nSun\nAug 10\nMon\nAug 11\nTue\nAug 12\nWed\nAug 13\nYesterday\nToday\n0\n5\n10\n15\n20\n25\n30')]"
+  },
+  "kendo-chart_Sat Aug 9 _220": {
+    "class": "k-chart k-widget ng-star-inserted",
+    "tag": "kendo-chart",
+    "text": "Sat Aug 9 Sun Aug 10 Mon Aug 11 Tue Aug 12 Wed Aug 13 Yesterday Today 0 5 10 15 20 25 30",
+    "xpath": "//kendo-chart[contains(normalize-space(text()), 'Sat\nAug 9\nSun\nAug 10\nMon\nAug 11\nTue\nAug 12\nWed\nAug 13\nYesterday\nToday\n0\n5\n10\n15\n20\n25\n30')]"
+  },
+  "div_Sat Aug 9 _221": {
+    "class": "k-chart-surface",
+    "tag": "div",
+    "text": "Sat Aug 9 Sun Aug 10 Mon Aug 11 Tue Aug 12 Wed Aug 13 Yesterday Today 0 5 10 15 20 25 30",
+    "xpath": "//div[contains(normalize-space(text()), 'Sat\nAug 9\nSun\nAug 10\nMon\nAug 11\nTue\nAug 12\nWed\nAug 13\nYesterday\nToday\n0\n5\n10\n15\n20\n25\n30')]"
+  },
+  "svg_Sat Aug 9 _222": {
+    "tag": "svg",
+    "text": "Sat Aug 9 Sun Aug 10 Mon Aug 11 Tue Aug 12 Wed Aug 13 Yesterday Today 0 5 10 15 20 25 30",
+    "xpath": "//svg[contains(normalize-space(text()), 'Sat\nAug 9\nSun\nAug 10\nMon\nAug 11\nTue\nAug 12\nWed\nAug 13\nYesterday\nToday\n0\n5\n10\n15\n20\n25\n30')]"
+  },
+  "defs__223": {
+    "tag": "defs",
+    "xpath": "//defs"
+  },
+  "kendo-chart-crosshair-tooltips-container__273": {
+    "tag": "kendo-chart-crosshair-tooltips-container",
+    "xpath": "//kendo-chart-crosshair-tooltips-container"
+  },
+  "kendo-chart-tooltip-popup__274": {
+    "tag": "kendo-chart-tooltip-popup",
+    "xpath": "//kendo-chart-tooltip-popup"
+  },
+  "kendo-resize-sensor__275": {
+    "tag": "kendo-resize-sensor",
+    "xpath": "//kendo-resize-sensor"
+  },
+  "kendo-tabstrip_New patien_276": {
+    "class": "ng-tns-c655264150-2 k-tabstrip k-pos-relative k-tabstrip-top k-tabstrip-scrollable ng-star-inserted",
+    "tag": "kendo-tabstrip",
+    "text": "New patient videos (58) New messages (16) Todays virtual visits (0) Urgent follow-Up needed (50) Open doses (52) Patient Recorded Uploaded Patient manager Treatment monitor 232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM 1 2 3 4 5 6 1 - 10 of 58 items",
+    "xpath": "//kendo-tabstrip[contains(normalize-space(text()), 'New patient videos (58)\nNew messages (16)\nToday's virtual visits (0)\nUrgent follow-Up needed (50)\nOpen doses (52)\nPatient\nRecorded\nUploaded\nPatient manager\nTreatment monitor\n232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM\n1\n2\n3\n4\n5\n6\n1 - 10 of 58 items')]"
+  },
+  "div_New patien_277": {
+    "class": "k-tabstrip-items-wrapper ng-tns-c655264150-2 k-hstack ng-star-inserted",
+    "tag": "div",
+    "text": "New patient videos (58) New messages (16) Todays virtual visits (0) Urgent follow-Up needed (50) Open doses (52)",
+    "xpath": "//div[contains(normalize-space(text()), 'New patient videos (58)\nNew messages (16)\nToday's virtual visits (0)\nUrgent follow-Up needed (50)\nOpen doses (52)')]"
+  },
+  "span__278": {
+    "class": "k-icon-button k-button k-button-md k-rounded-md k-button-flat k-button-flat-base ng-tns-c655264150-2 k-tabstrip-prev ng-star-inserted k-disabled",
+    "tag": "span",
+    "xpath": "//span[@class='k-icon-button k-button k-button-md k-rounded-md k-button-flat k-button-flat-base ng-tns-c655264150-2 k-tabstrip-prev ng-star-inserted k-disabled']"
+  },
+  "kendo-icon-wrapper__279": {
+    "class": "k-icon-wrapper-host",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host']"
+  },
+  "kendo-svgicon__280": {
+    "class": "k-svg-i-chevron-left k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-left k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__281": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "ul_New patien_283": {
+    "class": "k-reset k-tabstrip-items ng-tns-c655264150-2",
+    "tag": "ul",
+    "text": "New patient videos (58) New messages (16) Todays virtual visits (0) Urgent follow-Up needed (50) Open doses (52)",
+    "xpath": "//ul[contains(normalize-space(text()), 'New patient videos (58)\nNew messages (16)\nToday's virtual visits (0)\nUrgent follow-Up needed (50)\nOpen doses (52)')]"
+  },
+  "k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-0": {
+    "id": "k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-0",
+    "class": "ng-tns-c655264150-2 k-item k-state-default k-active ng-star-inserted",
+    "tag": "li",
+    "text": "New patient videos (58)",
+    "xpath": "//li[@id='k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-0']"
+  },
+  "span_New patien_285": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "New patient videos (58)",
+    "xpath": "//span[contains(normalize-space(text()), 'New patient videos (58)')]"
+  },
+  "div_New patien_286": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "New patient videos (58)",
+    "xpath": "//div[contains(normalize-space(text()), 'New patient videos (58)')]"
+  },
+  "k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-1": {
+    "id": "k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-1",
+    "class": "ng-tns-c655264150-2 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "New messages (16)",
+    "xpath": "//li[@id='k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-1']"
+  },
+  "span_New messag_288": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "New messages (16)",
+    "xpath": "//span[contains(normalize-space(text()), 'New messages (16)')]"
+  },
+  "div_New messag_289": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "New messages (16)",
+    "xpath": "//div[contains(normalize-space(text()), 'New messages (16)')]"
+  },
+  "k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-2": {
+    "id": "k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-2",
+    "class": "ng-tns-c655264150-2 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Todays virtual visits (0)",
+    "xpath": "//li[@id='k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-2']"
+  },
+  "span_Todays vir_291": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Todays virtual visits (0)",
+    "xpath": "//span[contains(normalize-space(text()), 'Today's virtual visits (0)')]"
+  },
+  "div_Todays vir_292": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Todays virtual visits (0)",
+    "xpath": "//div[contains(normalize-space(text()), 'Today's virtual visits (0)')]"
+  },
+  "k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-3": {
+    "id": "k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-3",
+    "class": "ng-tns-c655264150-2 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Urgent follow-Up needed (50)",
+    "xpath": "//li[@id='k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-3']"
+  },
+  "span_Urgent fol_294": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Urgent follow-Up needed (50)",
+    "xpath": "//span[contains(normalize-space(text()), 'Urgent follow-Up needed (50)')]"
+  },
+  "div_Urgent fol_295": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Urgent follow-Up needed (50)",
+    "xpath": "//div[contains(normalize-space(text()), 'Urgent follow-Up needed (50)')]"
+  },
+  "k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-4": {
+    "id": "k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-4",
+    "class": "ng-tns-c655264150-2 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Open doses (52)",
+    "xpath": "//li[@id='k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-4']"
+  },
+  "span_Open doses_297": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Open doses (52)",
+    "xpath": "//span[contains(normalize-space(text()), 'Open doses (52)')]"
+  },
+  "div_Open doses_298": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Open doses (52)",
+    "xpath": "//div[contains(normalize-space(text()), 'Open doses (52)')]"
+  },
+  "k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-5": {
+    "id": "k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-5",
+    "class": "ng-tns-c655264150-2 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "xpath": "//li[@id='k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-5']"
+  },
+  "span__300": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-link ng-star-inserted']"
+  },
+  "div__301": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='tab-title ng-star-inserted']"
+  },
+  "k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-6": {
+    "id": "k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-6",
+    "class": "ng-tns-c655264150-2 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "xpath": "//li[@id='k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-6']"
+  },
+  "span__303": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-link ng-star-inserted']"
+  },
+  "div__304": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='tab-title ng-star-inserted']"
+  },
+  "span__305": {
+    "class": "k-icon-button k-button k-button-md k-rounded-md k-button-flat k-button-flat-base ng-tns-c655264150-2 k-tabstrip-next ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-icon-button k-button k-button-md k-rounded-md k-button-flat k-button-flat-base ng-tns-c655264150-2 k-tabstrip-next ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__306": {
+    "class": "k-icon-wrapper-host",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host']"
+  },
+  "kendo-svgicon__307": {
+    "class": "k-svg-i-chevron-right k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-right k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__308": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "k-tabstrip-tabpanel-72aabaad-bb51-4d2c-8b40-25424f3a9ada-0": {
+    "id": "k-tabstrip-tabpanel-72aabaad-bb51-4d2c-8b40-25424f3a9ada-0",
+    "class": "ng-tns-c655264150-2 ng-trigger ng-trigger-state k-tabstrip-content k-active ng-star-inserted",
+    "tag": "div",
+    "text": "Patient Recorded Uploaded Patient manager Treatment monitor 232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM 1 2 3 4 5 6 1 - 10 of 58 items",
+    "xpath": "//div[@id='k-tabstrip-tabpanel-72aabaad-bb51-4d2c-8b40-25424f3a9ada-0']"
+  },
+  "div_Patient Re_311": {
+    "class": "tab-content grid-wrapper ng-star-inserted",
+    "tag": "div",
+    "text": "Patient Recorded Uploaded Patient manager Treatment monitor 232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM 1 2 3 4 5 6 1 - 10 of 58 items",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient\nRecorded\nUploaded\nPatient manager\nTreatment monitor\n232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM\n1\n2\n3\n4\n5\n6\n1 - 10 of 58 items')]"
+  },
+  "kendo-grid_Patient Re_312": {
+    "class": "k-grid k-grid-md",
+    "tag": "kendo-grid",
+    "text": "Patient Recorded Uploaded Patient manager Treatment monitor 232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM 1 2 3 4 5 6 1 - 10 of 58 items",
+    "xpath": "//kendo-grid[contains(normalize-space(text()), 'Patient\nRecorded\nUploaded\nPatient manager\nTreatment monitor\n232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM\n1\n2\n3\n4\n5\n6\n1 - 10 of 58 items')]"
+  },
+  "k-6c8c576b-9657-4d08-b3ef-88574345f824": {
+    "id": "k-6c8c576b-9657-4d08-b3ef-88574345f824",
+    "aria-label": "Data table",
+    "class": "k-grid-aria-root",
+    "tag": "div",
+    "text": "Patient Recorded Uploaded Patient manager Treatment monitor 232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM",
+    "xpath": "//div[@id='k-6c8c576b-9657-4d08-b3ef-88574345f824']"
+  },
+  "div_Patient Re_314": {
+    "class": "k-grid-header ng-star-inserted",
+    "tag": "div",
+    "text": "Patient Recorded Uploaded Patient manager Treatment monitor",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient\nRecorded\nUploaded\nPatient manager\nTreatment monitor')]"
+  },
+  "div_Patient Re_315": {
+    "class": "k-grid-header-wrap",
+    "tag": "div",
+    "text": "Patient Recorded Uploaded Patient manager Treatment monitor",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient\nRecorded\nUploaded\nPatient manager\nTreatment monitor')]"
+  },
+  "table_Patient Re_316": {
+    "class": "k-grid-header-table k-table k-table-md",
+    "tag": "table",
+    "text": "Patient Recorded Uploaded Patient manager Treatment monitor",
+    "xpath": "//table[contains(normalize-space(text()), 'Patient\nRecorded\nUploaded\nPatient manager\nTreatment monitor')]"
+  },
+  "colgroup__317": {
+    "tag": "colgroup",
+    "xpath": "//colgroup"
+  },
+  "col__318": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__319": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__320": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__321": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__322": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "thead_Patient Re_323": {
+    "class": "k-table-thead",
+    "tag": "thead",
+    "text": "Patient Recorded Uploaded Patient manager Treatment monitor",
+    "xpath": "//thead[contains(normalize-space(text()), 'Patient\nRecorded\nUploaded\nPatient manager\nTreatment monitor')]"
+  },
+  "tr_Patient Re_324": {
+    "class": "k-table-row ng-star-inserted",
+    "tag": "tr",
+    "text": "Patient Recorded Uploaded Patient manager Treatment monitor",
+    "xpath": "//tr[contains(normalize-space(text()), 'Patient\nRecorded\nUploaded\nPatient manager\nTreatment monitor')]"
+  },
+  "th_Patient_325": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "Patient",
+    "xpath": "//th[contains(normalize-space(text()), 'Patient')]"
+  },
+  "span_Patient_326": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "Patient",
+    "xpath": "//span[contains(normalize-space(text()), 'Patient')]"
+  },
+  "span_Patient_327": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "Patient",
+    "xpath": "//span[contains(normalize-space(text()), 'Patient')]"
+  },
+  "span_Patient_328": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "Patient",
+    "xpath": "//span[contains(normalize-space(text()), 'Patient')]"
+  },
+  "span__329": {
+    "class": "k-sort-icon",
+    "tag": "span",
+    "xpath": "//span[@class='k-sort-icon']"
+  },
+  "span__330": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "th_Recorded_331": {
+    "class": "k-header k-table-th k-sorted ng-star-inserted",
+    "tag": "th",
+    "text": "Recorded",
+    "xpath": "//th[contains(normalize-space(text()), 'Recorded')]"
+  },
+  "span_Recorded_332": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "Recorded",
+    "xpath": "//span[contains(normalize-space(text()), 'Recorded')]"
+  },
+  "span_Recorded_333": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "Recorded",
+    "xpath": "//span[contains(normalize-space(text()), 'Recorded')]"
+  },
+  "span_Recorded_334": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "Recorded",
+    "xpath": "//span[contains(normalize-space(text()), 'Recorded')]"
+  },
+  "span__335": {
+    "class": "k-sort-icon",
+    "tag": "span",
+    "xpath": "//span[@class='k-sort-icon']"
+  },
+  "kendo-icon-wrapper__336": {
+    "aria-label": "Sortable",
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@aria-label='Sortable']"
+  },
+  "kendo-svgicon__337": {
+    "class": "k-svg-i-sort-desc-small k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-sort-desc-small k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__338": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "span__340": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "th_Uploaded_341": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "Uploaded",
+    "xpath": "//th[contains(normalize-space(text()), 'Uploaded')]"
+  },
+  "span_Uploaded_342": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "Uploaded",
+    "xpath": "//span[contains(normalize-space(text()), 'Uploaded')]"
+  },
+  "span_Uploaded_343": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "Uploaded",
+    "xpath": "//span[contains(normalize-space(text()), 'Uploaded')]"
+  },
+  "span_Uploaded_344": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "Uploaded",
+    "xpath": "//span[contains(normalize-space(text()), 'Uploaded')]"
+  },
+  "span__345": {
+    "class": "k-sort-icon",
+    "tag": "span",
+    "xpath": "//span[@class='k-sort-icon']"
+  },
+  "span__346": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "th_Patient ma_347": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "Patient manager",
+    "xpath": "//th[contains(normalize-space(text()), 'Patient manager')]"
+  },
+  "span_Patient ma_348": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "Patient manager",
+    "xpath": "//span[contains(normalize-space(text()), 'Patient manager')]"
+  },
+  "span_Patient ma_349": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "Patient manager",
+    "xpath": "//span[contains(normalize-space(text()), 'Patient manager')]"
+  },
+  "span_Patient ma_350": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "Patient manager",
+    "xpath": "//span[contains(normalize-space(text()), 'Patient manager')]"
+  },
+  "span__351": {
+    "class": "k-sort-icon",
+    "tag": "span",
+    "xpath": "//span[@class='k-sort-icon']"
+  },
+  "span__352": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "th_Treatment _353": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "Treatment monitor",
+    "xpath": "//th[contains(normalize-space(text()), 'Treatment monitor')]"
+  },
+  "span_Treatment _354": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "Treatment monitor",
+    "xpath": "//span[contains(normalize-space(text()), 'Treatment monitor')]"
+  },
+  "span_Treatment _355": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "Treatment monitor",
+    "xpath": "//span[contains(normalize-space(text()), 'Treatment monitor')]"
+  },
+  "span_Treatment _356": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "Treatment monitor",
+    "xpath": "//span[contains(normalize-space(text()), 'Treatment monitor')]"
+  },
+  "span__357": {
+    "class": "k-sort-icon",
+    "tag": "span",
+    "xpath": "//span[@class='k-sort-icon']"
+  },
+  "span__358": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "kendo-grid-list_232332 Aug_359": {
+    "class": "k-grid-container ng-star-inserted",
+    "tag": "kendo-grid-list",
+    "text": "232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM",
+    "xpath": "//kendo-grid-list[contains(normalize-space(text()), '232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM')]"
+  },
+  "div_232332 Aug_360": {
+    "class": "k-grid-content k-virtual-content",
+    "tag": "div",
+    "text": "232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM",
+    "xpath": "//div[contains(normalize-space(text()), '232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM')]"
+  },
+  "div_232332 Aug_361": {
+    "class": "k-grid-table-wrap",
+    "tag": "div",
+    "text": "232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM",
+    "xpath": "//div[contains(normalize-space(text()), '232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM')]"
+  },
+  "table_232332 Aug_362": {
+    "class": "k-grid-table k-table k-table-md",
+    "tag": "table",
+    "text": "232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM",
+    "xpath": "//table[contains(normalize-space(text()), '232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM')]"
+  },
+  "colgroup__363": {
+    "tag": "colgroup",
+    "xpath": "//colgroup"
+  },
+  "col__364": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__365": {
+    "class": "k-sorted ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='k-sorted ng-star-inserted']"
+  },
+  "col__366": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__367": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__368": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "tbody_232332 Aug_369": {
+    "class": "k-table-tbody",
+    "tag": "tbody",
+    "text": "232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM",
+    "xpath": "//tbody[contains(normalize-space(text()), '232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM')]"
+  },
+  "div__370": {
+    "class": "k-height-container",
+    "tag": "div",
+    "xpath": "//div[@class='k-height-container']"
+  },
+  "div__371": {
+    "tag": "div",
+    "xpath": "//div"
+  },
+  "kendo-grid-status-bar__378": {
+    "class": "k-selection-aggregates k-grid-selection-aggregates ng-star-inserted",
+    "tag": "kendo-grid-status-bar",
+    "xpath": "//kendo-grid-status-bar[@class='k-selection-aggregates k-grid-selection-aggregates ng-star-inserted']"
+  },
+  "kendo-pager_1 2 3 4 5 _379": {
+    "class": "k-pager k-pager-wrap k-grid-pager k-pager-md ng-star-inserted",
+    "tag": "kendo-pager",
+    "text": "1 2 3 4 5 6 1 - 10 of 58 items",
+    "xpath": "//kendo-pager[contains(normalize-space(text()), '1\n2\n3\n4\n5\n6\n1 - 10 of 58 items')]"
+  },
+  "div_1 2 3 4 5 _380": {
+    "class": "k-pager-numbers-wrap ng-star-inserted",
+    "tag": "div",
+    "text": "1 2 3 4 5 6",
+    "xpath": "//div[contains(normalize-space(text()), '1\n2\n3\n4\n5\n6')]"
+  },
+  "kendo-pager-prev-buttons__381": {
+    "class": "ng-star-inserted",
+    "tag": "kendo-pager-prev-buttons",
+    "xpath": "//kendo-pager-prev-buttons[@class='ng-star-inserted']"
+  },
+  "button__382": {
+    "aria-label": "Go to the first page",
+    "class": "k-pager-nav k-pager-first k-button k-icon-button k-disabled k-button-md k-button-flat-base k-button-flat",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Go to the first page']"
+  },
+  "kendo-icon-wrapper__383": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__384": {
+    "class": "k-svg-i-caret-alt-to-left k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-to-left k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__385": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "span__387": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "button__388": {
+    "aria-label": "Go to the previous page",
+    "class": "k-pager-nav k-button k-icon-button k-disabled k-button-md k-button-flat-base k-button-flat",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Go to the previous page']"
+  },
+  "kendo-icon-wrapper__389": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__390": {
+    "class": "k-svg-i-caret-alt-left k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-left k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__391": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "span__393": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "kendo-pager-numeric-buttons_1 2 3 4 5 _394": {
+    "class": "ng-star-inserted",
+    "tag": "kendo-pager-numeric-buttons",
+    "text": "1 2 3 4 5 6",
+    "xpath": "//kendo-pager-numeric-buttons[contains(normalize-space(text()), '1\n2\n3\n4\n5\n6')]"
+  },
+  "select__395": {
+    "aria-label": "Select page",
+    "class": "k-dropdown-list k-dropdown k-picker k-picker-solid k-rounded-md k-picker-md",
+    "type": "select-one",
+    "tag": "select",
+    "xpath": "//select[@aria-label='Select page']"
+  },
+  "div_1 2 3 4 5 _396": {
+    "class": "k-pager-numbers",
+    "tag": "div",
+    "text": "1 2 3 4 5 6",
+    "xpath": "//div[contains(normalize-space(text()), '1\n2\n3\n4\n5\n6')]"
+  },
+  "kendo-pager-next-buttons__397": {
+    "class": "ng-star-inserted",
+    "tag": "kendo-pager-next-buttons",
+    "xpath": "//kendo-pager-next-buttons[@class='ng-star-inserted']"
+  },
+  "button__398": {
+    "aria-label": "Go to the next page",
+    "class": "k-pager-nav k-button k-icon-button k-button-md k-button-flat-base k-button-flat",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Go to the next page']"
+  },
+  "kendo-icon-wrapper__399": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__400": {
+    "class": "k-svg-i-caret-alt-right k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-right k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__401": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "span__403": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "button__404": {
+    "aria-label": "Go to the last page",
+    "class": "k-pager-nav k-pager-last k-button k-icon-button k-button-md k-button-flat-base k-button-flat",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Go to the last page']"
+  },
+  "kendo-icon-wrapper__405": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__406": {
+    "class": "k-svg-i-caret-alt-to-right k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-to-right k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__407": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "span__409": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "kendo-pager-info_1 - 10 of _410": {
+    "class": "k-pager-info k-label ng-star-inserted",
+    "tag": "kendo-pager-info",
+    "text": "1 - 10 of 58 items",
+    "xpath": "//kendo-pager-info[contains(normalize-space(text()), '1 - 10 of 58 items')]"
+  },
+  "kendo-resize-sensor__411": {
+    "class": "ng-star-inserted",
+    "tag": "kendo-resize-sensor",
+    "xpath": "//kendo-resize-sensor[@class='ng-star-inserted']"
+  },
+  "kendo-resize-sensor__412": {
+    "class": "ng-tns-c655264150-2 ng-star-inserted",
+    "tag": "kendo-resize-sensor",
+    "xpath": "//kendo-resize-sensor[@class='ng-tns-c655264150-2 ng-star-inserted']"
+  },
+  "client-footer_@2025 Sure_413": {
+    "tag": "client-footer",
+    "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//client-footer[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "footer_@2025 Sure_414": {
+    "class": "footer pt-0 footer-height",
+    "tag": "footer",
+    "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//footer[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "p_@2025 Sure_415": {
+    "tag": "p",
+    "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//p[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "a_Privacy Po_416": {
+    "tag": "a",
+    "text": "Privacy Policy and Terms of Service",
+    "xpath": "//a[contains(normalize-space(text()), 'Privacy Policy and Terms of Service')]"
+  },
+  "popover__417": {
+    "tag": "popover",
+    "xpath": "//popover"
+  }
+}
