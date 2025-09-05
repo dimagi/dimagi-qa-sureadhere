@@ -71,7 +71,7 @@ jobs:
           google-chrome --version || true
           pytest -v testCases \
             --browser=chrome --headless --headless2 \
-            --timeout=60 --reruns 1 --maxfail=1 \
+            --reruns 1 --maxfail=1 \
             --dashboard --html=report.html
 
       - name: Parse test counts
