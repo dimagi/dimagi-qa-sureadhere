@@ -2997,3 +2997,17 @@ class BasePage:
                 return
             time.sleep(poll)
         raise TimeoutError(f"Expander '{logical_name}' did not reach state {expected} in {timeout}s")
+
+    def get_last_received_message(self):
+        # Kendo usually marks received messages with 'k-message-in'
+        msgs = self.driver.find_elements(By.CSS_SELECTOR, "kendo-chat .k-message.k-message-in")
+        if not msgs:
+            return None
+        return msgs[-1].text.strip()
+
+    def get_last_sent_message(self):
+        # Sent messages are usually 'k-message-out'
+        msgs = self.driver.find_elements(By.CSS_SELECTOR, "kendo-chat .k-message.k-message-out")
+        if not msgs:
+            return None
+        return msgs[-1].text.strip()

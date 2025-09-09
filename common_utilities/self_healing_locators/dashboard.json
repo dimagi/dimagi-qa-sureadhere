@@ -1706,5 +1706,21 @@
   "popover__417": {
     "tag": "popover",
     "xpath": "//popover"
+  },
+  "div-quick_actions": {
+    "class": "k-font-size-xl k-font-semibold",
+    "tag": "div",
+    "text": "Quick Actions",
+    "xpath": "//div[normalize-space(text())='Quick Actions']"
+  },
+  "span-video-patient_name": {
+    "class": "k-font-size-medium k-font-bold",
+    "tag": "span",
+    "xpath": "//div[./fa-icon/*[@data-icon='video']]//following-sibling::div//span[@class='k-font-size-medium k-font-bold']"
+  },
+  "span-patient-video-review": {
+    "class": "k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid",
+    "tag": "span",
+    "xpath": "//div[./fa-icon/*[@data-icon='video']]//following-sibling::div//button[@class='k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid']"
   }
 }

@@ -91,5 +91,8 @@ class test_module_02(BaseCase):
         print(d['patient_username'])
         mobile.select_environment(self.settings['url'])
         mobile.login_patient(d['patient_username'], d['patient_pin'])
+        mobile.read_and_send_messages()
+        mobile.record_video_and_submit()
         mobile.close_android_driver()
+
 

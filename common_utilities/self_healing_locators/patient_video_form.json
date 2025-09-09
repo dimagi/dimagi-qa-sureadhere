@@ -4255,14 +4255,14 @@
     "text": "MARK AS ADHERENT or MORE OPTIONS",
     "xpath": "//div[contains(normalize-space(text()), 'MARK AS ADHERENT\nor\nMORE OPTIONS')]"
   },
-  "button_MARK AS AD_814": {
+  "button_MARK_AS_ADHERENT": {
     "class": "k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid",
     "type": "submit",
     "tag": "button",
     "text": "MARK AS ADHERENT",
     "xpath": "//button[contains(normalize-space(text()), 'MARK AS ADHERENT')]"
   },
-  "span_MARK AS AD_815": {
+  "span_MARK_AS_ADHERENT": {
     "class": "k-button-text",
     "tag": "span",
     "text": "MARK AS ADHERENT",

@@ -98,6 +98,22 @@ class PatientProfilePage(BasePage):
 
         return new_fname, new_lname, account_active
 
+    def select_patient_manager(self, manager_fullname):
+        self.kendo_dd_select_text_old("kendo-dropdownlist-patient-manager", manager_fullname, match="exact", timeout=25)
+        print(self.resolve("kendo-dropdownlist-patient-manager"))
+        patient_manager = self.kendo_dd_get_selected_text(logical_name="kendo-dropdownlist-patient-manager")
+        print(f"Selected manager is {patient_manager}")
+        assert patient_manager.strip() == manager_fullname
+        self.click_robust('button_SAVE')
+        # self.wait_for_invisible('button_SAVE')
+        time.sleep(1)
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            assert "Profile saved" in self.kendo_dialog_get_text()
+            self.kendo_dialog_click_button("Ok")
+        except Exception:
+            print("popup not present after save")
+
     def active_patient(self):
         print(self.resolve("accountIsActiv_chb"))
         if self.is_checked('accountIsActiv_chb'):
