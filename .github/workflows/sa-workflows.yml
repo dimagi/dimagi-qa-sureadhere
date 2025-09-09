@@ -93,6 +93,7 @@ jobs:
 #          retention-days: 2
 
       - name: Upload reports & logs
+        id: artifact-upload-step
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -102,3 +103,209 @@ jobs:
             latest_logs/**
             dashboard.html
 
+      - name: Fetch artifact ID
+        run: echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
+
+      - name: Download artifact ZIP (REST API)
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -H "Accept: application/octet-stream" \
+            /repos/${{ github.repository }}/actions/artifacts/${{ steps.artifact_upload.outputs.artifact-id }}/zip \
+            > sbase-artifacts.zip
+
+      - name: Post to Slack channel on Failure
+        id: slack_fail
+        uses: slackapi/slack-github-action@v1.23.0
+        if: failure()
+        with:
+          payload: |
+            {
+            	"attachments": [
+            		{
+            			"color": "#FF0000",
+            			"blocks": [
+            				{
+            					"type": "section",
+            					"text": {
+            						"type": "mrkdwn",
+            						"text": " Hola :bye_boo: \n*${{ github.workflow }}* were just triggered! \n"
+            					}
+            				},
+            				{
+            					"type": "section",
+            					"text": {
+            						"type": "mrkdwn",
+            						"text": "*Passed:* ${{ steps.parse_counts.outputs.PASSED }} *Failed:* ${{ steps.parse_counts.outputs.FAILED }} *Error:* ${{ steps.parse_counts.outputs.ERROR }} *Skipped:* ${{ steps.parse_counts.outputs.SKIPPED }} *XFail:* ${{ steps.parse_counts.outputs.XFAIL }}\n"
+            					}
+            				},
+            				{
+            					"type": "context",
+            					"elements": [
+            						{
+            							"type": "mrkdwn",
+            							"text": "*Environment: *\n ${{ matrix.environment }}  \n"
+            						},
+            						{
+            							"type": "mrkdwn",
+            							"text": " "
+            						},
+            						{
+            							"type": "mrkdwn",
+            							"text": "*Status: *\n ${{ job.status }}  :x:"
+            						}
+            					]
+            				},
+            				{
+            					"type": "section",
+            					"text": {
+            						"type": "mrkdwn",
+            						"text": "Here's the corresponding report :arrow_right::arrow_right:"
+            					},
+            					"accessory": {
+            						"type": "button",
+            						"text": {
+            							"type": "plain_text",
+            							"text": "Click to Downlaod",
+            							"emoji": true
+            						},
+            						"value": "click_me_123",
+            						"url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}",
+            						"action_id": "button-action",
+            						"style": "danger"
+            					}
+            				}
+            			]
+            		}
+            	]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_SA }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
+      - name: Post to Slack channel on Success
+        id: slack_pass
+        uses: slackapi/slack-github-action@v1.23.0
+        if: success()
+        with:
+          payload: |
+            {
+            	"attachments": [
+            		{
+            			"color": "#36a64f",
+            			"blocks": [
+            				{
+            					"type": "section",
+            					"text": {
+            						"type": "mrkdwn",
+            						"text": " Hola :bye_boo: \n*${{ github.workflow }}* were just triggered! \n"
+            					}
+            				},
+            				{
+            					"type": "section",
+            					"text": {
+            						"type": "mrkdwn",
+            						"text": "*Passed:* ${{ steps.parse_counts.outputs.PASSED }} *Failed:* ${{ steps.parse_counts.outputs.FAILED }} *Error:* ${{ steps.parse_counts.outputs.ERROR }} *Skipped:* ${{ steps.parse_counts.outputs.SKIPPED }} *XFail:* ${{ steps.parse_counts.outputs.XFAIL }}\n"
+            					}
+            				},
+            				{
+            					"type": "context",
+            					"elements": [
+            						{
+            							"type": "mrkdwn",
+            							"text": "*Environment: *\n ${{ matrix.environment }}  \n"
+            						},
+            						{
+            							"type": "mrkdwn",
+            							"text": " "
+            						},
+            						{
+            							"type": "mrkdwn",
+            							"text": "*Status: *\n ${{ job.status }}  :white_check_mark:"
+            						}
+            					]
+            				},
+            				{
+            					"type": "section",
+            					"text": {
+            						"type": "mrkdwn",
+            						"text": "Here's the corresponding report :arrow_right::arrow_right:"
+            					},
+            					"accessory": {
+            						"type": "button",
+            						"text": {
+            							"type": "plain_text",
+            							"text": "Click to Download",
+            							"emoji": true
+            						},
+            						"value": "click_me_123",
+            						"url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}",
+            						"action_id": "button-action",
+            						"style": "primary"
+            					}
+            				}
+            			]
+            		}
+            	]
+            }
+
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_SA }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
+      - name: Set email vars
+        if: ${{ success() || failure() }}
+        id: configure_email
+        uses: actions/github-script@v6
+        env:
+            JOB_STATUS: ${{ job.status }}
+            CC_ENV: ${{ matrix.environment }}
+        with:
+          script: |
+            const { promises: fs } = require('fs')
+            const {JOB_STATUS, NOW, CC_ENV, GITHUB_HEAD_REF} = process.env
+            const prefix = `[${CC_ENV}] BHA Weekly Cleanup - ${JOB_STATUS.toUpperCase()} - Run #${context.runNumber}`
+            const suffix = `at ${NOW}`
+            let subject = `${prefix} on branch "${GITHUB_HEAD_REF}" ${suffix}`
+
+            let bodyFile = './common_utilities/mail_templates/email_pass.md'
+            if (JOB_STATUS !== 'success') {
+              bodyFile = './common_utilities/mail_templates/email_fail.md'
+            }
+            
+            let actionRunLink = context.payload.repository.html_url + `/actions/runs/${context.runId}`
+            let testSuite = 'BHA Weekly Cleanup'
+            let bodyContent = await fs.readFile(bodyFile, 'utf8')
+            bodyContent = bodyContent.replace(/{{actionRunLink}}/g, actionRunLink)
+                .replace(/{{runNumber}}/g, context.runNumber)
+                .replace(/{{environment}}/g, CC_ENV)
+                .replace(/{{testSuite}}/g, testSuite)
+            
+            let receivers = 'qa-automation@dimagi.com'
+            if (context.eventName !== "pull_request" || context.eventName !== "push") {
+              receivers = 'kbordoloi@dimagi.com'
+            }
+            return {
+              "subject": subject,
+              "body": bodyContent,
+              "reference": Math.random().toString(36).substr(2),  // used to prevent threading of similar emails
+              "receivers": receivers
+            }
+      - name: Send Result Email
+        if: ${{ success() || failure() }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{secrets.DIMAGIQA_MAIL_USERNAME}}
+          password: ${{secrets.DIMAGIQA_MAIL_PASSWORD}}
+          subject: ${{ fromJSON(steps.configure_email.outputs.result).subject }}
+          to: ${{ fromJSON(steps.configure_email.outputs.result).receivers }}
+          from: <${{secrets.DIMAGIQA_MAIL_USERNAME}}>
+          html_body: ${{ fromJSON(steps.configure_email.outputs.result).body }}
+          convert_markdown: true
+          attachments: sbase-artifacts.zip
+          in_reply_to: ${{ fromJSON(steps.configure_email.outputs.result).reference }}
