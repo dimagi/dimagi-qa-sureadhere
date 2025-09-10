@@ -10,7 +10,7 @@ class PathSettings:
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
     if os.environ.get("CI") == "true":
-        DOWNLOAD_PATH = Path("/home/runner/work/dimagi-qa-sureadhere/dimagi-sa")
+        DOWNLOAD_PATH = Path("/home/runner/work/dimagi-qa-sureadhere/dimagi-qa-sureadhere")
     else:
         DOWNLOAD_PATH = Path('~/Downloads').expanduser()
 
