@@ -2998,16 +2998,66 @@ class BasePage:
             time.sleep(poll)
         raise TimeoutError(f"Expander '{logical_name}' did not reach state {expected} in {timeout}s")
 
-    def get_last_received_message(self):
-        # Kendo usually marks received messages with 'k-message-in'
-        msgs = self.driver.find_elements(By.CSS_SELECTOR, "kendo-chat .k-message.k-message-in")
-        if not msgs:
-            return None
-        return msgs[-1].text.strip()
+    # --- Small utilities ---------------------------------------------------------
 
-    def get_last_sent_message(self):
-        # Sent messages are usually 'k-message-out'
-        msgs = self.driver.find_elements(By.CSS_SELECTOR, "kendo-chat .k-message.k-message-out")
-        if not msgs:
+    def _bubble_text(self, bubble):
+        """Return the text shown inside the bubble, without the username line."""
+        try:
+            # If there's a username line, drop it from the final text
+            u = bubble.find_elements(By.CSS_SELECTOR, "p.username-display")
+            uname = u[0].text.strip() if u else None
+        except Exception:
+            uname = None
+
+        t = bubble.text.strip()
+        if uname:
+            # only strip the first occurrence at the start
+            if t.startswith(uname):
+                t = t[len(uname):].strip()
+        return t
+
+    def _wait_for_any_message(self, timeout=15):
+        # Wait until at least one chat message exists
+        WebDriverWait(self.driver, timeout).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "kendo-chat-message"))
+            )
+
+    # --- Public helpers ----------------------------------------------------------
+
+    def get_last_received_message(self, timeout=15):
+        """
+        Last message that came from the other side (left bubble).
+        Uses the absence of .k-alt on the nearest message-group.
+        """
+        self._wait_for_any_message(timeout)
+
+        # last <kendo-chat-message> whose ancestor .k-message-group does NOT have .k-alt
+        xp = ("(//kendo-chat-message[ancestor::div[contains(@class,'k-message-group') "
+              "and not(contains(@class,'k-alt'))]])[last()]"
+              "//div[contains(@class,'k-chat-bubble')]")
+        bubbles = self.driver.find_elements(By.XPATH, xp)
+        if not bubbles:
             return None
-        return msgs[-1].text.strip()
+        return self._bubble_text(bubbles[-1])
+
+    def get_last_sent_message(self, timeout=15):
+        """
+        Last message we sent (right bubble).
+        Uses the presence of .k-alt on the nearest message-group.
+        """
+        self._wait_for_any_message(timeout)
+
+        xp = ("(//kendo-chat-message[ancestor::div[contains(@class,'k-message-group') "
+              "and contains(@class,'k-alt')]])[last()]"
+              "//div[contains(@class,'k-chat-bubble')]")
+        bubbles = self.driver.find_elements(By.XPATH, xp)
+        if not bubbles:
+            return None
+        return self._bubble_text(bubbles[-1])
+
+    # Optional: fetch both at once
+    def get_last_messages(self, timeout=15):
+        """Return (last_incoming, last_outgoing). Either may be None."""
+        return (self.get_last_received_message(timeout),
+                self.get_last_sent_message(timeout))
+

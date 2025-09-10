@@ -265,7 +265,8 @@ class Android:
         self.click_xpath(self.submit)
         time.sleep(10)
         self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.submission_status)))
-        self.click_id(self.go_back)
+
+        self.click((AppiumBy.ACCESSIBILITY_ID, self.go_back))
 
 
     def record_video(self, record_secs: int = 6, timeout: int = 30):
@@ -284,31 +285,27 @@ class Android:
 
         return stop_btn
 
-    def read_and_send_messages(self):
+    def send_messages(self):
         self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.messages)))
         self.click_xpath(self.messages)
         self.wait.until(EC.visibility_of_element_located((AppiumBy.ID, self.outgoing_message)))
-        if self.is_present((AppiumBy.ID, self.incoming_message)):
-            text = self.get_text((AppiumBy.ID, self.incoming_message))
-            print(text)
-        else:
-            print("No incoming messages received yet...")
         send_text = "Sending from phone "+fetch_random_string()
-        print(send_text)
         self.send_message_and_verify(send_text)
-        # self.click_id(self.outgoing_message)
-        # self.send_text_id(self.outgoing_message, send_text)
-        # self.click_id(self.send_button)
-        # time.sleep(2)
-        # get_all = self.get_text((AppiumBy.ID, self.all_messages))
-        # print(get_all)
+        time.sleep(3)
         print(self.get_last_message_text())
-
-        # last incoming / outgoing (if your UI uses left/right alignment)
-        # print(self.get_last_incoming_text())
         print(self.get_last_outgoing_text())
+        self.click((AppiumBy.ACCESSIBILITY_ID, self.go_back))
+        return send_text
+
+    def read_messages(self, msg):
+        self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.messages)))
+        self.click_xpath(self.messages)
+        new_text=self.get_last_message_text()
+        assert msg in new_text, f"Messages mismatch. {msg} not in {new_text}"
+        print(f"{msg} found in {new_text}")
 
         self.click((AppiumBy.ACCESSIBILITY_ID, self.go_back))
+
     def send_message_and_verify(self, text: str, timeout: int = 15):
         # Make sure we’re in native context
         try:

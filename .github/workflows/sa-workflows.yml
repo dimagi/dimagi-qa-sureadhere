@@ -92,22 +92,45 @@ jobs:
 #          path: /home/runner/work/dimagi-sa/dimagi-sa/cleanup_report_${{ matrix.environment }}.html
 #          retention-days: 2
 
+#      - name: Upload reports & logs
+#        id: artifact-upload-step
+#        if: always()
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: sbase-artifacts
+#          path: |
+#            report.html
+#            latest_logs/**
+#            dashboard.html
+
+#      - name: Fetch artifact ID
+#        run: echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
+#
+#      - name: Zip reports for email
+#        run: zip -r sbase-artifacts.zip report.html latest_logs dashboard.html
+
+
+      # 1) Zip everything you want to send
+      - name: Zip reports for email
+        if: always()
+        run: |
+          rm -f sbase-artifacts.zip || true
+          zip -r sbase-artifacts.zip report.html latest_logs dashboard.html
+
+      # 2) (Optional) Upload the same zip as a run artifact
       - name: Upload reports & logs
         id: artifact-upload-step
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: sbase-artifacts
-          path: |
-            report.html
-            latest_logs/**
-            dashboard.html
+          path: sbase-artifacts.zip
 
-      - name: Fetch artifact ID
-        run: echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
-
-      - name: Zip reports for email
-        run: zip -r sbase-artifacts.zip report.html latest_logs dashboard.html
+      # 3) (Optional) Build a link to the artifact for the email body
+      - name: Build artifact URL
+        id: artifact_url
+        run: |
+          echo "url=https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}" >> $GITHUB_OUTPUT
 
       - name: Post to Slack channel on Failure
         id: slack_fail

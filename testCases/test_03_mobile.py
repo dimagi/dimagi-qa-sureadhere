@@ -11,6 +11,7 @@ from testPages.home_page.home_page import HomePage
 from testPages.login_page.login_page import LoginPage
 from testPages.manage_staff_page.manage_staff_page import ManageStaffPage
 from testPages.manage_patient_page.manage_patient_page import ManagePatientPage
+from testPages.patient_tab_pages.patient_messages_page import PatientMessagesPage
 from testPages.patient_tab_pages.patient_profile_page import PatientProfilePage
 from testPages.patient_tab_pages.patient_regimen_page import PatientRegimenPage
 from testPages.user_page.user_page import UserPage
@@ -46,7 +47,6 @@ class test_module_02(BaseCase):
         user_patient = UserPatientPage(self, "add_patient")
         p_profile = PatientProfilePage(self, 'patient_profile')
         p_regimen = PatientRegimenPage(self, 'patient_regimens')
-        d = self.__class__.data
         home.click_admin_profile_button()
         profile.logout_user()
         login.after_logout()
@@ -84,14 +84,37 @@ class test_module_02(BaseCase):
             )
 
 
-    def test_case_01_mobile_login(self):
+    def test_case_01_mobile_login_and_message(self):
+        login = LoginPage(self, "login")
         self._login_once()
         mobile = Android(self.settings)
+        home = HomePage(self, "dashboard")
+        profile = UserProfilePage(self, "user")
+        patient = ManagePatientPage(self, "patients")
+        p_profile = PatientProfilePage(self, 'patient_profile')
+        p_message = PatientMessagesPage(self, 'patient_messagess')
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+
+        login.login(self.settings["login_username"], self.settings["login_password"])
+
         d = self.__class__.data
         print(d['patient_username'])
+
+        home.open_manage_patient_page()
+        patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
+        patient.open_patient(d["patient_fname"], d["patient_lname"])
+
         mobile.select_environment(self.settings['url'])
         mobile.login_patient(d['patient_username'], d['patient_pin'])
-        mobile.read_and_send_messages()
+        mob_msg = mobile.send_messages()
+        p_message.open_patient_messages_page()
+        p_message.verify_patient_messages_page()
+        p_message.read_last_message(mob_msg)
+        web_msg = p_message.send_message()
+        mobile.read_messages(web_msg)
         mobile.record_video_and_submit()
         mobile.close_android_driver()
 

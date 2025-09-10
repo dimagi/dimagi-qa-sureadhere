@@ -43,6 +43,10 @@ class UserStaffPage(BasePage):
 
         self.click('isClientAdmin')
         assert self.is_checked('isClientAdmin'), "Client Admin not checked"
+
+        self.click('isRegimenEditor')
+        assert self.is_checked('isRegimenEditor'), "Regimen Editor not checked"
+
         self.click('button_SUBMIT')
         self.wait_for_invisible('button_SUBMIT')
         client=True

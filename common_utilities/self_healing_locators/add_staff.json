@@ -747,6 +747,14 @@
     "tag": "input",
     "xpath": "//input[@id='isActive']"
   },
+  "isRegimenEditor": {
+    "id": "isRegimenEditor",
+    "name": "isRegimenEditor",
+    "class": "k-checkbox k-checkbox-md",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='isRegimenEditor']"
+  },
   "div_Client Sta_169": {
     "class": "col-lg-6 col-md-6 col-sm-6 account_is_active ng-star-inserted",
     "tag": "div",

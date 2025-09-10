@@ -30,6 +30,8 @@ class PatientRegimenPage(BasePage):
         tabname = self.get_text('k-opened-tabstrip-tab')
         assert tabname == "Regimen", "Regimen tab is not opened"
         self.wait_for_element('kendo-dropdownlist-Disease', 40)
+        self.wait_for_element('input_regimen_name' )
+        self.wait_for_element('button_NEW_SCHEDULE')
         print("Opened tab is Regimen")
 
     def today_date(self):
@@ -54,8 +56,10 @@ class PatientRegimenPage(BasePage):
 
     def create_new_schedule(self, multi=False):
         self.type('input_regimen_name', self.regimen_name)
+        self.wait_for_element('input_regimen_name')
         self.kendo_dd_select_text_old('kendo-dropdownlist-Disease', UserData.regimen_disease)
-        self.click('button_NEW_SCHEDULE')
+        print(self.resolve('span_NEW_SCHEDULE'))
+        self.click_robust('span_NEW_SCHEDULE')
         date = self.today_date()
         self.wait_for_element('timepicker')
         print("regimen name: ", self.resolve('input_regimen_name'))

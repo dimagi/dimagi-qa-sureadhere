@@ -496,6 +496,11 @@
     "text": "Overview Adherence Regimen Profile Messages Pill count Reports September 2025 Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 4 Events 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4 Dose details - Sep. 9, 2025 (pat_1) 06:00 AM Bup Film 7mg / 7 pills expected Open Dose observation summary Status Open Counts toward adherence Comments SUBMIT REVIEW Events This dose All Tuesday, September 9th 2025 - 01:37 pm Video 00:00:02 Tuesday, September 9th 2025 - 01:35 pm Self report",
     "xpath": "//main[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nSeptember 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n4 Events\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4\nDose details - Sep. 9, 2025 (pat_1)\n06:00 AM\nBup Film\n7mg / 7 pills expected\nOpen\nDose observation summary\nStatus\nOpen\nCounts toward adherence\nComments\n                  SUBMIT REVIEW\nEvents\nThis dose\nAll\nTuesday, September 9th 2025 - 01:37 pm\nVideo\n00:00:02\nTuesday, September 9th 2025 - 01:35 pm\nSelf report')]"
   },
+  "k-opened-tabstrip-tab": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab') and @aria-selected='true']//div/span"
+  },
   "kendo-tabstrip_Overview A_122": {
     "class": "ng-tns-c655264150-13 k-tabstrip k-pos-relative k-tabstrip-top ng-star-inserted",
     "tag": "kendo-tabstrip",
@@ -538,12 +543,11 @@
     "text": "Overview",
     "xpath": "//span[contains(normalize-space(text()), 'Overview')]"
   },
-  "k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-1": {
-    "id": "k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-1",
-    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted k-active",
+"k-tabstrip-tab-Adherence": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
     "tag": "li",
     "text": "Adherence",
-    "xpath": "//li[@id='k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-1']"
+    "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Adherence')]"
   },
   "span_Adherence_130": {
     "class": "k-link ng-star-inserted",

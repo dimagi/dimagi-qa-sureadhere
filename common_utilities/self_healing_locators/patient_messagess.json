@@ -610,12 +610,11 @@
     "text": "Profile",
     "xpath": "//span[contains(normalize-space(text()), 'Profile')]"
   },
-  "k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-4": {
-    "id": "k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-4",
-    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted k-active",
+  "k-tabstrip-tab-Messages": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
     "tag": "li",
     "text": "Messages",
-    "xpath": "//li[@id='k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-4']"
+    "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Messages')]"
   },
   "span_Messages_141": {
     "class": "k-link ng-star-inserted",
@@ -681,6 +680,11 @@
     "tag": "span",
     "text": "Reports",
     "xpath": "//span[contains(normalize-space(text()), 'Reports')]"
+  },
+  "k-opened-tabstrip-tab": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab') and @aria-selected='true']//div/span"
   },
   "k-tabstrip-tabpanel-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-4": {
     "id": "k-tabstrip-tabpanel-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-4",
@@ -1275,19 +1279,18 @@
     "tag": "kendo-message-box",
     "xpath": "//kendo-message-box[@class='k-input k-input-md k-input-solid k-message-box k-rounded-md']"
   },
-  "kendo-textarea__260": {
+  "kendo-textarea": {
     "placeholder": "Enter a message...",
     "class": "k-textarea k-input !k-flex-col k-input-md k-rounded-md k-input-solid ng-star-inserted",
     "tag": "kendo-textarea",
     "xpath": "//kendo-textarea[@placeholder='Enter a message...']"
   },
-  "k-57bc0a1c-cb0c-4527-8388-3dd9f8d71b63": {
-    "id": "k-57bc0a1c-cb0c-4527-8388-3dd9f8d71b63",
+  "textarea-message": {
     "placeholder": "Enter a message...",
     "class": "k-input-inner !k-overflow-auto !k-overflow-y-auto k-resize-none !k-flex-none",
     "type": "textarea",
     "tag": "textarea",
-    "xpath": "//textarea[@id='k-57bc0a1c-cb0c-4527-8388-3dd9f8d71b63']"
+    "xpath": "//kendo-textarea/textarea[@placeholder='Enter a message...']"
   },
   "kendo-textarea-suffix__262": {
     "class": "custom-suffix k-input-suffix",
@@ -1304,11 +1307,11 @@
     "tag": "kendo-input-separator",
     "xpath": "//kendo-input-separator[@class='k-text-base k-input-separator']"
   },
-  "button__265": {
+  "button_send_button": {
     "class": "send-button k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
     "type": "submit",
     "tag": "button",
-    "xpath": "//button[@class='send-button k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+    "xpath": "//button[contains(@class,'send-button')]"
   },
   "span__266": {
     "class": "k-button-text",
