@@ -76,8 +76,8 @@ class test_module_01(BaseCase):
         print(self.data)
 
     @pytest.mark.dependency(name="tc3", depends=["tc1", "tc2"], scope="class")
-    def test_case_03_add_patient(self):
-        rerun_count = pytest.request.getfixturevalue("rerun_count")
+    def test_case_03_add_patient(self, request):
+        rerun_count = request.getfixturevalue("rerun_count")
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")

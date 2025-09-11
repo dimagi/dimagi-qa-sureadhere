@@ -23,7 +23,7 @@ from testPages.user_profile.user_profile_page import UserProfilePage
 from user_inputs.user_data import UserData
 
 
-class test_module_02(BaseCase):
+class test_module_03(BaseCase):
     _session_ready = False  # guard so we only open/login once
     data = {}
     def _login_once(self):
@@ -38,8 +38,8 @@ class test_module_02(BaseCase):
         type(self)._session_ready = True
 
     @pytest.mark.dependency(name="tc1", scope="class")
-    def test_case_00_create_patient(self):
-        rerun_count = pytest.request.getfixturevalue("rerun_count")
+    def test_case_00_create_patient(self, request):
+        rerun_count = request.getfixturevalue("rerun_count")
         # login = LoginPage(self, "login")
         login = LoginPage(self, "login")
         self._login_once()

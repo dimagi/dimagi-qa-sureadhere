@@ -15,6 +15,12 @@ from common_utilities.path_settings import PathSettings
 def settings():
     return load_settings()
 
+@pytest.fixture
+def rerun_count(request):
+    # pytest-rerunfailures sets execution_count (1 on first run, 2 on first rerun, …)
+    count = getattr(request.node, "execution_count", 1)
+    return max(0, count - 1)
+
 @pytest.fixture(autouse=True)
 def inject_settings_to_self(request, settings):
     if hasattr(request.node, "cls"):
