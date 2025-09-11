@@ -2229,7 +2229,7 @@
     "text": "Open",
     "xpath": "//div[contains(normalize-space(text()), 'Open')]"
   },
-  "saved_status_0": {
+  "kendo-dropdown-saved_status": {
     "id": "saved_status_0",
     "class": "adh-custom-dropdown k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
     "tag": "kendo-dropdownlist",
@@ -2464,23 +2464,22 @@
     "tag": "div",
     "xpath": "//div[@class='col-8 effect-autocomplete']"
   },
-  "kendo-autocomplete__477": {
+  "kendo-autocomplete_side_efects": {
     "class": "k-input-md k-rounded-md k-input-solid k-autocomplete k-input ng-untouched ng-pristine ng-valid",
     "tag": "kendo-autocomplete",
     "xpath": "//kendo-autocomplete[@class='k-input-md k-rounded-md k-input-solid k-autocomplete k-input ng-untouched ng-pristine ng-valid']"
   },
-  "kendo-searchbar__478": {
+  "kendo-searchbar_side_efects": {
     "class": "k-searchbar",
     "tag": "kendo-searchbar",
     "xpath": "//kendo-searchbar[@class='k-searchbar']"
   },
-  "k-ef015cd9-98e7-465f-937d-e10b6857c01b": {
-    "id": "k-ef015cd9-98e7-465f-937d-e10b6857c01b",
+  "k-side_efects": {
     "placeholder": "Add side effect ...",
     "class": "k-input-inner",
     "type": "text",
     "tag": "input",
-    "xpath": "//input[@id='k-ef015cd9-98e7-465f-937d-e10b6857c01b']"
+    "xpath": "//input[@placeholder='Add side effect ...']"
   },
   "responsive-renderer__480": {
     "tag": "responsive-renderer",
@@ -2549,31 +2548,37 @@
     "class": "k-textbox comments-area k-input ng-untouched ng-pristine ng-invalid",
     "type": "textarea",
     "tag": "textarea",
-    "xpath": "//textarea[@id='newCommentInput']"
+    "xpath": "//event-modal//textarea[@id='newCommentInput']"
   },
   "div__493": {
     "class": "comment-options",
     "tag": "div",
     "xpath": "//div[@class='comment-options']"
   },
-  "div_SUBMIT REV_494": {
+  "div_SUBMIT_REVIEW": {
     "class": "adherence-options",
     "tag": "div",
     "text": "SUBMIT REVIEW",
     "xpath": "//div[contains(normalize-space(text()), 'SUBMIT REVIEW')]"
   },
-  "button_SUBMIT REV_495": {
+  "button_SUBMIT_REVIEW": {
     "class": "k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid",
     "type": "submit",
     "tag": "button",
     "text": "SUBMIT REVIEW",
     "xpath": "//button[contains(normalize-space(text()), 'SUBMIT REVIEW')]"
   },
-  "span_SUBMIT REV_496": {
+  "span_SUBMIT_REVIEW": {
     "class": "k-button-text",
     "tag": "span",
     "text": "SUBMIT REVIEW",
     "xpath": "//span[contains(normalize-space(text()), 'SUBMIT REVIEW')]"
+  },
+  "span_Comment": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "COMMENT",
+    "xpath": "//span[contains(normalize-space(text()), 'COMMENT')]"
   },
   "popover__497": {
     "tag": "popover",
@@ -4215,11 +4220,10 @@
     "text": "Bup Film 7mg/7 pills",
     "xpath": "//div[contains(normalize-space(text()), 'Bup Film\n7mg/7 pills')]"
   },
-  "div_Bup Film_806": {
+  "div_drug-name": {
     "class": "drug-name",
     "tag": "div",
-    "text": "Bup Film",
-    "xpath": "//div[contains(normalize-space(text()), 'Bup Film')]"
+    "xpath": "//div[@class='drug-name']"
   },
   "div_7mg/7 pill_807": {
     "class": "drug-details",
@@ -4281,7 +4285,7 @@
     "text": "MORE OPTIONS",
     "xpath": "//button[contains(normalize-space(text()), 'MORE OPTIONS')]"
   },
-  "span_MORE OPTIO_818": {
+  "span_MORE_OPTIONS": {
     "class": "k-button-text",
     "tag": "span",
     "text": "MORE OPTIONS",
@@ -4633,23 +4637,22 @@
     "tag": "div",
     "xpath": "//div[@class='col-lg-6 pt-2 d-flex align-items-center']"
   },
-  "kendo-autocomplete__895": {
+  "kendo-autocomplete_side_effect": {
     "class": "w-100 k-input-md k-rounded-md k-input-solid k-autocomplete k-input ng-untouched ng-pristine ng-valid",
     "tag": "kendo-autocomplete",
-    "xpath": "//kendo-autocomplete[@class='w-100 k-input-md k-rounded-md k-input-solid k-autocomplete k-input ng-untouched ng-pristine ng-valid']"
+    "xpath": "//kendo-autocomplete[contains(@class,'w-100 k-input-md k-rounded-md k-input-solid k-autocomplete')]"
   },
   "kendo-searchbar__896": {
     "class": "k-searchbar",
     "tag": "kendo-searchbar",
     "xpath": "//kendo-searchbar[@class='k-searchbar']"
   },
-  "k-33226690-4a3f-4f0f-98eb-5a319c08b52f": {
-    "id": "k-33226690-4a3f-4f0f-98eb-5a319c08b52f",
+  "input-side_effects": {
     "placeholder": "Add side effect ...",
     "class": "k-input-inner",
     "type": "text",
     "tag": "input",
-    "xpath": "//input[@id='k-33226690-4a3f-4f0f-98eb-5a319c08b52f']"
+    "xpath": "//input[@placeholder='Add side effect ...']"
   },
   "responsive-renderer__898": {
     "tag": "responsive-renderer",

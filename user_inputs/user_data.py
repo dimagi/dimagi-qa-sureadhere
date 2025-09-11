@@ -13,3 +13,6 @@ class UserData:
     admin_drug = ["Levofloxacin", "Rifapentine", "Truvada", "Stribild"]
     default_staff_email = "automation.user@email.com"
     default_staff_name = "Automation Testuser"
+    med_status = "Taken"
+    provider_observation = "Patient"
+    side_effect = ["Dark urine", "Loss of appetite", "Pain in hands/feet", "Unusual tiredness or weakness", "Low back pain", "Sleep disturbances",]

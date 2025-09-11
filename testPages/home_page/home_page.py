@@ -36,3 +36,29 @@ class HomePage(BasePage):
         time.sleep(5)
         self.wait_for_page_to_load()
 
+    def check_for_quick_actions(self):
+        self.wait_for_element('div-quick_actions')
+        time.sleep(5)
+        print("Quick Actions is present")
+
+    def check_for_video_review(self, pat_name, sa_id):
+        self.unheal('span-patient-video-review')
+        self.unheal_all('span-patient-video-review')
+        list_name = self.find_elements('span-video-patient_name')
+        list_review = self.find_elements('span-patient-video-review')
+        list_sa_id = self.find_elements('span-patient-sa-id-review')
+        print(len(list_name), len(list_review), len(list_sa_id))
+        for vids, sa_id_value in zip(list_review, list_sa_id):
+            sa_id_text = sa_id_value.text.strip()
+            if sa_id in sa_id_text:
+                print(f"{sa_id} is present. Matches {sa_id_text}")
+                vids.click()
+                time.sleep(10)
+                self.wait_for_page_to_load()
+                break  # stop looping after success
+            else:
+                print(f"{sa_id} does not match {sa_id_text}")
+        else:
+            # Only runs if the loop completes without 'break'
+            print(f"No matching SA ID found for {sa_id}")
+

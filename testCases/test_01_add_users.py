@@ -76,7 +76,8 @@ class test_module_01(BaseCase):
         print(self.data)
 
     @pytest.mark.dependency(name="tc3", depends=["tc1", "tc2"], scope="class")
-    def test_case_03_add_patient(self, rerun_count):
+    def test_case_03_add_patient(self):
+        rerun_count = pytest.request.getfixturevalue("rerun_count")
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
@@ -203,13 +204,13 @@ class test_module_01(BaseCase):
         patient.open_patient(d["patient_fname"], d["patient_lname"])
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
-        start_date, end_date, doses = p_regimen.create_new_schedule()
+        start_date, end_date, doses, med_name = p_regimen.create_new_schedule()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"], start_date, end_date, doses)
         self.__class__.data.update(
             {"start_date": start_date, "end_date": end_date,
-             "Total_dosed": doses}
+             "total_dosed": doses, "drug_name": med_name}
             )
         print(self.data)
 

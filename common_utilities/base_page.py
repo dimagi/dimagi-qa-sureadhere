@@ -497,67 +497,6 @@ class BasePage:
         WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((by, s)))
         return self.driver.find_element(by, s)
 
-    # def _resolve_runtime(self, logical_name: str, entry: Dict[str, Any]) -> str:
-    #     # Try candidates in order; accept only a unique match. If many match,
-    #     # pick best element by score and return a uniquified XPath.
-    #     for cand in self._candidates_for(entry):
-    #         elems = self._query(cand)
-    #         if not elems:
-    #             continue
-    #
-    #         # If unique and good, take it
-    #         if len(elems) == 1:
-    #             if self._score_element(elems[0], entry) > 0:
-    #                 return cand
-    #             # else continue searching; maybe next candidate is better
-    #
-    #         # Multiple matches: pick the best element and return a unique XPath index
-    #         scores = [(i + 1, self._score_element(e, entry)) for i, e in enumerate(elems)]
-    #         best_index, best_score = max(scores, key=lambda t: t[1]) if scores else (None, 0)
-    #         if best_index and best_score > 0:
-    #             # Only accept if our candidate is XPath; if CSS, let’s not try to index it—skip
-    #             if cand.strip().startswith("//") or cand.strip().startswith("("):
-    #                 return _wrap_unique(cand, best_index)
-    #             # fall through to next candidate for CSS
-    #     raise Exception(f"No working locator found for '{logical_name}' on page '{self.page_name}'")
-
-    # def resolve(self, logical_name: str, timeout: int = 5) -> str:
-    #     entry = self.locators[logical_name]
-    #     base_xp = entry.get("xpath")
-    #     base_css = entry.get("css")
-    #     lock = bool(entry.get("lock"))
-    #
-    #     # 1) Try base JSON FIRST (don’t heal if it already works)
-    #     for sel in [base_xp, base_css]:
-    #         if sel:
-    #             ok = self._try_selector(sel, entry, timeout=timeout)
-    #             if ok:
-    #                 return ok
-    #     if lock:
-    #         # If locked, never use healed or candidates
-    #         return base_xp or base_css
-    #
-    #     # 2) Try healed selectors (but still guarded)
-    #     healed = self._load_healed_page(self.page_name).get(logical_name, {}) if hasattr(self, "_load_healed_page"
-    #                                                                                      ) else {}
-    #     healed_list = [healed.get("xpath"), healed.get("css")] + list(healed.get("alternates", []))
-    #     for sel in filter(None, healed_list):
-    #         ok = self._try_selector(sel, entry, timeout=timeout)
-    #         if ok:
-    #             return ok  # (don’t persist again)
-    #
-    #     # 3) Generate candidate heals (include aria-colindex etc.), guarded checks
-    #     for cand in self._candidates_for(entry):  # your existing generator; ensure aria-colindex included
-    #         ok = self._try_selector(cand, entry, timeout=timeout)
-    #         if ok:
-    #             # Only persist if NOT generic
-    #             if not self._looks_generic_xpath(ok):
-    #                 self._persist_healed(logical_name, ok)
-    #             return ok
-    #
-    #     # 4) Fall back to base (even if not found yet) to keep behavior deterministic
-    #     return base_xp or base_css
-
     def resolve(self, logical_name: str, timeout: int = PRIMARY_TIMEOUT) -> str:
         key = (self.page_name or "", logical_name)
         if key in self._resolved_cache:
@@ -605,6 +544,18 @@ class BasePage:
     def wait_for_element(self, logical_name: str, timeout: int = CLICK_TIMEOUT):
         sel = self.resolve(logical_name)
         self.sb.wait_for_element(sel, timeout=timeout)
+
+    def find_elements(self, logical_name: str, timeout: int = CLICK_TIMEOUT):
+        sel = self.resolve_strict(logical_name)
+        print(sel)
+        try:
+            # Wait for at least one element to be present
+            self.sb.wait_for_element_present(sel, timeout=timeout)
+        except TimeoutException:
+            return []
+
+        # Return all currently matching elements
+        return self.sb.find_elements(sel)
 
     def click(self, logical_name: str, timeout: int = CLICK_TIMEOUT):
         sel = self.resolve(logical_name)
@@ -1910,6 +1861,12 @@ class BasePage:
         except ValueError:
             return dt.strftime("%b %#d, %Y")
 
+    def format_full_mdY(self, dt):
+        try:
+            return dt.strftime("%B %-d, %Y")  # Unix
+        except ValueError:
+            return dt.strftime("%B %#d, %Y")
+
 
 #================================
     # ===== Kendo popup & listbox helpers (shared) =====
@@ -3060,4 +3017,26 @@ class BasePage:
         """Return (last_incoming, last_outgoing). Either may be None."""
         return (self.get_last_received_message(timeout),
                 self.get_last_sent_message(timeout))
+
+    def kendo_autocomplete_select(self, input_locator: str, text: str, option_text: str = None):
+        """Type into a Kendo autocomplete and select a dropdown option.
+
+        Args:
+            input_locator (str): XPath or JSON logical_name for the input field.
+            text (str): Text to type into the field.
+            option_text (str, optional): Exact text of the option to select.
+                                         If None, selects the first result.
+        """
+        sel = self.resolve_strict(input_locator) if input_locator in self.locators else input_locator
+        self.type(sel, text)
+        self.sleep(1)  # small delay for dropdown
+
+        if option_text:
+            option_sel = f"//ul[@role='listbox']//li[contains(normalize-space(.), '{option_text}')]"
+        else:
+            option_sel = "//ul[@role='listbox']//li[1]"
+
+        self.wait_for_element(option_sel, timeout=5)
+        self.click(option_sel)
+
 

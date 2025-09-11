@@ -11,9 +11,11 @@ from testPages.home_page.home_page import HomePage
 from testPages.login_page.login_page import LoginPage
 from testPages.manage_staff_page.manage_staff_page import ManageStaffPage
 from testPages.manage_patient_page.manage_patient_page import ManagePatientPage
+from testPages.patient_tab_pages.patient_adherence_page import PatientAdherencePage
 from testPages.patient_tab_pages.patient_messages_page import PatientMessagesPage
 from testPages.patient_tab_pages.patient_profile_page import PatientProfilePage
 from testPages.patient_tab_pages.patient_regimen_page import PatientRegimenPage
+from testPages.patient_tab_pages.patient_video_page import PatientVideoPage
 from testPages.user_page.user_page import UserPage
 from testPages.user_page.user_patient_page import UserPatientPage
 from testPages.user_page.user_staff_page import UserStaffPage
@@ -36,7 +38,8 @@ class test_module_02(BaseCase):
         type(self)._session_ready = True
 
     @pytest.mark.dependency(name="tc1", scope="class")
-    def test_case_00_create_patient(self, rerun_count):
+    def test_case_00_create_patient(self):
+        rerun_count = pytest.request.getfixturevalue("rerun_count")
         # login = LoginPage(self, "login")
         login = LoginPage(self, "login")
         self._login_once()
@@ -66,7 +69,7 @@ class test_module_02(BaseCase):
                                                                       )
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
-        start_date, end_date, doses = p_regimen.create_new_schedule()
+        start_date, end_date, doses, med_name = p_regimen.create_new_schedule()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
         patient.search_patient(pfname, plname, mrn,username, sa_id,
@@ -79,7 +82,7 @@ class test_module_02(BaseCase):
              "mrn": mrn, "phone_country": phn_country, "SA_ID": sa_id,
              "site": UserData.site_manager[0], "is_patient_active": patient_test_account,
              "patient_pin": patient_pin, "start_date": start_date, "end_date": end_date,
-             "Total_dosed": doses
+             "total_dosed": doses, "drug_name":med_name,
              }
             )
 
@@ -93,6 +96,8 @@ class test_module_02(BaseCase):
         patient = ManagePatientPage(self, "patients")
         p_profile = PatientProfilePage(self, 'patient_profile')
         p_message = PatientMessagesPage(self, 'patient_messagess')
+        p_vdo = PatientVideoPage(self, 'patient_video_form')
+        p_adhere = PatientAdherencePage(self, 'patient_adherence')
 
         home.click_admin_profile_button()
         profile.logout_user()
@@ -115,7 +120,19 @@ class test_module_02(BaseCase):
         p_message.read_last_message(mob_msg)
         web_msg = p_message.send_message()
         mobile.read_messages(web_msg)
-        mobile.record_video_and_submit()
+        mobile.record_video_and_submit(d['drug_name'])
         mobile.close_android_driver()
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+
+        login.login(self.settings["login_username"], self.settings["login_password"])
+        home.validate_dashboard_page()
+        home.check_for_quick_actions()
+        home.check_for_video_review(d["patient_fname"]+" "+d["patient_lname"], d['SA_ID'])
+        p_vdo.verify_patient_video_page()
+        p_vdo.fill_up_review_form(d['drug_name'])
+        p_adhere.verify_patient_adherence_page()
+
 
 

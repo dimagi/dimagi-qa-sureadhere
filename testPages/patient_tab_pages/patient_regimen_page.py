@@ -136,7 +136,7 @@ class PatientRegimenPage(BasePage):
         )
 
 
-        return text_date_format, end_date, UserData.no_of_pills
+        return text_date_format, end_date, UserData.no_of_pills, UserData.regimen_drugs[0]
 
     def get_all_diseases_present(self):
         values = self.kendo_dd_get_all_texts("kendo-dropdownlist-Disease")

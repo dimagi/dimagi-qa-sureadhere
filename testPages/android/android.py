@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 from pathlib import Path
 
 from appium import webdriver
@@ -141,6 +141,11 @@ class Android:
         self.text_view = "//android.widget.TextView"
         self.more_options = "More options"
         self.logout = "//android.widget.TextView[@text()='Logout']"
+        self.med_name = "com.dimagi.sureadhere:id/name"
+        self.upload_date = "com.dimagi.sureadhere:id/upload_date"
+        self.capture_date = "com.dimagi.sureadhere:id/capture_date"
+        self.pill_count = "com.dimagi.sureadhere:id/pill_count"
+
 
     def click_xpath(self, locator):
         element = self.driver.find_element(AppiumBy.XPATH, locator)
@@ -185,6 +190,20 @@ class Android:
             return
         except Exception:
             pass
+
+    def today_date(self):
+        now = datetime.today()
+        try:
+            half_date_format = now.strftime("%b %-d, %Y")  # Unix/Linux/macOS
+        except ValueError:
+            half_date_format = now.strftime("%b %#d, %Y")  # Windows
+
+        try:
+            full_date_format = now.strftime("%B %-d, %Y")  # Unix/Linux/macOS
+        except ValueError:
+            full_date_format = now.strftime("%B %#d, %Y")  # Windows
+
+        return half_date_format, full_date_format
 
     def grant_permissions_if_needed(self):
         # Try a few rounds (camera + mic often stack)
@@ -245,7 +264,7 @@ class Android:
         self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.take_video)))
 
 
-    def record_video_and_submit(self, record_secs: int = 6, timeout: int = 90):
+    def record_video_and_submit(self, med_name, record_secs: int = 6, timeout: int = 90):
         # --- app flow ---
         self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.take_video)))
         self.click_xpath(self.take_video)
@@ -262,10 +281,21 @@ class Android:
         self.record_video(record_secs=8)
         time.sleep(1)
         self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.submit)))
+        text_med = self.get_text((AppiumBy.ID, self.med_name))
+        assert text_med == med_name
+        self.send_text_id(self.pill_count, "1")
+        time.sleep(1)
         self.click_xpath(self.submit)
         time.sleep(10)
         self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.submission_status)))
-
+        half, full = self.today_date()
+        print(half, full)
+        half_text = self.get_text((AppiumBy.ID, self.upload_date))
+        full_text = self.get_text((AppiumBy.ID, self.capture_date))
+        assert half in half_text, f"{half} not in {half_text}"
+        print(f"{half} in {half_text}")
+        assert full in full_text, f"{full} not in {full_text}"
+        print(f"{full} in {full_text}")
         self.click((AppiumBy.ACCESSIBILITY_ID, self.go_back))
 
 
