@@ -38,8 +38,8 @@ class test_module_03(BaseCase):
         type(self)._session_ready = True
 
     @pytest.mark.dependency(name="tc1", scope="class")
-    def test_case_00_create_patient(self, request):
-        rerun_count = request.getfixturevalue("rerun_count")
+    def test_case_00_create_patient(self):
+        rerun_count = getattr(self, "rerun_count", 0)
         # login = LoginPage(self, "login")
         login = LoginPage(self, "login")
         self._login_once()

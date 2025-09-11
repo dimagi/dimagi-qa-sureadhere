@@ -60,6 +60,8 @@ class test_module_01(BaseCase):
         staff.search_staff(d["fname"], d["lname"], d["email"], d["phn"])
         staff.open_staff(d["fname"], d["lname"])
         new_fname, new_lname, account_active, test_account=user_staff.edit_staff_form(d["fname"], d["lname"], d["email"], d["phn"], client=d["isClientAdmint"])
+        home.open_dashboard_page()
+        home.open_manage_staff_page()
         staff.validate_manage_staff_page()
         if account_active == False:
             staff.open_inactive_tab()
@@ -76,8 +78,8 @@ class test_module_01(BaseCase):
         print(self.data)
 
     @pytest.mark.dependency(name="tc3", depends=["tc1", "tc2"], scope="class")
-    def test_case_03_add_patient(self, request):
-        rerun_count = request.getfixturevalue("rerun_count")
+    def test_case_03_add_patient(self):
+        rerun_count = getattr(self, "rerun_count", 0)
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")

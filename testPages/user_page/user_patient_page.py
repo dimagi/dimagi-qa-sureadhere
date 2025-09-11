@@ -27,7 +27,7 @@ class UserPatientPage(BasePage):
         self.wait_for_element('first_name')
         self.wait_for_element('button_SAVE')
         if rerun_count == 0:
-            suffix = "0"
+            suffix = ""
         else:
             suffix = "1"
         if mob == 'YES':
@@ -56,8 +56,8 @@ class UserPatientPage(BasePage):
         self.click('button_SAVE')
         self.wait_for_invisible('button_SAVE')
 
-        print(f"Patient Created: {self.first_name_text}, {self.last_name_text}, {self.mrn},{self.email}, {self.username}, {UserData.phone_number}, {phn_country_text}")
-        return self.first_name_text, self.last_name_text, self.mrn, self.email, self.username, UserData.phone_number, phn_country_text
+        print(f"Patient Created: {self.first_name_text+suffix}, {self.last_name_text+suffix}, {self.mrn+suffix},{suffix+self.email}, {self.username+suffix}, {UserData.phone_number}, {phn_country_text}")
+        return self.first_name_text+suffix, self.last_name_text+suffix, self.mrn+suffix, suffix+self.email, self.username+suffix, UserData.phone_number, phn_country_text
 
 
 
