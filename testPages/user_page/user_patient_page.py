@@ -31,19 +31,24 @@ class UserPatientPage(BasePage):
         else:
             suffix = "1"
         if mob == 'YES':
-            self.type('first_name', self.first_name_mob+suffix)
-            self.type('last_name', self.last_name_mob+suffix)
-            self.type('mrn', self.mrn_mob+suffix)
-            self.type('email', suffix+self.email_mob)
-            self.type('phone_number', UserData.phone_number)
-            self.type('user_name', self.username_mob+suffix)
+            fname = self.first_name_mob+suffix
+            lname = self.last_name_mob+suffix
+            mrn = self.mrn_mob+suffix
+            email = suffix+self.email_mob
+            username = self.username_mob+suffix
         else:
-            self.type('first_name', self.first_name_text+suffix)
-            self.type('last_name', self.last_name_text+suffix)
-            self.type('mrn', self.mrn+suffix)
-            self.type('email', suffix+self.email)
-            self.type('phone_number', UserData.phone_number)
-            self.type('user_name', self.username+suffix)
+            fname = self.first_name_text + suffix
+            lname = self.last_name_text + suffix
+            mrn = self.mrn + suffix
+            email = suffix + self.email
+            username = self.username + suffix
+
+        self.type('first_name', fname)
+        self.type('last_name', lname)
+        self.type('mrn', mrn)
+        self.type('email', email)
+        self.type('phone_number', UserData.phone_number)
+        self.type('user_name', username)
 
         site_text = self.kendo_dd_get_selected_text('kendo-dropdownlist-site')
         print(site_text, site)
@@ -56,8 +61,8 @@ class UserPatientPage(BasePage):
         self.click('button_SAVE')
         self.wait_for_invisible('button_SAVE')
 
-        print(f"Patient Created: {self.first_name_text+suffix}, {self.last_name_text+suffix}, {self.mrn+suffix},{suffix+self.email}, {self.username+suffix}, {UserData.phone_number}, {phn_country_text}")
-        return self.first_name_text+suffix, self.last_name_text+suffix, self.mrn+suffix, suffix+self.email, self.username+suffix, UserData.phone_number, phn_country_text
+        print(f"Patient Created: {fname}, {lname}, {mrn},{email}, {username}, {UserData.phone_number}, {phn_country_text}")
+        return fname, lname, mrn, email, username, UserData.phone_number, phn_country_text
 
 
 
