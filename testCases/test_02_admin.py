@@ -1,4 +1,5 @@
 import random
+import time
 
 import pytest
 from seleniumbase import BaseCase
@@ -38,45 +39,68 @@ class test_module_02(BaseCase):
     def test_case_01_edit_disease_and_verify(self):
         # login = LoginPage(self, "login")
         self._login_once()
-        home = HomePage(self, "dashboard")
-        admin =AdminPage(self, 'admin')
         a_disease = AdminDiseasePage(self, 'admin_diseases')
+        home = HomePage(self, "dashboard")
+        admin = AdminPage(self, 'admin')
+        a_drug = AdminDrugPage(self, 'admin_drugs')
         patient = ManagePatientPage(self, "patients")
         p_regimen = PatientRegimenPage(self, 'patient_regimens')
 
         selected_disease = random.choice(UserData.admin_disease)
+        selected_drug = random.choice(UserData.admin_drug)
 
+        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.expand_diseases()
         disease_switch, disease_name = a_disease.toggle_for_disease(selected_disease)
+
+        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.expand_diseases()
         a_disease.double_check_on_toggle(disease_name, disease_switch)
 
-        home.open_manage_patient_page()
-        patient.search_test_patients()
-        patient.open_first_patient()
-        p_regimen.open_patient_regimen_page()
-        p_regimen.verify_patient_regimen_page()
-        p_regimen.verify_diseases_present(disease_name, disease_switch)
-
-        home.open_admin_page()
-        admin.expand_diseases()
-        disease_switch_now, disease_name = a_disease.toggle_for_disease(disease_name)
+        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
-        admin.expand_diseases()
-        a_disease.double_check_on_toggle(disease_name, disease_switch_now)
+        admin.expand_drugs()
+        drug_switch, drug_name = a_drug.toggle_for_drugs(selected_drug)
 
-        print(f"Before: {disease_switch}, Drug Name: {disease_name}, After: {disease_switch_now}")
-        home.open_manage_patient_page()
-        patient.search_test_patients()
-        patient.open_first_patient()
-        p_regimen.open_patient_regimen_page()
-        p_regimen.verify_patient_regimen_page()
-        p_regimen.verify_diseases_present(disease_name, disease_switch_now)
+        home.open_dashboard_page()
+        home.validate_dashboard_page()
+        home.open_admin_page()
+        admin.expand_drugs()
+        a_drug.double_check_on_toggle(drug_name, drug_switch)
+
+        self.__class__.data.update(
+            {"disease_switch": disease_switch, "disease_name": disease_name,
+             "drug_switch": drug_switch, "drug_name": drug_name}
+            )
+
+
+        # home.open_manage_patient_page()
+        # patient.search_test_patients()
+        # patient.open_first_patient()
+        # p_regimen.open_patient_regimen_page()
+        # p_regimen.verify_patient_regimen_page()
+        # p_regimen.verify_diseases_present(disease_name, disease_switch)
+
+        # home.open_admin_page()
+        # admin.expand_diseases()
+        # disease_switch_now, disease_name = a_disease.toggle_for_disease(disease_name)
+        # home.validate_dashboard_page()
+        # home.open_admin_page()
+        # admin.expand_diseases()
+        # a_disease.double_check_on_toggle(disease_name, disease_switch_now)
+        #
+        # print(f"Before: {disease_switch}, Drug Name: {disease_name}, After: {disease_switch_now}")
+        # home.open_manage_patient_page()
+        # patient.search_test_patients()
+        # patient.open_first_patient()
+        # p_regimen.open_patient_regimen_page()
+        # p_regimen.verify_patient_regimen_page()
+        # p_regimen.verify_diseases_present(disease_name, disease_switch_now)
 
     @pytest.mark.dependency(name="tc2", scope="class")
     def test_case_02_edit_drugs_and_verify(self):
@@ -84,33 +108,77 @@ class test_module_02(BaseCase):
         self._login_once()
         home = HomePage(self, "dashboard")
         admin =AdminPage(self, 'admin')
+        a_disease = AdminDiseasePage(self, 'admin_diseases')
         a_drug = AdminDrugPage(self, 'admin_drugs')
         patient = ManagePatientPage(self, "patients")
         p_regimen = PatientRegimenPage(self, 'patient_regimens')
 
-        selected_drug = random.choice(UserData.admin_drug)
+        d = self.__class__.data
 
+        # selected_drug = random.choice(UserData.admin_drug)
+
+        # home.validate_dashboard_page()
+        # home.open_admin_page()
+        # admin.expand_drugs()
+        # drug_switch, drug_name = a_drug.toggle_for_drugs(selected_drug)
+        # admin.expand_drugs()
+        # a_drug.double_check_on_toggle(drug_name, drug_switch)
+
+        home.open_dashboard_page()
+        home.open_manage_patient_page()
+        patient.search_test_patients()
+        patient.open_first_patient()
+        p_regimen.open_patient_regimen_page()
+        p_regimen.verify_patient_regimen_page()
+        p_regimen.verify_diseases_present(d['disease_name'], d['disease_switch'])
+
+        home.open_dashboard_page()
+        home.open_manage_patient_page()
+        patient.search_test_patients()
+        patient.open_first_patient()
+        p_regimen.open_patient_regimen_page()
+        p_regimen.verify_patient_regimen_page()
+        p_regimen.verify_drugs_present(d['drug_name'], d['drug_switch'])
+
+        home.open_dashboard_page()
+        home.open_admin_page()
+        admin.expand_diseases()
+        disease_switch_now, disease_name = a_disease.toggle_for_disease(d['disease_name'])
+
+        home.open_dashboard_page()
+        home.validate_dashboard_page()
+        home.open_admin_page()
+        admin.expand_diseases()
+        a_disease.double_check_on_toggle(disease_name, disease_switch_now)
+
+        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.expand_drugs()
-        drug_switch, drug_name = a_drug.toggle_for_drugs(selected_drug)
+        drug_switch_now, drug_name = a_drug.toggle_for_drugs(d['drug_name'])
+
+        home.open_dashboard_page()
+        home.validate_dashboard_page()
+        home.open_admin_page()
         admin.expand_drugs()
-        a_drug.double_check_on_toggle(drug_name, drug_switch)
+        a_drug.double_check_on_toggle(drug_name, drug_switch_now)
+
+
+        home.open_dashboard_page()
+        print(f"Before: {d['disease_switch']}, Drug Name: {disease_name}, After: {disease_switch_now}")
+
+        print("sleeping for the changes to reflect...")
+        time.sleep(30)
 
         home.open_manage_patient_page()
         patient.search_test_patients()
         patient.open_first_patient()
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
-        p_regimen.verify_drugs_present(drug_name, drug_switch)
+        p_regimen.verify_diseases_present(disease_name, disease_switch_now)
 
-        home.open_admin_page()
-        admin.expand_drugs()
-        drug_switch_now, drug_name = a_drug.toggle_for_drugs(drug_name)
-        admin.expand_drugs()
-        a_drug.double_check_on_toggle(drug_name, drug_switch_now)
-
-        print(f"Before: {drug_switch}, Drug Name: {drug_name}, After: {drug_switch_now}")
+        home.open_dashboard_page()
+        print(f"Before: {d['drug_switch']}, Drug Name: {d['drug_name']}, After: {drug_switch_now}")
         home.open_manage_patient_page()
         patient.search_test_patients()
         patient.open_first_patient()

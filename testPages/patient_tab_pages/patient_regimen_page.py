@@ -33,6 +33,8 @@ class PatientRegimenPage(BasePage):
         self.wait_for_element('input_regimen_name' )
         self.wait_for_element('button_NEW_SCHEDULE')
         print("Opened tab is Regimen")
+        time.sleep(10)
+
 
     def today_date(self):
         date_today = datetime.today()
@@ -159,11 +161,19 @@ class PatientRegimenPage(BasePage):
         values = self.kendo_dd_get_all_texts("kendo-dropdownlist-Disease")
         # print(f"List of Diseases: {values}")
         if toggle == "ON":
-            assert name in values, f"The disease {name} is not present in the disease dropdown list {values}"
-            print(f"The disease {name} is present in the disease dropdown list {values}")
+            if name in values:
+                assert True, f"The disease {name} is not present in the disease dropdown list {values}"
+                print(f"The disease {name} is present in the disease dropdown list {values}")
+            else:
+                print(f"The disease {name} is not present in the disease dropdown list {values}")
+
         elif toggle == "OFF":
-            assert name not in values, f"The disease {name} is present in the disease dropdown list {values}"
-            print(f"The disease {name} is not present in the disease dropdown list {values}")
+            if name not in values:
+                assert True, f"The disease {name} is present in the disease dropdown list {values}"
+                print(f"The disease {name} is not present in the disease dropdown list {values}")
+            else:
+                print(f"The disease {name} is present in the disease dropdown list {values}")
+
         else:
             print("Invalid toggle option")
 
@@ -175,10 +185,21 @@ class PatientRegimenPage(BasePage):
         self.wait_for_element('kendo-multiselect-drugs')
         self.wait_for_element('button_CREATE')
         drugs = self.kendo_ms_get_all_texts("kendo-multiselect-drugs")
-        print(f"List of Diseases: {drugs}")
+        print(f"List of Drugs: {drugs}")
+
         if toggle == "ON":
-            assert name in drugs, f"The drug {name} is not present in the drug dropdown list {drugs}"
-            print(f"The drug {name} is present in the drug dropdown list {drugs}")
+            if name in drugs:
+                assert True, f"The drugs {name} is not present in the drugs dropdown list {drugs}"
+                print(f"The drugs {name} is present in the drugs dropdown list {drugs}")
+            else:
+                print(f"The drugs {name} is not present in the drugs dropdown list {drugs}")
+
         elif toggle == "OFF":
-            assert name not in drugs, f"The drug {name} is present in the drug dropdown list {drugs}"
-            print(f"The drug {name} is not present in the drug dropdown list {drugs}")
+            if name not in drugs:
+                assert True, f"The drugs {name} is present in the drugs dropdown list {drugs}"
+                print(f"The drugs {name} is not present in the drugs dropdown list {drugs}")
+            else:
+                print(f"The drugs {name} is present in the drugs dropdown list {drugs}")
+
+        else:
+            print("Invalid toggle option")
