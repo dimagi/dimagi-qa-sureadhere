@@ -76,7 +76,7 @@ class test_module_01(BaseCase):
         print(self.data)
 
     @pytest.mark.dependency(name="tc3", depends=["tc1", "tc2"], scope="class")
-    def test_case_03_add_patient(self):
+    def test_case_03_add_patient(self, rerun_count):
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
@@ -93,7 +93,7 @@ class test_module_01(BaseCase):
         home.validate_dashboard_page()
         home.click_add_user()
         user.add_patient()
-        pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(d['site'])
+        pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(d['site'], rerun_count=rerun_count)
         p_profile.verify_patient_profile_page()
         sa_id = p_profile.verify_patient_profile_details(pfname, plname, mrn, pemail, username, phn, phn_country, d['site'], sa_id=True)
         self.__class__.data.update(

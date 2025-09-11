@@ -36,7 +36,7 @@ class test_module_02(BaseCase):
         type(self)._session_ready = True
 
     @pytest.mark.dependency(name="tc1", scope="class")
-    def test_case_00_create_patient(self):
+    def test_case_00_create_patient(self, rerun_count):
         # login = LoginPage(self, "login")
         login = LoginPage(self, "login")
         self._login_once()
@@ -55,7 +55,7 @@ class test_module_02(BaseCase):
         home.validate_dashboard_page()
         home.click_add_user()
         user.add_patient()
-        pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(UserData.site_manager[0], mob='YES')
+        pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(UserData.site_manager[0], mob='YES', rerun_count=rerun_count)
         p_profile.verify_patient_profile_page()
         sa_id = p_profile.verify_patient_profile_details(pfname, plname, mrn, pemail, username, phn, phn_country,
                                                          UserData.site_manager[0], sa_id=True
