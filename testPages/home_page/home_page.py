@@ -25,6 +25,7 @@ class HomePage(BasePage):
         self.wait_for_page_to_load()
 
     def click_admin_profile_button(self):
+        time.sleep(2)
         self.click("button_user_profile")
 
     def open_manage_patient_page(self):

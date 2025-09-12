@@ -88,6 +88,7 @@ class PatientAdherencePage(BasePage):
             print("popup not present after save")
         time.sleep(5)
         self.refresh()
+        time.sleep(10)
         self.verify_patient_adherence_page()
         self.wait_for_element('span_cal_today_date')
         assert self.is_element_visible('span_cal_today_symptoms'), "side effects not updated in calendar"
