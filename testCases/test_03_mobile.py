@@ -153,12 +153,20 @@ class test_module_03(BaseCase):
 
 
     def test_case_03_review_overview(self):
+        login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
+        profile = UserProfilePage(self, "user")
         p_overview = PatientOverviewPage(self, 'patient_overview')
         patient = ManagePatientPage(self, "patients")
 
         d = self.__class__.data
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+
+        login.login(self.settings["login_username"], self.settings["login_password"])
 
         home.validate_dashboard_page()
         home.open_manage_patient_page()
@@ -169,12 +177,21 @@ class test_module_03(BaseCase):
         p_overview.check_calendar_and_doses(d['commented_timestamp'], d['commented_text'], d['drug_name'], d['start_date'], d['total_pills'])
 
     def test_case_04_review_reports(self):
+        login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
+        profile = UserProfilePage(self, "user")
+
         patient = ManagePatientPage(self, "patients")
         p_report = PatientReportsPage(self, 'patient_reports')
 
         d = self.__class__.data
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+
+        login.login(self.settings["login_username"], self.settings["login_password"])
 
         home.validate_dashboard_page()
         home.open_manage_patient_page()
