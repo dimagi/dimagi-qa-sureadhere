@@ -103,15 +103,6 @@ class test_module_03(BaseCase):
 
         d = self.__class__.data
 
-        # d={"patient_fname": "pat_fmob_t4xy2y", "patient_lname": "pat_lmob_t4xy2y",
-        #  "patient_email": "pat_mob_t4xy2y@testmail.com",
-        #  "patient_phn": UserData.phone_number, "patient_username": "usermob_t4xy2y",
-        #  "mrn": "mob_1594", "phone_country": "United States", "SA_ID": "SA-7590",
-        #  "site": UserData.site_manager[0], "is_patient_active": True,
-        #  "patient_pin": "2588", "start_date": "Sep 12, 2025" , "end_date": "Sep 18, 2025",
-        #  "total_pills": 7, "drug_name": UserData.regimen_drugs[0], "dose_per_pill": 14
-        #  }
-
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
         patient.open_patient(d["patient_fname"], d["patient_lname"])
@@ -132,12 +123,20 @@ class test_module_03(BaseCase):
             )
 
     def test_case_02_review_video_and_adherence(self):
+        login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
+        profile = UserProfilePage(self, "user")
         p_vdo = PatientVideoPage(self, 'patient_video_form')
         p_adhere = PatientAdherencePage(self, 'patient_adherence')
 
         d = self.__class__.data
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+
+        login.login(self.settings["login_username"], self.settings["login_password"])
 
         home.validate_dashboard_page()
         home.check_for_quick_actions()
@@ -160,18 +159,6 @@ class test_module_03(BaseCase):
         patient = ManagePatientPage(self, "patients")
 
         d = self.__class__.data
-        #
-        # d={"patient_fname": "pat_fmob_t4xy2y", "patient_lname": "pat_lmob_t4xy2y",
-        #  "patient_email": "pat_mob_t4xy2y@testmail.com",
-        #  "patient_phn": UserData.phone_number, "patient_username": "usermob_t4xy2y",
-        #  "mrn": "mob_16725", "phone_country": "United States", "SA_ID": "SA-7593",
-        #  "site": UserData.site_manager[0], "is_patient_active": True,
-        #  "patient_pin": "4393", "start_date": "Sep 12, 2025" , "end_date": "Sep 18, 2025",
-        #  "total_pills": 7, "drug_name": UserData.regimen_drugs[0], "dose_per_pill": 14,
-        #  "commented_timestamp": "Fri - Sep 12, 2025 - 06:20 PM",
-        #  "commented_text": "Meds taken, Review Approved",
-        #  "side_effect": "Low back pain", "video_upload_date": "Sep 12, 2025"
-        #  }
 
         home.validate_dashboard_page()
         home.open_manage_patient_page()
