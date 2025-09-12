@@ -2553,8 +2553,18 @@
   "div__493": {
     "class": "comment-options",
     "tag": "div",
-    "xpath": "//div[@class='comment-options']"
+    "xpath": "(//div[@class='comment-options'])[last()]"
   },
+  "div_commented_user_timestamp":{
+    "class": "comment-item ng-star-inserted",
+    "tag": "div",
+    "xpath": "(//event-modal//div[@class='comment-item ng-star-inserted'])[last()]"
+  },
+  "span_commented_timestamp":{
+    "tag": "h5",
+    "xpath": "(//event-modal//div[@class='comment-item ng-star-inserted']//h5)[last()]"
+  },
+
   "div_SUBMIT_REVIEW": {
     "class": "adherence-options",
     "tag": "div",
@@ -4225,11 +4235,10 @@
     "tag": "div",
     "xpath": "//div[@class='drug-name']"
   },
-  "div_7mg/7 pill_807": {
+  "div_drug-details": {
     "class": "drug-details",
     "tag": "div",
-    "text": "7mg/7 pills",
-    "xpath": "//div[contains(normalize-space(text()), '7mg/7 pills')]"
+    "xpath": "//div[@class='drug-details']"
   },
   "div_Comments_808": {
     "class": "p-0 pt-4",
@@ -4653,6 +4662,11 @@
     "type": "text",
     "tag": "input",
     "xpath": "//input[@placeholder='Add side effect ...']"
+  },
+  "li_current-side-effects": {
+    "class": "side-effect-item ng-star-inserted",
+    "tag": "li",
+    "xpath": "//div[@class='current-side-effects']//ul//li[@class='side-effect-item ng-star-inserted']"
   },
   "responsive-renderer__898": {
     "tag": "responsive-renderer",

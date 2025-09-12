@@ -1,1096 +1,1059 @@
 {
   "html_Client_Tes_0": {
     "tag": "html",
-    "text": "Client_Test_1_US Dashboard Patients Staff Reports pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Total progress Doses Taken Not taken Scheduled Held Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled No records available. August 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
-    "xpath": "//html[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\npat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nTotal progress\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nNo records available.\nAugust 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports Admin pat_fmob_85drlu pat_lmob_85drlu | Site_1_US Treatment start date Sep 12, 2025 Exp. end date Sep 18, 2025 MRN mob_1594 SA-ID SA-7590 Patient manager Automation Testuser Treatment monitor None Overview Adherence Regimen Profile Messages Pill count Reports Total progress VDOT (recorded) 100.00% TakenMissed Doses Taken Not taken Scheduled Held Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled Ofloxacin 1 6 7 0 0 September 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//html[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\nAdmin\npat_fmob_85drlu pat_lmob_85drlu | Site_1_US\nTreatment start date\nSep 12, 2025\nExp. end date\nSep 18, 2025\nMRN\nmob_1594\nSA-ID\nSA-7590\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nTotal progress\nVDOT (recorded)\n100.00%\nTakenMissed\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nOfloxacin\n1\n6\n7\n0 0\nSeptember 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
   },
-  "body_Client_Tes_27": {
-    "class": "pace-done pace-done ng-tns-0-0",
+  "body_Client_Tes_30": {
+    "class": "pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done ng-tns-0-0",
     "tag": "body",
-    "text": "Client_Test_1_US Dashboard Patients Staff Reports pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Total progress Doses Taken Not taken Scheduled Held Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled No records available. August 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
-    "xpath": "//body[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\npat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nTotal progress\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nNo records available.\nAugust 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports Admin pat_fmob_85drlu pat_lmob_85drlu | Site_1_US Treatment start date Sep 12, 2025 Exp. end date Sep 18, 2025 MRN mob_1594 SA-ID SA-7590 Patient manager Automation Testuser Treatment monitor None Overview Adherence Regimen Profile Messages Pill count Reports Total progress VDOT (recorded) 100.00% TakenMissed Doses Taken Not taken Scheduled Held Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled Ofloxacin 1 6 7 0 0 September 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//body[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\nAdmin\npat_fmob_85drlu pat_lmob_85drlu | Site_1_US\nTreatment start date\nSep 12, 2025\nExp. end date\nSep 18, 2025\nMRN\nmob_1594\nSA-ID\nSA-7590\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nTotal progress\nVDOT (recorded)\n100.00%\nTakenMissed\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nOfloxacin\n1\n6\n7\n0 0\nSeptember 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
   },
-  "div__28": {
+  "div__31": {
     "class": "pace pace-inactive",
     "tag": "div",
     "xpath": "//div[@class='pace pace-inactive']"
   },
-  "div__29": {
+  "div__32": {
     "class": "pace-progress",
     "tag": "div",
     "xpath": "//div[@class='pace-progress']"
   },
-  "div__30": {
+  "div__33": {
     "class": "pace-progress-inner",
     "tag": "div",
     "xpath": "//div[@class='pace-progress-inner']"
   },
-  "div__31": {
+  "div__34": {
     "class": "pace-activity",
     "tag": "div",
     "xpath": "//div[@class='pace-activity']"
   },
-  "app_Client_Tes_32": {
+  "app_Client_Tes_35": {
     "tag": "app",
-    "text": "Client_Test_1_US Dashboard Patients Staff Reports pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Total progress Doses Taken Not taken Scheduled Held Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled No records available. August 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
-    "xpath": "//app[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\npat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nTotal progress\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nNo records available.\nAugust 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports Admin pat_fmob_85drlu pat_lmob_85drlu | Site_1_US Treatment start date Sep 12, 2025 Exp. end date Sep 18, 2025 MRN mob_1594 SA-ID SA-7590 Patient manager Automation Testuser Treatment monitor None Overview Adherence Regimen Profile Messages Pill count Reports Total progress VDOT (recorded) 100.00% TakenMissed Doses Taken Not taken Scheduled Held Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled Ofloxacin 1 6 7 0 0 September 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//app[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\nAdmin\npat_fmob_85drlu pat_lmob_85drlu | Site_1_US\nTreatment start date\nSep 12, 2025\nExp. end date\nSep 18, 2025\nMRN\nmob_1594\nSA-ID\nSA-7590\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nTotal progress\nVDOT (recorded)\n100.00%\nTakenMissed\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nOfloxacin\n1\n6\n7\n0 0\nSeptember 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
   },
-  "div_Client_Tes_33": {
+  "div_Client_Tes_36": {
     "class": "custom-toolbar",
     "tag": "div",
     "text": "Client_Test_1_US",
     "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
   },
-  "div__34": {
+  "div__37": {
     "class": "logo",
     "tag": "div",
     "xpath": "//div[@class='logo']"
   },
-  "div_Client_Tes_35": {
+  "div_Client_Tes_38": {
     "class": "client-name d-none d-md-inline-flex",
     "tag": "div",
     "text": "Client_Test_1_US",
     "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
   },
-  "span__36": {
+  "span__39": {
     "class": "right-navbar ng-star-inserted",
     "tag": "span",
     "xpath": "//span[@class='right-navbar ng-star-inserted']"
   },
-  "client-header__37": {
+  "client-header__40": {
     "tag": "client-header",
     "xpath": "//client-header"
   },
-  "div__38": {
+  "div__41": {
     "class": "header-actions",
     "tag": "div",
     "xpath": "//div[@class='header-actions']"
   },
-  "button__39": {
+  "button__42": {
     "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat ng-star-inserted",
     "type": "submit",
     "tag": "button",
     "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat ng-star-inserted' and @type='submit']"
   },
-  "span__40": {
+  "span__43": {
     "class": "k-button-text",
     "tag": "span",
     "xpath": "//span[@class='k-button-text']"
   },
-  "fa-icon__41": {
+  "fa-icon__44": {
     "class": "ng-fa-icon toolbar-icon text-success",
     "tag": "fa-icon",
     "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-success']"
   },
-  "svg__42": {
+  "svg__45": {
     "class": "svg-inline--fa fa-user-plus",
     "data-icon": "user-plus",
     "tag": "svg",
     "xpath": "//svg[@class='svg-inline--fa fa-user-plus']"
   },
-  "path__43": {
+  "path__46": {
     "tag": "path",
     "xpath": "//path"
   },
-  "button__44": {
+  "button__47": {
     "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
     "type": "submit",
     "tag": "button",
     "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
   },
-  "span__45": {
+  "span__48": {
     "class": "k-button-text",
     "tag": "span",
     "xpath": "//span[@class='k-button-text']"
   },
-  "fa-icon__46": {
+  "fa-icon__49": {
     "class": "ng-fa-icon toolbar-icon text-warning",
     "tag": "fa-icon",
     "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-warning']"
   },
-  "svg__47": {
+  "svg__50": {
     "class": "svg-inline--fa fa-circle-question",
     "data-icon": "circle-question",
     "tag": "svg",
     "xpath": "//svg[@class='svg-inline--fa fa-circle-question']"
   },
-  "path__48": {
+  "path__51": {
     "tag": "path",
     "xpath": "//path"
   },
-  "button__49": {
+  "button__52": {
     "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
     "type": "submit",
     "tag": "button",
     "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
   },
-  "span__50": {
+  "span__53": {
     "class": "k-button-text",
     "tag": "span",
     "xpath": "//span[@class='k-button-text']"
   },
-  "fa-icon__51": {
+  "fa-icon__54": {
     "class": "ng-fa-icon toolbar-icon",
     "tag": "fa-icon",
     "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon']"
   },
-  "svg__52": {
+  "svg__55": {
     "class": "svg-inline--fa fa-circle-user",
     "data-icon": "circle-user",
     "tag": "svg",
     "xpath": "//svg[@class='svg-inline--fa fa-circle-user']"
   },
-  "path__53": {
+  "path__56": {
     "tag": "path",
     "xpath": "//path"
   },
-  "kendo-drawer-container_Dashboard _54": {
+  "kendo-drawer-container_Dashboard _57": {
     "class": "k-drawer-container k-drawer-mini k-drawer-push",
     "tag": "kendo-drawer-container",
-    "text": "Dashboard Patients Staff Reports pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Total progress Doses Taken Not taken Scheduled Held Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled No records available. August 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
-    "xpath": "//kendo-drawer-container[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\npat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nTotal progress\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nNo records available.\nAugust 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+    "text": "Dashboard Patients Staff Reports Admin pat_fmob_85drlu pat_lmob_85drlu | Site_1_US Treatment start date Sep 12, 2025 Exp. end date Sep 18, 2025 MRN mob_1594 SA-ID SA-7590 Patient manager Automation Testuser Treatment monitor None Overview Adherence Regimen Profile Messages Pill count Reports Total progress VDOT (recorded) 100.00% TakenMissed Doses Taken Not taken Scheduled Held Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled Ofloxacin 1 6 7 0 0 September 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//kendo-drawer-container[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin\npat_fmob_85drlu pat_lmob_85drlu | Site_1_US\nTreatment start date\nSep 12, 2025\nExp. end date\nSep 18, 2025\nMRN\nmob_1594\nSA-ID\nSA-7590\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nTotal progress\nVDOT (recorded)\n100.00%\nTakenMissed\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nOfloxacin\n1\n6\n7\n0 0\nSeptember 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
   },
-  "kendo-drawer_Dashboard _55": {
+  "kendo-drawer_Dashboard _58": {
     "class": "border-0 k-drawer k-drawer-start",
     "tag": "kendo-drawer",
-    "text": "Dashboard Patients Staff Reports",
-    "xpath": "//kendo-drawer[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports')]"
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//kendo-drawer[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
   },
-  "div_Dashboard _56": {
+  "div_Dashboard _59": {
     "class": "k-drawer-wrapper",
     "tag": "div",
-    "text": "Dashboard Patients Staff Reports",
-    "xpath": "//div[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports')]"
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
   },
-  "ul_Dashboard _57": {
+  "ul_Dashboard _60": {
     "class": "k-drawer-items",
     "tag": "ul",
-    "text": "Dashboard Patients Staff Reports",
-    "xpath": "//ul[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports')]"
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//ul[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
   },
-  "li_Dashboard_58": {
-    "class": "k-drawer-item",
+  "li_Dashboard_61": {
+    "class": "k-drawer-item ng-star-inserted",
     "tag": "li",
     "text": "Dashboard",
     "xpath": "//li[contains(normalize-space(text()), 'Dashboard')]"
   },
-  "div_Dashboard_59": {
+  "div_Dashboard_62": {
+    "class": "ng-star-inserted",
     "tag": "div",
     "text": "Dashboard",
     "xpath": "//div[contains(normalize-space(text()), 'Dashboard')]"
   },
-  "fa-icon__60": {
+  "fa-icon__63": {
     "class": "ng-fa-icon",
     "tag": "fa-icon",
     "xpath": "//fa-icon[@class='ng-fa-icon']"
   },
-  "svg__61": {
+  "svg__64": {
     "class": "svg-inline--fa fa-house",
     "data-icon": "house",
     "tag": "svg",
     "xpath": "//svg[@class='svg-inline--fa fa-house']"
   },
-  "path__62": {
+  "path__65": {
     "tag": "path",
     "xpath": "//path"
   },
-  "p_Dashboard_63": {
+  "p_Dashboard_66": {
     "tag": "p",
     "text": "Dashboard",
     "xpath": "//p[contains(normalize-space(text()), 'Dashboard')]"
   },
-  "li_Patients_64": {
-    "class": "k-drawer-item k-selected",
+  "li_Patients_67": {
+    "class": "k-drawer-item ng-star-inserted k-selected",
     "tag": "li",
     "text": "Patients",
     "xpath": "//li[contains(normalize-space(text()), 'Patients')]"
   },
-  "div_Patients_65": {
+  "div_Patients_68": {
+    "class": "ng-star-inserted",
     "tag": "div",
     "text": "Patients",
     "xpath": "//div[contains(normalize-space(text()), 'Patients')]"
   },
-  "fa-icon__66": {
+  "fa-icon__69": {
     "class": "ng-fa-icon",
     "tag": "fa-icon",
     "xpath": "//fa-icon[@class='ng-fa-icon']"
   },
-  "svg__67": {
+  "svg__70": {
     "class": "svg-inline--fa fa-user-large",
     "data-icon": "user-large",
     "tag": "svg",
     "xpath": "//svg[@class='svg-inline--fa fa-user-large']"
   },
-  "path__68": {
+  "path__71": {
     "tag": "path",
     "xpath": "//path"
   },
-  "p_Patients_69": {
+  "p_Patients_72": {
     "tag": "p",
     "text": "Patients",
     "xpath": "//p[contains(normalize-space(text()), 'Patients')]"
   },
-  "li_Staff_70": {
-    "class": "k-drawer-item",
+  "li_Staff_73": {
+    "class": "k-drawer-item ng-star-inserted",
     "tag": "li",
     "text": "Staff",
     "xpath": "//li[contains(normalize-space(text()), 'Staff')]"
   },
-  "div_Staff_71": {
+  "div_Staff_74": {
+    "class": "ng-star-inserted",
     "tag": "div",
     "text": "Staff",
     "xpath": "//div[contains(normalize-space(text()), 'Staff')]"
   },
-  "fa-icon__72": {
+  "fa-icon__75": {
     "class": "ng-fa-icon",
     "tag": "fa-icon",
     "xpath": "//fa-icon[@class='ng-fa-icon']"
   },
-  "svg__73": {
+  "svg__76": {
     "class": "svg-inline--fa fa-user-nurse",
     "data-icon": "user-nurse",
     "tag": "svg",
     "xpath": "//svg[@class='svg-inline--fa fa-user-nurse']"
   },
-  "path__74": {
+  "path__77": {
     "tag": "path",
     "xpath": "//path"
   },
-  "p_Staff_75": {
+  "p_Staff_78": {
     "tag": "p",
     "text": "Staff",
     "xpath": "//p[contains(normalize-space(text()), 'Staff')]"
   },
-  "li_Reports_76": {
-    "class": "k-drawer-item",
+  "li_Reports_79": {
+    "class": "k-drawer-item ng-star-inserted",
     "tag": "li",
     "text": "Reports",
     "xpath": "//li[contains(normalize-space(text()), 'Reports')]"
   },
-  "div_Reports_77": {
+  "div_Reports_80": {
+    "class": "ng-star-inserted",
     "tag": "div",
     "text": "Reports",
     "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
   },
-  "fa-icon__78": {
+  "fa-icon__81": {
     "class": "ng-fa-icon",
     "tag": "fa-icon",
     "xpath": "//fa-icon[@class='ng-fa-icon']"
   },
-  "svg__79": {
+  "svg__82": {
     "class": "svg-inline--fa fa-file-waveform",
     "data-icon": "file-waveform",
     "tag": "svg",
     "xpath": "//svg[@class='svg-inline--fa fa-file-waveform']"
   },
-  "path__80": {
+  "path__83": {
     "tag": "path",
     "xpath": "//path"
   },
-  "p_Reports_81": {
+  "p_Reports_84": {
     "tag": "p",
     "text": "Reports",
     "xpath": "//p[contains(normalize-space(text()), 'Reports')]"
   },
-  "kendo-drawer-content_pat_1 pat__82": {
+  "li_Admin_85": {
+    "class": "k-drawer-item ng-star-inserted",
+    "tag": "li",
+    "text": "Admin",
+    "xpath": "//li[contains(normalize-space(text()), 'Admin')]"
+  },
+  "div_Admin_86": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Admin",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin')]"
+  },
+  "fa-icon__87": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__88": {
+    "class": "svg-inline--fa fa-gear",
+    "data-icon": "gear",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-gear']"
+  },
+  "path__89": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Admin_90": {
+    "tag": "p",
+    "text": "Admin",
+    "xpath": "//p[contains(normalize-space(text()), 'Admin')]"
+  },
+  "kendo-drawer-content_pat_fmob_8_91": {
     "class": "k-drawer-content",
     "tag": "kendo-drawer-content",
-    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Total progress Doses Taken Not taken Scheduled Held Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled No records available. August 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
-    "xpath": "//kendo-drawer-content[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nTotal progress\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nNo records available.\nAugust 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+    "text": "pat_fmob_85drlu pat_lmob_85drlu | Site_1_US Treatment start date Sep 12, 2025 Exp. end date Sep 18, 2025 MRN mob_1594 SA-ID SA-7590 Patient manager Automation Testuser Treatment monitor None Overview Adherence Regimen Profile Messages Pill count Reports Total progress VDOT (recorded) 100.00% TakenMissed Doses Taken Not taken Scheduled Held Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled Ofloxacin 1 6 7 0 0 September 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//kendo-drawer-content[contains(normalize-space(text()), 'pat_fmob_85drlu pat_lmob_85drlu | Site_1_US\nTreatment start date\nSep 12, 2025\nExp. end date\nSep 18, 2025\nMRN\nmob_1594\nSA-ID\nSA-7590\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nTotal progress\nVDOT (recorded)\n100.00%\nTakenMissed\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nOfloxacin\n1\n6\n7\n0 0\nSeptember 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
   },
-  "adherence_pat_1 pat__84": {
+  "adherence_pat_fmob_8_93": {
     "class": "ng-star-inserted",
     "tag": "adherence",
-    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Total progress Doses Taken Not taken Scheduled Held Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled No records available. August 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
-    "xpath": "//adherence[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nTotal progress\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nNo records available.\nAugust 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+    "text": "pat_fmob_85drlu pat_lmob_85drlu | Site_1_US Treatment start date Sep 12, 2025 Exp. end date Sep 18, 2025 MRN mob_1594 SA-ID SA-7590 Patient manager Automation Testuser Treatment monitor None Overview Adherence Regimen Profile Messages Pill count Reports Total progress VDOT (recorded) 100.00% TakenMissed Doses Taken Not taken Scheduled Held Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled Ofloxacin 1 6 7 0 0 September 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//adherence[contains(normalize-space(text()), 'pat_fmob_85drlu pat_lmob_85drlu | Site_1_US\nTreatment start date\nSep 12, 2025\nExp. end date\nSep 18, 2025\nMRN\nmob_1594\nSA-ID\nSA-7590\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nTotal progress\nVDOT (recorded)\n100.00%\nTakenMissed\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nOfloxacin\n1\n6\n7\n0 0\nSeptember 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
   },
-  "ng-sidebar-container_pat_1 pat__85": {
+  "ng-sidebar-container_pat_fmob_8_94": {
     "class": "adherence-wrapper",
     "tag": "ng-sidebar-container",
-    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Total progress Doses Taken Not taken Scheduled Held Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled No records available. August 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
-    "xpath": "//ng-sidebar-container[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nTotal progress\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nNo records available.\nAugust 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+    "text": "pat_fmob_85drlu pat_lmob_85drlu | Site_1_US Treatment start date Sep 12, 2025 Exp. end date Sep 18, 2025 MRN mob_1594 SA-ID SA-7590 Patient manager Automation Testuser Treatment monitor None Overview Adherence Regimen Profile Messages Pill count Reports Total progress VDOT (recorded) 100.00% TakenMissed Doses Taken Not taken Scheduled Held Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled Ofloxacin 1 6 7 0 0 September 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//ng-sidebar-container[contains(normalize-space(text()), 'pat_fmob_85drlu pat_lmob_85drlu | Site_1_US\nTreatment start date\nSep 12, 2025\nExp. end date\nSep 18, 2025\nMRN\nmob_1594\nSA-ID\nSA-7590\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nTotal progress\nVDOT (recorded)\n100.00%\nTakenMissed\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nOfloxacin\n1\n6\n7\n0 0\nSeptember 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
   },
-  "div_pat_1 pat__86": {
+  "div_pat_fmob_8_95": {
     "class": "ng-sidebar__content ng-sidebar__content--animate",
     "tag": "div",
-    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Total progress Doses Taken Not taken Scheduled Held Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled No records available. August 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
-    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nTotal progress\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nNo records available.\nAugust 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+    "text": "pat_fmob_85drlu pat_lmob_85drlu | Site_1_US Treatment start date Sep 12, 2025 Exp. end date Sep 18, 2025 MRN mob_1594 SA-ID SA-7590 Patient manager Automation Testuser Treatment monitor None Overview Adherence Regimen Profile Messages Pill count Reports Total progress VDOT (recorded) 100.00% TakenMissed Doses Taken Not taken Scheduled Held Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled Ofloxacin 1 6 7 0 0 September 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_fmob_85drlu pat_lmob_85drlu | Site_1_US\nTreatment start date\nSep 12, 2025\nExp. end date\nSep 18, 2025\nMRN\nmob_1594\nSA-ID\nSA-7590\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nTotal progress\nVDOT (recorded)\n100.00%\nTakenMissed\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nOfloxacin\n1\n6\n7\n0 0\nSeptember 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
   },
-  "div_pat_1 pat__87": {
+  "div_pat_fmob_8_96": {
     "class": "main-container",
     "tag": "div",
-    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None Overview Adherence Regimen Profile Messages Reports Total progress Doses Taken Not taken Scheduled Held Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled No records available. August 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
-    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nReports\nTotal progress\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nNo records available.\nAugust 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+    "text": "pat_fmob_85drlu pat_lmob_85drlu | Site_1_US Treatment start date Sep 12, 2025 Exp. end date Sep 18, 2025 MRN mob_1594 SA-ID SA-7590 Patient manager Automation Testuser Treatment monitor None Overview Adherence Regimen Profile Messages Pill count Reports Total progress VDOT (recorded) 100.00% TakenMissed Doses Taken Not taken Scheduled Held Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled Ofloxacin 1 6 7 0 0 September 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4 @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_fmob_85drlu pat_lmob_85drlu | Site_1_US\nTreatment start date\nSep 12, 2025\nExp. end date\nSep 18, 2025\nMRN\nmob_1594\nSA-ID\nSA-7590\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nTotal progress\nVDOT (recorded)\n100.00%\nTakenMissed\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nOfloxacin\n1\n6\n7\n0 0\nSeptember 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4\n@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
   },
-  "div_pat_1 pat__88": {
+  "div_pat_fmob_8_97": {
     "class": "patient-adherence-header",
     "tag": "div",
-    "text": "pat_1 pat_1 | Site_1_US Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None",
-    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone')]"
+    "text": "pat_fmob_85drlu pat_lmob_85drlu | Site_1_US Treatment start date Sep 12, 2025 Exp. end date Sep 18, 2025 MRN mob_1594 SA-ID SA-7590 Patient manager Automation Testuser Treatment monitor None",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_fmob_85drlu pat_lmob_85drlu | Site_1_US\nTreatment start date\nSep 12, 2025\nExp. end date\nSep 18, 2025\nMRN\nmob_1594\nSA-ID\nSA-7590\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone')]"
   },
-  "div_pat_1 pat__89": {
+  "div_pat_fmob_8_98": {
     "class": "patient-info ng-star-inserted",
     "tag": "div",
-    "text": "pat_1 pat_1 | Site_1_US",
-    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US')]"
+    "text": "pat_fmob_85drlu pat_lmob_85drlu | Site_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_fmob_85drlu pat_lmob_85drlu | Site_1_US')]"
   },
-  "div_pat_1 pat__90": {
+  "div_pat_fmob_8_99": {
     "class": "patient-name",
     "tag": "div",
-    "text": "pat_1 pat_1 | Site_1_US",
-    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US')]"
+    "text": "pat_fmob_85drlu pat_lmob_85drlu | Site_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_fmob_85drlu pat_lmob_85drlu | Site_1_US')]"
   },
-  "span_| Site_1_U_91": {
+  "span_| Site_1_U_100": {
     "class": "ng-star-inserted",
     "tag": "span",
     "text": "| Site_1_US",
     "xpath": "//span[contains(normalize-space(text()), '| Site_1_US')]"
   },
-  "div_Treatment _92": {
+  "div_Treatment _101": {
     "class": "info-wrapper ng-star-inserted",
     "tag": "div",
-    "text": "Treatment start date None Exp. end date None MRN e1234567 SA-ID SA-7469 Patient manager None Treatment monitor None",
-    "xpath": "//div[contains(normalize-space(text()), 'Treatment start date\nNone\nExp. end date\nNone\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nNone\nTreatment monitor\nNone')]"
+    "text": "Treatment start date Sep 12, 2025 Exp. end date Sep 18, 2025 MRN mob_1594 SA-ID SA-7590 Patient manager Automation Testuser Treatment monitor None",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment start date\nSep 12, 2025\nExp. end date\nSep 18, 2025\nMRN\nmob_1594\nSA-ID\nSA-7590\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone')]"
   },
-  "div_Treatment _93": {
+  "div_Treatment _102": {
     "class": "info-item",
     "tag": "div",
-    "text": "Treatment start date None",
-    "xpath": "//div[contains(normalize-space(text()), 'Treatment start date\nNone')]"
+    "text": "Treatment start date Sep 12, 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment start date\nSep 12, 2025')]"
   },
-  "h6_Treatment _94": {
+  "h6_Treatment _103": {
     "class": "pb-1",
     "tag": "h6",
     "text": "Treatment start date",
     "xpath": "//h6[contains(normalize-space(text()), 'Treatment start date')]"
   },
-  "span_None_95": {
+  "span_Sep 12, 20_104": {
     "class": "ng-star-inserted",
     "tag": "span",
-    "text": "None",
-    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+    "text": "Sep 12, 2025",
+    "xpath": "//span[contains(normalize-space(text()), 'Sep 12, 2025')]"
   },
-  "div_Exp. end d_96": {
+  "div_Exp. end d_105": {
     "class": "info-item",
     "tag": "div",
-    "text": "Exp. end date None",
-    "xpath": "//div[contains(normalize-space(text()), 'Exp. end date\nNone')]"
+    "text": "Exp. end date Sep 18, 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'Exp. end date\nSep 18, 2025')]"
   },
-  "h6_Exp. end d_97": {
+  "h6_Exp. end d_106": {
     "class": "pb-1",
     "tag": "h6",
     "text": "Exp. end date",
     "xpath": "//h6[contains(normalize-space(text()), 'Exp. end date')]"
   },
-  "span_None_98": {
+  "span_Sep 18, 20_107": {
     "class": "ng-star-inserted",
     "tag": "span",
-    "text": "None",
-    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+    "text": "Sep 18, 2025",
+    "xpath": "//span[contains(normalize-space(text()), 'Sep 18, 2025')]"
   },
-  "div_MRN e12345_99": {
+  "div_MRN mob_15_108": {
     "class": "info-item",
     "tag": "div",
-    "text": "MRN e1234567",
-    "xpath": "//div[contains(normalize-space(text()), 'MRN\ne1234567')]"
+    "text": "MRN mob_1594",
+    "xpath": "//div[contains(normalize-space(text()), 'MRN\nmob_1594')]"
   },
-  "h6_MRN_100": {
+  "h6_MRN_109": {
     "class": "pb-1",
     "tag": "h6",
     "text": "MRN",
     "xpath": "//h6[contains(normalize-space(text()), 'MRN')]"
   },
-  "div_SA-ID SA-7_101": {
+  "div_SA-ID SA-7_110": {
     "class": "info-item",
     "tag": "div",
-    "text": "SA-ID SA-7469",
-    "xpath": "//div[contains(normalize-space(text()), 'SA-ID\nSA-7469')]"
+    "text": "SA-ID SA-7590",
+    "xpath": "//div[contains(normalize-space(text()), 'SA-ID\nSA-7590')]"
   },
-  "h6_SA-ID_102": {
+  "h6_SA-ID_111": {
     "class": "pb-1",
     "tag": "h6",
     "text": "SA-ID",
     "xpath": "//h6[contains(normalize-space(text()), 'SA-ID')]"
   },
-  "span_SA-7469_103": {
+  "span_SA-7590_112": {
     "class": "ng-star-inserted",
     "tag": "span",
-    "text": "SA-7469",
-    "xpath": "//span[contains(normalize-space(text()), 'SA-7469')]"
+    "text": "SA-7590",
+    "xpath": "//span[contains(normalize-space(text()), 'SA-7590')]"
   },
-  "div_Patient ma_104": {
+  "div_Patient ma_113": {
     "class": "info-item",
     "tag": "div",
-    "text": "Patient manager None",
-    "xpath": "//div[contains(normalize-space(text()), 'Patient manager\nNone')]"
+    "text": "Patient manager Automation Testuser",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient manager\nAutomation Testuser')]"
   },
-  "h6_Patient ma_105": {
+  "h6_Patient ma_114": {
     "class": "pb-1",
     "tag": "h6",
     "text": "Patient manager",
     "xpath": "//h6[contains(normalize-space(text()), 'Patient manager')]"
   },
-  "span_None_106": {
+  "span_Automation_115": {
     "class": "ng-star-inserted",
     "tag": "span",
-    "text": "None",
-    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+    "text": "Automation Testuser",
+    "xpath": "//span[contains(normalize-space(text()), 'Automation Testuser')]"
   },
-  "div_Treatment _107": {
+  "div_Treatment _116": {
     "class": "info-item",
     "tag": "div",
     "text": "Treatment monitor None",
     "xpath": "//div[contains(normalize-space(text()), 'Treatment monitor\nNone')]"
   },
-  "h6_Treatment _108": {
+  "h6_Treatment _117": {
     "class": "pb-1",
     "tag": "h6",
     "text": "Treatment monitor",
     "xpath": "//h6[contains(normalize-space(text()), 'Treatment monitor')]"
   },
-  "span_None_109": {
+  "span_None_118": {
     "class": "ng-star-inserted",
     "tag": "span",
     "text": "None",
     "xpath": "//span[contains(normalize-space(text()), 'None')]"
   },
-  "main_Overview A_110": {
+  "main_Overview A_119": {
     "class": "main adherence-content",
     "tag": "main",
-    "text": "Overview Adherence Regimen Profile Messages Reports Total progress Doses Taken Not taken Scheduled Held Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled No records available. August 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6",
-    "xpath": "//main[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports\nTotal progress\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nNo records available.\nAugust 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6')]"
+    "text": "Overview Adherence Regimen Profile Messages Pill count Reports Total progress VDOT (recorded) 100.00% TakenMissed Doses Taken Not taken Scheduled Held Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled Ofloxacin 1 6 7 0 0 September 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4",
+    "xpath": "//main[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nTotal progress\nVDOT (recorded)\n100.00%\nTakenMissed\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nOfloxacin\n1\n6\n7\n0 0\nSeptember 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4')]"
   },
-  "kendo-tabstrip_Overview A_111": {
-    "class": "ng-tns-c655264150-1 k-tabstrip k-pos-relative k-tabstrip-top ng-star-inserted",
+  "kendo-tabstrip_Overview A_120": {
+    "class": "ng-tns-c655264150-13 k-tabstrip k-pos-relative k-tabstrip-top ng-star-inserted",
     "tag": "kendo-tabstrip",
-    "text": "Overview Adherence Regimen Profile Messages Reports Total progress Doses Taken Not taken Scheduled Held Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled No records available. August 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6",
-    "xpath": "//kendo-tabstrip[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports\nTotal progress\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nNo records available.\nAugust 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6')]"
+    "text": "Overview Adherence Regimen Profile Messages Pill count Reports Total progress VDOT (recorded) 100.00% TakenMissed Doses Taken Not taken Scheduled Held Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled Ofloxacin 1 6 7 0 0 September 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4",
+    "xpath": "//kendo-tabstrip[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nTotal progress\nVDOT (recorded)\n100.00%\nTakenMissed\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nOfloxacin\n1\n6\n7\n0 0\nSeptember 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4')]"
   },
-  "div_Overview A_112": {
-    "class": "k-tabstrip-items-wrapper ng-tns-c655264150-1 k-hstack ng-star-inserted",
+  "div_Overview A_121": {
+    "class": "k-tabstrip-items-wrapper ng-tns-c655264150-13 k-hstack ng-star-inserted",
     "tag": "div",
-    "text": "Overview Adherence Regimen Profile Messages Reports",
-    "xpath": "//div[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports')]"
+    "text": "Overview Adherence Regimen Profile Messages Pill count Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports')]"
   },
-  "ul_Overview A_113": {
-    "class": "k-reset k-tabstrip-items ng-tns-c655264150-1",
+  "ul_Overview A_122": {
+    "class": "k-reset k-tabstrip-items ng-tns-c655264150-13",
     "tag": "ul",
-    "text": "Overview Adherence Regimen Profile Messages Reports",
-    "xpath": "//ul[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nReports')]"
+    "text": "Overview Adherence Regimen Profile Messages Pill count Reports",
+    "xpath": "//ul[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports')]"
   },
   "k-opened-tabstrip-tab": {
     "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
     "tag": "li",
     "xpath": "//li[contains(@id,'k-tabstrip-tab') and @aria-selected='true']//div/span"
   },
-"k-tabstrip-tab-Overview": {
+  "k-tabstrip-tab-Overview": {
     "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
     "tag": "li",
     "text": "Overview",
     "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Overview')]"
   },
-  "span_Overview_115": {
+  "span_Overview_124": {
     "class": "k-link ng-star-inserted",
     "tag": "span",
     "text": "Overview",
     "xpath": "//span[contains(normalize-space(text()), 'Overview')]"
   },
-  "div_Overview_116": {
+  "div_Overview_125": {
     "class": "tab-title ng-star-inserted",
     "tag": "div",
     "text": "Overview",
     "xpath": "//div[contains(normalize-space(text()), 'Overview')]"
   },
-  "span_Overview_117": {
+  "span_Overview_126": {
     "tag": "span",
     "text": "Overview",
     "xpath": "//span[contains(normalize-space(text()), 'Overview')]"
   },
-  "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-1": {
-    "id": "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-1",
-    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+  "k-tabstrip-tab-431961fc-522f-4b1b-bb94-d47069cde584-1": {
+    "id": "k-tabstrip-tab-431961fc-522f-4b1b-bb94-d47069cde584-1",
+    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted",
     "tag": "li",
     "text": "Adherence",
-    "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-1']"
+    "xpath": "//li[@id='k-tabstrip-tab-431961fc-522f-4b1b-bb94-d47069cde584-1']"
   },
-  "span_Adherence_119": {
+  "span_Adherence_128": {
     "class": "k-link ng-star-inserted",
     "tag": "span",
     "text": "Adherence",
     "xpath": "//span[contains(normalize-space(text()), 'Adherence')]"
   },
-  "div_Adherence_120": {
+  "div_Adherence_129": {
     "class": "tab-title ng-star-inserted",
     "tag": "div",
     "text": "Adherence",
     "xpath": "//div[contains(normalize-space(text()), 'Adherence')]"
   },
-  "span_Adherence_121": {
+  "span_Adherence_130": {
     "tag": "span",
     "text": "Adherence",
     "xpath": "//span[contains(normalize-space(text()), 'Adherence')]"
   },
-  "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-2": {
-    "id": "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-2",
-    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+  "k-tabstrip-tab-431961fc-522f-4b1b-bb94-d47069cde584-2": {
+    "id": "k-tabstrip-tab-431961fc-522f-4b1b-bb94-d47069cde584-2",
+    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted",
     "tag": "li",
     "text": "Regimen",
-    "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-2']"
+    "xpath": "//li[@id='k-tabstrip-tab-431961fc-522f-4b1b-bb94-d47069cde584-2']"
   },
-  "span_Regimen_123": {
+  "span_Regimen_132": {
     "class": "k-link ng-star-inserted",
     "tag": "span",
     "text": "Regimen",
     "xpath": "//span[contains(normalize-space(text()), 'Regimen')]"
   },
-  "div_Regimen_124": {
+  "div_Regimen_133": {
     "class": "tab-title ng-star-inserted",
     "tag": "div",
     "text": "Regimen",
     "xpath": "//div[contains(normalize-space(text()), 'Regimen')]"
   },
-  "span_Regimen_125": {
+  "span_Regimen_134": {
     "tag": "span",
     "text": "Regimen",
     "xpath": "//span[contains(normalize-space(text()), 'Regimen')]"
   },
-  "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-3": {
-    "id": "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-3",
-    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+  "k-tabstrip-tab-431961fc-522f-4b1b-bb94-d47069cde584-3": {
+    "id": "k-tabstrip-tab-431961fc-522f-4b1b-bb94-d47069cde584-3",
+    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted",
     "tag": "li",
     "text": "Profile",
-    "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-3']"
+    "xpath": "//li[@id='k-tabstrip-tab-431961fc-522f-4b1b-bb94-d47069cde584-3']"
   },
-  "span_Profile_127": {
+  "span_Profile_136": {
     "class": "k-link ng-star-inserted",
     "tag": "span",
     "text": "Profile",
     "xpath": "//span[contains(normalize-space(text()), 'Profile')]"
   },
-  "div_Profile_128": {
+  "div_Profile_137": {
     "class": "tab-title ng-star-inserted",
     "tag": "div",
     "text": "Profile",
     "xpath": "//div[contains(normalize-space(text()), 'Profile')]"
   },
-  "span_Profile_129": {
+  "span_Profile_138": {
     "tag": "span",
     "text": "Profile",
     "xpath": "//span[contains(normalize-space(text()), 'Profile')]"
   },
-  "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-4": {
-    "id": "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-4",
-    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+  "k-tabstrip-tab-431961fc-522f-4b1b-bb94-d47069cde584-4": {
+    "id": "k-tabstrip-tab-431961fc-522f-4b1b-bb94-d47069cde584-4",
+    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted",
     "tag": "li",
     "text": "Messages",
-    "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-4']"
+    "xpath": "//li[@id='k-tabstrip-tab-431961fc-522f-4b1b-bb94-d47069cde584-4']"
   },
-  "span_Messages_131": {
+  "span_Messages_140": {
     "class": "k-link ng-star-inserted",
     "tag": "span",
     "text": "Messages",
     "xpath": "//span[contains(normalize-space(text()), 'Messages')]"
   },
-  "div_Messages_132": {
+  "div_Messages_141": {
     "class": "tab-title ng-star-inserted",
     "tag": "div",
     "text": "Messages",
     "xpath": "//div[contains(normalize-space(text()), 'Messages')]"
   },
-  "span_Messages_133": {
+  "span_Messages_142": {
     "tag": "span",
     "text": "Messages",
     "xpath": "//span[contains(normalize-space(text()), 'Messages')]"
   },
-  "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-5": {
-    "id": "k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-5",
-    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted",
+  "k-tabstrip-tab-431961fc-522f-4b1b-bb94-d47069cde584-5": {
+    "id": "k-tabstrip-tab-431961fc-522f-4b1b-bb94-d47069cde584-5",
+    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Pill count",
+    "xpath": "//li[@id='k-tabstrip-tab-431961fc-522f-4b1b-bb94-d47069cde584-5']"
+  },
+  "span_Pill count_144": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Pill count",
+    "xpath": "//span[contains(normalize-space(text()), 'Pill count')]"
+  },
+  "div_Pill count_145": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Pill count",
+    "xpath": "//div[contains(normalize-space(text()), 'Pill count')]"
+  },
+  "span_Pill count_146": {
+    "tag": "span",
+    "text": "Pill count",
+    "xpath": "//span[contains(normalize-space(text()), 'Pill count')]"
+  },
+  "k-tabstrip-tab-431961fc-522f-4b1b-bb94-d47069cde584-6": {
+    "id": "k-tabstrip-tab-431961fc-522f-4b1b-bb94-d47069cde584-6",
+    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted",
     "tag": "li",
     "text": "Reports",
-    "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-5']"
+    "xpath": "//li[@id='k-tabstrip-tab-431961fc-522f-4b1b-bb94-d47069cde584-6']"
   },
-  "span_Reports_135": {
+  "span_Reports_148": {
     "class": "k-link ng-star-inserted",
     "tag": "span",
     "text": "Reports",
     "xpath": "//span[contains(normalize-space(text()), 'Reports')]"
   },
-  "div_Reports_136": {
+  "div_Reports_149": {
     "class": "tab-title ng-star-inserted",
     "tag": "div",
     "text": "Reports",
     "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
   },
-  "span_Reports_137": {
+  "span_Reports_150": {
     "tag": "span",
     "text": "Reports",
     "xpath": "//span[contains(normalize-space(text()), 'Reports')]"
   },
-  "k-tabstrip-tabpanel-72171804-dc41-4a92-887b-579f7d106b7a-0": {
-    "id": "k-tabstrip-tabpanel-72171804-dc41-4a92-887b-579f7d106b7a-0",
-    "class": "ng-tns-c655264150-1 ng-trigger ng-trigger-state k-tabstrip-content k-active ng-star-inserted",
+  "k-tabstrip-tabpanel-431961fc-522f-4b1b-bb94-d47069cde584-0": {
+    "id": "k-tabstrip-tabpanel-431961fc-522f-4b1b-bb94-d47069cde584-0",
+    "class": "ng-tns-c655264150-13 ng-trigger ng-trigger-state k-tabstrip-content k-active ng-star-inserted",
     "tag": "div",
-    "text": "Total progress Doses Taken Not taken Scheduled Held Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled No records available. August 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6",
-    "xpath": "//div[@id='k-tabstrip-tabpanel-72171804-dc41-4a92-887b-579f7d106b7a-0']"
+    "text": "Total progress VDOT (recorded) 100.00% TakenMissed Doses Taken Not taken Scheduled Held Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled Ofloxacin 1 6 7 0 0 September 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4",
+    "xpath": "//div[@id='k-tabstrip-tabpanel-431961fc-522f-4b1b-bb94-d47069cde584-0']"
   },
-  "adherence-overview_Total prog_139": {
+  "adherence-overview_Total prog_152": {
     "class": "ng-star-inserted",
     "tag": "adherence-overview",
-    "text": "Total progress Doses Taken Not taken Scheduled Held Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled No records available. August 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6",
-    "xpath": "//adherence-overview[contains(normalize-space(text()), 'Total progress\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nNo records available.\nAugust 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6')]"
+    "text": "Total progress VDOT (recorded) 100.00% TakenMissed Doses Taken Not taken Scheduled Held Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled Ofloxacin 1 6 7 0 0 September 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4",
+    "xpath": "//adherence-overview[contains(normalize-space(text()), 'Total progress\nVDOT (recorded)\n100.00%\nTakenMissed\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nOfloxacin\n1\n6\n7\n0 0\nSeptember 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4')]"
   },
-  "div_Total prog_140": {
+  "div_Total prog_153": {
     "class": "adherence-overview-charts",
     "tag": "div",
-    "text": "Total progress Doses Taken Not taken Scheduled Held Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled No records available. August 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6",
-    "xpath": "//div[contains(normalize-space(text()), 'Total progress\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nNo records available.\nAugust 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6')]"
+    "text": "Total progress VDOT (recorded) 100.00% TakenMissed Doses Taken Not taken Scheduled Held Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled Ofloxacin 1 6 7 0 0 September 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4",
+    "xpath": "//div[contains(normalize-space(text()), 'Total progress\nVDOT (recorded)\n100.00%\nTakenMissed\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nOfloxacin\n1\n6\n7\n0 0\nSeptember 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4')]"
   },
-  "div_Total prog_141": {
+  "div_Total prog_154": {
     "class": "row ng-star-inserted",
     "tag": "div",
-    "text": "Total progress Doses Taken Not taken Scheduled Held Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled No records available. August 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6",
-    "xpath": "//div[contains(normalize-space(text()), 'Total progress\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nNo records available.\nAugust 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6')]"
+    "text": "Total progress VDOT (recorded) 100.00% TakenMissed Doses Taken Not taken Scheduled Held Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled Ofloxacin 1 6 7 0 0 September 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4",
+    "xpath": "//div[contains(normalize-space(text()), 'Total progress\nVDOT (recorded)\n100.00%\nTakenMissed\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nOfloxacin\n1\n6\n7\n0 0\nSeptember 2025\nEXPORT TO PDF\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4')]"
   },
-  "div_Total prog_142": {
+  "div_Total prog_155": {
     "class": "col-lg-6",
     "tag": "div",
-    "text": "Total progress Doses Taken Not taken Scheduled Held Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled No records available.",
-    "xpath": "//div[contains(normalize-space(text()), 'Total progress\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nNo records available.')]"
+    "text": "Total progress VDOT (recorded) 100.00% TakenMissed Doses Taken Not taken Scheduled Held Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0 Drugs Taken Not taken Scheduled Held Rescheduled Ofloxacin 1 6 7 0 0",
+    "xpath": "//div[contains(normalize-space(text()), 'Total progress\nVDOT (recorded)\n100.00%\nTakenMissed\nDoses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0\nDrugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nOfloxacin\n1\n6\n7\n0 0')]"
   },
-  "div_Total prog_143": {
+  "div_Total prog_156": {
     "class": "row overview-charts",
     "tag": "div",
-    "text": "Total progress",
-    "xpath": "//div[contains(normalize-space(text()), 'Total progress')]"
+    "text": "Total progress VDOT (recorded) 100.00% TakenMissed",
+    "xpath": "//div[contains(normalize-space(text()), 'Total progress\nVDOT (recorded)\n100.00%\nTakenMissed')]"
   },
-  "div_Total prog_144": {
+  "div_Total prog_157": {
     "class": "col-lg-6 col-md-6 col-sm-6 ng-star-inserted",
     "tag": "div",
     "text": "Total progress",
     "xpath": "//div[contains(normalize-space(text()), 'Total progress')]"
   },
-  "div_Total prog_145": {
+  "div_Total prog_158": {
     "class": "chart-wrapper",
     "tag": "div",
     "text": "Total progress",
     "xpath": "//div[contains(normalize-space(text()), 'Total progress')]"
   },
-  "kendo-chart__146": {
+  "kendo-chart__159": {
     "class": "adherence-chart k-chart k-widget",
     "tag": "kendo-chart",
     "xpath": "//kendo-chart[@class='adherence-chart k-chart k-widget']"
   },
-  "div__147": {
+  "div__160": {
     "class": "k-chart-surface",
     "tag": "div",
     "xpath": "//div[@class='k-chart-surface']"
   },
-  "svg__148": {
+  "svg__161": {
     "tag": "svg",
     "xpath": "//svg"
   },
-  "defs__149": {
+  "defs__162": {
     "tag": "defs",
     "xpath": "//defs"
-  },
-  "g__150": {
-    "tag": "g",
-    "xpath": "//g"
-  },
-  "path__151": {
-    "tag": "path",
-    "xpath": "//path"
-  },
-  "path__152": {
-    "tag": "path",
-    "xpath": "//path"
-  },
-  "g__153": {
-    "tag": "g",
-    "xpath": "//g"
-  },
-  "g__154": {
-    "tag": "g",
-    "xpath": "//g"
-  },
-  "g__155": {
-    "tag": "g",
-    "xpath": "//g"
-  },
-  "g__156": {
-    "tag": "g",
-    "xpath": "//g"
-  },
-  "g__157": {
-    "tag": "g",
-    "xpath": "//g"
-  },
-  "g__158": {
-    "tag": "g",
-    "xpath": "//g"
-  },
-  "g__159": {
-    "tag": "g",
-    "xpath": "//g"
-  },
-  "g__160": {
-    "tag": "g",
-    "xpath": "//g"
-  },
-  "g__161": {
-    "tag": "g",
-    "xpath": "//g"
-  },
-  "g__162": {
-    "tag": "g",
-    "xpath": "//g"
   },
   "g__163": {
     "tag": "g",
     "xpath": "//g"
   },
-  "g__164": {
-    "tag": "g",
-    "xpath": "//g"
+  "path__164": {
+    "tag": "path",
+    "xpath": "//path"
   },
-  "g__165": {
-    "tag": "g",
-    "xpath": "//g"
+  "path__165": {
+    "tag": "path",
+    "xpath": "//path"
   },
   "g__166": {
     "tag": "g",
     "xpath": "//g"
   },
-  "kendo-chart-crosshair-tooltips-container__167": {
+  "g__167": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "g__168": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "g__169": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "g__170": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "g__171": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "g__172": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "path__173": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "g__174": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "g__175": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "g__176": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "path__177": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "g__178": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "g__179": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "g__180": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "g__181": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "kendo-chart-crosshair-tooltips-container__182": {
     "tag": "kendo-chart-crosshair-tooltips-container",
     "xpath": "//kendo-chart-crosshair-tooltips-container"
   },
-  "kendo-chart-tooltip-popup__168": {
+  "kendo-chart-tooltip-popup__183": {
     "tag": "kendo-chart-tooltip-popup",
     "xpath": "//kendo-chart-tooltip-popup"
   },
-  "kendo-resize-sensor__169": {
+  "kendo-resize-sensor__184": {
     "tag": "kendo-resize-sensor",
     "xpath": "//kendo-resize-sensor"
   },
-  "div__170": {
+  "div__185": {
     "class": "k-chart-donut-center ng-star-inserted",
     "tag": "div",
     "xpath": "//div[@class='k-chart-donut-center ng-star-inserted']"
   },
-  "div_Total prog_171": {
+  "div_Total prog_186": {
     "class": "chart-label",
     "tag": "div",
     "text": "Total progress",
     "xpath": "//div[contains(normalize-space(text()), 'Total progress')]"
   },
-  "div_Doses Take_172": {
+  "div_VDOT (reco_187": {
+    "class": "col-lg-6 col-md-6 col-sm-6 ng-star-inserted",
+    "tag": "div",
+    "text": "VDOT (recorded) 100.00% TakenMissed",
+    "xpath": "//div[contains(normalize-space(text()), 'VDOT (recorded)\n100.00%\nTakenMissed')]"
+  },
+  "div_VDOT (reco_188": {
+    "class": "chart-wrapper",
+    "tag": "div",
+    "text": "VDOT (recorded) 100.00% TakenMissed",
+    "xpath": "//div[contains(normalize-space(text()), 'VDOT (recorded)\n100.00%\nTakenMissed')]"
+  },
+  "kendo-chart_VDOT (reco_189": {
+    "class": "adherence-chart k-chart k-widget",
+    "tag": "kendo-chart",
+    "text": "VDOT (recorded) 100.00%",
+    "xpath": "//kendo-chart[contains(normalize-space(text()), 'VDOT (recorded)\n100.00%')]"
+  },
+  "div_VDOT (reco_190": {
+    "class": "k-chart-surface",
+    "tag": "div",
+    "text": "VDOT (recorded) 100.00%",
+    "xpath": "//div[contains(normalize-space(text()), 'VDOT (recorded)\n100.00%')]"
+  },
+  "svg_VDOT (reco_191": {
+    "tag": "svg",
+    "text": "VDOT (recorded) 100.00%",
+    "xpath": "//svg[contains(normalize-space(text()), 'VDOT (recorded)\n100.00%')]"
+  },
+  "defs__192": {
+    "tag": "defs",
+    "xpath": "//defs"
+  },
+  "g_VDOT (reco_193": {
+    "tag": "g",
+    "text": "VDOT (recorded) 100.00%",
+    "xpath": "//g[contains(normalize-space(text()), 'VDOT (recorded)\n100.00%')]"
+  },
+  "path__194": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "path__195": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "g__196": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "g__197": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "g_VDOT (reco_198": {
+    "tag": "g",
+    "text": "VDOT (recorded) 100.00%",
+    "xpath": "//g[contains(normalize-space(text()), 'VDOT (recorded)\n100.00%')]"
+  },
+  "g_VDOT (reco_199": {
+    "tag": "g",
+    "text": "VDOT (recorded) 100.00%",
+    "xpath": "//g[contains(normalize-space(text()), 'VDOT (recorded)\n100.00%')]"
+  },
+  "path__200": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "g__201": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "g__202": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "g__203": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "path__204": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "g__205": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "g__206": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "g__207": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "g__208": {
+    "tag": "g",
+    "xpath": "//g"
+  },
+  "g_VDOT (reco_209": {
+    "tag": "g",
+    "text": "VDOT (recorded) 100.00%",
+    "xpath": "//g[contains(normalize-space(text()), 'VDOT (recorded)\n100.00%')]"
+  },
+  "path__210": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "text_VDOT (reco_211": {
+    "tag": "text",
+    "text": "VDOT (recorded)",
+    "xpath": "//text[contains(normalize-space(text()), 'VDOT (recorded)')]"
+  },
+  "text_100.00%_212": {
+    "tag": "text",
+    "text": "100.00%",
+    "xpath": "//text[contains(normalize-space(text()), '100.00%')]"
+  },
+  "kendo-chart-crosshair-tooltips-container__213": {
+    "tag": "kendo-chart-crosshair-tooltips-container",
+    "xpath": "//kendo-chart-crosshair-tooltips-container"
+  },
+  "kendo-chart-tooltip-popup__214": {
+    "tag": "kendo-chart-tooltip-popup",
+    "xpath": "//kendo-chart-tooltip-popup"
+  },
+  "kendo-resize-sensor__215": {
+    "tag": "kendo-resize-sensor",
+    "xpath": "//kendo-resize-sensor"
+  },
+  "div_TakenMisse_216": {
+    "class": "chart-label",
+    "tag": "div",
+    "text": "TakenMissed",
+    "xpath": "//div[contains(normalize-space(text()), 'TakenMissed')]"
+  },
+  "taken": {
+    "id": "taken",
+    "name": "status",
+    "class": "k-radio k-radio-md",
+    "type": "radio",
+    "tag": "input",
+    "xpath": "//input[@id='taken']"
+  },
+  "label_Taken_218": {
+    "class": "k-radio-label k-label",
+    "tag": "label",
+    "text": "Taken",
+    "xpath": "//label[contains(normalize-space(text()), 'Taken')]"
+  },
+  "missed": {
+    "id": "missed",
+    "name": "status",
+    "class": "k-radio k-radio-md",
+    "type": "radio",
+    "tag": "input",
+    "xpath": "//input[@id='missed']"
+  },
+  "label_Missed_220": {
+    "class": "k-radio-label k-label",
+    "tag": "label",
+    "text": "Missed",
+    "xpath": "//label[contains(normalize-space(text()), 'Missed')]"
+  },
+  "div_Doses Take_221": {
     "class": "overview-grid content-wrapper adherence-grid",
     "tag": "div",
-    "text": "Doses Taken Not taken Scheduled Held Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0",
-    "xpath": "//div[contains(normalize-space(text()), 'Doses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0')]"
+    "text": "Doses Taken Not taken Scheduled Held Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0",
+    "xpath": "//div[contains(normalize-space(text()), 'Doses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0')]"
   },
-  "kendo-grid_Doses Take_173": {
+  "kendo-grid_Doses Take_222": {
     "class": "k-grid k-grid-md",
     "tag": "kendo-grid",
-    "text": "Doses Taken Not taken Scheduled Held Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0",
-    "xpath": "//kendo-grid[contains(normalize-space(text()), 'Doses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0')]"
+    "text": "Doses Taken Not taken Scheduled Held Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0",
+    "xpath": "//kendo-grid[contains(normalize-space(text()), 'Doses\nTaken\nNot taken\nScheduled\nHeld\nCounts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0')]"
   },
-  "k-bf8bedca-bfed-4866-bcd9-b3b5c49465f8": {
-    "id": "k-bf8bedca-bfed-4866-bcd9-b3b5c49465f8",
+  "k-0bc35f8d-39e2-4ac9-974a-1c900065800a": {
+    "id": "k-0bc35f8d-39e2-4ac9-974a-1c900065800a",
     "aria-label": "Data table",
     "class": "k-grid-aria-root",
     "tag": "div",
-    "text": "Doses Taken Not taken Scheduled Held Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0",
-    "xpath": "//div[@id='k-bf8bedca-bfed-4866-bcd9-b3b5c49465f8']"
+    "text": "Doses Taken Not taken Scheduled Held Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0",
+    "xpath": "//div[@id='k-0bc35f8d-39e2-4ac9-974a-1c900065800a']"
   },
-  "div_Doses Take_175": {
+  "div_Doses Take_224": {
     "class": "k-grid-header ng-star-inserted",
     "tag": "div",
     "text": "Doses Taken Not taken Scheduled Held",
     "xpath": "//div[contains(normalize-space(text()), 'Doses\nTaken\nNot taken\nScheduled\nHeld')]"
   },
-  "div_Doses Take_176": {
+  "div_Doses Take_225": {
     "class": "k-grid-header-wrap",
     "tag": "div",
     "text": "Doses Taken Not taken Scheduled Held",
     "xpath": "//div[contains(normalize-space(text()), 'Doses\nTaken\nNot taken\nScheduled\nHeld')]"
   },
-  "table_Doses Take_177": {
+  "table_Doses Take_226": {
     "class": "k-grid-header-table k-table k-table-md",
     "tag": "table",
     "text": "Doses Taken Not taken Scheduled Held",
     "xpath": "//table[contains(normalize-space(text()), 'Doses\nTaken\nNot taken\nScheduled\nHeld')]"
-  },
-  "colgroup__178": {
-    "tag": "colgroup",
-    "xpath": "//colgroup"
-  },
-  "col__179": {
-    "class": "ng-star-inserted",
-    "tag": "col",
-    "xpath": "//col[@class='ng-star-inserted']"
-  },
-  "col__180": {
-    "class": "ng-star-inserted",
-    "tag": "col",
-    "xpath": "//col[@class='ng-star-inserted']"
-  },
-  "col__181": {
-    "class": "ng-star-inserted",
-    "tag": "col",
-    "xpath": "//col[@class='ng-star-inserted']"
-  },
-  "col__182": {
-    "class": "ng-star-inserted",
-    "tag": "col",
-    "xpath": "//col[@class='ng-star-inserted']"
-  },
-  "col__183": {
-    "class": "ng-star-inserted",
-    "tag": "col",
-    "xpath": "//col[@class='ng-star-inserted']"
-  },
-  "col__184": {
-    "class": "ng-star-inserted",
-    "tag": "col",
-    "xpath": "//col[@class='ng-star-inserted']"
-  },
-  "col__185": {
-    "class": "ng-star-inserted",
-    "tag": "col",
-    "xpath": "//col[@class='ng-star-inserted']"
-  },
-  "thead_Doses Take_186": {
-    "class": "k-table-thead",
-    "tag": "thead",
-    "text": "Doses Taken Not taken Scheduled Held",
-    "xpath": "//thead[contains(normalize-space(text()), 'Doses\nTaken\nNot taken\nScheduled\nHeld')]"
-  },
-  "tr_Doses Take_187": {
-    "class": "k-table-row ng-star-inserted",
-    "tag": "tr",
-    "text": "Doses Taken Not taken Scheduled Held",
-    "xpath": "//tr[contains(normalize-space(text()), 'Doses\nTaken\nNot taken\nScheduled\nHeld')]"
-  },
-  "th_Doses_188": {
-    "class": "k-header k-table-th ng-star-inserted",
-    "tag": "th",
-    "text": "Doses",
-    "xpath": "//th[contains(normalize-space(text()), 'Doses')]"
-  },
-  "span_Doses_189": {
-    "class": "k-cell-inner ng-star-inserted",
-    "tag": "span",
-    "text": "Doses",
-    "xpath": "//span[contains(normalize-space(text()), 'Doses')]"
-  },
-  "span_Doses_190": {
-    "class": "k-link",
-    "tag": "span",
-    "text": "Doses",
-    "xpath": "//span[contains(normalize-space(text()), 'Doses')]"
-  },
-  "span_Doses_191": {
-    "class": "k-column-title ng-star-inserted",
-    "tag": "span",
-    "text": "Doses",
-    "xpath": "//span[contains(normalize-space(text()), 'Doses')]"
-  },
-  "span__192": {
-    "class": "k-column-resizer ng-star-inserted",
-    "tag": "span",
-    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
-  },
-  "th_Taken_193": {
-    "class": "k-header k-table-th ng-star-inserted",
-    "tag": "th",
-    "text": "Taken",
-    "xpath": "//th[contains(normalize-space(text()), 'Taken')]"
-  },
-  "span_Taken_194": {
-    "class": "k-cell-inner ng-star-inserted",
-    "tag": "span",
-    "text": "Taken",
-    "xpath": "//span[contains(normalize-space(text()), 'Taken')]"
-  },
-  "span_Taken_195": {
-    "class": "k-link",
-    "tag": "span",
-    "text": "Taken",
-    "xpath": "//span[contains(normalize-space(text()), 'Taken')]"
-  },
-  "span_Taken_196": {
-    "class": "k-column-title ng-star-inserted",
-    "tag": "span",
-    "text": "Taken",
-    "xpath": "//span[contains(normalize-space(text()), 'Taken')]"
-  },
-  "span__197": {
-    "class": "k-column-resizer ng-star-inserted",
-    "tag": "span",
-    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
-  },
-  "th_Not taken_198": {
-    "class": "k-header k-table-th ng-star-inserted",
-    "tag": "th",
-    "text": "Not taken",
-    "xpath": "//th[contains(normalize-space(text()), 'Not taken')]"
-  },
-  "span_Not taken_199": {
-    "class": "k-cell-inner ng-star-inserted",
-    "tag": "span",
-    "text": "Not taken",
-    "xpath": "//span[contains(normalize-space(text()), 'Not taken')]"
-  },
-  "span_Not taken_200": {
-    "class": "k-link",
-    "tag": "span",
-    "text": "Not taken",
-    "xpath": "//span[contains(normalize-space(text()), 'Not taken')]"
-  },
-  "span_Not taken_201": {
-    "class": "k-column-title ng-star-inserted",
-    "tag": "span",
-    "text": "Not taken",
-    "xpath": "//span[contains(normalize-space(text()), 'Not taken')]"
-  },
-  "span__202": {
-    "class": "k-column-resizer ng-star-inserted",
-    "tag": "span",
-    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
-  },
-  "th_Scheduled_203": {
-    "class": "k-header k-table-th ng-star-inserted",
-    "tag": "th",
-    "text": "Scheduled",
-    "xpath": "//th[contains(normalize-space(text()), 'Scheduled')]"
-  },
-  "span_Scheduled_204": {
-    "class": "k-cell-inner ng-star-inserted",
-    "tag": "span",
-    "text": "Scheduled",
-    "xpath": "//span[contains(normalize-space(text()), 'Scheduled')]"
-  },
-  "span_Scheduled_205": {
-    "class": "k-link",
-    "tag": "span",
-    "text": "Scheduled",
-    "xpath": "//span[contains(normalize-space(text()), 'Scheduled')]"
-  },
-  "span_Scheduled_206": {
-    "class": "k-column-title ng-star-inserted",
-    "tag": "span",
-    "text": "Scheduled",
-    "xpath": "//span[contains(normalize-space(text()), 'Scheduled')]"
-  },
-  "span__207": {
-    "class": "k-column-resizer ng-star-inserted",
-    "tag": "span",
-    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
-  },
-  "th_Held_208": {
-    "class": "k-header k-table-th ng-star-inserted",
-    "tag": "th",
-    "text": "Held",
-    "xpath": "//th[contains(normalize-space(text()), 'Held')]"
-  },
-  "span_Held_209": {
-    "class": "k-cell-inner ng-star-inserted",
-    "tag": "span",
-    "text": "Held",
-    "xpath": "//span[contains(normalize-space(text()), 'Held')]"
-  },
-  "span_Held_210": {
-    "class": "k-link",
-    "tag": "span",
-    "text": "Held",
-    "xpath": "//span[contains(normalize-space(text()), 'Held')]"
-  },
-  "span_Held_211": {
-    "class": "k-column-title ng-star-inserted",
-    "tag": "span",
-    "text": "Held",
-    "xpath": "//span[contains(normalize-space(text()), 'Held')]"
-  },
-  "span__212": {
-    "class": "k-column-resizer ng-star-inserted",
-    "tag": "span",
-    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
-  },
-  "th__213": {
-    "class": "k-header k-table-th ng-star-inserted",
-    "tag": "th",
-    "xpath": "//th[@class='k-header k-table-th ng-star-inserted']"
-  },
-  "span__214": {
-    "class": "k-cell-inner ng-star-inserted",
-    "tag": "span",
-    "xpath": "//span[@class='k-cell-inner ng-star-inserted']"
-  },
-  "span__215": {
-    "class": "k-link",
-    "tag": "span",
-    "xpath": "//span[@class='k-link']"
-  },
-  "span__216": {
-    "class": "k-column-title ng-star-inserted",
-    "tag": "span",
-    "xpath": "//span[@class='k-column-title ng-star-inserted']"
-  },
-  "span__217": {
-    "class": "k-column-resizer ng-star-inserted",
-    "tag": "span",
-    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
-  },
-  "th__218": {
-    "class": "k-header k-table-th ng-star-inserted",
-    "tag": "th",
-    "xpath": "//th[@class='k-header k-table-th ng-star-inserted']"
-  },
-  "span__219": {
-    "class": "k-cell-inner ng-star-inserted",
-    "tag": "span",
-    "xpath": "//span[@class='k-cell-inner ng-star-inserted']"
-  },
-  "span__220": {
-    "class": "k-link",
-    "tag": "span",
-    "xpath": "//span[@class='k-link']"
-  },
-  "span__221": {
-    "class": "k-column-title ng-star-inserted",
-    "tag": "span",
-    "xpath": "//span[@class='k-column-title ng-star-inserted']"
-  },
-  "span__222": {
-    "class": "k-column-resizer ng-star-inserted",
-    "tag": "span",
-    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
-  },
-  "kendo-grid-list_Counts tow_223": {
-    "class": "k-grid-container ng-star-inserted",
-    "tag": "kendo-grid-list",
-    "text": "Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0",
-    "xpath": "//kendo-grid-list[contains(normalize-space(text()), 'Counts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0')]"
-  },
-  "div_Counts tow_224": {
-    "class": "k-grid-content k-virtual-content",
-    "tag": "div",
-    "text": "Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0",
-    "xpath": "//div[contains(normalize-space(text()), 'Counts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0')]"
-  },
-  "div_Counts tow_225": {
-    "class": "k-grid-table-wrap",
-    "tag": "div",
-    "text": "Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0",
-    "xpath": "//div[contains(normalize-space(text()), 'Counts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0')]"
-  },
-  "table_Counts tow_226": {
-    "class": "k-grid-table k-table k-table-md",
-    "tag": "table",
-    "text": "Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0",
-    "xpath": "//table[contains(normalize-space(text()), 'Counts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0')]"
   },
   "colgroup__227": {
     "tag": "colgroup",
@@ -1131,457 +1094,781 @@
     "tag": "col",
     "xpath": "//col[@class='ng-star-inserted']"
   },
-  "tbody_Counts tow_235": {
-    "class": "k-table-tbody",
-    "tag": "tbody",
-    "text": "Counts towards adherence 0 0 0 0 0 0 Does not count towards adherence 0 0 0 0 0 0",
-    "xpath": "//tbody[contains(normalize-space(text()), 'Counts towards adherence 0 0 0 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0')]"
-  },
-  "tr_Counts tow_236": {
-    "class": "k-master-row k-table-row ng-star-inserted",
-    "tag": "tr",
-    "text": "Counts towards adherence 0 0 0 0 0 0",
-    "xpath": "//tr[contains(normalize-space(text()), 'Counts towards adherence 0 0 0 0 0 0')]"
-  },
-  "td_Counts tow_237": {
-    "class": "k-table-td k-touch-action-auto ng-star-inserted",
-    "tag": "td",
-    "text": "Counts towards adherence",
-    "xpath": "//td[contains(normalize-space(text()), 'Counts towards adherence')]"
-  },
-  "td_0_238": {
-    "class": "k-table-td k-touch-action-auto ng-star-inserted",
-    "tag": "td",
-    "text": "0",
-    "xpath": "//td[contains(normalize-space(text()), '0')]"
-  },
-  "td_0_239": {
-    "class": "k-table-td k-touch-action-auto ng-star-inserted",
-    "tag": "td",
-    "text": "0",
-    "xpath": "//td[contains(normalize-space(text()), '0')]"
-  },
-  "td_0_240": {
-    "class": "k-table-td k-touch-action-auto ng-star-inserted",
-    "tag": "td",
-    "text": "0",
-    "xpath": "//td[contains(normalize-space(text()), '0')]"
-  },
-  "td_0_241": {
-    "class": "k-table-td k-touch-action-auto ng-star-inserted",
-    "tag": "td",
-    "text": "0",
-    "xpath": "//td[contains(normalize-space(text()), '0')]"
-  },
-  "td_0_242": {
-    "class": "k-table-td k-touch-action-auto ng-star-inserted",
-    "tag": "td",
-    "text": "0",
-    "xpath": "//td[contains(normalize-space(text()), '0')]"
-  },
-  "td_0_243": {
-    "class": "k-table-td k-touch-action-auto ng-star-inserted",
-    "tag": "td",
-    "text": "0",
-    "xpath": "//td[contains(normalize-space(text()), '0')]"
-  },
-  "tr_Does not c_244": {
-    "class": "k-master-row k-alt k-table-alt-row k-table-row ng-star-inserted",
-    "tag": "tr",
-    "text": "Does not count towards adherence 0 0 0 0 0 0",
-    "xpath": "//tr[contains(normalize-space(text()), 'Does not count towards adherence 0 0 0 0 0 0')]"
-  },
-  "td_Does not c_245": {
-    "class": "k-table-td k-touch-action-auto ng-star-inserted",
-    "tag": "td",
-    "text": "Does not count towards adherence",
-    "xpath": "//td[contains(normalize-space(text()), 'Does not count towards adherence')]"
-  },
-  "td_0_246": {
-    "class": "k-table-td k-touch-action-auto ng-star-inserted",
-    "tag": "td",
-    "text": "0",
-    "xpath": "//td[contains(normalize-space(text()), '0')]"
-  },
-  "td_0_247": {
-    "class": "k-table-td k-touch-action-auto ng-star-inserted",
-    "tag": "td",
-    "text": "0",
-    "xpath": "//td[contains(normalize-space(text()), '0')]"
-  },
-  "td_0_248": {
-    "class": "k-table-td k-touch-action-auto ng-star-inserted",
-    "tag": "td",
-    "text": "0",
-    "xpath": "//td[contains(normalize-space(text()), '0')]"
-  },
-  "td_0_249": {
-    "class": "k-table-td k-touch-action-auto ng-star-inserted",
-    "tag": "td",
-    "text": "0",
-    "xpath": "//td[contains(normalize-space(text()), '0')]"
-  },
-  "td_0_250": {
-    "class": "k-table-td k-touch-action-auto ng-star-inserted",
-    "tag": "td",
-    "text": "0",
-    "xpath": "//td[contains(normalize-space(text()), '0')]"
-  },
-  "td_0_251": {
-    "class": "k-table-td k-touch-action-auto ng-star-inserted",
-    "tag": "td",
-    "text": "0",
-    "xpath": "//td[contains(normalize-space(text()), '0')]"
-  },
-  "div__252": {
-    "class": "k-height-container",
-    "tag": "div",
-    "xpath": "//div[@class='k-height-container']"
-  },
-  "div__253": {
-    "tag": "div",
-    "xpath": "//div"
-  },
-  "div_Drugs Take_254": {
-    "class": "overview-grid content-wrapper adherence-grid",
-    "tag": "div",
-    "text": "Drugs Taken Not taken Scheduled Held Rescheduled No records available.",
-    "xpath": "//div[contains(normalize-space(text()), 'Drugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nNo records available.')]"
-  },
-  "kendo-grid_Drugs Take_255": {
-    "class": "k-grid k-grid-md",
-    "tag": "kendo-grid",
-    "text": "Drugs Taken Not taken Scheduled Held Rescheduled No records available.",
-    "xpath": "//kendo-grid[contains(normalize-space(text()), 'Drugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nNo records available.')]"
-  },
-  "k-7f39efa5-d034-4080-a33c-a50ad5fb1d4e": {
-    "id": "k-7f39efa5-d034-4080-a33c-a50ad5fb1d4e",
-    "aria-label": "Data table",
-    "class": "k-grid-aria-root",
-    "tag": "div",
-    "text": "Drugs Taken Not taken Scheduled Held Rescheduled No records available.",
-    "xpath": "//div[@id='k-7f39efa5-d034-4080-a33c-a50ad5fb1d4e']"
-  },
-  "div_Drugs Take_257": {
-    "class": "k-grid-header ng-star-inserted",
-    "tag": "div",
-    "text": "Drugs Taken Not taken Scheduled Held Rescheduled",
-    "xpath": "//div[contains(normalize-space(text()), 'Drugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled')]"
-  },
-  "div_Drugs Take_258": {
-    "class": "k-grid-header-wrap",
-    "tag": "div",
-    "text": "Drugs Taken Not taken Scheduled Held Rescheduled",
-    "xpath": "//div[contains(normalize-space(text()), 'Drugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled')]"
-  },
-  "table_Drugs Take_259": {
-    "class": "k-grid-header-table k-table k-table-md",
-    "tag": "table",
-    "text": "Drugs Taken Not taken Scheduled Held Rescheduled",
-    "xpath": "//table[contains(normalize-space(text()), 'Drugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled')]"
-  },
-  "colgroup__260": {
-    "tag": "colgroup",
-    "xpath": "//colgroup"
-  },
-  "col__261": {
-    "class": "ng-star-inserted",
-    "tag": "col",
-    "xpath": "//col[@class='ng-star-inserted']"
-  },
-  "col__262": {
-    "class": "ng-star-inserted",
-    "tag": "col",
-    "xpath": "//col[@class='ng-star-inserted']"
-  },
-  "col__263": {
-    "class": "ng-star-inserted",
-    "tag": "col",
-    "xpath": "//col[@class='ng-star-inserted']"
-  },
-  "col__264": {
-    "class": "ng-star-inserted",
-    "tag": "col",
-    "xpath": "//col[@class='ng-star-inserted']"
-  },
-  "col__265": {
-    "class": "ng-star-inserted",
-    "tag": "col",
-    "xpath": "//col[@class='ng-star-inserted']"
-  },
-  "col__266": {
-    "class": "ng-star-inserted",
-    "tag": "col",
-    "xpath": "//col[@class='ng-star-inserted']"
-  },
-  "thead_Drugs Take_267": {
+  "thead_Doses Take_235": {
     "class": "k-table-thead",
     "tag": "thead",
-    "text": "Drugs Taken Not taken Scheduled Held Rescheduled",
-    "xpath": "//thead[contains(normalize-space(text()), 'Drugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled')]"
+    "text": "Doses Taken Not taken Scheduled Held",
+    "xpath": "//thead[contains(normalize-space(text()), 'Doses\nTaken\nNot taken\nScheduled\nHeld')]"
   },
-  "tr_Drugs Take_268": {
+  "tr_Doses Take_236": {
     "class": "k-table-row ng-star-inserted",
     "tag": "tr",
-    "text": "Drugs Taken Not taken Scheduled Held Rescheduled",
-    "xpath": "//tr[contains(normalize-space(text()), 'Drugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled')]"
+    "text": "Doses Taken Not taken Scheduled Held",
+    "xpath": "//tr[contains(normalize-space(text()), 'Doses\nTaken\nNot taken\nScheduled\nHeld')]"
   },
-  "th_Drugs_269": {
+  "th_Doses_237": {
     "class": "k-header k-table-th ng-star-inserted",
     "tag": "th",
-    "text": "Drugs",
-    "xpath": "//th[contains(normalize-space(text()), 'Drugs')]"
+    "text": "Doses",
+    "xpath": "//th[contains(normalize-space(text()), 'Doses')]"
   },
-  "span_Drugs_270": {
+  "span_Doses_238": {
     "class": "k-cell-inner ng-star-inserted",
     "tag": "span",
-    "text": "Drugs",
-    "xpath": "//span[contains(normalize-space(text()), 'Drugs')]"
+    "text": "Doses",
+    "xpath": "//span[contains(normalize-space(text()), 'Doses')]"
   },
-  "span_Drugs_271": {
+  "span_Doses_239": {
     "class": "k-link",
     "tag": "span",
-    "text": "Drugs",
-    "xpath": "//span[contains(normalize-space(text()), 'Drugs')]"
+    "text": "Doses",
+    "xpath": "//span[contains(normalize-space(text()), 'Doses')]"
   },
-  "span_Drugs_272": {
+  "span_Doses_240": {
     "class": "k-column-title ng-star-inserted",
     "tag": "span",
-    "text": "Drugs",
-    "xpath": "//span[contains(normalize-space(text()), 'Drugs')]"
+    "text": "Doses",
+    "xpath": "//span[contains(normalize-space(text()), 'Doses')]"
   },
-  "span__273": {
+  "span__241": {
     "class": "k-column-resizer ng-star-inserted",
     "tag": "span",
     "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
   },
-  "th_Taken_274": {
+  "th_Taken_242": {
     "class": "k-header k-table-th ng-star-inserted",
     "tag": "th",
     "text": "Taken",
     "xpath": "//th[contains(normalize-space(text()), 'Taken')]"
   },
-  "span_Taken_275": {
+  "span_Taken_243": {
     "class": "k-cell-inner ng-star-inserted",
     "tag": "span",
     "text": "Taken",
     "xpath": "//span[contains(normalize-space(text()), 'Taken')]"
   },
-  "span_Taken_276": {
+  "span_Taken_244": {
     "class": "k-link",
     "tag": "span",
     "text": "Taken",
     "xpath": "//span[contains(normalize-space(text()), 'Taken')]"
   },
-  "span_Taken_277": {
+  "span_Taken_245": {
     "class": "k-column-title ng-star-inserted",
     "tag": "span",
     "text": "Taken",
     "xpath": "//span[contains(normalize-space(text()), 'Taken')]"
   },
-  "span__278": {
+  "span__246": {
     "class": "k-column-resizer ng-star-inserted",
     "tag": "span",
     "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
   },
-  "th_Not taken_279": {
+  "th_Not taken_247": {
     "class": "k-header k-table-th ng-star-inserted",
     "tag": "th",
     "text": "Not taken",
     "xpath": "//th[contains(normalize-space(text()), 'Not taken')]"
   },
-  "span_Not taken_280": {
+  "span_Not taken_248": {
     "class": "k-cell-inner ng-star-inserted",
     "tag": "span",
     "text": "Not taken",
     "xpath": "//span[contains(normalize-space(text()), 'Not taken')]"
   },
-  "span_Not taken_281": {
+  "span_Not taken_249": {
     "class": "k-link",
     "tag": "span",
     "text": "Not taken",
     "xpath": "//span[contains(normalize-space(text()), 'Not taken')]"
   },
-  "span_Not taken_282": {
+  "span_Not taken_250": {
     "class": "k-column-title ng-star-inserted",
     "tag": "span",
     "text": "Not taken",
     "xpath": "//span[contains(normalize-space(text()), 'Not taken')]"
   },
-  "span__283": {
+  "span__251": {
     "class": "k-column-resizer ng-star-inserted",
     "tag": "span",
     "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
   },
-  "th_Scheduled_284": {
+  "th_Scheduled_252": {
     "class": "k-header k-table-th ng-star-inserted",
     "tag": "th",
     "text": "Scheduled",
     "xpath": "//th[contains(normalize-space(text()), 'Scheduled')]"
   },
-  "span_Scheduled_285": {
+  "span_Scheduled_253": {
     "class": "k-cell-inner ng-star-inserted",
     "tag": "span",
     "text": "Scheduled",
     "xpath": "//span[contains(normalize-space(text()), 'Scheduled')]"
   },
-  "span_Scheduled_286": {
+  "span_Scheduled_254": {
     "class": "k-link",
     "tag": "span",
     "text": "Scheduled",
     "xpath": "//span[contains(normalize-space(text()), 'Scheduled')]"
   },
-  "span_Scheduled_287": {
+  "span_Scheduled_255": {
     "class": "k-column-title ng-star-inserted",
     "tag": "span",
     "text": "Scheduled",
     "xpath": "//span[contains(normalize-space(text()), 'Scheduled')]"
   },
-  "span__288": {
+  "span__256": {
     "class": "k-column-resizer ng-star-inserted",
     "tag": "span",
     "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
   },
-  "th_Held_289": {
+  "th_Held_257": {
     "class": "k-header k-table-th ng-star-inserted",
     "tag": "th",
     "text": "Held",
     "xpath": "//th[contains(normalize-space(text()), 'Held')]"
   },
-  "span_Held_290": {
+  "span_Held_258": {
     "class": "k-cell-inner ng-star-inserted",
     "tag": "span",
     "text": "Held",
     "xpath": "//span[contains(normalize-space(text()), 'Held')]"
   },
-  "span_Held_291": {
+  "span_Held_259": {
     "class": "k-link",
     "tag": "span",
     "text": "Held",
     "xpath": "//span[contains(normalize-space(text()), 'Held')]"
   },
-  "span_Held_292": {
+  "span_Held_260": {
     "class": "k-column-title ng-star-inserted",
     "tag": "span",
     "text": "Held",
     "xpath": "//span[contains(normalize-space(text()), 'Held')]"
   },
-  "span__293": {
+  "span__261": {
     "class": "k-column-resizer ng-star-inserted",
     "tag": "span",
     "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
   },
-  "th_Reschedule_294": {
+  "th__262": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "xpath": "//th[@class='k-header k-table-th ng-star-inserted']"
+  },
+  "span__263": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-cell-inner ng-star-inserted']"
+  },
+  "span__264": {
+    "class": "k-link",
+    "tag": "span",
+    "xpath": "//span[@class='k-link']"
+  },
+  "span__265": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-title ng-star-inserted']"
+  },
+  "span__266": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "th__267": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "xpath": "//th[@class='k-header k-table-th ng-star-inserted']"
+  },
+  "span__268": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-cell-inner ng-star-inserted']"
+  },
+  "span__269": {
+    "class": "k-link",
+    "tag": "span",
+    "xpath": "//span[@class='k-link']"
+  },
+  "span__270": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-title ng-star-inserted']"
+  },
+  "span__271": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "kendo-grid-list_Counts tow_272": {
+    "class": "k-grid-container ng-star-inserted",
+    "tag": "kendo-grid-list",
+    "text": "Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0",
+    "xpath": "//kendo-grid-list[contains(normalize-space(text()), 'Counts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0')]"
+  },
+  "div_Counts tow_273": {
+    "class": "k-grid-content k-virtual-content",
+    "tag": "div",
+    "text": "Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0",
+    "xpath": "//div[contains(normalize-space(text()), 'Counts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0')]"
+  },
+  "div_Counts tow_274": {
+    "class": "k-grid-table-wrap",
+    "tag": "div",
+    "text": "Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0",
+    "xpath": "//div[contains(normalize-space(text()), 'Counts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0')]"
+  },
+  "table_Counts tow_275": {
+    "class": "k-grid-table k-table k-table-md",
+    "tag": "table",
+    "text": "Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0",
+    "xpath": "//table[contains(normalize-space(text()), 'Counts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0')]"
+  },
+  "colgroup__276": {
+    "tag": "colgroup",
+    "xpath": "//colgroup"
+  },
+  "col__277": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__278": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__279": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__280": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__281": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__282": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__283": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "tbody_drug_name": {
+    "class": "k-table-tbody",
+    "tag": "tbody",
+    "text": "Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0",
+    "xpath": "//tbody[contains(normalize-space(text()), 'Counts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0')]"
+  },
+  "tbody_Counts tow_284": {
+    "class": "k-table-tbody",
+    "tag": "tbody",
+    "text": "Counts towards adherence 1 6 7 0 0 0 Does not count towards adherence 0 0 0 0 0 0",
+    "xpath": "//tbody[contains(normalize-space(text()), 'Counts towards adherence 1 6 7 0 0 0\nDoes not count towards adherence 0 0 0 0 0 0')]"
+  },
+  "tr_Counts tow_285": {
+    "class": "k-master-row k-table-row ng-star-inserted",
+    "tag": "tr",
+    "text": "Counts towards adherence 1 6 7 0 0 0",
+    "xpath": "//tr[contains(normalize-space(text()), 'Counts towards adherence 1 6 7 0 0 0')]"
+  },
+  "td_Counts tow_286": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "Counts towards adherence",
+    "xpath": "//td[contains(normalize-space(text()), 'Counts towards adherence')]"
+  },
+  "td_1_287": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "1",
+    "xpath": "//td[contains(normalize-space(text()), '1')]"
+  },
+  "td_6_288": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "6",
+    "xpath": "//td[contains(normalize-space(text()), '6')]"
+  },
+  "td_7_289": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "7",
+    "xpath": "//td[contains(normalize-space(text()), '7')]"
+  },
+  "td_0_290": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "0",
+    "xpath": "//td[contains(normalize-space(text()), '0')]"
+  },
+  "td_0_291": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "0",
+    "xpath": "//td[contains(normalize-space(text()), '0')]"
+  },
+  "td_0_292": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "0",
+    "xpath": "//td[contains(normalize-space(text()), '0')]"
+  },
+  "tr_Does not c_293": {
+    "class": "k-master-row k-alt k-table-alt-row k-table-row ng-star-inserted",
+    "tag": "tr",
+    "text": "Does not count towards adherence 0 0 0 0 0 0",
+    "xpath": "//tr[contains(normalize-space(text()), 'Does not count towards adherence 0 0 0 0 0 0')]"
+  },
+  "td_Does not c_294": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "Does not count towards adherence",
+    "xpath": "//td[contains(normalize-space(text()), 'Does not count towards adherence')]"
+  },
+  "td_0_295": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "0",
+    "xpath": "//td[contains(normalize-space(text()), '0')]"
+  },
+  "td_0_296": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "0",
+    "xpath": "//td[contains(normalize-space(text()), '0')]"
+  },
+  "td_0_297": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "0",
+    "xpath": "//td[contains(normalize-space(text()), '0')]"
+  },
+  "td_0_298": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "0",
+    "xpath": "//td[contains(normalize-space(text()), '0')]"
+  },
+  "td_0_299": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "0",
+    "xpath": "//td[contains(normalize-space(text()), '0')]"
+  },
+  "td_0_300": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "0",
+    "xpath": "//td[contains(normalize-space(text()), '0')]"
+  },
+  "div__301": {
+    "class": "k-height-container",
+    "tag": "div",
+    "xpath": "//div[@class='k-height-container']"
+  },
+  "div__302": {
+    "tag": "div",
+    "xpath": "//div"
+  },
+  "div_Drugs Take_303": {
+    "class": "overview-grid content-wrapper adherence-grid",
+    "tag": "div",
+    "text": "Drugs Taken Not taken Scheduled Held Rescheduled Ofloxacin 1 6 7 0 0",
+    "xpath": "//div[contains(normalize-space(text()), 'Drugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nOfloxacin\n1\n6\n7\n0 0')]"
+  },
+  "kendo-grid_Drugs Take_304": {
+    "class": "k-grid k-grid-md",
+    "tag": "kendo-grid",
+    "text": "Drugs Taken Not taken Scheduled Held Rescheduled Ofloxacin 1 6 7 0 0",
+    "xpath": "//kendo-grid[contains(normalize-space(text()), 'Drugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled\nOfloxacin\n1\n6\n7\n0 0')]"
+  },
+  "k-c768685b-1dad-46cd-a1fb-b8fe03a6f3b9": {
+    "id": "k-c768685b-1dad-46cd-a1fb-b8fe03a6f3b9",
+    "aria-label": "Data table",
+    "class": "k-grid-aria-root",
+    "tag": "div",
+    "text": "Drugs Taken Not taken Scheduled Held Rescheduled Ofloxacin 1 6 7 0 0",
+    "xpath": "//div[@id='k-c768685b-1dad-46cd-a1fb-b8fe03a6f3b9']"
+  },
+  "div_Drugs Take_306": {
+    "class": "k-grid-header ng-star-inserted",
+    "tag": "div",
+    "text": "Drugs Taken Not taken Scheduled Held Rescheduled",
+    "xpath": "//div[contains(normalize-space(text()), 'Drugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled')]"
+  },
+  "div_Drugs Take_307": {
+    "class": "k-grid-header-wrap",
+    "tag": "div",
+    "text": "Drugs Taken Not taken Scheduled Held Rescheduled",
+    "xpath": "//div[contains(normalize-space(text()), 'Drugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled')]"
+  },
+  "table_Drugs Take_308": {
+    "class": "k-grid-header-table k-table k-table-md",
+    "tag": "table",
+    "text": "Drugs Taken Not taken Scheduled Held Rescheduled",
+    "xpath": "//table[contains(normalize-space(text()), 'Drugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled')]"
+  },
+  "colgroup__309": {
+    "tag": "colgroup",
+    "xpath": "//colgroup"
+  },
+  "col__310": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__311": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__312": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__313": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__314": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__315": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "thead_Drugs Take_316": {
+    "class": "k-table-thead",
+    "tag": "thead",
+    "text": "Drugs Taken Not taken Scheduled Held Rescheduled",
+    "xpath": "//thead[contains(normalize-space(text()), 'Drugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled')]"
+  },
+  "tr_Drugs Take_317": {
+    "class": "k-table-row ng-star-inserted",
+    "tag": "tr",
+    "text": "Drugs Taken Not taken Scheduled Held Rescheduled",
+    "xpath": "//tr[contains(normalize-space(text()), 'Drugs\nTaken\nNot taken\nScheduled\nHeld\nRescheduled')]"
+  },
+  "th_Drugs_318": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "Drugs",
+    "xpath": "//th[contains(normalize-space(text()), 'Drugs')]"
+  },
+  "span_Drugs_319": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "Drugs",
+    "xpath": "//span[contains(normalize-space(text()), 'Drugs')]"
+  },
+  "span_Drugs_320": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "Drugs",
+    "xpath": "//span[contains(normalize-space(text()), 'Drugs')]"
+  },
+  "span_Drugs_321": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "Drugs",
+    "xpath": "//span[contains(normalize-space(text()), 'Drugs')]"
+  },
+  "span__322": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "th_Taken_323": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "Taken",
+    "xpath": "//th[contains(normalize-space(text()), 'Taken')]"
+  },
+  "span_Taken_324": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "Taken",
+    "xpath": "//span[contains(normalize-space(text()), 'Taken')]"
+  },
+  "span_Taken_325": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "Taken",
+    "xpath": "//span[contains(normalize-space(text()), 'Taken')]"
+  },
+  "span_Taken_326": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "Taken",
+    "xpath": "//span[contains(normalize-space(text()), 'Taken')]"
+  },
+  "span__327": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "th_Not taken_328": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "Not taken",
+    "xpath": "//th[contains(normalize-space(text()), 'Not taken')]"
+  },
+  "span_Not taken_329": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "Not taken",
+    "xpath": "//span[contains(normalize-space(text()), 'Not taken')]"
+  },
+  "span_Not taken_330": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "Not taken",
+    "xpath": "//span[contains(normalize-space(text()), 'Not taken')]"
+  },
+  "span_Not taken_331": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "Not taken",
+    "xpath": "//span[contains(normalize-space(text()), 'Not taken')]"
+  },
+  "span__332": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "th_Scheduled_333": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "Scheduled",
+    "xpath": "//th[contains(normalize-space(text()), 'Scheduled')]"
+  },
+  "span_Scheduled_334": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "Scheduled",
+    "xpath": "//span[contains(normalize-space(text()), 'Scheduled')]"
+  },
+  "span_Scheduled_335": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "Scheduled",
+    "xpath": "//span[contains(normalize-space(text()), 'Scheduled')]"
+  },
+  "span_Scheduled_336": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "Scheduled",
+    "xpath": "//span[contains(normalize-space(text()), 'Scheduled')]"
+  },
+  "span__337": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "th_Held_338": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "Held",
+    "xpath": "//th[contains(normalize-space(text()), 'Held')]"
+  },
+  "span_Held_339": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "Held",
+    "xpath": "//span[contains(normalize-space(text()), 'Held')]"
+  },
+  "span_Held_340": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "Held",
+    "xpath": "//span[contains(normalize-space(text()), 'Held')]"
+  },
+  "span_Held_341": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "Held",
+    "xpath": "//span[contains(normalize-space(text()), 'Held')]"
+  },
+  "span__342": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "th_Reschedule_343": {
     "class": "k-header k-table-th ng-star-inserted",
     "tag": "th",
     "text": "Rescheduled",
     "xpath": "//th[contains(normalize-space(text()), 'Rescheduled')]"
   },
-  "span_Reschedule_295": {
+  "span_Reschedule_344": {
     "class": "k-cell-inner ng-star-inserted",
     "tag": "span",
     "text": "Rescheduled",
     "xpath": "//span[contains(normalize-space(text()), 'Rescheduled')]"
   },
-  "span_Reschedule_296": {
+  "span_Reschedule_345": {
     "class": "k-link",
     "tag": "span",
     "text": "Rescheduled",
     "xpath": "//span[contains(normalize-space(text()), 'Rescheduled')]"
   },
-  "span_Reschedule_297": {
+  "span_Reschedule_346": {
     "class": "k-column-title ng-star-inserted",
     "tag": "span",
     "text": "Rescheduled",
     "xpath": "//span[contains(normalize-space(text()), 'Rescheduled')]"
   },
-  "span__298": {
+  "span__347": {
     "class": "k-column-resizer ng-star-inserted",
     "tag": "span",
     "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
   },
-  "kendo-grid-list_No records_299": {
+  "kendo-grid-list_Ofloxacin _348": {
     "class": "k-grid-container ng-star-inserted",
     "tag": "kendo-grid-list",
-    "text": "No records available.",
-    "xpath": "//kendo-grid-list[contains(normalize-space(text()), 'No records available.')]"
+    "text": "Ofloxacin 1 6 7 0 0",
+    "xpath": "//kendo-grid-list[contains(normalize-space(text()), 'Ofloxacin\n1\n6\n7\n0 0')]"
   },
-  "div_No records_300": {
+  "div_Ofloxacin _349": {
     "class": "k-grid-content k-virtual-content",
     "tag": "div",
-    "text": "No records available.",
-    "xpath": "//div[contains(normalize-space(text()), 'No records available.')]"
+    "text": "Ofloxacin 1 6 7 0 0",
+    "xpath": "//div[contains(normalize-space(text()), 'Ofloxacin\n1\n6\n7\n0 0')]"
   },
-  "div_No records_301": {
+  "div_Ofloxacin _350": {
     "class": "k-grid-table-wrap",
     "tag": "div",
-    "text": "No records available.",
-    "xpath": "//div[contains(normalize-space(text()), 'No records available.')]"
+    "text": "Ofloxacin 1 6 7 0 0",
+    "xpath": "//div[contains(normalize-space(text()), 'Ofloxacin\n1\n6\n7\n0 0')]"
   },
-  "table_No records_302": {
+  "table_Ofloxacin _351": {
     "class": "k-grid-table k-table k-table-md",
     "tag": "table",
-    "text": "No records available.",
-    "xpath": "//table[contains(normalize-space(text()), 'No records available.')]"
+    "text": "Ofloxacin 1 6 7 0 0",
+    "xpath": "//table[contains(normalize-space(text()), 'Ofloxacin\n1\n6\n7\n0 0')]"
   },
-  "colgroup__303": {
+  "colgroup__352": {
     "tag": "colgroup",
     "xpath": "//colgroup"
   },
-  "col__304": {
+  "col__353": {
     "class": "ng-star-inserted",
     "tag": "col",
     "xpath": "//col[@class='ng-star-inserted']"
   },
-  "col__305": {
+  "col__354": {
     "class": "ng-star-inserted",
     "tag": "col",
     "xpath": "//col[@class='ng-star-inserted']"
   },
-  "col__306": {
+  "col__355": {
     "class": "ng-star-inserted",
     "tag": "col",
     "xpath": "//col[@class='ng-star-inserted']"
   },
-  "col__307": {
+  "col__356": {
     "class": "ng-star-inserted",
     "tag": "col",
     "xpath": "//col[@class='ng-star-inserted']"
   },
-  "col__308": {
+  "col__357": {
     "class": "ng-star-inserted",
     "tag": "col",
     "xpath": "//col[@class='ng-star-inserted']"
   },
-  "col__309": {
+  "col__358": {
     "class": "ng-star-inserted",
     "tag": "col",
     "xpath": "//col[@class='ng-star-inserted']"
   },
-  "tbody_No records_310": {
+  "tbody_Ofloxacin _359": {
     "class": "k-table-tbody",
     "tag": "tbody",
-    "text": "No records available.",
-    "xpath": "//tbody[contains(normalize-space(text()), 'No records available.')]"
+    "text": "Ofloxacin 1 6 7 0 0",
+    "xpath": "//tbody[contains(normalize-space(text()), 'Ofloxacin\n1\n6\n7\n0 0')]"
   },
-  "tr_No records_311": {
-    "class": "k-grid-norecords ng-star-inserted",
+  "tr_Ofloxacin _360": {
+    "class": "k-master-row k-table-row ng-star-inserted",
     "tag": "tr",
-    "text": "No records available.",
-    "xpath": "//tr[contains(normalize-space(text()), 'No records available.')]"
+    "text": "Ofloxacin 1 6 7 0 0",
+    "xpath": "//tr[contains(normalize-space(text()), 'Ofloxacin\n1\n6\n7\n0 0')]"
   },
-  "td_No records_312": {
-    "class": "k-table-td",
+  "td_Ofloxacin_361": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
     "tag": "td",
-    "text": "No records available.",
-    "xpath": "//td[contains(normalize-space(text()), 'No records available.')]"
+    "text": "Ofloxacin",
+    "xpath": "//td[contains(normalize-space(text()), 'Ofloxacin')]"
   },
-  "div__313": {
+  "td_1_362": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "1",
+    "xpath": "//td[contains(normalize-space(text()), '1')]"
+  },
+  "div_1_363": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "1",
+    "xpath": "//div[contains(normalize-space(text()), '1')]"
+  },
+  "td_6_364": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "6",
+    "xpath": "//td[contains(normalize-space(text()), '6')]"
+  },
+  "div_6_365": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "6",
+    "xpath": "//div[contains(normalize-space(text()), '6')]"
+  },
+  "td_7_366": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "7",
+    "xpath": "//td[contains(normalize-space(text()), '7')]"
+  },
+  "div_7_367": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "7",
+    "xpath": "//div[contains(normalize-space(text()), '7')]"
+  },
+  "td_0_368": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "0",
+    "xpath": "//td[contains(normalize-space(text()), '0')]"
+  },
+  "td_0_369": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "0",
+    "xpath": "//td[contains(normalize-space(text()), '0')]"
+  },
+  "div__370": {
     "class": "k-height-container",
     "tag": "div",
     "xpath": "//div[@class='k-height-container']"
   },
-  "div__314": {
+  "div__371": {
     "tag": "div",
     "xpath": "//div"
   },
@@ -1589,1037 +1876,1192 @@
     "id": "month",
     "class": "col-lg-6",
     "tag": "div",
-    "text": "August 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6",
+    "text": "September 2025 EXPORT TO PDF Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4",
     "xpath": "//div[@id='month']"
   },
-  "div_August 202_316": {
+  "div_September _373": {
     "class": "row doses-calendar-title",
     "tag": "div",
-    "text": "August 2025 EXPORT TO PDF",
-    "xpath": "//div[contains(normalize-space(text()), 'August 2025\nEXPORT TO PDF')]"
+    "text": "September 2025 EXPORT TO PDF",
+    "xpath": "//div[contains(normalize-space(text()), 'September 2025\nEXPORT TO PDF')]"
   },
-  "div_August 202_317": {
+  "div_September _374": {
     "class": "col-sm-8 title-item",
     "tag": "div",
-    "text": "August 2025",
-    "xpath": "//div[contains(normalize-space(text()), 'August 2025')]"
+    "text": "September 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'September 2025')]"
   },
-  "div__318": {
+  "div__375": {
     "class": "k-button k-button-sm",
     "tag": "div",
     "xpath": "//div[@class='k-button k-button-sm']"
   },
-  "span__319": {
+  "span__376": {
     "class": "icon-keyboard_arrow_left",
     "tag": "span",
     "xpath": "//span[@class='icon-keyboard_arrow_left']"
   },
-  "div_August 202_320": {
+  "div_September _377": {
     "class": "calendar-header",
     "tag": "div",
-    "text": "August 2025",
-    "xpath": "//div[contains(normalize-space(text()), 'August 2025')]"
+    "text": "September 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'September 2025')]"
   },
-  "div__321": {
+  "div__378": {
     "class": "k-button k-button-sm",
     "tag": "div",
     "xpath": "//div[@class='k-button k-button-sm']"
   },
-  "span__322": {
+  "span__379": {
     "class": "icon-keyboard_arrow_right",
     "tag": "span",
     "xpath": "//span[@class='icon-keyboard_arrow_right']"
   },
-  "div_EXPORT TO _323": {
+  "div_EXPORT TO _380": {
     "class": "col-sm-4 padding-title",
     "tag": "div",
     "text": "EXPORT TO PDF",
     "xpath": "//div[contains(normalize-space(text()), 'EXPORT TO PDF')]"
   },
-  "button_EXPORT TO _324": {
+  "button_EXPORT TO _381": {
     "class": "export-to-pdf k-button k-button-md float-sm-end",
     "type": "submit",
     "tag": "button",
     "text": "EXPORT TO PDF",
     "xpath": "//button[contains(normalize-space(text()), 'EXPORT TO PDF')]"
   },
-  "fa-icon__325": {
+  "fa-icon__382": {
     "class": "ng-fa-icon",
     "tag": "fa-icon",
     "xpath": "//fa-icon[@class='ng-fa-icon']"
   },
-  "svg__326": {
+  "svg__383": {
     "class": "svg-inline--fa fa-file-excel",
     "data-icon": "file-excel",
     "tag": "svg",
     "xpath": "//svg[@class='svg-inline--fa fa-file-excel']"
   },
-  "path__327": {
+  "path__384": {
     "tag": "path",
     "xpath": "//path"
   },
-  "div_Sunday Mon_328": {
+  "div_Sunday Mon_385": {
     "class": "schedule-content ng-star-inserted",
     "tag": "div",
-    "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6",
-    "xpath": "//div[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6')]"
+    "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4",
+    "xpath": "//div[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4')]"
   },
-  "div_Sunday Mon_329": {
+  "div_Sunday Mon_386": {
     "tag": "div",
-    "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6",
-    "xpath": "//div[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6')]"
+    "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4",
+    "xpath": "//div[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4')]"
   },
-  "mwl-calendar-month-view_Sunday Mon_330": {
+  "mwl-calendar-month-view_Sunday Mon_387": {
     "tag": "mwl-calendar-month-view",
-    "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6",
-    "xpath": "//mwl-calendar-month-view[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6')]"
+    "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4",
+    "xpath": "//mwl-calendar-month-view[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4')]"
   },
-  "div_Sunday Mon_331": {
+  "div_Sunday Mon_388": {
     "class": "cal-month-view",
     "tag": "div",
-    "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday 27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6",
-    "xpath": "//div[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6')]"
+    "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4",
+    "xpath": "//div[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4')]"
   },
-  "mwl-calendar-month-view-header_Sunday Mon_332": {
+  "mwl-calendar-month-view-header_Sunday Mon_389": {
     "tag": "mwl-calendar-month-view-header",
     "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday",
     "xpath": "//mwl-calendar-month-view-header[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday')]"
   },
-  "div_Sunday Mon_333": {
+  "div_Sunday Mon_390": {
     "class": "cal-cell-row cal-header ng-star-inserted",
     "tag": "div",
     "text": "Sunday Monday Tuesday Wednesday Thursday Friday Saturday",
     "xpath": "//div[contains(normalize-space(text()), 'Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday')]"
   },
-  "div_Sunday_334": {
+  "div_Sunday_391": {
     "class": "cal-cell cal-past cal-weekend ng-star-inserted",
     "tag": "div",
     "text": "Sunday",
     "xpath": "//div[contains(normalize-space(text()), 'Sunday')]"
   },
-  "div_Monday_335": {
+  "div_Monday_392": {
     "class": "cal-cell cal-past ng-star-inserted",
     "tag": "div",
     "text": "Monday",
     "xpath": "//div[contains(normalize-space(text()), 'Monday')]"
   },
-  "div_Tuesday_336": {
+  "div_Tuesday_393": {
     "class": "cal-cell cal-past ng-star-inserted",
     "tag": "div",
     "text": "Tuesday",
     "xpath": "//div[contains(normalize-space(text()), 'Tuesday')]"
   },
-  "div_Wednesday_337": {
+  "div_Wednesday_394": {
     "class": "cal-cell cal-past ng-star-inserted",
     "tag": "div",
     "text": "Wednesday",
     "xpath": "//div[contains(normalize-space(text()), 'Wednesday')]"
   },
-  "div_Thursday_338": {
+  "div_Thursday_395": {
     "class": "cal-cell cal-past ng-star-inserted",
     "tag": "div",
     "text": "Thursday",
     "xpath": "//div[contains(normalize-space(text()), 'Thursday')]"
   },
-  "div_Friday_339": {
+  "div_Friday_396": {
     "class": "cal-cell cal-today ng-star-inserted",
     "tag": "div",
     "text": "Friday",
     "xpath": "//div[contains(normalize-space(text()), 'Friday')]"
   },
-  "div_Saturday_340": {
+  "div_Saturday_397": {
     "class": "cal-cell cal-future cal-weekend ng-star-inserted",
     "tag": "div",
     "text": "Saturday",
     "xpath": "//div[contains(normalize-space(text()), 'Saturday')]"
   },
-  "div_27 28 29 3_341": {
+  "div_cal_today": {
+    "class": "cal-cell cal-today ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[contains(@class,'cal-today')]"
+  },
+  "span_cal_today_date": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "xpath": "//*[contains(@class,'cal-today')]//span[@class='cal-day-number']"
+  },
+  "div_cal_today_dose_schedule": {
+    "class": "schedule-mark ng-star-inserted",
+    "tag": "div",
+    "xpath": "//*[contains(@class,'cal-today')]//div[@class='schedule-mark ng-star-inserted']/span"
+  },
+  "span_cal_today_symptoms": {
+    "class": "icon-sureadhere",
+    "tag": "span",
+    "xpath": "//*[contains(@class,'cal-today')]//div[@class='icn-wrapper has-symptoms ng-star-inserted']/span[@class='icon-sureadhere']"
+  },
+  "span_cal_today_video_status": {
+    "class": "video-icon",
+    "tag": "span",
+    "xpath": "//*[contains(@class,'cal-today')]//div[@class='events-wrapper ng-star-inserted']//span[@class='video-icon']"
+  },
+  "span_cal_today_report_status": {
+    "class": "self-report-icon",
+    "tag": "span",
+    "xpath": "//*[contains(@class,'cal-cell cal-day-cell cal-today')]//div[@class='events-wrapper ng-star-inserted']//span[@class='self-report-icon']"
+  },
+  "div_31 1 2 3 4_398": {
     "class": "cal-days",
     "tag": "div",
-    "text": "27 28 29 30 31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 1 2 3 4 5 6",
-    "xpath": "//div[contains(normalize-space(text()), '27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6')]"
+    "text": "31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4",
+    "xpath": "//div[contains(normalize-space(text()), '31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4')]"
   },
-  "div_27 28 29 3_342": {
+  "div_31 1 2 3 4_399": {
     "class": "ng-star-inserted",
     "tag": "div",
-    "text": "27 28 29 30 31 1 2",
-    "xpath": "//div[contains(normalize-space(text()), '27\n28\n29\n30\n31\n1\n2')]"
+    "text": "31 1 2 3 4 5 6",
+    "xpath": "//div[contains(normalize-space(text()), '31\n1\n2\n3\n4\n5\n6')]"
   },
-  "div_27 28 29 3_343": {
+  "div_31 1 2 3 4_400": {
     "class": "cal-cell-row",
     "tag": "div",
-    "text": "27 28 29 30 31 1 2",
-    "xpath": "//div[contains(normalize-space(text()), '27\n28\n29\n30\n31\n1\n2')]"
+    "text": "31 1 2 3 4 5 6",
+    "xpath": "//div[contains(normalize-space(text()), '31\n1\n2\n3\n4\n5\n6')]"
   },
-  "mwl-calendar-month-cell_27_344": {
+  "mwl-calendar-month-cell_31_401": {
     "class": "cal-cell cal-day-cell cal-past cal-weekend cal-out-month ng-star-inserted",
-    "tag": "mwl-calendar-month-cell",
-    "text": "27",
-    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '27')]"
-  },
-  "div_27_345": {
-    "class": "day-and-status ng-star-inserted",
-    "tag": "div",
-    "text": "27",
-    "xpath": "//div[contains(normalize-space(text()), '27')]"
-  },
-  "span_27_346": {
-    "class": "cal-day-number",
-    "tag": "span",
-    "text": "27",
-    "xpath": "//span[contains(normalize-space(text()), '27')]"
-  },
-  "mwl-calendar-month-cell_28_347": {
-    "class": "cal-cell cal-day-cell cal-past cal-out-month ng-star-inserted",
-    "tag": "mwl-calendar-month-cell",
-    "text": "28",
-    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '28')]"
-  },
-  "div_28_348": {
-    "class": "day-and-status ng-star-inserted",
-    "tag": "div",
-    "text": "28",
-    "xpath": "//div[contains(normalize-space(text()), '28')]"
-  },
-  "span_28_349": {
-    "class": "cal-day-number",
-    "tag": "span",
-    "text": "28",
-    "xpath": "//span[contains(normalize-space(text()), '28')]"
-  },
-  "mwl-calendar-month-cell_29_350": {
-    "class": "cal-cell cal-day-cell cal-past cal-out-month ng-star-inserted",
-    "tag": "mwl-calendar-month-cell",
-    "text": "29",
-    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '29')]"
-  },
-  "div_29_351": {
-    "class": "day-and-status ng-star-inserted",
-    "tag": "div",
-    "text": "29",
-    "xpath": "//div[contains(normalize-space(text()), '29')]"
-  },
-  "span_29_352": {
-    "class": "cal-day-number",
-    "tag": "span",
-    "text": "29",
-    "xpath": "//span[contains(normalize-space(text()), '29')]"
-  },
-  "mwl-calendar-month-cell_30_353": {
-    "class": "cal-cell cal-day-cell cal-past cal-out-month ng-star-inserted",
-    "tag": "mwl-calendar-month-cell",
-    "text": "30",
-    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '30')]"
-  },
-  "div_30_354": {
-    "class": "day-and-status ng-star-inserted",
-    "tag": "div",
-    "text": "30",
-    "xpath": "//div[contains(normalize-space(text()), '30')]"
-  },
-  "span_30_355": {
-    "class": "cal-day-number",
-    "tag": "span",
-    "text": "30",
-    "xpath": "//span[contains(normalize-space(text()), '30')]"
-  },
-  "mwl-calendar-month-cell_31_356": {
-    "class": "cal-cell cal-day-cell cal-past cal-out-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "31",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '31')]"
   },
-  "div_31_357": {
+  "div_31_402": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "31",
     "xpath": "//div[contains(normalize-space(text()), '31')]"
   },
-  "span_31_358": {
+  "span_31_403": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "31",
     "xpath": "//span[contains(normalize-space(text()), '31')]"
   },
-  "mwl-calendar-month-cell_1_359": {
+  "mwl-calendar-month-cell_1_404": {
     "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "1",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '1')]"
   },
-  "div_1_360": {
+  "div_1_405": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "1",
     "xpath": "//div[contains(normalize-space(text()), '1')]"
   },
-  "span_1_361": {
+  "span_1_406": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "1",
     "xpath": "//span[contains(normalize-space(text()), '1')]"
   },
-  "mwl-calendar-month-cell_2_362": {
-    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+  "mwl-calendar-month-cell_2_407": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "2",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '2')]"
   },
-  "div_2_363": {
+  "div_2_408": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "2",
     "xpath": "//div[contains(normalize-space(text()), '2')]"
   },
-  "span_2_364": {
+  "span_2_409": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "2",
     "xpath": "//span[contains(normalize-space(text()), '2')]"
   },
-  "mwl-calendar-open-day-events__365": {
-    "class": "ng-tns-c820047117-2 ng-star-inserted",
-    "tag": "mwl-calendar-open-day-events",
-    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-2 ng-star-inserted']"
-  },
-  "div_3 4 5 6 7 _366": {
-    "class": "ng-star-inserted",
-    "tag": "div",
-    "text": "3 4 5 6 7 8 9",
-    "xpath": "//div[contains(normalize-space(text()), '3\n4\n5\n6\n7\n8\n9')]"
-  },
-  "div_3 4 5 6 7 _367": {
-    "class": "cal-cell-row",
-    "tag": "div",
-    "text": "3 4 5 6 7 8 9",
-    "xpath": "//div[contains(normalize-space(text()), '3\n4\n5\n6\n7\n8\n9')]"
-  },
-  "mwl-calendar-month-cell_3_368": {
-    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+  "mwl-calendar-month-cell_3_410": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "3",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '3')]"
   },
-  "div_3_369": {
+  "div_3_411": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "3",
     "xpath": "//div[contains(normalize-space(text()), '3')]"
   },
-  "span_3_370": {
+  "span_3_412": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "3",
     "xpath": "//span[contains(normalize-space(text()), '3')]"
   },
-  "mwl-calendar-month-cell_4_371": {
+  "mwl-calendar-month-cell_4_413": {
     "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "4",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '4')]"
   },
-  "div_4_372": {
+  "div_4_414": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "4",
     "xpath": "//div[contains(normalize-space(text()), '4')]"
   },
-  "span_4_373": {
+  "span_4_415": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "4",
     "xpath": "//span[contains(normalize-space(text()), '4')]"
   },
-  "mwl-calendar-month-cell_5_374": {
+  "mwl-calendar-month-cell_5_416": {
     "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "5",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '5')]"
   },
-  "div_5_375": {
+  "div_5_417": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "5",
     "xpath": "//div[contains(normalize-space(text()), '5')]"
   },
-  "span_5_376": {
+  "span_5_418": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "5",
     "xpath": "//span[contains(normalize-space(text()), '5')]"
   },
-  "mwl-calendar-month-cell_6_377": {
-    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+  "mwl-calendar-month-cell_6_419": {
+    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "6",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '6')]"
   },
-  "div_6_378": {
+  "div_6_420": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "6",
     "xpath": "//div[contains(normalize-space(text()), '6')]"
   },
-  "span_6_379": {
+  "span_6_421": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "6",
     "xpath": "//span[contains(normalize-space(text()), '6')]"
   },
-  "mwl-calendar-month-cell_7_380": {
-    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+  "mwl-calendar-open-day-events__422": {
+    "class": "ng-tns-c820047117-14 ng-star-inserted",
+    "tag": "mwl-calendar-open-day-events",
+    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-14 ng-star-inserted']"
+  },
+  "div_7 8 9 10 1_423": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "7 8 9 10 11 12 13",
+    "xpath": "//div[contains(normalize-space(text()), '7\n8\n9\n10\n11\n12\n13')]"
+  },
+  "div_7 8 9 10 1_424": {
+    "class": "cal-cell-row",
+    "tag": "div",
+    "text": "7 8 9 10 11 12 13",
+    "xpath": "//div[contains(normalize-space(text()), '7\n8\n9\n10\n11\n12\n13')]"
+  },
+  "mwl-calendar-month-cell_7_425": {
+    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "7",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '7')]"
   },
-  "div_7_381": {
+  "div_7_426": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "7",
     "xpath": "//div[contains(normalize-space(text()), '7')]"
   },
-  "span_7_382": {
+  "span_7_427": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "7",
     "xpath": "//span[contains(normalize-space(text()), '7')]"
   },
-  "mwl-calendar-month-cell_8_383": {
+  "mwl-calendar-month-cell_8_428": {
     "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "8",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '8')]"
   },
-  "div_8_384": {
+  "div_8_429": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "8",
     "xpath": "//div[contains(normalize-space(text()), '8')]"
   },
-  "span_8_385": {
+  "span_8_430": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "8",
     "xpath": "//span[contains(normalize-space(text()), '8')]"
   },
-  "mwl-calendar-month-cell_9_386": {
-    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+  "mwl-calendar-month-cell_9_431": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "9",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '9')]"
   },
-  "div_9_387": {
+  "div_9_432": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "9",
     "xpath": "//div[contains(normalize-space(text()), '9')]"
   },
-  "span_9_388": {
+  "span_9_433": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "9",
     "xpath": "//span[contains(normalize-space(text()), '9')]"
   },
-  "mwl-calendar-open-day-events__389": {
-    "class": "ng-tns-c820047117-3 ng-star-inserted",
-    "tag": "mwl-calendar-open-day-events",
-    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-3 ng-star-inserted']"
-  },
-  "div_10 11 12 1_390": {
-    "class": "ng-star-inserted",
-    "tag": "div",
-    "text": "10 11 12 13 14 15 16",
-    "xpath": "//div[contains(normalize-space(text()), '10\n11\n12\n13\n14\n15\n16')]"
-  },
-  "div_10 11 12 1_391": {
-    "class": "cal-cell-row",
-    "tag": "div",
-    "text": "10 11 12 13 14 15 16",
-    "xpath": "//div[contains(normalize-space(text()), '10\n11\n12\n13\n14\n15\n16')]"
-  },
-  "mwl-calendar-month-cell_10_392": {
-    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+  "mwl-calendar-month-cell_10_434": {
+    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "10",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '10')]"
   },
-  "div_10_393": {
+  "div_10_435": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "10",
     "xpath": "//div[contains(normalize-space(text()), '10')]"
   },
-  "span_10_394": {
+  "span_10_436": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "10",
     "xpath": "//span[contains(normalize-space(text()), '10')]"
   },
-  "mwl-calendar-month-cell_11_395": {
+  "mwl-calendar-month-cell_11_437": {
     "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "11",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '11')]"
   },
-  "div_11_396": {
+  "div_11_438": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "11",
     "xpath": "//div[contains(normalize-space(text()), '11')]"
   },
-  "span_11_397": {
+  "span_11_439": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "11",
     "xpath": "//span[contains(normalize-space(text()), '11')]"
   },
-  "mwl-calendar-month-cell_12_398": {
-    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+  "mwl-calendar-month-cell_12_440": {
+    "class": "cal-cell cal-day-cell cal-today cal-in-month cal-has-events ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "12",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '12')]"
   },
-  "div_12_399": {
+  "div_12_441": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "12",
     "xpath": "//div[contains(normalize-space(text()), '12')]"
   },
-  "span_12_400": {
+  "span_12_442": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "12",
     "xpath": "//span[contains(normalize-space(text()), '12')]"
   },
-  "mwl-calendar-month-cell_13_401": {
-    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+  "div__443": {
+    "class": "virtual-visit-wrapper ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='virtual-visit-wrapper ng-star-inserted']"
+  },
+  "div__444": {
+    "class": "schedule-additions ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='schedule-additions ng-star-inserted']"
+  },
+  "div__445": {
+    "class": "icn-wrapper has-symptoms ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='icn-wrapper has-symptoms ng-star-inserted']"
+  },
+  "span__446": {
+    "class": "icon-sureadhere",
+    "tag": "span",
+    "xpath": "//span[@class='icon-sureadhere']"
+  },
+  "div__447": {
+    "class": "events-wrapper ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='events-wrapper ng-star-inserted']"
+  },
+  "div__448": {
+    "class": "events ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='events ng-star-inserted']"
+  },
+  "div__449": {
+    "class": "icn-wrapper ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='icn-wrapper ng-star-inserted']"
+  },
+  "span__450": {
+    "class": "video-icon",
+    "tag": "span",
+    "xpath": "//span[@class='video-icon']"
+  },
+  "div__451": {
+    "class": "icn-wrapper ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='icn-wrapper ng-star-inserted']"
+  },
+  "span__452": {
+    "class": "self-report-icon",
+    "tag": "span",
+    "xpath": "//span[@class='self-report-icon']"
+  },
+  "div__453": {
+    "class": "schedule-mark ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='schedule-mark ng-star-inserted']"
+  },
+  "span__454": {
+    "class": "taken-dose-icon",
+    "tag": "span",
+    "xpath": "//span[@class='taken-dose-icon']"
+  },
+  "mwl-calendar-month-cell_13_455": {
+    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-in-month cal-has-events ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "13",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '13')]"
   },
-  "div_13_402": {
+  "div_13_456": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "13",
     "xpath": "//div[contains(normalize-space(text()), '13')]"
   },
-  "span_13_403": {
+  "span_13_457": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "13",
     "xpath": "//span[contains(normalize-space(text()), '13')]"
   },
-  "mwl-calendar-month-cell_14_404": {
-    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+  "div__458": {
+    "class": "virtual-visit-wrapper ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='virtual-visit-wrapper ng-star-inserted']"
+  },
+  "div__459": {
+    "class": "schedule-additions ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='schedule-additions ng-star-inserted']"
+  },
+  "div__460": {
+    "class": "events-wrapper ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='events-wrapper ng-star-inserted']"
+  },
+  "div__461": {
+    "class": "events ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='events ng-star-inserted']"
+  },
+  "div__462": {
+    "class": "schedule-mark ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='schedule-mark ng-star-inserted']"
+  },
+  "span__463": {
+    "class": "scheduled-dose-icon",
+    "tag": "span",
+    "xpath": "//span[@class='scheduled-dose-icon']"
+  },
+  "mwl-calendar-open-day-events__464": {
+    "class": "ng-tns-c820047117-15 ng-star-inserted",
+    "tag": "mwl-calendar-open-day-events",
+    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-15 ng-star-inserted']"
+  },
+  "div_14 15 16 1_465": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "14 15 16 17 18 19 20",
+    "xpath": "//div[contains(normalize-space(text()), '14\n15\n16\n17\n18\n19\n20')]"
+  },
+  "div_14 15 16 1_466": {
+    "class": "cal-cell-row",
+    "tag": "div",
+    "text": "14 15 16 17 18 19 20",
+    "xpath": "//div[contains(normalize-space(text()), '14\n15\n16\n17\n18\n19\n20')]"
+  },
+  "mwl-calendar-month-cell_14_467": {
+    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-in-month cal-has-events ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "14",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '14')]"
   },
-  "div_14_405": {
+  "div_14_468": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "14",
     "xpath": "//div[contains(normalize-space(text()), '14')]"
   },
-  "span_14_406": {
+  "span_14_469": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "14",
     "xpath": "//span[contains(normalize-space(text()), '14')]"
   },
-  "mwl-calendar-month-cell_15_407": {
-    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+  "div__470": {
+    "class": "virtual-visit-wrapper ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='virtual-visit-wrapper ng-star-inserted']"
+  },
+  "div__471": {
+    "class": "schedule-additions ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='schedule-additions ng-star-inserted']"
+  },
+  "div__472": {
+    "class": "events-wrapper ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='events-wrapper ng-star-inserted']"
+  },
+  "div__473": {
+    "class": "events ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='events ng-star-inserted']"
+  },
+  "div__474": {
+    "class": "schedule-mark ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='schedule-mark ng-star-inserted']"
+  },
+  "span__475": {
+    "class": "scheduled-dose-icon",
+    "tag": "span",
+    "xpath": "//span[@class='scheduled-dose-icon']"
+  },
+  "mwl-calendar-month-cell_15_476": {
+    "class": "cal-cell cal-day-cell cal-future cal-in-month cal-has-events ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "15",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '15')]"
   },
-  "div_15_408": {
+  "div_15_477": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "15",
     "xpath": "//div[contains(normalize-space(text()), '15')]"
   },
-  "span_15_409": {
+  "span_15_478": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "15",
     "xpath": "//span[contains(normalize-space(text()), '15')]"
   },
-  "mwl-calendar-month-cell_16_410": {
-    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+  "div__479": {
+    "class": "virtual-visit-wrapper ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='virtual-visit-wrapper ng-star-inserted']"
+  },
+  "div__480": {
+    "class": "schedule-additions ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='schedule-additions ng-star-inserted']"
+  },
+  "div__481": {
+    "class": "events-wrapper ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='events-wrapper ng-star-inserted']"
+  },
+  "div__482": {
+    "class": "events ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='events ng-star-inserted']"
+  },
+  "div__483": {
+    "class": "schedule-mark ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='schedule-mark ng-star-inserted']"
+  },
+  "span__484": {
+    "class": "scheduled-dose-icon",
+    "tag": "span",
+    "xpath": "//span[@class='scheduled-dose-icon']"
+  },
+  "mwl-calendar-month-cell_16_485": {
+    "class": "cal-cell cal-day-cell cal-future cal-in-month cal-has-events ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "16",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '16')]"
   },
-  "div_16_411": {
+  "div_16_486": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "16",
     "xpath": "//div[contains(normalize-space(text()), '16')]"
   },
-  "span_16_412": {
+  "span_16_487": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "16",
     "xpath": "//span[contains(normalize-space(text()), '16')]"
   },
-  "mwl-calendar-open-day-events__413": {
-    "class": "ng-tns-c820047117-4 ng-star-inserted",
-    "tag": "mwl-calendar-open-day-events",
-    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-4 ng-star-inserted']"
-  },
-  "div_17 18 19 2_414": {
-    "class": "ng-star-inserted",
+  "div__488": {
+    "class": "virtual-visit-wrapper ng-star-inserted",
     "tag": "div",
-    "text": "17 18 19 20 21 22 23",
-    "xpath": "//div[contains(normalize-space(text()), '17\n18\n19\n20\n21\n22\n23')]"
+    "xpath": "//div[@class='virtual-visit-wrapper ng-star-inserted']"
   },
-  "div_17 18 19 2_415": {
-    "class": "cal-cell-row",
+  "div__489": {
+    "class": "schedule-additions ng-star-inserted",
     "tag": "div",
-    "text": "17 18 19 20 21 22 23",
-    "xpath": "//div[contains(normalize-space(text()), '17\n18\n19\n20\n21\n22\n23')]"
+    "xpath": "//div[@class='schedule-additions ng-star-inserted']"
   },
-  "mwl-calendar-month-cell_17_416": {
-    "class": "cal-cell cal-day-cell cal-past cal-weekend cal-in-month ng-star-inserted",
+  "div__490": {
+    "class": "events-wrapper ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='events-wrapper ng-star-inserted']"
+  },
+  "div__491": {
+    "class": "events ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='events ng-star-inserted']"
+  },
+  "div__492": {
+    "class": "schedule-mark ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='schedule-mark ng-star-inserted']"
+  },
+  "span__493": {
+    "class": "scheduled-dose-icon",
+    "tag": "span",
+    "xpath": "//span[@class='scheduled-dose-icon']"
+  },
+  "mwl-calendar-month-cell_17_494": {
+    "class": "cal-cell cal-day-cell cal-future cal-in-month cal-has-events ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "17",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '17')]"
   },
-  "div_17_417": {
+  "div_17_495": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "17",
     "xpath": "//div[contains(normalize-space(text()), '17')]"
   },
-  "span_17_418": {
+  "span_17_496": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "17",
     "xpath": "//span[contains(normalize-space(text()), '17')]"
   },
-  "mwl-calendar-month-cell_18_419": {
-    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+  "div__497": {
+    "class": "virtual-visit-wrapper ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='virtual-visit-wrapper ng-star-inserted']"
+  },
+  "div__498": {
+    "class": "schedule-additions ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='schedule-additions ng-star-inserted']"
+  },
+  "div__499": {
+    "class": "events-wrapper ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='events-wrapper ng-star-inserted']"
+  },
+  "div__500": {
+    "class": "events ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='events ng-star-inserted']"
+  },
+  "div__501": {
+    "class": "schedule-mark ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='schedule-mark ng-star-inserted']"
+  },
+  "span__502": {
+    "class": "scheduled-dose-icon",
+    "tag": "span",
+    "xpath": "//span[@class='scheduled-dose-icon']"
+  },
+  "mwl-calendar-month-cell_18_503": {
+    "class": "cal-cell cal-day-cell cal-future cal-in-month cal-has-events ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "18",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '18')]"
   },
-  "div_18_420": {
+  "div_18_504": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "18",
     "xpath": "//div[contains(normalize-space(text()), '18')]"
   },
-  "span_18_421": {
+  "span_18_505": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "18",
     "xpath": "//span[contains(normalize-space(text()), '18')]"
   },
-  "mwl-calendar-month-cell_19_422": {
-    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+  "div__506": {
+    "class": "virtual-visit-wrapper ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='virtual-visit-wrapper ng-star-inserted']"
+  },
+  "div__507": {
+    "class": "schedule-additions ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='schedule-additions ng-star-inserted']"
+  },
+  "div__508": {
+    "class": "events-wrapper ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='events-wrapper ng-star-inserted']"
+  },
+  "div__509": {
+    "class": "events ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='events ng-star-inserted']"
+  },
+  "div__510": {
+    "class": "schedule-mark ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='schedule-mark ng-star-inserted']"
+  },
+  "span__511": {
+    "class": "scheduled-dose-icon",
+    "tag": "span",
+    "xpath": "//span[@class='scheduled-dose-icon']"
+  },
+  "mwl-calendar-month-cell_19_512": {
+    "class": "cal-cell cal-day-cell cal-future cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "19",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '19')]"
   },
-  "div_19_423": {
+  "div_19_513": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "19",
     "xpath": "//div[contains(normalize-space(text()), '19')]"
   },
-  "span_19_424": {
+  "span_19_514": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "19",
     "xpath": "//span[contains(normalize-space(text()), '19')]"
   },
-  "mwl-calendar-month-cell_20_425": {
-    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+  "mwl-calendar-month-cell_20_515": {
+    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "20",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '20')]"
   },
-  "div_20_426": {
+  "div_20_516": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "20",
     "xpath": "//div[contains(normalize-space(text()), '20')]"
   },
-  "span_20_427": {
+  "span_20_517": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "20",
     "xpath": "//span[contains(normalize-space(text()), '20')]"
   },
-  "mwl-calendar-month-cell_21_428": {
-    "class": "cal-cell cal-day-cell cal-past cal-in-month ng-star-inserted",
+  "mwl-calendar-open-day-events__518": {
+    "class": "ng-tns-c820047117-16 ng-star-inserted",
+    "tag": "mwl-calendar-open-day-events",
+    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-16 ng-star-inserted']"
+  },
+  "div_21 22 23 2_519": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "21 22 23 24 25 26 27",
+    "xpath": "//div[contains(normalize-space(text()), '21\n22\n23\n24\n25\n26\n27')]"
+  },
+  "div_21 22 23 2_520": {
+    "class": "cal-cell-row",
+    "tag": "div",
+    "text": "21 22 23 24 25 26 27",
+    "xpath": "//div[contains(normalize-space(text()), '21\n22\n23\n24\n25\n26\n27')]"
+  },
+  "mwl-calendar-month-cell_21_521": {
+    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "21",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '21')]"
   },
-  "div_21_429": {
+  "div_21_522": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "21",
     "xpath": "//div[contains(normalize-space(text()), '21')]"
   },
-  "span_21_430": {
+  "span_21_523": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "21",
     "xpath": "//span[contains(normalize-space(text()), '21')]"
   },
-  "mwl-calendar-month-cell_22_431": {
-    "class": "cal-cell cal-day-cell cal-today cal-in-month ng-star-inserted",
+  "mwl-calendar-month-cell_22_524": {
+    "class": "cal-cell cal-day-cell cal-future cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "22",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '22')]"
   },
-  "div_22_432": {
+  "div_22_525": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "22",
     "xpath": "//div[contains(normalize-space(text()), '22')]"
   },
-  "span_22_433": {
+  "span_22_526": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "22",
     "xpath": "//span[contains(normalize-space(text()), '22')]"
   },
-  "mwl-calendar-month-cell_23_434": {
-    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-in-month ng-star-inserted",
+  "mwl-calendar-month-cell_23_527": {
+    "class": "cal-cell cal-day-cell cal-future cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "23",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '23')]"
   },
-  "div_23_435": {
+  "div_23_528": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "23",
     "xpath": "//div[contains(normalize-space(text()), '23')]"
   },
-  "span_23_436": {
+  "span_23_529": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "23",
     "xpath": "//span[contains(normalize-space(text()), '23')]"
   },
-  "mwl-calendar-open-day-events__437": {
-    "class": "ng-tns-c820047117-5 ng-star-inserted",
-    "tag": "mwl-calendar-open-day-events",
-    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-5 ng-star-inserted']"
-  },
-  "div_24 25 26 2_438": {
-    "class": "ng-star-inserted",
-    "tag": "div",
-    "text": "24 25 26 27 28 29 30",
-    "xpath": "//div[contains(normalize-space(text()), '24\n25\n26\n27\n28\n29\n30')]"
-  },
-  "div_24 25 26 2_439": {
-    "class": "cal-cell-row",
-    "tag": "div",
-    "text": "24 25 26 27 28 29 30",
-    "xpath": "//div[contains(normalize-space(text()), '24\n25\n26\n27\n28\n29\n30')]"
-  },
-  "mwl-calendar-month-cell_24_440": {
-    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-in-month ng-star-inserted",
+  "mwl-calendar-month-cell_24_530": {
+    "class": "cal-cell cal-day-cell cal-future cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "24",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '24')]"
   },
-  "div_24_441": {
+  "div_24_531": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "24",
     "xpath": "//div[contains(normalize-space(text()), '24')]"
   },
-  "span_24_442": {
+  "span_24_532": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "24",
     "xpath": "//span[contains(normalize-space(text()), '24')]"
   },
-  "mwl-calendar-month-cell_25_443": {
+  "mwl-calendar-month-cell_25_533": {
     "class": "cal-cell cal-day-cell cal-future cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "25",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '25')]"
   },
-  "div_25_444": {
+  "div_25_534": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "25",
     "xpath": "//div[contains(normalize-space(text()), '25')]"
   },
-  "span_25_445": {
+  "span_25_535": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "25",
     "xpath": "//span[contains(normalize-space(text()), '25')]"
   },
-  "mwl-calendar-month-cell_26_446": {
+  "mwl-calendar-month-cell_26_536": {
     "class": "cal-cell cal-day-cell cal-future cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "26",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '26')]"
   },
-  "div_26_447": {
+  "div_26_537": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "26",
     "xpath": "//div[contains(normalize-space(text()), '26')]"
   },
-  "span_26_448": {
+  "span_26_538": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "26",
     "xpath": "//span[contains(normalize-space(text()), '26')]"
   },
-  "mwl-calendar-month-cell_27_449": {
-    "class": "cal-cell cal-day-cell cal-future cal-in-month ng-star-inserted",
+  "mwl-calendar-month-cell_27_539": {
+    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "27",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '27')]"
   },
-  "div_27_450": {
+  "div_27_540": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "27",
     "xpath": "//div[contains(normalize-space(text()), '27')]"
   },
-  "span_27_451": {
+  "span_27_541": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "27",
     "xpath": "//span[contains(normalize-space(text()), '27')]"
   },
-  "mwl-calendar-month-cell_28_452": {
-    "class": "cal-cell cal-day-cell cal-future cal-in-month ng-star-inserted",
+  "mwl-calendar-open-day-events__542": {
+    "class": "ng-tns-c820047117-17 ng-star-inserted",
+    "tag": "mwl-calendar-open-day-events",
+    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-17 ng-star-inserted']"
+  },
+  "div_28 29 30 1_543": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "28 29 30 1 2 3 4",
+    "xpath": "//div[contains(normalize-space(text()), '28\n29\n30\n1\n2\n3\n4')]"
+  },
+  "div_28 29 30 1_544": {
+    "class": "cal-cell-row",
+    "tag": "div",
+    "text": "28 29 30 1 2 3 4",
+    "xpath": "//div[contains(normalize-space(text()), '28\n29\n30\n1\n2\n3\n4')]"
+  },
+  "mwl-calendar-month-cell_28_545": {
+    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "28",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '28')]"
   },
-  "div_28_453": {
+  "div_28_546": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "28",
     "xpath": "//div[contains(normalize-space(text()), '28')]"
   },
-  "span_28_454": {
+  "span_28_547": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "28",
     "xpath": "//span[contains(normalize-space(text()), '28')]"
   },
-  "mwl-calendar-month-cell_29_455": {
+  "mwl-calendar-month-cell_29_548": {
     "class": "cal-cell cal-day-cell cal-future cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "29",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '29')]"
   },
-  "div_29_456": {
+  "div_29_549": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "29",
     "xpath": "//div[contains(normalize-space(text()), '29')]"
   },
-  "span_29_457": {
+  "span_29_550": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "29",
     "xpath": "//span[contains(normalize-space(text()), '29')]"
   },
-  "mwl-calendar-month-cell_30_458": {
-    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-in-month ng-star-inserted",
+  "mwl-calendar-month-cell_30_551": {
+    "class": "cal-cell cal-day-cell cal-future cal-in-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "30",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '30')]"
   },
-  "div_30_459": {
+  "div_30_552": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "30",
     "xpath": "//div[contains(normalize-space(text()), '30')]"
   },
-  "span_30_460": {
+  "span_30_553": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "30",
     "xpath": "//span[contains(normalize-space(text()), '30')]"
   },
-  "mwl-calendar-open-day-events__461": {
-    "class": "ng-tns-c820047117-6 ng-star-inserted",
-    "tag": "mwl-calendar-open-day-events",
-    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-6 ng-star-inserted']"
-  },
-  "div_31 1 2 3 4_462": {
-    "class": "ng-star-inserted",
-    "tag": "div",
-    "text": "31 1 2 3 4 5 6",
-    "xpath": "//div[contains(normalize-space(text()), '31\n1\n2\n3\n4\n5\n6')]"
-  },
-  "div_31 1 2 3 4_463": {
-    "class": "cal-cell-row",
-    "tag": "div",
-    "text": "31 1 2 3 4 5 6",
-    "xpath": "//div[contains(normalize-space(text()), '31\n1\n2\n3\n4\n5\n6')]"
-  },
-  "mwl-calendar-month-cell_31_464": {
-    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-in-month ng-star-inserted",
-    "tag": "mwl-calendar-month-cell",
-    "text": "31",
-    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '31')]"
-  },
-  "div_31_465": {
-    "class": "day-and-status ng-star-inserted",
-    "tag": "div",
-    "text": "31",
-    "xpath": "//div[contains(normalize-space(text()), '31')]"
-  },
-  "span_31_466": {
-    "class": "cal-day-number",
-    "tag": "span",
-    "text": "31",
-    "xpath": "//span[contains(normalize-space(text()), '31')]"
-  },
-  "mwl-calendar-month-cell_1_467": {
+  "mwl-calendar-month-cell_1_554": {
     "class": "cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "1",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '1')]"
   },
-  "div_1_468": {
+  "div_1_555": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "1",
     "xpath": "//div[contains(normalize-space(text()), '1')]"
   },
-  "span_1_469": {
+  "span_1_556": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "1",
     "xpath": "//span[contains(normalize-space(text()), '1')]"
   },
-  "mwl-calendar-month-cell_2_470": {
+  "mwl-calendar-month-cell_2_557": {
     "class": "cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "2",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '2')]"
   },
-  "div_2_471": {
+  "div_2_558": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "2",
     "xpath": "//div[contains(normalize-space(text()), '2')]"
   },
-  "span_2_472": {
+  "span_2_559": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "2",
     "xpath": "//span[contains(normalize-space(text()), '2')]"
   },
-  "mwl-calendar-month-cell_3_473": {
+  "mwl-calendar-month-cell_3_560": {
     "class": "cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "3",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '3')]"
   },
-  "div_3_474": {
+  "div_3_561": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "3",
     "xpath": "//div[contains(normalize-space(text()), '3')]"
   },
-  "span_3_475": {
+  "span_3_562": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "3",
     "xpath": "//span[contains(normalize-space(text()), '3')]"
   },
-  "mwl-calendar-month-cell_4_476": {
-    "class": "cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted",
+  "mwl-calendar-month-cell_4_563": {
+    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-out-month ng-star-inserted",
     "tag": "mwl-calendar-month-cell",
     "text": "4",
     "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '4')]"
   },
-  "div_4_477": {
+  "div_4_564": {
     "class": "day-and-status ng-star-inserted",
     "tag": "div",
     "text": "4",
     "xpath": "//div[contains(normalize-space(text()), '4')]"
   },
-  "span_4_478": {
+  "span_4_565": {
     "class": "cal-day-number",
     "tag": "span",
     "text": "4",
     "xpath": "//span[contains(normalize-space(text()), '4')]"
   },
-  "mwl-calendar-month-cell_5_479": {
-    "class": "cal-cell cal-day-cell cal-future cal-out-month ng-star-inserted",
-    "tag": "mwl-calendar-month-cell",
-    "text": "5",
-    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '5')]"
-  },
-  "div_5_480": {
-    "class": "day-and-status ng-star-inserted",
-    "tag": "div",
-    "text": "5",
-    "xpath": "//div[contains(normalize-space(text()), '5')]"
-  },
-  "span_5_481": {
-    "class": "cal-day-number",
-    "tag": "span",
-    "text": "5",
-    "xpath": "//span[contains(normalize-space(text()), '5')]"
-  },
-  "mwl-calendar-month-cell_6_482": {
-    "class": "cal-cell cal-day-cell cal-future cal-weekend cal-out-month ng-star-inserted",
-    "tag": "mwl-calendar-month-cell",
-    "text": "6",
-    "xpath": "//mwl-calendar-month-cell[contains(normalize-space(text()), '6')]"
-  },
-  "div_6_483": {
-    "class": "day-and-status ng-star-inserted",
-    "tag": "div",
-    "text": "6",
-    "xpath": "//div[contains(normalize-space(text()), '6')]"
-  },
-  "span_6_484": {
-    "class": "cal-day-number",
-    "tag": "span",
-    "text": "6",
-    "xpath": "//span[contains(normalize-space(text()), '6')]"
-  },
-  "mwl-calendar-open-day-events__485": {
-    "class": "ng-tns-c820047117-7 ng-star-inserted",
+  "mwl-calendar-open-day-events__566": {
+    "class": "ng-tns-c820047117-18 ng-star-inserted",
     "tag": "mwl-calendar-open-day-events",
-    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-7 ng-star-inserted']"
+    "xpath": "//mwl-calendar-open-day-events[@class='ng-tns-c820047117-18 ng-star-inserted']"
   },
-  "client-footer_@2025 Sure_486": {
+  "client-footer_@2025 Sure_567": {
     "tag": "client-footer",
     "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
     "xpath": "//client-footer[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
   },
-  "footer_@2025 Sure_487": {
+  "footer_@2025 Sure_568": {
     "class": "footer pt-0 footer-height",
     "tag": "footer",
     "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
     "xpath": "//footer[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
   },
-  "p_@2025 Sure_488": {
+  "p_@2025 Sure_569": {
     "tag": "p",
     "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
     "xpath": "//p[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
   },
-  "a_Privacy Po_489": {
+  "a_Privacy Po_570": {
     "tag": "a",
     "text": "Privacy Policy and Terms of Service",
     "xpath": "//a[contains(normalize-space(text()), 'Privacy Policy and Terms of Service')]"
   },
-  "popover__490": {
+  "popover__571": {
     "tag": "popover",
     "xpath": "//popover"
+  },
+  "td_drug_name": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "1",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='2']//td[@aria-colindex='1']"
+  },
+  "td_drug_taken": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "2",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='2']//td[@aria-colindex='2']"
+  },
+  "td_drug_left": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "3",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='2']//td[@aria-colindex='3']"
+  },
+  "td_drug_scheduled": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "4",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='2']//td[@aria-colindex='4']"
   }
 }

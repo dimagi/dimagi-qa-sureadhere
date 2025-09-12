@@ -485,6 +485,17 @@
     "text": "Overview",
     "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-0']"
   },
+  "k-opened-tabstrip-tab": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab') and @aria-selected='true']//div/span"
+  },
+  "k-tabstrip-tab-Reports": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "text": "Reports",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Reports')]"
+  },
   "span_Overview_119": {
     "class": "k-link ng-star-inserted",
     "tag": "span",
@@ -840,13 +851,13 @@
     "text": "Summary side effects and comments",
     "xpath": "//td[contains(normalize-space(text()), 'Summary side effects and comments')]"
   },
-  "a_Summary si_181": {
+  "a_Summary_side_effects_and_comments": {
     "class": "ng-star-inserted",
     "tag": "a",
     "text": "Summary side effects and comments",
     "xpath": "//a[contains(normalize-space(text()), 'Summary side effects and comments')]"
   },
-  "span_Summary si_182": {
+  "span_Summary_side_effects_and_comments": {
     "class": "seach-highlighted-text",
     "tag": "span",
     "text": "Summary side effects and comments",
@@ -948,13 +959,13 @@
     "text": "Patient videos",
     "xpath": "//td[contains(normalize-space(text()), 'Patient videos')]"
   },
-  "a_Patient vi_199": {
+  "a_Patient_videos": {
     "class": "ng-star-inserted",
     "tag": "a",
     "text": "Patient videos",
     "xpath": "//a[contains(normalize-space(text()), 'Patient videos')]"
   },
-  "span_Patient vi_200": {
+  "span_Patient_videos": {
     "class": "seach-highlighted-text",
     "tag": "span",
     "text": "Patient videos",
@@ -1277,5 +1288,10 @@
   "popover__258": {
     "tag": "popover",
     "xpath": "//popover"
+  },
+  "tbody_reports": {
+    "class": "k-table-tbody",
+    "role": "rowgroup",
+    "xpath": "//tbody[@class='k-table-tbody']"
   }
 }

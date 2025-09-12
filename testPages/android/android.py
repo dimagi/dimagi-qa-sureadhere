@@ -297,6 +297,7 @@ class Android:
         assert full in full_text, f"{full} not in {full_text}"
         print(f"{full} in {full_text}")
         self.click((AppiumBy.ACCESSIBILITY_ID, self.go_back))
+        return half_text
 
 
     def record_video(self, record_secs: int = 6, timeout: int = 30):

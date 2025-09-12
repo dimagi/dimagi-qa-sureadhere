@@ -3,22 +3,21 @@ import random
 import pytest
 from seleniumbase import BaseCase
 
-from testPages.admin_page.admin_disease_page import AdminDiseasePage
-from testPages.admin_page.admin_drug_page import AdminDrugPage
-from testPages.admin_page.admin_page import AdminPage
 from testPages.android.android import Android
 from testPages.home_page.home_page import HomePage
 from testPages.login_page.login_page import LoginPage
-from testPages.manage_staff_page.manage_staff_page import ManageStaffPage
+
 from testPages.manage_patient_page.manage_patient_page import ManagePatientPage
 from testPages.patient_tab_pages.patient_adherence_page import PatientAdherencePage
 from testPages.patient_tab_pages.patient_messages_page import PatientMessagesPage
+from testPages.patient_tab_pages.patient_overview_page import PatientOverviewPage
 from testPages.patient_tab_pages.patient_profile_page import PatientProfilePage
 from testPages.patient_tab_pages.patient_regimen_page import PatientRegimenPage
+from testPages.patient_tab_pages.patient_reports_page import PatientReportsPage
 from testPages.patient_tab_pages.patient_video_page import PatientVideoPage
 from testPages.user_page.user_page import UserPage
 from testPages.user_page.user_patient_page import UserPatientPage
-from testPages.user_page.user_staff_page import UserStaffPage
+
 from testPages.user_profile.user_profile_page import UserProfilePage
 from user_inputs.user_data import UserData
 
@@ -69,11 +68,11 @@ class test_module_03(BaseCase):
                                                                       )
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
-        start_date, end_date, doses, med_name = p_regimen.create_new_schedule()
+        start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
         patient.search_patient(pfname, plname, mrn,username, sa_id,
-                               start_date, end_date, doses
+                               start_date, end_date, no_of_pill
                                )
         self.__class__.data.update(
             {"patient_fname": pfname, "patient_lname": plname,
@@ -82,7 +81,7 @@ class test_module_03(BaseCase):
              "mrn": mrn, "phone_country": phn_country, "SA_ID": sa_id,
              "site": UserData.site_manager[0], "is_patient_active": patient_test_account,
              "patient_pin": patient_pin, "start_date": start_date, "end_date": end_date,
-             "total_dosed": doses, "drug_name":med_name,
+             "total_pills": no_of_pill, "drug_name":med_name, "dose_per_pill": dose_per_pill
              }
             )
 
@@ -94,10 +93,7 @@ class test_module_03(BaseCase):
         home = HomePage(self, "dashboard")
         profile = UserProfilePage(self, "user")
         patient = ManagePatientPage(self, "patients")
-        p_profile = PatientProfilePage(self, 'patient_profile')
         p_message = PatientMessagesPage(self, 'patient_messagess')
-        p_vdo = PatientVideoPage(self, 'patient_video_form')
-        p_adhere = PatientAdherencePage(self, 'patient_adherence')
 
         home.click_admin_profile_button()
         profile.logout_user()
@@ -106,7 +102,15 @@ class test_module_03(BaseCase):
         login.login(self.settings["login_username"], self.settings["login_password"])
 
         d = self.__class__.data
-        print(d['patient_username'])
+
+        # d={"patient_fname": "pat_fmob_t4xy2y", "patient_lname": "pat_lmob_t4xy2y",
+        #  "patient_email": "pat_mob_t4xy2y@testmail.com",
+        #  "patient_phn": UserData.phone_number, "patient_username": "usermob_t4xy2y",
+        #  "mrn": "mob_1594", "phone_country": "United States", "SA_ID": "SA-7590",
+        #  "site": UserData.site_manager[0], "is_patient_active": True,
+        #  "patient_pin": "2588", "start_date": "Sep 12, 2025" , "end_date": "Sep 18, 2025",
+        #  "total_pills": 7, "drug_name": UserData.regimen_drugs[0], "dose_per_pill": 14
+        #  }
 
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
@@ -120,19 +124,83 @@ class test_module_03(BaseCase):
         p_message.read_last_message(mob_msg)
         web_msg = p_message.send_message()
         mobile.read_messages(web_msg)
-        mobile.record_video_and_submit(d['drug_name'])
+        vdo_upload_date = mobile.record_video_and_submit(d['drug_name'])
         mobile.close_android_driver()
-        home.click_admin_profile_button()
-        profile.logout_user()
-        login.after_logout()
+        self.__class__.data.update(
+            {"mob_msg": mob_msg, "web_msg": web_msg, "video_upload_date": vdo_upload_date
+             }
+            )
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+    def test_case_02_review_video_and_adherence(self):
+        self._login_once()
+        home = HomePage(self, "dashboard")
+        p_vdo = PatientVideoPage(self, 'patient_video_form')
+        p_adhere = PatientAdherencePage(self, 'patient_adherence')
+
+        d = self.__class__.data
+
         home.validate_dashboard_page()
         home.check_for_quick_actions()
         home.check_for_video_review(d["patient_fname"]+" "+d["patient_lname"], d['SA_ID'])
         p_vdo.verify_patient_video_page()
-        p_vdo.fill_up_review_form(d['drug_name'])
+        formatted_now, review_text=p_vdo.fill_up_review_form(d['drug_name'], d['total_pills'],d['dose_per_pill'])
         p_adhere.verify_patient_adherence_page()
+        p_adhere.check_calendar_and_comment_for_adherence(formatted_now, review_text)
+        side_effect = p_adhere.fillup_side_effects()
+        self.__class__.data.update(
+            {"commented_timestamp": formatted_now, "commented_text": review_text, "side_effect": side_effect
+             }
+            )
+
+
+    def test_case_03_review_overview(self):
+        self._login_once()
+        home = HomePage(self, "dashboard")
+        p_overview = PatientOverviewPage(self, 'patient_overview')
+        patient = ManagePatientPage(self, "patients")
+
+        d = self.__class__.data
+        #
+        # d={"patient_fname": "pat_fmob_t4xy2y", "patient_lname": "pat_lmob_t4xy2y",
+        #  "patient_email": "pat_mob_t4xy2y@testmail.com",
+        #  "patient_phn": UserData.phone_number, "patient_username": "usermob_t4xy2y",
+        #  "mrn": "mob_16725", "phone_country": "United States", "SA_ID": "SA-7593",
+        #  "site": UserData.site_manager[0], "is_patient_active": True,
+        #  "patient_pin": "4393", "start_date": "Sep 12, 2025" , "end_date": "Sep 18, 2025",
+        #  "total_pills": 7, "drug_name": UserData.regimen_drugs[0], "dose_per_pill": 14,
+        #  "commented_timestamp": "Fri - Sep 12, 2025 - 06:20 PM",
+        #  "commented_text": "Meds taken, Review Approved",
+        #  "side_effect": "Low back pain", "video_upload_date": "Sep 12, 2025"
+        #  }
+
+        home.validate_dashboard_page()
+        home.open_manage_patient_page()
+        patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
+        patient.open_patient(d["patient_fname"], d["patient_lname"])
+        p_overview.open_patient_overview_page()
+        p_overview.verify_patient_overview_page()
+        p_overview.check_calendar_and_doses(d['commented_timestamp'], d['commented_text'], d['drug_name'], d['start_date'], d['total_pills'])
+
+    def test_case_04_review_reports(self):
+        self._login_once()
+        home = HomePage(self, "dashboard")
+        patient = ManagePatientPage(self, "patients")
+        p_report = PatientReportsPage(self, 'patient_reports')
+
+        d = self.__class__.data
+
+        home.validate_dashboard_page()
+        home.open_manage_patient_page()
+        patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
+        patient.open_patient(d["patient_fname"], d["patient_lname"])
+
+        p_report.open_patient_reports_page()
+        p_report.verify_patient_reports_page()
+        p_report.verify_comment_and_side_effect(d['commented_text'], d['side_effect'])
+
+        p_report.open_patient_reports_page()
+        p_report.verify_patient_reports_page()
+        p_report.verify_video_report(d['video_upload_date'])
 
 
 

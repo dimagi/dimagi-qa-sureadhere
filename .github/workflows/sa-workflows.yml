@@ -4,6 +4,10 @@
 name: SureAdhere Tests
 
 on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
   workflow_dispatch:
     inputs:
       environment:
@@ -13,6 +17,8 @@ on:
         type: choice
         options:
           - banner
+  schedule:
+    - cron: '30 3 * * 1-5'
 
 concurrency:
   group: sa-tests-${{ github.ref }}
@@ -83,41 +89,12 @@ jobs:
             echo "::set-output name=${line%=*}::${line#*=}"
           done < sa_test_counts_${{ matrix.environment }}.txt
 
-#      - name: Archive test results
-#        id: artifact-upload-step
-#        if: ${{ success() || failure() }}
-#        uses: actions/upload-artifact@v4
-#        with:
-#          name: test-result-reports-${{ matrix.environment }}-${{ github.run_id }}
-#          path: /home/runner/work/dimagi-sa/dimagi-sa/cleanup_report_${{ matrix.environment }}.html
-#          retention-days: 2
-
-#      - name: Upload reports & logs
-#        id: artifact-upload-step
-#        if: always()
-#        uses: actions/upload-artifact@v4
-#        with:
-#          name: sbase-artifacts
-#          path: |
-#            report.html
-#            latest_logs/**
-#            dashboard.html
-
-#      - name: Fetch artifact ID
-#        run: echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
-#
-#      - name: Zip reports for email
-#        run: zip -r sbase-artifacts.zip report.html latest_logs dashboard.html
-
-
-      # 1) Zip everything you want to send
       - name: Zip reports for email
         if: always()
         run: |
           rm -f sbase-artifacts.zip || true
           zip -r sbase-artifacts.zip report.html latest_logs dashboard.html
 
-      # 2) (Optional) Upload the same zip as a run artifact
       - name: Upload reports & logs
         id: artifact-upload-step
         if: always()
@@ -126,7 +103,6 @@ jobs:
           name: sbase-artifacts
           path: sbase-artifacts.zip
 
-      # 3) (Optional) Build a link to the artifact for the email body
       - name: Build artifact URL
         id: artifact_url
         run: |

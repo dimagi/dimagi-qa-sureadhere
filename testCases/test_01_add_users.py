@@ -206,13 +206,13 @@ class test_module_01(BaseCase):
         patient.open_patient(d["patient_fname"], d["patient_lname"])
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
-        start_date, end_date, doses, med_name = p_regimen.create_new_schedule()
+        start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
-        patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"], start_date, end_date, doses)
+        patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"], start_date, end_date, no_of_pill)
         self.__class__.data.update(
             {"start_date": start_date, "end_date": end_date,
-             "total_dosed": doses, "drug_name": med_name}
+             "total_pills": no_of_pill, "drug_name":med_name, "dose_per_pill": dose_per_pill}
             )
         print(self.data)
 

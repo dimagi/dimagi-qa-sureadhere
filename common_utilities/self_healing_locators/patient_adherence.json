@@ -823,11 +823,44 @@
     "text": "Monday",
     "xpath": "//div[contains(normalize-space(text()), 'Monday')]"
   },
-  "div_Tuesday_177": {
+  "div_cal_today": {
     "class": "cal-cell cal-today ng-star-inserted",
     "tag": "div",
-    "text": "Tuesday",
-    "xpath": "//div[contains(normalize-space(text()), 'Tuesday')]"
+    "xpath": "//div[contains(@class,'cal-today')]"
+  },
+  "span_cal_today_date": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "xpath": "//*[contains(@class,'cal-today')]//span[@class='cal-day-number']"
+  },
+  "div_cal_today_dose_schedule": {
+    "class": "schedule-mark ng-star-inserted",
+    "tag": "div",
+    "xpath": "//*[contains(@class,'cal-today')]//div[@class='schedule-mark ng-star-inserted']/div"
+  },
+  "span_cal_today_symptoms": {
+    "class": "icon-sureadhere",
+    "tag": "span",
+    "xpath": "//*[contains(@class,'cal-today')]//div[@class='icn-wrapper has-symptoms ng-star-inserted']/span[@class='icon-sureadhere']"
+  },
+  "span_cal_today_video_status": {
+    "class": "video-icon",
+    "tag": "span",
+    "xpath": "//*[contains(@class,'cal-today')]//div[@class='events-wrapper ng-star-inserted']//span[@class='video-icon']"
+  },
+  "span_cal_today_report_status": {
+    "class": "self-report-icon",
+    "tag": "span",
+    "xpath": "//*[contains(@class,'cal-cell cal-day-cell cal-today')]//div[@class='events-wrapper ng-star-inserted']//span[@class='self-report-icon']"
+  },
+    "div_commented_user_timestamp":{
+    "class": "comment-item ng-star-inserted",
+    "tag": "div",
+    "xpath": "(//div[@class='comment-item ng-star-inserted'])[last()]"
+  },
+  "span_commented_timestamp":{
+    "tag": "h5",
+    "xpath": "(//div[@class='comment-item ng-star-inserted']//h5)[last()]"
   },
   "div_Wednesday_178": {
     "class": "cal-cell cal-future ng-star-inserted",
@@ -2233,7 +2266,7 @@
     "text": "Open",
     "xpath": "//div[contains(normalize-space(text()), 'Open')]"
   },
-  "saved_status_0": {
+  "kendo-dropdown-saved_status": {
     "id": "saved_status_0",
     "class": "adh-custom-dropdown k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
     "tag": "kendo-dropdownlist",
@@ -2478,13 +2511,12 @@
     "tag": "kendo-searchbar",
     "xpath": "//kendo-searchbar[@class='k-searchbar']"
   },
-  "k-ef015cd9-98e7-465f-937d-e10b6857c01b": {
-    "id": "k-ef015cd9-98e7-465f-937d-e10b6857c01b",
+"input-side_effects": {
     "placeholder": "Add side effect ...",
     "class": "k-input-inner",
     "type": "text",
     "tag": "input",
-    "xpath": "//input[@id='k-ef015cd9-98e7-465f-937d-e10b6857c01b']"
+    "xpath": "//input[@placeholder='Add side effect ...']"
   },
   "responsive-renderer__478": {
     "tag": "responsive-renderer",
@@ -2504,7 +2536,7 @@
     "tag": "span",
     "xpath": "//span[@class='icon-add']"
   },
-  "div__482": {
+  "div_current-side-effects": {
     "class": "current-side-effects",
     "tag": "div",
     "xpath": "//div[@class='current-side-effects']"
@@ -2512,6 +2544,11 @@
   "ul__483": {
     "tag": "ul",
     "xpath": "//ul"
+  },
+  "li_current-side-effects": {
+    "class": "side-effect-item ng-star-inserted",
+    "tag": "li",
+    "xpath": "//div[@class='current-side-effects']//ul//li[@class='side-effect-item ng-star-inserted']"
   },
   "div__484": {
     "class": "follow-up-checkbox",
@@ -2573,7 +2610,7 @@
     "text": "SUBMIT REVIEW",
     "xpath": "//button[contains(normalize-space(text()), 'SUBMIT REVIEW')]"
   },
-  "span_SUBMIT REV_494": {
+  "span_SUBMIT_REVIEW": {
     "class": "k-button-text",
     "tag": "span",
     "text": "SUBMIT REVIEW",

@@ -1,5 +1,6 @@
 import random
 import time
+from datetime import datetime
 
 from selenium.webdriver import Keys
 
@@ -20,41 +21,73 @@ class PatientVideoPage(BasePage):
         self.wait_for_element('newCommentInput')
         print("Opened screen is Video Review")
 
-    def fill_up_review_form(self, meds):
+    # def now_parts(tz=None):
+    #     """Return (Day, Date, Time) as ('Fri', 'Sep 12, 2025', '4:51PM')."""
+    #     now = datetime.now(tz) if tz else datetime.now()
+    #     day_str = now.strftime("%a")  # 'Fri'
+    #     date_str = f"{now.strftime('%b')} {now.day}, {now:%Y}"  # 'Sep 12, 2025'
+    #     hour12 = (now.hour % 12) or 12
+    #     ampm = now.strftime("%p")  # 'AM'/'PM'
+    #     time_str = f"{hour12}:{now:%M}{ampm}"  # '4:51PM'
+    #     return day_str, date_str, time_str
+    #
+    #     _time_re = re.compile(r"\s*(\d{1,2}):(\d{2})\s*([AP]M)\s*", re.I)
+    #
+    # def _parse_time_hhmm_ampm(s: str):
+    #     """Parse 'h:mmAM/PM' -> (hour24, minute)."""
+    #     m = _time_re.fullmatch(s)
+    #     if not m:
+    #         raise ValueError(f"Bad time string: {s!r}")
+    #     h = int(m.group(1)) % 12
+    #     if m.group(3).upper() == "PM":
+    #         h += 12
+    #     return h, int(m.group(2))
+    #
+    # def times_within_minutes(self, t1: str, t2: str, tol_minutes: int = 2) -> bool:
+    #     """Return True if t1 and t2 within tol minutes (handles cross-midnight)."""
+    #     h1, m1 = _parse_time_hhmm_ampm(t1)
+    #     h2, m2 = _parse_time_hhmm_ampm(t2)
+    #     a = datetime(2000, 1, 1, h1, m1)
+    #     b = datetime(2000, 1, 1, h2, m2)
+    #     deltas = [
+    #         abs((a - b).total_seconds()),
+    #         abs(((a + timedelta(days=1)) - b).total_seconds()),
+    #         abs((a - (b + timedelta(days=1))).total_seconds()),
+    #         ]
+    #     return min(deltas) <= tol_minutes * 60
+
+    def fill_up_review_form(self, meds, no_of_pills, dose_per_pill):
         review_text = "Meds taken, Review Approved"
-        self.type('newCommentInput', review_text+Keys.TAB)
-        # self.click('span_Comment')
+        self.type_and_trigger('newCommentInput', review_text)
+        self.wait_for_element('span_Comment')
+        self.click('span_Comment')
         drug_name = self.get_text('div_drug-name')
+        drug_details = self.get_text('div_drug-details')
+        text = str(dose_per_pill)+"mg/"+str(no_of_pills)+" pills"
+        assert drug_details == text, f"{drug_details} doesnot match {text}"
+        print(f"{drug_details} matches {text}")
         assert meds == drug_name, f"{meds} not in {drug_name}"
         print(f"{meds} matches {drug_name}")
+        now = datetime.now()
+        formatted_now = now.strftime(f"%a - %b {now.day}, %Y - %I:%M %p")
+        timestamp_text = self.get_text('span_commented_timestamp')
+        assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
+        print(f"{str(formatted_now)} is in {timestamp_text}")
+
+        full_text = self.get_text('div_commented_user_timestamp')
+        assert review_text in full_text, f"{review_text} not in {full_text}"
+        print(f"{review_text} is in {full_text}")
+
         self.click_robust('span_MARK_AS_ADHERENT')
+        time.sleep(2)
         try:
             self.kendo_dialog_wait_open()  # no title constraint
-            assert "Video info saved" in self.kendo_dialog_get_text()
             self.kendo_dialog_click_button("Ok")
             self.wait_for_overlays_to_clear(5)
         except Exception:
             print("popup not present after save")
+        return formatted_now, review_text
 
 
-        # time.sleep(2)
-        # self.wait_for_element('kendo-dropdown-saved_status')
-        # self.wait_for_element('doseStatus')
-        # self.wait_for_element('providerObservation')
-        # self.wait_for_element('span_SUBMIT_REVIEW')
-        #
-        # self.kendo_dd_select_text_old('kendo-dropdown-saved_status', UserData.med_status)
-        # saved_status = self.kendo_dd_get_selected_text(logical_name="kendo-dropdown-saved_status")
-        # print(f"Selected status is {saved_status}")
-        # self.kendo_dd_select_text_old('doseStatus', UserData.med_status)
-        # dose_status = self.kendo_dd_get_selected_text(logical_name="doseStatus")
-        # print(f"Dose status is {dose_status}")
-        # selected_side_effect = random.choice(UserData.side_effect)
-        # print(selected_side_effect)
-        # self.kendo_dd_select_text_old('providerObservation', UserData.provider_observation)
-        # provider_observation = self.kendo_dd_get_selected_text(logical_name="providerObservation")
-        # print(f"Provider Observation is {provider_observation}")
-        #
-        # self.kendo_autocomplete_select("input-side_effects", "selected_side_effect", "selected_side_effect")
-        # self.click_robust('span_SUBMIT_REVIEW')
-        #
+
+

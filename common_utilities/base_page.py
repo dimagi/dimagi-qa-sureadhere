@@ -5,7 +5,6 @@ import difflib
 import time
 from typing import Dict, Any, Iterable, List, Tuple, Optional
 import platform
-
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import StaleElementReferenceException, TimeoutException
 from selenium.common.exceptions import ElementClickInterceptedException
@@ -540,6 +539,16 @@ class BasePage:
         return healed
 
     # ----------------- Public actions (compatible API) -----------------------
+    def convert_date(self, date_str: str) -> str:
+        # Possible input formats
+        formats = ["%b %d, %Y", "%b %-d, %Y", "%b %#d, %Y"]
+        for fmt in formats:
+            try:
+                parsed_date = datetime.strptime(date_str, fmt)
+                return parsed_date.strftime("%Y/%m/%d")
+            except ValueError:
+                continue
+        raise ValueError(f"Date format not recognized: {date_str}")
 
     def wait_for_element(self, logical_name: str, timeout: int = CLICK_TIMEOUT):
         sel = self.resolve(logical_name)
@@ -557,8 +566,16 @@ class BasePage:
         # Return all currently matching elements
         return self.sb.find_elements(sel)
 
-    def click(self, logical_name: str, timeout: int = CLICK_TIMEOUT):
-        sel = self.resolve(logical_name)
+    def go_back(self):
+        """Go back one page in browser history."""
+        self.sb.go_back()
+        time.sleep(5)
+
+    def click(self, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
+        if strict == False:
+            sel = self.resolve(logical_name)
+        else:
+            sel = self.resolve_strict(logical_name)
         self.sb.wait_for_element_clickable(sel, timeout=timeout)
         self.sb.highlight(sel)
         self.sb.click(sel)
@@ -573,21 +590,66 @@ class BasePage:
         # self.sb.highlight(sel)
         self.sb.type(sel, value)
 
+
+    def type_and_trigger(self, logical_name: str, text: str, *,
+                         timeout: int = 15, blur: bool = True, clear_first: bool = True):
+        """Type into a text field/textarea and fire the events Kendo expects."""
+        sel = self.resolve(logical_name)
+        el = self._get_webelement(sel, timeout=timeout)
+
+        # bring into view & focus
+        with contextlib.suppress(Exception):
+            self.driver.execute_script("arguments[0].scrollIntoView({block:'center'});", el)
+        with contextlib.suppress(Exception):
+            self.driver.execute_script("arguments[0].focus();", el)
+        el.click()
+
+        # clear reliably
+        if clear_first:
+            try:
+                el.clear()
+            except Exception:
+                el.send_keys(Keys.CONTROL, "a", Keys.DELETE)
+
+        # native typing (helps some validators)
+        el.send_keys(text)
+
+        # explicitly fire the events many Kendo inputs listen to
+        self.driver.execute_script("""
+            const e = arguments[0], val = arguments[1];
+            if (e.value !== val) { e.value = val; }     // ensure value is correct
+            for (const t of ['input','keyup','change']) {
+                e.dispatchEvent(new Event(t, {bubbles: true}));
+            }
+        """, el, text
+                                   )
+
+        # optional blur to finalize
+        if blur:
+            with contextlib.suppress(Exception):
+                el.send_keys(Keys.TAB)
+            with contextlib.suppress(Exception):
+                self.driver.execute_script("arguments[0].blur();", el)
+        time.sleep(0.05)  # tiny settle
+
     def clear(self, logical_name: str, timeout: int = CLICK_TIMEOUT):
         sel = self.resolve(logical_name)
         self.sb.wait_for_element(sel, timeout=timeout)
         self.sb.highlight(sel)
         self.sb.clear(sel)
 
-    def get_text(self, logical_name: str, timeout: int = PRIMARY_TIMEOUT) -> str:
-        sel = self.resolve(logical_name)
+    def get_text(self, logical_name: str, timeout: int = PRIMARY_TIMEOUT, strict: bool = False) -> str:
+        if strict == False:
+            sel = self.resolve(logical_name)
+        else:
+            sel = self.resolve_strict(logical_name)
         self.sb.wait_for_element(sel, timeout=timeout)
         self.sb.highlight(sel)
         return self.sb.get_text(sel)
 
-    def is_element_visible(self, logical_name: str) -> bool:
+    def is_element_visible(self, logical_name: str, strict: bool = False) -> bool:
         try:
-            sel = self.resolve(logical_name)
+            sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
             return self.sb.is_element_visible(sel)
         except Exception:
             return False
@@ -3018,25 +3080,176 @@ class BasePage:
         return (self.get_last_received_message(timeout),
                 self.get_last_sent_message(timeout))
 
-    def kendo_autocomplete_select(self, input_locator: str, text: str, option_text: str = None):
-        """Type into a Kendo autocomplete and select a dropdown option.
+    # def kendo_autocomplete_select(self, input_locator: str, text: str, option_text: str = None):
+    #     """Type into a Kendo autocomplete and select a dropdown option."""
+    #
+    #     # Resolve input field (JSON locator or raw XPath)
+    #     sel = self.resolve_strict(input_locator) if input_locator in self.locators else input_locator
+    #
+    #     # Type into the input
+    #     self.sb.type(sel, text)
+    #
+    #     # Wait until the Kendo listbox is visible
+    #     listbox = "//ul[@role='listbox' and contains(@id, 'list')]"
+    #     self.wait_for_element_visible(listbox, timeout=10)
+    #
+    #     # Select matching option or first option
+    #     if option_text:
+    #         option_sel = f"//ul[@role='listbox']//li[contains(normalize-space(.), '{option_text}')]"
+    #     else:
+    #         option_sel = "//ul[@role='listbox']//li[1]"
+    #
+    #     self.sb.wait_for_element_visible(option_sel, timeout=5)
+    #     self.sb.click(option_sel)
 
-        Args:
-            input_locator (str): XPath or JSON logical_name for the input field.
-            text (str): Text to type into the field.
-            option_text (str, optional): Exact text of the option to select.
-                                         If None, selects the first result.
-        """
-        sel = self.resolve_strict(input_locator) if input_locator in self.locators else input_locator
-        self.type(sel, text)
-        self.sleep(1)  # small delay for dropdown
 
-        if option_text:
-            option_sel = f"//ul[@role='listbox']//li[contains(normalize-space(.), '{option_text}')]"
+    def kendo_autocomplete_select(self, input_locator: str, text: str, option_text: str | None = None,
+                                  timeout: int = 12, click_plus: bool = True) -> str:
+        """Type into a Kendo autocomplete and select a dropdown option."""
+        # Resolve the input element (logical name or raw selector/xpath)
+        sel = self.resolve_strict(input_locator) if input_locator in getattr(self, "locators", {}) else input_locator
+        self.sb.wait_for_element_visible(sel, timeout=timeout)
+        inp = self._get_webelement(sel, timeout=timeout)
+        self.driver.execute_script("arguments[0].scrollIntoView({block:'center'});", inp)
+        inp.click()
+        try:
+            inp.clear()
+        except Exception:
+            pass
+        inp.send_keys(text)
+        time.sleep(0.15)
+
+        # Find the visible Kendo popup listbox
+        wait = WebDriverWait(self.driver, timeout, poll_frequency=0.2)
+
+        def _visible_ul(driver):
+            uls = driver.find_elements(
+                By.XPATH,
+                "//div[contains(@class,'k-animation-container') and "
+                "not(contains(translate(@style,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'display: none'))]"
+                "//ul[@role='listbox']"
+                )
+            for ul in uls:
+                if ul.is_displayed():
+                    return ul
+            return False
+
+        ul = None
+        try:
+            ul = wait.until(_visible_ul)
+        except Exception:
+            pass
+
+        chosen = option_text or text
+
+        if ul:
+            # Click the first matching, non-disabled option
+            options = ul.find_elements(By.XPATH, ".//li[not(contains(@class,'k-disabled'))]")
+            clicked = False
+            for li in options:
+                label = li.text.strip()
+                if chosen.lower() in label.lower():
+                    li.click()
+                    clicked = True
+                    chosen = label
+                    break
+            if not clicked:
+                # fallback if nothing matched
+                inp.send_keys(Keys.DOWN, Keys.ENTER)
         else:
-            option_sel = "//ul[@role='listbox']//li[1]"
+            # popup didn’t render – use keyboard fallback
+            inp.send_keys(Keys.DOWN, Keys.ENTER)
 
-        self.wait_for_element(option_sel, timeout=5)
-        self.click(option_sel)
+        # Optional: click the little "+" button next to the input (if your UI uses it)
+        if click_plus:
+            try:
+                plus = inp.find_element(By.XPATH, "ancestor::*[contains(@class,'k-input')]"
+                                                  "//*[self::button or self::span][contains(@class,'k-i-plus') or @aria-label='Add']"
+                                        )
+                if plus.is_displayed():
+                    plus.click()
+            except Exception:
+                pass
+
+        return chosen
+
+    # --- internals ---------------------------------------------------------------
+
+    def _visible_month_view(self, timeout=10):
+        wait = WebDriverWait(self.driver, timeout, poll_frequency=0.2)
+        # pick the visible month view
+        views = wait.until(
+            lambda d: [v for v in d.find_elements(By.CSS_SELECTOR, "mwl-calendar-month-view") if v.is_displayed()]
+            )
+        return views[0]
+
+    def _today_cell(self, month_view, timeout=5):
+        """Return the cell element for today's date (robust to class variations)."""
+        # 1) Fast path: a cell explicitly marked as 'cal-today'
+        cells = month_view.find_elements(By.CSS_SELECTOR, "mwl-calendar-month-cell.cal-day-cell.cal-today")
+        for c in cells:
+            if c.is_displayed():
+                return c
+
+        # 2) Fallback: find cell by day number within the current month
+        day_str = str(date.today().day)
+        wait = WebDriverWait(self.driver, timeout, poll_frequency=0.2)
+        # in-month cells only
+        in_month = month_view.find_elements(By.CSS_SELECTOR, "mwl-calendar-month-cell.cal-day-cell.cal-in-month")
+        # prefer a cell whose visible number matches today
+        for cell in in_month:
+            try:
+                num = cell.find_element(By.XPATH,
+                                        ".//*[contains(@class,'cal-day-number') or contains(@class,'day-number') or self::span]"
+                                        ).text.strip()
+                if num == day_str and cell.is_displayed():
+                    return cell
+            except Exception:
+                pass
+        # last resort: wait for any selected cell
+        return wait.until(EC.visibility_of_element_located(
+            (By.CSS_SELECTOR, "mwl-calendar-month-cell.cal-day-cell.cal-in-month")
+            )
+            )
+
+    # --- public API --------------------------------------------------------------
+
+    def calendar_today_has_icons(self, *icon_classes: str, timeout: int = 10) -> dict:
+        """
+        Check that today's cell contains all given icon classes.
+        Returns a dict: {"found": set, "missing": set}
+        Example: calendar_today_has_icons("taken-dose-icon", "comments-icon", "video-icon")
+        """
+        mv = _visible_month_view(self, timeout=timeout)
+        cell = _today_cell(self, mv, timeout=timeout)
+
+        result_found, result_missing = set(), set()
+        for cls in icon_classes:
+            # accept either a full CSS or just a class name
+            selector = cls if any(ch in cls for ch in " .#[]>:") else f".{cls}"
+            els = cell.find_elements(By.CSS_SELECTOR, selector)
+            if els and any(e.is_displayed() for e in els):
+                result_found.add(cls)
+            else:
+                result_missing.add(cls)
+
+        return {"found": result_found, "missing": result_missing}
+
+    def assert_calendar_today_icons(self, *icon_classes: str, timeout: int = 10):
+        """Assert variant that raises if any icon is missing."""
+        res = self.calendar_today_has_icons(*icon_classes, timeout=timeout)
+        if res["missing"]:
+            raise AssertionError(
+                f"Today's calendar cell is missing icons: {sorted(res['missing'])}. Found: {sorted(res['found'])}"
+                )
+
+    def is_text_in_tbody(self, tbody_locator: str, text: str) -> bool:
+        # Resolve locator if it's in JSON
+        sel = self.resolve_strict(tbody_locator) if tbody_locator in self.locators else tbody_locator
+
+        # Get all text inside tbody
+        tbody_text = self.sb.get_text(sel)
+
+        return text in tbody_text
 
 
