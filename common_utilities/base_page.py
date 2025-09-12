@@ -3247,9 +3247,13 @@ class BasePage:
         # Resolve locator if it's in JSON
         sel = self.resolve_strict(tbody_locator) if tbody_locator in self.locators else tbody_locator
 
-        # Get all text inside tbody
-        tbody_text = self.sb.get_text(sel)
+        # Get full text (not truncated) from DOM
+        tbody_element = self.sb.find_element(sel)
+        tbody_text = tbody_element.get_attribute("textContent")
 
-        return text in tbody_text
+        # Normalize text (remove newlines, trim spaces, case-insensitive)
+        tbody_text = " ".join(tbody_text.split())
+        return text.lower() in tbody_text.lower()
+
 
 
