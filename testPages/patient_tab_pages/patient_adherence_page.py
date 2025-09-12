@@ -93,4 +93,5 @@ class PatientAdherencePage(BasePage):
         assert self.is_element_visible('span_cal_today_symptoms'), "side effects not updated in calendar"
         print("side effects updated in calendar")
 
+
         return selected_side_effect

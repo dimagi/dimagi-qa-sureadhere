@@ -49,11 +49,13 @@ class test_module_03(BaseCase):
         user_patient = UserPatientPage(self, "add_patient")
         p_profile = PatientProfilePage(self, 'patient_profile')
         p_regimen = PatientRegimenPage(self, 'patient_regimens')
+
         home.click_admin_profile_button()
         profile.logout_user()
         login.after_logout()
 
         login.login(UserData.default_staff_email, UserData.pwd)
+        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.click_add_user()
         user.add_patient()
@@ -69,6 +71,7 @@ class test_module_03(BaseCase):
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
         start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule()
+        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
         patient.search_patient(pfname, plname, mrn,username, sa_id,
@@ -146,6 +149,7 @@ class test_module_03(BaseCase):
         p_adhere.verify_patient_adherence_page()
         p_adhere.check_calendar_and_comment_for_adherence(formatted_now, review_text)
         side_effect = p_adhere.fillup_side_effects()
+        p_vdo.close_form()
         self.__class__.data.update(
             {"commented_timestamp": formatted_now, "commented_text": review_text, "side_effect": side_effect
              }
@@ -153,21 +157,14 @@ class test_module_03(BaseCase):
 
 
     def test_case_03_review_overview(self):
-        login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
-        profile = UserProfilePage(self, "user")
         p_overview = PatientOverviewPage(self, 'patient_overview')
         patient = ManagePatientPage(self, "patients")
 
         d = self.__class__.data
 
-        home.click_admin_profile_button()
-        profile.logout_user()
-        login.after_logout()
-
-        login.login(self.settings["login_username"], self.settings["login_password"])
-
+        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
@@ -177,22 +174,15 @@ class test_module_03(BaseCase):
         p_overview.check_calendar_and_doses(d['commented_timestamp'], d['commented_text'], d['drug_name'], d['start_date'], d['total_pills'])
 
     def test_case_04_review_reports(self):
-        login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
-        profile = UserProfilePage(self, "user")
 
         patient = ManagePatientPage(self, "patients")
         p_report = PatientReportsPage(self, 'patient_reports')
 
         d = self.__class__.data
 
-        home.click_admin_profile_button()
-        profile.logout_user()
-        login.after_logout()
-
-        login.login(self.settings["login_username"], self.settings["login_password"])
-
+        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])

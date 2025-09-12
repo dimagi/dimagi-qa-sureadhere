@@ -2908,7 +2908,7 @@
     "tag": "div",
     "xpath": "//div[@class='k-window-titlebar-actions k-dialog-titlebar-actions']"
   },
-  "button__553": {
+  "button_Close": {
     "aria-label": "Close",
     "class": "k-window-titlebar-action k-dialog-titlebar-action k-button k-icon-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
     "type": "submit",

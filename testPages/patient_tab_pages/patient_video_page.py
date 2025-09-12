@@ -88,6 +88,15 @@ class PatientVideoPage(BasePage):
             print("popup not present after save")
         return formatted_now, review_text
 
+    def close_form(self):
+        try:
+            self.click('button_Close')
+            self.wait_for_invisible('videoPlayer')
+            print("form closed")
+        except Exception:
+            print("form is not open")
+
+
 
 
 
