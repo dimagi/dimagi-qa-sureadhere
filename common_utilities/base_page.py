@@ -647,12 +647,22 @@ class BasePage:
         self.sb.highlight(sel)
         return self.sb.get_text(sel)
 
-    def is_element_present(self, logical_name: str, strict: bool = False) -> bool:
+    def is_element_present(self, logical_name: str, strict: bool = False, timeout: int = 0) -> bool:
         try:
             sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
-            print(sel)
-            elements = self.driver.find_elements(*sel)  # use find_elements to avoid exception
-            return len(elements) > 0
+            by, locator = sel
+
+            if timeout > 0:
+                try:
+                    WebDriverWait(self.driver, timeout).until(
+                        EC.presence_of_element_located((by, locator))
+                        )
+                    return True
+                except Exception:
+                    return False
+            else:
+                elements = self.driver.find_elements(by, locator)
+                return len(elements) > 0
         except Exception:
             return False
 
