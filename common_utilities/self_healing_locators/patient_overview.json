@@ -2043,7 +2043,7 @@
   "span_cal_today_video_status": {
     "class": "video-icon",
     "tag": "span",
-    "xpath": "//*[contains(@class,'cal-today')]//div[@class='events-wrapper ng-star-inserted']//span[@class='video-icon']"
+    "xpath": "//*[contains(@class,'cal-today')]//div[@class='events ng-star-inserted']//span[@class='video-icon']"
   },
   "span_cal_today_report_status": {
     "class": "self-report-icon",
