@@ -15,3 +15,5 @@ html5lib
 joblib
 scikit-learn
 pytest-dependency
+pytest-xdist
+pytest-xdist[psutil]

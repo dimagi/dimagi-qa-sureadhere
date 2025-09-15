@@ -55,7 +55,7 @@ class PatientOverviewPage(BasePage):
         print(dose_status)
         assert "taken-dose-icon" == dose_status, f"taken-dose-icon not matching current status {dose_status}"
         print(f"taken-dose-icon matching current status {dose_status}")
-        assert self.is_element_present('span_cal_today_video_status', strict=True), f"video icon not present"
+        assert self.is_element_present('span_cal_today_video_status', strict=True, timeout=20), f"video icon not present"
         print("video icon is present")
 
         drug_name = self.get_text('td_drug_name')

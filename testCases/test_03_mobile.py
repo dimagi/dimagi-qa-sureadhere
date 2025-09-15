@@ -170,7 +170,7 @@ class test_module_03(BaseCase):
         p_overview.verify_patient_overview_page()
         p_overview.check_calendar_and_doses(d['commented_timestamp'], d['commented_text'], d['drug_name'], d['start_date'], d['total_pills'])
 
-    @pytest.mark.dependency(name="tc_mobile_5", depends=["tc_mobile_1","tc_mobile_2", "tc_mobile_3", "tc_mobile_4"], scope="class")
+    @pytest.mark.dependency(name="tc_mobile_5", depends=["tc_mobile_1","tc_mobile_2", "tc_mobile_3"], scope="class")
     def test_case_04_review_reports(self):
         self._login_once()
         home = HomePage(self, "dashboard")
