@@ -14,7 +14,7 @@ from testPages.user_profile.user_profile_page import UserProfilePage
 from user_inputs.user_data import UserData
 
 
-class test_module_01(BaseCase):
+class test_module_01_users(BaseCase):
     data = {}
     _session_ready = False  # guard so we only open/login once
 
@@ -29,7 +29,7 @@ class test_module_01(BaseCase):
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
-    @pytest.mark.dependency(name="tc1", scope="class")
+    @pytest.mark.dependency(name="tc_users_1", scope="class")
     def test_case_01_add_staff(self):
         # login = LoginPage(self, "login")
         self._login_once()
@@ -46,7 +46,7 @@ class test_module_01(BaseCase):
         self.__class__.data.update({"fname": fname, "lname": lname, "email": email, "phn": phn, "isClientAdmint": client, "site": site})
         print(self.data)
 
-    @pytest.mark.dependency(name="tc2", depends=["tc1"], scope="class")
+    @pytest.mark.dependency(name="tc_users_2", depends=["tc_users_1"], scope="class")
     def test_case_02_edit_staff(self):
         self._login_once()
         home = HomePage(self, "dashboard")
@@ -77,7 +77,7 @@ class test_module_01(BaseCase):
             )
         print(self.data)
 
-    @pytest.mark.dependency(name="tc3", depends=["tc1", "tc2"], scope="class")
+    @pytest.mark.dependency(name="tc_users_3", depends=["tc_users_1", "tc_users_2"], scope="class")
     def test_case_03_add_patient(self):
         rerun_count = getattr(self, "rerun_count", 0)
         login = LoginPage(self, "login")
@@ -105,7 +105,7 @@ class test_module_01(BaseCase):
              "patient_phn": phn, "patient_username": username,
              "mrn": mrn, "phone_country":phn_country, "SA_ID": sa_id})
 
-    @pytest.mark.dependency(name="tc4", depends=["tc1", "tc2", "tc3"], scope="class")
+    @pytest.mark.dependency(name="tc_users_4", depends=["tc_users_1", "tc_users_2", "tc_users_3"], scope="class")
     def test_case_04_edit_patient(self):
         login = LoginPage(self, "login")
         self._login_once()
@@ -117,11 +117,7 @@ class test_module_01(BaseCase):
 
         d = self.__class__.data  # shared dict
 
-        # home.click_admin_profile_button()
-        # profile.logout_user()
-        # login.after_logout()
-        # login.login(d["email"], UserData.pwd)
-        #
+        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
@@ -133,6 +129,7 @@ class test_module_01(BaseCase):
             d["patient_email"], d['patient_username'], d["patient_phn"],
             d['phone_country'], d['site'], d['SA_ID']
             )
+        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
         patient.open_inactive_tab()
@@ -147,7 +144,7 @@ class test_module_01(BaseCase):
              "is_patient_active": patient_test_account}
             )
 
-    @pytest.mark.dependency(name="tc5", depends=["tc1", "tc2", "tc3", "tc4"], scope="class")
+    @pytest.mark.dependency(name="tc_users_5", depends=["tc_users_1", "tc_users_2", "tc_users_3", "tc_users_4"], scope="class")
     def test_case_05_set_pin_patient(self):
         login = LoginPage(self, "login")
         self._login_once()
@@ -159,11 +156,7 @@ class test_module_01(BaseCase):
 
         d = self.__class__.data  # shared dict
 
-        # home.click_admin_profile_button()
-        # profile.logout_user()
-        # login.after_logout()
-        # login.login(d["email"], UserData.pwd)
-
+        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
@@ -177,12 +170,11 @@ class test_module_01(BaseCase):
         home.validate_dashboard_page()
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
-        # user_staff.verify_basic_staff_data(new_fname, new_lname, d["email"], d["phn"], client=d["isClientAdmin"], active=account_active, test=test_account)
         self.__class__.data.update(
             {"is_patient_active": patient_test_account, "patient_pin": patient_pin }
             )
 
-    @pytest.mark.dependency(name="tc6", scope="class")
+    @pytest.mark.dependency(name="tc_users_6", depends=["tc_users_1", "tc_users_2", "tc_users_3", "tc_users_4", "tc_users_5"], scope="class")
     def test_case_06_new_regimen(self):
         login = LoginPage(self, "login")
         self._login_once()
@@ -195,11 +187,7 @@ class test_module_01(BaseCase):
 
         d = self.__class__.data  # shared dict
 
-        # home.click_admin_profile_button()
-        # profile.logout_user()
-        # login.after_logout()
-        # login.login(d["email"], UserData.pwd)
-
+        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])

@@ -647,6 +647,15 @@ class BasePage:
         self.sb.highlight(sel)
         return self.sb.get_text(sel)
 
+    def is_element_present(self, logical_name: str, strict: bool = False) -> bool:
+        try:
+            sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
+            print(sel)
+            elements = self.driver.find_elements(*sel)  # use find_elements to avoid exception
+            return len(elements) > 0
+        except Exception:
+            return False
+
     def is_element_visible(self, logical_name: str, strict: bool = False) -> bool:
         try:
             sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
@@ -779,6 +788,7 @@ class BasePage:
             wait_for_nonempty: bool = False,
             normalize: bool = True,
             retries: int = 2,
+            strict: bool = False,
             ):
         """
         Return an attribute from an element resolved via your locator JSON.
@@ -787,7 +797,7 @@ class BasePage:
         - Falls back to WebElement.get_attribute() and a JS property read.
         - Optionally waits for a non-empty value and normalizes whitespace.
         """
-        selector = self.resolve(logical_name)
+        selector = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
 
         # 1) Try SeleniumBase (if available on your test object)
         try:

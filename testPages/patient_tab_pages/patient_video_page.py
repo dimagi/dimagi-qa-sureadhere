@@ -61,6 +61,8 @@ class PatientVideoPage(BasePage):
         self.type_and_trigger('newCommentInput', review_text)
         self.wait_for_element('span_Comment')
         self.click('span_Comment')
+        now = datetime.now()
+        formatted_now = now.strftime(f"%a - %b {now.day}, %Y - %I:%M %p")
         drug_name = self.get_text('div_drug-name')
         drug_details = self.get_text('div_drug-details')
         text = str(dose_per_pill)+"mg/"+str(no_of_pills)+" pills"
@@ -68,8 +70,6 @@ class PatientVideoPage(BasePage):
         print(f"{drug_details} matches {text}")
         assert meds == drug_name, f"{meds} not in {drug_name}"
         print(f"{meds} matches {drug_name}")
-        now = datetime.now()
-        formatted_now = now.strftime(f"%a - %b {now.day}, %Y - %I:%M %p")
         timestamp_text = self.get_text('span_commented_timestamp')
         assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
         print(f"{str(formatted_now)} is in {timestamp_text}")

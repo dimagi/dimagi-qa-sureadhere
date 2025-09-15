@@ -41,7 +41,7 @@ class PatientReportsPage(BasePage):
         print( f"{side_effect} is present in report")
         self.go_back()
 
-    def verify_video_report(self, upload_date):
+    def verify_video_report(self, upload_date, upload_time):
         self.click('a_Patient_videos')
         time.sleep(5)
         self.wait_for_page_to_load()
@@ -50,4 +50,6 @@ class PatientReportsPage(BasePage):
 
         assert self.is_text_in_tbody('tbody_reports', str(converted_date)), f"{converted_date} not present in report"
         print( f"{converted_date} is present in report")
+        assert self.is_text_in_tbody('tbody_reports', str(upload_time)), f"{upload_time} not present in report"
+        print(f"{upload_time} is present in report")
         self.go_back()

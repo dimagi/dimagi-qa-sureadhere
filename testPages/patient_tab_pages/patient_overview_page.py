@@ -51,11 +51,11 @@ class PatientOverviewPage(BasePage):
         today_date = date.today()
         assert date_value.strip() == str(today_date.day), f"{date_value.strip()} not matching current date {str(today_date.day)}"
         print(f"{date_value.strip()} matching current date {str(today_date.day)}")
-        dose_status = self.get_attribute('div_cal_today_dose_schedule', 'class')
+        dose_status = self.get_attribute('div_cal_today_dose_schedule', 'class', strict=True)
         print(dose_status)
         assert "taken-dose-icon" == dose_status, f"taken-dose-icon not matching current status {dose_status}"
         print(f"taken-dose-icon matching current status {dose_status}")
-        assert self.is_element_visible('span_cal_today_video_status', strict=True), f"video icon not present"
+        assert self.is_element_present('span_cal_today_video_status', strict=True), f"video icon not present"
         print("video icon is present")
 
         drug_name = self.get_text('td_drug_name')

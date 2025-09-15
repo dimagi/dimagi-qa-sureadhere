@@ -2033,7 +2033,7 @@
   "div_cal_today_dose_schedule": {
     "class": "schedule-mark ng-star-inserted",
     "tag": "div",
-    "xpath": "//*[contains(@class,'cal-today')]//div[@class='schedule-mark ng-star-inserted']/span"
+    "xpath": "//*[contains(@class,'cal-today')]//div[@class='schedule-mark ng-star-inserted']//span"
   },
   "span_cal_today_symptoms": {
     "class": "icon-sureadhere",

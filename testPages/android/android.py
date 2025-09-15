@@ -145,6 +145,10 @@ class Android:
         self.upload_date = "com.dimagi.sureadhere:id/upload_date"
         self.capture_date = "com.dimagi.sureadhere:id/capture_date"
         self.pill_count = "com.dimagi.sureadhere:id/pill_count"
+        self.complete_toggle = "(//android.widget.ImageView[@content-desc='Toggle Switch'])[3]"
+        self.status_counts = "com.dimagi.sureadhere:id/count"
+        self.status_labels = "com.dimagi.sureadhere:id/label"
+        self.expanded_area = "com.dimagi.sureadhere:id/expanded"
 
 
     def click_xpath(self, locator):
@@ -173,6 +177,17 @@ class Android:
         print(element_text)
         return element_text
 
+    def get_attribute(self, locator, attribute):
+        element = self.driver.find_element(*locator)
+        element_text = element.get_attribute(attribute)
+        print(element_text)
+        return element_text
+
+    def find_elements(self, locator):
+        element = self.driver.find_elements(*locator)
+        print(element)
+        return element
+
     def is_present(self, locator):
         try:
             element = self.driver.find_element(*locator)
@@ -180,6 +195,26 @@ class Android:
         except NoSuchElementException:
             is_displayed = False
         return bool(is_displayed)
+
+    def is_toggle_open(self, section_label):
+        # Find the section by label text
+        try:
+            # Find the header (label + count)
+            header = self.driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                f'new UiSelector().resourceId("{self.status_labels}").textContains("{section_label}")'
+                )
+
+            parent = header.find_element(AppiumBy.XPATH, "..")
+
+            # Look for expanded container inside this section
+            expanded = parent.find_elements(AppiumBy.ID, self.expanded_area)
+
+            # Return True if at least one expanded container is visible
+            return any(e.is_displayed() for e in expanded)
+
+        except NoSuchElementException:
+            return False
 
     def long_press(self, element, duration):
         try:
@@ -296,9 +331,29 @@ class Android:
         print(f"{half} in {half_text}")
         assert full in full_text, f"{full} not in {full_text}"
         print(f"{full} in {full_text}")
+        date_upload, time_upload = self.get_date_and_time(half_text)
+        print(self.is_toggle_open("Complete"))
+        list_count = self.find_elements((AppiumBy.ID, self.status_counts))
+        print(len(list_count))
+        assert str(list_count[2].text) != "0", f"Completed tab has no new item"
+        print(f"Completed tab has new item. Completed count {list_count[2].text}" )
         self.click((AppiumBy.ACCESSIBILITY_ID, self.go_back))
-        return half_text
 
+
+
+        return date_upload, time_upload
+
+    def get_date_and_time(self, text: str):
+        raw = text.replace("Uploaded on ", "")
+
+        # Parse into datetime object
+        dt = datetime.strptime(raw, "%b %d, %Y %H:%M")
+
+        # Format date and time separately
+        date_str = dt.strftime("%b %d, %Y")
+        time_str = dt.strftime("%H:%M")
+
+        return date_str, time_str
 
     def record_video(self, record_secs: int = 6, timeout: int = 30):
 
