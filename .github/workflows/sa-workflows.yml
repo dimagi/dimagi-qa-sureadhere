@@ -277,7 +277,7 @@ jobs:
             
             let receivers = 'qa-automation@dimagi.com'
             if (context.eventName !== "pull_request" || context.eventName !== "push") {
-              receivers = 'kbordoloi@dimagi.com'
+              receivers = 'qa@dimagi.com'
             }
             return {
               "subject": subject,
