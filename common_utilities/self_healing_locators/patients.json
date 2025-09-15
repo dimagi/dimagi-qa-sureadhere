@@ -1,0 +1,1433 @@
+{
+  "html_Client_Tes_0": {
+    "tag": "html",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports Admin Patients Active Inactive Test",
+    "xpath": "//html[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\nAdmin\nPatients\nActive\nInactive\nTest\nName\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date\n0 - NaN of items')]"
+  },
+  "body_Client_Tes_29": {
+    "class": "pace-done pace-done pace-done ng-tns-0-0",
+    "tag": "body",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports Admin Patients Active Inactive Test Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date 0 - NaN of items",
+    "xpath": "//body[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\nAdmin\nPatients\nActive\nInactive\nTest\nName\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date\n10032025 Regi10\n20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025\n31032025 T326\n7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025\n08042025 BT08\n27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025\n08042025 FF01\n30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025\n18042025 1804\n28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025\n06062025 D06\n7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025\n06062025 JJ06\n7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025\n09062025 T0906\n7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025\n25062025 328\n7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025\n99930004 GG25\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n...\n1 - 10 of 117 items')]"
+  },
+  "div__30": {
+    "class": "pace pace-inactive",
+    "tag": "div",
+    "xpath": "//div[@class='pace pace-inactive']"
+  },
+  "div__31": {
+    "class": "pace-progress",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress']"
+  },
+  "div__32": {
+    "class": "pace-progress-inner",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress-inner']"
+  },
+  "div__33": {
+    "class": "pace-activity",
+    "tag": "div",
+    "xpath": "//div[@class='pace-activity']"
+  },
+  "app_Client_Tes_34": {
+    "tag": "app",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports Admin Patients Active Inactive Test Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date 10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25 1 2 3 4 5 6 7 8 9 10 ... 1 - 10 of 117 items",
+    "xpath": "//app[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\nAdmin\nPatients\nActive\nInactive\nTest\nName\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date\n10032025 Regi10\n20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025\n31032025 T326\n7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025\n08042025 BT08\n27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025\n08042025 FF01\n30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025\n18042025 1804\n28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025\n06062025 D06\n7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025\n06062025 JJ06\n7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025\n09062025 T0906\n7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025\n25062025 328\n7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025\n99930004 GG25\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n...\n1 - 10 of 117 items')]"
+  },
+  "div_Client_Tes_35": {
+    "class": "custom-toolbar",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "div__36": {
+    "class": "logo",
+    "tag": "div",
+    "xpath": "//div[@class='logo']"
+  },
+  "div_Client_Tes_37": {
+    "class": "client-name d-none d-md-inline-flex",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "span__38": {
+    "class": "right-navbar",
+    "tag": "span",
+    "xpath": "//span[@class='right-navbar']"
+  },
+  "client-header__39": {
+    "tag": "client-header",
+    "xpath": "//client-header"
+  },
+  "div__40": {
+    "class": "header-actions",
+    "tag": "div",
+    "xpath": "//div[@class='header-actions']"
+  },
+  "button__41": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__42": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__43": {
+    "class": "ng-fa-icon toolbar-icon text-success",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-success']"
+  },
+  "svg__44": {
+    "class": "svg-inline--fa fa-user-plus",
+    "data-icon": "user-plus",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-plus']"
+  },
+  "path__45": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__46": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__47": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__48": {
+    "class": "ng-fa-icon toolbar-icon text-warning",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-warning']"
+  },
+  "svg__49": {
+    "class": "svg-inline--fa fa-circle-question",
+    "data-icon": "circle-question",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-question']"
+  },
+  "path__50": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__51": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__52": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__53": {
+    "class": "ng-fa-icon toolbar-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon']"
+  },
+  "svg__54": {
+    "class": "svg-inline--fa fa-circle-user",
+    "data-icon": "circle-user",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-user']"
+  },
+  "path__55": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "kendo-drawer-container_Dashboard _56": {
+    "class": "k-drawer-container k-drawer-mini k-drawer-push",
+    "tag": "kendo-drawer-container",
+    "text": "Dashboard Patients Staff Reports Admin Patients Active Inactive Test Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date 10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25 1 2 3 4 5 6 7 8 9 10 ... 1 - 10 of 117 items",
+    "xpath": "//kendo-drawer-container[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin\nPatients\nActive\nInactive\nTest\nName\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date\n10032025 Regi10\n20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025\n31032025 T326\n7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025\n08042025 BT08\n27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025\n08042025 FF01\n30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025\n18042025 1804\n28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025\n06062025 D06\n7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025\n06062025 JJ06\n7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025\n09062025 T0906\n7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025\n25062025 328\n7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025\n99930004 GG25\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n...\n1 - 10 of 117 items')]"
+  },
+  "kendo-drawer_Dashboard _57": {
+    "class": "border-0 k-drawer k-drawer-start",
+    "tag": "kendo-drawer",
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//kendo-drawer[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "div_Dashboard _58": {
+    "class": "k-drawer-wrapper",
+    "tag": "div",
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "ul_Dashboard _59": {
+    "class": "k-drawer-items",
+    "tag": "ul",
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//ul[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "li_Dashboard": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Dashboard",
+    "xpath": "//li[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "div_Dashboard_61": {
+    "tag": "div",
+    "text": "Dashboard",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "fa-icon__62": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__63": {
+    "class": "svg-inline--fa fa-house",
+    "data-icon": "house",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-house']"
+  },
+  "path__64": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Dashboard_65": {
+    "tag": "p",
+    "text": "Dashboard",
+    "xpath": "//p[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "li_Patients_66": {
+    "class": "k-drawer-item k-selected",
+    "tag": "li",
+    "text": "Patients",
+    "xpath": "//li[contains(normalize-space(text()), 'Patients')]"
+  },
+  "div_Patients_67": {
+    "tag": "div",
+    "text": "Patients",
+    "xpath": "//div[contains(normalize-space(text()), 'Patients')]"
+  },
+  "fa-icon__68": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__69": {
+    "class": "svg-inline--fa fa-user-large",
+    "data-icon": "user-large",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-large']"
+  },
+  "path__70": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Patients_71": {
+    "tag": "p",
+    "text": "Patients",
+    "xpath": "//p[contains(normalize-space(text()), 'Patients')]"
+  },
+  "li_Staff_72": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Staff",
+    "xpath": "//li[contains(normalize-space(text()), 'Staff')]"
+  },
+  "div_Staff_73": {
+    "tag": "div",
+    "text": "Staff",
+    "xpath": "//div[contains(normalize-space(text()), 'Staff')]"
+  },
+  "fa-icon__74": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__75": {
+    "class": "svg-inline--fa fa-user-nurse",
+    "data-icon": "user-nurse",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-nurse']"
+  },
+  "path__76": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Staff_77": {
+    "tag": "p",
+    "text": "Staff",
+    "xpath": "//p[contains(normalize-space(text()), 'Staff')]"
+  },
+  "li_Reports_78": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Reports",
+    "xpath": "//li[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div_Reports_79": {
+    "tag": "div",
+    "text": "Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
+  },
+  "fa-icon__80": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__81": {
+    "class": "svg-inline--fa fa-file-waveform",
+    "data-icon": "file-waveform",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-file-waveform']"
+  },
+  "path__82": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Reports_83": {
+    "tag": "p",
+    "text": "Reports",
+    "xpath": "//p[contains(normalize-space(text()), 'Reports')]"
+  },
+  "li_Admin_84": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Admin",
+    "xpath": "//li[contains(normalize-space(text()), 'Admin')]"
+  },
+  "div_Admin_85": {
+    "tag": "div",
+    "text": "Admin",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin')]"
+  },
+  "fa-icon__86": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__87": {
+    "class": "svg-inline--fa fa-gear",
+    "data-icon": "gear",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-gear']"
+  },
+  "path__88": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Admin_89": {
+    "tag": "p",
+    "text": "Admin",
+    "xpath": "//p[contains(normalize-space(text()), 'Admin')]"
+  },
+  "kendo-drawer-content_Patients A_90": {
+    "class": "k-drawer-content",
+    "tag": "kendo-drawer-content",
+    "text": "Patients Active Inactive Test Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date 10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25 1 2 3 4 5 6 7 8 9 10 ... 1 - 10 of 117 items",
+    "xpath": "//kendo-drawer-content[contains(normalize-space(text()), 'Patients\nActive\nInactive\nTest\nName\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date\n10032025 Regi10\n20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025\n31032025 T326\n7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025\n08042025 BT08\n27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025\n08042025 FF01\n30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025\n18042025 1804\n28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025\n06062025 D06\n7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025\n06062025 JJ06\n7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025\n09062025 T0906\n7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025\n25062025 328\n7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025\n99930004 GG25\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n...\n1 - 10 of 117 items')]"
+  },
+  "patients_Patients A_92": {
+    "class": "ng-star-inserted",
+    "tag": "patients",
+    "text": "Patients Active Inactive Test Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date 10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25 1 2 3 4 5 6 7 8 9 10 ... 1 - 10 of 117 items",
+    "xpath": "//patients[contains(normalize-space(text()), 'Patients\nActive\nInactive\nTest\nName\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date\n10032025 Regi10\n20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025\n31032025 T326\n7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025\n08042025 BT08\n27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025\n08042025 FF01\n30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025\n18042025 1804\n28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025\n06062025 D06\n7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025\n06062025 JJ06\n7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025\n09062025 T0906\n7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025\n25062025 328\n7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025\n99930004 GG25\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n...\n1 - 10 of 117 items')]"
+  },
+  "div_Patients A_93": {
+    "class": "patients",
+    "tag": "div",
+    "text": "Patients Active Inactive Test Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date 10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25 1 2 3 4 5 6 7 8 9 10 ... 1 - 10 of 117 items",
+    "xpath": "//div[contains(normalize-space(text()), 'Patients\nActive\nInactive\nTest\nName\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date\n10032025 Regi10\n20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025\n31032025 T326\n7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025\n08042025 BT08\n27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025\n08042025 FF01\n30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025\n18042025 1804\n28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025\n06062025 D06\n7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025\n06062025 JJ06\n7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025\n09062025 T0906\n7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025\n25062025 328\n7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025\n99930004 GG25\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n...\n1 - 10 of 117 items')]"
+  },
+  "sidebar-filter_Patients A_94": {
+    "tag": "sidebar-filter",
+    "text": "Patients Active Inactive Test Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date 10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25 1 2 3 4 5 6 7 8 9 10 ... 1 - 10 of 117 items",
+    "xpath": "//sidebar-filter[contains(normalize-space(text()), 'Patients\nActive\nInactive\nTest\nName\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date\n10032025 Regi10\n20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025\n31032025 T326\n7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025\n08042025 BT08\n27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025\n08042025 FF01\n30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025\n18042025 1804\n28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025\n06062025 D06\n7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025\n06062025 JJ06\n7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025\n09062025 T0906\n7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025\n25062025 328\n7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025\n99930004 GG25\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n...\n1 - 10 of 117 items')]"
+  },
+  "main_Patients A_95": {
+    "class": "main",
+    "tag": "main",
+    "text": "Patients Active Inactive Test Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date 10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25 1 2 3 4 5 6 7 8 9 10 ... 1 - 10 of 117 items",
+    "xpath": "//main[contains(normalize-space(text()), 'Patients\nActive\nInactive\nTest\nName\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date\n10032025 Regi10\n20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025\n31032025 T326\n7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025\n08042025 BT08\n27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025\n08042025 FF01\n30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025\n18042025 1804\n28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025\n06062025 D06\n7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025\n06062025 JJ06\n7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025\n09062025 T0906\n7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025\n25062025 328\n7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025\n99930004 GG25\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n...\n1 - 10 of 117 items')]"
+  },
+  "ng-sidebar-container_Patients A_96": {
+    "class": "wrapper-with-sidebar",
+    "tag": "ng-sidebar-container",
+    "text": "Patients Active Inactive Test Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date 10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25 1 2 3 4 5 6 7 8 9 10 ... 1 - 10 of 117 items",
+    "xpath": "//ng-sidebar-container[contains(normalize-space(text()), 'Patients\nActive\nInactive\nTest\nName\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date\n10032025 Regi10\n20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025\n31032025 T326\n7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025\n08042025 BT08\n27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025\n08042025 FF01\n30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025\n18042025 1804\n28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025\n06062025 D06\n7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025\n06062025 JJ06\n7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025\n09062025 T0906\n7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025\n25062025 328\n7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025\n99930004 GG25\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n...\n1 - 10 of 117 items')]"
+  },
+  "ng-sidebar__97": {
+    "tag": "ng-sidebar",
+    "xpath": "//ng-sidebar"
+  },
+  "aside__98": {
+    "class": "ng-sidebar--inert ng-sidebar ng-sidebar--closed ng-sidebar--right ng-sidebar--push",
+    "tag": "aside",
+    "xpath": "//aside[@class='ng-sidebar--inert ng-sidebar ng-sidebar--closed ng-sidebar--right ng-sidebar--push']"
+  },
+  "div__99": {
+    "class": "clear-filters",
+    "tag": "div",
+    "xpath": "//div[@class='clear-filters']"
+  },
+  "div__100": {
+    "class": "close-filterbar",
+    "tag": "div",
+    "xpath": "//div[@class='close-filterbar']"
+  },
+  "span__101": {
+    "class": "icon-close2 position-relative",
+    "tag": "span",
+    "xpath": "//span[@class='icon-close2 position-relative']"
+  },
+  "div__102": {
+    "class": "header-filterbar",
+    "tag": "div",
+    "xpath": "//div[@class='header-filterbar']"
+  },
+  "div__103": {
+    "class": "sidebar-filter",
+    "tag": "div",
+    "xpath": "//div[@class='sidebar-filter']"
+  },
+  "kendo-panelbar__104": {
+    "class": "k-panelbar k-pos-relative",
+    "tag": "kendo-panelbar",
+    "xpath": "//kendo-panelbar[@class='k-panelbar k-pos-relative']"
+  },
+  "k-panelbar-1-item-sites": {
+    "id": "k-panelbar-1-item-sites",
+    "class": "ng-tns-c3003368627-8 k-level-0 k-panelbar-item k-state-default k-expanded k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-1-item-sites']"
+  },
+  "span__106": {
+    "class": "ng-tns-c3003368627-8 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-8 k-link']"
+  },
+  "span__107": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-8 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-8 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__108": {
+    "class": "ng-tns-c3003368627-8 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-8 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__109": {
+    "class": "k-svg-i-chevron-up k-panelbar-toggle k-panelbar-collapse k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-up k-panelbar-toggle k-panelbar-collapse k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__110": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "div__112": {
+    "class": "ng-tns-c3003368627-8 ng-trigger ng-trigger-toggle ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='ng-tns-c3003368627-8 ng-trigger ng-trigger-toggle ng-star-inserted']"
+  },
+  "div__113": {
+    "class": "k-content k-panelbar-content ng-tns-c3003368627-8 ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='k-content k-panelbar-content ng-tns-c3003368627-8 ng-star-inserted']"
+  },
+  "sites_bar": {
+    "id": "sites_bar",
+    "class": "ng-star-inserted",
+    "tag": "ul",
+    "xpath": "//ul[@id='sites_bar']"
+  },
+  "k-panelbar-1-item-treatment_monitors": {
+    "id": "k-panelbar-1-item-treatment_monitors",
+    "class": "ng-tns-c3003368627-9 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-1-item-treatment_monitors']"
+  },
+  "span__117": {
+    "class": "ng-tns-c3003368627-9 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-9 k-link']"
+  },
+  "span__118": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-9 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-9 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__119": {
+    "class": "ng-tns-c3003368627-9 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-9 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__120": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__121": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "k-panelbar-1-item-patient_managers": {
+    "id": "k-panelbar-1-item-patient_managers",
+    "class": "ng-tns-c3003368627-10 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-1-item-patient_managers']"
+  },
+  "span__124": {
+    "class": "ng-tns-c3003368627-10 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-10 k-link']"
+  },
+  "span__125": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-10 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-10 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__126": {
+    "class": "ng-tns-c3003368627-10 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-10 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__127": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__128": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "k-panelbar-1-item-diseases": {
+    "id": "k-panelbar-1-item-diseases",
+    "class": "ng-tns-c3003368627-11 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-1-item-diseases']"
+  },
+  "span__131": {
+    "class": "ng-tns-c3003368627-11 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-11 k-link']"
+  },
+  "span__132": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-11 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-11 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__133": {
+    "class": "ng-tns-c3003368627-11 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-11 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__134": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__135": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "k-panelbar-1-item-observation_types": {
+    "id": "k-panelbar-1-item-observation_types",
+    "class": "ng-tns-c3003368627-12 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-1-item-observation_types']"
+  },
+  "span__138": {
+    "class": "ng-tns-c3003368627-12 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-12 k-link']"
+  },
+  "span__139": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-12 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-12 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__140": {
+    "class": "ng-tns-c3003368627-12 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-12 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__141": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__142": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "div_Patients A_144": {
+    "class": "ng-sidebar__content ng-sidebar__content--animate",
+    "tag": "div",
+    "text": "Patients Active Inactive Test Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date 10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25 1 2 3 4 5 6 7 8 9 10 ... 1 - 10 of 117 items",
+    "xpath": "//div[contains(normalize-space(text()), 'Patients\nActive\nInactive\nTest\nName\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date\n10032025 Regi10\n20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025\n31032025 T326\n7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025\n08042025 BT08\n27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025\n08042025 FF01\n30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025\n18042025 1804\n28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025\n06062025 D06\n7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025\n06062025 JJ06\n7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025\n09062025 T0906\n7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025\n25062025 328\n7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025\n99930004 GG25\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n...\n1 - 10 of 117 items')]"
+  },
+  "div_Patients A_145": {
+    "class": "content-wrapper",
+    "tag": "div",
+    "text": "Patients Active Inactive Test Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date 10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25 1 2 3 4 5 6 7 8 9 10 ... 1 - 10 of 117 items",
+    "xpath": "//div[contains(normalize-space(text()), 'Patients\nActive\nInactive\nTest\nName\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date\n10032025 Regi10\n20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025\n31032025 T326\n7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025\n08042025 BT08\n27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025\n08042025 FF01\n30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025\n18042025 1804\n28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025\n06062025 D06\n7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025\n06062025 JJ06\n7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025\n09062025 T0906\n7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025\n25062025 328\n7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025\n99930004 GG25\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n...\n1 - 10 of 117 items')]"
+  },
+  "div_Patients_146": {
+    "class": "sub-header",
+    "tag": "div",
+    "text": "Patients",
+    "xpath": "//div[contains(normalize-space(text()), 'Patients')]"
+  },
+  "div_Patients_147": {
+    "class": "sub-nav",
+    "tag": "div",
+    "text": "Patients",
+    "xpath": "//div[contains(normalize-space(text()), 'Patients')]"
+  },
+  "div_Patients": {
+    "class": "breadcrumb-custom",
+    "tag": "div",
+    "text": "Patients",
+    "xpath": "//div[contains(normalize-space(text()), 'Patients')]"
+  },
+  "span_Patients": {
+    "class": "my-header-name",
+    "tag": "span",
+    "text": "Patients",
+    "xpath": "//span[contains(normalize-space(text()), 'Patients')]"
+  },
+  "div__150": {
+    "class": "sidebar-toggle-icon ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='sidebar-toggle-icon ng-star-inserted']"
+  },
+  "span__151": {
+    "class": "icon-funnel",
+    "tag": "span",
+    "xpath": "//span[@class='icon-funnel']"
+  },
+  "div_Active Ina_152": {
+    "class": "my-page-content h-100",
+    "tag": "div",
+    "text": "Active Inactive Test Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date 10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25 1 2 3 4 5 6 7 8 9 10 ... 1 - 10 of 117 items",
+    "xpath": "//div[contains(normalize-space(text()), 'Active\nInactive\nTest\nName\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date\n10032025 Regi10\n20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025\n31032025 T326\n7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025\n08042025 BT08\n27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025\n08042025 FF01\n30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025\n18042025 1804\n28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025\n06062025 D06\n7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025\n06062025 JJ06\n7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025\n09062025 T0906\n7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025\n25062025 328\n7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025\n99930004 GG25\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n...\n1 - 10 of 117 items')]"
+  },
+  "div__153": {
+    "class": "search-input d-none d-sm-block",
+    "tag": "div",
+    "xpath": "//div[@class='search-input d-none d-sm-block']"
+  },
+  "input_search_patient": {
+    "placeholder": "Search patients",
+    "class": "search ng-untouched ng-pristine ng-valid k-textbox k-input k-input-md k-rounded-md k-input-solid",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@placeholder='Search patients']"
+  },
+  "span__155": {
+    "class": "empty-search-close",
+    "tag": "span",
+    "xpath": "//span[@class='empty-search-close']"
+  },
+  "fa-icon__156": {
+    "class": "ng-fa-icon d-none d-sm-inline",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon d-none d-sm-inline']"
+  },
+  "svg__157": {
+    "class": "svg-inline--fa fa-magnifying-glass",
+    "data-icon": "magnifying-glass",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-magnifying-glass']"
+  },
+  "path__158": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "kendo-tabstrip_Active Ina_159": {
+    "class": "ng-tns-c655264150-7 k-tabstrip k-pos-relative k-tabstrip-top ng-star-inserted",
+    "tag": "kendo-tabstrip",
+    "text": "Active Inactive Test Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date 10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25 1 2 3 4 5 6 7 8 9 10 ... 1 - 10 of 117 items",
+    "xpath": "//kendo-tabstrip[contains(normalize-space(text()), 'Active\nInactive\nTest\nName\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date\n10032025 Regi10\n20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025\n31032025 T326\n7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025\n08042025 BT08\n27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025\n08042025 FF01\n30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025\n18042025 1804\n28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025\n06062025 D06\n7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025\n06062025 JJ06\n7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025\n09062025 T0906\n7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025\n25062025 328\n7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025\n99930004 GG25\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n...\n1 - 10 of 117 items')]"
+  },
+  "div_Active Ina_160": {
+    "class": "k-tabstrip-items-wrapper ng-tns-c655264150-7 k-hstack ng-star-inserted",
+    "tag": "div",
+    "text": "Active Inactive Test",
+    "xpath": "//div[contains(normalize-space(text()), 'Active\nInactive\nTest')]"
+  },
+  "ul_Active Ina_161": {
+    "class": "k-reset k-tabstrip-items ng-tns-c655264150-7",
+    "tag": "ul",
+    "text": "Active Inactive Test",
+    "xpath": "//ul[contains(normalize-space(text()), 'Active\nInactive\nTest')]"
+  },
+  "k-opened-tabstrip-tab": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab') and @aria-selected='true']//div/span"
+  },
+  "k-tabstrip-tab-ee6b7df1-290d-4e33-babb-8c549f06a04b-0": {
+    "id": "k-tabstrip-tab-ee6b7df1-290d-4e33-babb-8c549f06a04b-0",
+    "class": "ng-tns-c655264150-7 k-item k-state-default k-active ng-star-inserted",
+    "tag": "li",
+    "text": "Active",
+    "xpath": "//li[@id='k-tabstrip-tab-ee6b7df1-290d-4e33-babb-8c549f06a04b-0']"
+  },
+  "li_span_Active_tab": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Active",
+    "xpath": "//li//span[contains(normalize-space(text()), 'Active')]"
+  },
+  "div_Active_164": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Active",
+    "xpath": "//div[contains(normalize-space(text()), 'Active')]"
+  },
+  "span_Active_165": {
+    "tag": "span",
+    "text": "Active",
+    "xpath": "//span[contains(normalize-space(text()), 'Active')]"
+  },
+  "k-tabstrip-tab-ee6b7df1-290d-4e33-babb-8c549f06a04b-1": {
+    "id": "k-tabstrip-tab-ee6b7df1-290d-4e33-babb-8c549f06a04b-1",
+    "class": "ng-tns-c655264150-7 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Inactive",
+    "xpath": "//li[@id='k-tabstrip-tab-ee6b7df1-290d-4e33-babb-8c549f06a04b-1']"
+  },
+  "li_span_Inactive_tab": {
+    "tag": "span",
+    "text": "Inactive",
+    "xpath": "//li//span[contains(normalize-space(text()), 'Inactive')]"
+  },
+  "div_Inactive_168": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Inactive",
+    "xpath": "//div[contains(normalize-space(text()), 'Inactive')]"
+  },
+  "span_Inactive_169": {
+    "tag": "span",
+    "text": "Inactive",
+    "xpath": "//span[contains(normalize-space(text()), 'Inactive')]"
+  },
+  "k-tabstrip-tab-ee6b7df1-290d-4e33-babb-8c549f06a04b-2": {
+    "id": "k-tabstrip-tab-ee6b7df1-290d-4e33-babb-8c549f06a04b-2",
+    "class": "ng-tns-c655264150-7 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Test",
+    "xpath": "//li[@id='k-tabstrip-tab-ee6b7df1-290d-4e33-babb-8c549f06a04b-2']"
+  },
+  "span_Test_171": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Test",
+    "xpath": "//span[contains(normalize-space(text()), 'Test')]"
+  },
+  "div_Test_172": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Test",
+    "xpath": "//div[contains(normalize-space(text()), 'Test')]"
+  },
+  "span_Test_173": {
+    "tag": "span",
+    "text": "Test",
+    "xpath": "//span[contains(normalize-space(text()), 'Test')]"
+  },
+  "k-tabstrip-tabpanel-ee6b7df1-290d-4e33-babb-8c549f06a04b-0": {
+    "id": "k-tabstrip-tabpanel-ee6b7df1-290d-4e33-babb-8c549f06a04b-0",
+    "class": "ng-tns-c655264150-7 ng-trigger ng-trigger-state k-tabstrip-content k-active ng-star-inserted",
+    "tag": "div",
+    "text": "Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date 10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25 1 2 3 4 5 6 7 8 9 10 ... 1 - 10 of 117 items",
+    "xpath": "//div[@id='k-tabstrip-tabpanel-ee6b7df1-290d-4e33-babb-8c549f06a04b-0']"
+  },
+  "div_Name UserN_175": {
+    "class": "tab-content grid-wrapper ng-star-inserted",
+    "tag": "div",
+    "text": "Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date 10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25 1 2 3 4 5 6 7 8 9 10 ... 1 - 10 of 117 items",
+    "xpath": "//div[contains(normalize-space(text()), 'Name\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date\n10032025 Regi10\n20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025\n31032025 T326\n7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025\n08042025 BT08\n27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025\n08042025 FF01\n30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025\n18042025 1804\n28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025\n06062025 D06\n7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025\n06062025 JJ06\n7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025\n09062025 T0906\n7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025\n25062025 328\n7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025\n99930004 GG25\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n...\n1 - 10 of 117 items')]"
+  },
+  "kendo-grid_Name UserN_176": {
+    "class": "k-grid k-grid-md",
+    "tag": "kendo-grid",
+    "text": "Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date 10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25 1 2 3 4 5 6 7 8 9 10 ... 1 - 10 of 117 items",
+    "xpath": "//kendo-grid[contains(normalize-space(text()), 'Name\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date\n10032025 Regi10\n20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025\n31032025 T326\n7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025\n08042025 BT08\n27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025\n08042025 FF01\n30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025\n18042025 1804\n28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025\n06062025 D06\n7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025\n06062025 JJ06\n7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025\n09062025 T0906\n7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025\n25062025 328\n7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025\n99930004 GG25\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n...\n1 - 10 of 117 items')]"
+  },
+  "k-7622ec3f-088f-423d-9c91-78db76f29807": {
+    "id": "k-7622ec3f-088f-423d-9c91-78db76f29807",
+    "aria-label": "Data table",
+    "class": "k-grid-aria-root",
+    "tag": "div",
+    "text": "Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date 10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25",
+    "xpath": "//div[@id='k-7622ec3f-088f-423d-9c91-78db76f29807']"
+  },
+  "div_Name UserN_178": {
+    "class": "k-grid-header ng-star-inserted",
+    "tag": "div",
+    "text": "Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date",
+    "xpath": "//div[contains(normalize-space(text()), 'Name\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date')]"
+  },
+  "div_Name UserN_179": {
+    "class": "k-grid-header-wrap",
+    "tag": "div",
+    "text": "Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date",
+    "xpath": "//div[contains(normalize-space(text()), 'Name\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date')]"
+  },
+  "table_Name UserN_180": {
+    "class": "k-grid-header-table k-table k-table-md",
+    "tag": "table",
+    "text": "Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date",
+    "xpath": "//table[contains(normalize-space(text()), 'Name\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date')]"
+  },
+  "colgroup__181": {
+    "tag": "colgroup",
+    "xpath": "//colgroup"
+  },
+  "col__182": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__183": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__184": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__185": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__186": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__187": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__188": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__189": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "thead_Name UserN_190": {
+    "class": "k-table-thead",
+    "tag": "thead",
+    "text": "Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date",
+    "xpath": "//thead[contains(normalize-space(text()), 'Name\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date')]"
+  },
+  "tr_Name UserN_191": {
+    "class": "k-table-row ng-star-inserted",
+    "tag": "tr",
+    "text": "Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date",
+    "xpath": "//tr[contains(normalize-space(text()), 'Name\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date')]"
+  },
+  "th_Name": {
+    "class": "k-header k-table-th k-sorted ng-star-inserted",
+    "tag": "th",
+    "text": "Name",
+    "xpath": "//th[contains(normalize-space(text()), 'Name')]"
+  },
+  "span_Name_193": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "Name",
+    "xpath": "//span[contains(normalize-space(text()), 'Name')]"
+  },
+  "span_Name_194": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "Name",
+    "xpath": "//span[contains(normalize-space(text()), 'Name')]"
+  },
+  "span_Name_195": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "Name",
+    "xpath": "//span[contains(normalize-space(text()), 'Name')]"
+  },
+  "span__196": {
+    "class": "k-sort-icon",
+    "tag": "span",
+    "xpath": "//span[@class='k-sort-icon']"
+  },
+  "kendo-icon-wrapper__197": {
+    "aria-label": "Sortable",
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@aria-label='Sortable']"
+  },
+  "kendo-svgicon__198": {
+    "class": "k-svg-i-sort-asc-small k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-sort-asc-small k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__199": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "span__201": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "th_UserName": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "UserName",
+    "xpath": "//th[contains(normalize-space(text()), 'UserName')]"
+  },
+  "span_UserName_203": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "UserName",
+    "xpath": "//span[contains(normalize-space(text()), 'UserName')]"
+  },
+  "span_UserName_204": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "UserName",
+    "xpath": "//span[contains(normalize-space(text()), 'UserName')]"
+  },
+  "span_UserName_205": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "UserName",
+    "xpath": "//span[contains(normalize-space(text()), 'UserName')]"
+  },
+  "span__206": {
+    "class": "k-sort-icon",
+    "tag": "span",
+    "xpath": "//span[@class='k-sort-icon']"
+  },
+  "span__207": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "th_Treatment _208": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "Treatment progress",
+    "xpath": "//th[contains(normalize-space(text()), 'Treatment progress')]"
+  },
+  "span_Treatment _209": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "Treatment progress",
+    "xpath": "//span[contains(normalize-space(text()), 'Treatment progress')]"
+  },
+  "span_Treatment _210": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "Treatment progress",
+    "xpath": "//span[contains(normalize-space(text()), 'Treatment progress')]"
+  },
+  "a_Treatment _211": {
+    "class": "k-link ng-star-inserted",
+    "tag": "a",
+    "text": "Treatment progress",
+    "xpath": "//a[contains(normalize-space(text()), 'Treatment progress')]"
+  },
+  "span__212": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "th_Est. doses_213": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "Est. doses remaining",
+    "xpath": "//th[contains(normalize-space(text()), 'Est. doses remaining')]"
+  },
+  "span_Est. doses_214": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "Est. doses remaining",
+    "xpath": "//span[contains(normalize-space(text()), 'Est. doses remaining')]"
+  },
+  "span_Est. doses_215": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "Est. doses remaining",
+    "xpath": "//span[contains(normalize-space(text()), 'Est. doses remaining')]"
+  },
+  "a_Est. doses_216": {
+    "class": "k-link ng-star-inserted",
+    "tag": "a",
+    "text": "Est. doses remaining",
+    "xpath": "//a[contains(normalize-space(text()), 'Est. doses remaining')]"
+  },
+  "span__217": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "th_MRN_218": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "MRN",
+    "xpath": "//th[contains(normalize-space(text()), 'MRN')]"
+  },
+  "span_MRN_219": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "MRN",
+    "xpath": "//span[contains(normalize-space(text()), 'MRN')]"
+  },
+  "span_MRN_220": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "MRN",
+    "xpath": "//span[contains(normalize-space(text()), 'MRN')]"
+  },
+  "span_MRN_221": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "MRN",
+    "xpath": "//span[contains(normalize-space(text()), 'MRN')]"
+  },
+  "span__222": {
+    "class": "k-sort-icon",
+    "tag": "span",
+    "xpath": "//span[@class='k-sort-icon']"
+  },
+  "span__223": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "th_SA-ID_224": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "SA-ID",
+    "xpath": "//th[contains(normalize-space(text()), 'SA-ID')]"
+  },
+  "span_SA-ID_225": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "SA-ID",
+    "xpath": "//span[contains(normalize-space(text()), 'SA-ID')]"
+  },
+  "span_SA-ID_226": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "SA-ID",
+    "xpath": "//span[contains(normalize-space(text()), 'SA-ID')]"
+  },
+  "span_SA-ID_227": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "SA-ID",
+    "xpath": "//span[contains(normalize-space(text()), 'SA-ID')]"
+  },
+  "span__228": {
+    "class": "k-sort-icon",
+    "tag": "span",
+    "xpath": "//span[@class='k-sort-icon']"
+  },
+  "span__229": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "th_Start date_230": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "Start date",
+    "xpath": "//th[contains(normalize-space(text()), 'Start date')]"
+  },
+  "span_Start date_231": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "Start date",
+    "xpath": "//span[contains(normalize-space(text()), 'Start date')]"
+  },
+  "span_Start date_232": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "Start date",
+    "xpath": "//span[contains(normalize-space(text()), 'Start date')]"
+  },
+  "span_Start date_233": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "Start date",
+    "xpath": "//span[contains(normalize-space(text()), 'Start date')]"
+  },
+  "span__234": {
+    "class": "k-sort-icon",
+    "tag": "span",
+    "xpath": "//span[@class='k-sort-icon']"
+  },
+  "span__235": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "th_End date_236": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "End date",
+    "xpath": "//th[contains(normalize-space(text()), 'End date')]"
+  },
+  "span_End date_237": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "End date",
+    "xpath": "//span[contains(normalize-space(text()), 'End date')]"
+  },
+  "span_End date_238": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "End date",
+    "xpath": "//span[contains(normalize-space(text()), 'End date')]"
+  },
+  "span_End date_239": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "End date",
+    "xpath": "//span[contains(normalize-space(text()), 'End date')]"
+  },
+  "span__240": {
+    "class": "k-sort-icon",
+    "tag": "span",
+    "xpath": "//span[@class='k-sort-icon']"
+  },
+  "span__241": {
+    "class": "k-column-resizer ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
+  },
+  "kendo-grid-list_10032025 R_242": {
+    "class": "k-grid-container ng-star-inserted",
+    "tag": "kendo-grid-list",
+    "text": "10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25",
+    "xpath": "//kendo-grid-list[contains(normalize-space(text()), '10032025 Regi10\n20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025\n31032025 T326\n7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025\n08042025 BT08\n27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025\n08042025 FF01\n30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025\n18042025 1804\n28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025\n06062025 D06\n7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025\n06062025 JJ06\n7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025\n09062025 T0906\n7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025\n25062025 328\n7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025\n99930004 GG25')]"
+  },
+  "div_10032025 R_243": {
+    "class": "k-grid-content k-virtual-content",
+    "tag": "div",
+    "text": "10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25",
+    "xpath": "//div[contains(normalize-space(text()), '10032025 Regi10\n20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025\n31032025 T326\n7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025\n08042025 BT08\n27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025\n08042025 FF01\n30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025\n18042025 1804\n28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025\n06062025 D06\n7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025\n06062025 JJ06\n7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025\n09062025 T0906\n7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025\n25062025 328\n7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025\n99930004 GG25')]"
+  },
+  "div_10032025 R_244": {
+    "class": "k-grid-table-wrap",
+    "tag": "div",
+    "text": "10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25",
+    "xpath": "//div[contains(normalize-space(text()), '10032025 Regi10\n20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025\n31032025 T326\n7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025\n08042025 BT08\n27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025\n08042025 FF01\n30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025\n18042025 1804\n28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025\n06062025 D06\n7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025\n06062025 JJ06\n7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025\n09062025 T0906\n7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025\n25062025 328\n7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025\n99930004 GG25')]"
+  },
+  "table_10032025 R_245": {
+    "class": "k-grid-table k-table k-table-md",
+    "tag": "table",
+    "text": "10032025 Regi10 20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025 31032025 T326 7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025 08042025 BT08 27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025 08042025 FF01 30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025 18042025 1804 28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025 06062025 D06 7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025 06062025 JJ06 7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025 09062025 T0906 7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025 25062025 328 7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025 99930004 GG25",
+    "xpath": "//table[contains(normalize-space(text()), '10032025 Regi10\n20 10032025 SA-7282 Mar 10, 2025 Aug 13, 2025\n31032025 T326\n7 31032025 SA-7290 Mar 30, 2025 Apr 5, 2025\n08042025 BT08\n27 08042025 SA-7300 Apr 8, 2025 Aug 27, 2025\n08042025 FF01\n30 08042025 SA-7309 Apr 8, 2025 Aug 24, 2025\n18042025 1804\n28 18042025 SA-7329 Apr 18, 2025 Aug 21, 2025\n06062025 D06\n7 06062025 SA-7375 Jul 1, 2025 Jul 7, 2025\n06062025 JJ06\n7 06062025 SA-7377 Jul 2, 2025 Jul 8, 2025\n09062025 T0906\n7 09062025 SA-7380 Jul 31, 2025 Aug 7, 2025\n25062025 328\n7 25062025 SA-7383 Jun 25, 2025 Jul 1, 2025\n99930004 GG25')]"
+  },
+  "colgroup__246": {
+    "tag": "colgroup",
+    "xpath": "//colgroup"
+  },
+  "col__247": {
+    "class": "k-sorted ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='k-sorted ng-star-inserted']"
+  },
+  "col__248": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__249": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__250": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__251": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__252": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__253": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__254": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "tbody_patient": {
+    "class": "k-table-tbody",
+    "tag": "tbody",
+    "role": "rowgroup",
+    "xpath": "//tbody[@class='k-table-tbody' and @role='rowgroup']"
+  },
+  "div__256": {
+    "class": "k-height-container",
+    "tag": "div",
+    "xpath": "//div[@class='k-height-container']"
+  },
+  "div__257": {
+    "tag": "div",
+    "xpath": "//div"
+  },
+  "kendo-grid-status-bar__264": {
+    "class": "k-selection-aggregates k-grid-selection-aggregates ng-star-inserted",
+    "tag": "kendo-grid-status-bar",
+    "xpath": "//kendo-grid-status-bar[@class='k-selection-aggregates k-grid-selection-aggregates ng-star-inserted']"
+  },
+  "kendo-pager_1 2 3 4 5 _265": {
+    "class": "k-pager k-pager-wrap k-grid-pager k-pager-md ng-star-inserted",
+    "tag": "kendo-pager",
+    "text": "1 2 3 4 5 6 7 8 9 10 ... 1 - 10 of 117 items",
+    "xpath": "//kendo-pager[contains(normalize-space(text()), '1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n...\n1 - 10 of 117 items')]"
+  },
+  "div_1 2 3 4 5 _266": {
+    "class": "k-pager-numbers-wrap ng-star-inserted",
+    "tag": "div",
+    "text": "1 2 3 4 5 6 7 8 9 10 ...",
+    "xpath": "//div[contains(normalize-space(text()), '1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n...')]"
+  },
+  "kendo-pager-prev-buttons__267": {
+    "class": "ng-star-inserted",
+    "tag": "kendo-pager-prev-buttons",
+    "xpath": "//kendo-pager-prev-buttons[@class='ng-star-inserted']"
+  },
+  "button__268": {
+    "aria-label": "Go to the first page",
+    "class": "k-pager-nav k-pager-first k-button k-icon-button k-disabled k-button-md k-button-flat-base k-button-flat",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Go to the first page']"
+  },
+  "kendo-icon-wrapper__269": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__270": {
+    "class": "k-svg-i-caret-alt-to-left k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-to-left k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__271": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "span__273": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "button__274": {
+    "aria-label": "Go to the previous page",
+    "class": "k-pager-nav k-button k-icon-button k-disabled k-button-md k-button-flat-base k-button-flat",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Go to the previous page']"
+  },
+  "kendo-icon-wrapper__275": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__276": {
+    "class": "k-svg-i-caret-alt-left k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-left k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__277": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "span__279": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "kendo-pager-numeric-buttons_1 2 3 4 5 _280": {
+    "class": "ng-star-inserted",
+    "tag": "kendo-pager-numeric-buttons",
+    "text": "1 2 3 4 5 6 7 8 9 10 ...",
+    "xpath": "//kendo-pager-numeric-buttons[contains(normalize-space(text()), '1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n...')]"
+  },
+  "select__281": {
+    "aria-label": "Select page",
+    "class": "k-dropdown-list k-dropdown k-picker k-picker-solid k-rounded-md k-picker-md",
+    "type": "select-one",
+    "tag": "select",
+    "xpath": "//select[@aria-label='Select page']"
+  },
+  "div_1 2 3 4 5 _282": {
+    "class": "k-pager-numbers",
+    "tag": "div",
+    "text": "1 2 3 4 5 6 7 8 9 10 ...",
+    "xpath": "//div[contains(normalize-space(text()), '1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n...')]"
+  },
+  "kendo-pager-next-buttons__283": {
+    "class": "ng-star-inserted",
+    "tag": "kendo-pager-next-buttons",
+    "xpath": "//kendo-pager-next-buttons[@class='ng-star-inserted']"
+  },
+  "button__284": {
+    "aria-label": "Go to the next page",
+    "class": "k-pager-nav k-button k-icon-button k-button-md k-button-flat-base k-button-flat",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Go to the next page']"
+  },
+  "kendo-icon-wrapper__285": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__286": {
+    "class": "k-svg-i-caret-alt-right k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-right k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__287": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "span__289": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "button__290": {
+    "aria-label": "Go to the last page",
+    "class": "k-pager-nav k-pager-last k-button k-icon-button k-button-md k-button-flat-base k-button-flat",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Go to the last page']"
+  },
+  "kendo-icon-wrapper__291": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__292": {
+    "class": "k-svg-i-caret-alt-to-right k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-to-right k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__293": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "span__295": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "kendo-pager-info_1 - 10 of _296": {
+    "class": "k-pager-info k-label ng-star-inserted",
+    "tag": "kendo-pager-info",
+    "text": "1 - 10 of 117 items",
+    "xpath": "//kendo-pager-info[contains(normalize-space(text()), '1 - 10 of 117 items')]"
+  },
+  "kendo-resize-sensor__297": {
+    "class": "ng-star-inserted",
+    "tag": "kendo-resize-sensor",
+    "xpath": "//kendo-resize-sensor[@class='ng-star-inserted']"
+  },
+  "popover__298": {
+    "tag": "popover",
+    "xpath": "//popover"
+  },
+  "a_name": {
+    "class": "ng-star-inserted",
+    "tag": "a",
+    "xpath": "//td[@aria-colindex='1']/a[@class='ng-star-inserted']"
+  },
+  "td_name": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex":"1",
+    "xpath": "//td[@aria-colindex='1']"
+  },
+  "td_username": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex":"2",
+    "xpath": "//td[@aria-colindex='2']"
+  },
+  "td_treatment_progress": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex":"3",
+    "xpath": "//td[@aria-colindex='3']"
+  },
+  "td_est_doses_remain": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex":"4",
+    "xpath": "//td[@aria-colindex='4']"
+  },
+  "td_mrn": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex":"5",
+    "xpath": "//td[@aria-colindex='5']"
+  },
+  "td_sa_id": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex":"6",
+    "xpath": "//td[@aria-colindex='6']"
+  },
+  "td_start_date": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex":"7",
+    "xpath": "//td[@aria-colindex='7']"
+  },
+  "td_end_date": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex":"8",
+    "xpath": "//td[@aria-colindex='8']"
+  }
+}

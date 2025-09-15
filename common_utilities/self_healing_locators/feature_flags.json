@@ -1,0 +1,2287 @@
+{
+  "html_Client_Tes_0": {
+    "tag": "html",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports Admin Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
+    "xpath": "//html[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\nAdmin\nAdmin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nMedication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
+  },
+  "body_Client_Tes_32": {
+    "class": "pace-done pace-done pace-done ng-tns-0-0",
+    "tag": "body",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports Admin Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
+    "xpath": "//body[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\nAdmin\nAdmin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nMedication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
+  },
+  "div__33": {
+    "class": "pace pace-inactive",
+    "tag": "div",
+    "xpath": "//div[@class='pace pace-inactive']"
+  },
+  "div__34": {
+    "class": "pace-progress",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress']"
+  },
+  "div__35": {
+    "class": "pace-progress-inner",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress-inner']"
+  },
+  "div__36": {
+    "class": "pace-activity",
+    "tag": "div",
+    "xpath": "//div[@class='pace-activity']"
+  },
+  "app_Client_Tes_37": {
+    "tag": "app",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports Admin Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
+    "xpath": "//app[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\nAdmin\nAdmin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nMedication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
+  },
+  "div_Client_Tes_38": {
+    "class": "custom-toolbar",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "div__39": {
+    "class": "logo",
+    "tag": "div",
+    "xpath": "//div[@class='logo']"
+  },
+  "div_Client_Tes_40": {
+    "class": "client-name d-none d-md-inline-flex",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "span__41": {
+    "class": "right-navbar",
+    "tag": "span",
+    "xpath": "//span[@class='right-navbar']"
+  },
+  "client-header__42": {
+    "tag": "client-header",
+    "xpath": "//client-header"
+  },
+  "div__43": {
+    "class": "header-actions",
+    "tag": "div",
+    "xpath": "//div[@class='header-actions']"
+  },
+  "button__44": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__45": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__46": {
+    "class": "ng-fa-icon toolbar-icon text-success",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-success']"
+  },
+  "svg__47": {
+    "class": "svg-inline--fa fa-user-plus",
+    "data-icon": "user-plus",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-plus']"
+  },
+  "path__48": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__49": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__50": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__51": {
+    "class": "ng-fa-icon toolbar-icon text-warning",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-warning']"
+  },
+  "svg__52": {
+    "class": "svg-inline--fa fa-circle-question",
+    "data-icon": "circle-question",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-question']"
+  },
+  "path__53": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__54": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__55": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__56": {
+    "class": "ng-fa-icon toolbar-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon']"
+  },
+  "svg__57": {
+    "class": "svg-inline--fa fa-circle-user",
+    "data-icon": "circle-user",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-user']"
+  },
+  "path__58": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "kendo-drawer-container_Dashboard _59": {
+    "class": "k-drawer-container k-drawer-mini k-drawer-push",
+    "tag": "kendo-drawer-container",
+    "text": "Dashboard Patients Staff Reports Admin Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
+    "xpath": "//kendo-drawer-container[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin\nAdmin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nMedication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
+  },
+  "kendo-drawer_Dashboard _60": {
+    "class": "border-0 k-drawer k-drawer-start",
+    "tag": "kendo-drawer",
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//kendo-drawer[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "div_Dashboard _61": {
+    "class": "k-drawer-wrapper",
+    "tag": "div",
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "ul_Dashboard _62": {
+    "class": "k-drawer-items",
+    "tag": "ul",
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//ul[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "li_Dashboard_63": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Dashboard",
+    "xpath": "//li[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "div_Dashboard_64": {
+    "tag": "div",
+    "text": "Dashboard",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "fa-icon__65": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__66": {
+    "class": "svg-inline--fa fa-house",
+    "data-icon": "house",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-house']"
+  },
+  "path__67": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Dashboard_68": {
+    "tag": "p",
+    "text": "Dashboard",
+    "xpath": "//p[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "li_Patients_69": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Patients",
+    "xpath": "//li[contains(normalize-space(text()), 'Patients')]"
+  },
+  "div_Patients_70": {
+    "tag": "div",
+    "text": "Patients",
+    "xpath": "//div[contains(normalize-space(text()), 'Patients')]"
+  },
+  "fa-icon__71": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__72": {
+    "class": "svg-inline--fa fa-user-large",
+    "data-icon": "user-large",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-large']"
+  },
+  "path__73": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Patients_74": {
+    "tag": "p",
+    "text": "Patients",
+    "xpath": "//p[contains(normalize-space(text()), 'Patients')]"
+  },
+  "li_Staff_75": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Staff",
+    "xpath": "//li[contains(normalize-space(text()), 'Staff')]"
+  },
+  "div_Staff_76": {
+    "tag": "div",
+    "text": "Staff",
+    "xpath": "//div[contains(normalize-space(text()), 'Staff')]"
+  },
+  "fa-icon__77": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__78": {
+    "class": "svg-inline--fa fa-user-nurse",
+    "data-icon": "user-nurse",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-nurse']"
+  },
+  "path__79": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Staff_80": {
+    "tag": "p",
+    "text": "Staff",
+    "xpath": "//p[contains(normalize-space(text()), 'Staff')]"
+  },
+  "li_Reports_81": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Reports",
+    "xpath": "//li[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div_Reports_82": {
+    "tag": "div",
+    "text": "Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
+  },
+  "fa-icon__83": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__84": {
+    "class": "svg-inline--fa fa-file-waveform",
+    "data-icon": "file-waveform",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-file-waveform']"
+  },
+  "path__85": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Reports_86": {
+    "tag": "p",
+    "text": "Reports",
+    "xpath": "//p[contains(normalize-space(text()), 'Reports')]"
+  },
+  "li_Admin_87": {
+    "class": "k-drawer-item k-selected",
+    "tag": "li",
+    "text": "Admin",
+    "xpath": "//li[contains(normalize-space(text()), 'Admin')]"
+  },
+  "div_Admin_88": {
+    "tag": "div",
+    "text": "Admin",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin')]"
+  },
+  "fa-icon__89": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__90": {
+    "class": "svg-inline--fa fa-gear",
+    "data-icon": "gear",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-gear']"
+  },
+  "path__91": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Admin_92": {
+    "tag": "p",
+    "text": "Admin",
+    "xpath": "//p[contains(normalize-space(text()), 'Admin')]"
+  },
+  "kendo-drawer-content_Admin Sett_93": {
+    "class": "k-drawer-content",
+    "tag": "kendo-drawer-content",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
+    "xpath": "//kendo-drawer-content[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nMedication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
+  },
+  "app-admin_Admin Sett_95": {
+    "class": "ng-star-inserted",
+    "tag": "app-admin",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
+    "xpath": "//app-admin[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nMedication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
+  },
+  "sidebar-filter_Admin Sett_96": {
+    "tag": "sidebar-filter",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
+    "xpath": "//sidebar-filter[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nMedication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
+  },
+  "main_Admin Sett_97": {
+    "class": "main",
+    "tag": "main",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
+    "xpath": "//main[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nMedication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
+  },
+  "ng-sidebar-container_Admin Sett_98": {
+    "class": "wrapper-with-sidebar",
+    "tag": "ng-sidebar-container",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
+    "xpath": "//ng-sidebar-container[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nMedication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
+  },
+  "ng-sidebar__99": {
+    "tag": "ng-sidebar",
+    "xpath": "//ng-sidebar"
+  },
+  "aside__100": {
+    "class": "ng-sidebar--inert ng-sidebar ng-sidebar--closed ng-sidebar--right ng-sidebar--push",
+    "tag": "aside",
+    "xpath": "//aside[@class='ng-sidebar--inert ng-sidebar ng-sidebar--closed ng-sidebar--right ng-sidebar--push']"
+  },
+  "div__101": {
+    "class": "clear-filters",
+    "tag": "div",
+    "xpath": "//div[@class='clear-filters']"
+  },
+  "div__102": {
+    "class": "close-filterbar",
+    "tag": "div",
+    "xpath": "//div[@class='close-filterbar']"
+  },
+  "span__103": {
+    "class": "icon-close2 position-relative",
+    "tag": "span",
+    "xpath": "//span[@class='icon-close2 position-relative']"
+  },
+  "div__104": {
+    "class": "header-filterbar",
+    "tag": "div",
+    "xpath": "//div[@class='header-filterbar']"
+  },
+  "div__105": {
+    "class": "sidebar-filter",
+    "tag": "div",
+    "xpath": "//div[@class='sidebar-filter']"
+  },
+  "kendo-panelbar__106": {
+    "class": "k-panelbar k-pos-relative",
+    "tag": "kendo-panelbar",
+    "xpath": "//kendo-panelbar[@class='k-panelbar k-pos-relative']"
+  },
+  "k-panelbar-4-item-sites": {
+    "id": "k-panelbar-4-item-sites",
+    "class": "ng-tns-c3003368627-25 k-level-0 k-panelbar-item k-state-default k-expanded k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-4-item-sites']"
+  },
+  "span__108": {
+    "class": "ng-tns-c3003368627-25 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-25 k-link']"
+  },
+  "span__109": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-25 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-25 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__110": {
+    "class": "ng-tns-c3003368627-25 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-25 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__111": {
+    "class": "k-svg-i-chevron-up k-panelbar-toggle k-panelbar-collapse k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-up k-panelbar-toggle k-panelbar-collapse k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__112": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "div__114": {
+    "class": "ng-tns-c3003368627-25 ng-trigger ng-trigger-toggle ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='ng-tns-c3003368627-25 ng-trigger ng-trigger-toggle ng-star-inserted']"
+  },
+  "div__115": {
+    "class": "k-content k-panelbar-content ng-tns-c3003368627-25 ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='k-content k-panelbar-content ng-tns-c3003368627-25 ng-star-inserted']"
+  },
+  "sites_bar": {
+    "id": "sites_bar",
+    "class": "ng-star-inserted",
+    "tag": "ul",
+    "xpath": "//ul[@id='sites_bar']"
+  },
+  "li__117": {
+    "class": "ng-star-inserted",
+    "tag": "li",
+    "xpath": "//li[@class='ng-star-inserted']"
+  },
+  "site_1": {
+    "id": "site_1",
+    "class": "k-checkbox",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='site_1']"
+  },
+  "label__119": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath": "//label[@class='k-checkbox-label k-label']"
+  },
+  "li__120": {
+    "class": "ng-star-inserted",
+    "tag": "li",
+    "xpath": "//li[@class='ng-star-inserted']"
+  },
+  "site_2": {
+    "id": "site_2",
+    "class": "k-checkbox",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='site_2']"
+  },
+  "label__122": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath": "//label[@class='k-checkbox-label k-label']"
+  },
+  "li__123": {
+    "class": "ng-star-inserted",
+    "tag": "li",
+    "xpath": "//li[@class='ng-star-inserted']"
+  },
+  "site_3": {
+    "id": "site_3",
+    "class": "k-checkbox",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='site_3']"
+  },
+  "label__125": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath": "//label[@class='k-checkbox-label k-label']"
+  },
+  "li__126": {
+    "class": "ng-star-inserted",
+    "tag": "li",
+    "xpath": "//li[@class='ng-star-inserted']"
+  },
+  "site_4": {
+    "id": "site_4",
+    "class": "k-checkbox",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='site_4']"
+  },
+  "label__128": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath": "//label[@class='k-checkbox-label k-label']"
+  },
+  "k-panelbar-4-item-treatment_monitors": {
+    "id": "k-panelbar-4-item-treatment_monitors",
+    "class": "ng-tns-c3003368627-26 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-4-item-treatment_monitors']"
+  },
+  "span__130": {
+    "class": "ng-tns-c3003368627-26 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-26 k-link']"
+  },
+  "span__131": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-26 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-26 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__132": {
+    "class": "ng-tns-c3003368627-26 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-26 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__133": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__134": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "k-panelbar-4-item-patient_managers": {
+    "id": "k-panelbar-4-item-patient_managers",
+    "class": "ng-tns-c3003368627-27 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-4-item-patient_managers']"
+  },
+  "span__137": {
+    "class": "ng-tns-c3003368627-27 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-27 k-link']"
+  },
+  "span__138": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-27 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-27 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__139": {
+    "class": "ng-tns-c3003368627-27 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-27 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__140": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__141": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "k-panelbar-4-item-diseases": {
+    "id": "k-panelbar-4-item-diseases",
+    "class": "ng-tns-c3003368627-28 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-4-item-diseases']"
+  },
+  "span__144": {
+    "class": "ng-tns-c3003368627-28 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-28 k-link']"
+  },
+  "span__145": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-28 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-28 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__146": {
+    "class": "ng-tns-c3003368627-28 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-28 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__147": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__148": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "k-panelbar-4-item-observation_types": {
+    "id": "k-panelbar-4-item-observation_types",
+    "class": "ng-tns-c3003368627-29 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-4-item-observation_types']"
+  },
+  "span__151": {
+    "class": "ng-tns-c3003368627-29 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-29 k-link']"
+  },
+  "span__152": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-29 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-29 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__153": {
+    "class": "ng-tns-c3003368627-29 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-29 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__154": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__155": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "div_Admin Sett_157": {
+    "class": "ng-sidebar__content ng-sidebar__content--animate",
+    "tag": "div",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nMedication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
+  },
+  "div_Admin Sett_158": {
+    "class": "content-wrapper",
+    "tag": "div",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nMedication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
+  },
+  "div_Admin Sett_159": {
+    "class": "sub-header",
+    "tag": "div",
+    "text": "Admin Settings",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings')]"
+  },
+  "div_Admin Sett_160": {
+    "class": "sub-nav",
+    "tag": "div",
+    "text": "Admin Settings",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings')]"
+  },
+  "div_Admin Sett_161": {
+    "class": "breadcrumb-custom",
+    "tag": "div",
+    "text": "Admin Settings",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings')]"
+  },
+  "span_Admin Sett_162": {
+    "class": "my-header-name",
+    "tag": "span",
+    "text": "Admin Settings",
+    "xpath": "//span[contains(normalize-space(text()), 'Admin Settings')]"
+  },
+  "div__163": {
+    "class": "sidebar-toggle-icon ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='sidebar-toggle-icon ng-star-inserted']"
+  },
+  "span__164": {
+    "class": "icon-funnel",
+    "tag": "span",
+    "xpath": "//span[@class='icon-funnel']"
+  },
+  "div_Configurab_165": {
+    "class": "my-page-content pb-50px",
+    "tag": "div",
+    "text": "Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
+    "xpath": "//div[contains(normalize-space(text()), 'Configurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nMedication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
+  },
+  "kendo-tabstrip_Configurab_166": {
+    "class": "ng-tns-c655264150-24 k-tabstrip k-pos-relative k-tabstrip-top ng-star-inserted",
+    "tag": "kendo-tabstrip",
+    "text": "Configurable Lookups Feature Flags Announcements Choose client: Client_Test_1_US Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
+    "xpath": "//kendo-tabstrip[contains(normalize-space(text()), 'Configurable Lookups\nFeature Flags\nAnnouncements\nChoose client:\nClient_Test_1_US\nMedication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
+  },
+  "div_Configurab_167": {
+    "class": "k-tabstrip-items-wrapper ng-tns-c655264150-24 k-hstack ng-star-inserted",
+    "tag": "div",
+    "text": "Configurable Lookups Feature Flags Announcements",
+    "xpath": "//div[contains(normalize-space(text()), 'Configurable Lookups\nFeature Flags\nAnnouncements')]"
+  },
+  "ul_Configurab_168": {
+    "class": "k-reset k-tabstrip-items ng-tns-c655264150-24",
+    "tag": "ul",
+    "text": "Configurable Lookups Feature Flags Announcements",
+    "xpath": "//ul[contains(normalize-space(text()), 'Configurable Lookups\nFeature Flags\nAnnouncements')]"
+  },
+  "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-0": {
+    "id": "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-0",
+    "class": "ng-tns-c655264150-24 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Configurable Lookups",
+    "xpath": "//li[@id='k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-0']"
+  },
+  "span_Configurab_170": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Configurable Lookups",
+    "xpath": "//span[contains(normalize-space(text()), 'Configurable Lookups')]"
+  },
+  "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-1": {
+    "id": "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-1",
+    "class": "ng-tns-c655264150-24 k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "text": "Feature Flags",
+    "xpath": "//li[@id='k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-1']"
+  },
+  "span_Feature Fl_172": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Feature Flags",
+    "xpath": "//span[contains(normalize-space(text()), 'Feature Flags')]"
+  },
+  "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-2": {
+    "id": "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-2",
+    "class": "ng-tns-c655264150-24 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Announcements",
+    "xpath": "//li[@id='k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-2']"
+  },
+  "span_Announceme_174": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Announcements",
+    "xpath": "//span[contains(normalize-space(text()), 'Announcements')]"
+  },
+  "k-tabstrip-tabpanel-4de49805-c2fd-4373-94e9-15b798ab48e0-1": {
+    "id": "k-tabstrip-tabpanel-4de49805-c2fd-4373-94e9-15b798ab48e0-1",
+    "class": "ng-tns-c655264150-24 ng-trigger ng-trigger-state k-tabstrip-content k-active ng-star-inserted",
+    "tag": "div",
+    "text": "Choose client: Client_Test_1_US Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
+    "xpath": "//div[@id='k-tabstrip-tabpanel-4de49805-c2fd-4373-94e9-15b798ab48e0-1']"
+  },
+  "div_Choose cli_176": {
+    "class": "main-container ng-star-inserted",
+    "tag": "div",
+    "text": "Choose client: Client_Test_1_US Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
+    "xpath": "//div[contains(normalize-space(text()), 'Choose client:\nClient_Test_1_US\nMedication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
+  },
+  "div_Choose cli_177": {
+    "class": "clients-list",
+    "tag": "div",
+    "text": "Choose client: Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Choose client:\nClient_Test_1_US')]"
+  },
+  "k-23c4db1f-1e01-4541-a9ac-5088f17a656a": {
+    "id": "k-23c4db1f-1e01-4541-a9ac-5088f17a656a",
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "text": "Client_Test_1_US",
+    "xpath": "//kendo-dropdownlist[@id='k-23c4db1f-1e01-4541-a9ac-5088f17a656a']"
+  },
+  "k-7160849c-978c-44ec-8b4c-b67d1e1b5874": {
+    "id": "k-7160849c-978c-44ec-8b4c-b67d1e1b5874",
+    "class": "k-input-inner",
+    "tag": "span",
+    "text": "Client_Test_1_US",
+    "xpath": "//span[@id='k-7160849c-978c-44ec-8b4c-b67d1e1b5874']"
+  },
+  "span_Client_Tes_180": {
+    "class": "k-input-value-text",
+    "tag": "span",
+    "text": "Client_Test_1_US",
+    "xpath": "//span[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "button__181": {
+    "aria-label": "Select",
+    "class": "k-input-button k-button k-icon-button k-button-md k-button-solid k-button-solid-base",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Select']"
+  },
+  "kendo-icon-wrapper__182": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__183": {
+    "class": "k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__184": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "responsive-renderer__186": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__187": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div_Medication_188": {
+    "class": "feature-flags ng-star-inserted",
+    "tag": "div",
+    "text": "Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
+    "xpath": "//div[contains(normalize-space(text()), 'Medication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
+  },
+  "div_Medication_189": {
+    "class": "content",
+    "tag": "div",
+    "text": "Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
+    "xpath": "//div[contains(normalize-space(text()), 'Medication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
+  },
+  "div_Medication_190": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
+    "xpath": "//div[contains(normalize-space(text()), 'Medication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
+  },
+  "div_Medication_191": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Medication Event Reminder Monitor",
+    "xpath": "//div[contains(normalize-space(text()), 'Medication Event Reminder Monitor')]"
+  },
+  "div_Medication_192": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Medication Event Reminder Monitor",
+    "xpath": "//div[contains(normalize-space(text()), 'Medication Event Reminder Monitor')]"
+  },
+  "div_Medication_193": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Medication Event Reminder Monitor",
+    "xpath": "//div[contains(normalize-space(text()), 'Medication Event Reminder Monitor')]"
+  },
+  "div__194": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-5933dc5b-f005-49f1-b433-639ce81cbab1": {
+    "id": "k-5933dc5b-f005-49f1-b433-639ce81cbab1",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-5933dc5b-f005-49f1-b433-639ce81cbab1']"
+  },
+  "span__196": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__197": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__198": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__199": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__200": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_2-Way SMS _201": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "2-Way SMS Messaging",
+    "xpath": "//div[contains(normalize-space(text()), '2-Way SMS Messaging')]"
+  },
+  "div_2-Way SMS _202": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "2-Way SMS Messaging",
+    "xpath": "//div[contains(normalize-space(text()), '2-Way SMS Messaging')]"
+  },
+  "div_2-Way SMS _203": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "2-Way SMS Messaging",
+    "xpath": "//div[contains(normalize-space(text()), '2-Way SMS Messaging')]"
+  },
+  "div__204": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-415b580e-2f73-4547-a2d2-482fe3f16c12": {
+    "id": "k-415b580e-2f73-4547-a2d2-482fe3f16c12",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-415b580e-2f73-4547-a2d2-482fe3f16c12']"
+  },
+  "span__206": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__207": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__208": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__209": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__210": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Patient Se_211": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Patient Self Reporting",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient Self Reporting')]"
+  },
+  "div_Patient Se_212": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Patient Self Reporting",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient Self Reporting')]"
+  },
+  "div_Patient Se_213": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Patient Self Reporting",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient Self Reporting')]"
+  },
+  "div__214": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-23d088a5-ec2e-4a16-95d5-599eaa342cf4": {
+    "id": "k-23d088a5-ec2e-4a16-95d5-599eaa342cf4",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-23d088a5-ec2e-4a16-95d5-599eaa342cf4']"
+  },
+  "span__216": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__217": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__218": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__219": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__220": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Pill Count_221": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Pill Count",
+    "xpath": "//div[contains(normalize-space(text()), 'Pill Count')]"
+  },
+  "div_Pill Count_222": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Pill Count",
+    "xpath": "//div[contains(normalize-space(text()), 'Pill Count')]"
+  },
+  "div_Pill Count_223": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Pill Count",
+    "xpath": "//div[contains(normalize-space(text()), 'Pill Count')]"
+  },
+  "div__224": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-98e8e9b0-7a0c-4ddd-93c1-ca703aeeb567": {
+    "id": "k-98e8e9b0-7a0c-4ddd-93c1-ca703aeeb567",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-98e8e9b0-7a0c-4ddd-93c1-ca703aeeb567']"
+  },
+  "span__226": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__227": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__228": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__229": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__230": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Virtual Vi_231": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Virtual Visits",
+    "xpath": "//div[contains(normalize-space(text()), 'Virtual Visits')]"
+  },
+  "div_Virtual Vi_232": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Virtual Visits",
+    "xpath": "//div[contains(normalize-space(text()), 'Virtual Visits')]"
+  },
+  "div_Virtual Vi_233": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Virtual Visits",
+    "xpath": "//div[contains(normalize-space(text()), 'Virtual Visits')]"
+  },
+  "div__234": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-4c713739-905e-466f-af93-fe581b9a5018": {
+    "id": "k-4c713739-905e-466f-af93-fe581b9a5018",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-4c713739-905e-466f-af93-fe581b9a5018']"
+  },
+  "span__236": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__237": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__238": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__239": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__240": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Self Repor_241": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Self Report - pills taken with food",
+    "xpath": "//div[contains(normalize-space(text()), 'Self Report - pills taken with food')]"
+  },
+  "div_Self Repor_242": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Self Report - pills taken with food",
+    "xpath": "//div[contains(normalize-space(text()), 'Self Report - pills taken with food')]"
+  },
+  "div_Self Repor_243": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Self Report - pills taken with food",
+    "xpath": "//div[contains(normalize-space(text()), 'Self Report - pills taken with food')]"
+  },
+  "div__244": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-d194de8a-0c8c-42b0-b089-c0f286797102": {
+    "id": "k-d194de8a-0c8c-42b0-b089-c0f286797102",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-d194de8a-0c8c-42b0-b089-c0f286797102']"
+  },
+  "span__246": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__247": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__248": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__249": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__250": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Self Repor_251": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Self Report - pills with provider present",
+    "xpath": "//div[contains(normalize-space(text()), 'Self Report - pills with provider present')]"
+  },
+  "div_Self Repor_252": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Self Report - pills with provider present",
+    "xpath": "//div[contains(normalize-space(text()), 'Self Report - pills with provider present')]"
+  },
+  "div_Self Repor_253": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Self Report - pills with provider present",
+    "xpath": "//div[contains(normalize-space(text()), 'Self Report - pills with provider present')]"
+  },
+  "div__254": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-33c6aaa5-48f4-49b2-980a-7d7e8c9116b9": {
+    "id": "k-33c6aaa5-48f4-49b2-980a-7d7e8c9116b9",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-33c6aaa5-48f4-49b2-980a-7d7e8c9116b9']"
+  },
+  "span__256": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__257": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__258": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__259": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__260": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Patient MR_261": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Patient MRN validated with lookup",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient MRN validated with lookup')]"
+  },
+  "div_Patient MR_262": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Patient MRN validated with lookup",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient MRN validated with lookup')]"
+  },
+  "div_Patient MR_263": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Patient MRN validated with lookup",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient MRN validated with lookup')]"
+  },
+  "div__264": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-30fc8916-74dd-4d2b-9290-df4674cb7682": {
+    "id": "k-30fc8916-74dd-4d2b-9290-df4674cb7682",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-30fc8916-74dd-4d2b-9290-df4674cb7682']"
+  },
+  "span__266": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__267": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__268": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__269": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__270": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Populate R_271": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Populate Regimen from template",
+    "xpath": "//div[contains(normalize-space(text()), 'Populate Regimen from template')]"
+  },
+  "div_Populate R_272": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Populate Regimen from template",
+    "xpath": "//div[contains(normalize-space(text()), 'Populate Regimen from template')]"
+  },
+  "div_Populate R_273": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Populate Regimen from template",
+    "xpath": "//div[contains(normalize-space(text()), 'Populate Regimen from template')]"
+  },
+  "div__274": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-9822cdc2-6b0a-45eb-a262-0c87a73f922d": {
+    "id": "k-9822cdc2-6b0a-45eb-a262-0c87a73f922d",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-9822cdc2-6b0a-45eb-a262-0c87a73f922d']"
+  },
+  "span__276": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__277": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__278": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__279": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__280": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Side Effec_281": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Side Effects",
+    "xpath": "//div[contains(normalize-space(text()), 'Side Effects')]"
+  },
+  "div_Side Effec_282": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Side Effects",
+    "xpath": "//div[contains(normalize-space(text()), 'Side Effects')]"
+  },
+  "div_Side Effec_283": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Side Effects",
+    "xpath": "//div[contains(normalize-space(text()), 'Side Effects')]"
+  },
+  "div__284": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-8f29d5a5-4dae-4f81-828f-ee3267966a37": {
+    "id": "k-8f29d5a5-4dae-4f81-828f-ee3267966a37",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-8f29d5a5-4dae-4f81-828f-ee3267966a37']"
+  },
+  "span__286": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__287": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__288": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__289": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__290": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Support Ac_291": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Support Actions",
+    "xpath": "//div[contains(normalize-space(text()), 'Support Actions')]"
+  },
+  "div_Support Ac_292": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Support Actions",
+    "xpath": "//div[contains(normalize-space(text()), 'Support Actions')]"
+  },
+  "div_Support Ac_293": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Support Actions",
+    "xpath": "//div[contains(normalize-space(text()), 'Support Actions')]"
+  },
+  "div__294": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-826c0087-062c-42e5-a0ae-a03aad8f0793": {
+    "id": "k-826c0087-062c-42e5-a0ae-a03aad8f0793",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-826c0087-062c-42e5-a0ae-a03aad8f0793']"
+  },
+  "span__296": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__297": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__298": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__299": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__300": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Profile Qu_301": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Profile Questionnaire",
+    "xpath": "//div[contains(normalize-space(text()), 'Profile Questionnaire')]"
+  },
+  "div_Profile Qu_302": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Profile Questionnaire",
+    "xpath": "//div[contains(normalize-space(text()), 'Profile Questionnaire')]"
+  },
+  "div_Profile Qu_303": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Profile Questionnaire",
+    "xpath": "//div[contains(normalize-space(text()), 'Profile Questionnaire')]"
+  },
+  "div__304": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-cb8e1e41-7cf5-41e1-a934-199ed384d99d": {
+    "id": "k-cb8e1e41-7cf5-41e1-a934-199ed384d99d",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-cb8e1e41-7cf5-41e1-a934-199ed384d99d']"
+  },
+  "span__306": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__307": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__308": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__309": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__310": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Unschedule_311": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Unscheduled Drugs",
+    "xpath": "//div[contains(normalize-space(text()), 'Unscheduled Drugs')]"
+  },
+  "div_Unschedule_312": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Unscheduled Drugs",
+    "xpath": "//div[contains(normalize-space(text()), 'Unscheduled Drugs')]"
+  },
+  "div_Unschedule_313": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Unscheduled Drugs",
+    "xpath": "//div[contains(normalize-space(text()), 'Unscheduled Drugs')]"
+  },
+  "div__314": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-15406876-85e7-4b58-9000-77861b7873d4": {
+    "id": "k-15406876-85e7-4b58-9000-77861b7873d4",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-15406876-85e7-4b58-9000-77861b7873d4']"
+  },
+  "span__316": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__317": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__318": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__319": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__320": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Default Ad_321": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Default Adherence number of pills to zero",
+    "xpath": "//div[contains(normalize-space(text()), 'Default Adherence number of pills to zero')]"
+  },
+  "div_Default Ad_322": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Default Adherence number of pills to zero",
+    "xpath": "//div[contains(normalize-space(text()), 'Default Adherence number of pills to zero')]"
+  },
+  "div_Default Ad_323": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Default Adherence number of pills to zero",
+    "xpath": "//div[contains(normalize-space(text()), 'Default Adherence number of pills to zero')]"
+  },
+  "div__324": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-c69770d8-ea42-429a-8301-fff48f818a81": {
+    "id": "k-c69770d8-ea42-429a-8301-fff48f818a81",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-c69770d8-ea42-429a-8301-fff48f818a81']"
+  },
+  "span__326": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__327": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__328": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__329": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__330": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Automatic _331": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Automatic Opt In for SMS",
+    "xpath": "//div[contains(normalize-space(text()), 'Automatic Opt In for SMS')]"
+  },
+  "div_Automatic _332": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Automatic Opt In for SMS",
+    "xpath": "//div[contains(normalize-space(text()), 'Automatic Opt In for SMS')]"
+  },
+  "div_Automatic _333": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Automatic Opt In for SMS",
+    "xpath": "//div[contains(normalize-space(text()), 'Automatic Opt In for SMS')]"
+  },
+  "div__334": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-928bcd24-1622-42d1-b74f-7a7f4dd6c908": {
+    "id": "k-928bcd24-1622-42d1-b74f-7a7f4dd6c908",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-928bcd24-1622-42d1-b74f-7a7f4dd6c908']"
+  },
+  "span__336": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__337": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__338": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__339": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__340": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Medidata R_341": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Medidata RAVE Integration",
+    "xpath": "//div[contains(normalize-space(text()), 'Medidata RAVE Integration')]"
+  },
+  "div_Medidata R_342": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Medidata RAVE Integration",
+    "xpath": "//div[contains(normalize-space(text()), 'Medidata RAVE Integration')]"
+  },
+  "div_Medidata R_343": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Medidata RAVE Integration",
+    "xpath": "//div[contains(normalize-space(text()), 'Medidata RAVE Integration')]"
+  },
+  "div__344": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-0fbf8c28-7808-461f-9b77-c864e06f18c0": {
+    "id": "k-0fbf8c28-7808-461f-9b77-c864e06f18c0",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-0fbf8c28-7808-461f-9b77-c864e06f18c0']"
+  },
+  "span__346": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__347": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__348": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__349": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__350": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_User Actio_351": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "User Action Auditing",
+    "xpath": "//div[contains(normalize-space(text()), 'User Action Auditing')]"
+  },
+  "div_User Actio_352": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "User Action Auditing",
+    "xpath": "//div[contains(normalize-space(text()), 'User Action Auditing')]"
+  },
+  "div_User Actio_353": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "User Action Auditing",
+    "xpath": "//div[contains(normalize-space(text()), 'User Action Auditing')]"
+  },
+  "div__354": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-4ca490b9-80f2-4650-9d41-8215635fc19d": {
+    "id": "k-4ca490b9-80f2-4650-9d41-8215635fc19d",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-4ca490b9-80f2-4650-9d41-8215635fc19d']"
+  },
+  "span__356": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__357": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__358": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__359": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__360": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Self Repor_361": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Self Report - calendar",
+    "xpath": "//div[contains(normalize-space(text()), 'Self Report - calendar')]"
+  },
+  "div_Self Repor_362": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Self Report - calendar",
+    "xpath": "//div[contains(normalize-space(text()), 'Self Report - calendar')]"
+  },
+  "div_Self Repor_363": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Self Report - calendar",
+    "xpath": "//div[contains(normalize-space(text()), 'Self Report - calendar')]"
+  },
+  "div__364": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-cbf96407-e173-441b-84b0-30bb66b1b57b": {
+    "id": "k-cbf96407-e173-441b-84b0-30bb66b1b57b",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-cbf96407-e173-441b-84b0-30bb66b1b57b']"
+  },
+  "span__366": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__367": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__368": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__369": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__370": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Unlinking _371": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Unlinking and re-linking Video events",
+    "xpath": "//div[contains(normalize-space(text()), 'Unlinking and re-linking Video events')]"
+  },
+  "div_Unlinking _372": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Unlinking and re-linking Video events",
+    "xpath": "//div[contains(normalize-space(text()), 'Unlinking and re-linking Video events')]"
+  },
+  "div_Unlinking _373": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Unlinking and re-linking Video events",
+    "xpath": "//div[contains(normalize-space(text()), 'Unlinking and re-linking Video events')]"
+  },
+  "div__374": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-68fed6fc-ef6d-4fd0-8114-08805bcdcc37": {
+    "id": "k-68fed6fc-ef6d-4fd0-8114-08805bcdcc37",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-68fed6fc-ef6d-4fd0-8114-08805bcdcc37']"
+  },
+  "span__376": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__377": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__378": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__379": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__380": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Reset Pin _381": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Reset Pin SMS Only",
+    "xpath": "//div[contains(normalize-space(text()), 'Reset Pin SMS Only')]"
+  },
+  "div_Reset Pin _382": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Reset Pin SMS Only",
+    "xpath": "//div[contains(normalize-space(text()), 'Reset Pin SMS Only')]"
+  },
+  "div_Reset Pin _383": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Reset Pin SMS Only",
+    "xpath": "//div[contains(normalize-space(text()), 'Reset Pin SMS Only')]"
+  },
+  "div__384": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-7c6e991d-43b1-4737-9a4d-914bb9076a49": {
+    "id": "k-7c6e991d-43b1-4737-9a4d-914bb9076a49",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-7c6e991d-43b1-4737-9a4d-914bb9076a49']"
+  },
+  "span__386": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__387": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__388": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__389": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__390": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_In-App Mes_391": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "In-App Messaging",
+    "xpath": "//div[contains(normalize-space(text()), 'In-App Messaging')]"
+  },
+  "div_In-App Mes_392": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "In-App Messaging",
+    "xpath": "//div[contains(normalize-space(text()), 'In-App Messaging')]"
+  },
+  "div_In-App Mes_393": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "In-App Messaging",
+    "xpath": "//div[contains(normalize-space(text()), 'In-App Messaging')]"
+  },
+  "div__394": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-76636961-470f-4a92-9098-be813733fede": {
+    "id": "k-76636961-470f-4a92-9098-be813733fede",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-76636961-470f-4a92-9098-be813733fede']"
+  },
+  "span__396": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__397": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__398": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__399": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__400": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Video capt_401": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Video capture for VDOT",
+    "xpath": "//div[contains(normalize-space(text()), 'Video capture for VDOT')]"
+  },
+  "div_Video capt_402": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Video capture for VDOT",
+    "xpath": "//div[contains(normalize-space(text()), 'Video capture for VDOT')]"
+  },
+  "div_Video capt_403": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Video capture for VDOT",
+    "xpath": "//div[contains(normalize-space(text()), 'Video capture for VDOT')]"
+  },
+  "div__404": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-cc4c4bbc-5abe-4442-8d7d-2fa508564580": {
+    "id": "k-cc4c4bbc-5abe-4442-8d7d-2fa508564580",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-cc4c4bbc-5abe-4442-8d7d-2fa508564580']"
+  },
+  "span__406": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__407": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__408": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__409": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__410": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_OCS Messag_411": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "OCS Messaging",
+    "xpath": "//div[contains(normalize-space(text()), 'OCS Messaging')]"
+  },
+  "div_OCS Messag_412": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "OCS Messaging",
+    "xpath": "//div[contains(normalize-space(text()), 'OCS Messaging')]"
+  },
+  "div_OCS Messag_413": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "OCS Messaging",
+    "xpath": "//div[contains(normalize-space(text()), 'OCS Messaging')]"
+  },
+  "div__414": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-1c257ab9-5d40-430d-8f6c-4ae942647146": {
+    "id": "k-1c257ab9-5d40-430d-8f6c-4ae942647146",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-1c257ab9-5d40-430d-8f6c-4ae942647146']"
+  },
+  "span__416": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__417": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__418": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__419": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__420": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Adherence _421": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Adherence Action Model",
+    "xpath": "//div[contains(normalize-space(text()), 'Adherence Action Model')]"
+  },
+  "div_Adherence _422": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Adherence Action Model",
+    "xpath": "//div[contains(normalize-space(text()), 'Adherence Action Model')]"
+  },
+  "div_Adherence _423": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Adherence Action Model",
+    "xpath": "//div[contains(normalize-space(text()), 'Adherence Action Model')]"
+  },
+  "div__424": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-ce928c97-9268-47e1-985d-d690884f03bf": {
+    "id": "k-ce928c97-9268-47e1-985d-d690884f03bf",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-ce928c97-9268-47e1-985d-d690884f03bf']"
+  },
+  "span__426": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__427": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__428": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__429": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__430": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Hide Priva_431": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Hide Privacy Policy On Mobile",
+    "xpath": "//div[contains(normalize-space(text()), 'Hide Privacy Policy On Mobile')]"
+  },
+  "div_Hide Priva_432": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Hide Privacy Policy On Mobile",
+    "xpath": "//div[contains(normalize-space(text()), 'Hide Privacy Policy On Mobile')]"
+  },
+  "div_Hide Priva_433": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Hide Privacy Policy On Mobile",
+    "xpath": "//div[contains(normalize-space(text()), 'Hide Privacy Policy On Mobile')]"
+  },
+  "div__434": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-a1b69e5f-2fa4-4f15-9bcd-36f39c116cc4": {
+    "id": "k-a1b69e5f-2fa4-4f15-9bcd-36f39c116cc4",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-a1b69e5f-2fa4-4f15-9bcd-36f39c116cc4']"
+  },
+  "span__436": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__437": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__438": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__439": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__440": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Symptom Sc_441": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Symptom Screening On Mobile",
+    "xpath": "//div[contains(normalize-space(text()), 'Symptom Screening On Mobile')]"
+  },
+  "div_Symptom Sc_442": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Symptom Screening On Mobile",
+    "xpath": "//div[contains(normalize-space(text()), 'Symptom Screening On Mobile')]"
+  },
+  "div_Symptom Sc_443": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Symptom Screening On Mobile",
+    "xpath": "//div[contains(normalize-space(text()), 'Symptom Screening On Mobile')]"
+  },
+  "div__444": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-f8639a7b-9e95-4dd6-8a5b-157a81690e58": {
+    "id": "k-f8639a7b-9e95-4dd6-8a5b-157a81690e58",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-f8639a7b-9e95-4dd6-8a5b-157a81690e58']"
+  },
+  "span__446": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__447": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__448": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__449": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__450": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_REVAMPED R_451": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "REVAMPED REGIMEN",
+    "xpath": "//div[contains(normalize-space(text()), 'REVAMPED REGIMEN')]"
+  },
+  "div_REVAMPED R_452": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "REVAMPED REGIMEN",
+    "xpath": "//div[contains(normalize-space(text()), 'REVAMPED REGIMEN')]"
+  },
+  "div_REVAMPED R_453": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "REVAMPED REGIMEN",
+    "xpath": "//div[contains(normalize-space(text()), 'REVAMPED REGIMEN')]"
+  },
+  "div__454": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-54e523db-c512-43e2-a2a5-9d0d09a816ad": {
+    "id": "k-54e523db-c512-43e2-a2a5-9d0d09a816ad",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-54e523db-c512-43e2-a2a5-9d0d09a816ad']"
+  },
+  "span__456": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__457": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__458": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__459": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__460": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  }
+}

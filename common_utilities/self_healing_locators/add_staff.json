@@ -1,0 +1,2368 @@
+{
+  "html_Client_Tes_0": {
+    "tag": "html",
+    "text": "Client_Test_1_US Create Staff Account First name* Last name* Email address* Password* Phone number country Phone number* Patient manager: Add to all Treatment Monitor: Add to all Site Manager: Add to all Site Staff Administrator: Test account Client Staff Admin Global Data Administrator Blind Trial Staff Notifications CANCEL SUBMIT Dashboard Patients Staff Reports Admin Admin Settings Configurable Lookups Feature Flags Announcements ADD ANNOUNCEMENT Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT 1 2",
+    "xpath": "//html[contains(normalize-space(text()), 'Client_Test_1_US\nCreate Staff Account\nFirst name*\nLast name*\nEmail address*\nPassword*\nPhone number country\nPhone number*\nPatient manager:\nAdd to all\nTreatment Monitor:\nAdd to all\nSite Manager:\nAdd to all\nSite Staff Administrator:\nTest account\nClient Staff Admin\nGlobal Data Administrator\nBlind Trial Staff\nNotifications\nCANCEL\nSUBMIT\nDashboard\nPatients\nStaff\nReports\nAdmin\nAdmin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nADD ANNOUNCEMENT\n\nStatus\nAnnouncement\nClients Associated\nActions\nActive\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT\n1\n2')]"
+  },
+  "body_Client_Tes_33": {
+    "class": "pace-running pace-running pace-running pace-done pace-done ng-tns-0-0",
+    "tag": "body",
+    "text": "Client_Test_1_US Create Staff Account First name* Last name* Email address* Password* Phone number country Phone number* Patient manager: Add to all Treatment Monitor: Add to all Site Manager: Add to all Site Staff Administrator: Test account Client Staff Admin Global Data Administrator Blind Trial Staff Notifications CANCEL SUBMIT Dashboard Patients Staff Reports Admin Admin Settings Configurable Lookups Feature Flags Announcements ADD ANNOUNCEMENT Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT 1 2",
+    "xpath": "//body[contains(normalize-space(text()), 'Client_Test_1_US\nCreate Staff Account\nFirst name*\nLast name*\nEmail address*\nPassword*\nPhone number country\nPhone number*\nPatient manager:\nAdd to all\nTreatment Monitor:\nAdd to all\nSite Manager:\nAdd to all\nSite Staff Administrator:\nTest account\nClient Staff Admin\nGlobal Data Administrator\nBlind Trial Staff\nNotifications\nCANCEL\nSUBMIT\nDashboard\nPatients\nStaff\nReports\nAdmin\nAdmin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nADD ANNOUNCEMENT\n\nStatus\nAnnouncement\nClients Associated\nActions\nActive\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT\n1\n2')]"
+  },
+  "app_Client_Tes_38": {
+    "tag": "app",
+    "text": "Client_Test_1_US Create Staff Account First name* Last name* Email address* Password* Phone number country United States Phone number* Patient manager: Add to all Treatment Monitor: Add to all Site Manager: Add to all Site Staff Administrator: Test account Client Staff Admin Global Data Administrator Blind Trial Staff Notifications CANCEL SUBMIT Dashboard Patients Staff Reports Admin Admin Settings Configurable Lookups Feature Flags Announcements ADD ANNOUNCEMENT Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT 1 2",
+    "xpath": "//app[contains(normalize-space(text()), 'Client_Test_1_US\nCreate Staff Account\nFirst name*\nLast name*\nEmail address*\nPassword*\nPhone number country\nUnited States\nPhone number*\nPatient manager:\nAdd to all\nTreatment Monitor:\nAdd to all\nSite Manager:\nAdd to all\nSite Staff Administrator:\nTest account\nClient Staff Admin\nGlobal Data Administrator\nBlind Trial Staff\nNotifications\nCANCEL\nSUBMIT\nDashboard\nPatients\nStaff\nReports\nAdmin\nAdmin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nADD ANNOUNCEMENT\n\nStatus\nAnnouncement\nClients Associated\nActions\nActive\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT\n1\n2')]"
+  },
+  "div_Client_Tes_39": {
+    "class": "custom-toolbar",
+    "tag": "div",
+    "text": "Client_Test_1_US Create Staff Account First name* Last name* Email address* Password* Phone number country United States Phone number* +1 Patient manager: Add to all Treatment Monitor: Add to all Site Manager: Add to all Site Staff Administrator: Test account Client Staff Admin Global Data Administrator Blind Trial Staff Notifications CANCEL SUBMIT",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US\nCreate Staff Account\nFirst name*\nLast name*\nEmail address*\nPassword*\nPhone number country\nUnited States\nPhone number*\n+1\nPatient manager:\nAdd to all\nTreatment Monitor:\nAdd to all\nSite Manager:\nAdd to all\nSite Staff Administrator:\nTest account\nClient Staff Admin\nGlobal Data Administrator\nBlind Trial Staff\nNotifications\nCANCEL\nSUBMIT')]"
+  },
+  "div__40": {
+    "class": "logo",
+    "tag": "div",
+    "xpath": "//div[@class='logo']"
+  },
+  "div_Client_Tes_41": {
+    "class": "client-name d-none d-md-inline-flex",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "span_Create Sta_42": {
+    "class": "right-navbar",
+    "tag": "span",
+    "text": "Create Staff Account First name* Last name* Email address* Password* Phone number country United States Phone number* +1 Patient manager: Add to all Treatment Monitor: Add to all Site Manager: Add to all Site Staff Administrator: Test account Client Staff Admin Global Data Administrator Blind Trial Staff Notifications CANCEL SUBMIT",
+    "xpath": "//span[contains(normalize-space(text()), 'Create Staff Account\nFirst name*\nLast name*\nEmail address*\nPassword*\nPhone number country\nUnited States\nPhone number*\n+1\nPatient manager:\nAdd to all\nTreatment Monitor:\nAdd to all\nSite Manager:\nAdd to all\nSite Staff Administrator:\nTest account\nClient Staff Admin\nGlobal Data Administrator\nBlind Trial Staff\nNotifications\nCANCEL\nSUBMIT')]"
+  },
+  "client-header_Create Sta_43": {
+    "tag": "client-header",
+    "text": "Create Staff Account First name* Last name* Email address* Password* Phone number country United States Phone number* +1 Patient manager: Add to all Treatment Monitor: Add to all Site Manager: Add to all Site Staff Administrator: Test account Client Staff Admin Global Data Administrator Blind Trial Staff Notifications CANCEL SUBMIT",
+    "xpath": "//client-header[contains(normalize-space(text()), 'Create Staff Account\nFirst name*\nLast name*\nEmail address*\nPassword*\nPhone number country\nUnited States\nPhone number*\n+1\nPatient manager:\nAdd to all\nTreatment Monitor:\nAdd to all\nSite Manager:\nAdd to all\nSite Staff Administrator:\nTest account\nClient Staff Admin\nGlobal Data Administrator\nBlind Trial Staff\nNotifications\nCANCEL\nSUBMIT')]"
+  },
+  "div__44": {
+    "class": "header-actions",
+    "tag": "div",
+    "xpath": "//div[@class='header-actions']"
+  },
+  "button__45": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__46": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__47": {
+    "class": "ng-fa-icon toolbar-icon text-success",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-success']"
+  },
+  "svg__48": {
+    "class": "svg-inline--fa fa-user-plus",
+    "data-icon": "user-plus",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-plus']"
+  },
+  "path__49": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__50": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__51": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__52": {
+    "class": "ng-fa-icon toolbar-icon text-warning",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-warning']"
+  },
+  "svg__53": {
+    "class": "svg-inline--fa fa-circle-question",
+    "data-icon": "circle-question",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-question']"
+  },
+  "path__54": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__55": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__56": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__57": {
+    "class": "ng-fa-icon toolbar-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon']"
+  },
+  "svg__58": {
+    "class": "svg-inline--fa fa-circle-user",
+    "data-icon": "circle-user",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-user']"
+  },
+  "path__59": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "div_Create Sta_60": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Create Staff Account First name* Last name* Email address* Password* Phone number country United States Phone number* +1 Patient manager: Add to all Treatment Monitor: Add to all Site Manager: Add to all Site Staff Administrator: Test account Client Staff Admin Global Data Administrator Blind Trial Staff Notifications CANCEL SUBMIT",
+    "xpath": "//div[contains(normalize-space(text()), 'Create Staff Account\nFirst name*\nLast name*\nEmail address*\nPassword*\nPhone number country\nUnited States\nPhone number*\n+1\nPatient manager:\nAdd to all\nTreatment Monitor:\nAdd to all\nSite Manager:\nAdd to all\nSite Staff Administrator:\nTest account\nClient Staff Admin\nGlobal Data Administrator\nBlind Trial Staff\nNotifications\nCANCEL\nSUBMIT')]"
+  },
+  "new-staff_Create Sta_61": {
+    "tag": "new-staff",
+    "text": "Create Staff Account First name* Last name* Email address* Password* Phone number country United States Phone number* +1 Patient manager: Add to all Treatment Monitor: Add to all Site Manager: Add to all Site Staff Administrator: Test account Client Staff Admin Global Data Administrator Blind Trial Staff Notifications CANCEL SUBMIT",
+    "xpath": "//new-staff[contains(normalize-space(text()), 'Create Staff Account\nFirst name*\nLast name*\nEmail address*\nPassword*\nPhone number country\nUnited States\nPhone number*\n+1\nPatient manager:\nAdd to all\nTreatment Monitor:\nAdd to all\nSite Manager:\nAdd to all\nSite Staff Administrator:\nTest account\nClient Staff Admin\nGlobal Data Administrator\nBlind Trial Staff\nNotifications\nCANCEL\nSUBMIT')]"
+  },
+  "kendo-dialog_Create Sta_62": {
+    "class": "ng-tns-c2477883202-30 ng-star-inserted k-dialog-wrapper",
+    "tag": "kendo-dialog",
+    "text": "Create Staff Account First name* Last name* Email address* Password* Phone number country United States Phone number* +1 Patient manager: Add to all Treatment Monitor: Add to all Site Manager: Add to all Site Staff Administrator: Test account Client Staff Admin Global Data Administrator Blind Trial Staff Notifications CANCEL SUBMIT",
+    "xpath": "//kendo-dialog[contains(normalize-space(text()), 'Create Staff Account\nFirst name*\nLast name*\nEmail address*\nPassword*\nPhone number country\nUnited States\nPhone number*\n+1\nPatient manager:\nAdd to all\nTreatment Monitor:\nAdd to all\nSite Manager:\nAdd to all\nSite Staff Administrator:\nTest account\nClient Staff Admin\nGlobal Data Administrator\nBlind Trial Staff\nNotifications\nCANCEL\nSUBMIT')]"
+  },
+  "div__63": {
+    "class": "k-overlay ng-tns-c2477883202-30 ng-trigger ng-trigger-overlayAppear",
+    "tag": "div",
+    "xpath": "//div[@class='k-overlay ng-tns-c2477883202-30 ng-trigger ng-trigger-overlayAppear']"
+  },
+  "div_Create Sta_64": {
+    "class": "k-window k-dialog ng-tns-c2477883202-30",
+    "tag": "div",
+    "text": "Create Staff Account First name* Last name* Email address* Password* Phone number country United States Phone number* +1 Patient manager: Add to all Treatment Monitor: Add to all Site Manager: Add to all Site Staff Administrator: Test account Client Staff Admin Global Data Administrator Blind Trial Staff Notifications CANCEL SUBMIT",
+    "xpath": "//div[contains(normalize-space(text()), 'Create Staff Account\nFirst name*\nLast name*\nEmail address*\nPassword*\nPhone number country\nUnited States\nPhone number*\n+1\nPatient manager:\nAdd to all\nTreatment Monitor:\nAdd to all\nSite Manager:\nAdd to all\nSite Staff Administrator:\nTest account\nClient Staff Admin\nGlobal Data Administrator\nBlind Trial Staff\nNotifications\nCANCEL\nSUBMIT')]"
+  },
+  "kendo-dialog-titlebar_Create Sta_65": {
+    "class": "ng-tns-c2477883202-30 ng-star-inserted k-window-titlebar k-dialog-titlebar",
+    "tag": "kendo-dialog-titlebar",
+    "text": "Create Staff Account",
+    "xpath": "//kendo-dialog-titlebar[contains(normalize-space(text()), 'Create Staff Account')]"
+  },
+  "kendo-dialog-title-464273": {
+    "id": "kendo-dialog-title-464273",
+    "class": "k-window-title k-dialog-title",
+    "tag": "span",
+    "text": "Create Staff Account",
+    "xpath": "//span[@id='kendo-dialog-title-464273']"
+  },
+  "div_Create Sta_67": {
+    "class": "custom-modal-title",
+    "tag": "div",
+    "text": "Create Staff Account",
+    "xpath": "//div[contains(normalize-space(text()), 'Create Staff Account')]"
+  },
+  "fa-icon__68": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__69": {
+    "class": "svg-inline--fa fa-user-plus",
+    "data-icon": "user-plus",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-plus']"
+  },
+  "path__70": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "div__71": {
+    "class": "k-window-titlebar-actions k-dialog-titlebar-actions",
+    "tag": "div",
+    "xpath": "//div[@class='k-window-titlebar-actions k-dialog-titlebar-actions']"
+  },
+  "button__72": {
+    "aria-label": "Close",
+    "class": "k-window-titlebar-action k-dialog-titlebar-action k-button k-icon-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Close']"
+  },
+  "kendo-icon-wrapper__73": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__74": {
+    "class": "k-svg-i-x k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-x k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__75": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "span__77": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "kendo-dialog-content-356571": {
+    "id": "kendo-dialog-content-356571",
+    "class": "k-window-content k-dialog-content ng-tns-c2477883202-30",
+    "tag": "div",
+    "text": "First name* Last name* Email address* Password* Phone number country United States Phone number* +1 Patient manager: Add to all Treatment Monitor: Add to all Site Manager: Add to all Site Staff Administrator: Test account Client Staff Admin Global Data Administrator Blind Trial Staff Notifications CANCEL SUBMIT",
+    "xpath": "//div[@id='kendo-dialog-content-356571']"
+  },
+  "form_First name_79": {
+    "class": "ng-tns-c2477883202-30 ng-star-inserted ng-untouched ng-invalid ng-dirty",
+    "tag": "form",
+    "text": "First name* Last name* Email address* Password* Phone number country United States Phone number* +1 Patient manager: Add to all Treatment Monitor: Add to all Site Manager: Add to all Site Staff Administrator: Test account Client Staff Admin Global Data Administrator Blind Trial Staff Notifications CANCEL SUBMIT",
+    "xpath": "//form[contains(normalize-space(text()), 'First name*\nLast name*\nEmail address*\nPassword*\nPhone number country\nUnited States\nPhone number*\n+1\nPatient manager:\nAdd to all\nTreatment Monitor:\nAdd to all\nSite Manager:\nAdd to all\nSite Staff Administrator:\nTest account\nClient Staff Admin\nGlobal Data Administrator\nBlind Trial Staff\nNotifications\nCANCEL\nSUBMIT')]"
+  },
+  "div_First name_80": {
+    "class": "new-staff-container modal-form",
+    "tag": "div",
+    "text": "First name* Last name* Email address* Password* Phone number country United States Phone number* +1 Patient manager: Add to all Treatment Monitor: Add to all Site Manager: Add to all Site Staff Administrator: Test account Client Staff Admin Global Data Administrator Blind Trial Staff Notifications",
+    "xpath": "//div[contains(normalize-space(text()), 'First name*\nLast name*\nEmail address*\nPassword*\nPhone number country\nUnited States\nPhone number*\n+1\nPatient manager:\nAdd to all\nTreatment Monitor:\nAdd to all\nSite Manager:\nAdd to all\nSite Staff Administrator:\nTest account\nClient Staff Admin\nGlobal Data Administrator\nBlind Trial Staff\nNotifications')]"
+  },
+  "div_First name_81": {
+    "class": "staff-info col-lg-12 col-md-12 col-sm-12",
+    "tag": "div",
+    "text": "First name* Last name* Email address* Password* Phone number country United States Phone number* +1 Patient manager: Add to all Treatment Monitor: Add to all Site Manager: Add to all Site Staff Administrator: Test account Client Staff Admin Global Data Administrator Blind Trial Staff Notifications",
+    "xpath": "//div[contains(normalize-space(text()), 'First name*\nLast name*\nEmail address*\nPassword*\nPhone number country\nUnited States\nPhone number*\n+1\nPatient manager:\nAdd to all\nTreatment Monitor:\nAdd to all\nSite Manager:\nAdd to all\nSite Staff Administrator:\nTest account\nClient Staff Admin\nGlobal Data Administrator\nBlind Trial Staff\nNotifications')]"
+  },
+  "div__82": {
+    "class": "row",
+    "tag": "div",
+    "xpath": "//div[@class='row']"
+  },
+  "div_First name_83": {
+    "class": "row",
+    "tag": "div",
+    "text": "First name* Last name* Email address*",
+    "xpath": "//div[contains(normalize-space(text()), 'First name*\nLast name*\nEmail address*')]"
+  },
+  "div_First name_84": {
+    "class": "k-form-field col-lg-4 col-md-4 col-sm-4",
+    "tag": "div",
+    "text": "First name*",
+    "xpath": "//div[contains(normalize-space(text()), 'First name*')]"
+  },
+  "label_First name_85": {
+    "class": "k-label",
+    "tag": "label",
+    "text": "First name*",
+    "xpath": "//label[contains(normalize-space(text()), 'First name*')]"
+  },
+  "first_name": {
+    "id": "first_name",
+    "name": "first_name",
+    "placeholder": "First name",
+    "class": "k-textbox ng-untouched ng-pristine ng-invalid k-input k-input-md k-rounded-md k-input-solid",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@id='first_name']"
+  },
+  "div_Last name*_87": {
+    "class": "k-form-field col-lg-4 col-md-4 col-sm-4",
+    "tag": "div",
+    "text": "Last name*",
+    "xpath": "//div[contains(normalize-space(text()), 'Last name*')]"
+  },
+  "label_Last name*_88": {
+    "class": "k-label",
+    "tag": "label",
+    "text": "Last name*",
+    "xpath": "//label[contains(normalize-space(text()), 'Last name*')]"
+  },
+  "last_name": {
+    "id": "last_name",
+    "name": "last_name",
+    "placeholder": "Last name",
+    "class": "k-textbox ng-untouched ng-pristine ng-invalid k-input k-input-md k-rounded-md k-input-solid",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@id='last_name']"
+  },
+  "div_Email addr_90": {
+    "class": "k-form-field col-lg-4 col-md-4 col-sm-4",
+    "tag": "div",
+    "text": "Email address*",
+    "xpath": "//div[contains(normalize-space(text()), 'Email address*')]"
+  },
+  "label_Email addr_91": {
+    "tag": "label",
+    "text": "Email address*",
+    "xpath": "//label[contains(normalize-space(text()), 'Email address*')]"
+  },
+  "email": {
+    "id": "email",
+    "name": "email",
+    "placeholder": "name@example.com",
+    "class": "k-textbox ng-untouched ng-pristine ng-invalid k-input k-input-md k-rounded-md k-input-solid",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@id='email']"
+  },
+  "div__93": {
+    "class": "row",
+    "tag": "div",
+    "xpath": "//div[@class='row']"
+  },
+  "div_Password* _94": {
+    "class": "row",
+    "tag": "div",
+    "text": "Password* Phone number country United States Phone number* +1",
+    "xpath": "//div[contains(normalize-space(text()), 'Password*\nPhone number country\nUnited States\nPhone number*\n+1')]"
+  },
+  "div_Password*_95": {
+    "class": "k-form-field col-lg-4 col-md-4 col-sm-4",
+    "tag": "div",
+    "text": "Password*",
+    "xpath": "//div[contains(normalize-space(text()), 'Password*')]"
+  },
+  "label_Password*_96": {
+    "tag": "label",
+    "text": "Password*",
+    "xpath": "//label[contains(normalize-space(text()), 'Password*')]"
+  },
+  "span__97": {
+    "class": "chart-icon icon-help_outline",
+    "tag": "span",
+    "xpath": "//span[@class='chart-icon icon-help_outline']"
+  },
+  "password": {
+    "id": "password",
+    "name": "password",
+    "placeholder": "********",
+    "class": "k-textbox ng-untouched ng-pristine ng-invalid k-input k-input-md k-rounded-md k-input-solid",
+    "type": "password",
+    "tag": "input",
+    "xpath": "//input[@id='password']"
+  },
+  "div_Phone numb_99": {
+    "class": "k-form-field col-lg-4 col-md-4 col-sm-4",
+    "tag": "div",
+    "text": "Phone number country United States",
+    "xpath": "//div[contains(normalize-space(text()), 'Phone number country\nUnited States')]"
+  },
+  "label_Phone numb_100": {
+    "tag": "label",
+    "text": "Phone number country",
+    "xpath": "//label[contains(normalize-space(text()), 'Phone number country')]"
+  },
+  "k-218e095e-2703-44f8-a1f0-0080aa8b1b25": {
+    "id": "k-218e095e-2703-44f8-a1f0-0080aa8b1b25",
+    "name": "phoneNumberCountryId",
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "text": "United States",
+    "xpath": "//kendo-dropdownlist[@id='k-218e095e-2703-44f8-a1f0-0080aa8b1b25']"
+  },
+  "k-1c9174bb-075a-4152-a1a6-5d0a381c9772": {
+    "id": "k-1c9174bb-075a-4152-a1a6-5d0a381c9772",
+    "class": "k-input-inner",
+    "tag": "span",
+    "text": "United States",
+    "xpath": "//span[@id='k-1c9174bb-075a-4152-a1a6-5d0a381c9772']"
+  },
+  "span_United Sta_103": {
+    "class": "k-input-value-text",
+    "tag": "span",
+    "text": "United States",
+    "xpath": "//span[contains(normalize-space(text()), 'United States')]"
+  },
+  "button__104": {
+    "aria-label": "Select",
+    "class": "k-input-button k-button k-icon-button k-button-md k-button-solid k-button-solid-base",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Select']"
+  },
+  "kendo-icon-wrapper__105": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__106": {
+    "class": "k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__107": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "responsive-renderer__109": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__110": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div_Phone numb_111": {
+    "class": "k-form-field col-lg-4 col-md-4 col-sm-4",
+    "tag": "div",
+    "text": "Phone number* +1",
+    "xpath": "//div[contains(normalize-space(text()), 'Phone number*\n+1')]"
+  },
+  "label_Phone numb_112": {
+    "tag": "label",
+    "text": "Phone number*",
+    "xpath": "//label[contains(normalize-space(text()), 'Phone number*')]"
+  },
+  "span__113": {
+    "class": "chart-icon icon-help_outline red-icon",
+    "tag": "span",
+    "xpath": "//span[@class='chart-icon icon-help_outline red-icon']"
+  },
+  "div_+1_114": {
+    "class": "phone-input-container",
+    "tag": "div",
+    "text": "+1",
+    "xpath": "//div[contains(normalize-space(text()), '+1')]"
+  },
+  "phone_number": {
+    "id": "phone_number",
+    "name": "phone_number",
+    "placeholder": "Enter phone number",
+    "class": "k-textbox k-input k-input-solid k-phone-input ng-untouched ng-invalid ng-dirty",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@id='phone_number']"
+  },
+  "div__116": {
+    "class": "row",
+    "tag": "div",
+    "xpath": "//div[@class='row']"
+  },
+  "div__117": {
+    "class": "errors",
+    "tag": "div",
+    "xpath": "//div[@class='errors']"
+  },
+  "div__118": {
+    "class": "alert alert-danger",
+    "tag": "div",
+    "xpath": "//div[@class='alert alert-danger']"
+  },
+  "div_Patient ma_119": {
+    "class": "row",
+    "tag": "div",
+    "text": "Patient manager: Add to all Treatment Monitor: Add to all",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient manager:\nAdd to all\nTreatment Monitor:\nAdd to all')]"
+  },
+  "div_Patient ma_120": {
+    "class": "k-form-field col-lg-6 col-md-6 col-sm-6",
+    "tag": "div",
+    "text": "Patient manager: Add to all",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient manager:\nAdd to all')]"
+  },
+  "div_Patient ma_121": {
+    "class": "site-roles-wrapper",
+    "tag": "div",
+    "text": "Patient manager: Add to all",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient manager:\nAdd to all')]"
+  },
+  "label_Patient ma_122": {
+    "tag": "label",
+    "text": "Patient manager: Add to all",
+    "xpath": "//label[contains(normalize-space(text()), 'Patient manager:\nAdd to all')]"
+  },
+  "a_Add to all_123": {
+    "class": "add-to-all-sites",
+    "tag": "a",
+    "text": "Add to all",
+    "xpath": "//a[contains(normalize-space(text()), 'Add to all')]"
+  },
+  "selectedPatientManagers": {
+    "name": "selectedPatientManagers",
+    "class": "undefined k-rounded-md k-input-solid k-multiselect k-input ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-multiselect",
+    "xpath": "//kendo-multiselect[@name='selectedPatientManagers']"
+  },
+  "div__125": {
+    "class": "k-input-values",
+    "tag": "div",
+    "xpath": "//div[@class='k-input-values']"
+  },
+  "k-b8e88fdf-bc7b-43b3-ba19-8b3d02b5ff1f": {
+    "id": "k-b8e88fdf-bc7b-43b3-ba19-8b3d02b5ff1f",
+    "class": "undefined k-chip-list k-selection-multiple",
+    "tag": "kendo-taglist",
+    "xpath": "//kendo-taglist[@id='k-b8e88fdf-bc7b-43b3-ba19-8b3d02b5ff1f']"
+  },
+  "kendo-searchbar_Patient_Manager": {
+    "class": "k-searchbar",
+    "tag": "kendo-searchbar",
+    "xpath": "//kendo-multiselect[@name='selectedPatientManagers']//kendo-searchbar[@class='k-searchbar']"
+  },
+  "k-input_Patient_Manager": {
+    "class": "k-input-inner",
+    "aria-haspopup": "listbox",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//kendo-multiselect[@name='selectedPatientManagers']//input[@aria-haspopup='listbox']"
+  },
+  "responsive-renderer__129": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__130": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div_Treatment _131": {
+    "class": "k-form-field col-lg-6 col-md-6 col-sm-6",
+    "tag": "div",
+    "text": "Treatment Monitor: Add to all",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment Monitor:\nAdd to all')]"
+  },
+  "div_Treatment _132": {
+    "class": "site-roles-wrapper",
+    "tag": "div",
+    "text": "Treatment Monitor: Add to all",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment Monitor:\nAdd to all')]"
+  },
+  "label_Treatment _133": {
+    "tag": "label",
+    "text": "Treatment Monitor: Add to all",
+    "xpath": "//label[contains(normalize-space(text()), 'Treatment Monitor:\nAdd to all')]"
+  },
+  "a_Add to all_134": {
+    "class": "add-to-all-sites",
+    "tag": "a",
+    "text": "Add to all",
+    "xpath": "//a[contains(normalize-space(text()), 'Add to all')]"
+  },
+  "selectedTreatmentMonitors": {
+    "name": "selectedTreatmentMonitors",
+    "class": "undefined k-rounded-md k-input-solid k-multiselect k-input ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-multiselect",
+    "xpath": "//kendo-multiselect[@name='selectedTreatmentMonitors']"
+  },
+  "div__136": {
+    "class": "k-input-values",
+    "tag": "div",
+    "xpath": "//div[@class='k-input-values']"
+  },
+  "k-27212a51-f7f9-419b-8eb4-32e6210580fd": {
+    "id": "k-27212a51-f7f9-419b-8eb4-32e6210580fd",
+    "class": "undefined k-chip-list k-selection-multiple",
+    "tag": "kendo-taglist",
+    "xpath": "//kendo-taglist[@id='k-27212a51-f7f9-419b-8eb4-32e6210580fd']"
+  },
+ "kendo-searchbar_Treatment_Monitors": {
+    "class": "k-searchbar",
+    "tag": "kendo-searchbar",
+    "xpath": "//kendo-multiselect[@name='selectedTreatmentMonitors']//kendo-searchbar[@class='k-searchbar']"
+  },
+  "k-input_Treatment_Monitors": {
+    "class": "k-input-inner",
+    "aria-haspopup": "listbox",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//kendo-multiselect[@name='selectedTreatmentMonitors']//input[@aria-haspopup='listbox']"
+  },
+  "responsive-renderer__140": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__141": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div_Site Manag_142": {
+    "class": "row",
+    "tag": "div",
+    "text": "Site Manager: Add to all Site Staff Administrator:",
+    "xpath": "//div[contains(normalize-space(text()), 'Site Manager:\nAdd to all\nSite Staff Administrator:')]"
+  },
+  "div_Site Manag_143": {
+    "class": "k-form-field col-lg-6 col-md-6 col-sm-6",
+    "tag": "div",
+    "text": "Site Manager: Add to all",
+    "xpath": "//div[contains(normalize-space(text()), 'Site Manager:\nAdd to all')]"
+  },
+  "div_Site Manag_144": {
+    "class": "site-roles-wrapper",
+    "tag": "div",
+    "text": "Site Manager: Add to all",
+    "xpath": "//div[contains(normalize-space(text()), 'Site Manager:\nAdd to all')]"
+  },
+  "label_Site Manag_145": {
+    "tag": "label",
+    "text": "Site Manager: Add to all",
+    "xpath": "//label[contains(normalize-space(text()), 'Site Manager:\nAdd to all')]"
+  },
+  "a_Add to all_146": {
+    "class": "add-to-all-sites",
+    "tag": "a",
+    "text": "Add to all",
+    "xpath": "//a[contains(normalize-space(text()), 'Add to all')]"
+  },
+  "selectedSiteManagers": {
+    "name": "selectedSiteManagers",
+    "class": "undefined k-rounded-md k-input-solid k-multiselect k-input ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-multiselect",
+    "xpath": "//kendo-multiselect[@name='selectedSiteManagers']"
+  },
+  "div__148": {
+    "class": "k-input-values",
+    "tag": "div",
+    "xpath": "//div[@class='k-input-values']"
+  },
+  "k-297ac4e7-55c0-4299-a57a-bb40355edab6": {
+    "id": "k-297ac4e7-55c0-4299-a57a-bb40355edab6",
+    "class": "undefined k-chip-list k-selection-multiple",
+    "tag": "kendo-taglist",
+    "xpath": "//kendo-taglist[@id='k-297ac4e7-55c0-4299-a57a-bb40355edab6']"
+  },
+  "kendo-searchbar_Site_Managers": {
+    "class": "k-searchbar",
+    "tag": "kendo-searchbar",
+    "xpath": "//kendo-multiselect[@name='selectedSiteManagers']//kendo-searchbar[@class='k-searchbar']"
+  },
+  "k-input_Site_Managers": {
+    "class": "k-input-inner",
+    "aria-haspopup": "listbox",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//kendo-multiselect[@name='selectedSiteManagers']//input[@aria-haspopup='listbox']"
+  },
+  "responsive-renderer__152": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__153": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div_Site Staff_154": {
+    "class": "k-form-field col-lg-6 col-md-6 col-sm-6",
+    "tag": "div",
+    "text": "Site Staff Administrator:",
+    "xpath": "//div[contains(normalize-space(text()), 'Site Staff Administrator:')]"
+  },
+  "div_Site Staff_155": {
+    "class": "site-roles-wrapper",
+    "tag": "div",
+    "text": "Site Staff Administrator:",
+    "xpath": "//div[contains(normalize-space(text()), 'Site Staff Administrator:')]"
+  },
+  "label_Site Staff_156": {
+    "tag": "label",
+    "text": "Site Staff Administrator:",
+    "xpath": "//label[contains(normalize-space(text()), 'Site Staff Administrator:')]"
+  },
+  "selectedStaffAdministrators": {
+    "name": "selectedStaffAdministrators",
+    "class": "undefined k-rounded-md k-input-solid k-multiselect k-input ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-multiselect",
+    "xpath": "//kendo-multiselect[@name='selectedStaffAdministrators']"
+  },
+  "div__158": {
+    "class": "k-input-values",
+    "tag": "div",
+    "xpath": "//div[@class='k-input-values']"
+  },
+  "k-fe9c7b35-42a3-4b74-8553-c5037db307e2": {
+    "id": "k-fe9c7b35-42a3-4b74-8553-c5037db307e2",
+    "class": "undefined k-chip-list k-selection-multiple",
+    "tag": "kendo-taglist",
+    "xpath": "//kendo-taglist[@id='k-fe9c7b35-42a3-4b74-8553-c5037db307e2']"
+  },
+  "kendo-searchbar_Staff_Administrators": {
+    "class": "k-searchbar",
+    "tag": "kendo-searchbar",
+    "xpath": "//kendo-multiselect[@name='selectedStaffAdministrators']//kendo-searchbar[@class='k-searchbar']"
+  },
+  "k-input_Staff_Administrators": {
+    "class": "k-input-inner",
+    "aria-haspopup": "listbox",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//kendo-multiselect[@name='selectedStaffAdministrators']//input[@aria-haspopup='listbox']"
+  },
+  "responsive-renderer__162": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__163": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div_Test accou_164": {
+    "class": "row radio-row",
+    "tag": "div",
+    "text": "Test account Client Staff Admin Global Data Administrator Blind Trial Staff Notifications",
+    "xpath": "//div[contains(normalize-space(text()), 'Test account\nClient Staff Admin\nGlobal Data Administrator\nBlind Trial Staff\nNotifications')]"
+  },
+  "div_Test accou_165": {
+    "class": "col-lg-6 col-md-6 col-sm-6 account_is_active",
+    "tag": "div",
+    "text": "Test account",
+    "xpath": "//div[contains(normalize-space(text()), 'Test account')]"
+  },
+  "label_Test accou_166": {
+    "class": "k-label",
+    "tag": "label",
+    "text": "Test account",
+    "xpath": "//label[contains(normalize-space(text()), 'Test account')]"
+  },
+  "isTest": {
+    "id": "isTest",
+    "name": "isTest",
+    "class": "k-checkbox k-checkbox-md",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='isTest']"
+  },
+  "label__168": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath": "//label[@class='k-checkbox-label k-label']"
+  },
+  "isActive": {
+    "id": "isActive",
+    "name": "isActive",
+    "class": "k-checkbox k-checkbox-md",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='isActive']"
+  },
+  "isRegimenEditor": {
+    "id": "isRegimenEditor",
+    "name": "isRegimenEditor",
+    "class": "k-checkbox k-checkbox-md",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='isRegimenEditor']"
+  },
+  "div_Client Sta_169": {
+    "class": "col-lg-6 col-md-6 col-sm-6 account_is_active ng-star-inserted",
+    "tag": "div",
+    "text": "Client Staff Admin",
+    "xpath": "//div[contains(normalize-space(text()), 'Client Staff Admin')]"
+  },
+  "label_Client Sta_170": {
+    "class": "k-label",
+    "tag": "label",
+    "text": "Client Staff Admin",
+    "xpath": "//label[contains(normalize-space(text()), 'Client Staff Admin')]"
+  },
+  "isClientAdmin": {
+    "id": "isClientAdmin",
+    "name": "isClientAdmin",
+    "class": "k-checkbox k-checkbox-md",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='isClientAdmin']"
+  },
+  "label__172": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath": "//label[@class='k-checkbox-label k-label']"
+  },
+  "div_Global Dat_173": {
+    "class": "col-lg-6 col-md-6 col-sm-6 account_is_active ng-star-inserted",
+    "tag": "div",
+    "text": "Global Data Administrator",
+    "xpath": "//div[contains(normalize-space(text()), 'Global Data Administrator')]"
+  },
+  "label_Global Dat_174": {
+    "class": "k-label",
+    "tag": "label",
+    "text": "Global Data Administrator",
+    "xpath": "//label[contains(normalize-space(text()), 'Global Data Administrator')]"
+  },
+  "isGlobalDataAdministrator": {
+    "id": "isGlobalDataAdministrator",
+    "name": "isGlobalDataAdministrator",
+    "class": "k-checkbox k-checkbox-md",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='isGlobalDataAdministrator']"
+  },
+  "label__176": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath": "//label[@class='k-checkbox-label k-label']"
+  },
+  "div_Blind Tria_177": {
+    "class": "col-lg-6 col-md-6 col-sm-6 account_is_active disabled",
+    "tag": "div",
+    "text": "Blind Trial Staff",
+    "xpath": "//div[contains(normalize-space(text()), 'Blind Trial Staff')]"
+  },
+  "label_Blind Tria_178": {
+    "class": "k-label",
+    "tag": "label",
+    "text": "Blind Trial Staff",
+    "xpath": "//label[contains(normalize-space(text()), 'Blind Trial Staff')]"
+  },
+  "isBlindTrial": {
+    "id": "isBlindTrial",
+    "name": "isBlindTrial",
+    "class": "k-checkbox k-checkbox-md",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='isBlindTrial']"
+  },
+  "label__180": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath": "//label[@class='k-checkbox-label k-label']"
+  },
+  "div_Notificati_181": {
+    "class": "col-lg-6 col-md-6 col-sm-6 account_is_active",
+    "tag": "div",
+    "text": "Notifications",
+    "xpath": "//div[contains(normalize-space(text()), 'Notifications')]"
+  },
+  "label_Notificati_182": {
+    "class": "k-label",
+    "tag": "label",
+    "text": "Notifications",
+    "xpath": "//label[contains(normalize-space(text()), 'Notifications')]"
+  },
+  "send_reminders": {
+    "id": "send_reminders",
+    "name": "send_reminders",
+    "class": "k-checkbox k-checkbox-md",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='send_reminders']"
+  },
+  "label__184": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath": "//label[@class='k-checkbox-label k-label']"
+  },
+  "popover__185": {
+    "tag": "popover",
+    "xpath": "//popover"
+  },
+  "kendo-dialog-actions_CANCEL SUB_186": {
+    "class": "p-0 pt-3 k-actions k-actions-horizontal k-window-actions k-dialog-actions k-actions-stretched",
+    "tag": "kendo-dialog-actions",
+    "text": "CANCEL SUBMIT",
+    "xpath": "//kendo-dialog-actions[contains(normalize-space(text()), 'CANCEL\nSUBMIT')]"
+  },
+  "button_CANCEL_187": {
+    "class": "cancel-button k-button k-button-md k-rounded-md k-button-solid-base k-button-solid ng-star-inserted",
+    "type": "submit",
+    "tag": "button",
+    "text": "CANCEL",
+    "xpath": "//button[contains(normalize-space(text()), 'CANCEL')]"
+  },
+  "span_CANCEL_188": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "CANCEL",
+    "xpath": "//span[contains(normalize-space(text()), 'CANCEL')]"
+  },
+  "button_SUBMIT": {
+    "class": "save-button k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid k-focus ng-star-inserted",
+    "type": "submit",
+    "tag": "button",
+    "text": "SUBMIT",
+    "xpath": "//button[contains(normalize-space(text()), 'SUBMIT')]"
+  },
+  "span_SUBMIT_190": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "SUBMIT",
+    "xpath": "//span[contains(normalize-space(text()), 'SUBMIT')]"
+  },
+  "kendo-drawer-container_Dashboard _191": {
+    "class": "k-drawer-container k-drawer-mini k-drawer-push",
+    "tag": "kendo-drawer-container",
+    "text": "Dashboard Patients Staff Reports Admin Admin Settings Configurable Lookups Feature Flags Announcements ADD ANNOUNCEMENT Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT 1 2",
+    "xpath": "//kendo-drawer-container[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin\nAdmin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nADD ANNOUNCEMENT\n\nStatus\nAnnouncement\nClients Associated\nActions\nActive\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT\n1\n2')]"
+  },
+  "kendo-drawer_Dashboard _192": {
+    "class": "border-0 k-drawer k-drawer-start",
+    "tag": "kendo-drawer",
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//kendo-drawer[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "div_Dashboard _193": {
+    "class": "k-drawer-wrapper",
+    "tag": "div",
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "ul_Dashboard _194": {
+    "class": "k-drawer-items",
+    "tag": "ul",
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//ul[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "li_Dashboard_195": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Dashboard",
+    "xpath": "//li[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "div_Dashboard_196": {
+    "tag": "div",
+    "text": "Dashboard",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "fa-icon__197": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__198": {
+    "class": "svg-inline--fa fa-house",
+    "data-icon": "house",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-house']"
+  },
+  "path__199": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Dashboard_200": {
+    "tag": "p",
+    "text": "Dashboard",
+    "xpath": "//p[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "li_Patients_201": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Patients",
+    "xpath": "//li[contains(normalize-space(text()), 'Patients')]"
+  },
+  "div_Patients_202": {
+    "tag": "div",
+    "text": "Patients",
+    "xpath": "//div[contains(normalize-space(text()), 'Patients')]"
+  },
+  "fa-icon__203": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__204": {
+    "class": "svg-inline--fa fa-user-large",
+    "data-icon": "user-large",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-large']"
+  },
+  "path__205": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Patients_206": {
+    "tag": "p",
+    "text": "Patients",
+    "xpath": "//p[contains(normalize-space(text()), 'Patients')]"
+  },
+  "li_Staff_207": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Staff",
+    "xpath": "//li[contains(normalize-space(text()), 'Staff')]"
+  },
+  "div_Staff_208": {
+    "tag": "div",
+    "text": "Staff",
+    "xpath": "//div[contains(normalize-space(text()), 'Staff')]"
+  },
+  "fa-icon__209": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__210": {
+    "class": "svg-inline--fa fa-user-nurse",
+    "data-icon": "user-nurse",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-nurse']"
+  },
+  "path__211": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Staff_212": {
+    "tag": "p",
+    "text": "Staff",
+    "xpath": "//p[contains(normalize-space(text()), 'Staff')]"
+  },
+  "li_Reports_213": {
+    "class": "k-drawer-item",
+    "tag": "li",
+    "text": "Reports",
+    "xpath": "//li[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div_Reports_214": {
+    "tag": "div",
+    "text": "Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
+  },
+  "fa-icon__215": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__216": {
+    "class": "svg-inline--fa fa-file-waveform",
+    "data-icon": "file-waveform",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-file-waveform']"
+  },
+  "path__217": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Reports_218": {
+    "tag": "p",
+    "text": "Reports",
+    "xpath": "//p[contains(normalize-space(text()), 'Reports')]"
+  },
+  "li_Admin_219": {
+    "class": "k-drawer-item k-selected",
+    "tag": "li",
+    "text": "Admin",
+    "xpath": "//li[contains(normalize-space(text()), 'Admin')]"
+  },
+  "div_Admin_220": {
+    "tag": "div",
+    "text": "Admin",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin')]"
+  },
+  "fa-icon__221": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__222": {
+    "class": "svg-inline--fa fa-gear",
+    "data-icon": "gear",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-gear']"
+  },
+  "path__223": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Admin_224": {
+    "tag": "p",
+    "text": "Admin",
+    "xpath": "//p[contains(normalize-space(text()), 'Admin')]"
+  },
+  "kendo-drawer-content_Admin Sett_225": {
+    "class": "k-drawer-content",
+    "tag": "kendo-drawer-content",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements ADD ANNOUNCEMENT Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT 1 2",
+    "xpath": "//kendo-drawer-content[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nADD ANNOUNCEMENT\n\nStatus\nAnnouncement\nClients Associated\nActions\nActive\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT\n1\n2')]"
+  },
+  "app-admin_Admin Sett_227": {
+    "class": "ng-star-inserted",
+    "tag": "app-admin",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements ADD ANNOUNCEMENT Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT 1 2",
+    "xpath": "//app-admin[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nADD ANNOUNCEMENT\n\nStatus\nAnnouncement\nClients Associated\nActions\nActive\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT\n1\n2')]"
+  },
+  "sidebar-filter_Admin Sett_228": {
+    "tag": "sidebar-filter",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements ADD ANNOUNCEMENT Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT 1 2",
+    "xpath": "//sidebar-filter[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nADD ANNOUNCEMENT\n\nStatus\nAnnouncement\nClients Associated\nActions\nActive\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT\n1\n2')]"
+  },
+  "main_Admin Sett_229": {
+    "class": "main",
+    "tag": "main",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements ADD ANNOUNCEMENT Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT 1 2",
+    "xpath": "//main[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nADD ANNOUNCEMENT\n\nStatus\nAnnouncement\nClients Associated\nActions\nActive\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT\n1\n2')]"
+  },
+  "ng-sidebar-container_Admin Sett_230": {
+    "class": "wrapper-with-sidebar",
+    "tag": "ng-sidebar-container",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements ADD ANNOUNCEMENT Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT 1 2",
+    "xpath": "//ng-sidebar-container[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nADD ANNOUNCEMENT\n\nStatus\nAnnouncement\nClients Associated\nActions\nActive\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT\n1\n2')]"
+  },
+  "ng-sidebar__231": {
+    "tag": "ng-sidebar",
+    "xpath": "//ng-sidebar"
+  },
+  "aside__232": {
+    "class": "ng-sidebar--inert ng-sidebar ng-sidebar--closed ng-sidebar--right ng-sidebar--push",
+    "tag": "aside",
+    "xpath": "//aside[@class='ng-sidebar--inert ng-sidebar ng-sidebar--closed ng-sidebar--right ng-sidebar--push']"
+  },
+  "div__233": {
+    "class": "clear-filters",
+    "tag": "div",
+    "xpath": "//div[@class='clear-filters']"
+  },
+  "div__234": {
+    "class": "close-filterbar",
+    "tag": "div",
+    "xpath": "//div[@class='close-filterbar']"
+  },
+  "span__235": {
+    "class": "icon-close2 position-relative",
+    "tag": "span",
+    "xpath": "//span[@class='icon-close2 position-relative']"
+  },
+  "div__236": {
+    "class": "header-filterbar",
+    "tag": "div",
+    "xpath": "//div[@class='header-filterbar']"
+  },
+  "div__237": {
+    "class": "sidebar-filter",
+    "tag": "div",
+    "xpath": "//div[@class='sidebar-filter']"
+  },
+  "kendo-panelbar__238": {
+    "class": "k-panelbar k-pos-relative",
+    "tag": "kendo-panelbar",
+    "xpath": "//kendo-panelbar[@class='k-panelbar k-pos-relative']"
+  },
+  "k-panelbar-4-item-sites": {
+    "id": "k-panelbar-4-item-sites",
+    "class": "ng-tns-c3003368627-25 k-level-0 k-panelbar-item k-state-default k-expanded k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-4-item-sites']"
+  },
+  "span__240": {
+    "class": "ng-tns-c3003368627-25 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-25 k-link']"
+  },
+  "span__241": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-25 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-25 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__242": {
+    "class": "ng-tns-c3003368627-25 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-25 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__243": {
+    "class": "k-svg-i-chevron-up k-panelbar-toggle k-panelbar-collapse k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-up k-panelbar-toggle k-panelbar-collapse k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__244": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "div__246": {
+    "class": "ng-tns-c3003368627-25 ng-trigger ng-trigger-toggle ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='ng-tns-c3003368627-25 ng-trigger ng-trigger-toggle ng-star-inserted']"
+  },
+  "div__247": {
+    "class": "k-content k-panelbar-content ng-tns-c3003368627-25 ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='k-content k-panelbar-content ng-tns-c3003368627-25 ng-star-inserted']"
+  },
+  "sites_bar": {
+    "id": "sites_bar",
+    "class": "ng-star-inserted",
+    "tag": "ul",
+    "xpath": "//ul[@id='sites_bar']"
+  },
+  "li__249": {
+    "class": "ng-star-inserted",
+    "tag": "li",
+    "xpath": "//li[@class='ng-star-inserted']"
+  },
+  "site_1": {
+    "id": "site_1",
+    "class": "k-checkbox",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='site_1']"
+  },
+  "label__251": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath": "//label[@class='k-checkbox-label k-label']"
+  },
+  "li__252": {
+    "class": "ng-star-inserted",
+    "tag": "li",
+    "xpath": "//li[@class='ng-star-inserted']"
+  },
+  "site_2": {
+    "id": "site_2",
+    "class": "k-checkbox",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='site_2']"
+  },
+  "label__254": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath": "//label[@class='k-checkbox-label k-label']"
+  },
+  "li__255": {
+    "class": "ng-star-inserted",
+    "tag": "li",
+    "xpath": "//li[@class='ng-star-inserted']"
+  },
+  "site_3": {
+    "id": "site_3",
+    "class": "k-checkbox",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='site_3']"
+  },
+  "label__257": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath": "//label[@class='k-checkbox-label k-label']"
+  },
+  "li__258": {
+    "class": "ng-star-inserted",
+    "tag": "li",
+    "xpath": "//li[@class='ng-star-inserted']"
+  },
+  "site_4": {
+    "id": "site_4",
+    "class": "k-checkbox",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='site_4']"
+  },
+  "label__260": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath": "//label[@class='k-checkbox-label k-label']"
+  },
+  "k-panelbar-4-item-treatment_monitors": {
+    "id": "k-panelbar-4-item-treatment_monitors",
+    "class": "ng-tns-c3003368627-26 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-4-item-treatment_monitors']"
+  },
+  "span__262": {
+    "class": "ng-tns-c3003368627-26 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-26 k-link']"
+  },
+  "span__263": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-26 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-26 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__264": {
+    "class": "ng-tns-c3003368627-26 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-26 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__265": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__266": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "k-panelbar-4-item-patient_managers": {
+    "id": "k-panelbar-4-item-patient_managers",
+    "class": "ng-tns-c3003368627-27 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-4-item-patient_managers']"
+  },
+  "span__269": {
+    "class": "ng-tns-c3003368627-27 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-27 k-link']"
+  },
+  "span__270": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-27 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-27 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__271": {
+    "class": "ng-tns-c3003368627-27 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-27 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__272": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__273": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "k-panelbar-4-item-diseases": {
+    "id": "k-panelbar-4-item-diseases",
+    "class": "ng-tns-c3003368627-28 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-4-item-diseases']"
+  },
+  "span__276": {
+    "class": "ng-tns-c3003368627-28 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-28 k-link']"
+  },
+  "span__277": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-28 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-28 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__278": {
+    "class": "ng-tns-c3003368627-28 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-28 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__279": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__280": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "k-panelbar-4-item-observation_types": {
+    "id": "k-panelbar-4-item-observation_types",
+    "class": "ng-tns-c3003368627-29 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-4-item-observation_types']"
+  },
+  "span__283": {
+    "class": "ng-tns-c3003368627-29 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-29 k-link']"
+  },
+  "span__284": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-29 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-29 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__285": {
+    "class": "ng-tns-c3003368627-29 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-29 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__286": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__287": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "div_Admin Sett_289": {
+    "class": "ng-sidebar__content ng-sidebar__content--animate",
+    "tag": "div",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements ADD ANNOUNCEMENT Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT 1 2",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nADD ANNOUNCEMENT\n\nStatus\nAnnouncement\nClients Associated\nActions\nActive\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT\n1\n2')]"
+  },
+  "div_Admin Sett_290": {
+    "class": "content-wrapper",
+    "tag": "div",
+    "text": "Admin Settings Configurable Lookups Feature Flags Announcements ADD ANNOUNCEMENT Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT 1 2",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nAnnouncements\nADD ANNOUNCEMENT\n\nStatus\nAnnouncement\nClients Associated\nActions\nActive\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT\n1\n2')]"
+  },
+  "div_Admin Sett_291": {
+    "class": "sub-header",
+    "tag": "div",
+    "text": "Admin Settings",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings')]"
+  },
+  "div_Admin Sett_292": {
+    "class": "sub-nav",
+    "tag": "div",
+    "text": "Admin Settings",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings')]"
+  },
+  "div_Admin Sett_293": {
+    "class": "breadcrumb-custom",
+    "tag": "div",
+    "text": "Admin Settings",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings')]"
+  },
+  "span_Admin Sett_294": {
+    "class": "my-header-name",
+    "tag": "span",
+    "text": "Admin Settings",
+    "xpath": "//span[contains(normalize-space(text()), 'Admin Settings')]"
+  },
+  "div__295": {
+    "class": "sidebar-toggle-icon ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='sidebar-toggle-icon ng-star-inserted']"
+  },
+  "span__296": {
+    "class": "icon-funnel",
+    "tag": "span",
+    "xpath": "//span[@class='icon-funnel']"
+  },
+  "div_Configurab_297": {
+    "class": "my-page-content pb-50px",
+    "tag": "div",
+    "text": "Configurable Lookups Feature Flags Announcements ADD ANNOUNCEMENT Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT 1 2",
+    "xpath": "//div[contains(normalize-space(text()), 'Configurable Lookups\nFeature Flags\nAnnouncements\nADD ANNOUNCEMENT\n\nStatus\nAnnouncement\nClients Associated\nActions\nActive\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT\n1\n2')]"
+  },
+  "kendo-tabstrip_Configurab_298": {
+    "class": "ng-tns-c655264150-24 k-tabstrip k-pos-relative k-tabstrip-top ng-star-inserted",
+    "tag": "kendo-tabstrip",
+    "text": "Configurable Lookups Feature Flags Announcements ADD ANNOUNCEMENT Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT 1 2",
+    "xpath": "//kendo-tabstrip[contains(normalize-space(text()), 'Configurable Lookups\nFeature Flags\nAnnouncements\nADD ANNOUNCEMENT\n\nStatus\nAnnouncement\nClients Associated\nActions\nActive\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT\n1\n2')]"
+  },
+  "div_Configurab_299": {
+    "class": "k-tabstrip-items-wrapper ng-tns-c655264150-24 k-hstack ng-star-inserted",
+    "tag": "div",
+    "text": "Configurable Lookups Feature Flags Announcements",
+    "xpath": "//div[contains(normalize-space(text()), 'Configurable Lookups\nFeature Flags\nAnnouncements')]"
+  },
+  "ul_Configurab_300": {
+    "class": "k-reset k-tabstrip-items ng-tns-c655264150-24",
+    "tag": "ul",
+    "text": "Configurable Lookups Feature Flags Announcements",
+    "xpath": "//ul[contains(normalize-space(text()), 'Configurable Lookups\nFeature Flags\nAnnouncements')]"
+  },
+  "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-0": {
+    "id": "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-0",
+    "class": "ng-tns-c655264150-24 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Configurable Lookups",
+    "xpath": "//li[@id='k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-0']"
+  },
+  "span_Configurab_302": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Configurable Lookups",
+    "xpath": "//span[contains(normalize-space(text()), 'Configurable Lookups')]"
+  },
+  "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-1": {
+    "id": "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-1",
+    "class": "ng-tns-c655264150-24 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Feature Flags",
+    "xpath": "//li[@id='k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-1']"
+  },
+  "span_Feature Fl_304": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Feature Flags",
+    "xpath": "//span[contains(normalize-space(text()), 'Feature Flags')]"
+  },
+  "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-2": {
+    "id": "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-2",
+    "class": "ng-tns-c655264150-24 k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "text": "Announcements",
+    "xpath": "//li[@id='k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-2']"
+  },
+  "span_Announceme_306": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Announcements",
+    "xpath": "//span[contains(normalize-space(text()), 'Announcements')]"
+  },
+  "k-tabstrip-tabpanel-4de49805-c2fd-4373-94e9-15b798ab48e0-2": {
+    "id": "k-tabstrip-tabpanel-4de49805-c2fd-4373-94e9-15b798ab48e0-2",
+    "class": "ng-tns-c655264150-24 ng-trigger ng-trigger-state k-tabstrip-content k-active ng-star-inserted",
+    "tag": "div",
+    "text": "ADD ANNOUNCEMENT Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT 1 2",
+    "xpath": "//div[@id='k-tabstrip-tabpanel-4de49805-c2fd-4373-94e9-15b798ab48e0-2']"
+  },
+  "div_ADD ANNOUN_308": {
+    "class": "main-container ng-star-inserted",
+    "tag": "div",
+    "text": "ADD ANNOUNCEMENT Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT 1 2",
+    "xpath": "//div[contains(normalize-space(text()), 'ADD ANNOUNCEMENT\n\nStatus\nAnnouncement\nClients Associated\nActions\nActive\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT\n1\n2')]"
+  },
+  "div_ADD ANNOUN_309": {
+    "class": "row",
+    "tag": "div",
+    "text": "ADD ANNOUNCEMENT",
+    "xpath": "//div[contains(normalize-space(text()), 'ADD ANNOUNCEMENT')]"
+  },
+  "div_ADD ANNOUN_310": {
+    "class": "col-12 d-flex justify-content-end",
+    "tag": "div",
+    "text": "ADD ANNOUNCEMENT",
+    "xpath": "//div[contains(normalize-space(text()), 'ADD ANNOUNCEMENT')]"
+  },
+  "button_ADD ANNOUN_311": {
+    "class": "k-button-sm k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid",
+    "type": "submit",
+    "tag": "button",
+    "text": "ADD ANNOUNCEMENT",
+    "xpath": "//button[contains(normalize-space(text()), 'ADD ANNOUNCEMENT')]"
+  },
+  "span_ADD ANNOUN_312": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "ADD ANNOUNCEMENT",
+    "xpath": "//span[contains(normalize-space(text()), 'ADD ANNOUNCEMENT')]"
+  },
+  "br__313": {
+    "tag": "br",
+    "xpath": "//br"
+  },
+  "div_Status Ann_314": {
+    "class": "row",
+    "tag": "div",
+    "text": "Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT 1 2",
+    "xpath": "//div[contains(normalize-space(text()), 'Status\nAnnouncement\nClients Associated\nActions\nActive\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT\n1\n2')]"
+  },
+  "kendo-grid_Status Ann_315": {
+    "class": "k-grid k-grid-md",
+    "tag": "kendo-grid",
+    "text": "Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT 1 2",
+    "xpath": "//kendo-grid[contains(normalize-space(text()), 'Status\nAnnouncement\nClients Associated\nActions\nActive\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT\n1\n2')]"
+  },
+  "k-da8a6b07-9aee-4cbd-bee6-4c3e17074606": {
+    "id": "k-da8a6b07-9aee-4cbd-bee6-4c3e17074606",
+    "aria-label": "Data table",
+    "class": "k-grid-aria-root",
+    "tag": "div",
+    "text": "Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT",
+    "xpath": "//div[@id='k-da8a6b07-9aee-4cbd-bee6-4c3e17074606']"
+  },
+  "div_Status Ann_317": {
+    "class": "k-grid-header ng-star-inserted",
+    "tag": "div",
+    "text": "Status Announcement Clients Associated Actions",
+    "xpath": "//div[contains(normalize-space(text()), 'Status\nAnnouncement\nClients Associated\nActions')]"
+  },
+  "div_Status Ann_318": {
+    "class": "k-grid-header-wrap",
+    "tag": "div",
+    "text": "Status Announcement Clients Associated Actions",
+    "xpath": "//div[contains(normalize-space(text()), 'Status\nAnnouncement\nClients Associated\nActions')]"
+  },
+  "table_Status Ann_319": {
+    "class": "k-grid-header-table k-table k-table-md",
+    "tag": "table",
+    "text": "Status Announcement Clients Associated Actions",
+    "xpath": "//table[contains(normalize-space(text()), 'Status\nAnnouncement\nClients Associated\nActions')]"
+  },
+  "colgroup__320": {
+    "tag": "colgroup",
+    "xpath": "//colgroup"
+  },
+  "col__321": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__322": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__323": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__324": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "thead_Status Ann_325": {
+    "class": "k-table-thead",
+    "tag": "thead",
+    "text": "Status Announcement Clients Associated Actions",
+    "xpath": "//thead[contains(normalize-space(text()), 'Status\nAnnouncement\nClients Associated\nActions')]"
+  },
+  "tr_Status Ann_326": {
+    "class": "k-table-row ng-star-inserted",
+    "tag": "tr",
+    "text": "Status Announcement Clients Associated Actions",
+    "xpath": "//tr[contains(normalize-space(text()), 'Status\nAnnouncement\nClients Associated\nActions')]"
+  },
+  "th_Status_327": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "Status",
+    "xpath": "//th[contains(normalize-space(text()), 'Status')]"
+  },
+  "span_Status_328": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "Status",
+    "xpath": "//span[contains(normalize-space(text()), 'Status')]"
+  },
+  "span_Status_329": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "Status",
+    "xpath": "//span[contains(normalize-space(text()), 'Status')]"
+  },
+  "span_Status_330": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "Status",
+    "xpath": "//span[contains(normalize-space(text()), 'Status')]"
+  },
+  "th_Announceme_331": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "Announcement",
+    "xpath": "//th[contains(normalize-space(text()), 'Announcement')]"
+  },
+  "span_Announceme_332": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "Announcement",
+    "xpath": "//span[contains(normalize-space(text()), 'Announcement')]"
+  },
+  "span_Announceme_333": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "Announcement",
+    "xpath": "//span[contains(normalize-space(text()), 'Announcement')]"
+  },
+  "span_Announceme_334": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "Announcement",
+    "xpath": "//span[contains(normalize-space(text()), 'Announcement')]"
+  },
+  "th_Clients As_335": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "Clients Associated",
+    "xpath": "//th[contains(normalize-space(text()), 'Clients Associated')]"
+  },
+  "span_Clients As_336": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "Clients Associated",
+    "xpath": "//span[contains(normalize-space(text()), 'Clients Associated')]"
+  },
+  "span_Clients As_337": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "Clients Associated",
+    "xpath": "//span[contains(normalize-space(text()), 'Clients Associated')]"
+  },
+  "span_Clients As_338": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "Clients Associated",
+    "xpath": "//span[contains(normalize-space(text()), 'Clients Associated')]"
+  },
+  "th_Actions_339": {
+    "class": "k-header k-table-th ng-star-inserted",
+    "tag": "th",
+    "text": "Actions",
+    "xpath": "//th[contains(normalize-space(text()), 'Actions')]"
+  },
+  "span_Actions_340": {
+    "class": "k-cell-inner ng-star-inserted",
+    "tag": "span",
+    "text": "Actions",
+    "xpath": "//span[contains(normalize-space(text()), 'Actions')]"
+  },
+  "span_Actions_341": {
+    "class": "k-link",
+    "tag": "span",
+    "text": "Actions",
+    "xpath": "//span[contains(normalize-space(text()), 'Actions')]"
+  },
+  "span_Actions_342": {
+    "class": "k-column-title ng-star-inserted",
+    "tag": "span",
+    "text": "Actions",
+    "xpath": "//span[contains(normalize-space(text()), 'Actions')]"
+  },
+  "kendo-grid-list_Active hap_343": {
+    "class": "k-grid-container ng-star-inserted",
+    "tag": "kendo-grid-list",
+    "text": "Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT",
+    "xpath": "//kendo-grid-list[contains(normalize-space(text()), 'Active\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT')]"
+  },
+  "div_Active hap_344": {
+    "class": "k-grid-content k-virtual-content",
+    "tag": "div",
+    "text": "Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT",
+    "xpath": "//div[contains(normalize-space(text()), 'Active\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT')]"
+  },
+  "div_Active hap_345": {
+    "class": "k-grid-table-wrap",
+    "tag": "div",
+    "text": "Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT",
+    "xpath": "//div[contains(normalize-space(text()), 'Active\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT')]"
+  },
+  "table_Active hap_346": {
+    "class": "k-grid-table k-table k-table-md",
+    "tag": "table",
+    "text": "Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT",
+    "xpath": "//table[contains(normalize-space(text()), 'Active\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT')]"
+  },
+  "colgroup__347": {
+    "tag": "colgroup",
+    "xpath": "//colgroup"
+  },
+  "col__348": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__349": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__350": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "col__351": {
+    "class": "ng-star-inserted",
+    "tag": "col",
+    "xpath": "//col[@class='ng-star-inserted']"
+  },
+  "tbody_Active hap_352": {
+    "class": "k-table-tbody",
+    "tag": "tbody",
+    "text": "Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT",
+    "xpath": "//tbody[contains(normalize-space(text()), 'Active\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT')]"
+  },
+  "tr_Active hap_353": {
+    "class": "k-master-row k-table-row ng-star-inserted",
+    "tag": "tr",
+    "text": "Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT",
+    "xpath": "//tr[contains(normalize-space(text()), 'Active\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT')]"
+  },
+  "td_Active_354": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "Active",
+    "xpath": "//td[contains(normalize-space(text()), 'Active')]"
+  },
+  "span_Active_355": {
+    "class": "badge d-inline-block text-center px-3 py-2 bg-success ng-star-inserted",
+    "tag": "span",
+    "text": "Active",
+    "xpath": "//span[contains(normalize-space(text()), 'Active')]"
+  },
+  "td_happy bday_356": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "happy bday. have a nice day.",
+    "xpath": "//td[contains(normalize-space(text()), 'happy bday. have a nice day.')]"
+  },
+  "div_happy bday_357": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "happy bday. have a nice day.",
+    "xpath": "//div[contains(normalize-space(text()), 'happy bday. have a nice day.')]"
+  },
+  "p_happy bday_358": {
+    "tag": "p",
+    "text": "happy bday. have a nice day.",
+    "xpath": "//p[contains(normalize-space(text()), 'happy bday. have a nice day.')]"
+  },
+  "td_Client_Tes_359": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "Client_Test_6_Ind Client_Test_1_US",
+    "xpath": "//td[contains(normalize-space(text()), 'Client_Test_6_Ind\nClient_Test_1_US')]"
+  },
+  "div_Client_Tes_360": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Client_Test_6_Ind",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_6_Ind')]"
+  },
+  "span_Client_Tes_361": {
+    "class": "badge bg-dark text-center",
+    "tag": "span",
+    "text": "Client_Test_6_Ind",
+    "xpath": "//span[contains(normalize-space(text()), 'Client_Test_6_Ind')]"
+  },
+  "div_Client_Tes_362": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "span_Client_Tes_363": {
+    "class": "badge bg-dark text-center",
+    "tag": "span",
+    "text": "Client_Test_1_US",
+    "xpath": "//span[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "td_EDIT_364": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "EDIT",
+    "xpath": "//td[contains(normalize-space(text()), 'EDIT')]"
+  },
+  "button_EDIT_365": {
+    "class": "k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid ng-star-inserted",
+    "type": "submit",
+    "tag": "button",
+    "text": "EDIT",
+    "xpath": "//button[contains(normalize-space(text()), 'EDIT')]"
+  },
+  "span_EDIT_366": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "EDIT",
+    "xpath": "//span[contains(normalize-space(text()), 'EDIT')]"
+  },
+  "tr_Inactive I_367": {
+    "class": "k-master-row k-alt k-table-alt-row k-table-row ng-star-inserted",
+    "tag": "tr",
+    "text": "Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT",
+    "xpath": "//tr[contains(normalize-space(text()), 'Inactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT')]"
+  },
+  "td_Inactive_368": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "Inactive",
+    "xpath": "//td[contains(normalize-space(text()), 'Inactive')]"
+  },
+  "span_Inactive_369": {
+    "class": "badge d-inline-block text-center px-3 py-2 bg-danger ng-star-inserted",
+    "tag": "span",
+    "text": "Inactive",
+    "xpath": "//span[contains(normalize-space(text()), 'Inactive')]"
+  },
+  "td_It is fun _370": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything!",
+    "xpath": "//td[contains(normalize-space(text()), 'It is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!')]"
+  },
+  "div_It is fun _371": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything!",
+    "xpath": "//div[contains(normalize-space(text()), 'It is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!')]"
+  },
+  "p_It is fun _372": {
+    "tag": "p",
+    "text": "It is fun that we can choose the colors of these!",
+    "xpath": "//p[contains(normalize-space(text()), 'It is fun that we can choose the colors of these!')]"
+  },
+  "p__373": {
+    "tag": "p",
+    "xpath": "//p"
+  },
+  "p_Bold?_374": {
+    "tag": "p",
+    "text": "Bold?",
+    "xpath": "//p[contains(normalize-space(text()), 'Bold?')]"
+  },
+  "strong_Bold?_375": {
+    "tag": "strong",
+    "text": "Bold?",
+    "xpath": "//strong[contains(normalize-space(text()), 'Bold?')]"
+  },
+  "p_Italic?_376": {
+    "tag": "p",
+    "text": "Italic?",
+    "xpath": "//p[contains(normalize-space(text()), 'Italic?')]"
+  },
+  "em_Italic?_377": {
+    "tag": "em",
+    "text": "Italic?",
+    "xpath": "//em[contains(normalize-space(text()), 'Italic?')]"
+  },
+  "p_Underline?_378": {
+    "tag": "p",
+    "text": "Underline?",
+    "xpath": "//p[contains(normalize-space(text()), 'Underline?')]"
+  },
+  "u_Underline?_379": {
+    "tag": "u",
+    "text": "Underline?",
+    "xpath": "//u[contains(normalize-space(text()), 'Underline?')]"
+  },
+  "p_Everything_380": {
+    "tag": "p",
+    "text": "Everything!",
+    "xpath": "//p[contains(normalize-space(text()), 'Everything!')]"
+  },
+  "strong_Everything_381": {
+    "tag": "strong",
+    "text": "Everything!",
+    "xpath": "//strong[contains(normalize-space(text()), 'Everything!')]"
+  },
+  "em_Everything_382": {
+    "tag": "em",
+    "text": "Everything!",
+    "xpath": "//em[contains(normalize-space(text()), 'Everything!')]"
+  },
+  "u_Everything_383": {
+    "tag": "u",
+    "text": "Everything!",
+    "xpath": "//u[contains(normalize-space(text()), 'Everything!')]"
+  },
+  "td__384": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "xpath": "//td[@class='k-table-td k-touch-action-auto ng-star-inserted']"
+  },
+  "td_EDIT_385": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "EDIT",
+    "xpath": "//td[contains(normalize-space(text()), 'EDIT')]"
+  },
+  "button_EDIT_386": {
+    "class": "k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid ng-star-inserted",
+    "type": "submit",
+    "tag": "button",
+    "text": "EDIT",
+    "xpath": "//button[contains(normalize-space(text()), 'EDIT')]"
+  },
+  "span_EDIT_387": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "EDIT",
+    "xpath": "//span[contains(normalize-space(text()), 'EDIT')]"
+  },
+  "tr_Inactive H_388": {
+    "class": "k-master-row k-table-row ng-star-inserted",
+    "tag": "tr",
+    "text": "Inactive Happy holiday. this is url EDIT",
+    "xpath": "//tr[contains(normalize-space(text()), 'Inactive\nHappy holiday. this is url\nEDIT')]"
+  },
+  "td_Inactive_389": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "Inactive",
+    "xpath": "//td[contains(normalize-space(text()), 'Inactive')]"
+  },
+  "span_Inactive_390": {
+    "class": "badge d-inline-block text-center px-3 py-2 bg-danger ng-star-inserted",
+    "tag": "span",
+    "text": "Inactive",
+    "xpath": "//span[contains(normalize-space(text()), 'Inactive')]"
+  },
+  "td_Happy holi_391": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "Happy holiday. this is url",
+    "xpath": "//td[contains(normalize-space(text()), 'Happy holiday. this is url')]"
+  },
+  "div_Happy holi_392": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Happy holiday. this is url",
+    "xpath": "//div[contains(normalize-space(text()), 'Happy holiday. this is url')]"
+  },
+  "p_Happy holi_393": {
+    "tag": "p",
+    "text": "Happy holiday. this is url",
+    "xpath": "//p[contains(normalize-space(text()), 'Happy holiday. this is url')]"
+  },
+  "strong_Happy holi_394": {
+    "tag": "strong",
+    "text": "Happy holiday",
+    "xpath": "//strong[contains(normalize-space(text()), 'Happy holiday')]"
+  },
+  "a_url_395": {
+    "tag": "a",
+    "text": "url",
+    "xpath": "//a[contains(normalize-space(text()), 'url')]"
+  },
+  "td__396": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "xpath": "//td[@class='k-table-td k-touch-action-auto ng-star-inserted']"
+  },
+  "td_EDIT_397": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "EDIT",
+    "xpath": "//td[contains(normalize-space(text()), 'EDIT')]"
+  },
+  "button_EDIT_398": {
+    "class": "k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid ng-star-inserted",
+    "type": "submit",
+    "tag": "button",
+    "text": "EDIT",
+    "xpath": "//button[contains(normalize-space(text()), 'EDIT')]"
+  },
+  "span_EDIT_399": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "EDIT",
+    "xpath": "//span[contains(normalize-space(text()), 'EDIT')]"
+  },
+  "tr_Inactive h_400": {
+    "class": "k-master-row k-alt k-table-alt-row k-table-row ng-star-inserted",
+    "tag": "tr",
+    "text": "Inactive happy weekend. Have a nice day. url EDIT",
+    "xpath": "//tr[contains(normalize-space(text()), 'Inactive\nhappy weekend. Have a nice day. url\nEDIT')]"
+  },
+  "td_Inactive_401": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "Inactive",
+    "xpath": "//td[contains(normalize-space(text()), 'Inactive')]"
+  },
+  "span_Inactive_402": {
+    "class": "badge d-inline-block text-center px-3 py-2 bg-danger ng-star-inserted",
+    "tag": "span",
+    "text": "Inactive",
+    "xpath": "//span[contains(normalize-space(text()), 'Inactive')]"
+  },
+  "td_happy week_403": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "happy weekend. Have a nice day. url",
+    "xpath": "//td[contains(normalize-space(text()), 'happy weekend. Have a nice day. url')]"
+  },
+  "div_happy week_404": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "happy weekend. Have a nice day. url",
+    "xpath": "//div[contains(normalize-space(text()), 'happy weekend. Have a nice day. url')]"
+  },
+  "p_happy week_405": {
+    "tag": "p",
+    "text": "happy weekend. Have a nice day. url",
+    "xpath": "//p[contains(normalize-space(text()), 'happy weekend. Have a nice day. url')]"
+  },
+  "a_url_406": {
+    "tag": "a",
+    "text": "url",
+    "xpath": "//a[contains(normalize-space(text()), 'url')]"
+  },
+  "td__407": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "xpath": "//td[@class='k-table-td k-touch-action-auto ng-star-inserted']"
+  },
+  "td_EDIT_408": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "EDIT",
+    "xpath": "//td[contains(normalize-space(text()), 'EDIT')]"
+  },
+  "button_EDIT_409": {
+    "class": "k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid ng-star-inserted",
+    "type": "submit",
+    "tag": "button",
+    "text": "EDIT",
+    "xpath": "//button[contains(normalize-space(text()), 'EDIT')]"
+  },
+  "span_EDIT_410": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "EDIT",
+    "xpath": "//span[contains(normalize-space(text()), 'EDIT')]"
+  },
+  "tr_Inactive T_411": {
+    "class": "k-master-row k-table-row ng-star-inserted",
+    "tag": "tr",
+    "text": "Inactive Trying to add announcement even after existing announcement is active EDIT",
+    "xpath": "//tr[contains(normalize-space(text()), 'Inactive\nTrying to add announcement even after existing announcement is active\nEDIT')]"
+  },
+  "td_Inactive_412": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "Inactive",
+    "xpath": "//td[contains(normalize-space(text()), 'Inactive')]"
+  },
+  "span_Inactive_413": {
+    "class": "badge d-inline-block text-center px-3 py-2 bg-danger ng-star-inserted",
+    "tag": "span",
+    "text": "Inactive",
+    "xpath": "//span[contains(normalize-space(text()), 'Inactive')]"
+  },
+  "td_Trying to _414": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "Trying to add announcement even after existing announcement is active",
+    "xpath": "//td[contains(normalize-space(text()), 'Trying to add announcement even after existing announcement is active')]"
+  },
+  "div_Trying to _415": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Trying to add announcement even after existing announcement is active",
+    "xpath": "//div[contains(normalize-space(text()), 'Trying to add announcement even after existing announcement is active')]"
+  },
+  "p_Trying to _416": {
+    "tag": "p",
+    "text": "Trying to add announcement even after existing announcement is active",
+    "xpath": "//p[contains(normalize-space(text()), 'Trying to add announcement even after existing announcement is active')]"
+  },
+  "td__417": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "xpath": "//td[@class='k-table-td k-touch-action-auto ng-star-inserted']"
+  },
+  "td_EDIT_418": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "text": "EDIT",
+    "xpath": "//td[contains(normalize-space(text()), 'EDIT')]"
+  },
+  "button_EDIT_419": {
+    "class": "k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid ng-star-inserted",
+    "type": "submit",
+    "tag": "button",
+    "text": "EDIT",
+    "xpath": "//button[contains(normalize-space(text()), 'EDIT')]"
+  },
+  "span_EDIT_420": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "EDIT",
+    "xpath": "//span[contains(normalize-space(text()), 'EDIT')]"
+  },
+  "div__421": {
+    "class": "k-height-container",
+    "tag": "div",
+    "xpath": "//div[@class='k-height-container']"
+  },
+  "div__422": {
+    "tag": "div",
+    "xpath": "//div"
+  },
+  "kendo-pager_1 2_423": {
+    "class": "k-pager k-pager-wrap k-grid-pager k-pager-md ng-star-inserted",
+    "tag": "kendo-pager",
+    "text": "1 2",
+    "xpath": "//kendo-pager[contains(normalize-space(text()), '1\n2')]"
+  },
+  "div_1 2_424": {
+    "class": "k-pager-numbers-wrap ng-star-inserted",
+    "tag": "div",
+    "text": "1 2",
+    "xpath": "//div[contains(normalize-space(text()), '1\n2')]"
+  },
+  "kendo-pager-prev-buttons__425": {
+    "class": "ng-star-inserted",
+    "tag": "kendo-pager-prev-buttons",
+    "xpath": "//kendo-pager-prev-buttons[@class='ng-star-inserted']"
+  },
+  "button__426": {
+    "aria-label": "Go to the first page",
+    "class": "k-pager-nav k-pager-first k-button k-icon-button k-disabled k-button-md k-button-flat-base k-button-flat",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Go to the first page']"
+  },
+  "kendo-icon-wrapper__427": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__428": {
+    "class": "k-svg-i-caret-alt-to-left k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-to-left k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__429": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "path__430": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "span__431": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "button__432": {
+    "aria-label": "Go to the previous page",
+    "class": "k-pager-nav k-button k-icon-button k-disabled k-button-md k-button-flat-base k-button-flat",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Go to the previous page']"
+  },
+  "kendo-icon-wrapper__433": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__434": {
+    "class": "k-svg-i-caret-alt-left k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-left k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__435": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "path__436": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "span__437": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "kendo-pager-numeric-buttons_1 2_438": {
+    "class": "ng-star-inserted",
+    "tag": "kendo-pager-numeric-buttons",
+    "text": "1 2",
+    "xpath": "//kendo-pager-numeric-buttons[contains(normalize-space(text()), '1\n2')]"
+  },
+  "select__439": {
+    "aria-label": "Select page",
+    "class": "k-dropdown-list k-dropdown k-picker k-picker-solid k-rounded-md k-picker-md",
+    "type": "select-one",
+    "tag": "select",
+    "xpath": "//select[@aria-label='Select page']"
+  },
+  "option__440": {
+    "aria-label": "Page 1",
+    "class": "k-selected ng-star-inserted",
+    "tag": "option",
+    "xpath": "//option[@aria-label='Page 1']"
+  },
+  "option__441": {
+    "aria-label": "Page 2",
+    "class": "ng-star-inserted",
+    "tag": "option",
+    "xpath": "//option[@aria-label='Page 2']"
+  },
+  "div_1 2_442": {
+    "class": "k-pager-numbers",
+    "tag": "div",
+    "text": "1 2",
+    "xpath": "//div[contains(normalize-space(text()), '1\n2')]"
+  },
+  "button_1_443": {
+    "aria-label": "Page 1",
+    "class": "k-pager-nav k-button k-selected k-button-md k-button-flat-primary k-button-flat ng-star-inserted",
+    "type": "button",
+    "tag": "button",
+    "text": "1",
+    "xpath": "//button[@aria-label='Page 1']"
+  },
+  "span_1_444": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "1",
+    "xpath": "//span[contains(normalize-space(text()), '1')]"
+  },
+  "button_2_445": {
+    "aria-label": "Page 2",
+    "class": "k-pager-nav k-button k-button-md k-button-flat-primary k-button-flat ng-star-inserted",
+    "type": "button",
+    "tag": "button",
+    "text": "2",
+    "xpath": "//button[@aria-label='Page 2']"
+  },
+  "span_2_446": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "2",
+    "xpath": "//span[contains(normalize-space(text()), '2')]"
+  },
+  "kendo-pager-next-buttons__447": {
+    "class": "ng-star-inserted",
+    "tag": "kendo-pager-next-buttons",
+    "xpath": "//kendo-pager-next-buttons[@class='ng-star-inserted']"
+  },
+  "button__448": {
+    "aria-label": "Go to the next page",
+    "class": "k-pager-nav k-button k-icon-button k-button-md k-button-flat-base k-button-flat",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Go to the next page']"
+  },
+  "kendo-icon-wrapper__449": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__450": {
+    "class": "k-svg-i-caret-alt-right k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-right k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__451": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "path__452": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "span__453": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "button__454": {
+    "aria-label": "Go to the last page",
+    "class": "k-pager-nav k-pager-last k-button k-icon-button k-button-md k-button-flat-base k-button-flat",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Go to the last page']"
+  },
+  "kendo-icon-wrapper__455": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__456": {
+    "class": "k-svg-i-caret-alt-to-right k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-to-right k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__457": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "path__458": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "span__459": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "kendo-pager-info__460": {
+    "class": "k-pager-info k-label ng-star-inserted",
+    "tag": "kendo-pager-info",
+    "xpath": "//kendo-pager-info[@class='k-pager-info k-label ng-star-inserted']"
+  },
+  "kendo-resize-sensor__461": {
+    "class": "ng-star-inserted",
+    "tag": "kendo-resize-sensor",
+    "xpath": "//kendo-resize-sensor[@class='ng-star-inserted']"
+  }
+}

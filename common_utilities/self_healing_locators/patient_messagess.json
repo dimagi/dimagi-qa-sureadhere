@@ -1,0 +1,1363 @@
+{
+  "html_Client_Tes_0": {
+    "tag": "html",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports Admin pat_1 pat_1 | Site_1_US Treatment start date Sep 4, 2025 Exp. end date Sep 17, 2025 MRN e1234567 SA-ID SA-7469 Patient manager Automation Testuser Treatment monitor None Overview Adherence Regimen Profile Messages Pill count Reports Patient chat TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//html[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\nAdmin\npat_1 pat_1 | Site_1_US\nTreatment start date\nSep 4, 2025\nExp. end date\nSep 17, 2025\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPatient chat\nTUESDAY, SEPTEMBER 2, 2025\nDemo User\nYour pin number is: 3260 \nDemo User\nhi test \nhello \nTHURSDAY, SEPTEMBER 4, 2025\nDemo User\nYour pin number is: 4434 \nhello \nhi \nFRIDAY, SEPTEMBER 5, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSATURDAY, SEPTEMBER 6, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSUNDAY, SEPTEMBER 7, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nMONDAY, SEPTEMBER 8, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nDemo User\nhello \nhi \nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \n            @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "body_Client_Tes_31": {
+    "class": "pace-done pace-done pace-done ng-tns-0-0",
+    "tag": "body",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports Admin pat_1 pat_1 | Site_1_US Treatment start date Sep 4, 2025 Exp. end date Sep 17, 2025 MRN e1234567 SA-ID SA-7469 Patient manager Automation Testuser Treatment monitor None Overview Adherence Regimen Profile Messages Pill count Reports Patient chat TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//body[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\nAdmin\npat_1 pat_1 | Site_1_US\nTreatment start date\nSep 4, 2025\nExp. end date\nSep 17, 2025\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPatient chat\nTUESDAY, SEPTEMBER 2, 2025\nDemo User\nYour pin number is: 3260 \nDemo User\nhi test \nhello \nTHURSDAY, SEPTEMBER 4, 2025\nDemo User\nYour pin number is: 4434 \nhello \nhi \nFRIDAY, SEPTEMBER 5, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSATURDAY, SEPTEMBER 6, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSUNDAY, SEPTEMBER 7, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nMONDAY, SEPTEMBER 8, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nDemo User\nhello \nhi \nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \n            @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div__32": {
+    "class": "pace pace-inactive",
+    "tag": "div",
+    "xpath": "//div[@class='pace pace-inactive']"
+  },
+  "div__33": {
+    "class": "pace-progress",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress']"
+  },
+  "div__34": {
+    "class": "pace-progress-inner",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress-inner']"
+  },
+  "div__35": {
+    "class": "pace-activity",
+    "tag": "div",
+    "xpath": "//div[@class='pace-activity']"
+  },
+  "app_Client_Tes_36": {
+    "tag": "app",
+    "text": "Client_Test_1_US Dashboard Patients Staff Reports Admin pat_1 pat_1 | Site_1_US Treatment start date Sep 4, 2025 Exp. end date Sep 17, 2025 MRN e1234567 SA-ID SA-7469 Patient manager Automation Testuser Treatment monitor None Overview Adherence Regimen Profile Messages Pill count Reports Patient chat TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//app[contains(normalize-space(text()), 'Client_Test_1_US\nDashboard\nPatients\nStaff\nReports\nAdmin\npat_1 pat_1 | Site_1_US\nTreatment start date\nSep 4, 2025\nExp. end date\nSep 17, 2025\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPatient chat\nTUESDAY, SEPTEMBER 2, 2025\nDemo User\nYour pin number is: 3260 \nDemo User\nhi test \nhello \nTHURSDAY, SEPTEMBER 4, 2025\nDemo User\nYour pin number is: 4434 \nhello \nhi \nFRIDAY, SEPTEMBER 5, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSATURDAY, SEPTEMBER 6, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSUNDAY, SEPTEMBER 7, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nMONDAY, SEPTEMBER 8, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nDemo User\nhello \nhi \nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \n            @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_Client_Tes_37": {
+    "class": "custom-toolbar",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "div__38": {
+    "class": "logo",
+    "tag": "div",
+    "xpath": "//div[@class='logo']"
+  },
+  "div_Client_Tes_39": {
+    "class": "client-name d-none d-md-inline-flex",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "span__40": {
+    "class": "right-navbar ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='right-navbar ng-star-inserted']"
+  },
+  "client-header__41": {
+    "tag": "client-header",
+    "xpath": "//client-header"
+  },
+  "div__42": {
+    "class": "header-actions",
+    "tag": "div",
+    "xpath": "//div[@class='header-actions']"
+  },
+  "button__43": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat ng-star-inserted",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat ng-star-inserted' and @type='submit']"
+  },
+  "span__44": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__45": {
+    "class": "ng-fa-icon toolbar-icon text-success",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-success']"
+  },
+  "svg__46": {
+    "class": "svg-inline--fa fa-user-plus",
+    "data-icon": "user-plus",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-plus']"
+  },
+  "path__47": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__48": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__49": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__50": {
+    "class": "ng-fa-icon toolbar-icon text-warning",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-warning']"
+  },
+  "svg__51": {
+    "class": "svg-inline--fa fa-circle-question",
+    "data-icon": "circle-question",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-question']"
+  },
+  "path__52": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__53": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__54": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__55": {
+    "class": "ng-fa-icon toolbar-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon']"
+  },
+  "svg__56": {
+    "class": "svg-inline--fa fa-circle-user",
+    "data-icon": "circle-user",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-user']"
+  },
+  "path__57": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "kendo-drawer-container_Dashboard _58": {
+    "class": "k-drawer-container k-drawer-mini k-drawer-push",
+    "tag": "kendo-drawer-container",
+    "text": "Dashboard Patients Staff Reports Admin pat_1 pat_1 | Site_1_US Treatment start date Sep 4, 2025 Exp. end date Sep 17, 2025 MRN e1234567 SA-ID SA-7469 Patient manager Automation Testuser Treatment monitor None Overview Adherence Regimen Profile Messages Pill count Reports Patient chat TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//kendo-drawer-container[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin\npat_1 pat_1 | Site_1_US\nTreatment start date\nSep 4, 2025\nExp. end date\nSep 17, 2025\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPatient chat\nTUESDAY, SEPTEMBER 2, 2025\nDemo User\nYour pin number is: 3260 \nDemo User\nhi test \nhello \nTHURSDAY, SEPTEMBER 4, 2025\nDemo User\nYour pin number is: 4434 \nhello \nhi \nFRIDAY, SEPTEMBER 5, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSATURDAY, SEPTEMBER 6, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSUNDAY, SEPTEMBER 7, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nMONDAY, SEPTEMBER 8, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nDemo User\nhello \nhi \nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \n            @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "kendo-drawer_Dashboard _59": {
+    "class": "border-0 k-drawer k-drawer-start",
+    "tag": "kendo-drawer",
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//kendo-drawer[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "div_Dashboard _60": {
+    "class": "k-drawer-wrapper",
+    "tag": "div",
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "ul_Dashboard _61": {
+    "class": "k-drawer-items",
+    "tag": "ul",
+    "text": "Dashboard Patients Staff Reports Admin",
+    "xpath": "//ul[contains(normalize-space(text()), 'Dashboard\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "li_Dashboard_62": {
+    "class": "k-drawer-item ng-star-inserted",
+    "tag": "li",
+    "text": "Dashboard",
+    "xpath": "//li[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "div_Dashboard_63": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Dashboard",
+    "xpath": "//div[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "fa-icon__64": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__65": {
+    "class": "svg-inline--fa fa-house",
+    "data-icon": "house",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-house']"
+  },
+  "path__66": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Dashboard_67": {
+    "tag": "p",
+    "text": "Dashboard",
+    "xpath": "//p[contains(normalize-space(text()), 'Dashboard')]"
+  },
+  "li_Patients_68": {
+    "class": "k-drawer-item ng-star-inserted k-selected",
+    "tag": "li",
+    "text": "Patients",
+    "xpath": "//li[contains(normalize-space(text()), 'Patients')]"
+  },
+  "div_Patients_69": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Patients",
+    "xpath": "//div[contains(normalize-space(text()), 'Patients')]"
+  },
+  "fa-icon__70": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__71": {
+    "class": "svg-inline--fa fa-user-large",
+    "data-icon": "user-large",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-large']"
+  },
+  "path__72": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Patients_73": {
+    "tag": "p",
+    "text": "Patients",
+    "xpath": "//p[contains(normalize-space(text()), 'Patients')]"
+  },
+  "li_Staff_74": {
+    "class": "k-drawer-item ng-star-inserted",
+    "tag": "li",
+    "text": "Staff",
+    "xpath": "//li[contains(normalize-space(text()), 'Staff')]"
+  },
+  "div_Staff_75": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Staff",
+    "xpath": "//div[contains(normalize-space(text()), 'Staff')]"
+  },
+  "fa-icon__76": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__77": {
+    "class": "svg-inline--fa fa-user-nurse",
+    "data-icon": "user-nurse",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-nurse']"
+  },
+  "path__78": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Staff_79": {
+    "tag": "p",
+    "text": "Staff",
+    "xpath": "//p[contains(normalize-space(text()), 'Staff')]"
+  },
+  "li_Reports_80": {
+    "class": "k-drawer-item ng-star-inserted",
+    "tag": "li",
+    "text": "Reports",
+    "xpath": "//li[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div_Reports_81": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
+  },
+  "fa-icon__82": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__83": {
+    "class": "svg-inline--fa fa-file-waveform",
+    "data-icon": "file-waveform",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-file-waveform']"
+  },
+  "path__84": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Reports_85": {
+    "tag": "p",
+    "text": "Reports",
+    "xpath": "//p[contains(normalize-space(text()), 'Reports')]"
+  },
+  "li_Admin_86": {
+    "class": "k-drawer-item ng-star-inserted",
+    "tag": "li",
+    "text": "Admin",
+    "xpath": "//li[contains(normalize-space(text()), 'Admin')]"
+  },
+  "div_Admin_87": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Admin",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin')]"
+  },
+  "fa-icon__88": {
+    "class": "ng-fa-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon']"
+  },
+  "svg__89": {
+    "class": "svg-inline--fa fa-gear",
+    "data-icon": "gear",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-gear']"
+  },
+  "path__90": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "p_Admin_91": {
+    "tag": "p",
+    "text": "Admin",
+    "xpath": "//p[contains(normalize-space(text()), 'Admin')]"
+  },
+  "kendo-drawer-content_pat_1 pat__92": {
+    "class": "k-drawer-content",
+    "tag": "kendo-drawer-content",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date Sep 4, 2025 Exp. end date Sep 17, 2025 MRN e1234567 SA-ID SA-7469 Patient manager Automation Testuser Treatment monitor None Overview Adherence Regimen Profile Messages Pill count Reports Patient chat TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//kendo-drawer-content[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nSep 4, 2025\nExp. end date\nSep 17, 2025\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPatient chat\nTUESDAY, SEPTEMBER 2, 2025\nDemo User\nYour pin number is: 3260 \nDemo User\nhi test \nhello \nTHURSDAY, SEPTEMBER 4, 2025\nDemo User\nYour pin number is: 4434 \nhello \nhi \nFRIDAY, SEPTEMBER 5, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSATURDAY, SEPTEMBER 6, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSUNDAY, SEPTEMBER 7, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nMONDAY, SEPTEMBER 8, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nDemo User\nhello \nhi \nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \n            @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "adherence_pat_1 pat__94": {
+    "class": "ng-star-inserted",
+    "tag": "adherence",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date Sep 4, 2025 Exp. end date Sep 17, 2025 MRN e1234567 SA-ID SA-7469 Patient manager Automation Testuser Treatment monitor None Overview Adherence Regimen Profile Messages Pill count Reports Patient chat TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//adherence[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nSep 4, 2025\nExp. end date\nSep 17, 2025\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPatient chat\nTUESDAY, SEPTEMBER 2, 2025\nDemo User\nYour pin number is: 3260 \nDemo User\nhi test \nhello \nTHURSDAY, SEPTEMBER 4, 2025\nDemo User\nYour pin number is: 4434 \nhello \nhi \nFRIDAY, SEPTEMBER 5, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSATURDAY, SEPTEMBER 6, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSUNDAY, SEPTEMBER 7, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nMONDAY, SEPTEMBER 8, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nDemo User\nhello \nhi \nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \n            @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "ng-sidebar-container_pat_1 pat__95": {
+    "class": "adherence-wrapper",
+    "tag": "ng-sidebar-container",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date Sep 4, 2025 Exp. end date Sep 17, 2025 MRN e1234567 SA-ID SA-7469 Patient manager Automation Testuser Treatment monitor None Overview Adherence Regimen Profile Messages Pill count Reports Patient chat TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//ng-sidebar-container[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nSep 4, 2025\nExp. end date\nSep 17, 2025\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPatient chat\nTUESDAY, SEPTEMBER 2, 2025\nDemo User\nYour pin number is: 3260 \nDemo User\nhi test \nhello \nTHURSDAY, SEPTEMBER 4, 2025\nDemo User\nYour pin number is: 4434 \nhello \nhi \nFRIDAY, SEPTEMBER 5, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSATURDAY, SEPTEMBER 6, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSUNDAY, SEPTEMBER 7, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nMONDAY, SEPTEMBER 8, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nDemo User\nhello \nhi \nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \n            @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_pat_1 pat__96": {
+    "class": "ng-sidebar__content ng-sidebar__content--animate",
+    "tag": "div",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date Sep 4, 2025 Exp. end date Sep 17, 2025 MRN e1234567 SA-ID SA-7469 Patient manager Automation Testuser Treatment monitor None Overview Adherence Regimen Profile Messages Pill count Reports Patient chat TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nSep 4, 2025\nExp. end date\nSep 17, 2025\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPatient chat\nTUESDAY, SEPTEMBER 2, 2025\nDemo User\nYour pin number is: 3260 \nDemo User\nhi test \nhello \nTHURSDAY, SEPTEMBER 4, 2025\nDemo User\nYour pin number is: 4434 \nhello \nhi \nFRIDAY, SEPTEMBER 5, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSATURDAY, SEPTEMBER 6, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSUNDAY, SEPTEMBER 7, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nMONDAY, SEPTEMBER 8, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nDemo User\nhello \nhi \nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \n            @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_pat_1 pat__97": {
+    "class": "main-container",
+    "tag": "div",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date Sep 4, 2025 Exp. end date Sep 17, 2025 MRN e1234567 SA-ID SA-7469 Patient manager Automation Testuser Treatment monitor None Overview Adherence Regimen Profile Messages Pill count Reports Patient chat TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nSep 4, 2025\nExp. end date\nSep 17, 2025\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPatient chat\nTUESDAY, SEPTEMBER 2, 2025\nDemo User\nYour pin number is: 3260 \nDemo User\nhi test \nhello \nTHURSDAY, SEPTEMBER 4, 2025\nDemo User\nYour pin number is: 4434 \nhello \nhi \nFRIDAY, SEPTEMBER 5, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSATURDAY, SEPTEMBER 6, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSUNDAY, SEPTEMBER 7, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nMONDAY, SEPTEMBER 8, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nDemo User\nhello \nhi \nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \n            @2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_pat_1 pat__98": {
+    "class": "patient-adherence-header",
+    "tag": "div",
+    "text": "pat_1 pat_1 | Site_1_US Treatment start date Sep 4, 2025 Exp. end date Sep 17, 2025 MRN e1234567 SA-ID SA-7469 Patient manager Automation Testuser Treatment monitor None",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US\nTreatment start date\nSep 4, 2025\nExp. end date\nSep 17, 2025\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone')]"
+  },
+  "div_pat_1 pat__99": {
+    "class": "patient-info ng-star-inserted",
+    "tag": "div",
+    "text": "pat_1 pat_1 | Site_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US')]"
+  },
+  "div_pat_1 pat__100": {
+    "class": "patient-name",
+    "tag": "div",
+    "text": "pat_1 pat_1 | Site_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'pat_1 pat_1 | Site_1_US')]"
+  },
+  "span_| Site_1_U_101": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "| Site_1_US",
+    "xpath": "//span[contains(normalize-space(text()), '| Site_1_US')]"
+  },
+  "div_Treatment _102": {
+    "class": "info-wrapper ng-star-inserted",
+    "tag": "div",
+    "text": "Treatment start date Sep 4, 2025 Exp. end date Sep 17, 2025 MRN e1234567 SA-ID SA-7469 Patient manager Automation Testuser Treatment monitor None",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment start date\nSep 4, 2025\nExp. end date\nSep 17, 2025\nMRN\ne1234567\nSA-ID\nSA-7469\nPatient manager\nAutomation Testuser\nTreatment monitor\nNone')]"
+  },
+  "div_Treatment _103": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Treatment start date Sep 4, 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment start date\nSep 4, 2025')]"
+  },
+  "h6_Treatment _104": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Treatment start date",
+    "xpath": "//h6[contains(normalize-space(text()), 'Treatment start date')]"
+  },
+  "span_Sep 4, 202_105": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "Sep 4, 2025",
+    "xpath": "//span[contains(normalize-space(text()), 'Sep 4, 2025')]"
+  },
+  "div_Exp. end d_106": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Exp. end date Sep 17, 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'Exp. end date\nSep 17, 2025')]"
+  },
+  "h6_Exp. end d_107": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Exp. end date",
+    "xpath": "//h6[contains(normalize-space(text()), 'Exp. end date')]"
+  },
+  "span_Sep 17, 20_108": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "Sep 17, 2025",
+    "xpath": "//span[contains(normalize-space(text()), 'Sep 17, 2025')]"
+  },
+  "div_MRN e12345_109": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "MRN e1234567",
+    "xpath": "//div[contains(normalize-space(text()), 'MRN\ne1234567')]"
+  },
+  "h6_MRN_110": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "MRN",
+    "xpath": "//h6[contains(normalize-space(text()), 'MRN')]"
+  },
+  "div_SA-ID SA-7_111": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "SA-ID SA-7469",
+    "xpath": "//div[contains(normalize-space(text()), 'SA-ID\nSA-7469')]"
+  },
+  "h6_SA-ID_112": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "SA-ID",
+    "xpath": "//h6[contains(normalize-space(text()), 'SA-ID')]"
+  },
+  "span_SA-7469_113": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "SA-7469",
+    "xpath": "//span[contains(normalize-space(text()), 'SA-7469')]"
+  },
+  "div_Patient ma_114": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Patient manager Automation Testuser",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient manager\nAutomation Testuser')]"
+  },
+  "h6_Patient ma_115": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Patient manager",
+    "xpath": "//h6[contains(normalize-space(text()), 'Patient manager')]"
+  },
+  "span_Automation_116": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "Automation Testuser",
+    "xpath": "//span[contains(normalize-space(text()), 'Automation Testuser')]"
+  },
+  "div_Treatment _117": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "Treatment monitor None",
+    "xpath": "//div[contains(normalize-space(text()), 'Treatment monitor\nNone')]"
+  },
+  "h6_Treatment _118": {
+    "class": "pb-1",
+    "tag": "h6",
+    "text": "Treatment monitor",
+    "xpath": "//h6[contains(normalize-space(text()), 'Treatment monitor')]"
+  },
+  "span_None_119": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "None",
+    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+  },
+  "main_Overview A_120": {
+    "class": "main adherence-content",
+    "tag": "main",
+    "text": "Overview Adherence Regimen Profile Messages Pill count Reports Patient chat TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//main[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPatient chat\nTUESDAY, SEPTEMBER 2, 2025\nDemo User\nYour pin number is: 3260 \nDemo User\nhi test \nhello \nTHURSDAY, SEPTEMBER 4, 2025\nDemo User\nYour pin number is: 4434 \nhello \nhi \nFRIDAY, SEPTEMBER 5, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSATURDAY, SEPTEMBER 6, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSUNDAY, SEPTEMBER 7, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nMONDAY, SEPTEMBER 8, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nDemo User\nhello \nhi \nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "kendo-tabstrip_Overview A_121": {
+    "class": "ng-tns-c655264150-13 k-tabstrip k-pos-relative k-tabstrip-top ng-star-inserted",
+    "tag": "kendo-tabstrip",
+    "text": "Overview Adherence Regimen Profile Messages Pill count Reports Patient chat TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//kendo-tabstrip[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPatient chat\nTUESDAY, SEPTEMBER 2, 2025\nDemo User\nYour pin number is: 3260 \nDemo User\nhi test \nhello \nTHURSDAY, SEPTEMBER 4, 2025\nDemo User\nYour pin number is: 4434 \nhello \nhi \nFRIDAY, SEPTEMBER 5, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSATURDAY, SEPTEMBER 6, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSUNDAY, SEPTEMBER 7, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nMONDAY, SEPTEMBER 8, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nDemo User\nhello \nhi \nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "div_Overview A_122": {
+    "class": "k-tabstrip-items-wrapper ng-tns-c655264150-13 k-hstack ng-star-inserted",
+    "tag": "div",
+    "text": "Overview Adherence Regimen Profile Messages Pill count Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports')]"
+  },
+  "ul_Overview A_123": {
+    "class": "k-reset k-tabstrip-items ng-tns-c655264150-13",
+    "tag": "ul",
+    "text": "Overview Adherence Regimen Profile Messages Pill count Reports",
+    "xpath": "//ul[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports')]"
+  },
+  "k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-0": {
+    "id": "k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-0",
+    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Overview",
+    "xpath": "//li[@id='k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-0']"
+  },
+  "span_Overview_125": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Overview",
+    "xpath": "//span[contains(normalize-space(text()), 'Overview')]"
+  },
+  "div_Overview_126": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Overview",
+    "xpath": "//div[contains(normalize-space(text()), 'Overview')]"
+  },
+  "span_Overview_127": {
+    "tag": "span",
+    "text": "Overview",
+    "xpath": "//span[contains(normalize-space(text()), 'Overview')]"
+  },
+  "k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-1": {
+    "id": "k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-1",
+    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Adherence",
+    "xpath": "//li[@id='k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-1']"
+  },
+  "span_Adherence_129": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Adherence",
+    "xpath": "//span[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "div_Adherence_130": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Adherence",
+    "xpath": "//div[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "span_Adherence_131": {
+    "tag": "span",
+    "text": "Adherence",
+    "xpath": "//span[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-2": {
+    "id": "k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-2",
+    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Regimen",
+    "xpath": "//li[@id='k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-2']"
+  },
+  "span_Regimen_133": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Regimen",
+    "xpath": "//span[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "div_Regimen_134": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Regimen",
+    "xpath": "//div[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "span_Regimen_135": {
+    "tag": "span",
+    "text": "Regimen",
+    "xpath": "//span[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-3": {
+    "id": "k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-3",
+    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Profile",
+    "xpath": "//li[@id='k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-3']"
+  },
+  "span_Profile_137": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Profile",
+    "xpath": "//span[contains(normalize-space(text()), 'Profile')]"
+  },
+  "div_Profile_138": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Profile",
+    "xpath": "//div[contains(normalize-space(text()), 'Profile')]"
+  },
+  "span_Profile_139": {
+    "tag": "span",
+    "text": "Profile",
+    "xpath": "//span[contains(normalize-space(text()), 'Profile')]"
+  },
+  "k-tabstrip-tab-Messages": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "text": "Messages",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Messages')]"
+  },
+  "span_Messages_141": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Messages",
+    "xpath": "//span[contains(normalize-space(text()), 'Messages')]"
+  },
+  "div_Messages_142": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Messages",
+    "xpath": "//div[contains(normalize-space(text()), 'Messages')]"
+  },
+  "span_Messages_143": {
+    "tag": "span",
+    "text": "Messages",
+    "xpath": "//span[contains(normalize-space(text()), 'Messages')]"
+  },
+  "k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-5": {
+    "id": "k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-5",
+    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Pill count",
+    "xpath": "//li[@id='k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-5']"
+  },
+  "span_Pill count_145": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Pill count",
+    "xpath": "//span[contains(normalize-space(text()), 'Pill count')]"
+  },
+  "div_Pill count_146": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Pill count",
+    "xpath": "//div[contains(normalize-space(text()), 'Pill count')]"
+  },
+  "span_Pill count_147": {
+    "tag": "span",
+    "text": "Pill count",
+    "xpath": "//span[contains(normalize-space(text()), 'Pill count')]"
+  },
+  "k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-6": {
+    "id": "k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-6",
+    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Reports",
+    "xpath": "//li[@id='k-tabstrip-tab-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-6']"
+  },
+  "span_Reports_149": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Reports",
+    "xpath": "//span[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div_Reports_150": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
+  },
+  "span_Reports_151": {
+    "tag": "span",
+    "text": "Reports",
+    "xpath": "//span[contains(normalize-space(text()), 'Reports')]"
+  },
+  "k-opened-tabstrip-tab": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab') and @aria-selected='true']//div/span"
+  },
+  "k-tabstrip-tabpanel-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-4": {
+    "id": "k-tabstrip-tabpanel-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-4",
+    "class": "ng-tns-c655264150-13 ng-trigger ng-trigger-state k-tabstrip-content k-active ng-star-inserted",
+    "tag": "div",
+    "text": "Patient chat TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//div[@id='k-tabstrip-tabpanel-b75b6ba1-6847-4e0b-b4c6-aa93b5d6f016-4']"
+  },
+  "app-communications_Patient ch_153": {
+    "class": "ng-star-inserted",
+    "tag": "app-communications",
+    "text": "Patient chat TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//app-communications[contains(normalize-space(text()), 'Patient chat\nTUESDAY, SEPTEMBER 2, 2025\nDemo User\nYour pin number is: 3260 \nDemo User\nhi test \nhello \nTHURSDAY, SEPTEMBER 4, 2025\nDemo User\nYour pin number is: 4434 \nhello \nhi \nFRIDAY, SEPTEMBER 5, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSATURDAY, SEPTEMBER 6, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSUNDAY, SEPTEMBER 7, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nMONDAY, SEPTEMBER 8, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nDemo User\nhello \nhi \nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "div_Patient ch_154": {
+    "class": "communication-wrapper",
+    "tag": "div",
+    "text": "Patient chat TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient chat\nTUESDAY, SEPTEMBER 2, 2025\nDemo User\nYour pin number is: 3260 \nDemo User\nhi test \nhello \nTHURSDAY, SEPTEMBER 4, 2025\nDemo User\nYour pin number is: 4434 \nhello \nhi \nFRIDAY, SEPTEMBER 5, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSATURDAY, SEPTEMBER 6, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSUNDAY, SEPTEMBER 7, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nMONDAY, SEPTEMBER 8, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nDemo User\nhello \nhi \nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "div_Patient ch_155": {
+    "class": "row mt-2 comm-content-wrapper ng-star-inserted",
+    "tag": "div",
+    "text": "Patient chat TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient chat\nTUESDAY, SEPTEMBER 2, 2025\nDemo User\nYour pin number is: 3260 \nDemo User\nhi test \nhello \nTHURSDAY, SEPTEMBER 4, 2025\nDemo User\nYour pin number is: 4434 \nhello \nhi \nFRIDAY, SEPTEMBER 5, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSATURDAY, SEPTEMBER 6, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSUNDAY, SEPTEMBER 7, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nMONDAY, SEPTEMBER 8, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nDemo User\nhello \nhi \nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "div_Patient ch_156": {
+    "class": "col-md-6",
+    "tag": "div",
+    "text": "Patient chat TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient chat\nTUESDAY, SEPTEMBER 2, 2025\nDemo User\nYour pin number is: 3260 \nDemo User\nhi test \nhello \nTHURSDAY, SEPTEMBER 4, 2025\nDemo User\nYour pin number is: 4434 \nhello \nhi \nFRIDAY, SEPTEMBER 5, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSATURDAY, SEPTEMBER 6, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSUNDAY, SEPTEMBER 7, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nMONDAY, SEPTEMBER 8, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nDemo User\nhello \nhi \nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "div_Patient ch_157": {
+    "class": "h-75",
+    "tag": "div",
+    "text": "Patient chat TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient chat\nTUESDAY, SEPTEMBER 2, 2025\nDemo User\nYour pin number is: 3260 \nDemo User\nhi test \nhello \nTHURSDAY, SEPTEMBER 4, 2025\nDemo User\nYour pin number is: 4434 \nhello \nhi \nFRIDAY, SEPTEMBER 5, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSATURDAY, SEPTEMBER 6, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSUNDAY, SEPTEMBER 7, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nMONDAY, SEPTEMBER 8, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nDemo User\nhello \nhi \nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "h4_Patient ch_158": {
+    "class": "h3-label",
+    "tag": "h4",
+    "text": "Patient chat",
+    "xpath": "//h4[contains(normalize-space(text()), 'Patient chat')]"
+  },
+  "kendo-chat_TUESDAY, S_159": {
+    "class": "k-chat",
+    "tag": "kendo-chat",
+    "text": "TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//kendo-chat[contains(normalize-space(text()), 'TUESDAY, SEPTEMBER 2, 2025\nDemo User\nYour pin number is: 3260 \nDemo User\nhi test \nhello \nTHURSDAY, SEPTEMBER 4, 2025\nDemo User\nYour pin number is: 4434 \nhello \nhi \nFRIDAY, SEPTEMBER 5, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSATURDAY, SEPTEMBER 6, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSUNDAY, SEPTEMBER 7, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nMONDAY, SEPTEMBER 8, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nDemo User\nhello \nhi \nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "div_TUESDAY, S_160": {
+    "aria-label": "Message list",
+    "class": "k-message-list k-avatars",
+    "tag": "div",
+    "text": "TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//div[@aria-label='Message list']"
+  },
+  "kendo-chat-message-list_TUESDAY, S_161": {
+    "class": "k-message-list-content",
+    "tag": "kendo-chat-message-list",
+    "text": "TUESDAY, SEPTEMBER 2, 2025 Demo User Your pin number is: 3260 Demo User hi test hello THURSDAY, SEPTEMBER 4, 2025 Demo User Your pin number is: 4434 hello hi FRIDAY, SEPTEMBER 5, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SATURDAY, SEPTEMBER 6, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. SUNDAY, SEPTEMBER 7, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. MONDAY, SEPTEMBER 8, 2025 System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello hi System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//kendo-chat-message-list[contains(normalize-space(text()), 'TUESDAY, SEPTEMBER 2, 2025\nDemo User\nYour pin number is: 3260 \nDemo User\nhi test \nhello \nTHURSDAY, SEPTEMBER 4, 2025\nDemo User\nYour pin number is: 4434 \nhello \nhi \nFRIDAY, SEPTEMBER 5, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSATURDAY, SEPTEMBER 6, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nSUNDAY, SEPTEMBER 7, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nMONDAY, SEPTEMBER 8, 2025\nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nDemo User\nhello \nhi \nSystem\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "div_TUESDAY, S_162": {
+    "class": "k-timestamp ng-star-inserted",
+    "tag": "div",
+    "text": "TUESDAY, SEPTEMBER 2, 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'TUESDAY, SEPTEMBER 2, 2025')]"
+  },
+  "div_Demo User _163": {
+    "class": "k-message-group k-alt k-no-avatar ng-star-inserted",
+    "tag": "div",
+    "text": "Demo User Your pin number is: 3260 Demo User hi test",
+    "xpath": "//div[contains(normalize-space(text()), 'Demo User\nYour pin number is: 3260 \nDemo User\nhi test')]"
+  },
+  "kendo-chat-message_Demo User _164": {
+    "class": "k-first k-message ng-star-inserted",
+    "tag": "kendo-chat-message",
+    "text": "Demo User Your pin number is: 3260",
+    "xpath": "//kendo-chat-message[contains(normalize-space(text()), 'Demo User\nYour pin number is: 3260')]"
+  },
+  "time__165": {
+    "class": "k-message-time ng-star-inserted",
+    "tag": "time",
+    "xpath": "//time[@class='k-message-time ng-star-inserted']"
+  },
+  "div_Demo User _166": {
+    "class": "k-chat-bubble ng-star-inserted",
+    "tag": "div",
+    "text": "Demo User Your pin number is: 3260",
+    "xpath": "//div[contains(normalize-space(text()), 'Demo User\nYour pin number is: 3260')]"
+  },
+  "p_Demo User_167": {
+    "class": "username-display ng-star-inserted",
+    "tag": "p",
+    "text": "Demo User",
+    "xpath": "//p[contains(normalize-space(text()), 'Demo User')]"
+  },
+  "b_Demo User_168": {
+    "tag": "b",
+    "text": "Demo User",
+    "xpath": "//b[contains(normalize-space(text()), 'Demo User')]"
+  },
+  "br__169": {
+    "tag": "br",
+    "xpath": "//br"
+  },
+  "span__170": {
+    "class": "k-message-status ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-message-status ng-star-inserted']"
+  },
+  "kendo-chat-message_Demo User _171": {
+    "class": "k-last k-message ng-star-inserted",
+    "tag": "kendo-chat-message",
+    "text": "Demo User hi test",
+    "xpath": "//kendo-chat-message[contains(normalize-space(text()), 'Demo User\nhi test')]"
+  },
+  "time__172": {
+    "class": "k-message-time ng-star-inserted",
+    "tag": "time",
+    "xpath": "//time[@class='k-message-time ng-star-inserted']"
+  },
+  "div_Demo User _173": {
+    "class": "k-chat-bubble ng-star-inserted",
+    "tag": "div",
+    "text": "Demo User hi test",
+    "xpath": "//div[contains(normalize-space(text()), 'Demo User\nhi test')]"
+  },
+  "p_Demo User_174": {
+    "class": "username-display ng-star-inserted",
+    "tag": "p",
+    "text": "Demo User",
+    "xpath": "//p[contains(normalize-space(text()), 'Demo User')]"
+  },
+  "b_Demo User_175": {
+    "tag": "b",
+    "text": "Demo User",
+    "xpath": "//b[contains(normalize-space(text()), 'Demo User')]"
+  },
+  "br__176": {
+    "tag": "br",
+    "xpath": "//br"
+  },
+  "span__177": {
+    "class": "k-message-status ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-message-status ng-star-inserted']"
+  },
+  "div_hello_178": {
+    "class": "k-message-group k-no-avatar ng-star-inserted",
+    "tag": "div",
+    "text": "hello",
+    "xpath": "//div[contains(normalize-space(text()), 'hello')]"
+  },
+  "kendo-chat-message_hello_179": {
+    "class": "k-only k-message ng-star-inserted",
+    "tag": "kendo-chat-message",
+    "text": "hello",
+    "xpath": "//kendo-chat-message[contains(normalize-space(text()), 'hello')]"
+  },
+  "time__180": {
+    "class": "k-message-time ng-star-inserted",
+    "tag": "time",
+    "xpath": "//time[@class='k-message-time ng-star-inserted']"
+  },
+  "div_hello_181": {
+    "class": "k-chat-bubble ng-star-inserted",
+    "tag": "div",
+    "text": "hello",
+    "xpath": "//div[contains(normalize-space(text()), 'hello')]"
+  },
+  "span__182": {
+    "class": "k-message-status ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-message-status ng-star-inserted']"
+  },
+  "div_THURSDAY, _183": {
+    "class": "k-timestamp ng-star-inserted",
+    "tag": "div",
+    "text": "THURSDAY, SEPTEMBER 4, 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'THURSDAY, SEPTEMBER 4, 2025')]"
+  },
+  "div_Demo User _184": {
+    "class": "k-message-group k-alt k-no-avatar ng-star-inserted",
+    "tag": "div",
+    "text": "Demo User Your pin number is: 4434",
+    "xpath": "//div[contains(normalize-space(text()), 'Demo User\nYour pin number is: 4434')]"
+  },
+  "kendo-chat-message_Demo User _185": {
+    "class": "k-only k-message ng-star-inserted",
+    "tag": "kendo-chat-message",
+    "text": "Demo User Your pin number is: 4434",
+    "xpath": "//kendo-chat-message[contains(normalize-space(text()), 'Demo User\nYour pin number is: 4434')]"
+  },
+  "time__186": {
+    "class": "k-message-time ng-star-inserted",
+    "tag": "time",
+    "xpath": "//time[@class='k-message-time ng-star-inserted']"
+  },
+  "div_Demo User _187": {
+    "class": "k-chat-bubble ng-star-inserted",
+    "tag": "div",
+    "text": "Demo User Your pin number is: 4434",
+    "xpath": "//div[contains(normalize-space(text()), 'Demo User\nYour pin number is: 4434')]"
+  },
+  "p_Demo User_188": {
+    "class": "username-display ng-star-inserted",
+    "tag": "p",
+    "text": "Demo User",
+    "xpath": "//p[contains(normalize-space(text()), 'Demo User')]"
+  },
+  "b_Demo User_189": {
+    "tag": "b",
+    "text": "Demo User",
+    "xpath": "//b[contains(normalize-space(text()), 'Demo User')]"
+  },
+  "br__190": {
+    "tag": "br",
+    "xpath": "//br"
+  },
+  "span__191": {
+    "class": "k-message-status ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-message-status ng-star-inserted']"
+  },
+  "div_hello hi_192": {
+    "class": "k-message-group k-no-avatar ng-star-inserted",
+    "tag": "div",
+    "text": "hello hi",
+    "xpath": "//div[contains(normalize-space(text()), 'hello \nhi')]"
+  },
+  "kendo-chat-message_hello_193": {
+    "class": "k-first k-message ng-star-inserted",
+    "tag": "kendo-chat-message",
+    "text": "hello",
+    "xpath": "//kendo-chat-message[contains(normalize-space(text()), 'hello')]"
+  },
+  "time__194": {
+    "class": "k-message-time ng-star-inserted",
+    "tag": "time",
+    "xpath": "//time[@class='k-message-time ng-star-inserted']"
+  },
+  "div_hello_195": {
+    "class": "k-chat-bubble ng-star-inserted",
+    "tag": "div",
+    "text": "hello",
+    "xpath": "//div[contains(normalize-space(text()), 'hello')]"
+  },
+  "span__196": {
+    "class": "k-message-status ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-message-status ng-star-inserted']"
+  },
+  "kendo-chat-message_hi_197": {
+    "class": "k-last k-message ng-star-inserted",
+    "tag": "kendo-chat-message",
+    "text": "hi",
+    "xpath": "//kendo-chat-message[contains(normalize-space(text()), 'hi')]"
+  },
+  "time__198": {
+    "class": "k-message-time ng-star-inserted",
+    "tag": "time",
+    "xpath": "//time[@class='k-message-time ng-star-inserted']"
+  },
+  "div_hi_199": {
+    "class": "k-chat-bubble ng-star-inserted",
+    "tag": "div",
+    "text": "hi",
+    "xpath": "//div[contains(normalize-space(text()), 'hi')]"
+  },
+  "span__200": {
+    "class": "k-message-status ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-message-status ng-star-inserted']"
+  },
+  "div_FRIDAY, SE_201": {
+    "class": "k-timestamp ng-star-inserted",
+    "tag": "div",
+    "text": "FRIDAY, SEPTEMBER 5, 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'FRIDAY, SEPTEMBER 5, 2025')]"
+  },
+  "div_System Rem_202": {
+    "class": "k-message-group k-alt k-no-avatar ng-star-inserted",
+    "tag": "div",
+    "text": "System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//div[contains(normalize-space(text()), 'System\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "kendo-chat-message_System Rem_203": {
+    "class": "k-only k-message ng-star-inserted",
+    "tag": "kendo-chat-message",
+    "text": "System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//kendo-chat-message[contains(normalize-space(text()), 'System\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "time__204": {
+    "class": "k-message-time ng-star-inserted",
+    "tag": "time",
+    "xpath": "//time[@class='k-message-time ng-star-inserted']"
+  },
+  "div_System Rem_205": {
+    "class": "k-chat-bubble ng-star-inserted",
+    "tag": "div",
+    "text": "System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//div[contains(normalize-space(text()), 'System\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "p_System_206": {
+    "class": "username-display ng-star-inserted",
+    "tag": "p",
+    "text": "System",
+    "xpath": "//p[contains(normalize-space(text()), 'System')]"
+  },
+  "b_System_207": {
+    "tag": "b",
+    "text": "System",
+    "xpath": "//b[contains(normalize-space(text()), 'System')]"
+  },
+  "br__208": {
+    "tag": "br",
+    "xpath": "//br"
+  },
+  "span__209": {
+    "class": "k-message-status ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-message-status ng-star-inserted']"
+  },
+  "div_SATURDAY, _210": {
+    "class": "k-timestamp ng-star-inserted",
+    "tag": "div",
+    "text": "SATURDAY, SEPTEMBER 6, 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'SATURDAY, SEPTEMBER 6, 2025')]"
+  },
+  "div_System Rem_211": {
+    "class": "k-message-group k-alt k-no-avatar ng-star-inserted",
+    "tag": "div",
+    "text": "System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//div[contains(normalize-space(text()), 'System\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "kendo-chat-message_System Rem_212": {
+    "class": "k-only k-message ng-star-inserted",
+    "tag": "kendo-chat-message",
+    "text": "System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//kendo-chat-message[contains(normalize-space(text()), 'System\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "time__213": {
+    "class": "k-message-time ng-star-inserted",
+    "tag": "time",
+    "xpath": "//time[@class='k-message-time ng-star-inserted']"
+  },
+  "div_System Rem_214": {
+    "class": "k-chat-bubble ng-star-inserted",
+    "tag": "div",
+    "text": "System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//div[contains(normalize-space(text()), 'System\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "p_System_215": {
+    "class": "username-display ng-star-inserted",
+    "tag": "p",
+    "text": "System",
+    "xpath": "//p[contains(normalize-space(text()), 'System')]"
+  },
+  "b_System_216": {
+    "tag": "b",
+    "text": "System",
+    "xpath": "//b[contains(normalize-space(text()), 'System')]"
+  },
+  "br__217": {
+    "tag": "br",
+    "xpath": "//br"
+  },
+  "span__218": {
+    "class": "k-message-status ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-message-status ng-star-inserted']"
+  },
+  "div_SUNDAY, SE_219": {
+    "class": "k-timestamp ng-star-inserted",
+    "tag": "div",
+    "text": "SUNDAY, SEPTEMBER 7, 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'SUNDAY, SEPTEMBER 7, 2025')]"
+  },
+  "div_System Rem_220": {
+    "class": "k-message-group k-alt k-no-avatar ng-star-inserted",
+    "tag": "div",
+    "text": "System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//div[contains(normalize-space(text()), 'System\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "kendo-chat-message_System Rem_221": {
+    "class": "k-only k-message ng-star-inserted",
+    "tag": "kendo-chat-message",
+    "text": "System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//kendo-chat-message[contains(normalize-space(text()), 'System\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "time__222": {
+    "class": "k-message-time ng-star-inserted",
+    "tag": "time",
+    "xpath": "//time[@class='k-message-time ng-star-inserted']"
+  },
+  "div_System Rem_223": {
+    "class": "k-chat-bubble ng-star-inserted",
+    "tag": "div",
+    "text": "System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//div[contains(normalize-space(text()), 'System\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "p_System_224": {
+    "class": "username-display ng-star-inserted",
+    "tag": "p",
+    "text": "System",
+    "xpath": "//p[contains(normalize-space(text()), 'System')]"
+  },
+  "b_System_225": {
+    "tag": "b",
+    "text": "System",
+    "xpath": "//b[contains(normalize-space(text()), 'System')]"
+  },
+  "br__226": {
+    "tag": "br",
+    "xpath": "//br"
+  },
+  "span__227": {
+    "class": "k-message-status ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-message-status ng-star-inserted']"
+  },
+  "div_MONDAY, SE_228": {
+    "class": "k-timestamp ng-star-inserted",
+    "tag": "div",
+    "text": "MONDAY, SEPTEMBER 8, 2025",
+    "xpath": "//div[contains(normalize-space(text()), 'MONDAY, SEPTEMBER 8, 2025')]"
+  },
+  "div_System Rem_229": {
+    "class": "k-message-group k-alt k-no-avatar ng-star-inserted",
+    "tag": "div",
+    "text": "System Reminder, you have a dose due today. Please record your video now unless otherwise instructed. Demo User hello",
+    "xpath": "//div[contains(normalize-space(text()), 'System\nReminder, you have a dose due today. Please record your video now unless otherwise instructed. \nDemo User\nhello')]"
+  },
+  "kendo-chat-message_System Rem_230": {
+    "class": "k-first k-message ng-star-inserted",
+    "tag": "kendo-chat-message",
+    "text": "System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//kendo-chat-message[contains(normalize-space(text()), 'System\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "time__231": {
+    "class": "k-message-time ng-star-inserted",
+    "tag": "time",
+    "xpath": "//time[@class='k-message-time ng-star-inserted']"
+  },
+  "div_System Rem_232": {
+    "class": "k-chat-bubble ng-star-inserted",
+    "tag": "div",
+    "text": "System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//div[contains(normalize-space(text()), 'System\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "p_System_233": {
+    "class": "username-display ng-star-inserted",
+    "tag": "p",
+    "text": "System",
+    "xpath": "//p[contains(normalize-space(text()), 'System')]"
+  },
+  "b_System_234": {
+    "tag": "b",
+    "text": "System",
+    "xpath": "//b[contains(normalize-space(text()), 'System')]"
+  },
+  "br__235": {
+    "tag": "br",
+    "xpath": "//br"
+  },
+  "span__236": {
+    "class": "k-message-status ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-message-status ng-star-inserted']"
+  },
+  "kendo-chat-message_Demo User _237": {
+    "class": "k-last k-message ng-star-inserted",
+    "tag": "kendo-chat-message",
+    "text": "Demo User hello",
+    "xpath": "//kendo-chat-message[contains(normalize-space(text()), 'Demo User\nhello')]"
+  },
+  "time__238": {
+    "class": "k-message-time ng-star-inserted",
+    "tag": "time",
+    "xpath": "//time[@class='k-message-time ng-star-inserted']"
+  },
+  "div_Demo User _239": {
+    "class": "k-chat-bubble ng-star-inserted",
+    "tag": "div",
+    "text": "Demo User hello",
+    "xpath": "//div[contains(normalize-space(text()), 'Demo User\nhello')]"
+  },
+  "p_Demo User_240": {
+    "class": "username-display ng-star-inserted",
+    "tag": "p",
+    "text": "Demo User",
+    "xpath": "//p[contains(normalize-space(text()), 'Demo User')]"
+  },
+  "b_Demo User_241": {
+    "tag": "b",
+    "text": "Demo User",
+    "xpath": "//b[contains(normalize-space(text()), 'Demo User')]"
+  },
+  "br__242": {
+    "tag": "br",
+    "xpath": "//br"
+  },
+  "span__243": {
+    "class": "k-message-status ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-message-status ng-star-inserted']"
+  },
+  "div_hi_244": {
+    "class": "k-message-group k-no-avatar ng-star-inserted",
+    "tag": "div",
+    "text": "hi",
+    "xpath": "//div[contains(normalize-space(text()), 'hi')]"
+  },
+  "kendo-chat-message_hi_245": {
+    "class": "k-only k-message ng-star-inserted",
+    "tag": "kendo-chat-message",
+    "text": "hi",
+    "xpath": "//kendo-chat-message[contains(normalize-space(text()), 'hi')]"
+  },
+  "time__246": {
+    "class": "k-message-time ng-star-inserted",
+    "tag": "time",
+    "xpath": "//time[@class='k-message-time ng-star-inserted']"
+  },
+  "div_hi_247": {
+    "class": "k-chat-bubble ng-star-inserted",
+    "tag": "div",
+    "text": "hi",
+    "xpath": "//div[contains(normalize-space(text()), 'hi')]"
+  },
+  "span__248": {
+    "class": "k-message-status ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-message-status ng-star-inserted']"
+  },
+  "div__249": {
+    "class": "k-timestamp ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='k-timestamp ng-star-inserted']"
+  },
+  "div_System Rem_250": {
+    "class": "k-message-group k-alt k-no-avatar ng-star-inserted",
+    "tag": "div",
+    "text": "System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//div[contains(normalize-space(text()), 'System\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "kendo-chat-message_System Rem_251": {
+    "class": "k-only k-message ng-star-inserted",
+    "tag": "kendo-chat-message",
+    "text": "System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//kendo-chat-message[contains(normalize-space(text()), 'System\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "time__252": {
+    "class": "k-message-time ng-star-inserted",
+    "tag": "time",
+    "xpath": "//time[@class='k-message-time ng-star-inserted']"
+  },
+  "div_System Rem_253": {
+    "class": "k-chat-bubble ng-star-inserted",
+    "tag": "div",
+    "text": "System Reminder, you have a dose due today. Please record your video now unless otherwise instructed.",
+    "xpath": "//div[contains(normalize-space(text()), 'System\nReminder, you have a dose due today. Please record your video now unless otherwise instructed.')]"
+  },
+  "p_System_254": {
+    "class": "username-display ng-star-inserted",
+    "tag": "p",
+    "text": "System",
+    "xpath": "//p[contains(normalize-space(text()), 'System')]"
+  },
+  "b_System_255": {
+    "tag": "b",
+    "text": "System",
+    "xpath": "//b[contains(normalize-space(text()), 'System')]"
+  },
+  "br__256": {
+    "tag": "br",
+    "xpath": "//br"
+  },
+  "span__257": {
+    "class": "k-message-status ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-message-status ng-star-inserted']"
+  },
+  "kendo-resize-sensor__258": {
+    "tag": "kendo-resize-sensor",
+    "xpath": "//kendo-resize-sensor"
+  },
+  "kendo-message-box__259": {
+    "class": "k-input k-input-md k-input-solid k-message-box k-rounded-md",
+    "tag": "kendo-message-box",
+    "xpath": "//kendo-message-box[@class='k-input k-input-md k-input-solid k-message-box k-rounded-md']"
+  },
+  "kendo-textarea": {
+    "placeholder": "Enter a message...",
+    "class": "k-textarea k-input !k-flex-col k-input-md k-rounded-md k-input-solid ng-star-inserted",
+    "tag": "kendo-textarea",
+    "xpath": "//kendo-textarea[@placeholder='Enter a message...']"
+  },
+  "textarea-message": {
+    "placeholder": "Enter a message...",
+    "class": "k-input-inner !k-overflow-auto !k-overflow-y-auto k-resize-none !k-flex-none",
+    "type": "textarea",
+    "tag": "textarea",
+    "xpath": "//kendo-textarea/textarea[@placeholder='Enter a message...']"
+  },
+  "kendo-textarea-suffix__262": {
+    "class": "custom-suffix k-input-suffix",
+    "tag": "kendo-textarea-suffix",
+    "xpath": "//kendo-textarea-suffix[@class='custom-suffix k-input-suffix']"
+  },
+  "span__263": {
+    "class": "k-flex-1",
+    "tag": "span",
+    "xpath": "//span[@class='k-flex-1']"
+  },
+  "kendo-input-separator__264": {
+    "class": "k-text-base k-input-separator",
+    "tag": "kendo-input-separator",
+    "xpath": "//kendo-input-separator[@class='k-text-base k-input-separator']"
+  },
+  "button_send_button": {
+    "class": "send-button k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[contains(@class,'send-button')]"
+  },
+  "span__266": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "svg__267": {
+    "tag": "svg",
+    "xpath": "//svg"
+  },
+  "path__268": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "div__269": {
+    "class": "col-md-6",
+    "tag": "div",
+    "xpath": "//div[@class='col-md-6']"
+  },
+  "popover__270": {
+    "tag": "popover",
+    "xpath": "//popover"
+  },
+  "client-footer_@2025 Sure_271": {
+    "tag": "client-footer",
+    "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//client-footer[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "footer_@2025 Sure_272": {
+    "class": "footer pt-0 footer-height",
+    "tag": "footer",
+    "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//footer[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "p_@2025 Sure_273": {
+    "tag": "p",
+    "text": "@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//p[contains(normalize-space(text()), '@2025 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "a_Privacy Po_274": {
+    "tag": "a",
+    "text": "Privacy Policy and Terms of Service",
+    "xpath": "//a[contains(normalize-space(text()), 'Privacy Policy and Terms of Service')]"
+  },
+  "popover__275": {
+    "tag": "popover",
+    "xpath": "//popover"
+  }
+}
