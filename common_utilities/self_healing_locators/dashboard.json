@@ -1716,16 +1716,16 @@
   "span-video-patient_name": {
     "class": "k-font-size-medium k-font-bold",
     "tag": "span",
-    "xpath": "//div[./fa-icon/*[@data-icon='video']]//following-sibling::div//span[@class='k-font-size-medium k-font-bold']"
+    "xpath": "//div[.//span[@class='fs-2']]//following-sibling::div//span[@class='k-font-size-medium k-font-bold']"
   },
   "span-patient-video-review": {
     "class": "k-button-text",
     "tag": "span",
-    "xpath": "//div[./fa-icon/*[@data-icon='video']]//following-sibling::div//span[@class='k-button-text']"
+    "xpath": "//div//span[@class='k-button-text'][contains(text(),'Review Video')]"
   },
   "span-patient-sa-id-review": {
     "class": "k-color-subtle k-font-size-sm",
     "tag": "span",
-    "xpath": "//div[./fa-icon/*[@data-icon='video']]//following-sibling::div//span[@class='k-color-subtle k-font-size-sm' and contains(normalize-space(text()),'SA')]"
+    "xpath": "//div//span[@class='k-color-subtle k-font-size-sm' and contains(normalize-space(text()),'SA')]"
   }
 }
