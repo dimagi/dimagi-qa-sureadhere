@@ -36,7 +36,7 @@ class test_module_02_admin(BaseCase):
         type(self)._session_ready = True
 
     @pytest.mark.dependency(name="tc_admin_1", scope="class")
-    def test_case_01_edit_disease_and_verify(self):
+    def test_case_01_edit_disease_and_drugs(self):
         # login = LoginPage(self, "login")
         self._login_once()
         a_disease = AdminDiseasePage(self, 'admin_diseases')
@@ -78,7 +78,7 @@ class test_module_02_admin(BaseCase):
 
 
     @pytest.mark.dependency(name="tc_admin_2", depends=['tc_admin_1'] ,scope="class")
-    def test_case_02_edit_drugs_and_verify(self):
+    def test_case_02_verify_disease_and_drugs(self):
         # login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
