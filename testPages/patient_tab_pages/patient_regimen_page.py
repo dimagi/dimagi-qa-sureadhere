@@ -56,6 +56,12 @@ class PatientRegimenPage(BasePage):
 
         return end_date
 
+    def get_time_now(self):
+        now = datetime.now()
+        time_now = now.time().strftime("%I:%M %p")
+        print(time_now)
+        return str(time_now)
+
     def create_new_schedule(self, multi=False):
         self.type('input_regimen_name', self.regimen_name)
         self.wait_for_element('input_regimen_name')
@@ -68,7 +74,10 @@ class PatientRegimenPage(BasePage):
         print("startdate: ", self.resolve('startdate'))
         self.type('startdate', date)
         time.sleep(1)
-        self.type('timepicker', UserData.med_time)
+
+        # self.type('timepicker', UserData.med_time)
+        med_time = self.get_time_now()
+        self.type('timepicker', med_time)
         time.sleep(1)
         self.wait_for_element('kendo-dropdownlist-Repeats')
         self.kendo_dd_select_text_old('kendo-dropdownlist-Repeats', UserData.regimen_repeats)
@@ -124,7 +133,7 @@ class PatientRegimenPage(BasePage):
         text_date_format = self.format_mdY(text_date)
         end_date = self.calculate_end_date(date, 1)
 
-        expected = UserData.med_time
+        expected = med_time #UserData.med_time
         expected_no_leading_zero = re.sub(r'\b0(?=\d:)', '', expected)
 
 
@@ -134,7 +143,7 @@ class PatientRegimenPage(BasePage):
         assert end_date in schedule_text, f"{end_date} not in {schedule_text}"
         assert str(UserData.no_of_pills) in schedule_text, f"{UserData.no_of_pills} not in {schedule_text}"
         assert expected_no_leading_zero in schedule_text or expected in schedule_text, (
-            f"{UserData.med_time} not in {schedule_text}"
+            f"{med_time} not in {schedule_text}"
         )
 
 

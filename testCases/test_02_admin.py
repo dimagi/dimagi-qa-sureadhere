@@ -4,6 +4,8 @@ import time
 import pytest
 from seleniumbase import BaseCase
 
+from testPages.admin_page.admin_announcement_form_page import AdminAnnouncementFormPage
+from testPages.admin_page.admin_announcement_page import AdminAnnouncementPage
 from testPages.admin_page.admin_disease_page import AdminDiseasePage
 from testPages.admin_page.admin_drug_page import AdminDrugPage
 from testPages.admin_page.admin_page import AdminPage
@@ -155,4 +157,37 @@ class test_module_02_admin(BaseCase):
 
 
 
+    @pytest.mark.dependency(name="tc_admin_3", scope="class")
+    def test_case_01_edit_disease_and_verify(self):
+        # login = LoginPage(self, "login")
+        self._login_once()
+
+        home = HomePage(self, "dashboard")
+        admin = AdminPage(self, 'admin')
+        a_announce = AdminAnnouncementPage(self, 'announcements')
+        a_announce_form = AdminAnnouncementFormPage(self, 'admin_announcement_form')
+
+        home.open_dashboard_page()
+        home.validate_dashboard_page()
+        home.open_admin_page()
+        admin.open_announcement()
+        a_announce.verify_announcements_page()
+        a_announce.add_announcement()
+        a_announce_form.validate_announcement_page()
+        announcement_text, status, client = a_announce_form.add_announcement()
+        home.open_admin_page()
+        admin.open_announcement()
+        a_announce.verify_announcement_created(announcement_text, status, client)
+        home.open_dashboard_page()
+        home.verify_announcement(announcement_text)
+        client = UserData.client
+
+        home.open_admin_page()
+        admin.open_announcement()
+        a_announce.edit_announcement(announcement_text)
+        a_announce_form.validate_announcement_page()
+        status_now = a_announce_form.deactivate_the_announcements()
+        home.open_admin_page()
+        admin.open_announcement()
+        a_announce.verify_announcement_created(announcement_text, status_now)
 

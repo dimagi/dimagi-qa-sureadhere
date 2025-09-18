@@ -47,3 +47,12 @@ class AdminPage(BasePage):
         self.kendo_expander_set("kendo-expansionpanel_Drugs", False)
         self.kendo_expander_wait("kendo-expansionpanel_Drugs", False)
         time.sleep(2)
+
+    def open_announcement(self):
+        self.click('k-tabstrip-tab-Announcements')
+        self.wait_for_page_to_load()
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Continue")
+        except Exception:
+            print("popup not present")

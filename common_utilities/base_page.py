@@ -3273,5 +3273,90 @@ class BasePage:
         tbody_text = " ".join(tbody_text.split())
         return text.lower() in tbody_text.lower()
 
+    # ---------- Frame helpers ----------
+    def switch_to_frame(self, target, *, timeout: int = 15, strict: bool = False):
+        """
+        Switch into an <iframe>.
+        target can be:
+          - logical name from your locators JSON (preferred)
+          - raw XPath/CSS string
+          - frame id/name (string)
+          - index (int)
+          - WebElement (already located <iframe>)
+        """
+        drv = self.driver
+
+        # Index
+        if isinstance(target, int):
+            drv.switch_to.frame(target)
+            return
+
+        # WebElement
+        if hasattr(target, "tag_name"):
+            WebDriverWait(drv, timeout).until(lambda d: target.is_displayed())
+            drv.switch_to.frame(target)
+            return
+
+        # Resolve selector string
+        sel = None
+        if isinstance(target, str):
+            if target in getattr(self, "locators", {}
+                                 ) or ":" not in target and "@" not in target and "//" not in target:
+                # Try logical name first (resolve/resolve_strict),
+                # but also allow simple id/name via direct switch
+                if target in getattr(self, "locators", {}):
+                    sel = self.resolve_strict(target) if strict else self.resolve(target)
+                else:
+                    # Could be id or name
+                    try:
+                        drv.switch_to.frame(target)  # id or name
+                        return
+                    except NoSuchFrameException:
+                        # fall through to treat as selector
+                        sel = target
+            else:
+                sel = target
+
+        if not sel:
+            raise ValueError(f"Unsupported frame target: {target!r}")
+
+        # Try waiting for the frame and switch (XPath vs CSS)
+        sel_str = sel.strip()
+        locator = (By.XPATH, sel_str) if sel_str.startswith("/") or sel_str.startswith("(") else (By.CSS_SELECTOR,
+                                                                                                  sel_str)
+
+        try:
+            WebDriverWait(drv, timeout).until(EC.frame_to_be_available_and_switch_to_it(locator))
+            return
+        except Exception:
+            # Fallback: locate the element, then switch
+            frame_el = WebDriverWait(drv, timeout).until(
+                EC.presence_of_element_located(locator)
+                )
+            drv.switch_to.frame(frame_el)
+
+    def switch_to_parent_frame(self):
+        """Go up one frame."""
+        self.driver.switch_to.parent_frame()
+
+    def switch_to_default_content(self):
+        """Exit all frames back to the top document."""
+        self.driver.switch_to.default_content()
+
+    @contextlib.contextmanager
+    def within_frame(self, target, *, timeout: int = 15, strict: bool = False):
+        """
+        Usage:
+            with self.within_frame("iframe-chat"):
+                self.click("send_button")
+        Automatically returns to default content.
+        """
+        self.switch_to_frame(target, timeout=timeout, strict=strict)
+        try:
+            yield
+        finally:
+            self.switch_to_default_content()
+
+
 
 

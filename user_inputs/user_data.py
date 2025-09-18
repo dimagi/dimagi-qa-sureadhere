@@ -16,3 +16,5 @@ class UserData:
     med_status = "Taken"
     provider_observation = "Patient"
     side_effect = ["Dark urine", "Loss of appetite", "Pain in hands/feet", "Unusual tiredness or weakness", "Low back pain", "Sleep disturbances",]
+    colour_code = "#730099"
+    client = "Client_Test_1_US"

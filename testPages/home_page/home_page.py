@@ -63,3 +63,9 @@ class HomePage(BasePage):
             # Only runs if the loop completes without 'break'
             print(f"No matching SA ID found for {sa_id}")
 
+    def verify_announcement(self, announcement_text, flag=True):
+        self.wait_for_element('div_alert')
+        alert_text = self.get_text('div_alert')
+        print(alert_text)
+        assert alert_text.strip() == announcement_text, f"{announcement_text} not present"
+        print(f"{announcement_text} is present")
