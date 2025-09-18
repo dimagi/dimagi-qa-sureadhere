@@ -41,6 +41,8 @@ assets
 */report.html
 testCases/*.html
 ./settings.cfg
+settings.cfg
+./*.pyc
 ./testPages/__pycache__
 ./testPages/*/__pycache__
 *.pyc
