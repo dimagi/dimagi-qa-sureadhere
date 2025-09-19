@@ -2256,6 +2256,16 @@
     "tag": "kendo-switch",
     "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'REVAMPED REGIMEN')]]//descendant::kendo-switch"
   },
+  "kendo-switch_Self Report - pills taken with food": {
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Self Report - pills taken with food')]]//descendant::kendo-switch"
+  },
+  "kendo-switch_Self Report - pills with provider present": {
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Self Report - pills with provider present')]]//descendant::kendo-switch"
+  },
   "span__456": {
     "class": "k-switch-track k-rounded-full",
     "tag": "span",

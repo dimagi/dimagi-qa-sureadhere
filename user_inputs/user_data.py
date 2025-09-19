@@ -24,5 +24,7 @@ class UserData:
         "Symptom Screening On Mobile": "OFF",
         "In-App Messaging": "ON",
         "Video capture for VDOT": "ON",
-        "REVAMPED REGIMEN": "ON"
+        "REVAMPED REGIMEN": "ON",
+        "Self Report - pills taken with food": "OFF",
+        "Self Report - pills with provider present": "OFF"
         }
