@@ -82,7 +82,7 @@ class test_module_02_admin(BaseCase):
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_admin_2", depends=['tc_admin_1'] ,scope="class")
     def test_case_02_verify_disease_and_drugs(self):
-        # login = LoginPage(self, "login")
+        login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
         admin =AdminPage(self, 'admin')
@@ -93,6 +93,10 @@ class test_module_02_admin(BaseCase):
 
         d = self.__class__.data
 
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
 
         home.open_dashboard_page()
         home.open_manage_patient_page()
@@ -158,14 +162,19 @@ class test_module_02_admin(BaseCase):
 
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_admin_3", scope="class")
-    def test_case_01_edit_disease_and_verify(self):
-        # login = LoginPage(self, "login")
+    def test_case_03_admin_announcement(self):
+        login = LoginPage(self, "login")
         self._login_once()
 
         home = HomePage(self, "dashboard")
         admin = AdminPage(self, 'admin')
         a_announce = AdminAnnouncementPage(self, 'announcements')
         a_announce_form = AdminAnnouncementFormPage(self, 'admin_announcement_form')
+
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
@@ -180,7 +189,6 @@ class test_module_02_admin(BaseCase):
         a_announce.verify_announcement_created(announcement_text, status, client)
         home.open_dashboard_page()
         home.verify_announcement(announcement_text)
-        client = UserData.client
 
         home.open_admin_page()
         admin.open_announcement()
