@@ -50,5 +50,6 @@ settings.cfg
 ./testPages/__pycache__/*.pyc
 ./common_utilities/self_healing_locators/self_healed/
 ./testCases/latest_logs/
+*/latest_logs
 
 

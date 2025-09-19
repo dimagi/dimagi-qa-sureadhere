@@ -36,6 +36,7 @@ class test_module_03(BaseCase):
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_mobile_1", scope="class")
     def test_case_00_create_patient(self):
         rerun_count = getattr(self, "rerun_count", 0)
@@ -71,6 +72,11 @@ class test_module_03(BaseCase):
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
         start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule()
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
+
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
@@ -88,6 +94,7 @@ class test_module_03(BaseCase):
              }
             )
 
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_mobile_2",depends= ["tc_mobile_1"],scope="class")
     def test_case_01_mobile_login_and_message(self):
         login = LoginPage(self, "login")
@@ -126,14 +133,21 @@ class test_module_03(BaseCase):
              }
             )
 
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_mobile_3", depends=["tc_mobile_1", "tc_mobile_2"], scope="class")
     def test_case_02_review_video_and_adherence(self):
+        login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
         p_vdo = PatientVideoPage(self, 'patient_video_form')
         p_adhere = PatientAdherencePage(self, 'patient_adherence')
 
         d = self.__class__.data
+
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
@@ -150,8 +164,10 @@ class test_module_03(BaseCase):
              }
             )
 
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_mobile_4", depends=["tc_mobile_1", "tc_mobile_2", "tc_mobile_3"], scope="class")
     def test_case_03_review_overview(self):
+        login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
         p_overview = PatientOverviewPage(self, 'patient_overview')
@@ -159,8 +175,14 @@ class test_module_03(BaseCase):
         p_vdo = PatientVideoPage(self, 'patient_video_form')
 
         d = self.__class__.data
-
         p_vdo.close_form()
+
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
+
+
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
@@ -170,8 +192,10 @@ class test_module_03(BaseCase):
         p_overview.verify_patient_overview_page()
         p_overview.check_calendar_and_doses(d['commented_timestamp'], d['commented_text'], d['drug_name'], d['start_date'], d['total_pills'])
 
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_mobile_5", depends=["tc_mobile_1","tc_mobile_2", "tc_mobile_3"], scope="class")
     def test_case_04_review_reports(self):
+        login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
         p_vdo = PatientVideoPage(self, 'patient_video_form')
@@ -181,6 +205,11 @@ class test_module_03(BaseCase):
         d = self.__class__.data
 
         p_vdo.close_form()
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
+
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()

@@ -645,12 +645,11 @@
     "text": "Configurable Lookups",
     "xpath": "//span[contains(normalize-space(text()), 'Configurable Lookups')]"
   },
-  "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-1": {
-    "id": "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-1",
-    "class": "ng-tns-c655264150-24 k-item k-state-default ng-star-inserted",
+  "k-tabstrip-tab-Feature_Flags": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
     "tag": "li",
-    "text": "Feature Flags",
-    "xpath": "//li[@id='k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-1']"
+    "text": "Announcements",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Feature Flags')]"
   },
   "span_Feature Fl_161": {
     "class": "k-link ng-star-inserted",
@@ -658,12 +657,16 @@
     "text": "Feature Flags",
     "xpath": "//span[contains(normalize-space(text()), 'Feature Flags')]"
   },
-  "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-2": {
-    "id": "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-2",
-    "class": "ng-tns-c655264150-24 k-item k-state-default ng-star-inserted",
+  "k-tabstrip-tab-Announcements": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
     "tag": "li",
     "text": "Announcements",
-    "xpath": "//li[@id='k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-2']"
+    "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Announcements')]"
+  },
+  "k-opened-tabstrip-tab": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab') and @aria-selected='true']//div/span"
   },
   "span_Announceme_163": {
     "class": "k-link ng-star-inserted",

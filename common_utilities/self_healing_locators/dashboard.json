@@ -150,11 +150,10 @@
     "text": "happy bday. have a nice day.",
     "xpath": "//div[contains(normalize-space(text()), 'happy bday. have a nice day.')]"
   },
-  "div_happy bday_56": {
+  "div_alert": {
     "class": "alert alert-dismissible full-width-banner",
     "tag": "div",
-    "text": "happy bday. have a nice day.",
-    "xpath": "//div[contains(normalize-space(text()), 'happy bday. have a nice day.')]"
+    "xpath": "//div[contains(@class,'alert')]"
   },
   "div_happy bday_57": {
     "class": "white-links",

@@ -700,12 +700,10 @@
     "text": "Configurable Lookups Feature Flags Announcements",
     "xpath": "//ul[contains(normalize-space(text()), 'Configurable Lookups\nFeature Flags\nAnnouncements')]"
   },
-  "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-0": {
-    "id": "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-0",
-    "class": "ng-tns-c655264150-24 k-item k-state-default ng-star-inserted",
+  "k-opened-tabstrip-tab": {
+    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
     "tag": "li",
-    "text": "Configurable Lookups",
-    "xpath": "//li[@id='k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-0']"
+    "xpath": "//li[contains(@id,'k-tabstrip-tab') and @aria-selected='true']//div/span"
   },
   "span_Configurab_170": {
     "class": "k-link ng-star-inserted",
@@ -771,7 +769,7 @@
     "text": "ADD ANNOUNCEMENT",
     "xpath": "//button[contains(normalize-space(text()), 'ADD ANNOUNCEMENT')]"
   },
-  "span_ADD ANNOUN_180": {
+  "span_ADD_ANNOUNCEMENT": {
     "class": "k-button-text",
     "tag": "span",
     "text": "ADD ANNOUNCEMENT",
@@ -793,13 +791,11 @@
     "text": "Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT 1 2",
     "xpath": "//kendo-grid[contains(normalize-space(text()), 'Status\nAnnouncement\nClients Associated\nActions\nActive\nhappy bday. have a nice day.\nClient_Test_6_Ind\nClient_Test_1_US\nEDIT\nInactive\nIt is fun that we can choose the colors of these!\nBold?\nItalic?\nUnderline?\nEverything!\nEDIT\nInactive\nHappy holiday. this is url\nEDIT\nInactive\nhappy weekend. Have a nice day. url\nEDIT\nInactive\nTrying to add announcement even after existing announcement is active\nEDIT\n1\n2')]"
   },
-  "k-da8a6b07-9aee-4cbd-bee6-4c3e17074606": {
-    "id": "k-da8a6b07-9aee-4cbd-bee6-4c3e17074606",
+  "k-Data_table": {
     "aria-label": "Data table",
     "class": "k-grid-aria-root",
     "tag": "div",
-    "text": "Status Announcement Clients Associated Actions Active happy bday. have a nice day. Client_Test_6_Ind Client_Test_1_US EDIT Inactive It is fun that we can choose the colors of these! Bold? Italic? Underline? Everything! EDIT Inactive Happy holiday. this is url EDIT Inactive happy weekend. Have a nice day. url EDIT Inactive Trying to add announcement even after existing announcement is active EDIT",
-    "xpath": "//div[@id='k-da8a6b07-9aee-4cbd-bee6-4c3e17074606']"
+    "xpath": "//div[@aria-label='Data table']"
   },
   "div_Status Ann_185": {
     "class": "k-grid-header ng-star-inserted",
@@ -1617,5 +1613,30 @@
     "class": "ng-star-inserted",
     "tag": "kendo-resize-sensor",
     "xpath": "//kendo-resize-sensor[@class='ng-star-inserted']"
+  },
+  "td_status": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex":"1",
+    "xpath": "//td[@aria-colindex='1']"
+  },
+  "td_msg": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex":"2",
+    "xpath": "//td[@aria-colindex='2']"
+  },
+  "td_client": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex":"3",
+    "xpath": "//td[@aria-colindex='3']"
+  },
+  "span_edit": {
+    "class": "k-button-text",
+    "tag": "span",
+    "aria-colindex":"4",
+    "text": "EDIT",
+    "xpath": "//td[@aria-colindex='4']//span[@class='k-button-text']"
   }
 }

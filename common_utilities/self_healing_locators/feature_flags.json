@@ -758,12 +758,10 @@
     "text": "Choose client: Client_Test_1_US",
     "xpath": "//div[contains(normalize-space(text()), 'Choose client:\nClient_Test_1_US')]"
   },
-  "k-23c4db1f-1e01-4541-a9ac-5088f17a656a": {
-    "id": "k-23c4db1f-1e01-4541-a9ac-5088f17a656a",
-    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
-    "tag": "kendo-dropdownlist",
-    "text": "Client_Test_1_US",
-    "xpath": "//kendo-dropdownlist[@id='k-23c4db1f-1e01-4541-a9ac-5088f17a656a']"
+  "kendo-dropdownlist-input-value-Client": {
+    "class": "k-input-value-text",
+    "tag": "span",
+    "xpath": "//kendo-dropdownlist//span[@class='k-input-value-text']"
   },
   "k-7160849c-978c-44ec-8b4c-b67d1e1b5874": {
     "id": "k-7160849c-978c-44ec-8b4c-b67d1e1b5874",
@@ -814,11 +812,10 @@
     "text": "Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
     "xpath": "//div[contains(normalize-space(text()), 'Medication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
   },
-  "div_Medication_189": {
+  "div_content": {
     "class": "content",
     "tag": "div",
-    "text": "Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
-    "xpath": "//div[contains(normalize-space(text()), 'Medication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
+    "xpath": "//div[@class='content']"
   },
   "div_Medication_190": {
     "class": "ng-star-inserted",
@@ -826,7 +823,7 @@
     "text": "Medication Event Reminder Monitor 2-Way SMS Messaging Patient Self Reporting Pill Count Virtual Visits Self Report - pills taken with food Self Report - pills with provider present Patient MRN validated with lookup Populate Regimen from template Side Effects Support Actions Profile Questionnaire Unscheduled Drugs Default Adherence number of pills to zero Automatic Opt In for SMS Medidata RAVE Integration User Action Auditing Self Report - calendar Unlinking and re-linking Video events Reset Pin SMS Only In-App Messaging Video capture for VDOT OCS Messaging Adherence Action Model Hide Privacy Policy On Mobile Symptom Screening On Mobile REVAMPED REGIMEN",
     "xpath": "//div[contains(normalize-space(text()), 'Medication Event Reminder Monitor\n2-Way SMS Messaging\nPatient Self Reporting\nPill Count\nVirtual Visits\nSelf Report - pills taken with food\nSelf Report - pills with provider present\nPatient MRN validated with lookup\nPopulate Regimen from template\nSide Effects\nSupport Actions\nProfile Questionnaire\nUnscheduled Drugs\nDefault Adherence number of pills to zero\nAutomatic Opt In for SMS\nMedidata RAVE Integration\nUser Action Auditing\nSelf Report - calendar\nUnlinking and re-linking Video events\nReset Pin SMS Only\nIn-App Messaging\nVideo capture for VDOT\nOCS Messaging\nAdherence Action Model\nHide Privacy Policy On Mobile\nSymptom Screening On Mobile\nREVAMPED REGIMEN')]"
   },
-  "div_Medication_191": {
+  "div_Medication": {
     "class": "ng-star-inserted",
     "tag": "div",
     "text": "Medication Event Reminder Monitor",
@@ -957,11 +954,10 @@
     "tag": "div",
     "xpath": "//div[@class='col']"
   },
-  "k-23d088a5-ec2e-4a16-95d5-599eaa342cf4": {
-    "id": "k-23d088a5-ec2e-4a16-95d5-599eaa342cf4",
-    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+  "kendo-switch_Patient Self Reporting": {
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
-    "xpath": "//kendo-switch[@id='k-23d088a5-ec2e-4a16-95d5-599eaa342cf4']"
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Patient Self Reporting')]]//descendant::kendo-switch"
   },
   "span__216": {
     "class": "k-switch-track k-rounded-full",
@@ -1929,11 +1925,10 @@
     "tag": "div",
     "xpath": "//div[@class='col']"
   },
-  "k-76636961-470f-4a92-9098-be813733fede": {
-    "id": "k-76636961-470f-4a92-9098-be813733fede",
-    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+  "kendo-switch_In-App Messaging": {
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
-    "xpath": "//kendo-switch[@id='k-76636961-470f-4a92-9098-be813733fede']"
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'In-App Messaging')]]//descendant::kendo-switch"
   },
   "span__396": {
     "class": "k-switch-track k-rounded-full",
@@ -1983,11 +1978,15 @@
     "tag": "div",
     "xpath": "//div[@class='col']"
   },
-  "k-cc4c4bbc-5abe-4442-8d7d-2fa508564580": {
-    "id": "k-cc4c4bbc-5abe-4442-8d7d-2fa508564580",
-    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+  "kendo-switch_Video capture for VDOT": {
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
-    "xpath": "//kendo-switch[@id='k-cc4c4bbc-5abe-4442-8d7d-2fa508564580']"
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Video capture for VDOT')]]//descendant::kendo-switch"
+  },
+  "kendo-switch_Side Effects": {
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Side Effects')]]//descendant::kendo-switch"
   },
   "span__406": {
     "class": "k-switch-track k-rounded-full",
@@ -2199,11 +2198,10 @@
     "tag": "div",
     "xpath": "//div[@class='col']"
   },
-  "k-f8639a7b-9e95-4dd6-8a5b-157a81690e58": {
-    "id": "k-f8639a7b-9e95-4dd6-8a5b-157a81690e58",
-    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+  "kendo-switch_Symptom Screening On Mobile": {
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
-    "xpath": "//kendo-switch[@id='k-f8639a7b-9e95-4dd6-8a5b-157a81690e58']"
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Symptom Screening On Mobile')]]//descendant::kendo-switch"
   },
   "span__446": {
     "class": "k-switch-track k-rounded-full",
@@ -2253,11 +2251,20 @@
     "tag": "div",
     "xpath": "//div[@class='col']"
   },
-  "k-54e523db-c512-43e2-a2a5-9d0d09a816ad": {
-    "id": "k-54e523db-c512-43e2-a2a5-9d0d09a816ad",
-    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+  "kendo-switch_REVAMPED REGIMEN": {
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
-    "xpath": "//kendo-switch[@id='k-54e523db-c512-43e2-a2a5-9d0d09a816ad']"
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'REVAMPED REGIMEN')]]//descendant::kendo-switch"
+  },
+  "kendo-switch_Self Report - pills taken with food": {
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Self Report - pills taken with food')]]//descendant::kendo-switch"
+  },
+  "kendo-switch_Self Report - pills with provider present": {
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Self Report - pills with provider present')]]//descendant::kendo-switch"
   },
   "span__456": {
     "class": "k-switch-track k-rounded-full",

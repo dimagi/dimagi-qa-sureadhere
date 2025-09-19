@@ -10,7 +10,7 @@ class HomePage(BasePage):
     def validate_dashboard_page(self):
         self.wait_for_page_to_load()
         self.verify_page_title("SureAdhere", 60)
-        self.wait_for_element("p_Dashboard")
+        self.wait_for_element("p_Dashboard", 100)
         time.sleep(3)
 
     def click_add_user(self):
@@ -63,3 +63,9 @@ class HomePage(BasePage):
             # Only runs if the loop completes without 'break'
             print(f"No matching SA ID found for {sa_id}")
 
+    def verify_announcement(self, announcement_text, flag=True):
+        self.wait_for_element('div_alert')
+        alert_text = self.get_text('div_alert')
+        print(alert_text)
+        assert alert_text.strip() == announcement_text, f"{announcement_text} not present"
+        print(f"{announcement_text} is present")

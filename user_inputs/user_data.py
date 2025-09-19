@@ -16,3 +16,15 @@ class UserData:
     med_status = "Taken"
     provider_observation = "Patient"
     side_effect = ["Dark urine", "Loss of appetite", "Pain in hands/feet", "Unusual tiredness or weakness", "Low back pain", "Sleep disturbances",]
+    colour_code = "#730099"
+    client = "Client_Test_1_US"
+    ff = {
+        "Patient Self Reporting": "ON",
+        "Side Effects": "ON",
+        "Symptom Screening On Mobile": "OFF",
+        "In-App Messaging": "ON",
+        "Video capture for VDOT": "ON",
+        "REVAMPED REGIMEN": "ON",
+        "Self Report - pills taken with food": "OFF",
+        "Self Report - pills with provider present": "OFF"
+        }

@@ -29,6 +29,7 @@ class test_module_01_users(BaseCase):
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_1", scope="class")
     def test_case_01_add_staff(self):
         # login = LoginPage(self, "login")
@@ -46,12 +47,19 @@ class test_module_01_users(BaseCase):
         self.__class__.data.update({"fname": fname, "lname": lname, "email": email, "phn": phn, "isClientAdmint": client, "site": site})
         print(self.data)
 
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_2", depends=["tc_users_1"], scope="class")
     def test_case_02_edit_staff(self):
         self._login_once()
         home = HomePage(self, "dashboard")
         staff = ManageStaffPage(self, "staff")
         user_staff = UserStaffPage(self, "add_staff")
+
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
+
         home.open_dashboard_page()
         home.open_manage_staff_page()
         staff.validate_manage_staff_page()
@@ -77,6 +85,7 @@ class test_module_01_users(BaseCase):
             )
         print(self.data)
 
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_3", depends=["tc_users_1", "tc_users_2"], scope="class")
     def test_case_03_add_patient(self):
         rerun_count = getattr(self, "rerun_count", 0)
@@ -105,6 +114,7 @@ class test_module_01_users(BaseCase):
              "patient_phn": phn, "patient_username": username,
              "mrn": mrn, "phone_country":phn_country, "SA_ID": sa_id})
 
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_4", depends=["tc_users_1", "tc_users_2", "tc_users_3"], scope="class")
     def test_case_04_edit_patient(self):
         login = LoginPage(self, "login")
@@ -116,7 +126,10 @@ class test_module_01_users(BaseCase):
         p_profile = PatientProfilePage(self, 'patient_profile')
 
         d = self.__class__.data  # shared dict
-
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
@@ -129,6 +142,7 @@ class test_module_01_users(BaseCase):
             d["patient_email"], d['patient_username'], d["patient_phn"],
             d['phone_country'], d['site'], d['SA_ID']
             )
+
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
@@ -144,6 +158,7 @@ class test_module_01_users(BaseCase):
              "is_patient_active": patient_test_account}
             )
 
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_5", depends=["tc_users_1", "tc_users_2", "tc_users_3", "tc_users_4"], scope="class")
     def test_case_05_set_pin_patient(self):
         login = LoginPage(self, "login")
@@ -155,7 +170,10 @@ class test_module_01_users(BaseCase):
         p_profile = PatientProfilePage(self, 'patient_profile')
 
         d = self.__class__.data  # shared dict
-
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
@@ -174,6 +192,7 @@ class test_module_01_users(BaseCase):
             {"is_patient_active": patient_test_account, "patient_pin": patient_pin }
             )
 
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_6", depends=["tc_users_1", "tc_users_2", "tc_users_3", "tc_users_4", "tc_users_5"], scope="class")
     def test_case_06_new_regimen(self):
         login = LoginPage(self, "login")
@@ -186,6 +205,11 @@ class test_module_01_users(BaseCase):
         p_regimen = PatientRegimenPage(self, 'patient_regimens')
 
         d = self.__class__.data  # shared dict
+
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
 
         home.open_dashboard_page()
         home.validate_dashboard_page()

@@ -4,6 +4,8 @@ import time
 import pytest
 from seleniumbase import BaseCase
 
+from testPages.admin_page.admin_announcement_form_page import AdminAnnouncementFormPage
+from testPages.admin_page.admin_announcement_page import AdminAnnouncementPage
 from testPages.admin_page.admin_disease_page import AdminDiseasePage
 from testPages.admin_page.admin_drug_page import AdminDrugPage
 from testPages.admin_page.admin_page import AdminPage
@@ -35,6 +37,7 @@ class test_module_02_admin(BaseCase):
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_admin_1", scope="class")
     def test_case_01_edit_disease_and_drugs(self):
         # login = LoginPage(self, "login")
@@ -51,7 +54,7 @@ class test_module_02_admin(BaseCase):
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.expand_diseases()
-        disease_switch, disease_name = a_disease.toggle_for_disease(selected_disease)
+        disease_switch, disease_name = a_disease.toggle_for_disease(selected_disease, "ON")
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
@@ -63,7 +66,7 @@ class test_module_02_admin(BaseCase):
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.expand_drugs()
-        drug_switch, drug_name = a_drug.toggle_for_drugs(selected_drug)
+        drug_switch, drug_name = a_drug.toggle_for_drugs(selected_drug, "ON")
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
@@ -76,10 +79,10 @@ class test_module_02_admin(BaseCase):
              "drug_switch": drug_switch, "drug_name": drug_name}
             )
 
-
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_admin_2", depends=['tc_admin_1'] ,scope="class")
     def test_case_02_verify_disease_and_drugs(self):
-        # login = LoginPage(self, "login")
+        login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
         admin =AdminPage(self, 'admin')
@@ -90,6 +93,10 @@ class test_module_02_admin(BaseCase):
 
         d = self.__class__.data
 
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
 
         home.open_dashboard_page()
         home.open_manage_patient_page()
@@ -99,6 +106,11 @@ class test_module_02_admin(BaseCase):
         p_regimen.verify_patient_regimen_page()
         p_regimen.verify_diseases_present(d['disease_name'], d['disease_switch'])
 
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
+
         home.open_dashboard_page()
         home.open_manage_patient_page()
         patient.search_test_patients()
@@ -107,10 +119,15 @@ class test_module_02_admin(BaseCase):
         p_regimen.verify_patient_regimen_page()
         p_regimen.verify_drugs_present(d['drug_name'], d['drug_switch'])
 
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
+
         home.open_dashboard_page()
         home.open_admin_page()
         admin.expand_diseases()
-        disease_switch_now, disease_name = a_disease.toggle_for_disease(d['disease_name'])
+        disease_switch_now, disease_name = a_disease.toggle_for_disease(d['disease_name'], "OFF")
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
@@ -122,7 +139,12 @@ class test_module_02_admin(BaseCase):
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.expand_drugs()
-        drug_switch_now, drug_name = a_drug.toggle_for_drugs(d['drug_name'])
+        drug_switch_now, drug_name = a_drug.toggle_for_drugs(d['drug_name'], "OFF")
+
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
@@ -153,6 +175,42 @@ class test_module_02_admin(BaseCase):
         p_regimen.verify_patient_regimen_page()
         p_regimen.verify_drugs_present(drug_name, drug_switch_now)
 
+    @pytest.mark.smoketest
+    @pytest.mark.dependency(name="tc_admin_3", scope="class")
+    def test_case_03_admin_announcement(self):
+        login = LoginPage(self, "login")
+        self._login_once()
 
+        home = HomePage(self, "dashboard")
+        admin = AdminPage(self, 'admin')
+        a_announce = AdminAnnouncementPage(self, 'announcements')
+        a_announce_form = AdminAnnouncementFormPage(self, 'admin_announcement_form')
 
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
+
+        home.open_dashboard_page()
+        home.validate_dashboard_page()
+        home.open_admin_page()
+        admin.open_announcement()
+        a_announce.verify_announcements_page()
+        a_announce.add_announcement()
+        a_announce_form.validate_announcement_page()
+        announcement_text, status, client = a_announce_form.add_announcement()
+        home.open_admin_page()
+        admin.open_announcement()
+        a_announce.verify_announcement_created(announcement_text, status, client)
+        home.open_dashboard_page()
+        home.verify_announcement(announcement_text)
+
+        home.open_admin_page()
+        admin.open_announcement()
+        a_announce.edit_announcement(announcement_text)
+        a_announce_form.validate_announcement_page()
+        status_now = a_announce_form.deactivate_the_announcements()
+        home.open_admin_page()
+        admin.open_announcement()
+        a_announce.verify_announcement_created(announcement_text, status_now)
 
