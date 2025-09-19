@@ -37,6 +37,7 @@ class test_module_02_admin(BaseCase):
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_admin_1", scope="class")
     def test_case_01_edit_disease_and_drugs(self):
         # login = LoginPage(self, "login")
@@ -78,7 +79,7 @@ class test_module_02_admin(BaseCase):
              "drug_switch": drug_switch, "drug_name": drug_name}
             )
 
-
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_admin_2", depends=['tc_admin_1'] ,scope="class")
     def test_case_02_verify_disease_and_drugs(self):
         # login = LoginPage(self, "login")
@@ -155,8 +156,7 @@ class test_module_02_admin(BaseCase):
         p_regimen.verify_patient_regimen_page()
         p_regimen.verify_drugs_present(drug_name, drug_switch_now)
 
-
-
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_admin_3", scope="class")
     def test_case_01_edit_disease_and_verify(self):
         # login = LoginPage(self, "login")

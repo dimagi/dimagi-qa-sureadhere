@@ -29,6 +29,7 @@ class test_module_01_users(BaseCase):
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_1", scope="class")
     def test_case_01_add_staff(self):
         # login = LoginPage(self, "login")
@@ -46,6 +47,7 @@ class test_module_01_users(BaseCase):
         self.__class__.data.update({"fname": fname, "lname": lname, "email": email, "phn": phn, "isClientAdmint": client, "site": site})
         print(self.data)
 
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_2", depends=["tc_users_1"], scope="class")
     def test_case_02_edit_staff(self):
         self._login_once()
@@ -77,6 +79,7 @@ class test_module_01_users(BaseCase):
             )
         print(self.data)
 
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_3", depends=["tc_users_1", "tc_users_2"], scope="class")
     def test_case_03_add_patient(self):
         rerun_count = getattr(self, "rerun_count", 0)
@@ -105,6 +108,7 @@ class test_module_01_users(BaseCase):
              "patient_phn": phn, "patient_username": username,
              "mrn": mrn, "phone_country":phn_country, "SA_ID": sa_id})
 
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_4", depends=["tc_users_1", "tc_users_2", "tc_users_3"], scope="class")
     def test_case_04_edit_patient(self):
         login = LoginPage(self, "login")
@@ -144,6 +148,7 @@ class test_module_01_users(BaseCase):
              "is_patient_active": patient_test_account}
             )
 
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_5", depends=["tc_users_1", "tc_users_2", "tc_users_3", "tc_users_4"], scope="class")
     def test_case_05_set_pin_patient(self):
         login = LoginPage(self, "login")
@@ -174,6 +179,7 @@ class test_module_01_users(BaseCase):
             {"is_patient_active": patient_test_account, "patient_pin": patient_pin }
             )
 
+    @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_6", depends=["tc_users_1", "tc_users_2", "tc_users_3", "tc_users_4", "tc_users_5"], scope="class")
     def test_case_06_new_regimen(self):
         login = LoginPage(self, "login")

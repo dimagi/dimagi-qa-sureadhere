@@ -38,6 +38,7 @@ class test_module_00_presetup(BaseCase):
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
+    @pytest.mark.presetup
     @pytest.mark.order(1)  # ensure this test runs first
     @pytest.mark.dependency(name="presetup")
     @pytest.mark.run_on_main_process

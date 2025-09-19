@@ -57,6 +57,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requires.txt
+
       - name: SureAdhere Tests with pytest
         env:
           DIMAGIQA_ENV: ${{ matrix.environment }}
@@ -75,7 +76,11 @@ jobs:
           echo ${{env.NOW}}
           echo ${{env.DIMAGIQA_ENV}}
           google-chrome --version || true
-          pytest -v testCases \
+          pytest -v -m presetup\
+            --browser=chrome --headless --headless2 \
+            --reruns 1 \
+            --dashboard --html=presetup_report.html  --maxfail=1
+          pytest -v -m smoketest \
             --browser=chrome --headless --headless2 \
             --reruns 1 -n 3 --dist=loadscope\
             --dashboard --html=report.html
@@ -93,7 +98,7 @@ jobs:
         if: always()
         run: |
           rm -f sbase-artifacts.zip || true
-          zip -r sbase-artifacts.zip report.html latest_logs dashboard.html
+          zip -r sbase-artifacts.zip report.html latest_logs dashboard.html presetup_report.html
 
       - name: Upload reports & logs
         id: artifact-upload-step
