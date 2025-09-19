@@ -54,6 +54,12 @@ class test_module_01_users(BaseCase):
         home = HomePage(self, "dashboard")
         staff = ManageStaffPage(self, "staff")
         user_staff = UserStaffPage(self, "add_staff")
+
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
+
         home.open_dashboard_page()
         home.open_manage_staff_page()
         staff.validate_manage_staff_page()
@@ -120,7 +126,10 @@ class test_module_01_users(BaseCase):
         p_profile = PatientProfilePage(self, 'patient_profile')
 
         d = self.__class__.data  # shared dict
-
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
@@ -133,6 +142,7 @@ class test_module_01_users(BaseCase):
             d["patient_email"], d['patient_username'], d["patient_phn"],
             d['phone_country'], d['site'], d['SA_ID']
             )
+
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
@@ -160,7 +170,10 @@ class test_module_01_users(BaseCase):
         p_profile = PatientProfilePage(self, 'patient_profile')
 
         d = self.__class__.data  # shared dict
-
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
@@ -192,6 +205,11 @@ class test_module_01_users(BaseCase):
         p_regimen = PatientRegimenPage(self, 'patient_regimens')
 
         d = self.__class__.data  # shared dict
+
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
