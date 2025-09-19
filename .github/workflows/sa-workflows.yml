@@ -77,7 +77,7 @@ jobs:
           google-chrome --version || true
           pytest -v testCases \
             --browser=chrome --headless --headless2 \
-            --reruns 1 -n 3 --dist=loadfile\
+            --reruns 1 -n 3 --dist=loadscope\
             --dashboard --html=report.html
 
       - name: Parse test counts
