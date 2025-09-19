@@ -126,10 +126,17 @@ def global_presetup_fixture():
 
 
 def pytest_collection_modifyitems(config, items):
-    """Make all tests depend on presetup, except the presetup test itself."""
     for item in items:
-        if "presetup" not in [mark.name for mark in item.iter_markers()]:
-            item.add_marker(pytest.mark.dependency(depends=["presetup"]))
+        # Skip if this test itself *defines* the presetup dependency root
+        if any(
+            m.name == "dependency" and m.kwargs.get("name") == "presetup"
+            for m in item.own_markers
+        ):
+            continue
+
+        # For everything else, make it depend on presetup
+        item.add_marker(pytest.mark.dependency(depends=["presetup"]))
+
 
 def pytest_runtest_setup(item):
     if item.get_closest_marker("run_on_main_process"):
