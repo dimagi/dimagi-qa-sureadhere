@@ -36,7 +36,7 @@ class AdminDiseasePage(BasePage):
         time.sleep(5)
         print(f"[switch] {name}: now_on={now_on}")
         assert now_on == target, f"Switch '{name}' did not change to {target}"
-        return ("ON" if now_on else "OFF"), (name if toggle is None else None)
+        return ("ON" if now_on else "OFF"), name
 
 
     def double_check_on_toggle(self, name, toggle):
