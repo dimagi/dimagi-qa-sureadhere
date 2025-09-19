@@ -18,14 +18,14 @@ class AdminDiseasePage(BasePage):
         self.wait_for_element(element)
         was_on = self.kendo_switch_is_on(element, strict=True)
         print(f"[switch] {name}: was_on={was_on}")
-
-        if toggle == "ON":
-            target = False
-        elif toggle == "OFF":
-            target = True
-        else:
-            # target = flipped state
-            target = not was_on
+        target = True if toggle == "ON" else False
+        # if toggle == "ON":
+        #     target = False
+        # elif toggle == "OFF":
+        #     target = True
+        # else:
+        #     # target = flipped state
+        #     target = not was_on
         # set & wait for it to take effect (handles animations/re-render)
         self.kendo_switch_set(element, target, strict=True)
         time.sleep(2)
@@ -33,7 +33,7 @@ class AdminDiseasePage(BasePage):
             # verify
         now_on = self.kendo_switch_is_on(element, strict=True)
         self.refresh()
-        time.sleep(10)
+        time.sleep(5)
         print(f"[switch] {name}: now_on={now_on}")
         assert now_on == target, f"Switch '{name}' did not change to {target}"
         return ("ON" if now_on else "OFF"), (name if toggle is None else None)

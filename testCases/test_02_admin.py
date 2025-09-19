@@ -54,7 +54,7 @@ class test_module_02_admin(BaseCase):
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.expand_diseases()
-        disease_switch, disease_name = a_disease.toggle_for_disease(selected_disease)
+        disease_switch, disease_name = a_disease.toggle_for_disease(selected_disease, "ON")
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
@@ -66,7 +66,7 @@ class test_module_02_admin(BaseCase):
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.expand_drugs()
-        drug_switch, drug_name = a_drug.toggle_for_drugs(selected_drug)
+        drug_switch, drug_name = a_drug.toggle_for_drugs(selected_drug, "ON")
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
@@ -106,6 +106,11 @@ class test_module_02_admin(BaseCase):
         p_regimen.verify_patient_regimen_page()
         p_regimen.verify_diseases_present(d['disease_name'], d['disease_switch'])
 
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
+
         home.open_dashboard_page()
         home.open_manage_patient_page()
         patient.search_test_patients()
@@ -114,10 +119,15 @@ class test_module_02_admin(BaseCase):
         p_regimen.verify_patient_regimen_page()
         p_regimen.verify_drugs_present(d['drug_name'], d['drug_switch'])
 
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
+
         home.open_dashboard_page()
         home.open_admin_page()
         admin.expand_diseases()
-        disease_switch_now, disease_name = a_disease.toggle_for_disease(d['disease_name'])
+        disease_switch_now, disease_name = a_disease.toggle_for_disease(d['disease_name'], "OFF")
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
@@ -129,7 +139,12 @@ class test_module_02_admin(BaseCase):
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.expand_drugs()
-        drug_switch_now, drug_name = a_drug.toggle_for_drugs(d['drug_name'])
+        drug_switch_now, drug_name = a_drug.toggle_for_drugs(d['drug_name'], "OFF")
+
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
