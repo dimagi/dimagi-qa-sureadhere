@@ -58,7 +58,7 @@ class AdminFFPage(BasePage):
                 self.click(element)
             else:
                 print(f"toggle {toggle} and toggle {toggle} matching")
-            now_on = self.kendo_switch_is_on(element)
+            now_on = self.kendo_switch_is_on(element, strict=True)
             print(f"[switch] {ff}: now_on={now_on}")
             assert now_on == target, f"Switch '{ff}' did not change to {target}"
             print("Waiting for sometime for the changes to reflect")
