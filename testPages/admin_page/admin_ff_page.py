@@ -45,7 +45,7 @@ class AdminFFPage(BasePage):
         time.sleep(10)
 
     def double_check_ff(self, ff_dict):
-        for ff, toggle in ff_dict.itema():
+        for ff, toggle in ff_dict.items():
             print(f"Current parameters: {ff}, {toggle}")
             element = f"kendo-switch_{ff}"
             flag = self.get_attribute(element, 'aria-checked')
