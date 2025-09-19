@@ -13,7 +13,7 @@ class AdminDiseasePage(BasePage):
     def __init__(self, sb, page_name):
         super().__init__(sb, page_name=page_name)
 
-    def toggle_for_disease(self, name, toggle=None):
+    def toggle_for_disease(self, name, toggle):
         element = f"kendo-switch_{name}"
         self.wait_for_element(element)
         was_on = self.kendo_switch_is_on(element, strict=True)
