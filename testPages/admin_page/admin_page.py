@@ -20,8 +20,8 @@ class AdminPage(BasePage):
         self.wait_for_element('kendo-expansionpanel_Drugs')
         self.wait_for_element('kendo-expansionpanel_Languages')
         text = self.get_text('kendo-dropdownlist-input-value-Client')
-        assert text == UserData.site_manager[0], "Correct Client is not present"
-        print("Correct Client is not present")
+        assert text == UserData.site_manager[0], f"Correct Client {UserData.site_manager[0]} is not present"
+        print(f"Correct Client {UserData.site_manager[0]} is not present")
 
 
     def expand_diseases(self):
@@ -50,6 +50,15 @@ class AdminPage(BasePage):
 
     def open_announcement(self):
         self.click('k-tabstrip-tab-Announcements')
+        self.wait_for_page_to_load()
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Continue")
+        except Exception:
+            print("popup not present")
+
+    def open_feature_flags(self):
+        self.click('k-tabstrip-tab-Feature_Flags')
         self.wait_for_page_to_load()
         try:
             self.kendo_dialog_wait_open()  # no title constraint

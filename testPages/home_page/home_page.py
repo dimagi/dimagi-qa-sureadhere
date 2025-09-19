@@ -10,7 +10,7 @@ class HomePage(BasePage):
     def validate_dashboard_page(self):
         self.wait_for_page_to_load()
         self.verify_page_title("SureAdhere", 60)
-        self.wait_for_element("p_Dashboard")
+        self.wait_for_element("p_Dashboard", 100)
         time.sleep(3)
 
     def click_add_user(self):

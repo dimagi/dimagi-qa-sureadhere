@@ -18,3 +18,11 @@ class UserData:
     side_effect = ["Dark urine", "Loss of appetite", "Pain in hands/feet", "Unusual tiredness or weakness", "Low back pain", "Sleep disturbances",]
     colour_code = "#730099"
     client = "Client_Test_1_US"
+    ff = {
+        "Patient Self Reporting": "ON",
+        "Side Effects": "ON",
+        "Symptom Screening On Mobile": "OFF",
+        "In-App Messaging": "ON",
+        "Video capture for VDOT": "ON",
+        "REVAMPED REGIMEN": "ON"
+        }

@@ -2747,10 +2747,10 @@ class BasePage:
                 continue
         return True  # if unsure, treat as enabled
 
-    def kendo_switch_is_on(self, logical_name: str, *, timeout: int = 10) -> bool:
+    def kendo_switch_is_on(self, logical_name: str, *, timeout: int = 10, strict: bool = False) -> bool:
         """Read current ON/OFF state robustly."""
         from selenium.common.exceptions import StaleElementReferenceException
-        sel = self.resolve(logical_name)
+        sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
         for _ in range(4):
             try:
                 host = self._get_webelement(sel, timeout=timeout)
@@ -2791,11 +2791,11 @@ class BasePage:
         # default safe fallback
         return False
 
-    def kendo_switch_toggle(self, logical_name: str, *, timeout: int = 10) -> None:
+    def kendo_switch_toggle(self, logical_name: str, *, timeout: int = 10, strict: bool = False) -> None:
         """Toggle the switch once (JS click fallback if needed)."""
         import contextlib, time
         from selenium.common.exceptions import StaleElementReferenceException, ElementClickInterceptedException
-        sel = self.resolve(logical_name)
+        sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
         for _ in range(4):
             try:
                 host = self._get_webelement(sel, timeout=timeout)
@@ -2813,30 +2813,30 @@ class BasePage:
                 time.sleep(0.05)
                 continue
 
-    def kendo_switch_set(self, logical_name: str, on: bool, *, timeout: int = 10) -> None:
+    def kendo_switch_set(self, logical_name: str, on: bool, *, timeout: int = 10, strict: bool = False) -> None:
         """Idempotently set the switch to ON/OFF (retries & stale-safe)."""
         import time
         # quick disabled guard
         if not self.kendo_switch_is_enabled(logical_name, timeout=timeout):
             raise AssertionError(f"Kendo switch '{logical_name}' is disabled.")
         # fast path
-        if self.kendo_switch_is_on(logical_name, timeout=timeout) == on:
+        if self.kendo_switch_is_on(logical_name, timeout=timeout, strict=strict) == on:
             return
         # try up to 6 toggles (handles animations/re-renders)
         for _ in range(6):
-            self.kendo_switch_toggle(logical_name, timeout=timeout)
+            self.kendo_switch_toggle(logical_name, timeout=timeout, strict=strict)
             time.sleep(0.08)
-            state = self.kendo_switch_is_on(logical_name, timeout=timeout)
+            state = self.kendo_switch_is_on(logical_name, timeout=timeout, strict=strict)
             if state == on:
                 return
         raise AssertionError(f"Failed to set Kendo switch '{logical_name}' to {on}")
 
-    def kendo_switch_wait(self, logical_name: str, expected: bool, *, timeout: int = 8, poll: float = 0.1) -> None:
+    def kendo_switch_wait(self, logical_name: str, expected: bool, *, timeout: int = 8, poll: float = 0.1, strict: bool=False) -> None:
         """Wait until switch reaches expected state (True/False) or timeout."""
         import time
         end = time.monotonic() + timeout
         while time.monotonic() < end:
-            if self.kendo_switch_is_on(logical_name, timeout=max(1, int(poll * 10))) == expected:
+            if self.kendo_switch_is_on(logical_name, timeout=max(1, int(poll * 10)), strict=strict) == expected:
                 return
             time.sleep(poll)
         raise TimeoutError(f"Kendo switch '{logical_name}' did not reach state {expected} in {timeout}s")

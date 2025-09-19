@@ -115,3 +115,24 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
         f.write(f'ERROR={len(error)}\n')
         f.write(f'SKIPPED={len(skipped)}\n')
         f.write(f'XFAIL={len(xfail)}\n')
+
+@pytest.fixture(scope="session", autouse=True)
+def global_presetup_fixture():
+    """Truly run once before any tests (even with xdist)."""
+    print("\n>>> Running global presetup before all tests <<<")
+    # Your setup logic here
+    yield
+    print("\n>>> Global presetup teardown after all tests <<<")
+
+
+def pytest_collection_modifyitems(config, items):
+    """Make all tests depend on presetup, except the presetup test itself."""
+    for item in items:
+        if item.originalname != "test_global_presetup":
+            item.add_marker(pytest.mark.dependency(depends=["presetup"]))
+
+def pytest_runtest_setup(item):
+    if item.get_closest_marker("run_on_main_process"):
+        worker_id = getattr(item.config, "workerinput", {}).get("workerid", "master")
+        if worker_id != "master":
+            pytest.skip("Presetup runs only on master node")

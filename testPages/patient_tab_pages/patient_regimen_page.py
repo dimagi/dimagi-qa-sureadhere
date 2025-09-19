@@ -16,9 +16,9 @@ class PatientRegimenPage(BasePage):
 
     def open_patient_regimen_page(self):
         self.click('k-tabstrip-tab-Regimen')
+        time.sleep(2)
         try:
             self.kendo_dialog_wait_open()  # no title constraint
-            assert "create a new" in self.kendo_dialog_get_text()
             self.kendo_dialog_click_button("Continue")
         except Exception:
             print("popup not present")

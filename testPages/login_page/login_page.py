@@ -17,7 +17,9 @@ class LoginPage(BasePage):
         self.wait_for_element("next", 50)
         self.type("email", username)
         self.type("password", password)
+        time.sleep(2)
         self.click("next")
+        time.sleep(5)
 
     def after_logout(self):
         time.sleep(5)
