@@ -24,22 +24,22 @@ class UserStaffPage(BasePage):
         self.click('selectedPatientManagers')
         self.kendo_select("k-input_Patient_Manager", text=site_manager)
         self.kendo_select("k-input_Patient_Manager", text=site_manager)
-        # self.kendo_select_first("k-input_Patient_Manager")
+        self.kendo_select_first("k-input_Patient_Manager")
 
         self.click('selectedTreatmentMonitors')
         self.kendo_select("k-input_Treatment_Monitors", text=site_manager)
         self.kendo_select("k-input_Treatment_Monitors", text=site_manager)
-        # self.kendo_select_first("k-input_Treatment_Monitors")
+        self.kendo_select_first("k-input_Treatment_Monitors")
 
         self.click('selectedSiteManagers')
         self.kendo_select("k-input_Site_Managers", text=site_manager)
         self.kendo_select("k-input_Site_Managers", text=site_manager)
-        # self.kendo_select_first("k-input_Site_Managers")
+        self.kendo_select_first("k-input_Site_Managers")
 
         self.click('selectedStaffAdministrators')
         self.kendo_select("k-input_Staff_Administrators", text=site_manager)
         self.kendo_select("k-input_Staff_Administrators", text=site_manager)
-        # self.kendo_select_first("k-input_Staff_Administrators")
+        self.kendo_select_first("k-input_Staff_Administrators")
 
         self.click('isClientAdmin')
         assert self.is_checked('isClientAdmin'), "Client Admin not checked"
