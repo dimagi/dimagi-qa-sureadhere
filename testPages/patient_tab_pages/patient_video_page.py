@@ -62,7 +62,7 @@ class PatientVideoPage(BasePage):
         self.wait_for_element('span_Comment')
         self.click('span_Comment')
         now = datetime.now()
-        formatted_now = now.strftime(f"%a - %b {now.day}, %Y - %I:%M %p")
+        formatted_now = now.strftime(f"%a - %b %d, %Y - %I:%M %p")
         drug_name = self.get_text('div_drug-name')
         drug_details = self.get_text('div_drug-details')
         text = str(dose_per_pill)+"mg/"+str(no_of_pills)+" pills"

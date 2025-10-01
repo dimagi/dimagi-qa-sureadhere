@@ -11,7 +11,7 @@ class UserData:
     dose_per_pill = 2
     admin_disease = ["Depression", "Hepatitis C", "Ebola"]
     admin_drug = ["Levofloxacin", "Rifapentine", "Truvada", "Stribild"]
-    default_staff_email = "automation.user@email.com"
+    default_staff_email = ["automation.user@email.com", "automation.user_rogers@email.com"]
     default_staff_name = "Automation Testuser"
     med_status = "Taken"
     provider_observation = "Patient"

@@ -51,6 +51,7 @@ from urllib.parse import urlparse, urlunparse
 
 # Keep this list in sync with what your tests expect
 _BANNER_HOST = "banner.sureadherelabs.com"
+_ROGERS_HOST = "rogers.sureadherelabs.com:8008/"
 
 def _needs_admin_auth(url: str) -> bool:
     try:
@@ -95,21 +96,96 @@ def _load_from_file() -> dict:
         "bs_user", "bs_key",
     ]
     s = {k: defaults.get(k) for k in env_keys if defaults.get(k) is not None}
+    base_url = defaults.get("url")
+    if base_url:
+        subdomain = base_url.split("//")[1].split(".")[0]   # <-- clean extraction
+        s["url"] = base_url
+        s["domain"] = subdomain
+    else:
+        # fallback if no url given in config
+        env = os.environ.get("DIMAGIQA_ENV") or "banner"
+        suffix = ":8008/" if env == "rogers" else "/"
+        s["url"] = f"https://{env}.sureadherelabs.com{suffix}"
+        s["domain"] = env
+    return s
+
+    # if "url" not in env_keys:
+    #     env = os.environ.get("DIMAGIQA_ENV") or "banner"
+    #     if env == "secure":
+    #         subdomain = "secure"
+    #         suffix = "/"
+    #     elif env == "rogers":
+    #         subdomain = "rogers"
+    #         suffix = ":8008/"
+    #     elif env == "securevoteu":
+    #         subdomain = "securevoteu"
+    #         suffix = "/"
+    #     else:
+    #         subdomain = "banner"
+    #         suffix = "/"
+    #     s["url"] = f"https://{subdomain}.sureadherelabs.com{suffix}"
+    #     s["domain"] = subdomain
 
     # Special handling: banner host gets embedded admin auth
-    base_url = defaults.get("url", "")
-    if base_url == f"https://{_BANNER_HOST}/":
-        s["url"] = _inject_basic_auth(
-            base_url, s.get("admin_username"), s.get("admin_password")
-        )
-    else:
-        s["url"] = base_url
-    return s
+    # base_url = defaults.get("url", "")
+    # if base_url == f"https://{_BANNER_HOST}/":
+    #     s["url"] = _inject_basic_auth(
+    #         base_url, s.get("admin_username"), s.get("admin_password")
+    #     )
+    # else:
+    #     base_url = defaults.get("url")
+    #     subdomain = base_url.split("//")[1].split(".")[0]
+    #     s["url"] = base_url
+    #     s["domain"] = subdomain
+    # return s
+
+# def load_settings() -> dict:
+#     s = _load_from_env()
+#
+#     # CI path: env is source of truth, but only minimal required keys
+#     if os.environ.get("CI", "").lower() == "true":
+#         s["CI"] = "true"
+#         missing = []
+#
+#         # url + login creds always required
+#         for k in ("url", "login_username", "login_password"):
+#             if not s.get(k):
+#                 missing.append(f"DIMAGIQA_{k.upper()}")
+#
+#         # If banner host, require admin creds for basic auth
+#         if s.get("url") and _needs_admin_auth(s["url"]):
+#             for k in ("admin_username", "admin_password"):
+#                 if not s.get(k):
+#                     missing.append(f"DIMAGIQA_{k.upper()}")
+#
+#         if missing:
+#             raise RuntimeError(
+#                 "Missing required environment secrets:\n  " + "\n  ".join(missing)
+#             )
+#
+#         # Inject basic auth for banner
+#         if _needs_admin_auth(s["url"]):
+#             s["url"] = _inject_basic_auth(
+#                 s["url"], s.get("admin_username"), s.get("admin_password")
+#             )
+#         return s
+#
+#     # Local path: if no URL in env, read from settings.cfg
+#     if not s.get("url"):
+#         s = _load_from_file()
+#         return s
+#
+#     # Local with URL provided via env: allow it, and inject if banner
+#     if _needs_admin_auth(s["url"]):
+#         s["url"] = _inject_basic_auth(
+#             s["url"], s.get("admin_username"), s.get("admin_password")
+#         )
+#     return s
 
 def load_settings() -> dict:
     s = _load_from_env()
 
-    # CI path: env is source of truth, but only minimal required keys
+    # CI path: env is source of truth, only minimal required keys
     if os.environ.get("CI", "").lower() == "true":
         s["CI"] = "true"
         missing = []
@@ -119,21 +195,9 @@ def load_settings() -> dict:
             if not s.get(k):
                 missing.append(f"DIMAGIQA_{k.upper()}")
 
-        # If banner host, require admin creds for basic auth
-        if s.get("url") and _needs_admin_auth(s["url"]):
-            for k in ("admin_username", "admin_password"):
-                if not s.get(k):
-                    missing.append(f"DIMAGIQA_{k.upper()}")
-
         if missing:
             raise RuntimeError(
                 "Missing required environment secrets:\n  " + "\n  ".join(missing)
-            )
-
-        # Inject basic auth for banner
-        if _needs_admin_auth(s["url"]):
-            s["url"] = _inject_basic_auth(
-                s["url"], s.get("admin_username"), s.get("admin_password")
             )
         return s
 
@@ -142,9 +206,5 @@ def load_settings() -> dict:
         s = _load_from_file()
         return s
 
-    # Local with URL provided via env: allow it, and inject if banner
-    if _needs_admin_auth(s["url"]):
-        s["url"] = _inject_basic_auth(
-            s["url"], s.get("admin_username"), s.get("admin_password")
-        )
+    # Local with URL provided via env: just trust the value
     return s

@@ -54,8 +54,15 @@ class test_module_03(BaseCase):
         home.click_admin_profile_button()
         profile.logout_user()
         login.after_logout()
-
-        login.login(UserData.default_staff_email, UserData.pwd)
+        if "banner" in self.settings["url"]:
+            default_staff_email = UserData.default_staff_email[0]
+        elif "rogers" in self.settings["url"]:
+            default_staff_email = UserData.default_staff_email[1]
+        elif "secure" in self.settings["url"]:
+            default_staff_email = UserData.default_staff_email[2]
+        else:
+            default_staff_email = UserData.default_staff_email[3]
+        login.login(default_staff_email, UserData.pwd)
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.click_add_user()
