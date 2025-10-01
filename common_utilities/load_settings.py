@@ -103,7 +103,7 @@ def _load_from_file() -> dict:
         s["domain"] = subdomain
     else:
         # fallback if no url given in config
-        env = os.environ.get("DIMAGIQA_ENV") or "banner"
+        env = os.environ.get("DIMAGIQA_ENV")
         suffix = ":8008/" if env == "rogers" else "/"
         labs="labs." if "secure" in env else "."
         s["url"] = f"https://{env}.sureadhere{labs}com{suffix}"
