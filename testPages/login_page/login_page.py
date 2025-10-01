@@ -10,6 +10,7 @@ class LoginPage(BasePage):
         super().__init__(sb, page_name=page_name)
 
     def launch_browser(self, url):
+        print(f"Launching url {url}")
         self.launch_url(url)
         self.verify_page_title("Sign in", 60)
 
