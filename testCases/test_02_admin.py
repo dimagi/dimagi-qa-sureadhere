@@ -186,6 +186,14 @@ class test_module_02_admin(BaseCase):
         a_announce = AdminAnnouncementPage(self, 'announcements')
         a_announce_form = AdminAnnouncementFormPage(self, 'admin_announcement_form')
 
+
+        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
+            default_client = UserData.client[0]
+        elif "secure" in self.settings["url"]:
+            default_client = UserData.client[1]
+        else:
+            default_client = UserData.client[2]
+
         try:
             login.login(self.settings["login_username"], self.settings["login_password"])
         except Exception:
@@ -198,7 +206,7 @@ class test_module_02_admin(BaseCase):
         a_announce.verify_announcements_page()
         a_announce.add_announcement()
         a_announce_form.validate_announcement_page()
-        announcement_text, status, client = a_announce_form.add_announcement()
+        announcement_text, status, client = a_announce_form.add_announcement(client=default_client)
         home.open_admin_page()
         admin.open_announcement()
         a_announce.verify_announcement_created(announcement_text, status, client)

@@ -56,25 +56,30 @@ class test_module_03(BaseCase):
         login.after_logout()
         if "banner" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[0]
+            default_site_manager = UserData.site_manager[0]
         elif "rogers" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[1]
+            default_site_manager = UserData.site_manager[0]
         elif "secure" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[2]
+            default_site_manager = UserData.site_manager[1]
         else:
             default_staff_email = UserData.default_staff_email[3]
+            default_site_manager = UserData.site_manager[2]
+            
         login.login(default_staff_email, UserData.pwd)
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.click_add_user()
         user.add_patient()
-        pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(UserData.site_manager[0], mob='YES', rerun_count=rerun_count)
+        pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(default_site_manager, mob='YES', rerun_count=rerun_count)
         p_profile.verify_patient_profile_page()
         sa_id = p_profile.verify_patient_profile_details(pfname, plname, mrn, pemail, username, phn, phn_country,
-                                                         UserData.site_manager[0], sa_id=True
+                                                         default_site_manager, sa_id=True
                                                          )
         p_profile.select_patient_manager(UserData.default_staff_name)
         patient_test_account, patient_pin = p_profile.set_patient_pin(pfname, plname, mrn, pemail,
-                                                                      username, phn, phn_country, UserData.site_manager[0]
+                                                                      username, phn, phn_country, default_site_manager
                                                                       )
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
@@ -95,7 +100,7 @@ class test_module_03(BaseCase):
              "patient_email": pemail,
              "patient_phn": phn, "patient_username": username,
              "mrn": mrn, "phone_country": phn_country, "SA_ID": sa_id,
-             "site": UserData.site_manager[0], "is_patient_active": patient_test_account,
+             "site": default_site_manager, "is_patient_active": patient_test_account,
              "patient_pin": patient_pin, "start_date": start_date, "end_date": end_date,
              "total_pills": no_of_pill, "drug_name":med_name, "dose_per_pill": dose_per_pill
              }

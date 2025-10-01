@@ -18,8 +18,8 @@ on:
         options:
           - banner
           - rogers
-          - secure
           - securevoteu
+          - secure
   schedule:
     - cron: '30 7 * * 1-5'
 
@@ -40,7 +40,7 @@ jobs:
       - id: set-matrix-default
         if: ${{ !contains(github.event_name , 'dispatch') }}
         run: |
-          echo "::set-output name=matrix::{\"environment\": [\"banner\", \"rogers\", \"secure\", \"securevoteu\"]}"
+          echo "::set-output name=matrix::{\"environment\": [\"banner\", \"rogers\"]}"
           
   build:
     needs: set_matrix
@@ -100,16 +100,16 @@ jobs:
       - name: Zip reports for email
         if: always()
         run: |
-          rm -f sbase-artifacts.zip || true
-          zip -r sbase-artifacts.zip report.html latest_logs dashboard.html presetup_report.html
+          rm -f sbase-artifacts-${{ matrix.environment }}.zip || true
+          zip -r sbase-artifacts-${{ matrix.environment }}.zip report.html latest_logs dashboard.html presetup_report.html
 
       - name: Upload reports & logs
         id: artifact-upload-step
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: sbase-artifacts
-          path: sbase-artifacts.zip
+          name: sbase-artifacts-${{ matrix.environment }}
+          path: sbase-artifacts-${{ matrix.environment }}.zip
 
       - name: Build artifact URL
         id: artifact_url
@@ -306,5 +306,5 @@ jobs:
           from: <${{secrets.DIMAGIQA_MAIL_USERNAME}}>
           html_body: ${{ fromJSON(steps.configure_email.outputs.result).body }}
           convert_markdown: true
-          attachments: sbase-artifacts.zip
+          attachments: sbase-artifacts-${{ matrix.environment }}.zip
           in_reply_to: ${{ fromJSON(steps.configure_email.outputs.result).reference }}

@@ -16,12 +16,12 @@ class AdminFFPage(BasePage):
 
 
 
-    def validate_admin_ff_page(self):
+    def validate_admin_ff_page(self, client):
         self.wait_for_element('kendo-dropdownlist-input-value-Client')
         self.wait_for_element('div_content')
         text = self.get_text('kendo-dropdownlist-input-value-Client')
-        assert text == UserData.client, f"Correct Client {UserData.client} is not present"
-        print(f"Correct Client {UserData.client} is not present")
+        assert text == client, f"Correct Client {client} is not present"
+        print(f"Correct Client {client} is not present")
 
     def set_ffs(self, ff_dict):
         for ff, toggle in ff_dict.items():

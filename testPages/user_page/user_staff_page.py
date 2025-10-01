@@ -14,7 +14,7 @@ class UserStaffPage(BasePage):
         super().__init__(sb, page_name=page_name)
 
 
-    def fill_staff_form(self):
+    def fill_staff_form(self, site_manager):
         self.type('first_name', self.first_name_text)
         self.type('last_name', self.last_name_text)
         self.type('email', self.email)
@@ -22,24 +22,24 @@ class UserStaffPage(BasePage):
         self.type('phone_number', UserData.phone_number)
 
         self.click('selectedPatientManagers')
-        self.kendo_select("k-input_Patient_Manager", text=UserData.site_manager[0])
-        self.kendo_select("k-input_Patient_Manager", text=UserData.site_manager[0])
-        self.kendo_select_first("k-input_Patient_Manager")
+        self.kendo_select("k-input_Patient_Manager", text=site_manager)
+        self.kendo_select("k-input_Patient_Manager", text=site_manager)
+        # self.kendo_select_first("k-input_Patient_Manager")
 
         self.click('selectedTreatmentMonitors')
-        self.kendo_select("k-input_Treatment_Monitors", text=UserData.site_manager[0])
-        self.kendo_select("k-input_Treatment_Monitors", text=UserData.site_manager[0])
-        self.kendo_select_first("k-input_Treatment_Monitors")
+        self.kendo_select("k-input_Treatment_Monitors", text=site_manager)
+        self.kendo_select("k-input_Treatment_Monitors", text=site_manager)
+        # self.kendo_select_first("k-input_Treatment_Monitors")
 
         self.click('selectedSiteManagers')
-        self.kendo_select("k-input_Site_Managers", text=UserData.site_manager[0])
-        self.kendo_select("k-input_Site_Managers", text=UserData.site_manager[0])
-        self.kendo_select_first("k-input_Site_Managers")
+        self.kendo_select("k-input_Site_Managers", text=site_manager)
+        self.kendo_select("k-input_Site_Managers", text=site_manager)
+        # self.kendo_select_first("k-input_Site_Managers")
 
         self.click('selectedStaffAdministrators')
-        self.kendo_select("k-input_Staff_Administrators", text=UserData.site_manager[0])
-        self.kendo_select("k-input_Staff_Administrators", text=UserData.site_manager[0])
-        self.kendo_select_first("k-input_Staff_Administrators")
+        self.kendo_select("k-input_Staff_Administrators", text=site_manager)
+        self.kendo_select("k-input_Staff_Administrators", text=site_manager)
+        # self.kendo_select_first("k-input_Staff_Administrators")
 
         self.click('isClientAdmin')
         assert self.is_checked('isClientAdmin'), "Client Admin not checked"
@@ -52,7 +52,7 @@ class UserStaffPage(BasePage):
         client=True
 
         print(f"Staff Created: {self.first_name_text}, {self.last_name_text}, {self.email}, {UserData.phone_number}")
-        return self.first_name_text, self.last_name_text, self.email, UserData.phone_number, client, UserData.site_manager[0]
+        return self.first_name_text, self.last_name_text, self.email, UserData.phone_number, client, site_manager
 
     def wait_for_staff_to_load(self, fname, lname):
         self.wait_for_field_value_contains('first_name', fname, timeout=40)

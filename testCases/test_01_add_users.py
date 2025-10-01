@@ -39,9 +39,16 @@ class test_module_01_users(BaseCase):
         staff = ManageStaffPage(self, "staff")
         user_staff = UserStaffPage(self, "add_staff")
 
+        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
+            default_site_manager = UserData.site_manager[0]
+        elif "secure" in self.settings["url"]:
+            default_site_manager = UserData.site_manager[1]
+        else:
+            default_site_manager = UserData.site_manager[2]
+
         home.click_add_user()
         user.add_staff()
-        fname, lname, email, phn, client, site = user_staff.fill_staff_form()
+        fname, lname, email, phn, client, site = user_staff.fill_staff_form(default_site_manager)
         staff.validate_manage_staff_page()
         staff.search_staff(fname, lname, email, phn)
         self.__class__.data.update({"fname": fname, "lname": lname, "email": email, "phn": phn, "isClientAdmint": client, "site": site})

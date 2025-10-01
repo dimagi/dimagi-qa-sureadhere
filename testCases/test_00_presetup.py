@@ -49,11 +49,19 @@ class test_module_00_presetup(BaseCase):
         admin = AdminPage(self, 'admin')
         a_ff = AdminFFPage(self, 'feature_flags')
 
+
+        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
+            default_client = UserData.client[0]
+        elif "secure" in self.settings["url"]:
+            default_client = UserData.client[1]
+        else:
+            default_client = UserData.client[2]
+
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.open_feature_flags()
-        a_ff.validate_admin_ff_page()
+        a_ff.validate_admin_ff_page(default_client)
         a_ff.set_ffs(UserData.ff)
         home.open_admin_page()
         admin.open_feature_flags()
