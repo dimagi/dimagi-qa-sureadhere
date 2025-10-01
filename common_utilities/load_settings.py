@@ -107,6 +107,7 @@ def _load_from_file() -> dict:
         suffix = ":8008/" if env == "rogers" else "/"
         labs="labs." if "secure" in env else "."
         s["url"] = f"https://{env}.sureadhere{labs}com{suffix}"
+        print(s["url"])
         s["domain"] = env
     return s
 

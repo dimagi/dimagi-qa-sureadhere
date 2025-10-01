@@ -82,11 +82,11 @@ jobs:
           pytest -v -m presetup\
             --browser=chrome --headless --headless2 \
             --reruns 1 \
-            --dashboard --html=presetup_report.html  --maxfail=1
+            --dashboard --html=presetup_report-${{ matrix.environment }}.html  --maxfail=1
           pytest -v -m smoketest \
             --browser=chrome --headless --headless2 \
             --reruns 1 -n 3 --dist=loadscope\
-            --dashboard --html=report.html
+            --dashboard --html=report-${{ matrix.environment }}.html
 
       - name: Parse test counts
         id: parse_counts
@@ -101,7 +101,7 @@ jobs:
         if: always()
         run: |
           rm -f sbase-artifacts-${{ matrix.environment }}.zip || true
-          zip -r sbase-artifacts-${{ matrix.environment }}.zip report.html latest_logs dashboard.html presetup_report.html
+          zip -r sbase-artifacts-${{ matrix.environment }}.zip report-${{ matrix.environment }}.html latest_logs dashboard.html presetup_report-${{ matrix.environment }}.html
 
       - name: Upload reports & logs
         id: artifact-upload-step
