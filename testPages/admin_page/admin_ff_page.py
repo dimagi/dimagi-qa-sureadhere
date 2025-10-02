@@ -42,6 +42,7 @@ class AdminFFPage(BasePage):
                 # verify
                 now_on = self.kendo_switch_is_on(element, strict=True)
                 print(f"[switch] {ff}: now_on={now_on}")
+        time.sleep(5)
         self.refresh()
         time.sleep(10)
 
@@ -50,6 +51,7 @@ class AdminFFPage(BasePage):
             print(f"Current parameters: {ff}, {toggle}")
             element = f"kendo-switch_{ff}"
             flag = self.get_attribute(element, 'aria-checked')
+            print(f"Current state: {flag}")
             target = True if toggle == "ON" else False
             if toggle == "ON" and flag == False:
                 target = True

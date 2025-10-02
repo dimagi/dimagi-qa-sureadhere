@@ -2259,7 +2259,7 @@
   "kendo-switch_Self Report - pills taken with food": {
     "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
-    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Self Report - pills taken with food')]]//descendant::kendo-switch"
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'pills taken with food') or contains(normalize-space(text()), 'pills with food')]]//descendant::kendo-switch"
   },
   "kendo-switch_Self Report - pills with provider present": {
     "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",

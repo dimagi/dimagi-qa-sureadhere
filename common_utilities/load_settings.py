@@ -205,10 +205,9 @@ def _load_from_file() -> dict:
 #     return s
 
 def load_settings() -> dict:
-    s = _load_from_env()
-
     # CI path: env is source of truth, only minimal required keys
     if os.environ.get("CI", "").lower() == "true":
+        s = _load_from_env()
         s["CI"] = "true"
         missing = []
         # url + login creds always required
@@ -222,10 +221,6 @@ def load_settings() -> dict:
             )
         return s
 
-    # Local path: if no URL in env, read from settings.cfg
-    if not s.get("url"):
-        s = _load_from_file()
-        return s
-
-    # Local with URL provided via env: just trust the value
+    # Local path: always read from settings.cfg
+    s = _load_from_file()
     return s
