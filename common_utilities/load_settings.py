@@ -101,11 +101,15 @@ def _load_from_file() -> dict:
         subdomain = base_url.split("//")[1].split(".")[0]   # <-- clean extraction
         s["url"] = base_url
         s["domain"] = subdomain
+        s["login_username"] = defaults.get("admin_username") if "secure" in base_url else defaults.get("login_username")
+        s["login_password"] = defaults.get("admin_password") if "secure" in base_url else defaults.get("login_password")
     else:
         # fallback if no url given in config
         env = os.environ.get("DIMAGIQA_ENV")
-        suffix = ":8008/" if env == "rogers" else "/"
-        labs="labs." if "secure" in env else "."
+        suffix = ":8008/" if "rogers" in env else "/"
+        labs= "labs." if "secure" in env else "."
+        s["login_username"] = defaults.get("admin_username") if "secure" in env else defaults.get("login_username")
+        s["login_password"] = defaults.get("admin_password") if "secure" in env else defaults.get("login_password")
         s["url"] = f"https://{env}.sureadhere{labs}com{suffix}"
         print(s["url"])
         s["domain"] = env

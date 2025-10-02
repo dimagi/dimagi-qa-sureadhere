@@ -41,10 +41,10 @@ class test_module_01_users(BaseCase):
 
         if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
             default_site_manager = UserData.site_manager[0]
-        elif "secure" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[1]
-        else:
+        elif "securevoteu" in self.settings["url"]:
             default_site_manager = UserData.site_manager[2]
+        else:
+            default_site_manager = UserData.site_manager[1]
 
         home.click_add_user()
         user.add_staff()

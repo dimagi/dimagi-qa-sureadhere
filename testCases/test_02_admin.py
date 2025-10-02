@@ -189,10 +189,10 @@ class test_module_02_admin(BaseCase):
 
         if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
             default_client = UserData.client[0]
-        elif "secure" in self.settings["url"]:
-            default_client = UserData.client[1]
-        else:
+        elif "securevoteu" in self.settings["url"]:
             default_client = UserData.client[2]
+        else:
+            default_client = UserData.client[1]
 
         try:
             login.login(self.settings["login_username"], self.settings["login_password"])

@@ -52,10 +52,10 @@ class test_module_00_presetup(BaseCase):
 
         if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
             default_client = UserData.client[0]
-        elif "secure" in self.settings["url"]:
-            default_client = UserData.client[1]
-        else:
+        elif "securevoteu" in self.settings["url"]:
             default_client = UserData.client[2]
+        else:
+            default_client = UserData.client[1]
 
         home.open_dashboard_page()
         home.validate_dashboard_page()

@@ -60,12 +60,12 @@ class test_module_03(BaseCase):
         elif "rogers" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[1]
             default_site_manager = UserData.site_manager[0]
-        elif "secure" in self.settings["url"]:
-            default_staff_email = UserData.default_staff_email[2]
-            default_site_manager = UserData.site_manager[1]
-        else:
+        elif "securevoteu" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[3]
             default_site_manager = UserData.site_manager[2]
+        else:
+            default_staff_email = UserData.default_staff_email[2]
+            default_site_manager = UserData.site_manager[1]
             
         login.login(default_staff_email, UserData.pwd)
         home.open_dashboard_page()
