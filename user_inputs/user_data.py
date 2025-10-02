@@ -17,7 +17,7 @@ class UserData:
     provider_observation = "Patient"
     side_effect = ["Dark urine", "Loss of appetite", "Pain in hands/feet", "Unusual tiredness or weakness", "Low back pain", "Sleep disturbances",]
     colour_code = "#730099"
-    client = ["Client_Test_1_US", "St. Eligius", "EU Demo Client 2"]
+    client = ["Client_Test_1_US", "Client_1_US", "St. Eligius", "EU Demo Client 2"]
     ff = {
         "Patient Self Reporting": "ON",
         "Side Effects": "ON",

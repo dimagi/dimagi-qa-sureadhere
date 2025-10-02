@@ -187,12 +187,14 @@ class test_module_02_admin(BaseCase):
         a_announce_form = AdminAnnouncementFormPage(self, 'admin_announcement_form')
 
 
-        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
+        if "banner" in self.settings["url"]:
             default_client = UserData.client[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client[2]
-        else:
+        elif "rogers" in self.settings["url"]:
             default_client = UserData.client[1]
+        elif "securevoteu" in self.settings["url"]:
+            default_client = UserData.client[3]
+        else:
+            default_client = UserData.client[2]
 
         try:
             login.login(self.settings["login_username"], self.settings["login_password"])
