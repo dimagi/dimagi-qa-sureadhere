@@ -50,8 +50,8 @@ from urllib.parse import urlparse, urlunparse
 
 
 # Keep this list in sync with what your tests expect
-# _BANNER_HOST = "banner.sureadherelabs.com"
-# _ROGERS_HOST = "rogers.sureadherelabs.com:8008/"
+_BANNER_HOST = "banner.sureadherelabs.com"
+_ROGERS_HOST = "rogers.sureadherelabs.com:8008/"
 
 def _needs_admin_auth(url: str) -> bool:
     try:
@@ -87,7 +87,7 @@ def _load_from_env() -> dict:
             raise RuntimeError("Missing DIMAGIQA_ENV in CI – cannot build URL")
 
         suffix = ":8008/" if "rogers" in env else "/"
-        labs = "labs." if "secure" in env else "."
+        labs = "." if "secure" in env else "labs."
 
         # Choose correct login creds
         s["login_username"] = s.get("admin_username") if "secure" in env else s.get("login_username")
