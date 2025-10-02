@@ -50,8 +50,8 @@ from urllib.parse import urlparse, urlunparse
 
 
 # Keep this list in sync with what your tests expect
-_BANNER_HOST = "banner.sureadherelabs.com"
-_ROGERS_HOST = "rogers.sureadherelabs.com:8008/"
+# _BANNER_HOST = "banner.sureadherelabs.com"
+# _ROGERS_HOST = "rogers.sureadherelabs.com:8008/"
 
 def _needs_admin_auth(url: str) -> bool:
     try:
@@ -97,7 +97,8 @@ def _load_from_file() -> dict:
     ]
     s = {k: defaults.get(k) for k in env_keys if defaults.get(k) is not None}
     base_url = defaults.get("url")
-    if base_url:
+    env = os.environ.get("DIMAGIQA_ENV")
+    if base_url and env == None:
         subdomain = base_url.split("//")[1].split(".")[0]   # <-- clean extraction
         s["url"] = base_url
         s["domain"] = subdomain
