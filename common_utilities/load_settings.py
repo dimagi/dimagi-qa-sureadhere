@@ -81,6 +81,22 @@ def _load_from_env() -> dict:
         v = os.environ.get(f"DIMAGIQA_{k.upper()}")
         if v:
             s[k] = v
+    if not s.get("url"):
+        env = os.environ.get("DIMAGIQA_ENV")
+        if not env:
+            raise RuntimeError("Missing DIMAGIQA_ENV in CI – cannot build URL")
+
+        suffix = ":8008/" if "rogers" in env else "/"
+        labs = "labs." if "secure" in env else "."
+
+        # Choose correct login creds
+        s["login_username"] = s.get("admin_username") if "secure" in env else s.get("login_username")
+        s["login_password"] = s.get("admin_password") if "secure" in env else s.get("login_password")
+
+        s["url"] = f"https://{env}.sureadhere{labs}com{suffix}"
+        s["domain"] = env
+        print(f"[INFO] Auto-generated CI URL: {s['url']}")
+
     return s
 
 def _load_from_file() -> dict:
@@ -97,23 +113,22 @@ def _load_from_file() -> dict:
     ]
     s = {k: defaults.get(k) for k in env_keys if defaults.get(k) is not None}
     base_url = defaults.get("url")
-    env = os.environ.get("DIMAGIQA_ENV")
-    if base_url and env == None:
+    if base_url:
         subdomain = base_url.split("//")[1].split(".")[0]   # <-- clean extraction
         s["url"] = base_url
         s["domain"] = subdomain
         s["login_username"] = defaults.get("admin_username") if "secure" in base_url else defaults.get("login_username")
         s["login_password"] = defaults.get("admin_password") if "secure" in base_url else defaults.get("login_password")
     else:
-        # fallback if no url given in config
         env = os.environ.get("DIMAGIQA_ENV")
         suffix = ":8008/" if "rogers" in env else "/"
-        labs= "labs." if "secure" in env else "."
+        labs = "labs." if "secure" in env else "."
         s["login_username"] = defaults.get("admin_username") if "secure" in env else defaults.get("login_username")
         s["login_password"] = defaults.get("admin_password") if "secure" in env else defaults.get("login_password")
         s["url"] = f"https://{env}.sureadhere{labs}com{suffix}"
         print(s["url"])
         s["domain"] = env
+        # fallback if no url given in config
     return s
 
     # if "url" not in env_keys:
@@ -196,7 +211,6 @@ def load_settings() -> dict:
     if os.environ.get("CI", "").lower() == "true":
         s["CI"] = "true"
         missing = []
-
         # url + login creds always required
         for k in ("url", "login_username", "login_password"):
             if not s.get(k):
