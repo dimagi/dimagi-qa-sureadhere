@@ -1,6 +1,7 @@
 import re
 from datetime import datetime, date, timedelta
 import time
+import random
 
 from common_utilities.base_page import BasePage
 from common_utilities.generate_random_string import fetch_random_string, fetch_random_digit
@@ -63,9 +64,17 @@ class PatientRegimenPage(BasePage):
         return str(time_now)
 
     def create_new_schedule(self, multi=False):
-        self.type('input_regimen_name', self.regimen_name)
         self.wait_for_element('input_regimen_name')
-        self.kendo_dd_select_text_old('kendo-dropdownlist-Disease', UserData.regimen_disease)
+        self.type('input_regimen_name', self.regimen_name)
+        time.sleep(3)
+        self.wait_for_element("kendo-dropdownlist-Disease")
+        try:
+            values = self.kendo_dd_get_all_texts("kendo-dropdownlist-Disease")
+        except Exception:
+            time.sleep(5)
+            values = self.kendo_dd_get_all_texts("kendo-dropdownlist-Disease")
+        selected_disease = random.choice(values)
+        self.kendo_dd_select_text_old('kendo-dropdownlist-Disease', selected_disease)
         print(self.resolve('span_NEW_SCHEDULE'))
         self.click_robust('span_NEW_SCHEDULE')
         date = self.today_date()
@@ -89,11 +98,13 @@ class PatientRegimenPage(BasePage):
         #
         # # Assert selected chips
         # assert "Drug 1" in self.kendo_ms_get_selected("kendo-multiselect-drugs")
-
+        self.wait_for_element("kendo-multiselect-drugs")
+        drugs = self.kendo_ms_get_all_texts("kendo-multiselect-drugs")
+        selected_drug = random.choice(drugs)
         self.click('kendo-multiselect-drugs')
-        self.kendo_select("input_drugs", text=UserData.regimen_drugs[0])
+        self.kendo_select("input_drugs", text=selected_drug)
         # self.kendo_select_first("input_drugs")
-        assert UserData.regimen_drugs[0] == self.get_text('label_Drug_name_text'), "Incorrect drug added"
+        assert selected_drug == self.get_text('label_Drug_name_text'), "Incorrect drug added"
         print("correct drug added")
 
         self.wait_for_element('span_drug_colour')
@@ -137,7 +148,7 @@ class PatientRegimenPage(BasePage):
         expected_no_leading_zero = re.sub(r'\b0(?=\d:)', '', expected)
 
 
-        assert UserData.regimen_drugs[0] in schedule_text, f"{UserData.regimen_drugs[0]} not in {schedule_text}"
+        assert selected_drug in schedule_text, f"{selected_drug} not in {schedule_text}"
         # assert UserData.med_time in schedule_text, f"{UserData.med_time} not in {schedule_text}"
         assert text_date_format in schedule_text, f"{text_date_format} not in {schedule_text}"
         assert end_date in schedule_text, f"{end_date} not in {schedule_text}"
@@ -147,7 +158,7 @@ class PatientRegimenPage(BasePage):
         )
 
 
-        return text_date_format, end_date, UserData.no_of_pills, UserData.regimen_drugs[0], total_pills
+        return text_date_format, end_date, UserData.no_of_pills, selected_drug, total_pills
 
     def get_all_diseases_present(self):
         values = self.kendo_dd_get_all_texts("kendo-dropdownlist-Disease")

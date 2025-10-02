@@ -57,6 +57,7 @@ class test_module_01_users(BaseCase):
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_2", depends=["tc_users_1"], scope="class")
     def test_case_02_edit_staff(self):
+        login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
         staff = ManageStaffPage(self, "staff")

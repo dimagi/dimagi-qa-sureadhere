@@ -26,6 +26,7 @@ class UserPatientPage(BasePage):
         self.wait_for_page_to_load()
         self.wait_for_element('first_name')
         self.wait_for_element('button_SAVE')
+        self.wait_for_element('kendo-dropdownlist-site')
         if rerun_count == 0:
             suffix = ""
         else:

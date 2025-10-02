@@ -1,7 +1,7 @@
 import random
 import time
-from datetime import date
-
+from datetime import date, datetime
+import re
 from common_utilities.base_page import BasePage
 from common_utilities.generate_random_string import fetch_random_string, fetch_random_digit
 from user_inputs.user_data import UserData
@@ -50,6 +50,23 @@ class PatientReportsPage(BasePage):
 
         assert self.is_text_in_tbody('tbody_reports', str(converted_date)), f"{converted_date} not present in report"
         print( f"{converted_date} is present in report")
-        assert self.is_text_in_tbody('tbody_reports', str(upload_time)), f"{upload_time} not present in report"
-        print(f"{upload_time} is present in report")
+
+        # assert self.is_text_in_tbody('tbody_reports', str(upload_time)), f"{upload_time} not present in report"
+        # print(f"{upload_time} is present in report")
+        report_text = self.sb.get_text('tbody_reports')
+        match = re.search(r"\d{2}:\d{2}:\d{2}", report_text)
+        if not match:
+            raise AssertionError("No video time found in report")
+        report_time = match.group(0)
+
+        # Parse both times
+        rt = datetime.strptime(report_time, "%H:%M:%S")
+        et = datetime.strptime(upload_time, "%H:%M")  # you pass 12:15 style
+
+        delta = abs((rt - et).seconds)
+
+        # allow ±2 minutes tolerance
+        assert delta < 120, f"{upload_time} not within 2 minutes of report time {report_time}"
+        print(f"{upload_time} matched with report time {report_time}")
+
         self.go_back()

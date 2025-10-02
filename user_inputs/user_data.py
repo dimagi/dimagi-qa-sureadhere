@@ -3,7 +3,7 @@ class UserData:
     phone_number = "(000) 000-0000"
     site_manager = ["Site_1_US", "Menlo Park", "Durban"]
     pwd = "abc@123456"
-    regimen_disease = "Diabetes"
+    regimen_disease = ["Diabetes", "Active TB"]
     med_time = "08:00 AM"
     regimen_repeats = "Daily"
     regimen_drugs = ["Ofloxacin", "Drug 2"]
@@ -26,5 +26,6 @@ class UserData:
         "Video capture for VDOT": "ON",
         "REVAMPED REGIMEN": "ON",
         "Self Report - pills taken with food": "OFF",
-        "Self Report - pills with provider present": "OFF"
+        "Self Report - pills with provider present": "OFF",
+        "Regimen approval workflow": "OFF"
         }
