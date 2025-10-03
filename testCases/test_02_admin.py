@@ -94,11 +94,10 @@ class test_module_02_admin(BaseCase):
         d = self.__class__.data
 
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
         except Exception:
-            print("Login Page is not present")
-
-        home.open_dashboard_page()
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
         home.open_manage_patient_page()
         patient.search_test_patients()
         patient.open_first_patient()
@@ -120,11 +119,11 @@ class test_module_02_admin(BaseCase):
         p_regimen.verify_drugs_present(d['drug_name'], d['drug_switch'])
 
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
         except Exception:
-            print("Login Page is not present")
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
 
-        home.open_dashboard_page()
         home.open_admin_page()
         admin.expand_diseases()
         disease_switch_now, disease_name = a_disease.toggle_for_disease(d['disease_name'], "OFF")
@@ -142,11 +141,11 @@ class test_module_02_admin(BaseCase):
         drug_switch_now, drug_name = a_drug.toggle_for_drugs(d['drug_name'], "OFF")
 
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
         except Exception:
-            print("Login Page is not present")
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
 
-        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.expand_drugs()
@@ -197,11 +196,10 @@ class test_module_02_admin(BaseCase):
             default_client = UserData.client[2]
 
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
         except Exception:
-            print("Login Page is not present")
-
-        home.open_dashboard_page()
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.open_announcement()

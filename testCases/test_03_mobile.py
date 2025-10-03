@@ -157,11 +157,11 @@ class test_module_03(BaseCase):
         d = self.__class__.data
 
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
         except Exception:
-            print("Login Page is not present")
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
 
-        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.check_for_quick_actions()
         home.check_for_video_review(d["patient_fname"]+" "+d["patient_lname"], d['SA_ID'])
@@ -190,12 +190,11 @@ class test_module_03(BaseCase):
         p_vdo.close_form()
 
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
         except Exception:
-            print("Login Page is not present")
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
 
-
-        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
@@ -218,11 +217,11 @@ class test_module_03(BaseCase):
 
         p_vdo.close_form()
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
         except Exception:
-            print("Login Page is not present")
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
 
-        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])

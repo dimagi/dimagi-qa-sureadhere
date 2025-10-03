@@ -3357,6 +3357,13 @@ class BasePage:
         finally:
             self.switch_to_default_content()
 
-
+    def parse_report_time(self, time_str: str) -> datetime:
+        """Parse a report time that may be %H:%M or %H:%M:%S."""
+        for fmt in ("%H:%M:%S", "%H:%M"):
+            try:
+                return datetime.strptime(time_str, fmt)
+            except ValueError:
+                continue
+        raise ValueError(f"Unsupported time format: {time_str}")
 
 

@@ -48,20 +48,22 @@ class PatientReportsPage(BasePage):
         self.wait_for_element('tbody_reports')
         converted_date = self.convert_date(upload_date)
 
-        assert self.is_text_in_tbody('tbody_reports', str(converted_date)), f"{converted_date} not present in report"
-        print( f"{converted_date} is present in report")
+        date_text = self.get_text("td_video_date")
+
+        assert str(converted_date) == date_text.strip(), f"{converted_date} not present in report"
+        print(f"{converted_date} is present in report")
+
+        # assert self.is_text_in_tbody('tbody_reports', str(converted_date)), f"{converted_date} not present in report"
+        # print( f"{converted_date} is present in report")
 
         # assert self.is_text_in_tbody('tbody_reports', str(upload_time)), f"{upload_time} not present in report"
         # print(f"{upload_time} is present in report")
-        report_text = self.sb.get_text('tbody_reports')
-        match = re.search(r"\d{2}:\d{2}:\d{2}", report_text)
-        if not match:
-            raise AssertionError("No video time found in report")
-        report_time = match.group(0)
+
+        report_time = self.get_text("td_video_time")
 
         # Parse both times
-        rt = datetime.strptime(report_time, "%H:%M:%S")
-        et = datetime.strptime(upload_time, "%H:%M")  # you pass 12:15 style
+        rt = self.parse_report_time(report_time)
+        et = self.parse_report_time(upload_time)
 
         delta = abs((rt - et).seconds)
 
