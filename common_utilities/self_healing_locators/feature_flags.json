@@ -848,7 +848,7 @@
   },
   "k-5933dc5b-f005-49f1-b433-639ce81cbab1": {
     "id": "k-5933dc5b-f005-49f1-b433-639ce81cbab1",
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//kendo-switch[@id='k-5933dc5b-f005-49f1-b433-639ce81cbab1']"
   },
@@ -902,7 +902,7 @@
   },
   "k-415b580e-2f73-4547-a2d2-482fe3f16c12": {
     "id": "k-415b580e-2f73-4547-a2d2-482fe3f16c12",
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//kendo-switch[@id='k-415b580e-2f73-4547-a2d2-482fe3f16c12']"
   },
@@ -955,7 +955,7 @@
     "xpath": "//div[@class='col']"
   },
   "kendo-switch_Patient Self Reporting": {
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Patient Self Reporting')]]//descendant::kendo-switch"
   },
@@ -1009,7 +1009,7 @@
   },
   "k-98e8e9b0-7a0c-4ddd-93c1-ca703aeeb567": {
     "id": "k-98e8e9b0-7a0c-4ddd-93c1-ca703aeeb567",
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//kendo-switch[@id='k-98e8e9b0-7a0c-4ddd-93c1-ca703aeeb567']"
   },
@@ -1117,7 +1117,7 @@
   },
   "k-d194de8a-0c8c-42b0-b089-c0f286797102": {
     "id": "k-d194de8a-0c8c-42b0-b089-c0f286797102",
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//kendo-switch[@id='k-d194de8a-0c8c-42b0-b089-c0f286797102']"
   },
@@ -1225,7 +1225,7 @@
   },
   "k-30fc8916-74dd-4d2b-9290-df4674cb7682": {
     "id": "k-30fc8916-74dd-4d2b-9290-df4674cb7682",
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//kendo-switch[@id='k-30fc8916-74dd-4d2b-9290-df4674cb7682']"
   },
@@ -1279,7 +1279,7 @@
   },
   "k-9822cdc2-6b0a-45eb-a262-0c87a73f922d": {
     "id": "k-9822cdc2-6b0a-45eb-a262-0c87a73f922d",
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//kendo-switch[@id='k-9822cdc2-6b0a-45eb-a262-0c87a73f922d']"
   },
@@ -1387,7 +1387,7 @@
   },
   "k-826c0087-062c-42e5-a0ae-a03aad8f0793": {
     "id": "k-826c0087-062c-42e5-a0ae-a03aad8f0793",
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//kendo-switch[@id='k-826c0087-062c-42e5-a0ae-a03aad8f0793']"
   },
@@ -1441,7 +1441,7 @@
   },
   "k-cb8e1e41-7cf5-41e1-a934-199ed384d99d": {
     "id": "k-cb8e1e41-7cf5-41e1-a934-199ed384d99d",
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//kendo-switch[@id='k-cb8e1e41-7cf5-41e1-a934-199ed384d99d']"
   },
@@ -1495,7 +1495,7 @@
   },
   "k-15406876-85e7-4b58-9000-77861b7873d4": {
     "id": "k-15406876-85e7-4b58-9000-77861b7873d4",
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//kendo-switch[@id='k-15406876-85e7-4b58-9000-77861b7873d4']"
   },
@@ -1549,7 +1549,7 @@
   },
   "k-c69770d8-ea42-429a-8301-fff48f818a81": {
     "id": "k-c69770d8-ea42-429a-8301-fff48f818a81",
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//kendo-switch[@id='k-c69770d8-ea42-429a-8301-fff48f818a81']"
   },
@@ -1657,7 +1657,7 @@
   },
   "k-0fbf8c28-7808-461f-9b77-c864e06f18c0": {
     "id": "k-0fbf8c28-7808-461f-9b77-c864e06f18c0",
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//kendo-switch[@id='k-0fbf8c28-7808-461f-9b77-c864e06f18c0']"
   },
@@ -1711,7 +1711,7 @@
   },
   "k-4ca490b9-80f2-4650-9d41-8215635fc19d": {
     "id": "k-4ca490b9-80f2-4650-9d41-8215635fc19d",
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//kendo-switch[@id='k-4ca490b9-80f2-4650-9d41-8215635fc19d']"
   },
@@ -1765,7 +1765,7 @@
   },
   "k-cbf96407-e173-441b-84b0-30bb66b1b57b": {
     "id": "k-cbf96407-e173-441b-84b0-30bb66b1b57b",
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//kendo-switch[@id='k-cbf96407-e173-441b-84b0-30bb66b1b57b']"
   },
@@ -1819,7 +1819,7 @@
   },
   "k-68fed6fc-ef6d-4fd0-8114-08805bcdcc37": {
     "id": "k-68fed6fc-ef6d-4fd0-8114-08805bcdcc37",
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//kendo-switch[@id='k-68fed6fc-ef6d-4fd0-8114-08805bcdcc37']"
   },
@@ -1873,7 +1873,7 @@
   },
   "k-7c6e991d-43b1-4737-9a4d-914bb9076a49": {
     "id": "k-7c6e991d-43b1-4737-9a4d-914bb9076a49",
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//kendo-switch[@id='k-7c6e991d-43b1-4737-9a4d-914bb9076a49']"
   },
@@ -1926,7 +1926,7 @@
     "xpath": "//div[@class='col']"
   },
   "kendo-switch_In-App Messaging": {
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'In-App Messaging')]]//descendant::kendo-switch"
   },
@@ -1979,12 +1979,12 @@
     "xpath": "//div[@class='col']"
   },
   "kendo-switch_Video capture for VDOT": {
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Video capture for VDOT')]]//descendant::kendo-switch"
   },
   "kendo-switch_Side Effects": {
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Side Effects')]]//descendant::kendo-switch"
   },
@@ -2038,7 +2038,7 @@
   },
   "k-1c257ab9-5d40-430d-8f6c-4ae942647146": {
     "id": "k-1c257ab9-5d40-430d-8f6c-4ae942647146",
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//kendo-switch[@id='k-1c257ab9-5d40-430d-8f6c-4ae942647146']"
   },
@@ -2146,7 +2146,7 @@
   },
   "k-a1b69e5f-2fa4-4f15-9bcd-36f39c116cc4": {
     "id": "k-a1b69e5f-2fa4-4f15-9bcd-36f39c116cc4",
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//kendo-switch[@id='k-a1b69e5f-2fa4-4f15-9bcd-36f39c116cc4']"
   },
@@ -2199,7 +2199,7 @@
     "xpath": "//div[@class='col']"
   },
   "kendo-switch_Symptom Screening On Mobile": {
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Symptom Screening On Mobile')]]//descendant::kendo-switch"
   },
@@ -2252,22 +2252,27 @@
     "xpath": "//div[@class='col']"
   },
   "kendo-switch_REVAMPED REGIMEN": {
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'REVAMPED REGIMEN')]]//descendant::kendo-switch"
   },
-  "kendo-switch_Self Report - pills taken with food": {
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+  "kendo-switch_Self Report - pills with food": {
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
-    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'pills taken with food') or contains(normalize-space(text()), 'pills with food')]]//descendant::kendo-switch"
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Self Report - pills with food')]]//descendant::kendo-switch"
+  },
+  "kendo-switch_Self Report - pills taken with food": {
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Self Report - pills taken with food')]]//descendant::kendo-switch"
   },
   "kendo-switch_Self Report - pills with provider present": {
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Self Report - pills with provider present')]]//descendant::kendo-switch"
   },
   "kendo-switch_Regimen approval workflow": {
-    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Regimen approval workflow')]]//descendant::kendo-switch"
   },

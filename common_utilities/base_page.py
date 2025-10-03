@@ -2771,9 +2771,9 @@ class BasePage:
                             return True
                 # 3) class markers
                 cls = (root.get_attribute("class") or "").lower()
-                if "k-switch-on" in cls or "k-checked" in cls:
+                if "k-switch-label-on" in cls or "k-checked" in cls or "k-switch-on" in cls:
                     return True
-                if "k-switch-off" in cls:
+                if "k-switch-label-off" in cls or "k-switch-off" in cls:
                     return False
                 # 4) final fallback: data-checked on input/root
                 for el in filter(None, [inp, root]):

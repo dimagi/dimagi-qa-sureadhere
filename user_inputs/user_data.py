@@ -26,6 +26,7 @@ class UserData:
         "Video capture for VDOT": "ON",
         "REVAMPED REGIMEN": "ON",
         "Self Report - pills taken with food": "OFF",
+        "Self Report - pills with food": "OFF",
         "Self Report - pills with provider present": "OFF",
         "Regimen approval workflow": "OFF"
         }

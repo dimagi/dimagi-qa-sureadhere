@@ -151,12 +151,17 @@ class test_module_02_admin(BaseCase):
         admin.expand_drugs()
         a_drug.double_check_on_toggle(drug_name, drug_switch_now)
 
-
-        home.open_dashboard_page()
         print(f"Before: {d['disease_switch']}, Drug Name: {disease_name}, After: {disease_switch_now}")
 
         print("sleeping for the changes to reflect...")
-        time.sleep(30)
+        time.sleep(15)
+
+        try:
+            home.open_dashboard_page()
+        except Exception:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+
 
         home.open_manage_patient_page()
         patient.search_test_patients()

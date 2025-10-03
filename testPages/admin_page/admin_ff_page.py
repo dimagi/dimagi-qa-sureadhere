@@ -24,11 +24,16 @@ class AdminFFPage(BasePage):
         # print(f"Correct Client {client} is not present")
         print(f"Admin Feature Flag opened with Client {text}")
 
-    def set_ffs(self, ff_dict):
+    def set_ffs(self, ff_dict, flag_ff=True):
         for ff, toggle in ff_dict.items():
             print(ff, toggle)
             target = True if toggle == "ON" else False
-            element = f"kendo-switch_{ff}"
+            if "Self Report - pills taken with food" in ff and flag_ff == True:
+                element = "kendo-switch_Self Report - pills taken with food"
+            elif "Self Report - pills taken with food" in ff and flag_ff == False:
+                element = "kendo-switch_Self Report - pills with food"
+            else:
+                element = f"kendo-switch_{ff}"
             print(element, target)
             self.wait_for_element(element)
             was_on = self.kendo_switch_is_on(element, strict=True)
@@ -46,10 +51,15 @@ class AdminFFPage(BasePage):
         self.refresh()
         time.sleep(10)
 
-    def double_check_ff(self, ff_dict):
+    def double_check_ff(self, ff_dict, flag_ff=True):
         for ff, toggle in ff_dict.items():
             print(f"Current parameters: {ff}, {toggle}")
-            element = f"kendo-switch_{ff}"
+            if "Self Report - pills taken with food" in ff and flag_ff == True:
+                element = "kendo-switch_Self Report - pills taken with food"
+            elif "Self Report - pills taken with food" in ff and flag_ff == False:
+                element = "kendo-switch_Self Report - pills with food"
+            else:
+                element = f"kendo-switch_{ff}"
             flag = self.get_attribute(element, 'aria-checked')
             print(f"Current state: {flag}")
             target = True if toggle == "ON" else False
