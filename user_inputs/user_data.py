@@ -15,7 +15,7 @@ class UserData:
     default_staff_name = "Automation Testuser"
     med_status = "Taken"
     provider_observation = "Patient"
-    side_effect = ["Dark urine", "Loss of appetite", "Pain in hands/feet", "Unusual tiredness or weakness", "Low back pain", "Sleep disturbances",]
+    side_effect = ["Anxiety", "Depression", "Irritability", "Insomnia"]
     colour_code = "#730099"
     client = ["Client_Test_1_US", "Client_1_US", "St. Eligius", "EU Demo Client 2"]
     ff = {
