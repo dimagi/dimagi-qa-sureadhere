@@ -24,14 +24,14 @@ class AdminFFPage(BasePage):
         # print(f"Correct Client {client} is not present")
         print(f"Admin Feature Flag opened with Client {text}")
 
-    def set_ffs(self, ff_dict, flag_ff=True):
+    def set_ffs(self, ff_dict, flag_ff):
         for ff, toggle in ff_dict.items():
             print(ff, toggle)
             target = True if toggle == "ON" else False
-            if "Self Report - pills taken with food" in ff and flag_ff == True:
-                element = "kendo-switch_Self Report - pills taken with food"
-            elif "Self Report - pills taken with food" in ff and flag_ff == False:
+            if "Self Report - pills taken with food" in ff and flag_ff == False:
                 element = "kendo-switch_Self Report - pills with food"
+            elif "Self Report - pills taken with food" in ff and flag_ff == True:
+                element = f"kendo-switch_{ff}"
             else:
                 element = f"kendo-switch_{ff}"
             print(element, target)
@@ -51,7 +51,7 @@ class AdminFFPage(BasePage):
         self.refresh()
         time.sleep(10)
 
-    def double_check_ff(self, ff_dict, flag_ff=True):
+    def double_check_ff(self, ff_dict, flag_ff):
         for ff, toggle in ff_dict.items():
             print(f"Current parameters: {ff}, {toggle}")
             if "Self Report - pills taken with food" in ff and flag_ff == True:
