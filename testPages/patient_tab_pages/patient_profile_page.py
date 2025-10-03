@@ -1,5 +1,5 @@
 import time
-
+import re
 from common_utilities.base_page import BasePage
 from common_utilities.generate_random_string import fetch_random_string, fetch_random_digit
 from user_inputs.user_data import UserData
@@ -42,7 +42,8 @@ class PatientProfilePage(BasePage):
         assert mrn_value == mrn
         assert email_value == email
         assert username_value == user_name
-        assert phn_value == phn
+        # assert phn_value == phn
+        assert re.sub(r"\D+", "", phn_value) == re.sub(r"\D+", "", phn), "Phone mismatch"
 
         if active_account == False:
             assert not self.is_checked('accountIsActiv_chb'), "Account is active"

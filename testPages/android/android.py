@@ -121,7 +121,7 @@ class Android:
 
         # Locator
         self.sa_logo = "com.dimagi.sureadhere:id/logo"
-        self.staging_option = "//android.widget.TextView[@text='Staging']"
+        self.staging_option = "//android.widget.TextView[@text='{}']"
         self.username = "com.dimagi.sureadhere:id/username"
         self.pin = "com.dimagi.sureadhere:id/pin"
         self.login_button = "com.dimagi.sureadhere:id/login_button"
@@ -280,15 +280,24 @@ class Android:
     def select_environment(self, url, min_secs= 7, max_secs= 10):
         if 'banner' in url:
             env = 'Staging'
-        logo = self.wait.until(EC.presence_of_element_located((AppiumBy.ID, self.sa_logo)))
-        for dur_ms in (int(min_secs * 1000), int(max_secs * 1000)):
-            self.long_press(logo, dur_ms)
-            try:
-                self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.staging_option)))
-            except TimeoutException:
-                # not visible yet—retry with a longer press
-                continue
-        self.click_xpath(self.staging_option)
+        elif 'rogers' in url:
+            env = 'Rogers'
+        elif 'securevoteu' in url:
+            env = 'South Africa'
+        else:
+            env = 'United States'
+        if 'banner' in url or 'rogers' in url:
+            logo = self.wait.until(EC.presence_of_element_located((AppiumBy.ID, self.sa_logo)))
+            for dur_ms in (int(min_secs * 1000), int(max_secs * 1000)):
+                self.long_press(logo, dur_ms)
+                try:
+                    self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.staging_option.format(env))))
+                except TimeoutException:
+                    # not visible yet—retry with a longer press
+                    continue
+        else:
+            self.scroll_to_element((AppiumBy.XPATH, self.staging_option.format(env)))
+        self.click((AppiumBy.XPATH, self.staging_option.format(env)))
 
 
     def login_patient(self, username, pin):
@@ -434,6 +443,38 @@ class Android:
                 )
         except Exception:
             pass  # not scrollable or already at bottom
+
+    def scroll_to_element(self, locator, max_swipes=5):
+        """Scroll until the element is visible, using Android UiScrollable."""
+        strategy, value = locator
+
+        if strategy == AppiumBy.XPATH:
+            # Use scrollable + textContains instead of xpath inside UiSelector
+            text_val = value.split("'")[1] if "'" in value else value
+            return self.driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                f'new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView('
+                f'new UiSelector().textContains("{text_val}"))'
+                )
+
+        elif strategy == AppiumBy.ACCESSIBILITY_ID:
+            return self.driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                f'new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView('
+                f'new UiSelector().description("{value}"))'
+                )
+
+        # Fallback: manual swipes
+        for _ in range(max_swipes):
+            try:
+                return self.driver.find_element(strategy, value)
+            except:
+                size = self.driver.get_window_size()
+                start_x, start_y = size["width"] // 2, int(size["height"] * 0.8)
+                end_x, end_y = size["width"] // 2, int(size["height"] * 0.2)
+                self.driver.swipe(start_x, start_y, end_x, end_y, 800)
+
+        raise NoSuchElementException(f"Could not find {locator}")
 
     def get_all_message_texts(self, timeout: int = 20):
         """Return all non-empty bubble texts in order."""

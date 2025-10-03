@@ -60,13 +60,13 @@ class AdminAnnouncementFormPage(BasePage):
         print("Waiting for sometime for the changes to reflect")
         time.sleep(2)
 
-    def add_announcement(self, status='Active'):
+    def add_announcement(self, client, status='Active'):
         date_time = datetime.now().strftime("%B %d, %Y %I:%M %p")
         print(date_time)
         announcement_text = f"Announcement created via automation on {date_time}"
         self.wait_for_element('kendo-multiselect_Select_Client')
         self.click('kendo-multiselect_Select_Client')
-        self.kendo_select("k-input-Select Client", text=UserData.client)
+        self.kendo_select("k-input-Select Client", text=client)
         # self.switch_to_frame('iframe')
         with self.within_frame('iframe'):
             self.wait_for_element('div_textbox')
@@ -85,7 +85,7 @@ class AdminAnnouncementFormPage(BasePage):
         self.refresh()
         time.sleep(5)
         self.wait_for_page_to_load()
-        return announcement_text, status, UserData.client
+        return announcement_text, status, client
 
     def deactivate_the_announcements(self):
         status_now = self.toggle_for_status('Inactive')
