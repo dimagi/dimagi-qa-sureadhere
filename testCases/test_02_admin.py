@@ -120,11 +120,12 @@ class test_module_02_admin(BaseCase):
 
         try:
             home.open_dashboard_page()
+            home.open_admin_page()
         except Exception:
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.open_dashboard_page()
+            home.open_admin_page()
 
-        home.open_admin_page()
         admin.expand_diseases()
         disease_switch_now, disease_name = a_disease.toggle_for_disease(d['disease_name'], "OFF")
 

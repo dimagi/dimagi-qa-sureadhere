@@ -191,12 +191,14 @@ class test_module_03(BaseCase):
 
         try:
             home.open_dashboard_page()
+            home.validate_dashboard_page()
+            home.open_manage_patient_page()
         except Exception:
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.open_dashboard_page()
+            home.validate_dashboard_page()
+            home.open_manage_patient_page()
 
-        home.validate_dashboard_page()
-        home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
         patient.open_patient(d["patient_fname"], d["patient_lname"])
         p_overview.open_patient_overview_page()

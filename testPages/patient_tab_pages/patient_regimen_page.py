@@ -177,6 +177,7 @@ class PatientRegimenPage(BasePage):
         #     print(d)
 
     def verify_diseases_present(self, name, toggle=None):
+        time.sleep(5)
         self.wait_for_element("kendo-dropdownlist-Disease")
         values = self.kendo_dd_get_all_texts("kendo-dropdownlist-Disease")
         # print(f"List of Diseases: {values}")
@@ -202,6 +203,7 @@ class PatientRegimenPage(BasePage):
         self.click('button_NEW_SCHEDULE')
         time.sleep(3)
         self.wait_for_element('timepicker')
+        time.sleep(5)
         self.wait_for_element('kendo-multiselect-drugs')
         self.wait_for_element('button_CREATE')
         drugs = self.kendo_ms_get_all_texts("kendo-multiselect-drugs")

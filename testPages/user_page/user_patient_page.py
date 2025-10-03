@@ -51,12 +51,16 @@ class UserPatientPage(BasePage):
         self.type('phone_number', UserData.phone_number)
         self.type('user_name', username)
 
+        if self.kendo_dd_get_selected_text('kendo-dropdownlist-site') != site:
+            self.kendo_dd_select_text_old('kendo-dropdownlist-site', site)
+        else:
+            print("Site already selected")
         site_text = self.kendo_dd_get_selected_text('kendo-dropdownlist-site')
         print(site_text, site)
         phn_country_text = self.kendo_dd_get_selected_text('kendo-dropdownlist-phone-country')
         print(site_text, phn_country_text)
 
-        assert site_text == site
+        assert site_text == site, f"{site_text} not matching {site}"
 
 
         self.click('button_SAVE')
