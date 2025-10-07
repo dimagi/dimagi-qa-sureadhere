@@ -8,6 +8,16 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  repository_dispatch:
+    types: [ deploy_success ]
+    inputs:
+      environment:
+        description: 'Environment to run tests against'
+        required: true
+        default: 'banner'
+        type: choice
+        options:
+          - banner
   workflow_dispatch:
     inputs:
       environment:
