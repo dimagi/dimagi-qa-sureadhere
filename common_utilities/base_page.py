@@ -3122,7 +3122,7 @@ class BasePage:
 
 
     def kendo_autocomplete_select(self, input_locator: str, text: str, option_text: str | None = None,
-                                  timeout: int = 12, click_plus: bool = True) -> str:
+                                  timeout: int = 12, click_plus: bool = True, select_first: bool = False) -> str:
         """Type into a Kendo autocomplete and select a dropdown option."""
         # Resolve the input element (logical name or raw selector/xpath)
         sel = self.resolve_strict(input_locator) if input_locator in getattr(self, "locators", {}) else input_locator
@@ -3161,19 +3161,25 @@ class BasePage:
         chosen = option_text or text
 
         if ul:
-            # Click the first matching, non-disabled option
             options = ul.find_elements(By.XPATH, ".//li[not(contains(@class,'k-disabled'))]")
-            clicked = False
-            for li in options:
-                label = li.text.strip()
-                if chosen.lower() in label.lower():
-                    li.click()
-                    clicked = True
-                    chosen = label
-                    break
-            if not clicked:
-                # fallback if nothing matched
-                inp.send_keys(Keys.DOWN, Keys.ENTER)
+
+            # 🔹 New section: Always click the first visible option if select_first=True
+            if select_first and options:
+                first = options[0]
+                first.click()
+                chosen = first.text.strip()
+            else:
+                # Original behavior
+                clicked = False
+                for li in options:
+                    label = li.text.strip()
+                    if chosen.lower() in label.lower():
+                        li.click()
+                        clicked = True
+                        chosen = label
+                        break
+                if not clicked:
+                    inp.send_keys(Keys.DOWN, Keys.ENTER)
         else:
             # popup didn’t render – use keyboard fallback
             inp.send_keys(Keys.DOWN, Keys.ENTER)

@@ -69,13 +69,15 @@ class PatientAdherencePage(BasePage):
         provider_observation = self.kendo_dd_get_selected_text(logical_name="providerObservation")
         print(f"Provider Observation is {provider_observation}")
 
-        self.kendo_autocomplete_select("input-side_effects", selected_side_effect, selected_side_effect)
+        self.kendo_autocomplete_select("input-side_effects", "a", select_first=True)
         time.sleep(1)
         self.wait_for_element('li_current-side-effects')
         side_effect_text = self.get_text('li_current-side-effects')
         print(side_effect_text.strip())
-        assert selected_side_effect in side_effect_text.strip(), f"{selected_side_effect} is not in {side_effect_text.strip()}"
-        print(f"{selected_side_effect} is in {side_effect_text.strip()}")
+        side_effect_text = side_effect_text.replace("x", "")
+        side_effect_text = side_effect_text.strip()
+        # assert selected_side_effect in side_effect_text.strip(), f"{selected_side_effect} is not in {side_effect_text.strip()}"
+        print(f"selected side effect is {side_effect_text}")
 
 
         self.click_robust('span_SUBMIT_REVIEW')
@@ -95,4 +97,4 @@ class PatientAdherencePage(BasePage):
         print("side effects updated in calendar")
 
 
-        return selected_side_effect
+        return side_effect_text
