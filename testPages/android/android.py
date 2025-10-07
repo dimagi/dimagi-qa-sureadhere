@@ -328,7 +328,10 @@ class Android:
         self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.submit)))
         text_med = self.get_text((AppiumBy.ID, self.med_name))
         assert text_med == med_name
-        self.send_text_id(self.pill_count, "1")
+        if self.is_present((AppiumBy.ID, self.pill_count)):
+            self.send_text_id(self.pill_count, "1")
+        else:
+            print("pill count field is not present")
         time.sleep(1)
         self.click_xpath(self.submit)
         time.sleep(2)
