@@ -118,8 +118,6 @@ class test_module_03(BaseCase):
         profile = UserProfilePage(self, "user")
         patient = ManagePatientPage(self, "patients")
         p_message = PatientMessagesPage(self, 'patient_messagess')
-        admin = AdminPage(self, 'admin')
-        a_ff = AdminFFPage(self, 'feature_flags')
 
         home.click_admin_profile_button()
         profile.logout_user()
@@ -127,16 +125,8 @@ class test_module_03(BaseCase):
 
         login.login(self.settings["login_username"], self.settings["login_password"])
 
-        if "rogers" in self.settings["url"] or "securevoteu" in self.settings["url"]:
-            flag = False
-        else:
-            flag = True
-
         home.open_dashboard_page()
         home.validate_dashboard_page()
-        home.open_admin_page()
-        admin.open_feature_flags()
-        a_ff.set_ffs({"Self Report - pills taken with food": "OFF"}, flag)
 
         d = self.__class__.data
 

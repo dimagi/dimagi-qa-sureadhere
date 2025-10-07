@@ -20,8 +20,14 @@ class AdminPage(BasePage):
         self.wait_for_element('kendo-expansionpanel_Drugs')
         self.wait_for_element('kendo-expansionpanel_Languages')
         text = self.get_text('kendo-dropdownlist-input-value-Client')
-        # assert text == site_manager, f"Correct Client {site_manager} is not present"
-        # print(f"Correct Client {site_manager} is not present")
+        if text != site_manager:
+            self.kendo_dd_select_text_old('kendo-dropdownlist-input-value-Client', site_manager)
+            time.sleep(2)
+            text = self.get_text('kendo-dropdownlist-input-value-Client')
+        else:
+            print(f"Correct Client {site_manager} is present")
+        assert text == site_manager, f"Correct Client {site_manager} is not present"
+        print(f"Correct Client {site_manager} is not present")
         print(f"Admin Page opened with Client {text}")
 
 

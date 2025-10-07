@@ -129,6 +129,7 @@ class Android:
         self.start_tracking = "//android.widget.Button[@text='Start Tracking']"
         self.grant_permission = "//android.widget.Button[@text='Grant Permission']"
         self.submit = "//android.widget.Button[@text='Submit']"
+        self.last_ate = "//android.widget.TextView[@text='Within the last hour']"
         self.submit_complete = "//android.widget.TextView[@text='Submission complete']"
         self.submission_status = "//android.widget.TextView[@text='Submission Status']"
         self.status = "//android.widget.TextView[@text='Status']"
@@ -330,6 +331,12 @@ class Android:
         self.send_text_id(self.pill_count, "1")
         time.sleep(1)
         self.click_xpath(self.submit)
+        time.sleep(2)
+        if self.is_present((AppiumBy.XPATH, self.last_ate)):
+            print("Last ate screen is present")
+            self.click_xpath(self.last_ate)
+        else:
+            print("No last ate screen")
         time.sleep(10)
         self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.submission_status)))
         half, full = self.today_date()

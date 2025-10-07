@@ -53,24 +53,28 @@ class test_module_02_admin(BaseCase):
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
+        admin.validate_admin_page()
         admin.expand_diseases()
         disease_switch, disease_name = a_disease.toggle_for_disease(selected_disease, "ON")
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
+        admin.validate_admin_page()
         admin.expand_diseases()
         a_disease.double_check_on_toggle(disease_name, disease_switch)
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
+        admin.validate_admin_page()
         admin.expand_drugs()
         drug_switch, drug_name = a_drug.toggle_for_drugs(selected_drug, "ON")
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
+        admin.validate_admin_page()
         admin.expand_drugs()
         a_drug.double_check_on_toggle(drug_name, drug_switch)
 
@@ -125,19 +129,21 @@ class test_module_02_admin(BaseCase):
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.open_dashboard_page()
             home.open_admin_page()
-
+        admin.validate_admin_page()
         admin.expand_diseases()
         disease_switch_now, disease_name = a_disease.toggle_for_disease(d['disease_name'], "OFF")
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
+        admin.validate_admin_page()
         admin.expand_diseases()
         a_disease.double_check_on_toggle(disease_name, disease_switch_now)
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
+        admin.validate_admin_page()
         admin.expand_drugs()
         drug_switch_now, drug_name = a_drug.toggle_for_drugs(d['drug_name'], "OFF")
 
@@ -149,6 +155,7 @@ class test_module_02_admin(BaseCase):
 
         home.validate_dashboard_page()
         home.open_admin_page()
+        admin.validate_admin_page()
         admin.expand_drugs()
         a_drug.double_check_on_toggle(drug_name, drug_switch_now)
 

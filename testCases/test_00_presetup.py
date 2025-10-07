@@ -73,4 +73,5 @@ class test_module_00_presetup(BaseCase):
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.open_feature_flags()
+        a_ff.validate_admin_ff_page(default_client)
         a_ff.double_check_ff(UserData.ff, flag)
