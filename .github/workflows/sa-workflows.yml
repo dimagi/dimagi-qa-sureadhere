@@ -8,6 +8,8 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  repository_dispatch:
+    types: [ deploy_success ]
   workflow_dispatch:
     inputs:
       environment:
@@ -37,6 +39,10 @@ jobs:
         if: ${{ github.event_name == 'workflow_dispatch' }}
         run: |
           echo "::set-output name=matrix::{\"environment\": [\"${{ inputs.environment }}\"]}"
+      - id: set-matrix-deploy
+        if: ${{ github.event_name == 'repository_dispatch' }}
+        run: |
+          echo "::set-output name=matrix::{\"environment\": [\"${{ github.event.client_payload.environment }}\"]}"
       - id: set-matrix-default
         if: ${{ !contains(github.event_name , 'dispatch') }}
         run: |
