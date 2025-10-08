@@ -13,7 +13,8 @@ class PatientProfilePage(BasePage):
     def verify_patient_profile_page(self):
         time.sleep(5)
         self.wait_for_page_to_load()
-        self.wait_for_element('k-opened-tabstrip-tab')
+        self.wait_for_element('k-opened-tabstrip-tab', 50)
+        self.wait_for_element("input_First_name", 100)
         tabname = self.get_text('k-opened-tabstrip-tab')
         assert tabname == "Profile", "Profile tab is not opened"
         print("Opened tab is Profile")
