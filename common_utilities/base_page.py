@@ -2085,55 +2085,92 @@ class BasePage:
 
     # ===== DropDownList =====
     # --- Kendo DropDownList: get ALL option labels ---
-    def kendo_dd_get_all_texts(self, logical_name: str, *, timeout: int = 20) -> list[str]:
+    # def kendo_dd_get_all_texts(self, logical_name: str, *, timeout: int = 20) -> list[str]:
+    #     """
+    #     Return ALL option texts from a Kendo DropDownList.
+    #     Uses the same reliable pattern as kendo_ms_get_all_texts().
+    #     Works for short lists and virtualized long lists.
+    #     """
+    #     sel = self.resolve(logical_name)
+    #     el = self._get_webelement(sel, timeout=timeout)
+    #     root = self._dd_root(el)
+    #
+    #     # Ensure popup is open
+    #     self._dd_open(root, timeout)
+    #     listbox = self._dd_listbox(root, timeout=timeout, flexible=True)
+    #
+    #     seen = set()
+    #     texts = []
+    #     end = time.monotonic() + timeout
+    #     last_count = -1
+    #
+    #     while time.monotonic() < end:
+    #         # fetch all visible items
+    #         items = listbox.find_elements(By.XPATH, self._dd_items_rel_xpath())
+    #         fresh = []
+    #         for i in items:
+    #             if not i.is_displayed():
+    #                 continue
+    #             t = (i.text or "").strip()
+    #             if t and t not in seen:
+    #                 seen.add(t)
+    #                 texts.append(t)
+    #                 fresh.append(t)
+    #
+    #         # break if no new items after scrolling
+    #         if len(seen) == last_count:
+    #             break
+    #         last_count = len(seen)
+    #
+    #         # scroll one viewport down
+    #         if not self._listbox_scroll_one_page(listbox):
+    #             break
+    #         time.sleep(0.15)
+    #
+    #     # close the popup for cleanliness
+    #     try:
+    #         self._dd_close(root, 3)
+    #     except Exception:
+    #         pass
+    #
+    #     return texts
+
+    def kendo_dd_get_all_texts(self, logical_name: str, timeout: int = 15) -> list[str]:
         """
-        Return ALL option texts from a Kendo DropDownList.
-        Uses the same reliable pattern as kendo_ms_get_all_texts().
-        Works for short lists and virtualized long lists.
+        Return all visible option texts from a Kendo DropDownList or ComboBox.
+        Handles stale elements by re-locating the listbox when needed.
         """
         sel = self.resolve(logical_name)
-        el = self._get_webelement(sel, timeout=timeout)
-        root = self._dd_root(el)
-
-        # Ensure popup is open
+        root = self._get_webelement(sel, timeout=timeout)
         self._dd_open(root, timeout)
-        listbox = self._dd_listbox(root, timeout=timeout, flexible=True)
 
-        seen = set()
-        texts = []
         end = time.monotonic() + timeout
-        last_count = -1
-
         while time.monotonic() < end:
-            # fetch all visible items
-            items = listbox.find_elements(By.XPATH, self._dd_items_rel_xpath())
-            fresh = []
-            for i in items:
-                if not i.is_displayed():
-                    continue
-                t = (i.text or "").strip()
-                if t and t not in seen:
-                    seen.add(t)
-                    texts.append(t)
-                    fresh.append(t)
+            try:
+                # Re-locate listbox each iteration to avoid stale reference
+                if not self._dd_is_open(root):
+                    self._dd_open(root, timeout)
 
-            # break if no new items after scrolling
-            if len(seen) == last_count:
-                break
-            last_count = len(seen)
+                listbox = self._dd_listbox(root, timeout=3, flexible=True)
+                items = listbox.find_elements(By.XPATH, self._dd_items_rel_xpath())
 
-            # scroll one viewport down
-            if not self._listbox_scroll_one_page(listbox):
-                break
-            time.sleep(0.15)
+                texts = [i.text.strip() for i in items if i.text.strip()]
+                if texts:
+                    return texts
 
-        # close the popup for cleanliness
-        try:
-            self._dd_close(root, 3)
-        except Exception:
-            pass
+                time.sleep(0.2)
+            except StaleElementReferenceException:
+                # Element got re-rendered, retry fetching listbox
+                continue
+            except TimeoutException:
+                # Possibly popup closed; reopen and retry
+                try:
+                    self._dd_open(root, timeout)
+                except Exception:
+                    pass
+                continue
 
-        return texts
+        raise TimeoutException(f"Could not read items for {logical_name} within {timeout}s")
 
     def kendo_dd_select_text(self, logical_name: str, text: str, *, match: str = "exact", timeout: int = 25) -> bool:
         sel = self.resolve(logical_name)

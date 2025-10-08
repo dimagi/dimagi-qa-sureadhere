@@ -64,6 +64,8 @@ class PatientRegimenPage(BasePage):
         return str(time_now)
 
     def create_new_schedule(self, multi=False):
+        self.wait_for_page_to_load(50)
+        time.sleep(10)
         self.wait_for_element('input_regimen_name')
         self.type('input_regimen_name', self.regimen_name)
         time.sleep(3)

@@ -11,7 +11,7 @@ class PatientProfilePage(BasePage):
         super().__init__(sb, page_name=page_name)
 
     def verify_patient_profile_page(self):
-        time.sleep(5)
+        time.sleep(15)
         self.wait_for_page_to_load()
         self.wait_for_element('k-opened-tabstrip-tab', 50)
         self.wait_for_element("input_First_name", 100)
