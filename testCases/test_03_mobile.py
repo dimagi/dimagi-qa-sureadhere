@@ -3,6 +3,8 @@ import random
 import pytest
 from seleniumbase import BaseCase
 
+from testPages.admin_page.admin_ff_page import AdminFFPage
+from testPages.admin_page.admin_page import AdminPage
 from testPages.android.android import Android
 from testPages.home_page.home_page import HomePage
 from testPages.login_page.login_page import LoginPage
@@ -54,20 +56,32 @@ class test_module_03(BaseCase):
         home.click_admin_profile_button()
         profile.logout_user()
         login.after_logout()
-
-        login.login(UserData.default_staff_email, UserData.pwd)
+        if "banner" in self.settings["url"]:
+            default_staff_email = UserData.default_staff_email[0]
+            default_site_manager = UserData.site_manager[0]
+        elif "rogers" in self.settings["url"]:
+            default_staff_email = UserData.default_staff_email[1]
+            default_site_manager = UserData.site_manager[0]
+        elif "securevoteu" in self.settings["url"]:
+            default_staff_email = UserData.default_staff_email[3]
+            default_site_manager = UserData.site_manager[2]
+        else:
+            default_staff_email = UserData.default_staff_email[2]
+            default_site_manager = UserData.site_manager[1]
+            
+        login.login(default_staff_email, UserData.pwd)
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.click_add_user()
         user.add_patient()
-        pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(UserData.site_manager[0], mob='YES', rerun_count=rerun_count)
+        pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(default_site_manager, mob='YES', rerun_count=rerun_count)
         p_profile.verify_patient_profile_page()
         sa_id = p_profile.verify_patient_profile_details(pfname, plname, mrn, pemail, username, phn, phn_country,
-                                                         UserData.site_manager[0], sa_id=True
+                                                         default_site_manager, sa_id=True
                                                          )
         p_profile.select_patient_manager(UserData.default_staff_name)
         patient_test_account, patient_pin = p_profile.set_patient_pin(pfname, plname, mrn, pemail,
-                                                                      username, phn, phn_country, UserData.site_manager[0]
+                                                                      username, phn, phn_country, default_site_manager
                                                                       )
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
@@ -88,7 +102,7 @@ class test_module_03(BaseCase):
              "patient_email": pemail,
              "patient_phn": phn, "patient_username": username,
              "mrn": mrn, "phone_country": phn_country, "SA_ID": sa_id,
-             "site": UserData.site_manager[0], "is_patient_active": patient_test_account,
+             "site": default_site_manager, "is_patient_active": patient_test_account,
              "patient_pin": patient_pin, "start_date": start_date, "end_date": end_date,
              "total_pills": no_of_pill, "drug_name":med_name, "dose_per_pill": dose_per_pill
              }
@@ -110,6 +124,9 @@ class test_module_03(BaseCase):
         login.after_logout()
 
         login.login(self.settings["login_username"], self.settings["login_password"])
+
+        home.open_dashboard_page()
+        home.validate_dashboard_page()
 
         d = self.__class__.data
 
@@ -145,11 +162,11 @@ class test_module_03(BaseCase):
         d = self.__class__.data
 
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
         except Exception:
-            print("Login Page is not present")
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
 
-        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.check_for_quick_actions()
         home.check_for_video_review(d["patient_fname"]+" "+d["patient_lname"], d['SA_ID'])
@@ -178,14 +195,15 @@ class test_module_03(BaseCase):
         p_vdo.close_form()
 
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+            home.open_manage_patient_page()
         except Exception:
-            print("Login Page is not present")
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+            home.open_manage_patient_page()
 
-
-        home.open_dashboard_page()
-        home.validate_dashboard_page()
-        home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
         patient.open_patient(d["patient_fname"], d["patient_lname"])
         p_overview.open_patient_overview_page()
@@ -206,11 +224,11 @@ class test_module_03(BaseCase):
 
         p_vdo.close_form()
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
         except Exception:
-            print("Login Page is not present")
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
 
-        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])

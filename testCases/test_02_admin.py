@@ -49,28 +49,39 @@ class test_module_02_admin(BaseCase):
 
         selected_disease = random.choice(UserData.admin_disease)
         selected_drug = random.choice(UserData.admin_drug)
-
+        if "banner" in self.settings["url"]:
+            default_client = UserData.client[0]
+        elif "rogers" in self.settings["url"]:
+            default_client = UserData.client[1]
+        elif "securevoteu" in self.settings["url"]:
+            default_client = UserData.client[3]
+        else:
+            default_client = UserData.client[2]
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
+        admin.validate_admin_page(default_client)
         admin.expand_diseases()
         disease_switch, disease_name = a_disease.toggle_for_disease(selected_disease, "ON")
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
+        admin.validate_admin_page(default_client)
         admin.expand_diseases()
         a_disease.double_check_on_toggle(disease_name, disease_switch)
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
+        admin.validate_admin_page(default_client)
         admin.expand_drugs()
         drug_switch, drug_name = a_drug.toggle_for_drugs(selected_drug, "ON")
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
+        admin.validate_admin_page(default_client)
         admin.expand_drugs()
         a_drug.double_check_on_toggle(drug_name, drug_switch)
 
@@ -93,12 +104,19 @@ class test_module_02_admin(BaseCase):
 
         d = self.__class__.data
 
+        if "banner" in self.settings["url"]:
+            default_client = UserData.client[0]
+        elif "rogers" in self.settings["url"]:
+            default_client = UserData.client[1]
+        elif "securevoteu" in self.settings["url"]:
+            default_client = UserData.client[3]
+        else:
+            default_client = UserData.client[2]
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
         except Exception:
-            print("Login Page is not present")
-
-        home.open_dashboard_page()
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
         home.open_manage_patient_page()
         patient.search_test_patients()
         patient.open_first_patient()
@@ -120,44 +138,53 @@ class test_module_02_admin(BaseCase):
         p_regimen.verify_drugs_present(d['drug_name'], d['drug_switch'])
 
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.open_admin_page()
         except Exception:
-            print("Login Page is not present")
-
-        home.open_dashboard_page()
-        home.open_admin_page()
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.open_admin_page()
+        admin.validate_admin_page(default_client)
         admin.expand_diseases()
         disease_switch_now, disease_name = a_disease.toggle_for_disease(d['disease_name'], "OFF")
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
+        admin.validate_admin_page(default_client)
         admin.expand_diseases()
         a_disease.double_check_on_toggle(disease_name, disease_switch_now)
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
+        admin.validate_admin_page(default_client)
         admin.expand_drugs()
         drug_switch_now, drug_name = a_drug.toggle_for_drugs(d['drug_name'], "OFF")
 
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
         except Exception:
-            print("Login Page is not present")
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
 
-        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
+        admin.validate_admin_page(default_client)
         admin.expand_drugs()
         a_drug.double_check_on_toggle(drug_name, drug_switch_now)
 
-
-        home.open_dashboard_page()
         print(f"Before: {d['disease_switch']}, Drug Name: {disease_name}, After: {disease_switch_now}")
 
         print("sleeping for the changes to reflect...")
-        time.sleep(30)
+        time.sleep(15)
+
+        try:
+            home.open_dashboard_page()
+        except Exception:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+
 
         home.open_manage_patient_page()
         patient.search_test_patients()
@@ -186,19 +213,28 @@ class test_module_02_admin(BaseCase):
         a_announce = AdminAnnouncementPage(self, 'announcements')
         a_announce_form = AdminAnnouncementFormPage(self, 'admin_announcement_form')
 
-        try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-        except Exception:
-            print("Login Page is not present")
 
-        home.open_dashboard_page()
+        if "banner" in self.settings["url"]:
+            default_client = UserData.client[0]
+        elif "rogers" in self.settings["url"]:
+            default_client = UserData.client[1]
+        elif "securevoteu" in self.settings["url"]:
+            default_client = UserData.client[3]
+        else:
+            default_client = UserData.client[2]
+
+        try:
+            home.open_dashboard_page()
+        except Exception:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.open_announcement()
         a_announce.verify_announcements_page()
         a_announce.add_announcement()
         a_announce_form.validate_announcement_page()
-        announcement_text, status, client = a_announce_form.add_announcement()
+        announcement_text, status, client = a_announce_form.add_announcement(client=default_client)
         home.open_admin_page()
         admin.open_announcement()
         a_announce.verify_announcement_created(announcement_text, status, client)

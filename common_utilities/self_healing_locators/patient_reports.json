@@ -1293,5 +1293,17 @@
     "class": "k-table-tbody",
     "role": "rowgroup",
     "xpath": "//tbody[@class='k-table-tbody']"
+  },
+  "td_video_date": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "2",
+    "xpath": "//tbody[@class='k-table-tbody']//td[@aria-colindex='2']"
+  },
+  "td_video_time": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "3",
+    "xpath": "//tbody[@class='k-table-tbody']//td[@aria-colindex='3']"
   }
 }

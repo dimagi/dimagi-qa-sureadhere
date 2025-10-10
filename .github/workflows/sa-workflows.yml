@@ -8,6 +8,8 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  repository_dispatch:
+    types: [ deploy_success ]
   workflow_dispatch:
     inputs:
       environment:
@@ -17,6 +19,9 @@ on:
         type: choice
         options:
           - banner
+          - rogers
+          - securevoteu
+          - secure
   schedule:
     - cron: '30 7 * * 1-5'
 
@@ -34,10 +39,14 @@ jobs:
         if: ${{ github.event_name == 'workflow_dispatch' }}
         run: |
           echo "::set-output name=matrix::{\"environment\": [\"${{ inputs.environment }}\"]}"
+      - id: set-matrix-deploy
+        if: ${{ github.event_name == 'repository_dispatch' }}
+        run: |
+          echo "::set-output name=matrix::{\"environment\": [\"banner\", \"securevoteu\", \"secure\"]}"
       - id: set-matrix-default
         if: ${{ !contains(github.event_name , 'dispatch') }}
         run: |
-          echo "::set-output name=matrix::{\"environment\": [\"banner\"]}"
+          echo "::set-output name=matrix::{\"environment\": [\"banner\", \"securevoteu\", \"secure\"]}"
           
   build:
     needs: set_matrix
@@ -61,7 +70,6 @@ jobs:
       - name: SureAdhere Tests with pytest
         env:
           DIMAGIQA_ENV: ${{ matrix.environment }}
-          DIMAGIQA_URL: ${{ secrets.DIMAGIQA_URL }}
           DIMAGIQA_LOGIN_USERNAME: ${{ secrets.DIMAGIQA_LOGIN_USERNAME }}
           DIMAGIQA_LOGIN_PASSWORD: ${{ secrets.DIMAGIQA_LOGIN_PASSWORD }}
           DIMAGIQA_ADMIN_USERNAME: ${{ secrets.DIMAGIQA_ADMIN_USERNAME }}
@@ -79,11 +87,11 @@ jobs:
           pytest -v -m presetup\
             --browser=chrome --headless --headless2 \
             --reruns 1 \
-            --dashboard --html=presetup_report.html  --maxfail=1
+            --dashboard --html=presetup_report-${{ matrix.environment }}.html  --maxfail=1
           pytest -v -m smoketest \
             --browser=chrome --headless --headless2 \
             --reruns 1 -n 3 --dist=loadscope\
-            --dashboard --html=report.html
+            --dashboard --html=report-${{ matrix.environment }}.html
 
       - name: Parse test counts
         id: parse_counts
@@ -97,16 +105,16 @@ jobs:
       - name: Zip reports for email
         if: always()
         run: |
-          rm -f sbase-artifacts.zip || true
-          zip -r sbase-artifacts.zip report.html latest_logs dashboard.html presetup_report.html
+          rm -f sbase-artifacts-${{ matrix.environment }}.zip || true
+          zip -r sbase-artifacts-${{ matrix.environment }}.zip report-${{ matrix.environment }}.html latest_logs dashboard.html presetup_report-${{ matrix.environment }}.html
 
       - name: Upload reports & logs
         id: artifact-upload-step
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: sbase-artifacts
-          path: sbase-artifacts.zip
+          name: sbase-artifacts-${{ matrix.environment }}
+          path: sbase-artifacts-${{ matrix.environment }}.zip
 
       - name: Build artifact URL
         id: artifact_url
@@ -303,5 +311,5 @@ jobs:
           from: <${{secrets.DIMAGIQA_MAIL_USERNAME}}>
           html_body: ${{ fromJSON(steps.configure_email.outputs.result).body }}
           convert_markdown: true
-          attachments: sbase-artifacts.zip
+          attachments: sbase-artifacts-${{ matrix.environment }}.zip
           in_reply_to: ${{ fromJSON(steps.configure_email.outputs.result).reference }}

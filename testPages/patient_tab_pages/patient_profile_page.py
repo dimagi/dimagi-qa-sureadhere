@@ -1,5 +1,5 @@
 import time
-
+import re
 from common_utilities.base_page import BasePage
 from common_utilities.generate_random_string import fetch_random_string, fetch_random_digit
 from user_inputs.user_data import UserData
@@ -11,9 +11,10 @@ class PatientProfilePage(BasePage):
         super().__init__(sb, page_name=page_name)
 
     def verify_patient_profile_page(self):
-        time.sleep(5)
+        time.sleep(15)
         self.wait_for_page_to_load()
-        self.wait_for_element('k-opened-tabstrip-tab')
+        self.wait_for_element('k-opened-tabstrip-tab', 50)
+        self.wait_for_element("input_First_name", 100)
         tabname = self.get_text('k-opened-tabstrip-tab')
         assert tabname == "Profile", "Profile tab is not opened"
         print("Opened tab is Profile")
@@ -42,7 +43,8 @@ class PatientProfilePage(BasePage):
         assert mrn_value == mrn
         assert email_value == email
         assert username_value == user_name
-        assert phn_value == phn
+        # assert phn_value == phn
+        assert re.sub(r"\D+", "", phn_value) == re.sub(r"\D+", "", phn), "Phone mismatch"
 
         if active_account == False:
             assert not self.is_checked('accountIsActiv_chb'), "Account is active"

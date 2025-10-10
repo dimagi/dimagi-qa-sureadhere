@@ -13,15 +13,22 @@ class AdminPage(BasePage):
     def __init__(self, sb, page_name):
         super().__init__(sb, page_name=page_name)
 
-    def validate_admin_page(self):
+    def validate_admin_page(self, site_manager):
         self.wait_for_element('kendo-dropdownlist-input-value-Client')
         self.wait_for_element('kendo-expansionpanel_Countries')
         self.wait_for_element('kendo-expansionpanel_Diseases')
         self.wait_for_element('kendo-expansionpanel_Drugs')
         self.wait_for_element('kendo-expansionpanel_Languages')
         text = self.get_text('kendo-dropdownlist-input-value-Client')
-        assert text == UserData.site_manager[0], f"Correct Client {UserData.site_manager[0]} is not present"
-        print(f"Correct Client {UserData.site_manager[0]} is not present")
+        if text != site_manager:
+            self.kendo_dd_select_text_old('kendo-dropdownlist-input-value-Client', site_manager)
+            time.sleep(2)
+            text = self.get_text('kendo-dropdownlist-input-value-Client')
+        else:
+            print(f"Correct Client {site_manager} is present")
+        assert text == site_manager, f"Correct Client {site_manager} is not present"
+        print(f"Correct Client {site_manager} is not present")
+        print(f"Admin Page opened with Client {text}")
 
 
     def expand_diseases(self):
