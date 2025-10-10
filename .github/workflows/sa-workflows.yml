@@ -42,11 +42,11 @@ jobs:
       - id: set-matrix-deploy
         if: ${{ github.event_name == 'repository_dispatch' }}
         run: |
-          echo "::set-output name=matrix::{\"environment\": [\"${{ github.event.client_payload.environment }}\"]}"
+          echo "::set-output name=matrix::{\"environment\": [\"banner\", \"securevoteu\", \"secure\"]}"
       - id: set-matrix-default
         if: ${{ !contains(github.event_name , 'dispatch') }}
         run: |
-          echo "::set-output name=matrix::{\"environment\": [\"banner\", \"rogers\", \"securevoteu\", \"secure\"]}"
+          echo "::set-output name=matrix::{\"environment\": [\"banner\", \"securevoteu\", \"secure\"]}"
           
   build:
     needs: set_matrix
