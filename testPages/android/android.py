@@ -73,7 +73,8 @@ class Android:
         bs_user = settings["bs_user"]
         bs_key = settings["bs_key"]
 
-        apk_path = Path(PathSettings.ROOT) / "user_inputs" / "app-release3.2.14-symptoms.apk"
+        # apk_path = Path(PathSettings.ROOT) / "user_inputs" / "app-release3.2.14-symptoms.apk"
+        apk_path = Path(PathSettings.ROOT) / "user_inputs" / "app-release3.3.2.apk"
 
         print(f"[DEBUG] __file__={__file__}")
         print(f"[DEBUG] PROJECT_ROOT={PathSettings.ROOT}")
@@ -121,7 +122,7 @@ class Android:
 
         # Locator
         self.sa_logo = "com.dimagi.sureadhere:id/logo"
-        self.staging_option = "//android.widget.TextView[@text='Staging']"
+        self.staging_option = "//android.widget.TextView[@text='{}']"
         self.username = "com.dimagi.sureadhere:id/username"
         self.pin = "com.dimagi.sureadhere:id/pin"
         self.login_button = "com.dimagi.sureadhere:id/login_button"
@@ -129,6 +130,7 @@ class Android:
         self.start_tracking = "//android.widget.Button[@text='Start Tracking']"
         self.grant_permission = "//android.widget.Button[@text='Grant Permission']"
         self.submit = "//android.widget.Button[@text='Submit']"
+        self.last_ate = "//android.widget.TextView[@text='Within the last hour']"
         self.submit_complete = "//android.widget.TextView[@text='Submission complete']"
         self.submission_status = "//android.widget.TextView[@text='Submission Status']"
         self.status = "//android.widget.TextView[@text='Status']"
@@ -280,15 +282,24 @@ class Android:
     def select_environment(self, url, min_secs= 7, max_secs= 10):
         if 'banner' in url:
             env = 'Staging'
-        logo = self.wait.until(EC.presence_of_element_located((AppiumBy.ID, self.sa_logo)))
-        for dur_ms in (int(min_secs * 1000), int(max_secs * 1000)):
-            self.long_press(logo, dur_ms)
-            try:
-                self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.staging_option)))
-            except TimeoutException:
-                # not visible yet—retry with a longer press
-                continue
-        self.click_xpath(self.staging_option)
+        elif 'rogers' in url:
+            env = 'Rogers'
+        elif 'securevoteu' in url:
+            env = 'South Africa'
+        else:
+            env = 'United States'
+        if 'banner' in url or 'rogers' in url:
+            logo = self.wait.until(EC.presence_of_element_located((AppiumBy.ID, self.sa_logo)))
+            for dur_ms in (int(min_secs * 1000), int(max_secs * 1000)):
+                self.long_press(logo, dur_ms)
+                try:
+                    self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.staging_option.format(env))))
+                except TimeoutException:
+                    # not visible yet—retry with a longer press
+                    continue
+        else:
+            self.scroll_to_element((AppiumBy.XPATH, self.staging_option.format(env)))
+        self.click((AppiumBy.XPATH, self.staging_option.format(env)))
 
 
     def login_patient(self, username, pin):
@@ -318,9 +329,18 @@ class Android:
         self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.submit)))
         text_med = self.get_text((AppiumBy.ID, self.med_name))
         assert text_med == med_name
-        self.send_text_id(self.pill_count, "1")
+        if self.is_present((AppiumBy.ID, self.pill_count)):
+            self.send_text_id(self.pill_count, "1")
+        else:
+            print("pill count field is not present")
         time.sleep(1)
         self.click_xpath(self.submit)
+        time.sleep(2)
+        if self.is_present((AppiumBy.XPATH, self.last_ate)):
+            print("Last ate screen is present")
+            self.click_xpath(self.last_ate)
+        else:
+            print("No last ate screen")
         time.sleep(10)
         self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.submission_status)))
         half, full = self.today_date()
@@ -434,6 +454,38 @@ class Android:
                 )
         except Exception:
             pass  # not scrollable or already at bottom
+
+    def scroll_to_element(self, locator, max_swipes=5):
+        """Scroll until the element is visible, using Android UiScrollable."""
+        strategy, value = locator
+
+        if strategy == AppiumBy.XPATH:
+            # Use scrollable + textContains instead of xpath inside UiSelector
+            text_val = value.split("'")[1] if "'" in value else value
+            return self.driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                f'new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView('
+                f'new UiSelector().textContains("{text_val}"))'
+                )
+
+        elif strategy == AppiumBy.ACCESSIBILITY_ID:
+            return self.driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                f'new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView('
+                f'new UiSelector().description("{value}"))'
+                )
+
+        # Fallback: manual swipes
+        for _ in range(max_swipes):
+            try:
+                return self.driver.find_element(strategy, value)
+            except:
+                size = self.driver.get_window_size()
+                start_x, start_y = size["width"] // 2, int(size["height"] * 0.8)
+                end_x, end_y = size["width"] // 2, int(size["height"] * 0.2)
+                self.driver.swipe(start_x, start_y, end_x, end_y, 800)
+
+        raise NoSuchElementException(f"Could not find {locator}")
 
     def get_all_message_texts(self, timeout: int = 20):
         """Return all non-empty bubble texts in order."""

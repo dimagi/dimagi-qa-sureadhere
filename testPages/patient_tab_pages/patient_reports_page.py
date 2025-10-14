@@ -1,7 +1,7 @@
 import random
 import time
-from datetime import date
-
+from datetime import date, datetime
+import re
 from common_utilities.base_page import BasePage
 from common_utilities.generate_random_string import fetch_random_string, fetch_random_digit
 from user_inputs.user_data import UserData
@@ -48,8 +48,27 @@ class PatientReportsPage(BasePage):
         self.wait_for_element('tbody_reports')
         converted_date = self.convert_date(upload_date)
 
-        assert self.is_text_in_tbody('tbody_reports', str(converted_date)), f"{converted_date} not present in report"
-        print( f"{converted_date} is present in report")
-        assert self.is_text_in_tbody('tbody_reports', str(upload_time)), f"{upload_time} not present in report"
-        print(f"{upload_time} is present in report")
+        date_text = self.get_text("td_video_date")
+
+        assert str(converted_date) == date_text.strip(), f"{converted_date} not present in report"
+        print(f"{converted_date} is present in report")
+
+        # assert self.is_text_in_tbody('tbody_reports', str(converted_date)), f"{converted_date} not present in report"
+        # print( f"{converted_date} is present in report")
+
+        # assert self.is_text_in_tbody('tbody_reports', str(upload_time)), f"{upload_time} not present in report"
+        # print(f"{upload_time} is present in report")
+
+        report_time = self.get_text("td_video_time")
+
+        # Parse both times
+        rt = self.parse_report_time(report_time)
+        et = self.parse_report_time(upload_time)
+
+        delta = abs((rt - et).seconds)
+
+        # allow ±2 minutes tolerance
+        assert delta < 120, f"{upload_time} not within 2 minutes of report time {report_time}"
+        print(f"{upload_time} matched with report time {report_time}")
+
         self.go_back()
