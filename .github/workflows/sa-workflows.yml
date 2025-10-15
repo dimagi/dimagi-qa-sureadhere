@@ -33,7 +33,7 @@ jobs:
   set_matrix:
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.set-matrix-manual.outputs.matrix || steps.set-matrix-default.outputs.matrix }}
+      matrix: ${{ steps.set-matrix-schedule.outputs.matrix || steps.set-matrix-deploy.outputs.matrix || steps.set-matrix-manual.outputs.matrix || steps.set-matrix-default.outputs.matrix }}
     steps:
       - id: set-matrix-manual
         if: ${{ github.event_name == 'workflow_dispatch' }}
