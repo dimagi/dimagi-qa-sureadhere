@@ -32,12 +32,15 @@ concurrency:
 jobs:
   block_invalid_env:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'repository_dispatch' && !contains('["banner","secure","securevoteu"]', github.event.client_payload.environment) }}
     steps:
       - name: Block unsupported environment
+        if: ${{ github.event_name == 'repository_dispatch' && !contains('["banner","secure","securevoteu"]', github.event.client_payload.environment) }}
         run: |
           echo "❌ The environment '${{ github.event.client_payload.environment }}' is not allowed for deployment-triggered runs."
           exit 1
+      - name: Check passed
+        if: success()
+        run: echo "Running on environment '${{ github.event.client_payload.environment }}'"
 
   set_matrix:
     needs: block_invalid_env
