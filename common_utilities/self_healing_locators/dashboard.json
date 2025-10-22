@@ -1713,9 +1713,9 @@
     "xpath": "//div[normalize-space(text())='Quick Actions']"
   },
   "span-video-patient_name": {
-    "class": "k-font-size-medium k-font-bold",
+    "class": "k-font-size-medium",
     "tag": "span",
-    "xpath": "//div[.//span[@class='fs-2']]//following-sibling::div//span[@class='k-font-size-medium k-font-bold']"
+    "xpath": "//div[.//span[@class='fs-2']]//following-sibling::div//span[contains(@class,'k-font-size-medium')]"
   },
   "span-patient-video-review": {
     "class": "k-button-text",

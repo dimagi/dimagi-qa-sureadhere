@@ -149,7 +149,7 @@ jobs:
             					"type": "section",
             					"text": {
             						"type": "mrkdwn",
-            						"text": " Hola :bye_boo: \n*${{ github.workflow }}* were just triggered! \n"
+            						"text": " Hola :bye_boo: \n*${{ github.workflow }}* were just triggered by ${{ github.event_name }}! \n"
             					}
             				},
             				{
@@ -218,7 +218,7 @@ jobs:
             					"type": "section",
             					"text": {
             						"type": "mrkdwn",
-            						"text": " Hola :bye_boo: \n*${{ github.workflow }}* were just triggered! \n"
+            						"text": " Hola :bye_boo: \n*${{ github.workflow }}* were just triggered by ${{ github.event_name }}! \n"
             					}
             				},
             				{
