@@ -22,8 +22,6 @@ on:
           - rogers
           - securevoteu
           - secure
-  schedule:
-    - cron: '30 7 * * 1-5'
 
 concurrency:
   group: sa-tests-${{ github.ref }}
