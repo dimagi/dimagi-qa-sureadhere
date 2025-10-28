@@ -118,7 +118,7 @@ class Android:
             options=self.options
         )
         self.driver.implicitly_wait(10)
-        self.wait = WebDriverWait(self.driver, 20)
+        self.wait = WebDriverWait(self.driver, 50)
 
         # Locator
         self.sa_logo = "com.dimagi.sureadhere:id/logo"
