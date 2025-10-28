@@ -62,10 +62,11 @@ class PatientReportsPage(BasePage):
         report_time = self.get_text("td_video_time")
 
         # Parse both times
-        rt = self.parse_report_time(report_time)
-        et = self.parse_report_time(upload_time)
+        rt = self.round_to_nearest_minute(self.parse_report_time(report_time))
+        et = self.round_to_nearest_minute(self.parse_report_time(upload_time))
+        delta = abs((rt - et).total_seconds())
 
-        delta = abs((rt - et).seconds)
+        # delta = abs((rt - et).seconds)
 
         # allow ±2 minutes tolerance
         assert delta < 120, f"{upload_time} not within 2 minutes of report time {report_time}"

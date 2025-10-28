@@ -3409,4 +3409,8 @@ class BasePage:
                 continue
         raise ValueError(f"Unsupported time format: {time_str}")
 
+    def round_to_nearest_minute(self, dt: datetime) -> datetime:
+        return (dt.replace(second=0, microsecond=0)
+                + timedelta(minutes=1) if dt.second >= 30 else dt.replace(second=0, microsecond=0))
+
 
