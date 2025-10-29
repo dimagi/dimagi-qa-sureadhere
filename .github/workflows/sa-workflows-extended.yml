@@ -29,7 +29,6 @@ concurrency:
 
 jobs:
   set_matrix:
-    needs: block_invalid_env
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.set-matrix-schedule.outputs.matrix || steps.set-matrix-deploy.outputs.matrix || steps.set-matrix-manual.outputs.matrix || steps.set-matrix-default.outputs.matrix }}
