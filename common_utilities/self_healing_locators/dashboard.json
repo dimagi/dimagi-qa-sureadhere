@@ -1726,5 +1726,12 @@
     "class": "k-color-subtle k-font-size-sm",
     "tag": "span",
     "xpath": "//div//span[@class='k-color-subtle k-font-size-sm' and contains(normalize-space(text()),'SA')]"
+  },
+  "additional_videos": {
+    "class": "k-color-subtle k-font-size-sm",
+    "tag": "span",
+    "text": "additional new videos",
+    "xpath": "//span[contains(text(),'additional new videos')]/following-sibling::button[@class='expand-button']"
   }
+
 }

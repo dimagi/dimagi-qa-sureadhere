@@ -550,8 +550,8 @@ class BasePage:
                 continue
         raise ValueError(f"Date format not recognized: {date_str}")
 
-    def wait_for_element(self, logical_name: str, timeout: int = CLICK_TIMEOUT):
-        sel = self.resolve(logical_name)
+    def wait_for_element(self, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
+        sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
         self.sb.wait_for_element(sel, timeout=timeout)
 
     def find_elements(self, logical_name: str, timeout: int = CLICK_TIMEOUT):

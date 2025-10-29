@@ -45,6 +45,9 @@ class HomePage(BasePage):
     def check_for_video_review(self, pat_name, sa_id):
         self.unheal('span-patient-video-review')
         self.unheal_all('span-patient-video-review')
+        self.wait_for_element('additional_videos', strict=True)
+        self.click('additional_videos', strict=True)
+        time.sleep(5)
         list_name = self.find_elements('span-video-patient_name')
         list_review = self.find_elements('span-patient-video-review')
         list_sa_id = self.find_elements('span-patient-sa-id-review')

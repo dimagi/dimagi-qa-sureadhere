@@ -106,10 +106,11 @@ class PatientRegimenPage(BasePage):
         self.click('kendo-multiselect-drugs')
         self.kendo_select("input_drugs", text=selected_drug)
         # self.kendo_select_first("input_drugs")
+        time.sleep(4)
         assert selected_drug == self.get_text('label_Drug_name_text'), "Incorrect drug added"
         print("correct drug added")
 
-        self.wait_for_element('span_drug_colour')
+        self.wait_for_element('span_drug_colour', 50)
         colour_code = self.get_attribute('span_drug_colour', "style")
         print(colour_code)
 
