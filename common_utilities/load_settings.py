@@ -74,7 +74,7 @@ def _load_from_env() -> dict:
     env_keys = [
         "url", "admin_username", "admin_password",
         "login_username", "login_password",
-        "bs_user", "bs_key",
+        "bs_user", "bs_key", "sa_imap_password",
     ]
     s = {}
     for k in env_keys:
