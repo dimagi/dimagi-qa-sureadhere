@@ -1,0 +1,338 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: SureAdhere Tests - Extended
+
+on:
+  push:
+    branches-ignore:
+      - main   # run on all branches except master
+  pull_request:
+    branches-ignore:
+      - main   # ignore PRs targeting master
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to run tests against'
+        required: true
+        default: 'banner'
+        type: choice
+        options:
+          - banner
+          - rogers
+          - securevoteu
+          - secure
+
+concurrency:
+  group: sa-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  set_matrix:
+    needs: block_invalid_env
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix-schedule.outputs.matrix || steps.set-matrix-deploy.outputs.matrix || steps.set-matrix-manual.outputs.matrix || steps.set-matrix-default.outputs.matrix }}
+    steps:
+      - id: set-matrix-manual
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: |
+          echo "::set-output name=matrix::{\"environment\": [\"${{ inputs.environment }}\"]}"
+      - id: set-matrix-default
+        if: ${{ !contains(github.event_name , 'dispatch') }}
+        run: |
+          echo "::set-output name=matrix::{\"environment\": [\"banner\", \"securevoteu\", \"secure\"]}"
+          
+  build:
+    needs: set_matrix
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.set_matrix.outputs.matrix) }}
+    name: SA Extended Tests on '${{ matrix.environment }}'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.13
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requires.txt
+
+      - name: SureAdhere Extended Tests with pytest
+        env:
+          DIMAGIQA_ENV: ${{ matrix.environment }}
+          DIMAGIQA_LOGIN_USERNAME: ${{ secrets.DIMAGIQA_LOGIN_USERNAME }}
+          DIMAGIQA_LOGIN_PASSWORD: ${{ secrets.DIMAGIQA_LOGIN_PASSWORD }}
+          DIMAGIQA_ADMIN_USERNAME: ${{ secrets.DIMAGIQA_ADMIN_USERNAME }}
+          DIMAGIQA_ADMIN_PASSWORD: ${{ secrets.DIMAGIQA_ADMIN_PASSWORD }}
+          DIMAGIQA_BS_USER: ${{ secrets.DIMAGIQA_BS_USER }}
+          DIMAGIQA_BS_KEY: ${{ secrets.DIMAGIQA_BS_KEY }}
+          DIMAGIQA_SA_IMAP_PASSWORD: ${{ secrets.DIMAGIQA_SA_IMAP_PASSWORD }}
+
+        run: |
+          echo "client_payload: ${{ toJson(github.event.client_payload) }}"
+          echo "matrix environment: ${{ matrix.environment }}"
+          echo "NOW=$(date +'%m-%d %H:%M')" >> $GITHUB_ENV
+          echo ${{env.NOW}}
+          echo ${{env.DIMAGIQA_ENV}}
+          google-chrome --version || true
+          pytest -v -m presetup\
+            --browser=chrome --headless --headless2 \
+            --reruns 1 \
+            --dashboard --html=presetup_extendedtests-report-${{ matrix.environment }}.html  --maxfail=1
+          pytest -v -m extendedtests \
+            --browser=chrome --headless --headless2 \
+            --reruns 1 -n 3 --dist=loadscope\
+            --dashboard --html=extendedtests-report-${{ matrix.environment }}.html
+
+      - name: Parse test counts
+        id: parse_counts
+        if: always()
+        run: |
+          # Extract variables from the api_test_counts.txt file
+          while IFS= read -r line; do
+            echo "::set-output name=${line%=*}::${line#*=}"
+          done < sa_test_counts_${{ matrix.environment }}.txt
+
+      - name: Zip reports for email
+        if: always()
+        run: |
+          rm -f sbase-extendedtests-artifacts-${{ matrix.environment }}.zip || true
+          zip -r sbase-extendedtests-artifacts-${{ matrix.environment }}.zip extendedtests-report-${{ matrix.environment }}.html latest_logs dashboard.html presetup_extendedtests-report-${{ matrix.environment }}.html
+
+      - name: Upload reports & logs
+        id: artifact-upload-step
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbase-extendedtests-artifacts-${{ matrix.environment }}
+          path: sbase-extendedtests-artifacts-${{ matrix.environment }}.zip
+
+      - name: Set slack vars
+        if: ${{ always() }}
+        id: configure_slack
+        uses: actions/github-script@v6
+        env:
+            JOB_STATUS: ${{ job.status }}
+            CC_ENV: ${{ matrix.environment }}
+            CC_EVENT: ${{ github.event_name }}
+        with:
+          result-encoding: string
+          script: |
+            const {CC_ENV, JOB_STATUS, CC_EVENT} = process.env
+            let SLACK_WEBHOOK_URL = '${{ secrets.SLACK_WEBHOOK_URL_SA }}'
+            if (CC_EVENT == 'repository_dispatch') {
+              SLACK_WEBHOOK_URL = '${{ secrets.SLACK_WEBHOOK_URL_SA }}'
+              console.log( "Triggered on deploy")
+            } else if (CC_EVENT != 'repository_dispatch') {
+              SLACK_WEBHOOK_URL = '${{ secrets.SLACK_WEBHOOK_URL_SA }}'
+              console.log( "Not triggered on deploy")
+            } else {
+              SLACK_WEBHOOK_URL = ''
+              console.log("No notification sent")
+            }
+
+            return SLACK_WEBHOOK_URL
+
+
+      - name: Build artifact URL
+        id: artifact_url
+        run: |
+          echo "url=https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}" >> $GITHUB_OUTPUT
+
+      - name: Post to Slack channel on Failure
+        id: slack_fail
+        uses: slackapi/slack-github-action@v1.23.0
+        if: ${{ steps.configure_slack.outputs.result != '' && failure() }}
+        with:
+          payload: |
+            {
+            	"attachments": [
+            		{
+            			"color": "#FF0000",
+            			"blocks": [
+            				{
+            					"type": "section",
+            					"text": {
+            						"type": "mrkdwn",
+            						"text": " Hola :bye_boo: \n*${{ github.workflow }}* were just triggered by ${{ github.event_name }}! \n"
+            					}
+            				},
+            				{
+            					"type": "section",
+            					"text": {
+            						"type": "mrkdwn",
+            						"text": "*Passed:* ${{ steps.parse_counts.outputs.PASSED }} *Failed:* ${{ steps.parse_counts.outputs.FAILED }} *Error:* ${{ steps.parse_counts.outputs.ERROR }} *Skipped:* ${{ steps.parse_counts.outputs.SKIPPED }} *XFail:* ${{ steps.parse_counts.outputs.XFAIL }}\n"
+            					}
+            				},
+            				{
+            					"type": "context",
+            					"elements": [
+            						{
+            							"type": "mrkdwn",
+            							"text": "*Environment: *\n ${{ matrix.environment }}  \n"
+            						},
+            						{
+            							"type": "mrkdwn",
+            							"text": " "
+            						},
+            						{
+            							"type": "mrkdwn",
+            							"text": "*Status: *\n ${{ job.status }}  :x:"
+            						}
+            					]
+            				},
+            				{
+            					"type": "section",
+            					"text": {
+            						"type": "mrkdwn",
+            						"text": "Here's the corresponding report :arrow_right::arrow_right:"
+            					},
+            					"accessory": {
+            						"type": "button",
+            						"text": {
+            							"type": "plain_text",
+            							"text": "Click to Downlaod",
+            							"emoji": true
+            						},
+            						"value": "click_me_123",
+            						"url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}",
+            						"action_id": "button-action",
+            						"style": "danger"
+            					}
+            				}
+            			]
+            		}
+            	]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ steps.configure_slack.outputs.result }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
+      - name: Post to Slack channel on Success
+        id: slack_pass
+        uses: slackapi/slack-github-action@v1.23.0
+        if: ${{ steps.configure_slack.outputs.result != '' && success() }}
+        with:
+          payload: |
+            {
+            	"attachments": [
+            		{
+            			"color": "#36a64f",
+            			"blocks": [
+            				{
+            					"type": "section",
+            					"text": {
+            						"type": "mrkdwn",
+            						"text": " Hola :bye_boo: \n*${{ github.workflow }}* were just triggered by ${{ github.event_name }}! \n"
+            					}
+            				},
+            				{
+            					"type": "section",
+            					"text": {
+            						"type": "mrkdwn",
+            						"text": "*Passed:* ${{ steps.parse_counts.outputs.PASSED }} *Failed:* ${{ steps.parse_counts.outputs.FAILED }} *Error:* ${{ steps.parse_counts.outputs.ERROR }} *Skipped:* ${{ steps.parse_counts.outputs.SKIPPED }} *XFail:* ${{ steps.parse_counts.outputs.XFAIL }}\n"
+            					}
+            				},
+            				{
+            					"type": "context",
+            					"elements": [
+            						{
+            							"type": "mrkdwn",
+            							"text": "*Environment: *\n ${{ matrix.environment }}  \n"
+            						},
+            						{
+            							"type": "mrkdwn",
+            							"text": " "
+            						},
+            						{
+            							"type": "mrkdwn",
+            							"text": "*Status: *\n ${{ job.status }}  :white_check_mark:"
+            						}
+            					]
+            				},
+            				{
+            					"type": "section",
+            					"text": {
+            						"type": "mrkdwn",
+            						"text": "Here's the corresponding report :arrow_right::arrow_right:"
+            					},
+            					"accessory": {
+            						"type": "button",
+            						"text": {
+            							"type": "plain_text",
+            							"text": "Click to Download",
+            							"emoji": true
+            						},
+            						"value": "click_me_123",
+            						"url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}",
+            						"action_id": "button-action",
+            						"style": "primary"
+            					}
+            				}
+            			]
+            		}
+            	]
+            }
+
+        env:
+          SLACK_WEBHOOK_URL: ${{ steps.configure_slack.outputs.result }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
+      - name: Set email vars
+        if: ${{ success() || failure() }}
+        id: configure_email
+        uses: actions/github-script@v6
+        env:
+            JOB_STATUS: ${{ job.status }}
+            CC_ENV: ${{ matrix.environment }}
+        with:
+          script: |
+            const { promises: fs } = require('fs')
+            const {JOB_STATUS, NOW, CC_ENV, GITHUB_HEAD_REF} = process.env
+            const prefix = `[${CC_ENV}] SureAdhere Tests - ${JOB_STATUS.toUpperCase()} - Run #${context.runNumber}`
+            const suffix = `at ${NOW}`
+            let subject = `${prefix} on branch "${GITHUB_HEAD_REF}" ${suffix}`
+
+            let bodyFile = './common_utilities/mail_templates/email_pass.md'
+            if (JOB_STATUS !== 'success') {
+              bodyFile = './common_utilities/mail_templates/email_fail.md'
+            }
+            
+            let actionRunLink = context.payload.repository.html_url + `/actions/runs/${context.runId}`
+            let testSuite = 'SureAdhere Tests'
+            let bodyContent = await fs.readFile(bodyFile, 'utf8')
+            bodyContent = bodyContent.replace(/{{actionRunLink}}/g, actionRunLink)
+                .replace(/{{runNumber}}/g, context.runNumber)
+                .replace(/{{environment}}/g, CC_ENV)
+                .replace(/{{testSuite}}/g, testSuite)
+            
+            let receivers = 'qa-automation@dimagi.com'
+            if (context.eventName !== "pull_request" || context.eventName !== "push") {
+              receivers = 'qa@dimagi.com'
+            }
+            return {
+              "subject": subject,
+              "body": bodyContent,
+              "reference": Math.random().toString(36).substr(2),  // used to prevent threading of similar emails
+              "receivers": receivers
+            }
+      - name: Send Result Email
+        if: ${{ success() || failure() }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{secrets.DIMAGIQA_MAIL_USERNAME}}
+          password: ${{secrets.DIMAGIQA_MAIL_PASSWORD}}
+          subject: ${{ fromJSON(steps.configure_email.outputs.result).subject }}
+          to: ${{ fromJSON(steps.configure_email.outputs.result).receivers }}
+          from: <${{secrets.DIMAGIQA_MAIL_USERNAME}}>
+          html_body: ${{ fromJSON(steps.configure_email.outputs.result).body }}
+          convert_markdown: true
+          attachments: sbase-extendedtests-artifacts-${{ matrix.environment }}.zip
+          in_reply_to: ${{ fromJSON(steps.configure_email.outputs.result).reference }}
