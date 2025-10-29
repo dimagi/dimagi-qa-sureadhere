@@ -6,7 +6,7 @@ import time
 from typing import Dict, Any, Iterable, List, Tuple, Optional
 import platform
 from selenium.webdriver.common.keys import Keys
-from selenium.common.exceptions import StaleElementReferenceException, TimeoutException
+from selenium.common.exceptions import StaleElementReferenceException, TimeoutException, NoSuchFrameException
 from selenium.common.exceptions import ElementClickInterceptedException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -590,6 +590,11 @@ class BasePage:
         # self.sb.highlight(sel)
         self.sb.type(sel, value)
 
+    def idle_wait(self, idle_time=300):
+        print(f"⏳ Simulating {idle_time / 60} minutes of inactivity...")
+        for i in range(idle_time // 60):
+            time.sleep(60)
+            print(f"   ... {i + 1} minute(s) passed")
 
     def type_and_trigger(self, logical_name: str, text: str, *,
                          timeout: int = 15, blur: bool = True, clear_first: bool = True):

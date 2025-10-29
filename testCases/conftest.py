@@ -7,6 +7,7 @@ from seleniumbase import Driver
 from seleniumbase import config as sb_config
 from common_utilities.load_settings import load_settings
 from common_utilities.path_settings import PathSettings
+from selenium.webdriver.chrome.options import Options
 
 # ---------------------
 # Load environment settings
@@ -143,3 +144,24 @@ def pytest_runtest_setup(item):
         worker_id = getattr(item.config, "workerinput", {}).get("workerid", "master")
         if worker_id != "master":
             pytest.skip("Presetup runs only on master node")
+
+@pytest.fixture(scope="function")
+def driver(request, settings):
+    """Create a normal or incognito driver depending on test marker."""
+    is_incognito = request.node.get_closest_marker("incognito") is not None
+
+    chrome_options = Options()
+    if is_incognito:
+        chrome_options.add_argument("--incognito")
+
+    driver = Driver(
+        browser=settings.get("browser", "chrome"),
+        headless=settings.get("CI") == "true",
+        chrome_options=chrome_options,
+    )
+    driver.set_window_position(0, 0)
+    driver.set_window_size(1920, 1080)
+    driver.implicitly_wait(10)
+
+    yield driver
+    driver.quit()

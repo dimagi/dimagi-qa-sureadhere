@@ -71,7 +71,7 @@
     "text": "Welcome! Sign in with SSO Email Address Password Forgot your password? Sign in",
     "xpath": "//div[contains(normalize-space(text()), 'Welcome!\nSign in with SSO\nEmail Address\nPassword\nForgot your password?\nSign in')]"
   },
-  "h1_Welcome!_29": {
+  "h1_Welcome": {
     "class": "text-center",
     "tag": "h1",
     "text": "Welcome!",
@@ -278,5 +278,21 @@
     "id": "createAccount",
     "tag": "a",
     "xpath": "//a[@id='createAccount']"
+  },
+  "invalid_email_password_error": {
+    "class": "error pageLevel",
+    "role": "alert",
+    "aria-hidden": "true",
+    "tag": "div",
+    "text": "INVALID EMAIL OR PASSWORD. PLEASE TRY AGAIN.",
+    "xpath": "//div[@class='error pageLevel']"
+  },
+  "account_blocked_error": {
+    "class": "error pageLevel",
+    "role": "alert",
+    "aria-hidden": "true",
+    "tag": "div",
+    "text": "YOUR ACCOUNT IS TEMPORARILY LOCKED TO PREVENT UNAUTHORIZED USE. TRY AGAIN LATER.",
+    "xpath": "//div[@class='error pageLevel'][(normalize-space(text())='YOUR ACCOUNT IS TEMPORARILY LOCKED TO PREVENT UNAUTHORIZED USE. TRY AGAIN LATER.']"
   }
 }

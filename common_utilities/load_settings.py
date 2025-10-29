@@ -109,7 +109,7 @@ def _load_from_file() -> dict:
     env_keys = [
         "url", "admin_username", "admin_password",
         "login_username", "login_password",
-        "bs_user", "bs_key",
+        "bs_user", "bs_key", "sa_imap_password"
     ]
     s = {k: defaults.get(k) for k in env_keys if defaults.get(k) is not None}
     base_url = defaults.get("url")
@@ -211,7 +211,7 @@ def load_settings() -> dict:
         s["CI"] = "true"
         missing = []
         # url + login creds always required
-        for k in ("url", "login_username", "login_password"):
+        for k in ("url", "login_username", "login_password", "sa_imap_password"):
             if not s.get(k):
                 missing.append(f"DIMAGIQA_{k.upper()}")
 
