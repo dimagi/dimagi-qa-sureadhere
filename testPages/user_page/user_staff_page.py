@@ -27,7 +27,7 @@ class UserStaffPage(BasePage):
 
         self.click('selectedPatientManagers')
         # self.kendo_dd_select_text_old("k-input_Patient_Manager", text=site_manager)
-        # self.kendo_select("k-input_Patient_Manager", text=site_manager)
+        self.kendo_select("k-input_Patient_Manager", text=site_manager)
         # self.kendo_select("k-input_Patient_Manager", text=site_manager)
         # self.kendo_select_first("k-input_Patient_Manager")
 
@@ -38,7 +38,7 @@ class UserStaffPage(BasePage):
 
         self.click('selectedSiteManagers')
         self.kendo_select("k-input_Site_Managers", text=site_manager)
-        self.kendo_select("k-input_Site_Managers", text="Site_2_US")
+        # self.kendo_select("k-input_Site_Managers", text="Site_2_US")
         # self.kendo_select_first("k-input_Site_Managers")
 
         self.click('selectedStaffAdministrators')
