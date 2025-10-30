@@ -161,6 +161,7 @@ def driver(request, settings):
     )
     driver.set_window_position(0, 0)
     driver.set_window_size(1920, 1080)
+    driver.set_script_timeout(60)
     driver.implicitly_wait(10)
 
     yield driver

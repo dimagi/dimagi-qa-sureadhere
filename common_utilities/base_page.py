@@ -24,7 +24,7 @@ from selenium.common.exceptions import (
 # ---- Tunables ---------------------------------------------------------------
 
 PRIMARY_TIMEOUT = 6         # seconds for fast checks
-CLICK_TIMEOUT = 15          # seconds for user actions
+CLICK_TIMEOUT = 30          # seconds for user actions
 VISIBLE_REQUIRED = True     # only accept visible elements
 SIM_THRESHOLD = 0.62        # fuzzy match threshold for text-ish attrs
 MIN_STABLE_PREFIX = 3       # for dynamic-id starts-with heuristics
