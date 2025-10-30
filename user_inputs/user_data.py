@@ -30,3 +30,19 @@ class UserData:
         "Self Report - pills with provider present": "OFF",
         "Regimen approval workflow": "OFF"
         }
+    invalid_password = "12auto34test!"
+    inactive_user_email = "automation.inactive@email.com"
+    inactive_user_email_rogers = "automation.inactive+test@email.com"
+    inactive_user_full_name = "Automation Inactive"
+    invalid_credential_error = ["Invalid email or password. Please try again.", "Your password is incorrect", "We can't seem to find your account"]
+    invalid_email = "invalid!!__@test.com"
+    sureadhere_from = "msonlineservicesteam@microsoftonline.com"
+    reset_password_email_subject = {
+        "securevoteu": "sureadhereeu.onmicrosoft.com account email verification code",
+        "banner": "SureAdhereLabs account email verification code",
+        "secure": "Sureadhere account email verification code",
+        "rogers": "SureAdhereLabs account email verification code"}
+    reset_email_address = "sureadhere.automation.user@gmail.com"
+    reset_email_address_rogers = "sureadhere.automation.user+test@gmail.com"
+    email_verification_success_message_after = "E-mail address verified. You can now continue."
+    account_block_error_message = "Your account is temporarily locked to prevent unauthorized use. Try again later."

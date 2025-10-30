@@ -6,40 +6,45 @@ from user_inputs.user_data import UserData
 
 
 class UserStaffPage(BasePage):
-    first_name_text = "test_first_" + fetch_random_string()
-    last_name_text = "test_last_" + fetch_random_string()
-    email = fetch_random_string() + "@testmail.com"
+    # first_name_text = "test_first_" + fetch_random_string()
+    # last_name_text = "test_last_" + fetch_random_string()
+    # email = fetch_random_string() + "@testmail.com"
 
     def __init__(self, sb, page_name):
         super().__init__(sb, page_name=page_name)
 
 
-    def fill_staff_form(self, site_manager):
-        self.type('first_name', self.first_name_text)
-        self.type('last_name', self.last_name_text)
-        self.type('email', self.email)
+    def fill_staff_form(self, site_manager, login=None):
+        first_name_text = f"test_first_{fetch_random_string()}{login}" if login is not None else f"test_first_{fetch_random_string()}"
+        last_name_text = f"test_last_{fetch_random_string()}{login}" if login is not None else f"test_last_{fetch_random_string()}"
+        email = f"{fetch_random_string()}{login}@testmail.com" if login is not None else f"{fetch_random_string()}@testmail.com"
+
+        self.type('first_name', first_name_text)
+        self.type('last_name', last_name_text)
+        self.type('email', email)
         self.type('password', UserData.pwd)
         self.type('phone_number', UserData.phone_number)
 
         self.click('selectedPatientManagers')
+        # self.kendo_dd_select_text_old("k-input_Patient_Manager", text=site_manager)
         self.kendo_select("k-input_Patient_Manager", text=site_manager)
-        self.kendo_select("k-input_Patient_Manager", text=site_manager)
-        self.kendo_select_first("k-input_Patient_Manager")
+        # self.kendo_select("k-input_Patient_Manager", text=site_manager)
+        # self.kendo_select_first("k-input_Patient_Manager")
 
         self.click('selectedTreatmentMonitors')
         self.kendo_select("k-input_Treatment_Monitors", text=site_manager)
-        self.kendo_select("k-input_Treatment_Monitors", text=site_manager)
-        self.kendo_select_first("k-input_Treatment_Monitors")
+        # self.kendo_select("k-input_Treatment_Monitors", text="Site_2_US")
+        # self.kendo_select_first("k-input_Treatment_Monitors")
 
         self.click('selectedSiteManagers')
         self.kendo_select("k-input_Site_Managers", text=site_manager)
-        self.kendo_select("k-input_Site_Managers", text=site_manager)
-        self.kendo_select_first("k-input_Site_Managers")
+        # self.kendo_select("k-input_Site_Managers", text="Site_2_US")
+        # self.kendo_select_first("k-input_Site_Managers")
 
         self.click('selectedStaffAdministrators')
         self.kendo_select("k-input_Staff_Administrators", text=site_manager)
-        self.kendo_select("k-input_Staff_Administrators", text=site_manager)
-        self.kendo_select_first("k-input_Staff_Administrators")
+        # self.kendo_select("k-input_Staff_Administrators", text=site_manager)
+        # self.kendo_select_first("k-input_Staff_Administrators")
 
         self.click('isClientAdmin')
         assert self.is_checked('isClientAdmin'), "Client Admin not checked"
@@ -51,8 +56,8 @@ class UserStaffPage(BasePage):
         self.wait_for_invisible('button_SUBMIT')
         client=True
 
-        print(f"Staff Created: {self.first_name_text}, {self.last_name_text}, {self.email}, {UserData.phone_number}")
-        return self.first_name_text, self.last_name_text, self.email, UserData.phone_number, client, site_manager
+        print(f"Staff Created: {first_name_text}, {last_name_text}, {email}, {UserData.phone_number}")
+        return first_name_text, last_name_text, email, UserData.phone_number, client, site_manager
 
     def wait_for_staff_to_load(self, fname, lname):
         self.wait_for_field_value_contains('first_name', fname, timeout=40)
