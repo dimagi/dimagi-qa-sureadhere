@@ -31,6 +31,45 @@ class test_module_04_login_tests(BaseCase):
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_login_12", scope="class")
+    def test_case_12_client_based_patient_access(self):
+        self._login_once()
+        login = LoginPage(self, "login")
+        home = HomePage(self, "dashboard")
+        profile = UserProfilePage(self, "user")
+        patient = ManagePatientPage(self, "patients")
+
+        home.validate_dashboard_page()
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+        print(self.settings['domain'])
+
+        env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
+        print(self.settings['domain'], env)
+        # client 1 patient access
+        login.login(UserData.client_1_staff_details[env][1], UserData.pwd)
+        home.open_manage_patient_page()
+        patient.search_test_patients(UserData.client_1_patient_details[env][0])
+        patient.search_test_patients_not_present(UserData.client_2_patient_details[env][0])
+
+        home.validate_dashboard_page()
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+        print(self.settings['domain'])
+
+        env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
+        # client 1 patient access
+        login.login(UserData.client_2_staff_details[env][1], UserData.pwd)
+        home.open_manage_patient_page()
+        patient.search_test_patients(UserData.client_2_patient_details[env][0])
+        patient.search_test_patients_not_present(UserData.client_1_patient_details[env][0])
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_10", scope="class")

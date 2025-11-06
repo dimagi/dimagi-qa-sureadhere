@@ -1429,5 +1429,11 @@
     "tag": "td",
     "aria-colindex":"8",
     "xpath": "//td[@aria-colindex='8']"
+  },
+  "no_data": {
+    "class": "message",
+    "tag": "div",
+    "text": "No data.",
+    "xpath": "//div[@class='message']"
   }
 }

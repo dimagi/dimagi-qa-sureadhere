@@ -46,3 +46,25 @@ class UserData:
     reset_email_address_rogers = "sureadhere.automation.user+test@gmail.com"
     email_verification_success_message_after = "E-mail address verified. You can now continue."
     account_block_error_message = "Your account is temporarily locked to prevent unauthorized use. Try again later."
+    client_1_patient_details = {
+        "others": ["pat_cl1 automation", "cl1123", "pat_cl1_auto", "pat_cl1_auto@test.com"],
+        "rogers": ["pat_cl1 automation", "cl1123", "pat_cl1_auto", "pat_cl1_auto_test@test.com"]
+        }
+    client_2_patient_details = {
+        "others": ["pat_cl2 automation", "cl2123", "pat_cl2_auto", "pat_cl2_auto@test.com"],
+        "rogers": ["pat_cl2 automation", "cl2123", "pat_cl2_auto", "pat_cl12auto_test@test.com"]
+        }
+    client_env = {
+        "clients_banner": ["Site_1_US", "Site_2_US"],
+        "clients_rogers": ["Site_1_US", "Site_2_UK"],
+        "clients_securevoteu": ["Durban", "Kimberley"],
+        "clients_secure": ["Menlo Park", "Palo Alto"]
+        }
+    client_1_staff_details = {
+        "others": ["Staff CL1", "cl1@test.com"],
+        "rogers": ["Staff CL1", "cl1_test@test.com"]
+        }
+    client_2_staff_details = {
+        "others": ["Staff CL2", "cl2@test.com"],
+        "rogers": ["Staff CL2", "cl2_test@test.com"]
+        }
