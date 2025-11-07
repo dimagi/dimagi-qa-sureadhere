@@ -32,7 +32,8 @@ class test_module_04_login_tests(BaseCase):
         type(self)._session_ready = True
 
 
-    @pytest.mark.smoketest
+    # @pytest.mark.order(0)
+    @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_0", scope="class")
     def test_case_00_presetup_add_staff(self):
         self._login_once()
