@@ -65,11 +65,12 @@ class test_module_04_login_tests(BaseCase):
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_1", scope="class")
     def test_case_01_sign_in_and_out_valid_credentials(self):
+        self._login_once()
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         profile = UserProfilePage(self, "user")
 
-        login.launch_browser(self.settings["url"])
+        # login.launch_browser(self.settings["url"])
         login.login(self.settings["login_username"], self.settings["login_password"])
         home.validate_dashboard_page()
 
@@ -80,22 +81,25 @@ class test_module_04_login_tests(BaseCase):
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_2", scope="class")
     def test_case_02_sign_in_incorrect_password(self):
+        self._login_once()
         login = LoginPage(self, "login")
 
-        login.launch_browser(self.settings["url"])
+        # login.launch_browser(self.settings["url"])
         login.invalid_login(self.settings["login_username"], UserData.invalid_password)
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_3", scope="class")
     def test_case_03_sign_in_incorrect_email(self):
+        self._login_once()
         login = LoginPage(self, "login")
 
-        login.launch_browser(self.settings["url"])
+        # login.launch_browser(self.settings["url"])
         login.invalid_login(UserData.invalid_email, self.settings["login_password"])
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_4", scope="class")
     def test_case_04_sign_in_inactive_user(self):
+        self._login_once()
         login = LoginPage(self, "login")
 
         if "rogers" in self.settings["url"]:
@@ -103,13 +107,14 @@ class test_module_04_login_tests(BaseCase):
         else:
             email_address = UserData.inactive_user_email
 
-        login.launch_browser(self.settings["url"])
+        # login.launch_browser(self.settings["url"])
         login.inactive_login(email_address, UserData.pwd)
 
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_5", scope="class")
     def test_case_05_reset_password(self):
+        self._login_once()
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         email = EmailVerification(self.settings)
@@ -122,7 +127,7 @@ class test_module_04_login_tests(BaseCase):
             target_email = UserData.reset_email_address
         print(self.settings["domain"])
 
-        login.launch_browser(self.settings["url"])
+        # login.launch_browser(self.settings["url"])
         login.login(target_email, UserData.pwd)
 
         home.validate_dashboard_page()
@@ -146,17 +151,14 @@ class test_module_04_login_tests(BaseCase):
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_6", scope="class")
     def test_case_06_forgot_password(self):
+        self._login_once()
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         email = EmailVerification(self.settings)
         profile = UserProfilePage(self, "user")
         reset = ResetPasswordPage(self, "reset_password")
 
-        if "rogers" in self.settings['domain']:
-            target_email = UserData.reset_email_address_rogers
-        else:
-            target_email = UserData.reset_email_address
-        print(self.settings["domain"])
+        target_email = UserData.reset_email_address_rogers if "rogers" in self.settings['domain'] else UserData.reset_email_address
 
         try:
             login.launch_browser(self.settings["url"])
@@ -184,16 +186,15 @@ class test_module_04_login_tests(BaseCase):
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_7", scope="class")
     def test_case_07_reset_password_of_other_user(self):
+        self._login_once()
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         email = EmailVerification(self.settings)
         profile = UserProfilePage(self, "user")
         reset = ResetPasswordPage(self, "reset_password")
 
-        if "rogers" in self.settings['domain']:
-            target_email = UserData.reset_email_address_rogers
-        else:
-            target_email = UserData.reset_email_address
+        target_email = UserData.reset_email_address_rogers if "rogers" in self.settings[
+            'domain'] else UserData.reset_email_address
         print(self.settings["domain"])
         try:
             login.launch_browser(self.settings["url"])
@@ -232,26 +233,25 @@ class test_module_04_login_tests(BaseCase):
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_8", scope="class")
     def test_case_08_reset_password_go_back(self):
+        self._login_once()
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         profile = UserProfilePage(self, "user")
         reset = ResetPasswordPage(self, "reset_password")
 
-        if "rogers" in self.settings['domain']:
-            target_email = UserData.reset_email_address_rogers
-        else:
-            target_email = UserData.reset_email_address
+        target_email = UserData.reset_email_address_rogers if "rogers" in self.settings[
+            'domain'] else UserData.reset_email_address
         print(self.settings["domain"])
 
         try:
-            login.launch_browser(self.settings["url"])
+            login.login(target_email, UserData.pwd)
         except Exception:
             home.click_admin_profile_button()
             profile.logout_user()
             login.after_logout()
-            login.launch_browser(self.settings["url"])
+            login.login(target_email, UserData.pwd)
 
-        login.login(target_email, UserData.pwd)
+        # login.login(target_email, UserData.pwd)
 
         home.validate_dashboard_page()
         home.click_admin_profile_button()
@@ -275,6 +275,7 @@ class test_module_04_login_tests(BaseCase):
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_9", scope="class")
     def test_case_09_forgot_password_go_back(self):
+        self._login_once()
         login = LoginPage(self, "login")
         reset = ResetPasswordPage(self, "reset_password")
         home = HomePage(self, "dashboard")
@@ -282,18 +283,25 @@ class test_module_04_login_tests(BaseCase):
 
         print(self.settings["domain"])
 
-        login.launch_browser(self.settings["url"])
 
         try:
-            home.click_admin_profile_button()
-            profile.logout_user()
-            login.after_logout()
+            login.validate_login_page()
         except Exception:
             home.click_admin_profile_button()
             profile.logout_user()
             login.after_logout()
+            login.validate_login_page()
 
-        login.validate_login_page()
+        # try:
+        #     home.click_admin_profile_button()
+        #     profile.logout_user()
+        #     login.after_logout()
+        # except Exception:
+        #     home.click_admin_profile_button()
+        #     profile.logout_user()
+        #     login.after_logout()
+
+        # login.validate_login_page()
         login.click_forgot_password()
 
         reset.validate_reset_password_page()
@@ -303,19 +311,17 @@ class test_module_04_login_tests(BaseCase):
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_14", scope="class")
     def test_case_14_incorrect_password_to_block_account(self):
+        self._login_once()
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         profile = UserProfilePage(self, "user")
         d = self.__class__.data
         login.launch_browser(self.settings["url"])
         try:
-            home.click_admin_profile_button()
-            profile.logout_user()
-            login.after_logout()
+            login.validate_login_page()
         except Exception:
             home.click_admin_profile_button()
             profile.logout_user()
             login.after_logout()
-
-        login.validate_login_page()
+            login.validate_login_page()
         login.login_with_incorrect_password_with_n_times(d['email'], UserData.invalid_password, 10)
