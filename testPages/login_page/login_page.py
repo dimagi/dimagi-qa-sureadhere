@@ -59,13 +59,13 @@ class LoginPage(BasePage):
     def validate_login_page(self):
         self.wait_for_page_to_load()
         self.wait_for_element("next", 60)
-        assert self.is_element_present("h1_Welcome"), "This is not the Login page"
+        assert self.is_element_present("email"), "This is not the Login page"
         print("Login page open successfully!")
 
     def validate_not_login_page(self):
         self.wait_for_page_to_load(60)
         time.sleep(10)
-        assert not self.is_element_present("h1_Welcome"), "This is the Login page"
+        assert not self.is_element_visible("next"), "This is the Login page"
         print("This is not Login page!")
 
     def click_forgot_password(self):

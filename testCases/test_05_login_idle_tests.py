@@ -34,16 +34,48 @@ class test_module_04_login_tests(BaseCase):
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_10", scope="class")
+    @pytest.mark.flaky(reruns=0)
     def test_case_10_inactivity_10_minutes(self):
         self._login_once()
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         profile = UserProfilePage(self, "user")
+
+        home.open_manage_staff_page()
+        home.open_dashboard_page()
+
         home.stay_idle(timeout=10, active=True)
+        home.open_manage_staff_page()
         login.validate_not_login_page()
         home.click_admin_profile_button()
         profile.logout_user()
         login.after_logout()
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_login_11", scope="class")
+    @pytest.mark.flaky(reruns=0)
+    def test_case_11_inactivity_20_minutes(self):
+        self._login_once()
+        login = LoginPage(self, "login")
+        home = HomePage(self, "dashboard")
+        profile = UserProfilePage(self, "user")
+
+        try:
+            login.validate_login_page()
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.validate_login_page()
+            login.login(self.settings["login_username"], self.settings["login_password"])
+
+
+        home.validate_dashboard_page()
+
+        home.stay_idle(timeout=20, active=False)
+        login.validate_login_page()
+
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_12", scope="class")
@@ -92,28 +124,3 @@ class test_module_04_login_tests(BaseCase):
         home.click_admin_profile_button()
         profile.logout_user()
         login.after_logout()
-
-    @pytest.mark.extendedtests
-    @pytest.mark.dependency(name="tc_login_11", scope="class")
-    def test_case_11_inactivity_20_minutes(self):
-        self._login_once()
-        login = LoginPage(self, "login")
-        home = HomePage(self, "dashboard")
-        profile = UserProfilePage(self, "user")
-
-        try:
-            login.validate_login_page()
-            login.login(self.settings["login_username"], self.settings["login_password"])
-        except Exception:
-            home.click_admin_profile_button()
-            profile.logout_user()
-            login.after_logout()
-            login.validate_login_page()
-            login.login(self.settings["login_username"], self.settings["login_password"])
-
-
-        home.validate_dashboard_page()
-
-        home.stay_idle(timeout=20, active=False)
-        login.validate_login_page()
-

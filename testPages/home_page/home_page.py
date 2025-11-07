@@ -11,6 +11,8 @@ class HomePage(BasePage):
         self.wait_for_page_to_load()
         self.verify_page_title("SureAdhere", 60)
         self.wait_for_element("p_Dashboard", 100)
+        assert self.is_element_visible("p_Dashboard"), "Its is not the Dashboard"
+        print("This is the Dashboard")
         time.sleep(3)
 
     def validate_not_dashboard_page(self):
