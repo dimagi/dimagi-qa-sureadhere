@@ -32,7 +32,6 @@ class test_module_04_login_tests(BaseCase):
         type(self)._session_ready = True
 
 
-    # @pytest.mark.order(0)
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_0", scope="class")
     def test_case_00_presetup_add_staff(self):
@@ -71,7 +70,6 @@ class test_module_04_login_tests(BaseCase):
         home = HomePage(self, "dashboard")
         profile = UserProfilePage(self, "user")
 
-        # login.launch_browser(self.settings["url"])
         login.login(self.settings["login_username"], self.settings["login_password"])
         home.validate_dashboard_page()
 
@@ -85,7 +83,6 @@ class test_module_04_login_tests(BaseCase):
         self._login_once()
         login = LoginPage(self, "login")
 
-        # login.launch_browser(self.settings["url"])
         login.invalid_login(self.settings["login_username"], UserData.invalid_password)
 
     @pytest.mark.extendedtests
@@ -94,7 +91,6 @@ class test_module_04_login_tests(BaseCase):
         self._login_once()
         login = LoginPage(self, "login")
 
-        # login.launch_browser(self.settings["url"])
         login.invalid_login(UserData.invalid_email, self.settings["login_password"])
 
     @pytest.mark.extendedtests
@@ -103,12 +99,10 @@ class test_module_04_login_tests(BaseCase):
         self._login_once()
         login = LoginPage(self, "login")
 
-        if "rogers" in self.settings["url"]:
-            email_address = UserData.inactive_user_email_rogers
-        else:
-            email_address = UserData.inactive_user_email
+        email_address = UserData.inactive_user_email_rogers if "rogers" in self.settings[
+            'domain'] else UserData.inactive_user_email
+        print(self.settings["domain"])
 
-        # login.launch_browser(self.settings["url"])
         login.inactive_login(email_address, UserData.pwd)
 
 
@@ -122,13 +116,10 @@ class test_module_04_login_tests(BaseCase):
         profile = UserProfilePage(self, "user")
         reset = ResetPasswordPage(self, "reset_password")
 
-        if "rogers" in self.settings['domain']:
-            target_email = UserData.reset_email_address_rogers
-        else:
-            target_email = UserData.reset_email_address
+        target_email = UserData.reset_email_address_rogers if "rogers" in self.settings[
+            'domain'] else UserData.reset_email_address
         print(self.settings["domain"])
 
-        # login.launch_browser(self.settings["url"])
         login.login(target_email, UserData.pwd)
 
         home.validate_dashboard_page()
@@ -252,8 +243,6 @@ class test_module_04_login_tests(BaseCase):
             login.after_logout()
             login.login(target_email, UserData.pwd)
 
-        # login.login(target_email, UserData.pwd)
-
         home.validate_dashboard_page()
         home.click_admin_profile_button()
         profile.reset_password()
@@ -293,21 +282,53 @@ class test_module_04_login_tests(BaseCase):
             login.after_logout()
             login.validate_login_page()
 
-        # try:
-        #     home.click_admin_profile_button()
-        #     profile.logout_user()
-        #     login.after_logout()
-        # except Exception:
-        #     home.click_admin_profile_button()
-        #     profile.logout_user()
-        #     login.after_logout()
-
-        # login.validate_login_page()
         login.click_forgot_password()
 
         reset.validate_reset_password_page()
         reset.click_go_back()
         login.validate_login_page()
+
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_login_12", scope="class")
+    def test_case_12_client_based_patient_access(self):
+        self._login_once()
+        login = LoginPage(self, "login")
+        home = HomePage(self, "dashboard")
+        profile = UserProfilePage(self, "user")
+        patient = ManagePatientPage(self, "patients")
+
+        try:
+            login.validate_login_page()
+        except Exception:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.validate_login_page()
+
+        env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
+        print(self.settings['domain'], env)
+
+        # client 1 patient access
+        login.login(UserData.client_1_staff_details[env][1], UserData.pwd)
+        home.open_manage_patient_page()
+        patient.search_test_patients(UserData.client_1_patient_details[env][0])
+        patient.search_test_patients_not_present(UserData.client_2_patient_details[env][0])
+
+        home.validate_dashboard_page()
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+
+        # client 2 patient access
+        login.login(UserData.client_2_staff_details[env][1], UserData.pwd)
+        home.open_manage_patient_page()
+        patient.search_test_patients(UserData.client_2_patient_details[env][0])
+        patient.search_test_patients_not_present(UserData.client_1_patient_details[env][0])
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_14", scope="class")
@@ -317,7 +338,7 @@ class test_module_04_login_tests(BaseCase):
         home = HomePage(self, "dashboard")
         profile = UserProfilePage(self, "user")
         d = self.__class__.data
-        login.launch_browser(self.settings["url"])
+
         try:
             login.validate_login_page()
         except Exception:
