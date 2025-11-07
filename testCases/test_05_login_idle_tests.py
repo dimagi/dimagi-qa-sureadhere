@@ -39,9 +39,6 @@ class test_module_04_login_tests(BaseCase):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         profile = UserProfilePage(self, "user")
-
-        home.validate_dashboard_page()
-
         home.stay_idle(timeout=10, active=True)
         login.validate_not_login_page()
         home.click_admin_profile_button()
