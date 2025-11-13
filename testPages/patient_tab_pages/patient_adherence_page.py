@@ -39,7 +39,7 @@ class PatientAdherencePage(BasePage):
         print(dose_status)
         assert "taken-dose-icon" == dose_status, f"taken-dose-icon not matching current status {dose_status}"
         print(f"taken-dose-icon matching current status {dose_status}")
-        assert self.is_element_visible('span_cal_today_video_status', strict=True), f"video icon not present"
+        assert self.is_element_present('span_cal_today_video_status', strict=True), f"video icon not present"
         print("video icon is present")
         timestamp_text = self.get_text('span_commented_timestamp')
         assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
