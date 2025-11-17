@@ -68,3 +68,6 @@ class UserData:
         "others": ["Staff CL2", "cl2@test.com"],
         "rogers": ["Staff CL2", "cl2_test@test.com"]
         }
+    email_error = "Error: This email address is already being used for another staff account. Each staff user must have a unique email address."
+    password_error = "The specified password does not comply with password complexity requirements. Please provide a different password."
+    default_managers = ['PM', 'SM', 'TM', 'SS']

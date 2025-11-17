@@ -193,7 +193,7 @@
     "tag": "div",
     "xpath": "//div[@class='k-window-titlebar-actions k-dialog-titlebar-actions']"
   },
-  "button__72": {
+  "button_CLOSE": {
     "aria-label": "Close",
     "class": "k-window-titlebar-action k-dialog-titlebar-action k-button k-icon-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
     "type": "submit",
@@ -865,7 +865,7 @@
     "text": "CANCEL SUBMIT",
     "xpath": "//kendo-dialog-actions[contains(normalize-space(text()), 'CANCEL\nSUBMIT')]"
   },
-  "button_CANCEL_187": {
+  "button_CANCEL": {
     "class": "cancel-button k-button k-button-md k-rounded-md k-button-solid-base k-button-solid ng-star-inserted",
     "type": "submit",
     "tag": "button",
@@ -2364,5 +2364,46 @@
     "class": "ng-star-inserted",
     "tag": "kendo-resize-sensor",
     "xpath": "//kendo-resize-sensor[@class='ng-star-inserted']"
+  },
+  "missing_first_name": {
+    "class": "alert alert-danger ng-star-inserted",
+    "tag": "div",
+    "text": "Valid first name is required.",
+    "xpath": "//div[contains(normalize-space(text()), 'Valid first name is required.')]"
+  },
+  "missing_last_name": {
+    "class": "alert alert-danger ng-star-inserted",
+    "tag": "div",
+    "text": "Valid last name is required.",
+    "xpath": "//div[contains(normalize-space(text()), 'Valid last name is required.')]"
+  },
+  "missing_email": {
+    "class": "alert alert-danger ng-star-inserted",
+    "tag": "div",
+    "text": "Valid email is required.",
+    "xpath": "//div[contains(normalize-space(text()), 'Valid email is required.')]"
+  },
+  "missing_password": {
+    "class": "alert alert-danger ng-star-inserted",
+    "tag": "div",
+    "text": "Valid password is required.",
+    "xpath": "//div[contains(normalize-space(text()), 'Valid password is required.')]"
+  },
+  "missing_phone_number": {
+    "class": "alert alert-danger ng-star-inserted",
+    "tag": "div",
+    "text": "Valid phone number is required.",
+    "xpath": "//div[contains(normalize-space(text()), 'Valid phone number is required.')]"
+  },
+  "missing_site_manager": {
+    "class": "alert alert-danger ng-star-inserted",
+    "tag": "div",
+    "text": "At least one role must be chosen",
+    "xpath": "//div[contains(normalize-space(text()), 'At least one role must be chosen')]"
+  },
+  "staff_error_message": {
+    "class": "alert alert-danger ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[contains(@class, 'alert alert-danger ng-star-inserted')]"
   }
 }

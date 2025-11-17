@@ -1,0 +1,178 @@
+import pytest
+from seleniumbase import BaseCase
+
+from testPages.home_page.home_page import HomePage
+from testPages.login_page.login_page import LoginPage
+from testPages.manage_staff_page.manage_staff_page import ManageStaffPage
+from testPages.manage_patient_page.manage_patient_page import ManagePatientPage
+from testPages.patient_tab_pages.patient_profile_page import PatientProfilePage
+from testPages.patient_tab_pages.patient_regimen_page import PatientRegimenPage
+from testPages.user_page.user_page import UserPage
+from testPages.user_page.user_patient_page import UserPatientPage
+from testPages.user_page.user_staff_page import UserStaffPage
+from testPages.user_profile.user_profile_page import UserProfilePage
+from user_inputs.user_data import UserData
+
+
+class test_module_01_users(BaseCase):
+    data = {}
+    _session_ready = False  # guard so we only open/login once
+
+    def _login_once(self):
+        """Open browser & login a single time for the whole class."""
+        if type(self)._session_ready:
+            return
+        login = LoginPage(self, "login")
+        home = HomePage(self, "dashboard")
+        login.launch_browser(self.settings["url"])
+        login.login(self.settings["login_username"], self.settings["login_password"])
+        home.validate_dashboard_page()
+        type(self)._session_ready = True
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_staff_1", scope="class")
+    def test_case_01_add_staff_all_details(self):
+        self._login_once()
+        home = HomePage(self, "dashboard")
+        user = UserPage(self, "add_users")
+        staff = ManageStaffPage(self, "staff")
+        user_staff = UserStaffPage(self, "add_staff")
+
+        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
+            default_site_manager = UserData.site_manager[0]
+        elif "securevoteu" in self.settings["url"]:
+            default_site_manager = UserData.site_manager[2]
+        else:
+            default_site_manager = UserData.site_manager[1]
+
+        home.click_add_user()
+        user.add_staff()
+        fname, lname, email, phn, client, site = user_staff.fill_staff_form(default_site_manager, manager=['PM', 'SM'], login="stf")
+        staff.validate_active_tab()
+        staff.search_staff(fname, lname, email, phn,  manager=['PM', 'SM'], site=site)
+        self.__class__.data.update({"fname_stf": fname, "lname_stf": lname, "email_stf": email, "phn_stf": phn, "isClientAdmint_stf": client, "site_stf": site})
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_staff_2", scope="class")
+    def test_case_02_add_staff_missing_mandatory_fields(self):
+        self._login_once()
+        home = HomePage(self, "dashboard")
+        user = UserPage(self, "add_users")
+        user_staff = UserStaffPage(self, "add_staff")
+
+        home.click_add_user()
+        user.add_staff()
+        user_staff.validate_blank_form_submission()
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_staff_3", scope="class")
+    def test_case_03_add_staff_without_site_manager(self):
+        self._login_once()
+        home = HomePage(self, "dashboard")
+        user = UserPage(self, "add_users")
+        user_staff = UserStaffPage(self, "add_staff")
+
+        home.click_add_user()
+        user.add_staff()
+        user_staff.fill_staff_form_without_site_manager(login="site")
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_staff_4", scope="class")
+    @pytest.mark.xfail(reason="Bug #SA3-3589")
+    def test_case_04_add_staff_test_account(self):
+        self._login_once()
+        home = HomePage(self, "dashboard")
+        user = UserPage(self, "add_users")
+        staff = ManageStaffPage(self, "staff")
+        user_staff = UserStaffPage(self, "add_staff")
+
+        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
+            default_site_manager = UserData.site_manager[0]
+        elif "securevoteu" in self.settings["url"]:
+            default_site_manager = UserData.site_manager[2]
+        else:
+            default_site_manager = UserData.site_manager[1]
+
+        home.click_add_user()
+        user.add_staff()
+        fname, lname, email, phn, client, site = user_staff.fill_staff_form(default_site_manager, login="test", test_account=True)
+        staff.validate_active_tab()
+        home.open_dashboard_page()
+        home.open_manage_staff_page()
+        staff.open_test_tab()
+        staff.search_staff(fname, lname, email, phn, site=site)
+        self.__class__.data.update({"fname_test": fname, "lname_test": lname, "email_test": email, "phn_test": phn, "isClientAdmint_test": client, "site_test": site})
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_staff_6", scope="class")
+    def test_case_06_duplicate_email_existing_staff(self):
+        self._login_once()
+        home = HomePage(self, "dashboard")
+        staff = ManageStaffPage(self, "staff")
+        user_staff = UserStaffPage(self, "add_staff")
+
+        home.open_dashboard_page()
+        home.open_manage_staff_page()
+        staff.validate_manage_staff_page()
+        d = self.__class__.data  # shared dict
+        # d = {"fname":"test_first_ghwb7mtest",
+        #      "lname":"test_last_ghwb7mtest",
+        #      "email":"ghwb7mtest@testmail"}
+
+        staff.search_staff(d["fname"], d["lname"])
+        staff.open_staff(d["fname"], d["lname"])
+        user_staff.edit_staff_form_with_incorrect_data(d["fname"], d["lname"], email_test=True)
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_staff_7", scope="class")
+    def test_case_07_add_staff_invalid_password(self):
+        self._login_once()
+        home = HomePage(self, "dashboard")
+        user = UserPage(self, "add_users")
+        staff = ManageStaffPage(self, "staff")
+        user_staff = UserStaffPage(self, "add_staff")
+
+        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
+            default_site_manager = UserData.site_manager[0]
+        elif "securevoteu" in self.settings["url"]:
+            default_site_manager = UserData.site_manager[2]
+        else:
+            default_site_manager = UserData.site_manager[1]
+
+        home.click_add_user()
+        user.add_staff()
+        user_staff.fill_staff_form(default_site_manager, login="pwd", incorrect=True)
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_staff_8", scope="class")
+    def test_case_08_search_staff(self):
+        self._login_once()
+        home = HomePage(self, "dashboard")
+        user = UserPage(self, "add_users")
+        staff = ManageStaffPage(self, "staff")
+        user_staff = UserStaffPage(self, "add_staff")
+
+        d = self.__class__.data  # shared dict
+
+        home.open_manage_staff_page()
+        staff.search_staff_with_partial_info(d['fname'], multiple=3)
+
+        home.open_dashboard_page()
+        home.open_manage_staff_page()
+        staff.search_staff_with_partial_info(d['fname'], caps=True)
+
+        home.open_dashboard_page()
+        home.open_manage_staff_page()
+        staff.search_staff_with_partial_info(d['lname'], multiple=3)
+
+        home.open_dashboard_page()
+        home.open_manage_staff_page()
+        staff.search_staff_with_partial_info(d['lname'], caps=True)
+
+        home.open_dashboard_page()
+        home.open_manage_staff_page()
+        staff.search_staff_with_partial_info(d['fname'],d['lname'], multiple=3)
+
+        home.open_dashboard_page()
+        home.open_manage_staff_page()
+        staff.search_staff_with_partial_info(d['fname'],d['lname'], caps=True)
