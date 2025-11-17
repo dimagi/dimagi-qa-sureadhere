@@ -155,24 +155,24 @@ class test_module_01_users(BaseCase):
         d = self.__class__.data  # shared dict
 
         home.open_manage_staff_page()
-        staff.search_staff_with_partial_info(d['fname'], multiple=3)
+        staff.search_staff_with_partial_info(d['fname_stf'], multiple=3)
 
         home.open_dashboard_page()
         home.open_manage_staff_page()
-        staff.search_staff_with_partial_info(d['fname'], caps=True)
+        staff.search_staff_with_partial_info(d['fname_stf'], caps=True)
 
         home.open_dashboard_page()
         home.open_manage_staff_page()
-        staff.search_staff_with_partial_info(d['lname'], multiple=3)
+        staff.search_staff_with_partial_info(d['lname_stf'], multiple=3)
 
         home.open_dashboard_page()
         home.open_manage_staff_page()
-        staff.search_staff_with_partial_info(d['lname'], caps=True)
+        staff.search_staff_with_partial_info(d['lname_stf'], caps=True)
 
         home.open_dashboard_page()
         home.open_manage_staff_page()
-        staff.search_staff_with_partial_info(d['fname'],d['lname'], multiple=3)
+        staff.search_staff_with_partial_info(d['fname_stf'],d['lname_stf'], multiple=3)
 
         home.open_dashboard_page()
         home.open_manage_staff_page()
-        staff.search_staff_with_partial_info(d['fname'],d['lname'], caps=True)
+        staff.search_staff_with_partial_info(d['fname_stf'],d['lname_stf'], caps=True)
