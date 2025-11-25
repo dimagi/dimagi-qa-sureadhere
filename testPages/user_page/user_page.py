@@ -1,3 +1,5 @@
+import time
+
 from common_utilities.base_page import BasePage
 
 class UserPage(BasePage):
@@ -12,3 +14,4 @@ class UserPage(BasePage):
     def add_staff(self):
         self.wait_for_element("a_new_staff")
         self.click("a_new_staff")
+        time.sleep(4)

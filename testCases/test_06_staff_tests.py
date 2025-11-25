@@ -115,13 +115,10 @@ class test_module_01_users(BaseCase):
         home.open_manage_staff_page()
         staff.validate_manage_staff_page()
         d = self.__class__.data  # shared dict
-        # d = {"fname":"test_first_ghwb7mtest",
-        #      "lname":"test_last_ghwb7mtest",
-        #      "email":"ghwb7mtest@testmail"}
 
-        staff.search_staff(d["fname"], d["lname"])
-        staff.open_staff(d["fname"], d["lname"])
-        user_staff.edit_staff_form_with_incorrect_data(d["fname"], d["lname"], email_test=True)
+        staff.search_staff(d["fname_test"], d["lname_test"])
+        staff.open_staff(d["fname_test"], d["lname_test"])
+        user_staff.edit_staff_form_with_incorrect_data(d["fname_test"], d["lname_test"], email_test=True)
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_staff_7", scope="class")

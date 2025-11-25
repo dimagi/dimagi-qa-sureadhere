@@ -19,6 +19,7 @@ class UserStaffPage(BasePage):
         last_name_text = f"test_last_{fetch_random_string()}{login}" if login is not None else f"test_last_{fetch_random_string()}"
         email = f"{fetch_random_string()}{login}@testmail.com" if login is not None else f"{fetch_random_string()}@testmail.com"
 
+        self.wait_for_element('first_name')
         self.type('first_name', first_name_text)
         self.type('last_name', last_name_text)
         self.type('email', email)
@@ -27,28 +28,19 @@ class UserStaffPage(BasePage):
 
         if 'PM' in manager:
             self.click('selectedPatientManagers')
-        # self.kendo_dd_select_text_old("k-input_Patient_Manager", text=site_manager)
             self.kendo_select("k-input_Patient_Manager", text=site_manager)
-        # self.kendo_select("k-input_Patient_Manager", text=site_manager)
-        # self.kendo_select_first("k-input_Patient_Manager")
 
         if 'TM' in manager:
             self.click('selectedTreatmentMonitors')
             self.kendo_select("k-input_Treatment_Monitors", text=site_manager)
-        # self.kendo_select("k-input_Treatment_Monitors", text="Site_2_US")
-        # self.kendo_select_first("k-input_Treatment_Monitors")
 
         if 'SM' in manager:
             self.click('selectedSiteManagers')
             self.kendo_select("k-input_Site_Managers", text=site_manager)
-        # self.kendo_select("k-input_Site_Managers", text="Site_2_US")
-        # self.kendo_select_first("k-input_Site_Managers")
 
         if 'SS' in manager:
             self.click('selectedStaffAdministrators')
             self.kendo_select("k-input_Staff_Administrators", text=site_manager)
-        # self.kendo_select("k-input_Staff_Administrators", text=site_manager)
-        # self.kendo_select_first("k-input_Staff_Administrators")
 
         if test_account:
             self.click('isTest')
@@ -58,11 +50,11 @@ class UserStaffPage(BasePage):
             assert not self.is_checked('isTest'), "Test account is selected"
             print("Not Test account")
 
-        # self.click('isClientAdmin')
-        # assert self.is_checked('isClientAdmin'), "Client Admin not checked"
-        #
-        # self.click('isRegimenEditor')
-        # assert self.is_checked('isRegimenEditor'), "Regimen Editor not checked"
+            self.click('isClientAdmin')
+            assert self.is_checked('isClientAdmin'), "Client Admin not checked"
+
+            self.click('isRegimenEditor')
+            assert self.is_checked('isRegimenEditor'), "Regimen Editor not checked"
 
         if incorrect:
             self.edit_staff_form_with_incorrect_data(first_name_text, last_name_text, password_test=True)
