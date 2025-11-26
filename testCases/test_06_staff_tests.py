@@ -14,7 +14,7 @@ from testPages.user_profile.user_profile_page import UserProfilePage
 from user_inputs.user_data import UserData
 
 
-class test_module_01_users(BaseCase):
+class test_module_06_staff_tests(BaseCase):
     data = {}
     _session_ready = False  # guard so we only open/login once
 
@@ -104,7 +104,29 @@ class test_module_01_users(BaseCase):
         self.__class__.data.update({"fname_test": fname, "lname_test": lname, "email_test": email, "phn_test": phn, "isClientAdmint_test": client, "site_test": site})
 
     @pytest.mark.extendedtests
-    @pytest.mark.dependency(name="tc_staff_6", scope="class")
+    @pytest.mark.dependency(name="tc_staff_5", scope="class")
+    def test_case_05_duplicate_email_new_staff(self):
+        self._login_once()
+        home = HomePage(self, "dashboard")
+        user = UserPage(self, "add_users")
+        staff = ManageStaffPage(self, "staff")
+        user_staff = UserStaffPage(self, "add_staff")
+
+        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
+            default_site_manager = UserData.site_manager[0]
+        elif "securevoteu" in self.settings["url"]:
+            default_site_manager = UserData.site_manager[2]
+        else:
+            default_site_manager = UserData.site_manager[1]
+
+        home.open_dashboard_page()
+        home.click_add_user()
+        user.add_staff()
+        user_staff.fill_staff_form(default_site_manager, login="test", test_account=True, incorrect='email')
+
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_staff_6", depends= ["tc_staff_1"], scope="class")
     def test_case_06_duplicate_email_existing_staff(self):
         self._login_once()
         home = HomePage(self, "dashboard")
@@ -116,9 +138,9 @@ class test_module_01_users(BaseCase):
         staff.validate_manage_staff_page()
         d = self.__class__.data  # shared dict
 
-        staff.search_staff(d["fname_test"], d["lname_test"])
-        staff.open_staff(d["fname_test"], d["lname_test"])
-        user_staff.edit_staff_form_with_incorrect_data(d["fname_test"], d["lname_test"], email_test=True)
+        staff.search_staff(d["fname_stf"], d["lname_stf"])
+        staff.open_staff(d["fname_stf"], d["lname_stf"])
+        user_staff.edit_staff_form_with_incorrect_data(d["fname_stf"], d["lname_stf"], email_test=True)
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_staff_7", scope="class")
@@ -138,10 +160,10 @@ class test_module_01_users(BaseCase):
 
         home.click_add_user()
         user.add_staff()
-        user_staff.fill_staff_form(default_site_manager, login="pwd", incorrect=True)
+        user_staff.fill_staff_form(default_site_manager, login="pwd", incorrect='password')
 
     @pytest.mark.extendedtests
-    @pytest.mark.dependency(name="tc_staff_8", scope="class")
+    @pytest.mark.dependency(name="tc_staff_8", depends= ["tc_staff_1"], scope="class")
     def test_case_08_search_staff(self):
         self._login_once()
         home = HomePage(self, "dashboard")
