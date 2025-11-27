@@ -13,8 +13,11 @@ class UserStaffPage(BasePage):
     def __init__(self, sb, page_name):
         super().__init__(sb, page_name=page_name)
 
+    def cancel_form(self):
+        self.click('button_CLOSE')
+        self.wait_for_invisible('button_CLOSE')
 
-    def fill_staff_form(self, site_manager, manager = UserData.default_managers, login=None, test_account=None, incorrect=None):
+    def fill_staff_form(self, site_manager, manager = UserData.default_managers, login=None, test_account=None, incorrect=False):
         first_name_text = f"test_first_{fetch_random_string()}{login}" if login is not None else f"test_first_{fetch_random_string()}"
         last_name_text = f"test_last_{fetch_random_string()}{login}" if login is not None else f"test_last_{fetch_random_string()}"
         email = f"{fetch_random_string()}{login}@testmail.com" if login is not None else f"{fetch_random_string()}@testmail.com"
@@ -56,11 +59,11 @@ class UserStaffPage(BasePage):
             self.click('isRegimenEditor')
             assert self.is_checked('isRegimenEditor'), "Regimen Editor not checked"
 
-        if 'password' in incorrect:
-            self.edit_staff_form_with_incorrect_data(first_name_text, last_name_text, password_test=True)
-            return None
-        elif 'email' in incorrect:
-            self.edit_staff_form_with_incorrect_data(first_name_text, last_name_text, email_test=True)
+        if incorrect:
+            if incorrect == 'password':
+                self.edit_staff_form_with_incorrect_data(first_name_text, last_name_text, password_test=True)
+            elif incorrect == 'email':
+                self.edit_staff_form_with_incorrect_data(first_name_text, last_name_text, email_test=True)
             return None
         else:
             self.click('button_SUBMIT')
@@ -168,8 +171,7 @@ class UserStaffPage(BasePage):
         assert self.is_element_visible('missing_phone_number'), "Error 'Valid phone number is required' is not present"
         print("Error 'Valid phone number is required' is present")
 
-        self.click('button_CLOSE')
-        self.wait_for_invisible('button_CLOSE')
+        self.cancel_form()
 
     def fill_staff_form_without_site_manager(self, login=None):
         first_name_text = f"test_first_{fetch_random_string()}{login}" if login is not None else f"test_first_{fetch_random_string()}"
@@ -187,8 +189,7 @@ class UserStaffPage(BasePage):
 
         assert self.is_element_visible('missing_site_manager'), "Error 'At least one role must be chosen' is not present"
         print("Error 'At least one role must be chosen' is present")
-        self.click('button_CLOSE')
-        self.wait_for_invisible('button_CLOSE')
+        self.cancel_form()
 
 
     def edit_staff_form_with_incorrect_data(self, fname, lname, password_test=False, email_test=False):
@@ -211,6 +212,5 @@ class UserStaffPage(BasePage):
             print(f"{text} matches {UserData.email_error}")
             self.kendo_dialog_click_button("Ok")
         time.sleep(1)
-        self.click('button_CLOSE')
-        self.wait_for_invisible('button_CLOSE')
+        self.cancel_form()
 

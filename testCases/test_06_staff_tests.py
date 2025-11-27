@@ -38,12 +38,20 @@ class test_module_06_staff_tests(BaseCase):
         staff = ManageStaffPage(self, "staff")
         user_staff = UserStaffPage(self, "add_staff")
 
+        rerun_count = getattr(self, "rerun_count", 0)
+        if rerun_count != 0:
+            try:
+                user_staff.cancel_form()
+            except:
+                print("Form not present")
+
         if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
             default_site_manager = UserData.site_manager[0]
         elif "securevoteu" in self.settings["url"]:
             default_site_manager = UserData.site_manager[2]
         else:
             default_site_manager = UserData.site_manager[1]
+
 
         home.click_add_user()
         user.add_staff()
@@ -59,7 +67,12 @@ class test_module_06_staff_tests(BaseCase):
         home = HomePage(self, "dashboard")
         user = UserPage(self, "add_users")
         user_staff = UserStaffPage(self, "add_staff")
-
+        rerun_count = getattr(self, "rerun_count", 0)
+        if rerun_count != 0:
+            try:
+                user_staff.cancel_form()
+            except:
+                print("Form not present")
         home.click_add_user()
         user.add_staff()
         user_staff.validate_blank_form_submission()
@@ -85,7 +98,12 @@ class test_module_06_staff_tests(BaseCase):
         user = UserPage(self, "add_users")
         staff = ManageStaffPage(self, "staff")
         user_staff = UserStaffPage(self, "add_staff")
-
+        rerun_count = getattr(self, "rerun_count", 0)
+        if rerun_count != 0:
+            try:
+                user_staff.cancel_form()
+            except:
+                print("Form not present")
         if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
             default_site_manager = UserData.site_manager[0]
         elif "securevoteu" in self.settings["url"]:
@@ -111,7 +129,12 @@ class test_module_06_staff_tests(BaseCase):
         user = UserPage(self, "add_users")
         staff = ManageStaffPage(self, "staff")
         user_staff = UserStaffPage(self, "add_staff")
-
+        rerun_count = getattr(self, "rerun_count", 0)
+        if rerun_count != 0:
+            try:
+                user_staff.cancel_form()
+            except:
+                print("Form not present")
         if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
             default_site_manager = UserData.site_manager[0]
         elif "securevoteu" in self.settings["url"]:
@@ -157,7 +180,12 @@ class test_module_06_staff_tests(BaseCase):
             default_site_manager = UserData.site_manager[2]
         else:
             default_site_manager = UserData.site_manager[1]
-
+        rerun_count = getattr(self, "rerun_count", 0)
+        if rerun_count != 0:
+            try:
+                user_staff.cancel_form()
+            except:
+                print("Form not present")
         home.click_add_user()
         user.add_staff()
         user_staff.fill_staff_form(default_site_manager, login="pwd", incorrect='password')
