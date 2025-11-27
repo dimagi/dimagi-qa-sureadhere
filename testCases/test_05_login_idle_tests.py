@@ -34,7 +34,7 @@ class test_module_04_login_tests(BaseCase):
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_10", scope="class")
-    @pytest.mark.flaky(reruns=0)
+    # @pytest.mark.flaky(reruns=0)
     def test_case_10_inactivity_10_minutes(self):
         self._login_once()
         login = LoginPage(self, "login")
@@ -53,7 +53,7 @@ class test_module_04_login_tests(BaseCase):
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_11", scope="class")
-    @pytest.mark.flaky(reruns=0)
+    # @pytest.mark.flaky(reruns=0)
     def test_case_11_inactivity_20_minutes(self):
         self._login_once()
         login = LoginPage(self, "login")

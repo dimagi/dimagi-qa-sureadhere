@@ -230,8 +230,11 @@ class BasePage:
     # replace your _looks_generic_xpath(...) with a bound method (or @staticmethod) and call it correctly
     def _looks_generic_xpath(self, xp: str) -> bool:
         s = (xp or "").strip()
-        # //tag or //tag[1]
+        # //tag or //tag[123]
         if re.fullmatch(r"//\w+(\[\d+\])?", s):
+            return True
+        # (//tag)[123] style
+        if re.fullmatch(r"\(//\w+\)\[\d+\]", s):
             return True
         # uses only @class in predicates (contains/starts-with/etc.)
         if "@class" in s:
@@ -312,10 +315,12 @@ class BasePage:
         if col is not None:
             if (el.get_attribute("aria-colindex") or "").strip() != str(col):
                 return False
-        # class tokens guard (token-based, not substring)
+        # class tokens guard – ONLY for table-ish cells where we really care
         cls = entry.get("class") or ""
-        if cls and not self._class_has_tokens(el, cls):
-            return False
+        if cls and tag in ("td", "th"):
+            if not self._class_has_tokens(el, cls):
+                return False
+
         return True
 
     def _selector_to_by(self, sel: str):
@@ -353,7 +358,7 @@ class BasePage:
         if entry.get("css"):    xs.append(self._css_to_xpath(entry["css"]))
 
         # 2) Strong attribute equals
-        strong_attrs = ["id", "data-testid", "name"]
+        strong_attrs = ["id", "data-testid", "name", "title"]
         for a in strong_attrs:
             v = entry.get(a)
             if v:
@@ -372,7 +377,7 @@ class BasePage:
         # 4) Attribute combos (equals)
         # inside your candidate builder, add aria-colindex to equality attributes
         combo_attrs = [
-            "id", "name", "type", "placeholder", "aria-label", "role",
+            "id", "name", "type", "placeholder", "aria-label", "title", "role",
             "data-testid", "data-id", "data-value", "aria-colindex"  # <--- add this
             ]
 
@@ -445,7 +450,7 @@ class BasePage:
             tag = (el.tag_name or "").lower()
             if entry.get("tag") and tag == (entry["tag"] or "").lower():
                 score += 0.35
-            for a in ["type", "placeholder", "aria-label", "name", "id", "class"]:
+            for a in ["type", "placeholder", "aria-label", "name", "id", "class", "title", "role"]:
                 want = entry.get(a)
                 if not want:
                     continue

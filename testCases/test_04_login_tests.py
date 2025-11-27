@@ -49,10 +49,10 @@ class test_module_04_login_tests(BaseCase):
             default_site_manager = UserData.site_manager[2]
         else:
             default_site_manager = UserData.site_manager[1]
-
+        rerun_count = getattr(self, "rerun_count", 0)
         home.click_add_user()
         user.add_staff()
-        fname, lname, email, phn, client, site = user_staff.fill_staff_form(default_site_manager, login="log")
+        fname, lname, email, phn, client, site = user_staff.fill_staff_form(default_site_manager, login="log", rerun=rerun_count)
         staff.validate_manage_staff_page()
         staff.search_staff(fname, lname, email, phn)
         self.__class__.data.update({"fname": fname, "lname": lname, "email": email, "phn": phn, "isClientAdmint": client, "site": site})

@@ -194,10 +194,10 @@
     "xpath": "//div[@class='k-window-titlebar-actions k-dialog-titlebar-actions']"
   },
   "button_CLOSE": {
-    "aria-label": "Close",
     "class": "k-window-titlebar-action k-dialog-titlebar-action k-button k-icon-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
-    "type": "submit",
     "tag": "button",
+    "title": "Close",
+    "aria-label": "Close",
     "xpath": "//button[@aria-label='Close']"
   },
   "kendo-icon-wrapper__73": {

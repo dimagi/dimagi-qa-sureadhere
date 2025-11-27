@@ -50,10 +50,10 @@ class test_module_06_staff_tests(BaseCase):
         else:
             default_site_manager = UserData.site_manager[1]
 
-
+        rerun_count = getattr(self, "rerun_count", 0)
         home.click_add_user()
         user.add_staff()
-        fname, lname, email, phn, client, site = user_staff.fill_staff_form(default_site_manager, manager=['PM', 'SM'], login="stf")
+        fname, lname, email, phn, client, site = user_staff.fill_staff_form(default_site_manager, manager=['PM', 'SM'], login="stf", rerun=rerun_count)
         staff.validate_active_tab()
         staff.search_staff(fname, lname, email, phn,  manager=['PM', 'SM'], site=site)
         self.__class__.data.update({"fname_stf": fname, "lname_stf": lname, "email_stf": email, "phn_stf": phn, "isClientAdmint_stf": client, "site_stf": site})
@@ -80,7 +80,10 @@ class test_module_06_staff_tests(BaseCase):
         home = HomePage(self, "dashboard")
         user = UserPage(self, "add_users")
         user_staff = UserStaffPage(self, "add_staff")
-
+        try:
+            user_staff.cancel_form()
+        except:
+            print("Form not present")
         home.click_add_user()
         user.add_staff()
         user_staff.fill_staff_form_without_site_manager(login="site")
@@ -104,10 +107,10 @@ class test_module_06_staff_tests(BaseCase):
             default_site_manager = UserData.site_manager[2]
         else:
             default_site_manager = UserData.site_manager[1]
-
+        rerun_count = getattr(self, "rerun_count", 0)
         home.click_add_user()
         user.add_staff()
-        fname, lname, email, phn, client, site = user_staff.fill_staff_form(default_site_manager, login="test", test_account=True)
+        fname, lname, email, phn, client, site = user_staff.fill_staff_form(default_site_manager, login="test", test_account=True, rerun=rerun_count)
         staff.validate_active_tab()
         home.open_dashboard_page()
         home.open_manage_staff_page()
@@ -173,7 +176,7 @@ class test_module_06_staff_tests(BaseCase):
             default_site_manager = UserData.site_manager[2]
         else:
             default_site_manager = UserData.site_manager[1]
-        rerun_count = getattr(self, "rerun_count", 0)
+
         try:
             user_staff.cancel_form()
         except:

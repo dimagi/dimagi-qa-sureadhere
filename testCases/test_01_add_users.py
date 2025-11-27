@@ -45,10 +45,14 @@ class test_module_01_users(BaseCase):
             default_site_manager = UserData.site_manager[2]
         else:
             default_site_manager = UserData.site_manager[1]
-
+        rerun_count = getattr(self, "rerun_count", 0)
+        try:
+            user_staff.cancel_form()
+        except:
+            print("Form is already closed")
         home.click_add_user()
         user.add_staff()
-        fname, lname, email, phn, client, site = user_staff.fill_staff_form(default_site_manager)
+        fname, lname, email, phn, client, site = user_staff.fill_staff_form(default_site_manager, rerun=rerun_count)
         staff.validate_manage_staff_page()
         staff.search_staff(fname, lname, email, phn)
         self.__class__.data.update({"fname": fname, "lname": lname, "email": email, "phn": phn, "isClientAdmint": client, "site": site})
@@ -105,6 +109,10 @@ class test_module_01_users(BaseCase):
         user_patient = UserPatientPage(self, "add_patient")
         p_profile = PatientProfilePage(self, 'patient_profile')
         d = self.__class__.data
+        try:
+            user_patient.cancel_patient_form()
+        except:
+            print("Form is already closed")
         home.click_admin_profile_button()
         profile.logout_user()
         login.after_logout()

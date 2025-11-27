@@ -13,14 +13,10 @@ class UserStaffPage(BasePage):
     def __init__(self, sb, page_name):
         super().__init__(sb, page_name=page_name)
 
-    def cancel_form(self):
-        self.click('button_CLOSE')
-        self.wait_for_invisible('button_CLOSE')
-
-    def fill_staff_form(self, site_manager, manager = UserData.default_managers, login=None, test_account=None, incorrect=False):
-        first_name_text = f"test_first_{fetch_random_string()}{login}" if login is not None else f"test_first_{fetch_random_string()}"
-        last_name_text = f"test_last_{fetch_random_string()}{login}" if login is not None else f"test_last_{fetch_random_string()}"
-        email = f"{fetch_random_string()}{login}@testmail.com" if login is not None else f"{fetch_random_string()}@testmail.com"
+    def fill_staff_form(self, site_manager, manager = UserData.default_managers, login=None, test_account=None, incorrect=False, rerun=0):
+        first_name_text = f"test_first_{rerun}{fetch_random_string()}{login}" if login is not None else f"test_first_{fetch_random_string()}"
+        last_name_text = f"test_last_{rerun}{fetch_random_string()}{login}" if login is not None else f"test_last_{fetch_random_string()}"
+        email = f"{fetch_random_string()}{rerun}{login}@testmail.com" if login is not None else f"{fetch_random_string()}@testmail.com"
 
         self.wait_for_element('first_name')
         self.type('first_name', first_name_text)
@@ -156,7 +152,8 @@ class UserStaffPage(BasePage):
 
     def validate_blank_form_submission(self):
         self.wait_for_element('first_name')
-
+        print(self.resolve('button_CLOSE'))
+        print(self.resolve('button_SUBMIT'))
         self.click('button_SUBMIT')
         self.wait_for_element('missing_first_name')
 
@@ -170,7 +167,6 @@ class UserStaffPage(BasePage):
         print("Error 'Valid password is required' is present")
         assert self.is_element_visible('missing_phone_number'), "Error 'Valid phone number is required' is not present"
         print("Error 'Valid phone number is required' is present")
-
         self.cancel_form()
 
     def fill_staff_form_without_site_manager(self, login=None):
@@ -214,3 +210,6 @@ class UserStaffPage(BasePage):
         time.sleep(1)
         self.cancel_form()
 
+    def cancel_form(self):
+        time.sleep(2)
+        self.kendo_dialog_close()
