@@ -225,3 +225,24 @@ class test_module_06_staff_tests(BaseCase):
         home.open_dashboard_page()
         home.open_manage_staff_page()
         staff.search_staff_with_partial_info(d['fname_stf'],d['lname_stf'], caps=True)
+
+    # @pytest.mark.extendedtests
+    # @pytest.mark.dependency(name="tc_staff_9", depends=["tc_staff_1"], scope="class")
+    # def test_case_09_search_staff_and_sort(self):
+    #     self._login_once()
+    #     home = HomePage(self, "dashboard")
+    #     user = UserPage(self, "add_users")
+    #     staff = ManageStaffPage(self, "staff")
+    #     user_staff = UserStaffPage(self, "add_staff")
+    #
+    #     d = self.__class__.data  # shared dict
+    #     try:
+    #         user_staff.cancel_form()
+    #     except:
+    #         print("Form not present")
+    #     home.open_manage_staff_page()
+    #     staff.search_staff_with_partial_info(d['fname_stf'], multiple=3)
+    #
+    #     home.open_dashboard_page()
+    #     home.open_manage_staff_page()
+    #     staff.search_staff_with_partial_info(d['fname_stf'], caps=True)

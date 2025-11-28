@@ -97,3 +97,17 @@ class ManageStaffPage(BasePage):
             name = self.get_text('a_name')
             assert full_name.lower() in name.strip(), f"Name mismatch {name} and {full_name}"
             print(f"Correct staff with name {name} is displayed for {i} search")
+
+    def search_staff_and_sort(self, fname=None, lname=None, multiple=1 , caps=False):
+        name = fname if fname else lname
+        full_name = fname+" "+lname if fname and lname else name
+        full_name = str(full_name).upper() if caps else full_name
+        print(f"Searching for {full_name}")
+        for i in range(multiple):
+            self.type('input_search_staff', full_name)
+            time.sleep(5)
+            self.wait_for_page_to_load()
+            self.wait_for_element('tbody_staff')
+            name = self.get_text('a_name')
+            assert full_name.lower() in name.strip(), f"Name mismatch {name} and {full_name}"
+            print(f"Correct staff with name {name} is displayed for {i} search")
