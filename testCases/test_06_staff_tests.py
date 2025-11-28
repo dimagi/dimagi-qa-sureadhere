@@ -193,6 +193,7 @@ class test_module_06_staff_tests(BaseCase):
     @pytest.mark.dependency(name="tc_staff_8", depends= ["tc_staff_1"], scope="class")
     def test_case_08_search_staff(self):
         self._login_once()
+        login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         user = UserPage(self, "add_users")
         staff = ManageStaffPage(self, "staff")
@@ -203,6 +204,13 @@ class test_module_06_staff_tests(BaseCase):
             user_staff.cancel_form()
         except:
             print("Form not present")
+
+        try:
+            login.validate_login_page()
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Screen not present")
+
         home.open_manage_staff_page()
         staff.search_staff_with_partial_info(d['fname_stf'], multiple=3)
 

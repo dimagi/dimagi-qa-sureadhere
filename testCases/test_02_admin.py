@@ -113,10 +113,10 @@ class test_module_02_admin(BaseCase):
         else:
             default_client = UserData.client[2]
         try:
-            home.open_dashboard_page()
-        except Exception:
             login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
+        except Exception:
+            print("Login Screen not present")
+        home.open_dashboard_page()
         home.open_manage_patient_page()
         patient.search_test_patients()
         patient.open_first_patient()

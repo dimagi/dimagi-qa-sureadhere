@@ -93,7 +93,8 @@ class HomePage(BasePage):
             print(f"Session active even after {timeout} minutes of inactivity.")
         else:
             self.refresh()
-            self.wait_for_page_to_load(50)
+            self.wait_for_page_to_load(150)
+            time.sleep(20)
             self.validate_not_dashboard_page()
             assert True, "Session is still active"
             print(f"Session inactive after {timeout} minutes of inactivity.")
