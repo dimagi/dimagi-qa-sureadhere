@@ -151,7 +151,10 @@ class test_module_06_staff_tests(BaseCase):
         home = HomePage(self, "dashboard")
         staff = ManageStaffPage(self, "staff")
         user_staff = UserStaffPage(self, "add_staff")
-
+        try:
+            user_staff.cancel_form()
+        except:
+            print("Form not present")
         home.open_dashboard_page()
         home.open_manage_staff_page()
         staff.validate_manage_staff_page()
@@ -196,7 +199,10 @@ class test_module_06_staff_tests(BaseCase):
         user_staff = UserStaffPage(self, "add_staff")
 
         d = self.__class__.data  # shared dict
-
+        try:
+            user_staff.cancel_form()
+        except:
+            print("Form not present")
         home.open_manage_staff_page()
         staff.search_staff_with_partial_info(d['fname_stf'], multiple=3)
 

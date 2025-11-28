@@ -14,8 +14,8 @@ class UserStaffPage(BasePage):
         super().__init__(sb, page_name=page_name)
 
     def fill_staff_form(self, site_manager, manager = UserData.default_managers, login=None, test_account=None, incorrect=False, rerun=0):
-        first_name_text = f"test_first_{rerun}{fetch_random_string()}{login}" if login is not None else f"test_first_{fetch_random_string()}"
-        last_name_text = f"test_last_{rerun}{fetch_random_string()}{login}" if login is not None else f"test_last_{fetch_random_string()}"
+        first_name_text = f"test_fst_{rerun}{fetch_random_string()}{login}" if login is not None else f"test_first_{fetch_random_string()}"
+        last_name_text = f"test_lst_{rerun}{fetch_random_string()}{login}" if login is not None else f"test_last_{fetch_random_string()}"
         email = f"{fetch_random_string()}{rerun}{login}@testmail.com" if login is not None else f"{fetch_random_string()}@testmail.com"
 
         self.wait_for_element('first_name')
