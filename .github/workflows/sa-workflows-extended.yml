@@ -85,7 +85,7 @@ jobs:
             --dashboard --html=presetup_extendedtests-report-${{ matrix.environment }}.html  --maxfail=1
           pytest -v -m extendedtests \
             --browser=chrome --headless --headless2 \
-            --reruns 1 -n 2 --dist=loadscope\
+            --reruns 1 -n 4 --dist=loadscope\
             --dashboard --html=extendedtests-report-${{ matrix.environment }}.html
 
       - name: Parse test counts
