@@ -497,7 +497,8 @@
     "xpath": "//main[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nSeptember 2025\nSunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\n31\n1\n2\n3\n4\n4 Events\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4\nDose details - Sep. 9, 2025 (pat_1)\n06:00 AM\nBup Film\n7mg / 7 pills expected\nOpen\nDose observation summary\nStatus\nOpen\nCounts toward adherence\nComments\n                  SUBMIT REVIEW\nEvents\nThis dose\nAll\nTuesday, September 9th 2025 - 01:37 pm\nVideo\n00:00:02\nTuesday, September 9th 2025 - 01:35 pm\nSelf report')]"
   },
   "k-opened-tabstrip-tab": {
-    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "class": "k-item k-state-default ng-star-inserted k-active",
+    "id": "k-tabstrip-tab",
     "tag": "li",
     "xpath": "//li[contains(@id,'k-tabstrip-tab') and @aria-selected='true']//div/span"
   },

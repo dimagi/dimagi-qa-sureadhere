@@ -486,7 +486,8 @@
     "xpath": "//li[@id='k-tabstrip-tab-72171804-dc41-4a92-887b-579f7d106b7a-0']"
   },
   "k-opened-tabstrip-tab": {
-    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "class": "k-item k-state-default ng-star-inserted k-active",
+    "id": "k-tabstrip-tab",
     "tag": "li",
     "xpath": "//li[contains(@id,'k-tabstrip-tab') and @aria-selected='true']//div/span"
   },
