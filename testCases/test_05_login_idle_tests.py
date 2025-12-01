@@ -40,7 +40,10 @@ class test_module_04_login_tests(BaseCase):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         profile = UserProfilePage(self, "user")
-
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
         home.open_manage_staff_page()
         home.open_dashboard_page()
 

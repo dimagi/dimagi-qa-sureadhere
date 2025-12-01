@@ -65,10 +65,15 @@ class test_module_06_staff_tests(BaseCase):
         home = HomePage(self, "dashboard")
         user = UserPage(self, "add_users")
         user_staff = UserStaffPage(self, "add_staff")
+        login = LoginPage(self, "login")
         try:
             user_staff.cancel_form()
         except:
             print("Form not present")
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
         home.click_add_user()
         user.add_staff()
         user_staff.validate_blank_form_submission()
@@ -80,10 +85,15 @@ class test_module_06_staff_tests(BaseCase):
         home = HomePage(self, "dashboard")
         user = UserPage(self, "add_users")
         user_staff = UserStaffPage(self, "add_staff")
+        login = LoginPage(self, "login")
         try:
             user_staff.cancel_form()
         except:
             print("Form not present")
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
         home.click_add_user()
         user.add_staff()
         user_staff.fill_staff_form_without_site_manager(login="site")
@@ -97,10 +107,15 @@ class test_module_06_staff_tests(BaseCase):
         user = UserPage(self, "add_users")
         staff = ManageStaffPage(self, "staff")
         user_staff = UserStaffPage(self, "add_staff")
+        login = LoginPage(self, "login")
         try:
             user_staff.cancel_form()
         except:
             print("Form not present")
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
         if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
             default_site_manager = UserData.site_manager[0]
         elif "securevoteu" in self.settings["url"]:
@@ -126,11 +141,16 @@ class test_module_06_staff_tests(BaseCase):
         user = UserPage(self, "add_users")
         staff = ManageStaffPage(self, "staff")
         user_staff = UserStaffPage(self, "add_staff")
+        login = LoginPage(self, "login")
         rerun_count = getattr(self, "rerun_count", 0)
         try:
             user_staff.cancel_form()
         except:
             print("Form not present")
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
         if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
             default_site_manager = UserData.site_manager[0]
         elif "securevoteu" in self.settings["url"]:
@@ -148,6 +168,7 @@ class test_module_06_staff_tests(BaseCase):
     @pytest.mark.dependency(name="tc_staff_6", depends= ["tc_staff_1"], scope="class")
     def test_case_06_duplicate_email_existing_staff(self):
         self._login_once()
+        login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         staff = ManageStaffPage(self, "staff")
         user_staff = UserStaffPage(self, "add_staff")
@@ -155,6 +176,10 @@ class test_module_06_staff_tests(BaseCase):
             user_staff.cancel_form()
         except:
             print("Form not present")
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
         home.open_dashboard_page()
         home.open_manage_staff_page()
         staff.validate_manage_staff_page()
@@ -168,6 +193,7 @@ class test_module_06_staff_tests(BaseCase):
     @pytest.mark.dependency(name="tc_staff_7", scope="class")
     def test_case_07_add_staff_invalid_password(self):
         self._login_once()
+        login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         user = UserPage(self, "add_users")
         staff = ManageStaffPage(self, "staff")
@@ -184,6 +210,10 @@ class test_module_06_staff_tests(BaseCase):
             user_staff.cancel_form()
         except:
             print("Form not present")
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
         home.click_add_user()
         user.add_staff()
         user_staff.fill_staff_form(default_site_manager, login="pwd", incorrect='password')
