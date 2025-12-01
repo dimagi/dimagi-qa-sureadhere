@@ -856,7 +856,7 @@
     "text": "Name",
     "xpath": "//span[contains(normalize-space(text()), 'Name')]"
   },
-  "span__195": {
+  "k-sort-icon": {
     "class": "k-sort-icon",
     "tag": "span",
     "xpath": "//span[@class='k-sort-icon']"

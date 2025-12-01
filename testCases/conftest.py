@@ -166,3 +166,24 @@ def driver(request, settings):
 
     yield driver
     driver.quit()
+
+@pytest.fixture(scope="function")
+def two_drivers(driver, settings):
+    """Reuse normal 'driver' + create an extra incognito one."""
+    chrome_options = Options()
+    chrome_options.add_argument("--incognito")
+
+    incog = Driver(
+        browser=settings.get("browser", "chrome"),
+        headless=settings.get("CI") == "true",
+        chrome_options=chrome_options,
+    )
+    incog.set_window_position(1300, 0)
+    incog.set_window_size(1280, 900)
+    incog.set_script_timeout(60)
+    incog.implicitly_wait(10)
+
+    try:
+        yield driver, incog
+    finally:
+        incog.quit()

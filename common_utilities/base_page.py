@@ -230,11 +230,8 @@ class BasePage:
     # replace your _looks_generic_xpath(...) with a bound method (or @staticmethod) and call it correctly
     def _looks_generic_xpath(self, xp: str) -> bool:
         s = (xp or "").strip()
-        # //tag or //tag[123]
+        # //tag or //tag[1]
         if re.fullmatch(r"//\w+(\[\d+\])?", s):
-            return True
-        # (//tag)[123] style
-        if re.fullmatch(r"\(//\w+\)\[\d+\]", s):
             return True
         # uses only @class in predicates (contains/starts-with/etc.)
         if "@class" in s:
@@ -317,10 +314,8 @@ class BasePage:
                 return False
         # class tokens guard – ONLY for table-ish cells where we really care
         cls = entry.get("class") or ""
-        if cls and tag in ("td", "th"):
-            if not self._class_has_tokens(el, cls):
-                return False
-
+        if cls and not self._class_has_tokens(el, cls):
+            return False
         return True
 
     def _selector_to_by(self, sel: str):
@@ -358,7 +353,7 @@ class BasePage:
         if entry.get("css"):    xs.append(self._css_to_xpath(entry["css"]))
 
         # 2) Strong attribute equals
-        strong_attrs = ["id", "data-testid", "name", "title"]
+        strong_attrs = ["id", "data-testid", "name"]
         for a in strong_attrs:
             v = entry.get(a)
             if v:

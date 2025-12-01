@@ -266,18 +266,24 @@ class test_module_06_staff_tests(BaseCase):
 
     # @pytest.mark.extendedtests
     # @pytest.mark.dependency(name="tc_staff_9", depends=["tc_staff_1"], scope="class")
-    # def test_case_09_search_staff_and_sort(self):
-    #     self._login_once()
+    # def test_case_09_search_staff_and_sort(self, two_drivers):
     #     home = HomePage(self, "dashboard")
     #     user = UserPage(self, "add_users")
     #     staff = ManageStaffPage(self, "staff")
     #     user_staff = UserStaffPage(self, "add_staff")
+    #     login = LoginPage(self, "login")
     #
     #     d = self.__class__.data  # shared dict
     #     try:
     #         user_staff.cancel_form()
     #     except:
     #         print("Form not present")
+    #
+    #     try:
+    #         login.login(self.settings["login_username"], self.settings["login_password"])
+    #     except Exception:
+    #         print("Login Screen not present")
+    #
     #     home.open_manage_staff_page()
     #     staff.search_staff_with_partial_info(d['fname_stf'], multiple=3)
     #
