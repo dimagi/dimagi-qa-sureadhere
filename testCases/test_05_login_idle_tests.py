@@ -16,32 +16,18 @@ from testPages.user_profile.user_profile_page import UserProfilePage
 from user_inputs.user_data import UserData
 
 
-class test_module_04_login_tests(BaseCase):
-    data = {}
-    _session_ready = False  # guard so we only open/login once
-
-    def _login_once(self):
-        """Open browser & login a single time for the whole class."""
-        if type(self)._session_ready:
-            return
-        login = LoginPage(self, "login")
-        home = HomePage(self, "dashboard")
-        login.launch_browser(self.settings["url"])
-        login.login(self.settings["login_username"], self.settings["login_password"])
-        home.validate_dashboard_page()
-        type(self)._session_ready = True
-
+class test_module_04_login_tests_inactivity_10_minutes(BaseCase):
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_10", scope="class")
-    # @pytest.mark.flaky(reruns=0)
     def test_case_10_inactivity_10_minutes(self):
-        self._login_once()
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         profile = UserProfilePage(self, "user")
         try:
+            login.launch_browser(self.settings["url"])
             login.login(self.settings["login_username"], self.settings["login_password"])
+            home.validate_dashboard_page()
         except Exception:
             print("Login Page is not present")
         home.open_manage_staff_page()
@@ -50,28 +36,22 @@ class test_module_04_login_tests(BaseCase):
         home.stay_idle(timeout=10, active=True)
         home.open_manage_staff_page()
         login.validate_not_login_page()
-        home.click_admin_profile_button()
-        profile.logout_user()
-        login.after_logout()
 
+
+class test_module_04_login_tests_inactivity_20_minutes(BaseCase):
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_11", scope="class")
-    # @pytest.mark.flaky(reruns=0)
     def test_case_11_inactivity_20_minutes(self):
-        self._login_once()
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         profile = UserProfilePage(self, "user")
 
         try:
-            login.validate_login_page()
+            login.launch_browser(self.settings["url"])
             login.login(self.settings["login_username"], self.settings["login_password"])
+            home.validate_dashboard_page()
         except Exception:
-            home.click_admin_profile_button()
-            profile.logout_user()
-            login.after_logout()
-            login.validate_login_page()
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            print("Login Page is not present")
 
 
         home.validate_dashboard_page()
