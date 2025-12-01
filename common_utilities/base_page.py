@@ -559,6 +559,13 @@ class BasePage:
         sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
         self.sb.wait_for_element(sel, timeout=timeout)
 
+    def wait_for_text(self, text: str, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
+        sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
+        text = text.strip()
+        self.sb.wait_for_element_present(sel, timeout=timeout)
+        self.sb.wait_for_element_visible(sel, timeout=timeout)
+        self.sb.wait_for_text(text, sel, timeout=timeout)
+
     def find_elements(self, logical_name: str, timeout: int = CLICK_TIMEOUT):
         sel = self.resolve_strict(logical_name)
         print(sel)

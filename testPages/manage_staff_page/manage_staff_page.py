@@ -89,11 +89,13 @@ class ManageStaffPage(BasePage):
         full_name = fname+" "+lname if fname and lname else name
         full_name = str(full_name).upper() if caps else full_name
         print(f"Searching for {full_name}")
+        self.wait_for_element('tbody_staff', 50)
         for i in range(multiple):
             self.type('input_search_staff', full_name)
-            time.sleep(5)
+            time.sleep(10)
             self.wait_for_page_to_load()
             self.wait_for_element('tbody_staff')
+            self.wait_for_text(full_name.lower(), 'a_name', 50)
             name = self.get_text('a_name')
             assert full_name.lower() in name.strip(), f"Name mismatch {name} and {full_name}"
             print(f"Correct staff with name {name} is displayed for {i} search")
