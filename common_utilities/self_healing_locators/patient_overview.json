@@ -515,7 +515,8 @@
     "xpath": "//ul[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports')]"
   },
   "k-opened-tabstrip-tab": {
-    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "class": "k-item k-state-default ng-star-inserted k-active",
+    "id": "k-tabstrip-tab",
     "tag": "li",
     "xpath": "//li[contains(@id,'k-tabstrip-tab') and @aria-selected='true']//div/span"
   },

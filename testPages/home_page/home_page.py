@@ -67,7 +67,7 @@ class HomePage(BasePage):
             print(f"No matching SA ID found for {sa_id}")
 
     def verify_announcement(self, announcement_text, flag=True):
-        self.wait_for_element('div_alert')
+        self.wait_for_element('div_alert', 100)
         alert_text = self.get_text('div_alert')
         print(alert_text)
         assert alert_text.strip() == announcement_text, f"{announcement_text} not present"
