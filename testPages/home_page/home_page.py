@@ -83,7 +83,8 @@ class HomePage(BasePage):
 
     def stay_idle(self, timeout, active=True):
         print(f"Starting {timeout} minutes of inactivity")
-        self.idle_wait(timeout*60)
+        # self.idle_wait(timeout*60)
+        time.sleep(timeout*60)
         if active==True:
             self.open_admin_page()
             self.open_dashboard_page()
