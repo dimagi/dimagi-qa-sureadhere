@@ -11,6 +11,13 @@ class HomePage(BasePage):
         self.wait_for_page_to_load()
         self.verify_page_title("SureAdhere", 60)
         self.wait_for_element("p_Dashboard", 100)
+        assert self.is_element_visible("p_Dashboard"), "Its is not the Dashboard"
+        print("This is the Dashboard")
+        time.sleep(3)
+
+    def validate_not_dashboard_page(self):
+        self.wait_for_page_to_load()
+        assert not self.is_element_present("p_Dashboard")
         time.sleep(3)
 
     def click_add_user(self):
@@ -26,6 +33,7 @@ class HomePage(BasePage):
 
     def click_admin_profile_button(self):
         time.sleep(2)
+        self.wait_for_element("button_user_profile")
         self.click("button_user_profile")
 
     def open_manage_patient_page(self):
@@ -72,3 +80,22 @@ class HomePage(BasePage):
         print(alert_text)
         assert alert_text.strip() == announcement_text, f"{announcement_text} not present"
         print(f"{announcement_text} is present")
+
+    def stay_idle(self, timeout, active=True):
+        print(f"Starting {timeout} minutes of inactivity")
+        # self.idle_wait(timeout*60)
+        time.sleep(timeout*60)
+        if active==True:
+            self.open_admin_page()
+            self.open_dashboard_page()
+            self.refresh()
+            self.validate_dashboard_page()
+            assert True, "Session not active"
+            print(f"Session active even after {timeout} minutes of inactivity.")
+        else:
+            self.refresh()
+            self.wait_for_page_to_load(150)
+            time.sleep(20)
+            self.validate_not_dashboard_page()
+            assert True, "Session is still active"
+            print(f"Session inactive after {timeout} minutes of inactivity.")

@@ -21,6 +21,8 @@ class UserPatientPage(BasePage):
     def __init__(self, sb, page_name):
         super().__init__(sb, page_name=page_name)
 
+    def cancel_patient_form(self):
+        self.kendo_dialog_close()
 
     def fill_patient_form(self, site, mob='NO', rerun_count=0):
         self.wait_for_page_to_load()

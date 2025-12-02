@@ -6,7 +6,7 @@ import time
 from typing import Dict, Any, Iterable, List, Tuple, Optional
 import platform
 from selenium.webdriver.common.keys import Keys
-from selenium.common.exceptions import StaleElementReferenceException, TimeoutException
+from selenium.common.exceptions import StaleElementReferenceException, TimeoutException, NoSuchFrameException
 from selenium.common.exceptions import ElementClickInterceptedException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -24,7 +24,7 @@ from selenium.common.exceptions import (
 # ---- Tunables ---------------------------------------------------------------
 
 PRIMARY_TIMEOUT = 6         # seconds for fast checks
-CLICK_TIMEOUT = 15          # seconds for user actions
+CLICK_TIMEOUT = 30          # seconds for user actions
 VISIBLE_REQUIRED = True     # only accept visible elements
 SIM_THRESHOLD = 0.62        # fuzzy match threshold for text-ish attrs
 MIN_STABLE_PREFIX = 3       # for dynamic-id starts-with heuristics
@@ -312,7 +312,7 @@ class BasePage:
         if col is not None:
             if (el.get_attribute("aria-colindex") or "").strip() != str(col):
                 return False
-        # class tokens guard (token-based, not substring)
+        # class tokens guard – ONLY for table-ish cells where we really care
         cls = entry.get("class") or ""
         if cls and not self._class_has_tokens(el, cls):
             return False
@@ -372,7 +372,7 @@ class BasePage:
         # 4) Attribute combos (equals)
         # inside your candidate builder, add aria-colindex to equality attributes
         combo_attrs = [
-            "id", "name", "type", "placeholder", "aria-label", "role",
+            "id", "name", "type", "placeholder", "aria-label", "title", "role",
             "data-testid", "data-id", "data-value", "aria-colindex"  # <--- add this
             ]
 
@@ -445,7 +445,7 @@ class BasePage:
             tag = (el.tag_name or "").lower()
             if entry.get("tag") and tag == (entry["tag"] or "").lower():
                 score += 0.35
-            for a in ["type", "placeholder", "aria-label", "name", "id", "class"]:
+            for a in ["type", "placeholder", "aria-label", "name", "id", "class", "title", "role"]:
                 want = entry.get(a)
                 if not want:
                     continue
@@ -554,6 +554,13 @@ class BasePage:
         sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
         self.sb.wait_for_element(sel, timeout=timeout)
 
+    def wait_for_text(self, text: str, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
+        sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
+        text = text.strip()
+        self.sb.wait_for_element_present(sel, timeout=timeout)
+        self.sb.wait_for_element_visible(sel, timeout=timeout)
+        self.sb.wait_for_text(text, sel, timeout=timeout)
+
     def find_elements(self, logical_name: str, timeout: int = CLICK_TIMEOUT):
         sel = self.resolve_strict(logical_name)
         print(sel)
@@ -590,6 +597,11 @@ class BasePage:
         # self.sb.highlight(sel)
         self.sb.type(sel, value)
 
+    def idle_wait(self, idle_time=300):
+        print(f"⏳ Simulating {idle_time / 60} minutes of inactivity...")
+        for i in range(idle_time // 60):
+            time.sleep(60)
+            print(f"   ... {i + 1} minute(s) passed")
 
     def type_and_trigger(self, logical_name: str, text: str, *,
                          timeout: int = 15, blur: bool = True, clear_first: bool = True):

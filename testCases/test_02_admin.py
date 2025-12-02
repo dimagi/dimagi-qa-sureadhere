@@ -101,6 +101,7 @@ class test_module_02_admin(BaseCase):
         a_drug = AdminDrugPage(self, 'admin_drugs')
         patient = ManagePatientPage(self, "patients")
         p_regimen = PatientRegimenPage(self, 'patient_regimens')
+        profile = UserProfilePage(self, "user")
 
         d = self.__class__.data
 
@@ -112,11 +113,13 @@ class test_module_02_admin(BaseCase):
             default_client = UserData.client[3]
         else:
             default_client = UserData.client[2]
-        try:
-            home.open_dashboard_page()
-        except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+        login.login(self.settings["login_username"], self.settings["login_password"])
+
+        home.open_dashboard_page()
         home.open_manage_patient_page()
         patient.search_test_patients()
         patient.open_first_patient()
@@ -137,13 +140,13 @@ class test_module_02_admin(BaseCase):
         p_regimen.verify_patient_regimen_page()
         p_regimen.verify_drugs_present(d['drug_name'], d['drug_switch'])
 
-        try:
-            home.open_dashboard_page()
-            home.open_admin_page()
-        except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
-            home.open_admin_page()
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+        login.login(self.settings["login_username"], self.settings["login_password"])
+
+        home.open_dashboard_page()
+        home.open_admin_page()
         admin.validate_admin_page(default_client)
         admin.expand_diseases()
         disease_switch_now, disease_name = a_disease.toggle_for_disease(d['disease_name'], "OFF")
@@ -224,10 +227,12 @@ class test_module_02_admin(BaseCase):
             default_client = UserData.client[2]
 
         try:
-            home.open_dashboard_page()
-        except Exception:
+            login.launch_browser(self.settings["url"])
             login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
+        except Exception:
+            print("Login Page is not present")
+
+        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.open_announcement()

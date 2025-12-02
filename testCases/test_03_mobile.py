@@ -162,10 +162,10 @@ class test_module_03(BaseCase):
         d = self.__class__.data
 
         try:
-            home.open_dashboard_page()
-        except Exception:
             login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
+        except Exception:
+            print("Login Screen not present")
+        home.open_dashboard_page()
 
         home.validate_dashboard_page()
         home.check_for_quick_actions()
@@ -224,10 +224,10 @@ class test_module_03(BaseCase):
 
         p_vdo.close_form()
         try:
-            home.open_dashboard_page()
-        except Exception:
             login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
+        except Exception:
+            print("Login Screen not present")
+        home.open_dashboard_page()
 
         home.validate_dashboard_page()
         home.open_manage_patient_page()
