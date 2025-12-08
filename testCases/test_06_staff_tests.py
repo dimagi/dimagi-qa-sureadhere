@@ -1,4 +1,5 @@
 import pytest
+from pytest_dependency import depends
 from seleniumbase import BaseCase
 
 from testPages.home_page.home_page import HomePage
@@ -264,29 +265,160 @@ class test_module_06_staff_tests(BaseCase):
         home.open_manage_staff_page()
         staff.search_staff_with_partial_info(d['fname_stf'],d['lname_stf'], caps=True)
 
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_staff_10", depends=["tc_staff_1"], scope="class")
+    def test_case_10_edit_staff(self):
+        self._login_once()
+        login = LoginPage(self, "login")
+        home = HomePage(self, "dashboard")
+        user = UserPage(self, "add_users")
+        staff = ManageStaffPage(self, "staff")
+        user_staff = UserStaffPage(self, "add_staff")
+
+        d = self.__class__.data
+        # d = {
+        #     "fname_stf": "test_nfst_0ylt09gstf",
+        #     "lname_stf": "test_nlst_0ylt09gstf",
+        #     "email_stf": "ylt09g0stf@testmail.com",
+        #     "phn_stf": "0000000000",
+        #     "isClientAdmint_stf": True,
+        #     "site_stf": "Site_1_US"}
+
+        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
+            default_site_manager = UserData.site_manager[0]
+        elif "securevoteu" in self.settings["url"]:
+            default_site_manager = UserData.site_manager[2]
+        else:
+            default_site_manager = UserData.site_manager[1]
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
+
+        home.validate_dashboard_page()
+        home.open_manage_staff_page()
+        staff.search_staff(d['fname_stf'], d['lname_stf'])
+        staff.open_staff(d['fname_stf'], d['lname_stf'])
+        d['fname_stf'], d['lname_stf'] = user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'], name_change=True, add_ss=default_site_manager, add_tm=default_site_manager)
+        user_staff.save_changes()
+        staff.validate_active_tab()
+        staff.search_staff(d['fname_stf'], d['lname_stf'],  manager=UserData.default_managers, site=default_site_manager)
+
     # @pytest.mark.extendedtests
-    # @pytest.mark.dependency(name="tc_staff_9", depends=["tc_staff_1"], scope="class")
-    # def test_case_09_search_staff_and_sort(self, two_drivers):
+    # @pytest.mark.dependency(name="tc_staff_10", scope="class")
+    # def test_case_10_edit_staff(self):
+    #     self._login_once()
+    #     login = LoginPage(self, "login")
     #     home = HomePage(self, "dashboard")
     #     user = UserPage(self, "add_users")
     #     staff = ManageStaffPage(self, "staff")
     #     user_staff = UserStaffPage(self, "add_staff")
-    #     login = LoginPage(self, "login")
     #
-    #     d = self.__class__.data  # shared dict
-    #     try:
-    #         user_staff.cancel_form()
-    #     except:
-    #         print("Form not present")
+    #     d = self.__class__.data
     #
+    #     if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
+    #         default_site_manager = UserData.site_manager[0]
+    #     elif "securevoteu" in self.settings["url"]:
+    #         default_site_manager = UserData.site_manager[2]
+    #     else:
+    #         default_site_manager = UserData.site_manager[1]
     #     try:
     #         login.login(self.settings["login_username"], self.settings["login_password"])
     #     except Exception:
-    #         print("Login Screen not present")
+    #         print("Login Page is not present")
     #
+    #     home.validate_dashboard_page()
     #     home.open_manage_staff_page()
-    #     staff.search_staff_with_partial_info(d['fname_stf'], multiple=3)
-    #
-    #     home.open_dashboard_page()
-    #     home.open_manage_staff_page()
-    #     staff.search_staff_with_partial_info(d['fname_stf'], caps=True)
+    #     staff.search_staff(d['fname_stf'], d['lname_stf'])
+    #     staff.open_staff(d['fname_stf'], d['lname_stf'])
+    #     d['fname_stf'], d['lname_stf'] = user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'],
+    #                                                                         name_change=True,
+    #                                                                         add_ss=default_site_manager,
+    #                                                                         add_tm=default_site_manager
+    #                                                                         )
+    #     user_staff.save_changes()
+    #     staff.validate_active_tab()
+    #     staff.search_staff(d['fname_stf'], d['lname_stf'], manager=UserData.default_managers, site=default_site_manager)
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_staff_11", scope="class")
+    def test_case_11_deactivate_staff(self):
+        self._login_once()
+        login = LoginPage(self, "login")
+        home = HomePage(self, "dashboard")
+        user = UserPage(self, "add_users")
+        staff = ManageStaffPage(self, "staff")
+        user_staff = UserStaffPage(self, "add_staff")
+        profile = UserProfilePage(self, "user")
+        d = self.__class__.data
+
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
+
+        home.validate_dashboard_page()
+        home.open_manage_staff_page()
+        staff.search_staff(d['fname_stf'], d['lname_stf'])
+        staff.open_staff(d['fname_stf'], d['lname_stf'])
+        user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'],
+                                                                            name_change=False,
+                                                                            active_acc=False
+                                                                            )
+        user_staff.save_changes()
+        staff.validate_active_tab()
+        home.open_dashboard_page()
+        home.open_manage_staff_page()
+        staff.open_inactive_tab()
+        staff.search_staff(d['fname_stf'], d['lname_stf'])
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+        login.inactive_login(d['email_stf'], UserData.pwd)
+
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_staff_12", scope="class")
+    def test_case_12_staff_based_patient_access(self):
+        self._login_once()
+        login = LoginPage(self, "login")
+        home = HomePage(self, "dashboard")
+        profile = UserProfilePage(self, "user")
+        patient = ManagePatientPage(self, "patients")
+
+        try:
+            login.validate_login_page()
+        except Exception:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.validate_login_page()
+
+        env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
+        print(self.settings['domain'], env)
+
+        # client 1 patient access
+        login.login(UserData.client_1_staff_details[env][1], UserData.pwd)
+        home.open_manage_patient_page()
+        patient.search_test_patients(UserData.client_1_patient_details[env][0])
+        fname, lname = str(UserData.client_1_patient_details[env][0]).split(" ")
+        patient.open_patient(fname, lname)
+        pat_sa_id = patient.get_sa_id()
+
+        home.validate_dashboard_page()
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+
+        # client 2 patient access
+        login.login(UserData.client_2_staff_details[env][1], UserData.pwd)
+        home.open_manage_patient_page()
+        patient.search_test_patients(UserData.client_2_patient_details[env][0])
+        fname, lname = str(UserData.client_2_patient_details[env][0]).split(" ")
+        patient.open_patient(fname, lname)
+        patient.change_url(pat_sa_id)
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+

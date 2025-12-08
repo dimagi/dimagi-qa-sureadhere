@@ -3425,4 +3425,6 @@ class BasePage:
         return (dt.replace(second=0, microsecond=0)
                 + timedelta(minutes=1) if dt.second >= 30 else dt.replace(second=0, microsecond=0))
 
+    def get_current_url(self):
+        return self.sb.get_current_url()
 

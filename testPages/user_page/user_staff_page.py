@@ -213,3 +213,65 @@ class UserStaffPage(BasePage):
     def cancel_form(self):
         time.sleep(2)
         self.kendo_dialog_close()
+
+    def edit_staff_info_options(self, fname, lname, name_change=None, add_pm=None, add_sm=None, add_tm=None, add_ss=None, test_acc=None,
+                                active_acc=None, client_acc=None):
+        self.wait_for_staff_to_load(fname, lname)
+        if name_change != None:
+            new_fname = str(fname).replace("test_f","test_nf")
+            new_lname = str(lname).replace("test_l", "test_nl")
+            print(new_fname, new_lname)
+            self.type('first_name', new_fname)
+            self.type('last_name', new_lname)
+
+        if add_pm != None:
+            self.click('selectedPatientManagers')
+            self.kendo_select("k-input_Patient_Manager", text=add_pm)
+
+        if add_tm != None:
+            self.click('selectedTreatmentMonitors')
+            self.kendo_select("k-input_Treatment_Monitors", text=add_tm)
+
+        if add_sm != None:
+            self.click('selectedSiteManagers')
+            self.kendo_select("k-input_Site_Managers", text=add_sm)
+
+        if add_ss != None:
+            self.click('selectedStaffAdministrators')
+            self.kendo_select("k-input_Staff_Administrators", text=add_ss)
+
+        if client_acc != None:
+            self.set_staff_account_checkbox(setting_name='isClientAdmin', expected=client_acc)
+        if active_acc != None:
+            self.set_staff_account_checkbox(setting_name='isActive', expected=active_acc)
+        if test_acc != None:
+            self.set_staff_account_checkbox(setting_name='isTest', expected=test_acc)
+        return (new_fname, new_lname) if name_change else (None, None)
+
+    def set_staff_account_checkbox(self, setting_name, expected: bool):
+        """Ensure the 'Client Admin' checkbox matches expected state."""
+        current = self.is_checked(setting_name)
+
+        # Toggle only if the state is incorrect
+        if current != expected:
+            self.click(setting_name)
+
+        # Final assertion
+        assert self.is_checked(setting_name) == expected, \
+            f"{setting_name} checkbox state mismatch. Expected={expected}, Found={self.is_checked(setting_name)}"
+
+        print(f"{setting_name} is {'selected' if expected else 'not selected'}")
+
+    def save_changes(self):
+        self.click('button_SUBMIT')
+        time.sleep(2)
+        try:
+            self.kendo_dialog_wait_open()
+            text = self.kendo_dialog_get_text()
+            print(text)
+            self.kendo_dialog_click_button("Yes")
+            self.kendo_dialog_wait_close()
+            self.wait_for_overlays_to_clear(5)
+        except:
+            print("No dialog present")
+        self.wait_for_invisible('button_SUBMIT')

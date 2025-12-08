@@ -59,6 +59,7 @@ class ManagePatientPage(BasePage):
         self.click('a_name')
         time.sleep(10)
 
+
     def open_inactive_tab(self):
         self.click("li_span_Inactive_tab")
         self.wait_for_page_to_load()
@@ -120,3 +121,40 @@ class ManagePatientPage(BasePage):
         self.wait_for_element('no_data')
         assert name not in self.get_text('no_data'), "Test patient {} not displayed"
         print("All test patients are displayed")
+
+    def change_url(self, sa_id):
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Ok")
+            self.wait_for_overlays_to_clear(5)
+        except:
+            print("No dialog present")
+        url = self.get_current_url()
+        parts = url.rstrip("/").split("/")
+        parts[-1] = sa_id
+        new_url = "/".join(parts)
+        print(new_url)
+        self.launch_url(new_url)
+        self.wait_for_page_to_load()
+        time.sleep(5)
+        self.kendo_dialog_wait_open()
+        text = self.kendo_dialog_get_text()
+        print(text)
+        assert UserData.access_warning in text, f"{UserData.access_warning} not present in {text}"
+        print(f"{UserData.access_warning} is present in {text}")
+        self.kendo_dialog_close()
+
+
+    def get_sa_id(self):
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Ok")
+            self.wait_for_overlays_to_clear(5)
+        except:
+            print("No dialog present")
+        url = self.get_current_url()
+        parts = url.rstrip("/").split("/")
+        sa_id_value = parts[-1]
+        print(sa_id_value)
+        return sa_id_value
+
