@@ -101,6 +101,8 @@ class test_module_02_admin(BaseCase):
         a_drug = AdminDrugPage(self, 'admin_drugs')
         patient = ManagePatientPage(self, "patients")
         p_regimen = PatientRegimenPage(self, 'patient_regimens')
+        profile = UserProfilePage(self, "user")
+
 
         d = self.__class__.data
 
