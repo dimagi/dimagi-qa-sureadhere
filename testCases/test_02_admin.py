@@ -103,6 +103,7 @@ class test_module_02_admin(BaseCase):
         p_regimen = PatientRegimenPage(self, 'patient_regimens')
         profile = UserProfilePage(self, "user")
 
+
         d = self.__class__.data
 
         if "banner" in self.settings["url"]:
@@ -205,6 +206,10 @@ class test_module_02_admin(BaseCase):
         p_regimen.verify_patient_regimen_page()
         p_regimen.verify_drugs_present(drug_name, drug_switch_now)
 
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_admin_3", scope="class")
     def test_case_03_admin_announcement(self):
@@ -226,13 +231,8 @@ class test_module_02_admin(BaseCase):
         else:
             default_client = UserData.client[2]
 
-        try:
-            login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
-        except Exception:
-            print("Login Page is not present")
+        login.login(self.settings["login_username"], self.settings["login_password"])
 
-        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.open_announcement()
