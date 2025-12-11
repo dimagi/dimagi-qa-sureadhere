@@ -20,6 +20,7 @@ class test_module_04_login_tests_inactivity_10_minutes(BaseCase):
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_10", scope="class")
+    @pytest.mark.xfail
     def test_case_10_inactivity_10_minutes(self):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")

@@ -398,6 +398,13 @@ class test_module_06_staff_tests(BaseCase):
 
         d = self.__class__.data  # shared dict
 
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except Exception:
+            print("Login Page is not present")
+
+        home.validate_dashboard_page()
+
         home.open_manage_staff_page()
         staff.validate_manage_staff_page()
         staff.search_and_sort_columns("test_")
