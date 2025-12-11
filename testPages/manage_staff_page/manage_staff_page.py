@@ -2,6 +2,7 @@ import re
 import time
 
 from selenium.webdriver import Keys
+from selenium.webdriver.common.by import By
 
 from common_utilities.base_page import BasePage
 from common_utilities.generate_random_string import fetch_random_string
@@ -84,6 +85,13 @@ class ManageStaffPage(BasePage):
         assert "Test" in text, "Active tab is not opened"
         print("Test tab is opened")
 
+    def validate_inactive_tab(self):
+        self.wait_for_page_to_load(50)
+        self.wait_for_element('span_Active')
+        text = self.get_text('li_Active')
+        assert "Inactive" in text, "Inactive tab is not opened"
+        print("Inactive tab is opened")
+
     def search_staff_with_partial_info(self, fname=None, lname=None, multiple=1 , caps=False):
         name = fname if fname else lname
         full_name = fname+" "+lname if fname and lname else name
@@ -100,16 +108,55 @@ class ManageStaffPage(BasePage):
             assert full_name.lower() in name.strip(), f"Name mismatch {name} and {full_name}"
             print(f"Correct staff with name {name} is displayed for {i} search")
 
-    def search_staff_and_sort(self, fname=None, lname=None, multiple=1 , caps=False):
-        name = fname if fname else lname
-        full_name = fname+" "+lname if fname and lname else name
-        full_name = str(full_name).upper() if caps else full_name
-        print(f"Searching for {full_name}")
-        for i in range(multiple):
-            self.type('input_search_staff', full_name)
+    def search_and_sort_columns(self, name):
+        self.type('input_search_staff', name)
+        time.sleep(5)
+        self.wait_for_page_to_load()
+        self.wait_for_element('tbody_staff')
+
+        headers = self.find_elements("table_header_sort")  # //th[contains(@class,'k-table-th')]
+        print(f"Total sortable columns: {len(headers)}")
+
+        for index, header in enumerate(headers, start=1):
+            if index == 3:
+                print("Column 3 is not sortable. Skipping.")
+                continue
+
+            # click to sort
+            header.click()
+            time.sleep(1)
+            self.wait_for_page_to_load(50)
+            time.sleep(3)
+            sort_type = header.get_attribute("aria-sort")
+            print(f"Column {index} sort type: {sort_type}")
             time.sleep(5)
-            self.wait_for_page_to_load()
-            self.wait_for_element('tbody_staff')
-            name = self.get_text('a_name')
-            assert full_name.lower() in name.strip(), f"Name mismatch {name} and {full_name}"
-            print(f"Correct staff with name {name} is displayed for {i} search")
+            column_xpath = f"//*[@role='row']/*[@role='gridcell'][{index}]"
+            cells = self.find_elements_raw(selector=column_xpath, by="xpath")
+            values = [c.text.strip() for c in cells if c.text.strip()]
+            values = self._get_column_values(index)
+            print(f"Column {index}, Row counts: {len(values)} values:", values)
+
+            if values:
+                processed = self.normalize_values(values)
+                self.is_sorted(processed, sort_type)
+
+            # second click (reverse)
+            header.click()
+            time.sleep(1)
+            self.wait_for_page_to_load(50)
+            time.sleep(3)
+            sort_type = header.get_attribute("aria-sort")
+            print(f"Column {index} sort type: {sort_type}")
+            time.sleep(5)
+
+            cells = self.find_elements_raw(selector=column_xpath, by="xpath")
+            values = [c.text.strip() for c in cells if c.text.strip()]
+            values = self._get_column_values(index)
+            print(f"Column {index}, Row counts: {len(values)} values:", values)
+
+            if values:
+                processed = self.normalize_values(values)
+                self.is_sorted(processed, sort_type)
+
+
+

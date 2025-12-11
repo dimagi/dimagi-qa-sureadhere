@@ -74,7 +74,7 @@ class test_module_03(BaseCase):
         home.validate_dashboard_page()
         home.click_add_user()
         user.add_patient()
-        pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(default_site_manager, mob='YES', rerun_count=rerun_count)
+        pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(default_site_manager, mob='mob', rerun_count=rerun_count)
         p_profile.verify_patient_profile_page()
         sa_id = p_profile.verify_patient_profile_details(pfname, plname, mrn, pemail, username, phn, phn_country,
                                                          default_site_manager, sa_id=True

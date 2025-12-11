@@ -671,10 +671,10 @@
     "xpath": "//ul[contains(normalize-space(text()), 'Active\nInactive\nTest')]"
   },
   "li_Active": {
-    "class": "k-item k-state-default k-active ng-star-inserted",
+    "class": "k-active",
     "tag": "li",
     "text": "Active",
-    "xpath": "//li[contains(@class,'k-item k-state-default k-active ng-star-inserted')]"
+    "xpath": "//li[contains(@class,'k-active')]"
   },
   "span_Active_tab": {
     "class": "k-link ng-star-inserted",
@@ -1331,5 +1331,18 @@
     "tag": "td",
     "aria-colindex":"4",
     "xpath": "//td[@aria-colindex='4']"
+  },
+  "table_header_sort": {
+    "class": "k-table-th",
+    "tag": "th",
+    "role": "columnheader",
+    "xpath": "//th[contains(@class, 'k-table-th')]"
+  },
+  "table_columns": {
+    "class": "k-table-td",
+    "tag": "td",
+    "role": "gridcell",
+    "xpath": "//td[contains(@class,'k-table-td')]"
   }
+
 }

@@ -304,42 +304,6 @@ class test_module_06_staff_tests(BaseCase):
         staff.validate_active_tab()
         staff.search_staff(d['fname_stf'], d['lname_stf'],  manager=UserData.default_managers, site=default_site_manager)
 
-    # @pytest.mark.extendedtests
-    # @pytest.mark.dependency(name="tc_staff_10", scope="class")
-    # def test_case_10_edit_staff(self):
-    #     self._login_once()
-    #     login = LoginPage(self, "login")
-    #     home = HomePage(self, "dashboard")
-    #     user = UserPage(self, "add_users")
-    #     staff = ManageStaffPage(self, "staff")
-    #     user_staff = UserStaffPage(self, "add_staff")
-    #
-    #     d = self.__class__.data
-    #
-    #     if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
-    #         default_site_manager = UserData.site_manager[0]
-    #     elif "securevoteu" in self.settings["url"]:
-    #         default_site_manager = UserData.site_manager[2]
-    #     else:
-    #         default_site_manager = UserData.site_manager[1]
-    #     try:
-    #         login.login(self.settings["login_username"], self.settings["login_password"])
-    #     except Exception:
-    #         print("Login Page is not present")
-    #
-    #     home.validate_dashboard_page()
-    #     home.open_manage_staff_page()
-    #     staff.search_staff(d['fname_stf'], d['lname_stf'])
-    #     staff.open_staff(d['fname_stf'], d['lname_stf'])
-    #     d['fname_stf'], d['lname_stf'] = user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'],
-    #                                                                         name_change=True,
-    #                                                                         add_ss=default_site_manager,
-    #                                                                         add_tm=default_site_manager
-    #                                                                         )
-    #     user_staff.save_changes()
-    #     staff.validate_active_tab()
-    #     staff.search_staff(d['fname_stf'], d['lname_stf'], manager=UserData.default_managers, site=default_site_manager)
-
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_staff_11", scope="class")
     def test_case_11_deactivate_staff(self):
@@ -422,3 +386,30 @@ class test_module_06_staff_tests(BaseCase):
         profile.logout_user()
         login.after_logout()
 
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_staff_13", scope="class")
+    def test_case_13_search_staff_sort(self):
+        self._login_once()
+        login = LoginPage(self, "login")
+        home = HomePage(self, "dashboard")
+        user = UserPage(self, "add_users")
+        staff = ManageStaffPage(self, "staff")
+        user_staff = UserStaffPage(self, "add_staff")
+
+        d = self.__class__.data  # shared dict
+
+        home.open_manage_staff_page()
+        staff.validate_manage_staff_page()
+        staff.search_and_sort_columns("test_")
+
+        home.open_dashboard_page()
+        home.open_manage_staff_page()
+        staff.open_inactive_tab()
+        staff.validate_inactive_tab()
+        staff.search_and_sort_columns("test_")
+
+        home.open_dashboard_page()
+        home.open_manage_staff_page()
+        staff.open_test_tab()
+        staff.validate_test_tab()
+        staff.search_and_sort_columns("test_")

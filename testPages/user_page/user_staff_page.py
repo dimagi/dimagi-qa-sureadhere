@@ -215,7 +215,7 @@ class UserStaffPage(BasePage):
         self.kendo_dialog_close()
 
     def edit_staff_info_options(self, fname, lname, name_change=None, add_pm=None, add_sm=None, add_tm=None, add_ss=None, test_acc=None,
-                                active_acc=None, client_acc=None):
+                                active_acc=None, client_acc=None, remove_managers=None):
         self.wait_for_staff_to_load(fname, lname)
         if name_change != None:
             new_fname = str(fname).replace("test_f","test_nf")
@@ -246,6 +246,26 @@ class UserStaffPage(BasePage):
             self.set_staff_account_checkbox(setting_name='isActive', expected=active_acc)
         if test_acc != None:
             self.set_staff_account_checkbox(setting_name='isTest', expected=test_acc)
+
+        if remove_managers != None:
+            if "PM" in remove_managers:
+                print('Removing PM')
+                self.kendo_multiselect_clear_all("k-input_Patient_Manager")
+
+            if "TM" in remove_managers:
+                print('Removing TM')
+                self.kendo_multiselect_clear_all("k-input_Treatment_Monitors")
+
+            if "SM" in remove_managers:
+                print('Removing SM')
+                self.kendo_multiselect_clear_all("k-input_Site_Managers")
+
+            if "SS" in remove_managers:
+                print('Removing SS')
+                self.kendo_multiselect_clear_all("k-input_Staff_Administrators")
+
+            time.sleep(10)
+
         return (new_fname, new_lname) if name_change else (None, None)
 
     def set_staff_account_checkbox(self, setting_name, expected: bool):

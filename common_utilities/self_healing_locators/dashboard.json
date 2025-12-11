@@ -628,12 +628,12 @@
     "text": "Dashboard",
     "xpath": "//span[contains(normalize-space(text()), 'Dashboard')]"
   },
-  "div__153": {
+  "div_filter": {
     "class": "sidebar-toggle-icon ng-star-inserted",
     "tag": "div",
     "xpath": "//div[@class='sidebar-toggle-icon ng-star-inserted']"
   },
-  "span__154": {
+  "filter_icon": {
     "class": "icon-funnel",
     "tag": "span",
     "xpath": "//span[@class='icon-funnel']"
@@ -1732,6 +1732,35 @@
     "tag": "span",
     "text": "additional new videos",
     "xpath": "//span[contains(text(),'additional new videos')]/following-sibling::button[@class='expand-button']"
+  },
+  "managers_bar": {
+    "id": "managers_bar",
+    "class": "ng-star-inserted",
+    "tag": "ul",
+    "xpath": "//ul[@id='managers_bar']"
+  },
+  "treatment_monitor_bar": {
+    "id": "treatment_monitors",
+    "class": "ng-star-inserted",
+    "tag": "ul",
+    "xpath": "//ul[@id='treatment_monitors']"
+  },
+  "span_Treatment Monitor": {
+    "class": "k-panelbar-item-text",
+    "tag": "span",
+    "text": "Treatment Monitor",
+    "xpath": "//span[contains(normalize-space(text()), 'Treatment Monitor')]"
+  },
+  "span_Patient Manager": {
+    "class": "k-panelbar-item-text",
+    "tag": "span",
+    "text": "Patient Manager",
+    "xpath": "//span[contains(normalize-space(text()), 'Patient Manager')]"
+  },
+  "div_hide_filter": {
+    "class": "close-filterbar",
+    "tag": "div",
+    "text": "Hide filters",
+    "xpath": "//div[contains(normalize-space(text()), 'Hide filters')]"
   }
-
 }

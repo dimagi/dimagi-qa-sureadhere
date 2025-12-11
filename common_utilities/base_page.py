@@ -573,6 +573,30 @@ class BasePage:
         # Return all currently matching elements
         return self.sb.find_elements(sel)
 
+    def find_elements_raw(self, selector: str, by: str = "xpath", timeout: int = 10):
+        by = by.lower()
+        if by == "xpath":
+            by_type = By.XPATH
+        elif by == "css":
+            by_type = By.CSS_SELECTOR
+        elif by == "id":
+            by_type = By.ID
+        elif by == "name":
+            by_type = By.NAME
+        else:
+            raise ValueError(f"Unsupported selector type: {by}")
+
+        print(f"[RAW FIND] {by_type} -> {selector}")
+
+        try:
+            WebDriverWait(self.driver, timeout).until(
+                lambda d: d.find_elements(by_type, selector)
+                )
+        except TimeoutException:
+            return []
+
+        return self.driver.find_elements(by_type, selector)
+
     def go_back(self):
         """Go back one page in browser history."""
         self.sb.go_back()
@@ -3428,3 +3452,194 @@ class BasePage:
     def get_current_url(self):
         return self.sb.get_current_url()
 
+    def normalize_values(self, values):
+        """Convert values into appropriate comparable formats.
+
+        - Numeric strings → floats
+        - Phone numbers (10 digits) → keep as strings
+        - Everything else stays as string (date detection happens later)
+        """
+        cleaned = [v.strip() for v in values if v is not None]
+
+        if not cleaned:
+            return cleaned
+
+        # Phone number pattern: 10 digits
+        if all(v.isdigit() and len(v) == 10 for v in cleaned):
+            return cleaned  # keep as strings
+
+        # Try converting to floats
+        numeric_converted = []
+        for v in cleaned:
+            s = str(v)
+            try:
+                numeric_converted.append(float(s.replace(",", "")))
+            except ValueError:
+                return cleaned  # at least one is not numeric → fallback to strings
+
+        return numeric_converted
+
+    def try_parse_datetime(self, value):
+        """Try parsing strings like 'Dec 10 19:53:15'. Return datetime or None."""
+        formats = [
+            "%b %d %H:%M:%S",  # Dec 10 19:53:15
+            "%b %d %Y %H:%M:%S"  # Dec 10 2023 19:53:15 (if year added later)
+            ]
+
+        for fmt in formats:
+            try:
+                return datetime.strptime(value, fmt)
+            except ValueError:
+                pass
+
+        return None
+
+    def is_sorted(self, final_values, sorted_as):
+        """Automatically detect type: datetime, number, or string."""
+
+        if not final_values:
+            return
+
+        reverse = (sorted_as == "descending")
+
+        # 1️⃣ Check if values are datetime strings
+        parsed_dates = []
+        date_mode = True
+
+        for v in final_values:
+            dt = self.try_parse_datetime(str(v))
+            if dt is None:
+                date_mode = False
+                break
+            parsed_dates.append(dt)
+
+        if date_mode:
+            expected = sorted(parsed_dates, reverse=reverse)
+            if parsed_dates != expected:
+                print("ACTUAL datetimes :", parsed_dates)
+                print("EXPECTED datetimes:", expected)
+                raise AssertionError(f"Date column NOT sorted {sorted_as}")
+            return
+
+        # 2️⃣ Numeric?
+        if isinstance(final_values[0], (int, float)):
+            expected = sorted(final_values, reverse=reverse)
+        else:
+            # 3️⃣ Default: case-insensitive string
+            expected = sorted(final_values, key=lambda s: str(s).casefold(), reverse=reverse)
+
+        if final_values != expected:
+            print("ACTUAL :", final_values)
+            print("EXPECTED:", expected)
+            raise AssertionError(f"Column NOT sorted {sorted_as}")
+
+    def _get_column_values(self, col_index: int):
+        rows = self.find_elements_raw("//*[contains(@class,'k-table-row')]", by="xpath")
+        print(f"DEBUG: found {len(rows)} rows for column {col_index}")
+
+        values = []
+        for i, row in enumerate(rows, start=1):
+            cells = row.find_elements(By.XPATH, ".//*[contains(@class,'k-table-td')]")
+            print(f"  Row {i}: {len(cells)} cells")
+            if len(cells) < col_index:
+                continue
+            txt = (cells[col_index - 1].text or "").strip()
+            if txt:
+                values.append(txt)
+
+        return self.normalize_values(values) if values else []
+
+    def kendo_multiselect_clear_all(self, input_logical_name: str, timeout: int = 10) -> None:
+        """
+        Clear all selected values from a Kendo MultiSelect.
+
+        Pass the SAME logical name you use for kendo_select's input, e.g.:
+            self.kendo_multiselect_clear_all("k-input_Patient_Manager")
+        """
+
+        sel = self.resolve(input_logical_name)
+        inp = self._get_webelement(sel, timeout=timeout)
+
+        # Put focus inside the control so Kendo is "awake"
+        try:
+            inp.click()
+        except Exception:
+            pass
+
+        # Use your MultiSelect root helper
+        root = self._ms_root(inp)
+        wait = WebDriverWait(self.driver, timeout)
+
+        def chips():
+            # All selected tags inside this multiselect
+            return root.find_elements(
+                By.CSS_SELECTOR,
+                ".k-chip-list .k-chip"
+                )
+
+        def remove_buttons():
+            # All possible "x" icons / remove actions inside chips
+            return root.find_elements(
+                By.CSS_SELECTOR,
+                (
+                    ".k-chip-remove-action, "  # ✅ your class
+                    ".k-chip-remove, "
+                    ".k-chip .k-icon.k-i-close, "
+                    ".k-chip .k-button-icon, "
+                    ".k-chip .k-select"
+                )
+                )
+
+        # --- Try a global clear icon on the widget, if present ---
+        clear_btns = root.find_elements(
+            By.CSS_SELECTOR,
+            ".k-clear-value, .k-multiselect-clearable .k-clear-value"
+            )
+        if clear_btns:
+            try:
+                clear_btns[0].click()
+                try:
+                    wait.until(lambda d: len(chips()) == 0)
+                    return
+                except TimeoutException:
+                    # If still not empty, fall back to per-chip removal
+                    pass
+            except Exception:
+                pass
+
+        # --- Fallback: click each chip's remove action one by one ---
+        end = time.time() + timeout
+        while time.time() < end:
+            btns = remove_buttons()
+            if not btns:
+                break
+
+            btn = btns[0]
+            try:
+                # optional: visual debug
+                try:
+                    self.sb.highlight(btn)
+                except Exception:
+                    pass
+
+                btn.click()
+            except StaleElementReferenceException:
+                # DOM changed between find & click; retry in next loop
+                continue
+            except Exception:
+                # JS click fallback
+                try:
+                    self.driver.execute_script("arguments[0].click();", btn)
+                except Exception:
+                    break
+
+            time.sleep(0.1)  # let DOM update
+
+        # Final soft wait; don't hard-fail the test here
+        try:
+            wait.until(lambda d: len(chips()) == 0)
+        except TimeoutException:
+            print(
+                f"⚠ kendo_multiselect_clear_all('{input_logical_name}'): "
+                f"some chips may still remain ({len(chips())} left)"
+                )
