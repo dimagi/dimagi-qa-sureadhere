@@ -35,11 +35,11 @@ class UserPatientPage(BasePage):
         #     suffix = "1"
 
         mob = 'mob' if mob == 'YES' else ''
-        fname = f"pat_f{mob}{rerun_count}_{fetch_random_string()}"
-        lname = f"pat_l{mob}{rerun_count}_{fetch_random_string()}"
+        fname = f"pat_fn{mob}{rerun_count}_{fetch_random_string()}"
+        lname = f"pat_ln{mob}{rerun_count}_{fetch_random_string()}"
         email = f"pat_{mob}{rerun_count}_{fetch_random_string()}@testmail.com"
         mrn = f"m{mob}_{fetch_random_digit()}"
-        username = f"user{mob}{rerun_count}_{fetch_random_string()}"
+        username = f"user_u{mob}{rerun_count}_{fetch_random_string()}"
 
         # if mob == 'YES':
         #     fname = self.first_name_mob+suffix
