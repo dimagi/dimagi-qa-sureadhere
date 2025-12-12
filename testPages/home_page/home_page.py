@@ -31,6 +31,10 @@ class HomePage(BasePage):
         self.click('p_Dashboard')
         self.wait_for_page_to_load()
 
+    def open_reports_page(self):
+        self.click('p_Reports')
+        self.wait_for_page_to_load()
+
     def click_admin_profile_button(self):
         time.sleep(2)
         self.wait_for_element("button_user_profile")
@@ -68,6 +72,13 @@ class HomePage(BasePage):
             assert not self.is_element_present('p_Dashboard'), "Dashboard Menu is accessible"
             print("Dashboard Menu is not accessible")
 
+    def verify_presence_of_reports_menu(self, presence=True):
+        if presence:
+            assert self.is_element_present('p_Reports'), "Reports Menu access is missing"
+            print("Reports Menu is accessible")
+        else:
+            assert not self.is_element_present('p_Reports'), "Reports Menu is accessible"
+            print("Reports Menu is not accessible")
 
     def open_manage_patient_page(self):
         self.click('p_Patients')
@@ -158,15 +169,29 @@ class HomePage(BasePage):
         print(f"{name} present in list")
         self.click(f"span_{filter_name}")
 
-    def verify_data_table_presence(self, presence="YES"):
-        if presence == "YES":
-            assert self.is_element_present("dashboard_data_table")
-        elif presence == "NO":
-            assert not self.is_element_present("dashboard_data_table")
+    def verify_filter_presence(self, filter_name, presence=True):
+        strict = True if filter_name == 'Site' else False
+        if presence:
+            assert self.is_element_present(f"span_{filter_name}", strict=strict), f"{filter_name} is not present"
+            print(f"{filter_name} is present")
+        else:
+            assert not self.is_element_present(f"span_{filter_name}", strict=strict), f"{filter_name} is present"
+            print(f"{filter_name} is not present")
 
-    def verify_div_chart_presence(self, presence="YES"):
-        if presence == "YES":
-            assert self.is_element_present("div_chart")
-        elif presence == "NO":
-            assert not self.is_element_present("div_chart")
+
+    def verify_data_table_presence(self, presence=True):
+        if presence:
+            assert self.is_element_present("dashboard_data_table"), "Patient Data Table is not present"
+            print("Patient Data Table is present")
+        else:
+            assert not self.is_element_present("dashboard_data_table"), "Patient Data Table is present"
+            print("Patient Data Table is not present")
+
+    def verify_div_chart_presence(self, presence=True):
+        if presence:
+            assert self.is_element_present("div_chart"), "Data Chart is not present"
+            print("Data Chart is present")
+        else:
+            assert not self.is_element_present("div_chart"), "Data Chart is present"
+            print("Data Chart is not present")
 

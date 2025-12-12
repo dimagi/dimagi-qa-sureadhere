@@ -316,7 +316,7 @@
     "tag": "path",
     "xpath": "//path"
   },
-  "p_Reports_87": {
+  "p_Reports": {
     "tag": "p",
     "text": "Reports",
     "xpath": "//p[contains(normalize-space(text()), 'Reports')]"
@@ -1759,5 +1759,23 @@
     "tag": "div",
     "text": "Hide filters",
     "xpath": "//div[contains(normalize-space(text()), 'Hide filters')]"
+  },
+  "span_Site": {
+    "class": "k-panelbar-item-text",
+    "tag": "span",
+    "text": "Site",
+    "xpath": "//span[contains(normalize-space(text()), 'Site') and contains(@class,'k-panelbar-item-text')]"
+  },
+  "span_Disease": {
+    "class": "k-panelbar-item-text",
+    "tag": "span",
+    "text": "Disease",
+    "xpath": "//span[contains(normalize-space(text()), 'Disease')]"
+  },
+  "span_Observation method": {
+    "class": "k-panelbar-item-text",
+    "tag": "span",
+    "text": "Observation method",
+    "xpath": "//span[contains(normalize-space(text()), 'Observation method')]"
   }
 }

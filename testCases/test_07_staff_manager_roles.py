@@ -8,6 +8,7 @@ from testPages.manage_staff_page.manage_staff_page import ManageStaffPage
 from testPages.manage_patient_page.manage_patient_page import ManagePatientPage
 from testPages.patient_tab_pages.patient_profile_page import PatientProfilePage
 from testPages.patient_tab_pages.patient_regimen_page import PatientRegimenPage
+from testPages.reports_page.reports_page import ReportsPage
 from testPages.user_page.user_page import UserPage
 from testPages.user_page.user_patient_page import UserPatientPage
 from testPages.user_page.user_staff_page import UserStaffPage
@@ -101,7 +102,7 @@ class test_module_07_staff_manager_roles(BaseCase):
         self.__class__.data.update({"fname_stf": fname, "lname_stf": lname, "email_stf": email, "phn_stf": phn, "isClientAdmint_stf": client, "site_stf": site})
 
     @pytest.mark.extendedtests
-    @pytest.mark.dependency(name="tc_staff_role_2", scope="class")
+    @pytest.mark.dependency(name="tc_staff_role_2", depends=['tc_staff_role_1'], scope="class")
     def test_case_02_validate_role_treatment_monitor(self):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
@@ -123,7 +124,7 @@ class test_module_07_staff_manager_roles(BaseCase):
         home.open_manage_staff_page()
         staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'], manager=['PM'], site=d['site_stf'])
         staff.open_staff(d['fname_stf'], d['lname_stf'])
-        user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'], add_tm=True, remove_managers=['PM', 'SM', 'SS'], client_acc=False)
+        user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'], add_tm=d['site_stf'], remove_managers=['PM', 'SM', 'SS'], client_acc=False)
         user_staff.save_changes()
         home.open_dashboard_page()
         home.open_manage_staff_page()
@@ -169,7 +170,7 @@ class test_module_07_staff_manager_roles(BaseCase):
         login.validate_login_page()
 
     @pytest.mark.extendedtests
-    @pytest.mark.dependency(name="tc_staff_role_3", scope="class")
+    @pytest.mark.dependency(name="tc_staff_role_3", depends=['tc_staff_role_1', 'tc_staff_role_2'], scope="class")
     def test_case_03_validate_role_site_manager(self):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
@@ -193,7 +194,7 @@ class test_module_07_staff_manager_roles(BaseCase):
                            site=d['site_stf']
                            )
         staff.open_staff(d['fname_stf'], d['lname_stf'])
-        user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'], add_tm=True,
+        user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'], add_sm=d['site_stf'],
                                            remove_managers=['PM', 'TM', 'SS'], client_acc=False
                                            )
         user_staff.save_changes()
@@ -241,8 +242,8 @@ class test_module_07_staff_manager_roles(BaseCase):
         login.validate_login_page()
 
     @pytest.mark.extendedtests
-    @pytest.mark.dependency(name="tc_staff_role_4", scope="class")
-    def test_case_04_validate_role_site_manager(self):
+    @pytest.mark.dependency(name="tc_staff_role_4", depends=['tc_staff_role_1', 'tc_staff_role_2', 'tc_staff_role_3'], scope="class")
+    def test_case_04_validate_role_site_staff_admin(self):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         profile = UserProfilePage(self, "user")
@@ -265,7 +266,7 @@ class test_module_07_staff_manager_roles(BaseCase):
                            site=d['site_stf']
                            )
         staff.open_staff(d['fname_stf'], d['lname_stf'])
-        user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'], add_tm=True,
+        user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'], add_ss=d['site_stf'],
                                            remove_managers=['PM', 'TM', 'SM'], client_acc=False
                                            )
         user_staff.save_changes()
@@ -284,9 +285,10 @@ class test_module_07_staff_manager_roles(BaseCase):
         home.verify_presence_of_staff_menu(presence=True)
         home.verify_presence_of_patient_menu(presence=False)
         home.verify_presence_of_dashboard_menu(presence=False)
+        home.verify_presence_of_reports_menu(presence=False)
         home.click_add_user()
         user.add_staff()
-        fname, lname, email, phn, client, site = user_staff.fill_staff_form(d['site_stf'], manager=UserData.default_managers, login="sr", rerun=rerun_count)
+        fname, lname, email, phn, client, site = user_staff.fill_staff_form(d['site_stf'], manager=UserData.default_managers, login="ss", rerun=rerun_count)
         staff.validate_active_tab()
         staff.search_staff(fname, lname, email, phn,  manager=UserData.default_managers, site=site)
         staff.open_staff(fname, lname)
@@ -295,6 +297,137 @@ class test_module_07_staff_manager_roles(BaseCase):
 
         patient.search_test_patients(UserData.client_1_staff_details[env][0])
         patient.search_test_patients_not_present(UserData.client_2_staff_details[env][0])
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+        login.validate_login_page()
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_staff_role_5", depends=['tc_staff_role_1'], scope="class")
+    def test_case_05_validate_role_client_staff_admin(self):
+        login = LoginPage(self, "login")
+        home = HomePage(self, "dashboard")
+        profile = UserProfilePage(self, "user")
+        user = UserPage(self, "add_users")
+        staff = ManageStaffPage(self, "staff")
+        user_staff = UserStaffPage(self, "add_staff")
+        user_patient = UserPatientPage(self, "add_patient")
+        p_profile = PatientProfilePage(self, 'patient_profile')
+        patient = ManagePatientPage(self, "patients")
+
+        d = self.__class__.data  # shared dict
+
+        env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
+
+        rerun_count = getattr(self, "rerun_count", 0)
+        login.login(self.settings["login_username"], self.settings["login_password"])
+        home.validate_dashboard_page()
+        home.open_manage_staff_page()
+        staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'],
+                           site=d['site_stf']
+                           )
+        staff.open_staff(d['fname_stf'], d['lname_stf'])
+        user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'],
+                                           remove_managers=['PM', 'TM', 'SM', 'SS'], client_acc=True
+                                           )
+        user_staff.save_changes()
+        home.open_dashboard_page()
+        home.open_manage_staff_page()
+        staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'],
+                           site=d['site_stf']
+                           )
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+        login.validate_login_page()
+
+        login.login(d['email_stf'], UserData.pwd)
+        home.verify_presence_of_staff_menu(presence=True)
+        home.verify_presence_of_patient_menu(presence=False)
+        home.verify_presence_of_dashboard_menu(presence=False)
+        home.verify_presence_of_reports_menu(presence=False)
+        home.click_add_user()
+        user.add_staff()
+        fname, lname, email, phn, client, site = user_staff.fill_staff_form(d['site_stf'], manager=UserData.default_managers, login="ss", rerun=rerun_count)
+        staff.validate_active_tab()
+        staff.search_staff(fname, lname, email, phn,  manager=UserData.default_managers, site=site)
+        staff.open_staff(fname, lname)
+        user_staff.verify_presence_of_save_button(presence=True)
+        user_staff.edit_staff_info_options(fname, lname, remove_managers=['PM'])
+        user_staff.save_changes()
+        staff.search_staff(fname, lname, email, phn, site=site)
+
+        patient.search_test_patients(UserData.client_1_staff_details[env][0])
+        patient.search_test_patients(UserData.client_2_staff_details[env][0])
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+        login.validate_login_page()
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_staff_role_6", depends=['tc_staff_role_1'], scope="class")
+    def test_case_06_validate_role_global_data_admin(self):
+        login = LoginPage(self, "login")
+        home = HomePage(self, "dashboard")
+        profile = UserProfilePage(self, "user")
+        user = UserPage(self, "add_users")
+        staff = ManageStaffPage(self, "staff")
+        user_staff = UserStaffPage(self, "add_staff")
+        user_patient = UserPatientPage(self, "add_patient")
+        p_profile = PatientProfilePage(self, 'patient_profile')
+        patient = ManagePatientPage(self, "patients")
+        reports = ReportsPage(self, "reports")
+
+        d = self.__class__.data  # shared dict
+
+        env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
+
+        rerun_count = getattr(self, "rerun_count", 0)
+        login.login(self.settings["login_username"], self.settings["login_password"])
+        home.validate_dashboard_page()
+        home.open_manage_staff_page()
+        staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'],
+                           site=d['site_stf']
+                           )
+        staff.open_staff(d['fname_stf'], d['lname_stf'])
+        user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'],
+                                           remove_managers=['PM', 'TM', 'SM', 'SS'], client_acc=False, global_data=True
+                                           )
+        user_staff.save_changes()
+        home.open_dashboard_page()
+        home.open_manage_staff_page()
+        staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'],
+                           site=d['site_stf']
+                           )
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+        login.validate_login_page()
+
+        login.login(d['email_stf'], UserData.pwd)
+        home.verify_presence_of_staff_menu(presence=True)
+        home.verify_presence_of_patient_menu(presence=True)
+        home.verify_presence_of_dashboard_menu(presence=True)
+        home.verify_presence_of_reports_menu(presence=True)
+
+        home.verify_data_table_presence(presence=False)
+        home.verify_div_chart_presence(presence=True)
+
+        home.open_filter()
+        home.verify_filter_presence("Patient Manager", presence=False)
+        home.verify_filter_presence("Treatment Monitor", presence=False)
+        home.verify_filter_presence("Disease", presence=False)
+        home.verify_filter_presence("Observation method", presence=False)
+        home.verify_filter_presence("Site", presence=True)
+        home.close_filter()
+
+        home.open_reports_page()
+        reports.verify_reports_page()
+        reports.validate_report_links(UserData.global_reports)
 
         home.click_admin_profile_button()
         profile.logout_user()

@@ -3677,3 +3677,21 @@ class BasePage:
             f"Extra  : {sorted(extra)}\n"
             f"Actual : {actual}"
         )
+
+    def get_elements_texts(self, logical_name: str, timeout: int = 10) -> list[str]:
+        """
+        Given a logical locator that matches multiple elements,
+        return text of all matching elements.
+        """
+
+        sel = self.resolve(logical_name)
+
+        try:
+            elements = self.find_elements(logical_name, timeout=timeout)
+        except TimeoutException:
+            return []
+
+        values = [el.text.strip() for el in elements if el.text and el.text.strip()]
+
+        print(f"[ELEMENT TEXTS → {logical_name}] {values}")
+        return values
