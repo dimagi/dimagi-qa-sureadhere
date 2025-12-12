@@ -72,7 +72,7 @@ class test_module_07_staff_manager_roles(BaseCase):
         home.close_filter()
         home.click_add_user()
         user.add_patient()
-        pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(site,
+        pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(site, mob='pm',
                                                                                                  rerun_count=rerun_count
                                                                                                  )
         p_profile.verify_patient_profile_page()
@@ -142,7 +142,7 @@ class test_module_07_staff_manager_roles(BaseCase):
         home.close_filter()
         home.click_add_user()
         user.add_patient()
-        pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(d['site_stf'],
+        pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(d['site_stf'], mob='tm',
                                                                                                  rerun_count=rerun_count
                                                                                                  )
         p_profile.verify_patient_profile_page()
@@ -214,7 +214,7 @@ class test_module_07_staff_manager_roles(BaseCase):
         home.verify_presence_of_staff_menu(presence=False)
         home.click_add_user()
         user.add_patient()
-        pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(d['site_stf'],
+        pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(d['site_stf'], mob='sm',
                                                                                                  rerun_count=rerun_count
                                                                                                  )
         p_profile.verify_patient_profile_page()
