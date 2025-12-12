@@ -24,7 +24,10 @@ class ManageStaffPage(BasePage):
 
     def search_staff(self, fname=None, lname=None, email=None, phn=None, manager = UserData.default_managers, site=None):
         full_name = fname+" "+lname
-        self.type('input_search_staff', full_name+Keys.ENTER)
+        if email:
+            self.type('input_search_staff', email)
+        else:
+            self.type('input_search_staff', full_name+Keys.ENTER)
         time.sleep(5)
         self.wait_for_page_to_load(50)
         self.wait_for_element('tbody_staff')
@@ -40,7 +43,7 @@ class ManageStaffPage(BasePage):
                 assert site in text, f"{site} is not present for role {item}"
                 print(f"{site} is present for role {item}")
 
-        assert name.strip() == full_name, "Name mismatch"
+        assert name.strip() == full_name, f"Name mismatch {name.strip()} and {full_name}"
         if email:
             assert email_text.strip() == email, "Email mismatch"
         if phn:
