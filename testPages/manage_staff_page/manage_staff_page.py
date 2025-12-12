@@ -24,9 +24,9 @@ class ManageStaffPage(BasePage):
 
     def search_staff(self, fname=None, lname=None, email=None, phn=None, manager = UserData.default_managers, site=None):
         full_name = fname+" "+lname
-        self.type('input_search_staff', full_name)
+        self.type('input_search_staff', full_name+Keys.ENTER)
         time.sleep(5)
-        self.wait_for_page_to_load()
+        self.wait_for_page_to_load(50)
         self.wait_for_element('tbody_staff')
         name = self.get_text('a_name')
         email_text = self.get_text('td_email')

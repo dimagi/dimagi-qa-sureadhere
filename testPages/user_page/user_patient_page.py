@@ -34,7 +34,7 @@ class UserPatientPage(BasePage):
         # else:
         #     suffix = "1"
 
-        mob = 'mob' if mob == 'YES' else ''
+        mob = '' if mob == None else mob
         fname = f"pat_fn{mob}{rerun_count}_{fetch_random_string()}"
         lname = f"pat_ln{mob}{rerun_count}_{fetch_random_string()}"
         email = f"pat_{mob}{rerun_count}_{fetch_random_string()}@testmail.com"
