@@ -160,8 +160,9 @@ class HomePage(BasePage):
 
     def open_filter_search_staff(self, filter_name, name):
         self.click(f"span_{filter_name}")
-        self.wait_for_page_to_load(60)
         time.sleep(5)
+        self.wait_for_page_to_load(60)
+        time.sleep(10)
         self.wait_for_element(f"{filter_name}_bar", 60)
         values = self.get_li_items(f"{filter_name}_bar")
         # print(values)
