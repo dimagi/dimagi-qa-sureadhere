@@ -24,11 +24,12 @@ class ManageStaffPage(BasePage):
 
     def search_staff(self, fname=None, lname=None, email=None, phn=None, manager = UserData.default_managers, site=None):
         full_name = fname+" "+lname
+        self.wait_for_element('a_name')
         if email:
             self.type('input_search_staff', email)
         else:
             self.type('input_search_staff', full_name+Keys.ENTER)
-        time.sleep(5)
+        time.sleep(15)
         self.wait_for_page_to_load(50)
         self.wait_for_element('tbody_staff')
         name = self.get_text('a_name')
@@ -36,7 +37,7 @@ class ManageStaffPage(BasePage):
         phn_number = self.get_text('td_phone_number')
         print(name, email_text, phn_number)
 
-        if site:
+        if site and manager is not None:
             for item in manager:
                 text = self.get_text(f"li_role_{item}", strict=True)
                 print(text)
