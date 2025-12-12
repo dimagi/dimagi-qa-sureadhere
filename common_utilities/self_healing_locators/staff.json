@@ -1343,6 +1343,12 @@
     "tag": "td",
     "role": "gridcell",
     "xpath": "//td[contains(@class,'k-table-td')]"
+  },
+  "no_data": {
+    "class": "message",
+    "tag": "div",
+    "text": "No data.",
+    "xpath": "//div[@class='message']"
   }
 
 }

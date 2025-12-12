@@ -3643,3 +3643,37 @@ class BasePage:
                 f"⚠ kendo_multiselect_clear_all('{input_logical_name}'): "
                 f"some chips may still remain ({len(chips())} left)"
                 )
+
+    def get_li_items(self, ul_logical_name: str, timeout: int = 10) -> list[str]:
+        """
+        Given a locator for a <ul>, return text of all <li> elements under it.
+        """
+
+        sel = self.resolve(ul_logical_name)
+        try:
+            ul = self._get_webelement(sel, timeout=timeout)
+        except TimeoutException:
+            return []
+
+        lis = ul.find_elements(By.TAG_NAME, "li")
+        values = [li.text.strip() for li in lis if li.text.strip()]
+
+        print(f"[UL → LI VALUES] {values}")
+        return values
+
+    def assert_list_contains_only(self, actual: list, expected: list):
+        """
+        Assert that actual list contains ONLY expected values (order-independent).
+        """
+        actual_set = set(actual)
+        expected_set = set(expected)
+
+        missing = expected_set - actual_set
+        extra = actual_set - expected_set
+
+        assert not missing and not extra, (
+            f"List contents mismatch.\n"
+            f"Missing: {sorted(missing)}\n"
+            f"Extra  : {sorted(extra)}\n"
+            f"Actual : {actual}"
+        )

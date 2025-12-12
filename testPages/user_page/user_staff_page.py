@@ -215,7 +215,7 @@ class UserStaffPage(BasePage):
         self.kendo_dialog_close()
 
     def edit_staff_info_options(self, fname, lname, name_change=None, add_pm=None, add_sm=None, add_tm=None, add_ss=None, test_acc=None,
-                                active_acc=None, client_acc=None, remove_managers=None):
+                                active_acc=None, client_acc=None, remove_managers=None, blind_trial=None, global_data=None):
         self.wait_for_staff_to_load(fname, lname)
         if name_change != None:
             new_fname = str(fname).replace("test_f","test_nf")
@@ -246,6 +246,11 @@ class UserStaffPage(BasePage):
             self.set_staff_account_checkbox(setting_name='isActive', expected=active_acc)
         if test_acc != None:
             self.set_staff_account_checkbox(setting_name='isTest', expected=test_acc)
+        if blind_trial != None:
+            self.set_staff_account_checkbox(setting_name='isBlindTrial', expected=active_acc)
+        if global_data != None:
+            self.set_staff_account_checkbox(setting_name='isGlobalDataAdministrator', expected=test_acc)
+
 
         if remove_managers != None:
             if "PM" in remove_managers:
@@ -295,3 +300,11 @@ class UserStaffPage(BasePage):
         except:
             print("No dialog present")
         self.wait_for_invisible('button_SUBMIT')
+
+    def verify_presence_of_save_button(self, presence=True):
+        if presence:
+            assert self.is_element_present('button_SUBMIT'), "Cannot save changes"
+            print("Changes can be saved")
+        else:
+            assert not self.is_element_present('button_SUBMIT'), "Changes can be saved"
+            print("Cannot save changes")

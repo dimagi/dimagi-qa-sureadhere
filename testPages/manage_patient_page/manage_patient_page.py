@@ -111,7 +111,7 @@ class ManagePatientPage(BasePage):
         self.wait_for_element('tbody_patient')
         self.wait_for_element('td_name')
         assert name in self.get_text('a_name'), f"Test patient {name} not displayed"
-        print("All test patients are displayed")
+        print(f"Test patient {name} is displayed")
 
     def search_test_patients_not_present(self, name='pat_fn_'):
         self.type('input_search_patient', name)
@@ -119,8 +119,8 @@ class ManagePatientPage(BasePage):
         self.wait_for_page_to_load()
         self.wait_for_element('tbody_patient')
         self.wait_for_element('no_data')
-        assert name not in self.get_text('no_data'), "Test patient {} not displayed"
-        print("All test patients are displayed")
+        assert name not in self.get_text('no_data'), f"{name} is displayed for this Account"
+        print(f"{name} is not displayed for this Account")
 
     def change_url(self, sa_id):
         try:

@@ -61,6 +61,13 @@ class UserPatientPage(BasePage):
         self.type('phone_number', UserData.phone_number)
         self.type('user_name', username)
 
+        values = self.kendo_dd_get_all_texts("kendo-dropdownlist-site")
+        print(values)
+        # assert site in values, f"{site} not present in the dropdown"
+        # print(f"{site} present in the dropdown")
+        self.assert_list_contains_only([site],values)
+        print(f"The Patient can only be created for {values}")
+
         if self.kendo_dd_get_selected_text('kendo-dropdownlist-site') != site:
             self.kendo_dd_select_text_old('kendo-dropdownlist-site', site)
         else:

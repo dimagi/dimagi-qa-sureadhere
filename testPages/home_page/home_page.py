@@ -36,6 +36,39 @@ class HomePage(BasePage):
         self.wait_for_element("button_user_profile")
         self.click("button_user_profile")
 
+    def verify_presence_of_staff_menu(self, presence=True):
+        if presence:
+            assert self.is_element_present('p_Staff'), "Staff Menu access is missing"
+            print("Staff Menu is accessible")
+        else:
+            assert not self.is_element_present('p_Staff'), "Staff Menu is accessible"
+            print("Staff Menu is not accessible")
+
+    def verify_presence_of_patient_menu(self, presence=True):
+        if presence:
+            assert self.is_element_present('p_Patients'), "Patient Menu access is missing"
+            print("Patient Menu is accessible")
+        else:
+            assert not self.is_element_present('p_Patients'), "Patient Menu is accessible"
+            print("Patient Menu is not accessible")
+
+    def verify_presence_of_admin_menu(self, presence=True):
+        if presence:
+            assert self.is_element_present('p_Admin'), "Admin Menu access is missing"
+            print("Admin Menu is accessible")
+        else:
+            assert not self.is_element_present('p_Admin'), "Admin Menu is accessible"
+            print("Admin Menu is not accessible")
+
+    def verify_presence_of_dashboard_menu(self, presence=True):
+        if presence:
+            assert self.is_element_present('p_Dashboard'), "Dashboard Menu access is missing"
+            print("Dashboard Menu is accessible")
+        else:
+            assert not self.is_element_present('p_Dashboard'), "Dashboard Menu is accessible"
+            print("Dashboard Menu is not accessible")
+
+
     def open_manage_patient_page(self):
         self.click('p_Patients')
         self.wait_for_page_to_load()
@@ -99,3 +132,41 @@ class HomePage(BasePage):
             self.validate_not_dashboard_page()
             assert True, "Session is still active"
             print(f"Session inactive after {timeout} minutes of inactivity.")
+
+    def open_filter(self):
+        self.wait_for_element("filter_icon")
+        self.click("filter_icon")
+        self.wait_for_element("span_Treatment Monitor")
+        assert self.is_element_present("div_hide_filter"), "Dashboard Filter is not open"
+        print("Dashboard Filter is opened")
+
+    def close_filter(self):
+        self.wait_for_element("div_hide_filter")
+        self.click("div_hide_filter")
+        self.wait_for_invisible("div_hide_filter")
+        assert not self.is_element_visible("div_hide_filter"), "Dashboard Filter is not closed"
+        print("Dashboard Filter is closed")
+
+    def open_filter_search_staff(self, filter_name, name):
+        self.click(f"span_{filter_name}")
+        self.wait_for_page_to_load(60)
+        time.sleep(5)
+        self.wait_for_element(f"{filter_name}_bar", 60)
+        values = self.get_li_items(f"{filter_name}_bar")
+        # print(values)
+        assert name in values, f"{name} not in list"
+        print(f"{name} present in list")
+        self.click(f"span_{filter_name}")
+
+    def verify_data_table_presence(self, presence="YES"):
+        if presence == "YES":
+            assert self.is_element_present("dashboard_data_table")
+        elif presence == "NO":
+            assert not self.is_element_present("dashboard_data_table")
+
+    def verify_div_chart_presence(self, presence="YES"):
+        if presence == "YES":
+            assert self.is_element_present("div_chart")
+        elif presence == "NO":
+            assert not self.is_element_present("div_chart")
+

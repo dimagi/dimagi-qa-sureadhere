@@ -158,5 +158,22 @@ class ManageStaffPage(BasePage):
                 processed = self.normalize_values(values)
                 self.is_sorted(processed, sort_type)
 
+    def search_test_staff(self, name='test_f'):
+        self.type('input_search_staff', name)
+        time.sleep(10)
+        self.wait_for_page_to_load()
+        self.wait_for_element('tbody_staff')
+        self.wait_for_element('td_name')
+        assert name in self.get_text('a_name'), f"Test staff {name} not displayed"
+        print(f"Test staff {name} is displayed")
+
+    def search_test_patients_not_present(self, name='test_f'):
+        self.type('input_search_staff', name)
+        time.sleep(10)
+        self.wait_for_page_to_load()
+        self.wait_for_element('tbody_staff')
+        self.wait_for_element('no_data')
+        assert name not in self.get_text('no_data'), f"{name} is displayed for this Account"
+        print(f"{name} is not displayed for this Account")
 
 
