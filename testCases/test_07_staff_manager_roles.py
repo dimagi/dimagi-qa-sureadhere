@@ -308,7 +308,7 @@ class test_module_07_staff_manager_roles(BaseCase):
         user.add_staff()
         fname, lname, email, phn, client, site = user_staff.fill_staff_form(d['site_stf'], manager=UserData.default_managers, login="ss", rerun=rerun_count)
         staff.validate_active_tab()
-        staff.search_staff(fname, lname, email, phn,  manager=UserData.default_managers, site=site)
+        staff.search_staff(fname, lname, email, phn, site=site)
         staff.open_staff(fname, lname)
         user_staff.verify_presence_of_save_button(presence=False)
         user_staff.cancel_form()
@@ -339,6 +339,11 @@ class test_module_07_staff_manager_roles(BaseCase):
         env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
 
         rerun_count = getattr(self, "rerun_count", 0)
+
+        try:
+            user_staff.cancel_form()
+        except:
+            print("No dialog present")
         try:
             home.click_admin_profile_button()
             profile.logout_user()
@@ -383,7 +388,7 @@ class test_module_07_staff_manager_roles(BaseCase):
         user.add_staff()
         fname, lname, email, phn, client, site = user_staff.fill_staff_form(d['site_stf'], manager=UserData.default_managers, login="ss", rerun=rerun_count)
         staff.validate_active_tab()
-        staff.search_staff(fname, lname, email, phn,  manager=UserData.default_managers, site=site)
+        staff.search_staff(fname, lname, email, phn, site=site)
         staff.open_staff(fname, lname)
         user_staff.verify_presence_of_save_button(presence=True)
         user_staff.edit_staff_info_options(fname, lname, remove_managers=['PM'])
@@ -417,6 +422,12 @@ class test_module_07_staff_manager_roles(BaseCase):
         env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
 
         rerun_count = getattr(self, "rerun_count", 0)
+
+
+        try:
+            user_staff.cancel_form()
+        except:
+            print("No dialog present")
         try:
             home.click_admin_profile_button()
             profile.logout_user()
