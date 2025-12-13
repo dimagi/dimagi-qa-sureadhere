@@ -332,7 +332,6 @@ class test_module_07_staff_manager_roles(BaseCase):
         user.add_staff()
         fname, lname, email, phn, client, site = user_staff.fill_staff_form(d['site_stf'], manager=UserData.default_managers, login="ss", rerun=rerun_count)
         staff.validate_active_tab()
-        staff.search_staff(fname, lname, email, phn, manager=None, site=site)
         fname, lname = staff.get_first_staff_name()
         staff.open_staff(fname, lname)
         user_staff.verify_presence_of_save_button(presence=False)
