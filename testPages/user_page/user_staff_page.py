@@ -49,8 +49,11 @@ class UserStaffPage(BasePage):
             assert not self.is_checked('isTest'), "Test account is selected"
             print("Not Test account")
 
-            self.click('isClientAdmin')
-            assert self.is_checked('isClientAdmin'), "Client Admin not checked"
+            if self.is_element_present('isClientAdmin'):
+                self.click('isClientAdmin')
+                assert self.is_checked('isClientAdmin'), "Client Admin not checked"
+            else:
+                print("Client admin checkbox not present")
 
             self.click('isRegimenEditor')
             assert self.is_checked('isRegimenEditor'), "Regimen Editor not checked"

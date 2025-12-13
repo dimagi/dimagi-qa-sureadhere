@@ -3459,7 +3459,7 @@ class BasePage:
         - Phone numbers (10 digits) → keep as strings
         - Everything else stays as string (date detection happens later)
         """
-        cleaned = [v.strip() for v in values if v is not None]
+        cleaned = [v for v in values if v is not None]
 
         if not cleaned:
             return cleaned
