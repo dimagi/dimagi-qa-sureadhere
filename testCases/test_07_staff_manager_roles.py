@@ -301,6 +301,8 @@ class test_module_07_staff_manager_roles(BaseCase):
         login.validate_login_page()
 
         login.login(d['email_stf'], UserData.pwd)
+        staff.validate_manage_staff_page()
+        home.validate_not_dashboard_page()
         home.verify_presence_of_staff_menu(presence=True)
         home.verify_presence_of_patient_menu(presence=False)
         home.verify_presence_of_dashboard_menu(presence=False)
@@ -381,6 +383,8 @@ class test_module_07_staff_manager_roles(BaseCase):
         login.validate_login_page()
 
         login.login(d['email_stf'], UserData.pwd)
+        staff.validate_manage_staff_page()
+        home.validate_not_dashboard_page()
         home.verify_presence_of_staff_menu(presence=True)
         home.verify_presence_of_patient_menu(presence=False)
         home.verify_presence_of_dashboard_menu(presence=False)
