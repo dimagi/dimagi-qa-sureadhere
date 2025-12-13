@@ -1478,6 +1478,11 @@
     "tag": "kendo-dropdownlist",
     "xpath": "//label[contains(normalize-space(text()), 'Patient Manager')]//following-sibling::kendo-dropdownlist"
   },
+  "kendo-dropdownlist-treatment-monitor": {
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "xpath": "//label[contains(normalize-space(text()), 'Treatment Monitor')]//following-sibling::kendo-dropdownlist"
+  },
   "k-934be8e5-0064-4d9e-a3d7-8135ca25d62a": {
     "id": "k-934be8e5-0064-4d9e-a3d7-8135ca25d62a",
     "class": "k-input-inner",

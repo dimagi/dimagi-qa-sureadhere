@@ -4719,5 +4719,11 @@
   "popover__908": {
     "tag": "popover",
     "xpath": "//popover"
+  },
+  "video_error": {
+    "class": "video-error ng-star-inserted",
+    "tag": "div",
+    "text": "Your account does not have access to this video",
+    "xpath": "//div[contains(normalize-space(text()), 'Your account does not have access to this video')]"
   }
 }

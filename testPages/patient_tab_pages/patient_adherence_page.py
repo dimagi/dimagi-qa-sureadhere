@@ -98,3 +98,6 @@ class PatientAdherencePage(BasePage):
 
 
         return side_effect_text
+
+    def open_video_event(self):
+        self.click('div_event_item')

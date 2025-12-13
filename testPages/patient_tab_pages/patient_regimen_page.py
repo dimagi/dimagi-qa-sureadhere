@@ -107,8 +107,9 @@ class PatientRegimenPage(BasePage):
         self.kendo_select("input_drugs", text=selected_drug)
         # self.kendo_select_first("input_drugs")
         time.sleep(4)
-        assert selected_drug == self.get_text('label_Drug_name_text'), "Incorrect drug added"
-        print("correct drug added")
+        present_text = self.get_text('label_Drug_name_text')
+        assert selected_drug == present_text, f"Incorrect drug added: {present_text} is not same as {selected_drug} "
+        print(f"Correct drug added: {present_text} is same as {selected_drug} ")
 
         self.wait_for_element('span_drug_colour', 50)
         colour_code = self.get_attribute('span_drug_colour', "style")

@@ -593,7 +593,7 @@
     "text": "Reports",
     "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
   },
-  "span_Reports_150": {
+  "span_Reports": {
     "class": "my-header-name",
     "tag": "span",
     "text": "Reports",
@@ -715,7 +715,7 @@
     "text": "Name",
     "xpath": "//span[contains(normalize-space(text()), 'Name')]"
   },
-  "span_Name_171": {
+  "header_Name": {
     "class": "k-column-title ng-star-inserted",
     "tag": "span",
     "text": "Name",
@@ -760,7 +760,7 @@
     "text": "Description",
     "xpath": "//span[contains(normalize-space(text()), 'Description')]"
   },
-  "span_Descriptio_180": {
+  "header_Description": {
     "class": "k-column-title ng-star-inserted",
     "tag": "span",
     "text": "Description",
@@ -809,11 +809,10 @@
     "tag": "col",
     "xpath": "//col[@class='ng-star-inserted']"
   },
-  "tbody_1.Video qu_189": {
+  "tbody": {
     "class": "k-table-tbody",
     "tag": "tbody",
-    "text": "1.Video quality control Aggregate list of video quality details to provide insight on overall quality of VDOT submissions per month. 2.User access Aggregate list of staff user accounts, including their user roles and the last time they logged in. 3.Total treatment dose count Aggregate list of total count of treatment doses for each patient (i.e. open doses, taken doses, missed doses, future doses, etc.) 4.TBR summary Aggregate list of TBR summary details to provide a quick way to collect aggregate patient treatment history. 5.SupportActions Aggregate list of support actions for every patient so staff can quickly follow up with patients who need additional support. 6.Self-Report discrepancy Highlighting discrepancy between self-reported dose and dose submitted by provider 7.Pill count Aggregate list of patient pill count details. 8.Most recent patient videos 9.Monthly video count by patient Aggregate list of patient videos by month to provide insight on how many videos each patient took per month in the last 12 months. 10.MERM Collects a list of patients using SmartPill boxes (IMEI) 11.CRA monitoring Highlights discrepancies for CRA monitoring including open doses for more than 1 day, pills taken do not align with expected, and food taken incorrectly. 12.Comments Aggregate list of all comments made in every patients account. 13.All patients List of patients, includes patient information and treatment statuses. 14.All dose status (Simplified Aggregate DOT Record) Aggregate list of dose detail statuses and monitoring methods for all patients. 15.All active regimens List of patients who have active regimens. 16.All 7 days adherence Aggregate list of dose statuses and timestamps from the last 7 days for patients with active regimens. 17.Aggregate DOT record Complete list of aggregate dose details for all patients. 18.Adherence user audit Audit of data changes to a patients adherence by a user. Showing details of dose observation status, changing number of pills and submitting for review the adherence record.",
-    "xpath": "//tbody[contains(normalize-space(text()), '1.Video quality control Aggregate list of video quality details to provide insight on overall quality of VDOT submissions per month.\n2.User access Aggregate list of staff user accounts, including their user roles and the last time they logged in.\n3.Total treatment dose count Aggregate list of total count of treatment doses for each patient (i.e. open doses, taken doses, missed doses, future doses, etc.)\n4.TBR summary Aggregate list of TBR summary details to provide a quick way to collect aggregate patient treatment history.\n5.SupportActions Aggregate list of support actions for every patient so staff can quickly follow up with patients who need additional support.\n6.Self-Report discrepancy Highlighting discrepancy between self-reported dose and dose submitted by provider\n7.Pill count Aggregate list of patient pill count details.\n8.Most recent patient videos\n9.Monthly video count by patient Aggregate list of patient videos by month to provide insight on how many videos each patient took per month in the last 12 months.\n10.MERM Collects a list of patients using SmartPill boxes (IMEI)\n11.CRA monitoring Highlights discrepancies for CRA monitoring including open doses for more than 1 day, pills taken do not align with expected, and food taken incorrectly.\n12.Comments Aggregate list of all comments made in every patient's account.\n13.All patients List of patients, includes patient information and treatment statuses.\n14.All dose status (Simplified Aggregate DOT Record)\nAggregate list of dose detail statuses and monitoring methods for all patients.\n15.All active regimens List of patients who have active regimens.\n16.All 7 days adherence Aggregate list of dose statuses and timestamps from the last 7 days for patients with active regimens.\n17.Aggregate DOT record Complete list of aggregate dose details for all patients.\n18.Adherence user audit Audit of data changes to a patients adherence by a user. Showing details of dose observation status, changing number of pills and submitting for review the adherence record.')]"
+    "xpath": "//tbody"
   },
   "div__190": {
     "class": "k-height-container",
@@ -823,5 +822,10 @@
   "div__191": {
     "tag": "div",
     "xpath": "//div"
+  },
+  "a_links": {
+    "class": "ng-star-inserted",
+    "tag": "a",
+    "xpath": "//a[@class= 'ng-star-inserted']"
   }
 }

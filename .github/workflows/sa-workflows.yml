@@ -87,6 +87,7 @@ jobs:
           DIMAGIQA_ADMIN_PASSWORD: ${{ secrets.DIMAGIQA_ADMIN_PASSWORD }}
           DIMAGIQA_BS_USER: ${{ secrets.DIMAGIQA_BS_USER }}
           DIMAGIQA_BS_KEY: ${{ secrets.DIMAGIQA_BS_KEY }}
+          DIMAGIQA_SA_IMAP_PASSWORD: ${{ secrets.DIMAGIQA_SA_IMAP_PASSWORD }}
 
         run: |
           echo "client_payload: ${{ toJson(github.event.client_payload) }}"

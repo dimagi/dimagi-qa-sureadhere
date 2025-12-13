@@ -2899,5 +2899,10 @@
   "popover__544": {
     "tag": "popover",
     "xpath": "//popover"
+  },
+  "div_event_item": {
+    "class": "event-item",
+    "tag": "div",
+    "xpath": "//div[contains(@class,'event-item')]"
   }
 }
