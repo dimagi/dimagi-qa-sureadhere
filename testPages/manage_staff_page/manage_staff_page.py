@@ -177,7 +177,7 @@ class ManageStaffPage(BasePage):
         assert name in self.get_text('a_name'), f"Test staff {name} not displayed"
         print(f"Test staff {name} is displayed")
 
-    def search_test_patients_not_present(self, name='test_f'):
+    def search_test_staff_not_present(self, name='test_f'):
         self.type('input_search_staff', name)
         time.sleep(10)
         self.wait_for_page_to_load()

@@ -199,6 +199,7 @@ class test_module_06_staff_tests(BaseCase):
         user = UserPage(self, "add_users")
         staff = ManageStaffPage(self, "staff")
         user_staff = UserStaffPage(self, "add_staff")
+        profile = UserProfilePage(self, "user")
 
         if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
             default_site_manager = UserData.site_manager[0]
@@ -219,6 +220,12 @@ class test_module_06_staff_tests(BaseCase):
         user.add_staff()
         user_staff.fill_staff_form(default_site_manager, login="pwd", incorrect='password')
 
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+
+
+
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_staff_8", depends= ["tc_staff_1"], scope="class")
@@ -237,7 +244,6 @@ class test_module_06_staff_tests(BaseCase):
             print("Form not present")
 
         try:
-            login.validate_login_page()
             login.login(self.settings["login_username"], self.settings["login_password"])
         except Exception:
             print("Login Screen not present")

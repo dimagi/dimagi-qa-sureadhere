@@ -337,8 +337,9 @@ class test_module_07_staff_manager_roles(BaseCase):
         user_staff.verify_presence_of_save_button(presence=False)
         user_staff.cancel_form()
 
-        patient.search_test_patients(UserData.client_1_staff_details[env][0])
-        patient.search_test_patients_not_present(UserData.client_2_staff_details[env][0])
+        home.open_manage_staff_page()
+        staff.search_test_staff(UserData.client_1_staff_details[env][0])
+        staff.search_test_staff_not_present(UserData.client_2_staff_details[env][0])
 
         home.click_admin_profile_button()
         profile.logout_user()
