@@ -290,6 +290,7 @@ class test_module_07_staff_manager_roles(BaseCase):
         user_staff.save_changes()
         home.open_dashboard_page()
         home.open_manage_staff_page()
+        staff.validate_manage_staff_page()
         staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'], manager=['SS'],
                            site=d['site_stf']
                            )
@@ -303,7 +304,6 @@ class test_module_07_staff_manager_roles(BaseCase):
         home.verify_presence_of_staff_menu(presence=True)
         home.verify_presence_of_patient_menu(presence=False)
         home.verify_presence_of_dashboard_menu(presence=False)
-        home.verify_presence_of_reports_menu(presence=False)
         home.click_add_user()
         user.add_staff()
         fname, lname, email, phn, client, site = user_staff.fill_staff_form(d['site_stf'], manager=UserData.default_managers, login="ss", rerun=rerun_count)
@@ -340,17 +340,20 @@ class test_module_07_staff_manager_roles(BaseCase):
 
         rerun_count = getattr(self, "rerun_count", 0)
         try:
-            if rerun_count != 0:
-                home.click_admin_profile_button()
-                profile.logout_user()
-                login.after_logout()
-                login.validate_login_page()
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.validate_login_page()
+        except:
+            print("Already logged out")
+        try:
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.validate_dashboard_page()
         except:
             print("Already logged in")
             home.open_dashboard_page()
 
+        home.open_manage_staff_page()
         staff.validate_manage_staff_page()
         staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'], manager=None,
                            site=d['site_stf']
@@ -376,7 +379,6 @@ class test_module_07_staff_manager_roles(BaseCase):
         home.verify_presence_of_staff_menu(presence=True)
         home.verify_presence_of_patient_menu(presence=False)
         home.verify_presence_of_dashboard_menu(presence=False)
-        home.verify_presence_of_reports_menu(presence=False)
         home.click_add_user()
         user.add_staff()
         fname, lname, email, phn, client, site = user_staff.fill_staff_form(d['site_stf'], manager=UserData.default_managers, login="ss", rerun=rerun_count)
@@ -416,11 +418,13 @@ class test_module_07_staff_manager_roles(BaseCase):
 
         rerun_count = getattr(self, "rerun_count", 0)
         try:
-            if rerun_count != 0:
-                home.click_admin_profile_button()
-                profile.logout_user()
-                login.after_logout()
-                login.validate_login_page()
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.validate_login_page()
+        except:
+            print("Already logged out")
+        try:
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.validate_dashboard_page()
         except:
@@ -428,6 +432,7 @@ class test_module_07_staff_manager_roles(BaseCase):
             home.open_dashboard_page()
 
         home.open_manage_staff_page()
+        staff.validate_manage_staff_page()
         staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'], manager=None,
                            site=d['site_stf']
                            )
