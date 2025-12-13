@@ -425,8 +425,8 @@ class test_module_07_staff_manager_roles(BaseCase):
         user_staff.save_changes()
         staff.search_staff(fname, lname, email, phn,  manager=None, site=site)
 
-        patient.search_test_patients(UserData.client_1_staff_details[env][0])
-        patient.search_test_patients(UserData.client_2_staff_details[env][0])
+        staff.search_test_staff(UserData.client_1_staff_details[env][0])
+        staff.search_test_staff(UserData.client_2_staff_details[env][0])
 
         home.click_admin_profile_button()
         profile.logout_user()
@@ -478,8 +478,8 @@ class test_module_07_staff_manager_roles(BaseCase):
                            site=d['site_stf']
                            )
         staff.open_staff(d['fname_stf'], d['lname_stf'])
-        user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'],
-                                           remove_managers=['PM', 'TM', 'SM', 'SS'], client_acc=False, global_data=True
+        user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'], active_acc=False, client_acc=False,
+                                           remove_managers=['PM', 'TM', 'SM', 'SS'], global_data=True
                                            )
         user_staff.save_changes()
         home.open_dashboard_page()
