@@ -59,7 +59,7 @@ class ManageStaffPage(BasePage):
         self.click('a_name')
         time.sleep(10)
 
-    def get_first_staff_name(self, fname, lname):
+    def get_first_staff_name(self):
         name = self.get_text('a_name')
         fname, lname = str(name).split(" ")
         print(fname, lname)

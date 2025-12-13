@@ -113,6 +113,8 @@ class ManagePatientPage(BasePage):
         assert name in self.get_text('a_name'), f"Test patient {name} not displayed"
         print(f"Test patient {name} is displayed")
 
+
+
     def search_test_patients_not_present(self, name='pat_fn_'):
         self.type('input_search_patient', name)
         time.sleep(10)

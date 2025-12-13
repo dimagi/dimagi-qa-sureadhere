@@ -6,8 +6,10 @@ from testPages.home_page.home_page import HomePage
 from testPages.login_page.login_page import LoginPage
 from testPages.manage_staff_page.manage_staff_page import ManageStaffPage
 from testPages.manage_patient_page.manage_patient_page import ManagePatientPage
+from testPages.patient_tab_pages.patient_adherence_page import PatientAdherencePage
 from testPages.patient_tab_pages.patient_profile_page import PatientProfilePage
 from testPages.patient_tab_pages.patient_regimen_page import PatientRegimenPage
+from testPages.patient_tab_pages.patient_video_page import PatientVideoPage
 from testPages.reports_page.reports_page import ReportsPage
 from testPages.user_page.user_page import UserPage
 from testPages.user_page.user_patient_page import UserPatientPage
@@ -490,6 +492,91 @@ class test_module_07_staff_manager_roles(BaseCase):
         home.open_reports_page()
         reports.verify_reports_page()
         reports.validate_report_links(UserData.global_reports)
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+        login.validate_login_page()
+
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_staff_role_7", depends=['tc_staff_role_1'], scope="class")
+    def test_case_07_validate_role_blind_trials(self):
+        login = LoginPage(self, "login")
+        home = HomePage(self, "dashboard")
+        profile = UserProfilePage(self, "user")
+        user = UserPage(self, "add_users")
+        staff = ManageStaffPage(self, "staff")
+        user_staff = UserStaffPage(self, "add_staff")
+        user_patient = UserPatientPage(self, "add_patient")
+        p_profile = PatientProfilePage(self, 'patient_profile')
+        patient = ManagePatientPage(self, "patients")
+        reports = ReportsPage(self, "reports")
+        p_vdo = PatientVideoPage(self, 'patient_video_form')
+        p_adhere = PatientAdherencePage(self, 'patient_adherence')
+
+
+        d = self.__class__.data  # shared dict
+
+        env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
+
+        rerun_count = getattr(self, "rerun_count", 0)
+
+
+        try:
+            user_staff.cancel_form()
+        except:
+            print("No dialog present")
+        try:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.validate_login_page()
+        except:
+            print("Already logged out")
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.validate_dashboard_page()
+        except:
+            print("Already logged in")
+            home.open_dashboard_page()
+
+        home.open_manage_staff_page()
+        staff.validate_manage_staff_page()
+        staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'], manager=None,
+                           site=d['site_stf']
+                           )
+        staff.open_staff(d['fname_stf'], d['lname_stf'])
+        user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'], add_pm=d['site_stf'],
+                                           remove_managers=['TM', 'SM', 'SS'], client_acc=False, global_data=False,
+                                           blind_trial=True, active_acc=True, test_acc=False
+                                           )
+        user_staff.save_changes()
+        home.open_dashboard_page()
+        home.open_manage_staff_page()
+        staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'], manager=['PM'],
+                           site=d['site_stf']
+                           )
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+        login.validate_login_page()
+
+        login.login(d['email_stf'], UserData.pwd)
+        home.validate_dashboard_page()
+
+        home.open_manage_patient_page()
+        patient.search_test_patients("_fmob_")
+        fname, lname = patient.open_first_patient()
+        p_adhere.open_patient_adherence_page()
+        p_adhere.open_video_event()
+        p_vdo.verify_patient_video_page()
+        p_vdo.verify_video_error()
+        p_vdo.close_form()
+
+        home.open_reports_page()
+        reports.verify_reports_page()
 
         home.click_admin_profile_button()
         profile.logout_user()
