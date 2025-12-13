@@ -217,12 +217,14 @@ class UserStaffPage(BasePage):
     def edit_staff_info_options(self, fname, lname, name_change=None, add_pm=None, add_sm=None, add_tm=None, add_ss=None, test_acc=None,
                                 active_acc=None, client_acc=None, remove_managers=None, blind_trial=None, global_data=None):
         self.wait_for_staff_to_load(fname, lname)
-        if name_change != None:
+        if name_change == True:
             new_fname = str(fname).replace("test_f","test_nf")
             new_lname = str(lname).replace("test_l", "test_nl")
             print(new_fname, new_lname)
             self.type('first_name', new_fname)
             self.type('last_name', new_lname)
+        else:
+            print("No name changes")
 
         if add_pm != None:
             self.click('selectedPatientManagers')
@@ -252,7 +254,7 @@ class UserStaffPage(BasePage):
             self.set_staff_account_checkbox(setting_name='isGlobalDataAdministrator', expected=test_acc)
 
 
-        if remove_managers:
+        if remove_managers != None:
             if "PM" in remove_managers:
                 print('Removing PM')
                 self.kendo_multiselect_clear_all("k-input_Patient_Manager")

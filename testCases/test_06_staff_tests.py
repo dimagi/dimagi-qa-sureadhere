@@ -267,6 +267,7 @@ class test_module_06_staff_tests(BaseCase):
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_staff_10", depends=["tc_staff_1"], scope="class")
+
     def test_case_10_edit_staff(self):
         self._login_once()
         login = LoginPage(self, "login")
@@ -276,13 +277,6 @@ class test_module_06_staff_tests(BaseCase):
         user_staff = UserStaffPage(self, "add_staff")
 
         d = self.__class__.data
-        # d = {
-        #     "fname_stf": "test_nfst_0ylt09gstf",
-        #     "lname_stf": "test_nlst_0ylt09gstf",
-        #     "email_stf": "ylt09g0stf@testmail.com",
-        #     "phn_stf": "0000000000",
-        #     "isClientAdmint_stf": True,
-        #     "site_stf": "Site_1_US"}
 
         if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
             default_site_manager = UserData.site_manager[0]
@@ -302,6 +296,8 @@ class test_module_06_staff_tests(BaseCase):
         d['fname_stf'], d['lname_stf'] = user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'], name_change=True, add_ss=default_site_manager, add_tm=default_site_manager)
         user_staff.save_changes()
         staff.validate_active_tab()
+        home.open_dashboard_page()
+        home.open_manage_staff_page()
         staff.search_staff(d['fname_stf'], d['lname_stf'],  manager=UserData.default_managers, site=default_site_manager)
 
     @pytest.mark.extendedtests

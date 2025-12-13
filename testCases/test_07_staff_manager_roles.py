@@ -267,7 +267,13 @@ class test_module_07_staff_manager_roles(BaseCase):
         env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
 
         rerun_count = getattr(self, "rerun_count", 0)
+
         try:
+            if rerun_count != 0:
+                home.click_admin_profile_button()
+                profile.logout_user()
+                login.after_logout()
+                login.validate_login_page()
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.validate_dashboard_page()
         except:
@@ -334,12 +340,18 @@ class test_module_07_staff_manager_roles(BaseCase):
 
         rerun_count = getattr(self, "rerun_count", 0)
         try:
+            if rerun_count != 0:
+                home.click_admin_profile_button()
+                profile.logout_user()
+                login.after_logout()
+                login.validate_login_page()
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.validate_dashboard_page()
         except:
             print("Already logged in")
             home.open_dashboard_page()
-        home.open_manage_staff_page()
+
+        staff.validate_manage_staff_page()
         staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'], manager=None,
                            site=d['site_stf']
                            )
@@ -404,11 +416,17 @@ class test_module_07_staff_manager_roles(BaseCase):
 
         rerun_count = getattr(self, "rerun_count", 0)
         try:
+            if rerun_count != 0:
+                home.click_admin_profile_button()
+                profile.logout_user()
+                login.after_logout()
+                login.validate_login_page()
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.validate_dashboard_page()
         except:
             print("Already logged in")
             home.open_dashboard_page()
+
         home.open_manage_staff_page()
         staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'], manager=None,
                            site=d['site_stf']
