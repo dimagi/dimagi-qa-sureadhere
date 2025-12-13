@@ -59,6 +59,12 @@ class ManageStaffPage(BasePage):
         self.click('a_name')
         time.sleep(10)
 
+    def get_first_staff_name(self, fname, lname):
+        name = self.get_text('a_name')
+        fname, lname = str(name).split(" ")
+        print(fname, lname)
+        return fname, lname
+
     def open_inactive_tab(self):
         self.click("li_span_Inactive_tab")
         time.sleep(5)

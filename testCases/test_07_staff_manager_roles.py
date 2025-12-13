@@ -126,7 +126,7 @@ class test_module_07_staff_manager_roles(BaseCase):
             print("Already logged in")
             home.open_dashboard_page()
         home.open_manage_staff_page()
-        staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'], manager=['PM'], site=d['site_stf'])
+        staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'], manager=None, site=d['site_stf'])
         staff.open_staff(d['fname_stf'], d['lname_stf'])
         user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'], add_tm=d['site_stf'], remove_managers=['PM', 'SM', 'SS'], client_acc=False)
         user_staff.save_changes()
@@ -198,7 +198,7 @@ class test_module_07_staff_manager_roles(BaseCase):
             print("Already logged in")
             home.open_dashboard_page()
         home.open_manage_staff_page()
-        staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'], manager=['TM'],
+        staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'], manager=None,
                            site=d['site_stf']
                            )
         staff.open_staff(d['fname_stf'], d['lname_stf'])
@@ -221,6 +221,7 @@ class test_module_07_staff_manager_roles(BaseCase):
         home.validate_dashboard_page()
         home.verify_presence_of_staff_menu(presence=False)
         home.click_add_user()
+        user.validate_staff_presence(presence=False)
         user.add_patient()
         pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(d['site_stf'], mob='sm',
                                                                                                  rerun_count=rerun_count
@@ -280,12 +281,12 @@ class test_module_07_staff_manager_roles(BaseCase):
             print("Already logged in")
             home.open_dashboard_page()
         home.open_manage_staff_page()
-        staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'], manager=['SM'],
+        staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'], manager=None,
                            site=d['site_stf']
                            )
         staff.open_staff(d['fname_stf'], d['lname_stf'])
         user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'], add_ss=d['site_stf'],
-                                           remove_managers=['PM', 'TM', 'SM'], client_acc=False
+                                           remove_managers=['PM', 'TM', 'SM'], client_acc=False, active_acc=True
                                            )
         user_staff.save_changes()
         home.open_dashboard_page()
@@ -307,10 +308,12 @@ class test_module_07_staff_manager_roles(BaseCase):
         home.verify_presence_of_patient_menu(presence=False)
         home.verify_presence_of_dashboard_menu(presence=False)
         home.click_add_user()
+        user.validate_patient_presence(presence=False)
         user.add_staff()
         fname, lname, email, phn, client, site = user_staff.fill_staff_form(d['site_stf'], manager=UserData.default_managers, login="ss", rerun=rerun_count)
         staff.validate_active_tab()
         staff.search_staff(fname, lname, email, phn, manager=None, site=site)
+        fname, lname = staff.get_first_staff_name()
         staff.open_staff(fname, lname)
         user_staff.verify_presence_of_save_button(presence=False)
         user_staff.cancel_form()
@@ -367,7 +370,7 @@ class test_module_07_staff_manager_roles(BaseCase):
                            )
         staff.open_staff(d['fname_stf'], d['lname_stf'])
         user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'],
-                                           remove_managers=['PM', 'TM', 'SM', 'SS'], client_acc=True, active_acc=False,
+                                           remove_managers=['PM', 'TM', 'SM', 'SS'], client_acc=True, active_acc=True,
                                            global_data=False, test_acc=False
                                            )
         user_staff.save_changes()
