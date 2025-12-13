@@ -252,7 +252,7 @@ class UserStaffPage(BasePage):
             self.set_staff_account_checkbox(setting_name='isGlobalDataAdministrator', expected=test_acc)
 
 
-        if remove_managers != None:
+        if remove_managers:
             if "PM" in remove_managers:
                 print('Removing PM')
                 self.kendo_multiselect_clear_all("k-input_Patient_Manager")
@@ -269,8 +269,7 @@ class UserStaffPage(BasePage):
                 print('Removing SS')
                 self.kendo_multiselect_clear_all("k-input_Staff_Administrators")
 
-            time.sleep(10)
-
+        time.sleep(3)
         return (new_fname, new_lname) if name_change else (None, None)
 
     def set_staff_account_checkbox(self, setting_name, expected: bool):

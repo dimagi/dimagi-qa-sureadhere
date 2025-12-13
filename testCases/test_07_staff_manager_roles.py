@@ -284,7 +284,7 @@ class test_module_07_staff_manager_roles(BaseCase):
         user_staff.save_changes()
         home.open_dashboard_page()
         home.open_manage_staff_page()
-        staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'], manager=['SM'],
+        staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'], manager=['SS'],
                            site=d['site_stf']
                            )
 
@@ -345,7 +345,8 @@ class test_module_07_staff_manager_roles(BaseCase):
                            )
         staff.open_staff(d['fname_stf'], d['lname_stf'])
         user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'],
-                                           remove_managers=['PM', 'TM', 'SM', 'SS'], client_acc=True
+                                           remove_managers=['PM', 'TM', 'SM', 'SS'], client_acc=True, active_acc=False,
+                                           global_data=False, test_acc=False
                                            )
         user_staff.save_changes()
         home.open_dashboard_page()
