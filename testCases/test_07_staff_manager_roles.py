@@ -56,6 +56,24 @@ class test_module_07_staff_manager_roles(BaseCase):
             default_site_manager = UserData.site_manager[1]
 
         rerun_count = getattr(self, "rerun_count", 0)
+        try:
+            user_staff.cancel_form()
+        except:
+            print("No dialog present")
+        try:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.validate_login_page()
+        except:
+            print("Already logged out")
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.validate_dashboard_page()
+        except:
+            print("Already logged in")
+            home.open_dashboard_page()
+
         home.click_add_user()
         user.add_staff()
         fname, lname, email, phn, client, site = user_staff.fill_staff_form(default_site_manager, manager=['PM'], login="sr", rerun=rerun_count)
