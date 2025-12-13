@@ -293,7 +293,7 @@ class test_module_06_staff_tests(BaseCase):
         home.open_manage_staff_page()
         staff.search_staff(d['fname_stf'], d['lname_stf'])
         staff.open_staff(d['fname_stf'], d['lname_stf'])
-        d['fname_stf'], d['lname_stf'] = user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'], name_change=True, add_ss=default_site_manager, add_tm=default_site_manager)
+        d['fname_stf'], d['lname_stf'] = user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'], name_change=True, add_ss=default_site_manager, add_tm=default_site_manager, add_pm=default_site_manager, add_sm=default_site_manager)
         user_staff.save_changes()
         staff.validate_active_tab()
         home.open_dashboard_page()
