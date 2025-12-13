@@ -173,7 +173,7 @@ class ManageStaffPage(BasePage):
         time.sleep(10)
         self.wait_for_page_to_load()
         self.wait_for_element('tbody_staff')
-        self.wait_for_element('td_name')
+        self.wait_for_element('a_name')
         assert name in self.get_text('a_name'), f"Test staff {name} not displayed"
         print(f"Test staff {name} is displayed")
 
