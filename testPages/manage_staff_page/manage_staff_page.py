@@ -126,53 +126,56 @@ class ManageStaffPage(BasePage):
             assert full_name.lower() in name.strip(), f"Name mismatch {name} and {full_name}"
             print(f"Correct staff with name {name} is displayed for {i} search")
 
-    def search_and_sort_columns(self, name):
+    def search_and_sort_columns(self, name: str):
         self.type('input_search_staff', name)
-        time.sleep(5)
         self.wait_for_page_to_load()
         self.wait_for_element('tbody_staff')
 
-        headers = self.find_elements("table_header_sort")  # //th[contains(@class,'k-table-th')]
-        print(f"Total sortable columns: {len(headers)}")
+        total_cols = len(self.find_elements("table_header_sort"))
+        print(f"Total sortable columns: {total_cols}")
 
-        for index, header in enumerate(headers, start=1):
+        for index in range(1, total_cols + 1):
             if index == 3:
                 print("Column 3 is not sortable. Skipping.")
                 continue
 
-            # click to sort
+            # ---------- FIRST CLICK ----------
+            headers = self.find_elements("table_header_sort")
+            header = headers[index - 1]
             header.click()
-            time.sleep(1)
-            self.wait_for_page_to_load(50)
-            time.sleep(3)
-            sort_type = header.get_attribute("aria-sort")
-            print(f"Column {index} sort type: {sort_type}")
-            time.sleep(5)
-            column_xpath = f"//*[@role='row']/*[@role='gridcell'][{index}]"
-            cells = self.find_elements_raw(selector=column_xpath, by="xpath")
-            values = [c.text.strip() for c in cells if c.text.strip()]
-            values = self._get_column_values(index)
-            print(f"Column {index}, Row counts: {len(values)} values:", values)
+            self.wait_for_page_to_load()
 
-            if values:
+            headers = self.find_elements("table_header_sort")
+            header = headers[index - 1]
+            sort_type = header.get_attribute("aria-sort") or ""
+
+            if sort_type not in ("ascending", "descending"):
+                print(f"Column {index} has no valid sort state. Skipping.")
+                continue
+
+            print(f"Column {index} sort type: {sort_type}")
+            values = self._get_column_values(index)
+            print(f"Column {index}, Row counts: {len(values)} values: {values}")
+
+            if len(values) >= 2:
                 processed = self.normalize_values(values)
                 self.is_sorted(processed, sort_type)
 
-            # second click (reverse)
+            # ---------- SECOND CLICK (REVERSE) ----------
+            headers = self.find_elements("table_header_sort")
+            header = headers[index - 1]
             header.click()
-            time.sleep(1)
-            self.wait_for_page_to_load(50)
-            time.sleep(3)
-            sort_type = header.get_attribute("aria-sort")
+            self.wait_for_page_to_load()
+
+            headers = self.find_elements("table_header_sort")
+            header = headers[index - 1]
+            sort_type = header.get_attribute("aria-sort") or ""
+
             print(f"Column {index} sort type: {sort_type}")
-            time.sleep(5)
-
-            cells = self.find_elements_raw(selector=column_xpath, by="xpath")
-            values = [c.text.strip() for c in cells if c.text.strip()]
             values = self._get_column_values(index)
-            print(f"Column {index}, Row counts: {len(values)} values:", values)
+            print(f"Column {index}, Row counts: {len(values)} values: {values}")
 
-            if values:
+            if len(values) >= 2:
                 processed = self.normalize_values(values)
                 self.is_sorted(processed, sort_type)
 

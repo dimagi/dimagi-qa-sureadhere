@@ -284,6 +284,10 @@ class test_module_06_staff_tests(BaseCase):
 
         d = self.__class__.data
 
+        try:
+            user_staff.cancel_form()
+        except:
+            print("No dialog present")
         if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
             default_site_manager = UserData.site_manager[0]
         elif "securevoteu" in self.settings["url"]:
@@ -322,6 +326,10 @@ class test_module_06_staff_tests(BaseCase):
         d = self.__class__.data
 
         try:
+            user_staff.cancel_form()
+        except:
+            print("No dialog present")
+        try:
             login.login(self.settings["login_username"], self.settings["login_password"])
         except Exception:
             print("Login Page is not present")
@@ -354,6 +362,12 @@ class test_module_06_staff_tests(BaseCase):
         home = HomePage(self, "dashboard")
         profile = UserProfilePage(self, "user")
         patient = ManagePatientPage(self, "patients")
+        user_staff = UserStaffPage(self, "add_staff")
+
+        try:
+            user_staff.cancel_form()
+        except:
+            print("No dialog present")
 
         try:
             login.validate_login_page()

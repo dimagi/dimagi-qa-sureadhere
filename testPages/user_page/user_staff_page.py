@@ -252,9 +252,9 @@ class UserStaffPage(BasePage):
         if test_acc != None:
             self.set_staff_account_checkbox(setting_name='isTest', expected=test_acc)
         if blind_trial != None:
-            self.set_staff_account_checkbox(setting_name='isBlindTrial', expected=active_acc)
+            self.set_staff_account_checkbox(setting_name='isBlindTrial', expected=blind_trial)
         if global_data != None:
-            self.set_staff_account_checkbox(setting_name='isGlobalDataAdministrator', expected=test_acc)
+            self.set_staff_account_checkbox(setting_name='isGlobalDataAdministrator', expected=global_data)
 
 
         if remove_managers != None:

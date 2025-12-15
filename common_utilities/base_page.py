@@ -3452,32 +3452,31 @@ class BasePage:
     def get_current_url(self):
         return self.sb.get_current_url()
 
-    def normalize_values(self, values):
-        """Convert values into appropriate comparable formats.
-
-        - Numeric strings → floats
-        - Phone numbers (10 digits) → keep as strings
-        - Everything else stays as string (date detection happens later)
+    def normalize_values(self, values: list[str]):
+        """
+        Convert values into comparable formats:
+        - Phone numbers (10 digits) => keep as strings (preserve leading zeros)
+        - Pure numerics => floats
+        - Otherwise => strings
         """
         cleaned = [v for v in values if v is not None]
-
         if not cleaned:
             return cleaned
 
-        # Phone number pattern: 10 digits
-        if all(v.isdigit() and len(v) == 10 for v in cleaned):
-            return cleaned  # keep as strings
+        # Phone numbers: keep as strings
+        if all(str(v).isdigit() and len(str(v)) == 10 for v in cleaned):
+            return [str(v) for v in cleaned]
 
-        # Try converting to floats
-        numeric_converted = []
+        # Try numeric conversion (all must be numeric)
+        numeric = []
         for v in cleaned:
-            s = str(v)
+            s = str(v).strip()
             try:
-                numeric_converted.append(float(s.replace(",", "")))
+                numeric.append(float(s.replace(",", "")))
             except ValueError:
-                return cleaned  # at least one is not numeric → fallback to strings
+                return [str(x) for x in cleaned]  # fallback to strings
 
-        return numeric_converted
+        return numeric
 
     def try_parse_datetime(self, value):
         """Try parsing strings like 'Dec 10 19:53:15'. Return datetime or None."""
@@ -3494,20 +3493,17 @@ class BasePage:
 
         return None
 
-    def is_sorted(self, final_values, sorted_as):
-        """Automatically detect type: datetime, number, or string."""
-
+    def is_sorted(self, final_values, sorted_as: str):
         if not final_values:
             return
 
         reverse = (sorted_as == "descending")
 
-        # 1️⃣ Check if values are datetime strings
+        # 1️⃣ Datetime
         parsed_dates = []
         date_mode = True
-
         for v in final_values:
-            dt = self.try_parse_datetime(str(v))
+            dt = self.try_parse_datetime(str(v).strip())
             if dt is None:
                 date_mode = False
                 break
@@ -3521,33 +3517,45 @@ class BasePage:
                 raise AssertionError(f"Date column NOT sorted {sorted_as}")
             return
 
-        # 2️⃣ Numeric?
+        # 2️⃣ Numeric
         if isinstance(final_values[0], (int, float)):
             expected = sorted(final_values, reverse=reverse)
+
+        # 3️⃣ String → NATURAL SORT (IMPORTANT FIX)
         else:
-            # 3️⃣ Default: case-insensitive string
-            expected = sorted(final_values, key=lambda s: str(s).casefold(), reverse=reverse)
+            expected = sorted(
+                final_values,
+                key=self.natural_key,
+                reverse=reverse
+                )
 
         if final_values != expected:
             print("ACTUAL :", final_values)
             print("EXPECTED:", expected)
             raise AssertionError(f"Column NOT sorted {sorted_as}")
 
-    def _get_column_values(self, col_index: int):
+    def _get_column_values(self, col_index: int) -> list[str]:
+        """
+        Reads values from a Kendo table column (1-based index).
+        Uses k-table-row + k-table-td (your DOM).
+        Skips the first row if it contains 0 cells (header-like row).
+        """
         rows = self.find_elements_raw("//*[contains(@class,'k-table-row')]", by="xpath")
         print(f"DEBUG: found {len(rows)} rows for column {col_index}")
 
         values = []
         for i, row in enumerate(rows, start=1):
             cells = row.find_elements(By.XPATH, ".//*[contains(@class,'k-table-td')]")
-            print(f"  Row {i}: {len(cells)} cells")
+            # print(f"  Row {i}: {len(cells)} cells")  # very noisy
+
             if len(cells) < col_index:
                 continue
+
             txt = (cells[col_index - 1].text or "").strip()
             if txt:
                 values.append(txt)
 
-        return self.normalize_values(values) if values else []
+        return values
 
     def kendo_multiselect_clear_all(self, input_logical_name: str, timeout: int = 10) -> None:
         """
@@ -3695,3 +3703,13 @@ class BasePage:
 
         print(f"[ELEMENT TEXTS → {logical_name}] {values}")
         return values
+
+    def natural_key(self, s):
+        """
+        Split string into list of ints and strings for natural sorting.
+        Example: 'abc12def3' -> ['abc', 12, 'def', 3]
+        """
+        return [
+            int(text) if text.isdigit() else text.casefold()
+            for text in re.split(r'(\d+)', str(s))
+            ]
