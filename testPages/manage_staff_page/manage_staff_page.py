@@ -23,11 +23,12 @@ class ManageStaffPage(BasePage):
 
 
     def search_staff(self, fname=None, lname=None, email=None, phn=None, manager = UserData.default_managers, site=None):
-        full_name = fname+" "+lname
+        full_name=None
         self.wait_for_element('a_name')
         if email:
             self.type('input_search_staff', email)
         else:
+            full_name = fname + " " + lname
             self.type('input_search_staff', full_name+Keys.ENTER)
         time.sleep(15)
         self.wait_for_page_to_load(50)
@@ -44,12 +45,17 @@ class ManageStaffPage(BasePage):
                 assert site in text, f"{site} is not present for role {item}"
                 print(f"{site} is present for role {item}")
 
-        assert name.strip() == full_name, f"Name mismatch {name.strip()} and {full_name}"
-        if email:
-            assert email_text.strip() == email, "Email mismatch"
+        if fname or lname:
+            assert name.strip() == full_name, f"Name mismatch {name.strip()} and {full_name}"
         if phn:
             assert re.sub(r"\D+", "", phn_number) == re.sub(r"\D+", "", phn), "Phone mismatch"
+        if email:
+            assert email_text.strip() == email, "Email mismatch"
+            fname, lname = name.split(" ")
+            return fname, lname
+
         print(f"All data matching: {name}, {email_text}, {phn_number}")
+        return None
 
 
     def open_staff(self, fname, lname):

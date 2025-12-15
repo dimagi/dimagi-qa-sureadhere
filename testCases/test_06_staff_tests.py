@@ -297,8 +297,8 @@ class test_module_06_staff_tests(BaseCase):
 
         home.validate_dashboard_page()
         home.open_manage_staff_page()
-        staff.search_staff(d['fname_stf'], d['lname_stf'])
-        staff.open_staff(d['fname_stf'], d['lname_stf'])
+        fname, lname = staff.search_staff(d['fname_stf'], d['lname_stf'])
+        staff.open_staff(fname, lname)
         fname, lname = user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'], name_change=True, add_ss=default_site_manager, add_tm=default_site_manager, remove_managers=None)
         user_staff.save_changes()
         staff.validate_active_tab()
