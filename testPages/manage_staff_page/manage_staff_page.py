@@ -47,15 +47,11 @@ class ManageStaffPage(BasePage):
 
         if fname or lname:
             assert name.strip() == full_name, f"Name mismatch {name.strip()} and {full_name}"
-        if phn:
-            assert re.sub(r"\D+", "", phn_number) == re.sub(r"\D+", "", phn), "Phone mismatch"
         if email:
             assert email_text.strip() == email, "Email mismatch"
-            fname, lname = name.split(" ")
-            return fname, lname
-
+        if phn:
+            assert re.sub(r"\D+", "", phn_number) == re.sub(r"\D+", "", phn), "Phone mismatch"
         print(f"All data matching: {name}, {email_text}, {phn_number}")
-        return None
 
 
     def open_staff(self, fname, lname):
