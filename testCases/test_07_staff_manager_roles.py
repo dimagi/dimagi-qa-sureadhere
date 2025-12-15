@@ -388,7 +388,7 @@ class test_module_07_staff_manager_roles(BaseCase):
 
         home.open_manage_staff_page()
         staff.validate_manage_staff_page()
-        staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'], manager=None,
+        staff.search_staff(d['email_stf'], d['phn_stf'], manager=None,
                            site=d['site_stf']
                            )
         staff.open_staff(d['fname_stf'], d['lname_stf'])

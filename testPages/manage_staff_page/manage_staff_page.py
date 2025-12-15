@@ -23,7 +23,7 @@ class ManageStaffPage(BasePage):
 
 
     def search_staff(self, fname=None, lname=None, email=None, phn=None, manager = UserData.default_managers, site=None):
-        full_name = fname+" "+lname
+        full_name = fname + " " + lname
         self.wait_for_element('a_name')
         if email:
             self.type('input_search_staff', email)
