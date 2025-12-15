@@ -51,6 +51,14 @@ class ManageStaffPage(BasePage):
             assert re.sub(r"\D+", "", phn_number) == re.sub(r"\D+", "", phn), "Phone mismatch"
         print(f"All data matching: {name}, {email_text}, {phn_number}")
 
+    def search_staff_with_email(self, email=None):
+        self.type('input_search_staff', email)
+        time.sleep(15)
+        self.wait_for_page_to_load(50)
+        self.wait_for_element('tbody_staff')
+        email_text = self.get_text('td_email')
+
+        assert email_text.strip() == email, "Email mismatch"
 
     def open_staff(self, fname, lname):
         full_name = fname + " " + lname
