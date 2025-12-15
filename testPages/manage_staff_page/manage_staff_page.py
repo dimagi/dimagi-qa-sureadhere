@@ -23,11 +23,12 @@ class ManageStaffPage(BasePage):
 
 
     def search_staff(self, fname=None, lname=None, email=None, phn=None, manager = UserData.default_managers, site=None):
-        full_name = " ".join(part for part in (fname, lname) if part)
+        global full_name
         self.wait_for_element('a_name')
         if email:
             self.type('input_search_staff', email)
         else:
+            full_name = fname+" "+lname
             self.type('input_search_staff', full_name+Keys.ENTER)
         time.sleep(15)
         self.wait_for_page_to_load(50)

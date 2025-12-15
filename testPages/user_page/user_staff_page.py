@@ -303,6 +303,7 @@ class UserStaffPage(BasePage):
             self.wait_for_overlays_to_clear(5)
         except:
             print("No dialog present")
+        print("Changes saved")
         self.wait_for_invisible('button_SUBMIT')
 
     def verify_presence_of_save_button(self, presence=True):
