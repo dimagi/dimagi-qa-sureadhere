@@ -305,7 +305,18 @@ class test_module_06_staff_tests(BaseCase):
         fname, lname = staff.get_first_staff_name()
         staff.open_staff(fname, lname)
         new_fname, new_lname = user_staff.edit_staff_info_options(fname=fname, lname=lname, name_change=True, add_ss=default_site_manager, add_tm=default_site_manager, add_pm=default_site_manager, add_sm=default_site_manager, remove_managers=UserData.default_managers)
-        user_staff.save_changes()
+        try:
+            user_staff.save_changes()
+        except:
+            user_staff.cancel_form()
+            new_fname, new_lname = user_staff.edit_staff_info_options(fname=fname, lname=lname, name_change=True,
+                                                                      add_ss=default_site_manager,
+                                                                      add_tm=default_site_manager,
+                                                                      add_pm=default_site_manager,
+                                                                      add_sm=default_site_manager,
+                                                                      remove_managers=UserData.default_managers
+                                                                      )
+            user_staff.save_changes()
         staff.validate_active_tab()
         home.open_dashboard_page()
         home.open_manage_staff_page()

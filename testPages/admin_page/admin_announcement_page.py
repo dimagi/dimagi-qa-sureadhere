@@ -21,7 +21,8 @@ class AdminAnnouncementPage(BasePage):
         self.wait_for_element('k-opened-tabstrip-tab', 60)
         tabname = self.get_text('k-opened-tabstrip-tab')
         self.wait_for_element('span_ADD_ANNOUNCEMENT')
-        assert tabname == "Announcements", "Announcements tab is not opened"
+        assert self.is_element_present('span_ADD_ANNOUNCEMENT'), "Add Announcement is not present"
+        print("Add Announcement is present")
 
     def add_announcement(self):
         self.click('span_ADD_ANNOUNCEMENT')

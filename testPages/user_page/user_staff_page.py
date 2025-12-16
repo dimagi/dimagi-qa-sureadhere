@@ -217,6 +217,7 @@ class UserStaffPage(BasePage):
     def cancel_form(self):
         time.sleep(2)
         self.kendo_dialog_close()
+        time.sleep(5)
 
     def edit_staff_info_options(self, fname, lname, name_change=None, add_pm=None, add_sm=None, add_tm=None, add_ss=None, test_acc=None,
                                 active_acc=None, client_acc=None, remove_managers=None, blind_trial=None, global_data=None):
