@@ -147,7 +147,7 @@ class HomePage(BasePage):
     def open_filter(self):
         self.wait_for_element("filter_icon")
         self.click("filter_icon")
-        self.wait_for_element("span_Treatment Monitor")
+        self.wait_for_element("span_Site", strict=True)
         assert self.is_element_present("div_hide_filter"), "Dashboard Filter is not open"
         print("Dashboard Filter is opened")
 
