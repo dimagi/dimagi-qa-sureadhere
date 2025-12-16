@@ -61,6 +61,7 @@ class UserPatientPage(BasePage):
         self.type('phone_number', UserData.phone_number)
         self.type('user_name', username)
 
+        time.sleep(2)
         values = self.kendo_dd_get_all_texts("kendo-dropdownlist-site")
         print(values)
         # assert site in values, f"{site} not present in the dropdown"

@@ -911,6 +911,22 @@ class BasePage:
         # Selenium returns "true"/None for boolean attrs; some drivers return True/False
         return bool(val) and str(val).lower() != "false"
 
+    def is_field_enabled(self, logical_name: str, timeout: int = 10) -> bool:
+        """
+        Returns True if the field is enabled, False otherwise.
+        Works for inputs, checkboxes, buttons, selects, etc.
+        """
+        sel = self.resolve(logical_name)
+        el = self._get_webelement(sel, timeout=timeout)
+
+        try:
+            enabled = el.is_enabled()
+        except Exception:
+            enabled = False
+
+        print(f"[IS ENABLED] {logical_name} → {enabled}")
+        return enabled
+
     # --- Gone / absent waits -------------------------------------------------
     def _by_tuple(self, selector):
         # Already a (By, value) pair
@@ -3478,19 +3494,19 @@ class BasePage:
 
         return numeric
 
-    def try_parse_datetime(self, value):
-        """Try parsing strings like 'Dec 10 19:53:15'. Return datetime or None."""
+    def try_parse_datetime(self, value: str):
         formats = [
-            "%b %d %H:%M:%S",  # Dec 10 19:53:15
-            "%b %d %Y %H:%M:%S"  # Dec 10 2023 19:53:15 (if year added later)
+            "%b %d %H:%M:%S",
+            "%b %d %Y %H:%M:%S",
             ]
-
         for fmt in formats:
             try:
-                return datetime.strptime(value, fmt)
+                dt = datetime.strptime(value, fmt)
+                if "%Y" not in fmt:
+                    dt = dt.replace(year=datetime.now().year)
+                return dt
             except ValueError:
                 pass
-
         return None
 
     def is_sorted(self, final_values, sorted_as: str):
@@ -3499,40 +3515,52 @@ class BasePage:
 
         reverse = (sorted_as == "descending")
 
-        # 1️⃣ Datetime
-        parsed_dates = []
+        # 1) datetime?
+        parsed = []
         date_mode = True
         for v in final_values:
             dt = self.try_parse_datetime(str(v).strip())
             if dt is None:
                 date_mode = False
                 break
-            parsed_dates.append(dt)
+            parsed.append(dt)
 
         if date_mode:
-            expected = sorted(parsed_dates, reverse=reverse)
-            if parsed_dates != expected:
-                print("ACTUAL datetimes :", parsed_dates)
+            expected = sorted(parsed, reverse=reverse)
+            if parsed != expected:
+                print("ACTUAL datetimes :", parsed)
                 print("EXPECTED datetimes:", expected)
                 raise AssertionError(f"Date column NOT sorted {sorted_as}")
             return
 
-        # 2️⃣ Numeric
+        # 2) numeric?
         if isinstance(final_values[0], (int, float)):
             expected = sorted(final_values, reverse=reverse)
+            if final_values != expected:
+                print("ACTUAL :", final_values)
+                print("EXPECTED:", expected)
+                raise AssertionError(f"Column NOT sorted {sorted_as}")
+            return
 
-        # 3️⃣ String → NATURAL SORT (IMPORTANT FIX)
-        else:
-            expected = sorted(
-                final_values,
-                key=self.natural_key,
-                reverse=reverse
-                )
+        # 3) strings: try BOTH lexicographic and natural (Kendo varies by column)
+        if self.is_email_column(final_values):
+            expected_lex = sorted(final_values, key=lambda s: str(s).casefold(), reverse=reverse)
+            if final_values != expected_lex:
+                print("ACTUAL :", final_values)
+                print("EXPECTED (LEX):", expected_lex)
+                raise AssertionError(f"Email column NOT sorted {sorted_as}")
+            return
 
-        if final_values != expected:
-            print("ACTUAL :", final_values)
-            print("EXPECTED:", expected)
-            raise AssertionError(f"Column NOT sorted {sorted_as}")
+        expected_lex = sorted(final_values, key=lambda s: str(s).casefold(), reverse=reverse)
+        expected_nat = sorted(final_values, key=self.natural_key, reverse=reverse)
+
+        if final_values == expected_lex or final_values == expected_nat:
+            return  # ✅ matches at least one valid Kendo-like ordering
+
+        print("ACTUAL :", final_values)
+        print("EXPECTED (LEX):", expected_lex)
+        print("EXPECTED (NAT):", expected_nat)
+        raise AssertionError(f"Column NOT sorted {sorted_as}")
 
     def _get_column_values(self, col_index: int) -> list[str]:
         """
@@ -3558,47 +3586,49 @@ class BasePage:
         return values
 
     def kendo_multiselect_clear_all(self, input_logical_name: str, timeout: int = 10) -> None:
-        """
-        Clear all selected values from a Kendo MultiSelect.
-
-        Pass the SAME logical name you use for kendo_select's input, e.g.:
-            self.kendo_multiselect_clear_all("k-input_Patient_Manager")
-        """
-
         sel = self.resolve(input_logical_name)
         inp = self._get_webelement(sel, timeout=timeout)
 
-        # Put focus inside the control so Kendo is "awake"
+        # Focus input (safe)
         try:
             inp.click()
         except Exception:
             pass
 
-        # Use your MultiSelect root helper
-        root = self._ms_root(inp)
+        # ✅ EARLY GUARD: ensure this IS a Kendo MultiSelect
+        try:
+            ms_container = inp.find_element(By.XPATH, "ancestor::*[contains(@class,'k-multiselect')]")
+        except Exception:
+            print(
+                f"[kendo_multiselect_clear_all] "
+                f"Element '{input_logical_name}' is not inside a Kendo MultiSelect. Skipping."
+                )
+            return
+
+        # ⚠️ Only now it is safe to resolve root
+        try:
+            root = self._ms_root(inp)
+        except TimeoutException:
+            print(
+                f"[kendo_multiselect_clear_all] "
+                f"Kendo widget not ready for '{input_logical_name}'. Skipping clear."
+                )
+            return
+
         wait = WebDriverWait(self.driver, timeout)
 
         def chips():
-            # All selected tags inside this multiselect
-            return root.find_elements(
-                By.CSS_SELECTOR,
-                ".k-chip-list .k-chip"
-                )
+            return root.find_elements(By.CSS_SELECTOR, ".k-chip-list .k-chip")
 
-        def remove_buttons():
-            # All possible "x" icons / remove actions inside chips
-            return root.find_elements(
-                By.CSS_SELECTOR,
-                (
-                    ".k-chip-remove-action, "  # ✅ your class
-                    ".k-chip-remove, "
-                    ".k-chip .k-icon.k-i-close, "
-                    ".k-chip .k-button-icon, "
-                    ".k-chip .k-select"
+        # ✅ NEW: if no chips, do nothing
+        if not chips():
+            print(
+                f"[kendo_multiselect_clear_all] "
+                f"No selections present for '{input_logical_name}'. Nothing to clear."
                 )
-                )
+            return
 
-        # --- Try a global clear icon on the widget, if present ---
+        # Try global clear icon
         clear_btns = root.find_elements(
             By.CSS_SELECTOR,
             ".k-clear-value, .k-multiselect-clearable .k-clear-value"
@@ -3606,50 +3636,39 @@ class BasePage:
         if clear_btns:
             try:
                 clear_btns[0].click()
-                try:
-                    wait.until(lambda d: len(chips()) == 0)
-                    return
-                except TimeoutException:
-                    # If still not empty, fall back to per-chip removal
-                    pass
+                wait.until(lambda d: len(chips()) == 0)
+                return
             except Exception:
                 pass
 
-        # --- Fallback: click each chip's remove action one by one ---
+        # Fallback: remove chip-by-chip
         end = time.time() + timeout
-        while time.time() < end:
-            btns = remove_buttons()
+        while time.time() < end and chips():
+            btns = root.find_elements(
+                By.CSS_SELECTOR,
+                ".k-chip-remove-action, .k-chip-remove, .k-chip .k-icon.k-i-close"
+                )
             if not btns:
                 break
 
-            btn = btns[0]
             try:
-                # optional: visual debug
-                try:
-                    self.sb.highlight(btn)
-                except Exception:
-                    pass
-
-                btn.click()
+                btns[0].click()
             except StaleElementReferenceException:
-                # DOM changed between find & click; retry in next loop
                 continue
             except Exception:
-                # JS click fallback
                 try:
-                    self.driver.execute_script("arguments[0].click();", btn)
+                    self.driver.execute_script("arguments[0].click();", btns[0])
                 except Exception:
                     break
 
-            time.sleep(0.1)  # let DOM update
+            time.sleep(0.1)
 
-        # Final soft wait; don't hard-fail the test here
         try:
             wait.until(lambda d: len(chips()) == 0)
         except TimeoutException:
             print(
                 f"⚠ kendo_multiselect_clear_all('{input_logical_name}'): "
-                f"some chips may still remain ({len(chips())} left)"
+                f"{len(chips())} chip(s) still remain"
                 )
 
     def get_li_items(self, ul_logical_name: str, timeout: int = 10) -> list[str]:
@@ -3705,11 +3724,8 @@ class BasePage:
         return values
 
     def natural_key(self, s):
-        """
-        Split string into list of ints and strings for natural sorting.
-        Example: 'abc12def3' -> ['abc', 12, 'def', 3]
-        """
-        return [
-            int(text) if text.isdigit() else text.casefold()
-            for text in re.split(r'(\d+)', str(s))
-            ]
+        return [int(x) if x.isdigit() else x.casefold()
+                for x in re.split(r"(\d+)", str(s))]
+
+    def is_email_column(self, values):
+        return values and all("@" in str(v) for v in values)

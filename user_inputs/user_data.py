@@ -72,4 +72,4 @@ class UserData:
     password_error = "The specified password does not comply with password complexity requirements. Please provide a different password."
     default_managers = ['PM', 'SM', 'TM', 'SS']
     access_warning = "You don't have access to edit this patient"
-    global_reports = ["User Access", "Most Recent Patient Videos", "Monthly Video Count by Patient"]
+    global_reports = ['User access', 'Most recent patient videos', 'Monthly video count by patient']

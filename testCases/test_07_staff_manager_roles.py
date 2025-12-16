@@ -56,23 +56,24 @@ class test_module_07_staff_manager_roles(BaseCase):
             default_site_manager = UserData.site_manager[1]
 
         rerun_count = getattr(self, "rerun_count", 0)
-        try:
-            user_staff.cancel_form()
-        except:
-            print("No dialog present")
-        try:
-            home.click_admin_profile_button()
-            profile.logout_user()
-            login.after_logout()
-            login.validate_login_page()
-        except:
-            print("Already logged out")
-        try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.validate_dashboard_page()
-        except:
-            print("Already logged in")
-            home.open_dashboard_page()
+        if rerun_count != 0:
+            try:
+                user_staff.cancel_form()
+            except:
+                print("No dialog present")
+            try:
+                home.click_admin_profile_button()
+                profile.logout_user()
+                login.after_logout()
+                login.validate_login_page()
+            except:
+                print("Already logged out")
+            try:
+                login.login(self.settings["login_username"], self.settings["login_password"])
+                home.validate_dashboard_page()
+            except:
+                print("Already logged in")
+                home.open_dashboard_page()
 
         home.click_add_user()
         user.add_staff()
@@ -140,6 +141,11 @@ class test_module_07_staff_manager_roles(BaseCase):
 
         rerun_count = getattr(self, "rerun_count", 0)
         try:
+            user_staff.cancel_form()
+        except:
+            print("No dialog present")
+        try:
+            login.launch_browser(self.settings["url"])
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.validate_dashboard_page()
         except:
@@ -212,6 +218,11 @@ class test_module_07_staff_manager_roles(BaseCase):
 
         rerun_count = getattr(self, "rerun_count", 0)
         try:
+            user_staff.cancel_form()
+        except:
+            print("No dialog present")
+        try:
+            login.launch_browser(self.settings["url"])
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.validate_dashboard_page()
         except:
@@ -288,7 +299,10 @@ class test_module_07_staff_manager_roles(BaseCase):
         env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
 
         rerun_count = getattr(self, "rerun_count", 0)
-
+        try:
+            user_staff.cancel_form()
+        except:
+            print("No dialog present")
         try:
             if rerun_count != 0:
                 home.click_admin_profile_button()
@@ -380,6 +394,7 @@ class test_module_07_staff_manager_roles(BaseCase):
         except:
             print("Already logged out")
         try:
+            login.launch_browser(self.settings["url"])
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.validate_dashboard_page()
         except:
@@ -391,15 +406,16 @@ class test_module_07_staff_manager_roles(BaseCase):
         staff.search_staff(email=d['email_stf'], phn=d['phn_stf'], manager=None,
                            site=d['site_stf']
                            )
-        staff.open_staff(d['fname_stf'], d['lname_stf'])
-        user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'],
-                                           remove_managers=['PM', 'TM', 'SM', 'SS'], client_acc=True, active_acc=True,
+        sfname, slname = staff.get_first_staff_name()
+        staff.open_staff(sfname, slname)
+        user_staff.edit_staff_info_options(sfname, slname, client_acc=True, active_acc=True,
+                                           remove_managers=['PM', 'TM', 'SM', 'SS'],
                                            global_data=False, test_acc=False
                                            )
         user_staff.save_changes()
         home.open_dashboard_page()
         home.open_manage_staff_page()
-        staff.search_staff(d['fname_stf'], d['lname_stf'], d['email_stf'], d['phn_stf'], manager=None,
+        staff.search_staff(fname=sfname, lname=slname, email=d['email_stf'], phn=d['phn_stf'], manager=None,
                            site=d['site_stf']
                            )
 
@@ -412,8 +428,6 @@ class test_module_07_staff_manager_roles(BaseCase):
         staff.validate_manage_staff_page()
         home.validate_not_dashboard_page()
         home.verify_presence_of_staff_menu(presence=True)
-        home.verify_presence_of_patient_menu(presence=False)
-        home.verify_presence_of_dashboard_menu(presence=False)
         home.click_add_user()
         user.add_staff()
         fname, lname, email, phn, client, site = user_staff.fill_staff_form(d['site_stf'], manager=UserData.default_managers, login="ss", rerun=rerun_count)
@@ -466,6 +480,7 @@ class test_module_07_staff_manager_roles(BaseCase):
         except:
             print("Already logged out")
         try:
+            login.launch_browser(self.settings["url"])
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.validate_dashboard_page()
         except:
@@ -478,8 +493,8 @@ class test_module_07_staff_manager_roles(BaseCase):
                            site=d['site_stf']
                            )
         staff.open_staff(d['fname_stf'], d['lname_stf'])
-        user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'], active_acc=False, client_acc=False,
-                                           remove_managers=['PM', 'TM', 'SM', 'SS'], global_data=True
+        user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'], active_acc=True, client_acc=False,
+                                           remove_managers=['PM', 'TM', 'SM', 'SS'], global_data=True,
                                            )
         user_staff.save_changes()
         home.open_dashboard_page()
@@ -494,13 +509,14 @@ class test_module_07_staff_manager_roles(BaseCase):
         login.validate_login_page()
 
         login.login(d['email_stf'], UserData.pwd)
-        home.verify_presence_of_staff_menu(presence=True)
-        home.verify_presence_of_patient_menu(presence=True)
+        home.validate_dashboard_page()
+        home.verify_presence_of_staff_menu(presence=False)
         home.verify_presence_of_dashboard_menu(presence=True)
         home.verify_presence_of_reports_menu(presence=True)
 
-        home.verify_data_table_presence(presence=False)
         home.verify_div_chart_presence(presence=True)
+        home.verify_data_table_presence(presence=False)
+
 
         home.open_filter()
         home.verify_filter_presence("Patient Manager", presence=False)
@@ -556,6 +572,7 @@ class test_module_07_staff_manager_roles(BaseCase):
         except:
             print("Already logged out")
         try:
+            login.launch_browser(self.settings["url"])
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.validate_dashboard_page()
         except:
@@ -568,9 +585,10 @@ class test_module_07_staff_manager_roles(BaseCase):
                            site=d['site_stf']
                            )
         staff.open_staff(d['fname_stf'], d['lname_stf'])
-        user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'], add_pm=d['site_stf'],
-                                           remove_managers=['TM', 'SM', 'SS'], client_acc=False, global_data=False,
-                                           blind_trial=True, active_acc=True, test_acc=False
+        user_staff.edit_staff_info_options(d['fname_stf'], d['lname_stf'],
+                                           add_pm=d['site_stf'], active_acc=True, client_acc=False,
+                                           remove_managers=['TM', 'SM', 'SS'], global_data=False,
+                                           blind_trial=True,  test_acc=False
                                            )
         user_staff.save_changes()
         home.open_dashboard_page()

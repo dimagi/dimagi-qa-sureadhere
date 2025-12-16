@@ -1,3 +1,4 @@
+import re
 import time
 
 from common_utilities.base_page import BasePage
@@ -20,5 +21,8 @@ class ReportsPage(BasePage):
     def validate_report_links(self, list_report):
         values = self.get_elements_texts('a_links')
         print(values)
-        assert list_report in values, "List mismatch"
+        cleaned = [re.sub(r'^\d+\.\s*', '', item) for item in values]
+        print(cleaned)
+        print(list_report)
+        assert list_report in cleaned, "List mismatch"
         print("List matched!")

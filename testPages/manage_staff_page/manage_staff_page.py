@@ -144,7 +144,8 @@ class ManageStaffPage(BasePage):
             headers = self.find_elements("table_header_sort")
             header = headers[index - 1]
             header.click()
-            self.wait_for_page_to_load()
+            time.sleep(5)
+            self.wait_for_page_to_load(50)
 
             headers = self.find_elements("table_header_sort")
             header = headers[index - 1]
@@ -166,7 +167,8 @@ class ManageStaffPage(BasePage):
             headers = self.find_elements("table_header_sort")
             header = headers[index - 1]
             header.click()
-            self.wait_for_page_to_load()
+            time.sleep(5)
+            self.wait_for_page_to_load(50)
 
             headers = self.find_elements("table_header_sort")
             header = headers[index - 1]

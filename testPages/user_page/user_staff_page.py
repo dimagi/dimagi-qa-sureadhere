@@ -66,7 +66,8 @@ class UserStaffPage(BasePage):
             return None
         else:
             self.click('button_SUBMIT')
-            self.wait_for_invisible('button_SUBMIT')
+            time.sleep(5)
+            self.wait_for_invisible('button_SUBMIT', 60)
             client=True
             self.wait_for_page_to_load(50)
             time.sleep(10)
@@ -219,7 +220,10 @@ class UserStaffPage(BasePage):
 
     def edit_staff_info_options(self, fname, lname, name_change=None, add_pm=None, add_sm=None, add_tm=None, add_ss=None, test_acc=None,
                                 active_acc=None, client_acc=None, remove_managers=None, blind_trial=None, global_data=None):
-        self.wait_for_staff_to_load(fname, lname)
+        time.sleep(2)
+        self.wait_for_element('first_name')
+        self.wait_for_element('last_name')
+        # self.wait_for_staff_to_load(fname, lname)
         if name_change == True:
             new_fname = str(fname).replace("test_f","test_nf")
             new_lname = str(lname).replace("test_l", "test_nl")
@@ -228,6 +232,25 @@ class UserStaffPage(BasePage):
             self.type('last_name', new_lname)
         else:
             print("No name changes")
+
+        self.reset_all_checkbox()
+
+        if remove_managers != None:
+            if "PM" in remove_managers:
+                print('Removing PM')
+                self.kendo_multiselect_clear_all("k-input_Patient_Manager")
+
+            if "TM" in remove_managers:
+                print('Removing TM')
+                self.kendo_multiselect_clear_all("k-input_Treatment_Monitors")
+
+            if "SM" in remove_managers:
+                print('Removing SM')
+                self.kendo_multiselect_clear_all("k-input_Site_Managers")
+
+            if "SS" in remove_managers:
+                print('Removing SS')
+                self.kendo_multiselect_clear_all("k-input_Staff_Administrators")
 
         if add_pm != None:
             self.click('selectedPatientManagers')
@@ -251,31 +274,29 @@ class UserStaffPage(BasePage):
             self.set_staff_account_checkbox(setting_name='isActive', expected=active_acc)
         if test_acc != None:
             self.set_staff_account_checkbox(setting_name='isTest', expected=test_acc)
+        if not self.is_field_enabled('isBlindTrial'):
+            self.click('isGlobalDataAdministrator')
+            assert self.is_field_enabled('isBlindTrial')
         if blind_trial != None:
             self.set_staff_account_checkbox(setting_name='isBlindTrial', expected=blind_trial)
         if global_data != None:
             self.set_staff_account_checkbox(setting_name='isGlobalDataAdministrator', expected=global_data)
 
-
-        if remove_managers != None:
-            if "PM" in remove_managers:
-                print('Removing PM')
-                self.kendo_multiselect_clear_all("k-input_Patient_Manager")
-
-            if "TM" in remove_managers:
-                print('Removing TM')
-                self.kendo_multiselect_clear_all("k-input_Treatment_Monitors")
-
-            if "SM" in remove_managers:
-                print('Removing SM')
-                self.kendo_multiselect_clear_all("k-input_Site_Managers")
-
-            if "SS" in remove_managers:
-                print('Removing SS')
-                self.kendo_multiselect_clear_all("k-input_Staff_Administrators")
-
         time.sleep(3)
         return (new_fname, new_lname) if name_change else (None, None)
+
+    def reset_all_checkbox(self):
+        self.set_staff_account_checkbox(setting_name='isClientAdmin', expected=False)
+        self.set_staff_account_checkbox(setting_name='isActive', expected=True)
+        self.set_staff_account_checkbox(setting_name='isTest', expected=False)
+        if not self.is_field_enabled('isBlindTrial'):
+            self.set_staff_account_checkbox(setting_name='isGlobalDataAdministrator', expected=False)
+        elif not self.is_field_enabled('isGlobalDataAdministrator'):
+            self.set_staff_account_checkbox(setting_name='isBlindTrial', expected=False)
+        else:
+            print("Fields are enabled")
+        self.set_staff_account_checkbox(setting_name='isBlindTrial', expected=False)
+        self.set_staff_account_checkbox(setting_name='isGlobalDataAdministrator', expected=False)
 
     def set_staff_account_checkbox(self, setting_name, expected: bool):
         """Ensure the 'Client Admin' checkbox matches expected state."""

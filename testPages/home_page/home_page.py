@@ -42,31 +42,31 @@ class HomePage(BasePage):
 
     def verify_presence_of_staff_menu(self, presence=True):
         if presence:
-            assert self.is_element_present('p_Staff'), "Staff Menu access is missing"
+            assert self.is_element_visible('p_Staff'), "Staff Menu access is missing"
             print("Staff Menu is accessible")
         else:
-            assert not self.is_element_present('p_Staff'), "Staff Menu is accessible"
+            assert not self.is_element_visible('p_Staff'), "Staff Menu is accessible"
             print("Staff Menu is not accessible")
 
     def verify_presence_of_patient_menu(self, presence=True):
         if presence:
-            assert self.is_element_present('p_Patients'), "Patient Menu access is missing"
+            assert self.is_element_visible('p_Patients'), "Patient Menu access is missing"
             print("Patient Menu is accessible")
         else:
-            assert not self.is_element_present('p_Patients'), "Patient Menu is accessible"
+            assert not self.is_element_visible('p_Patients'), "Patient Menu is accessible"
             print("Patient Menu is not accessible")
 
     def verify_presence_of_admin_menu(self, presence=True):
         if presence:
-            assert self.is_element_present('p_Admin'), "Admin Menu access is missing"
+            assert self.is_element_visible('p_Admin'), "Admin Menu access is missing"
             print("Admin Menu is accessible")
         else:
-            assert not self.is_element_present('p_Admin'), "Admin Menu is accessible"
+            assert not self.is_element_visible('p_Admin'), "Admin Menu is accessible"
             print("Admin Menu is not accessible")
 
     def verify_presence_of_dashboard_menu(self, presence=True):
         if presence:
-            assert self.is_element_present('p_Dashboard'), "Dashboard Menu access is missing"
+            assert self.is_element_visible('p_Dashboard'), "Dashboard Menu access is missing"
             print("Dashboard Menu is accessible")
         else:
             assert not self.is_element_present('p_Dashboard'), "Dashboard Menu is accessible"
@@ -74,10 +74,10 @@ class HomePage(BasePage):
 
     def verify_presence_of_reports_menu(self, presence=True):
         if presence:
-            assert self.is_element_present('p_Reports'), "Reports Menu access is missing"
+            assert self.is_element_visible('p_Reports'), "Reports Menu access is missing"
             print("Reports Menu is accessible")
         else:
-            assert not self.is_element_present('p_Reports'), "Reports Menu is accessible"
+            assert not self.is_element_visible('p_Reports'), "Reports Menu is accessible"
             print("Reports Menu is not accessible")
 
     def open_manage_patient_page(self):
@@ -171,28 +171,28 @@ class HomePage(BasePage):
         self.click(f"span_{filter_name}")
 
     def verify_filter_presence(self, filter_name, presence=True):
-        strict = True if filter_name == 'Site' else False
+        strict = True
         if presence:
-            assert self.is_element_present(f"span_{filter_name}", strict=strict), f"{filter_name} is not present"
+            assert self.is_element_visible(f"span_{filter_name}", strict=strict), f"{filter_name} is not present"
             print(f"{filter_name} is present")
         else:
-            assert not self.is_element_present(f"span_{filter_name}", strict=strict), f"{filter_name} is present"
+            assert not self.is_element_visible(f"span_{filter_name}", strict=strict), f"{filter_name} is present"
             print(f"{filter_name} is not present")
 
 
     def verify_data_table_presence(self, presence=True):
         if presence:
-            assert self.is_element_present("dashboard_data_table"), "Patient Data Table is not present"
+            assert self.is_element_visible("dashboard_data_table"), "Patient Data Table is not present"
             print("Patient Data Table is present")
         else:
-            assert not self.is_element_present("dashboard_data_table"), "Patient Data Table is present"
+            assert not self.is_element_visible("dashboard_data_table"), "Patient Data Table is present"
             print("Patient Data Table is not present")
 
     def verify_div_chart_presence(self, presence=True):
         if presence:
-            assert self.is_element_present("div_chart"), "Data Chart is not present"
+            assert self.is_element_visible("div_chart"), "Data Chart is not present"
             print("Data Chart is present")
         else:
-            assert not self.is_element_present("div_chart"), "Data Chart is present"
+            assert not self.is_element_visible("div_chart"), "Data Chart is present"
             print("Data Chart is not present")
 

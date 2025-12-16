@@ -1190,10 +1190,9 @@
     "xpath": "//kendo-grid[contains(normalize-space(text()), 'Patient\nRecorded\nUploaded\nPatient manager\nTreatment monitor\n232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM\n1\n2\n3\n4\n5\n6\n1 - 10 of 58 items')]"
   },
   "dashboard_data_table": {
-    "aria-label": "Data table",
-    "class": "k-grid-aria-root",
-    "tag": "div",
-    "xpath": "//div[@aria-label='Data table']"
+    "class": "k-grid-table",
+    "tag": "table",
+    "xpath": "//table[contains(@class,'k-grid-table')]"
   },
   "div_Patient Re_314": {
     "class": "k-grid-header ng-star-inserted",
@@ -1777,5 +1776,10 @@
     "tag": "span",
     "text": "Observation method",
     "xpath": "//span[contains(normalize-space(text()), 'Observation method')]"
+  },
+  "all_k-panelbar-item-text": {
+    "class": "k-panelbar-item-text",
+    "tag": "span",
+    "xpath": "//span[contains(@class,'k-panelbar-item-text')]"
   }
 }
