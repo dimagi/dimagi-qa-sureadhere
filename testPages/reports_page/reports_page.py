@@ -20,9 +20,7 @@ class ReportsPage(BasePage):
 
     def validate_report_links(self, list_report):
         values = self.get_elements_texts('a_links')
-        print(values)
-        cleaned = [re.sub(r'^\d+\.\s*', '', item) for item in values]
-        print(cleaned)
-        print(list_report)
-        assert list_report in cleaned, "List mismatch"
-        print("List matched!")
+        cleaned = [re.sub(r'^\d+\.\s*', '', item).strip() for item in values if item]
+
+        missing = [x for x in list_report if x not in cleaned]
+        assert not missing, f"Missing links: {missing}\nActual: {cleaned}"
