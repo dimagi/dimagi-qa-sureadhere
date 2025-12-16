@@ -665,7 +665,6 @@
   },
   "k-opened-tabstrip-tab": {
     "class": "k-active",
-    "id": "k-tabstrip-tab",
     "tag": "li",
     "xpath": "//li[contains(@class,'k-active')]"
   },

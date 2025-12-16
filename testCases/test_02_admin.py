@@ -214,6 +214,7 @@ class test_module_02_admin(BaseCase):
     @pytest.mark.dependency(name="tc_admin_3", scope="class")
     def test_case_03_admin_announcement(self):
         login = LoginPage(self, "login")
+        self._login_once()
         profile = UserProfilePage(self, "user")
         home = HomePage(self, "dashboard")
         admin = AdminPage(self, 'admin')
@@ -234,9 +235,16 @@ class test_module_02_admin(BaseCase):
             home.click_admin_profile_button()
             profile.logout_user()
             login.after_logout()
+            login.validate_login_page()
+        except:
+            print("Already logged out")
+        try:
+            login.launch_browser(self.settings["url"])
             login.login(self.settings["login_username"], self.settings["login_password"])
+            home.validate_dashboard_page()
         except:
             print("Already logged in")
+            home.open_dashboard_page()
 
         home.validate_dashboard_page()
         home.open_admin_page()

@@ -15,7 +15,8 @@ class AdminAnnouncementFormPage(BasePage):
         super().__init__(sb, page_name=page_name)
 
     def validate_announcement_page(self):
-        self.wait_for_element('label_Choose_Client')
+        time.sleep(3)
+        self.wait_for_element('div_Choose_Client')
         self.wait_for_element('kendo-multiselect_Select_Client')
         self.wait_for_element('span_SAVE')
         print("Admin Announcement Form Page is now open")
@@ -88,6 +89,8 @@ class AdminAnnouncementFormPage(BasePage):
         return announcement_text, status, client
 
     def deactivate_the_announcements(self):
+        time.sleep(5)
+        self.wait_for_element('span_SAVE', 50)
         status_now = self.toggle_for_status('Inactive')
         print(status_now)
         self.double_check_on_toggle('Inactive')

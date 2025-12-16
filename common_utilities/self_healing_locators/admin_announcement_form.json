@@ -1767,11 +1767,11 @@
     "tag": "span",
     "xpath": "//span[@class='k-input-suffix']"
   },
-  "div_Choose Cli_348": {
-    "class": "clients-list col-md-12",
+  "div_Choose_Client": {
+    "class": "clients-list",
     "tag": "div",
     "text": "Choose Client",
-    "xpath": "//div[contains(normalize-space(text()), 'Choose Client')]"
+    "xpath": "//div[contains(@class,'clients-list')]"
   },
   "kendo-label_Choose Cli_349": {
     "tag": "kendo-label",

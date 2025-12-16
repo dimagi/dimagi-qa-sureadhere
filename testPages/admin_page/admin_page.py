@@ -64,7 +64,9 @@ class AdminPage(BasePage):
             self.kendo_dialog_click_button("Continue")
         except Exception:
             print("popup not present")
-        assert "Announcements" == str(self.get_text('k-opened-tabstrip-tab')).strip(), "Announcements is not opened"
+        text =  self.get_text('k-opened-tabstrip-tab')
+        print(text)
+        assert "Announcements" == text.strip(), "Announcements is not opened"
         print("Announcements is opened")
 
     def open_feature_flags(self):
