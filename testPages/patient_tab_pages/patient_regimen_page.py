@@ -79,7 +79,6 @@ class PatientRegimenPage(BasePage):
         filtered = [
             v for v in values
             if v
-               and ' ' not in v
                and ',' not in v
                and '/' not in v
             ]
