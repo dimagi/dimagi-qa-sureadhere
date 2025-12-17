@@ -164,7 +164,7 @@ jobs:
             					"type": "section",
             					"text": {
             						"type": "mrkdwn",
-            						"text": " Hola :bye_boo: \n*${{ github.workflow }}* were just triggered by ${{ github.event_name }}! \n"
+            						"text": " Hola :bye_boo: \n*${{ github.workflow }} Run# ${context.runNumber}* were just triggered by ${{ github.event_name }}! \n"
             					}
             				},
             				{
@@ -233,7 +233,7 @@ jobs:
             					"type": "section",
             					"text": {
             						"type": "mrkdwn",
-            						"text": " Hola :bye_boo: \n*${{ github.workflow }}* were just triggered by ${{ github.event_name }}! \n"
+            						"text": " Hola :bye_boo: \n*${{ github.workflow }} Run# ${context.runNumber}* were just triggered by ${{ github.event_name }}! \n"
             					}
             				},
             				{
@@ -341,3 +341,4 @@ jobs:
           convert_markdown: true
           attachments: sbase-extendedtests-artifacts-${{ matrix.environment }}.zip
           in_reply_to: ${{ fromJSON(steps.configure_email.outputs.result).reference }}
+
