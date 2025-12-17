@@ -75,7 +75,21 @@ class PatientRegimenPage(BasePage):
         except Exception:
             time.sleep(5)
             values = self.kendo_dd_get_all_texts("kendo-dropdownlist-Disease")
-        selected_disease = random.choice(values)
+        # ✅ keep only single-word values without ',' or '/'
+        filtered = [
+            v for v in values
+            if v
+               and ' ' not in v
+               and ',' not in v
+               and '/' not in v
+            ]
+
+        if not filtered:
+            raise AssertionError("No valid single-word disease found in dropdown")
+
+        selected_disease = random.choice(filtered)
+        print(f"Selected disease: {selected_disease}")
+
         self.kendo_dd_select_text_old('kendo-dropdownlist-Disease', selected_disease)
         print(self.resolve('span_NEW_SCHEDULE'))
         self.click_robust('span_NEW_SCHEDULE')
