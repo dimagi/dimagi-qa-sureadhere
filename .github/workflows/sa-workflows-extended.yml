@@ -4,6 +4,8 @@
 name: SureAdhere Tests - Extended
 
 on:
+  schedule:
+    - cron: '30 11 * * 4'
   push:
     branches-ignore:
       - main   # run on all branches except master
@@ -39,6 +41,10 @@ jobs:
           echo "::set-output name=matrix::{\"environment\": [\"${{ inputs.environment }}\"]}"
       - id: set-matrix-default
         if: ${{ !contains(github.event_name , 'dispatch') }}
+        run: |
+          echo "::set-output name=matrix::{\"environment\": [\"banner\", \"securevoteu\", \"secure\"]}"
+      - id: set-matrix-schedule
+        if: ${{ !contains(github.event_name , 'schedule') }}
         run: |
           echo "::set-output name=matrix::{\"environment\": [\"banner\", \"securevoteu\", \"secure\"]}"
           
