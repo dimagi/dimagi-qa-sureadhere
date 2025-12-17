@@ -126,6 +126,7 @@ class HomePage(BasePage):
         print(f"{announcement_text} is present")
 
     def stay_idle(self, timeout, active=True):
+        self.open_dashboard_page()
         print(f"Starting {timeout} minutes of inactivity")
         # self.idle_wait(timeout*60)
         time.sleep(timeout*60)

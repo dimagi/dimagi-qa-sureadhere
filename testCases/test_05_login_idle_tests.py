@@ -32,8 +32,6 @@ class test_module_04_login_tests_inactivity_10_minutes(BaseCase):
         except Exception:
             print("Login Page is not present")
         home.open_manage_staff_page()
-        home.open_dashboard_page()
-
         home.stay_idle(timeout=10, active=True)
         home.open_manage_staff_page()
         login.validate_not_login_page()
