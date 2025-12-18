@@ -87,6 +87,7 @@ jobs:
           DIMAGIQA_ADMIN_PASSWORD: ${{ secrets.DIMAGIQA_ADMIN_PASSWORD }}
           DIMAGIQA_BS_USER: ${{ secrets.DIMAGIQA_BS_USER }}
           DIMAGIQA_BS_KEY: ${{ secrets.DIMAGIQA_BS_KEY }}
+          DIMAGIQA_SA_IMAP_PASSWORD: ${{ secrets.DIMAGIQA_SA_IMAP_PASSWORD }}
 
         run: |
           echo "client_payload: ${{ toJson(github.event.client_payload) }}"
@@ -174,7 +175,7 @@ jobs:
             					"type": "section",
             					"text": {
             						"type": "mrkdwn",
-            						"text": " Hola :bye_boo: \n*${{ github.workflow }}* were just triggered by ${{ github.event_name }}! \n"
+            						"text": " Hola :bye_boo: \n*${{ github.workflow }} Run #${{ github.run_number }}* were just triggered by ${{ github.event_name }}! \n"
             					}
             				},
             				{
@@ -243,7 +244,7 @@ jobs:
             					"type": "section",
             					"text": {
             						"type": "mrkdwn",
-            						"text": " Hola :bye_boo: \n*${{ github.workflow }}* were just triggered by ${{ github.event_name }}! \n"
+            						"text": " Hola :bye_boo: \n*${{ github.workflow }} Run #${{ github.run_number }}* were just triggered by ${{ github.event_name }}! \n"
             					}
             				},
             				{

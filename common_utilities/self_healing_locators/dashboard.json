@@ -316,7 +316,7 @@
     "tag": "path",
     "xpath": "//path"
   },
-  "p_Reports_87": {
+  "p_Reports": {
     "tag": "p",
     "text": "Reports",
     "xpath": "//p[contains(normalize-space(text()), 'Reports')]"
@@ -628,12 +628,12 @@
     "text": "Dashboard",
     "xpath": "//span[contains(normalize-space(text()), 'Dashboard')]"
   },
-  "div__153": {
+  "div_filter": {
     "class": "sidebar-toggle-icon ng-star-inserted",
     "tag": "div",
     "xpath": "//div[@class='sidebar-toggle-icon ng-star-inserted']"
   },
-  "span__154": {
+  "filter_icon": {
     "class": "icon-funnel",
     "tag": "span",
     "xpath": "//span[@class='icon-funnel']"
@@ -959,11 +959,10 @@
     "text": "Sat Aug 9 Sun Aug 10 Mon Aug 11 Tue Aug 12 Wed Aug 13 Yesterday Today 0 5 10 15 20 25 30",
     "xpath": "//kendo-chart[contains(normalize-space(text()), 'Sat\nAug 9\nSun\nAug 10\nMon\nAug 11\nTue\nAug 12\nWed\nAug 13\nYesterday\nToday\n0\n5\n10\n15\n20\n25\n30')]"
   },
-  "div_Sat Aug 9 _221": {
+  "div_chart": {
     "class": "k-chart-surface",
     "tag": "div",
-    "text": "Sat Aug 9 Sun Aug 10 Mon Aug 11 Tue Aug 12 Wed Aug 13 Yesterday Today 0 5 10 15 20 25 30",
-    "xpath": "//div[contains(normalize-space(text()), 'Sat\nAug 9\nSun\nAug 10\nMon\nAug 11\nTue\nAug 12\nWed\nAug 13\nYesterday\nToday\n0\n5\n10\n15\n20\n25\n30')]"
+    "xpath": "//div[contains(@class,'k-chart-surface')]"
   },
   "svg_Sat Aug 9 _222": {
     "tag": "svg",
@@ -1190,13 +1189,10 @@
     "text": "Patient Recorded Uploaded Patient manager Treatment monitor 232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM 1 2 3 4 5 6 1 - 10 of 58 items",
     "xpath": "//kendo-grid[contains(normalize-space(text()), 'Patient\nRecorded\nUploaded\nPatient manager\nTreatment monitor\n232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM\n1\n2\n3\n4\n5\n6\n1 - 10 of 58 items')]"
   },
-  "k-6c8c576b-9657-4d08-b3ef-88574345f824": {
-    "id": "k-6c8c576b-9657-4d08-b3ef-88574345f824",
-    "aria-label": "Data table",
-    "class": "k-grid-aria-root",
-    "tag": "div",
-    "text": "Patient Recorded Uploaded Patient manager Treatment monitor 232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM",
-    "xpath": "//div[@id='k-6c8c576b-9657-4d08-b3ef-88574345f824']"
+  "dashboard_data_table": {
+    "class": "k-grid-table",
+    "tag": "table",
+    "xpath": "//table[contains(@class,'k-grid-table')]"
   },
   "div_Patient Re_314": {
     "class": "k-grid-header ng-star-inserted",
@@ -1732,6 +1728,58 @@
     "tag": "span",
     "text": "additional new videos",
     "xpath": "//span[contains(text(),'additional new videos')]/following-sibling::button[@class='expand-button']"
+  },
+  "Patient Manager_bar": {
+    "id": "managers_bar",
+    "class": "ng-star-inserted",
+    "tag": "ul",
+    "xpath": "//ul[@id='managers_bar']"
+  },
+  "Treatment Monitor_bar": {
+    "id": "treatment_monitors",
+    "class": "ng-star-inserted",
+    "tag": "ul",
+    "xpath": "//ul[@id='treatment_monitors']"
+  },
+  "span_Treatment Monitor": {
+    "class": "k-panelbar-item-text",
+    "tag": "span",
+    "text": "Treatment Monitor",
+    "xpath": "//span[contains(normalize-space(text()), 'Treatment Monitor')]"
+  },
+  "span_Patient Manager": {
+    "class": "k-panelbar-item-text",
+    "tag": "span",
+    "text": "Patient Manager",
+    "xpath": "//span[contains(normalize-space(text()), 'Patient Manager')]"
+  },
+  "div_hide_filter": {
+    "class": "close-filterbar",
+    "tag": "div",
+    "text": "Hide filters",
+    "xpath": "//div[contains(normalize-space(text()), 'Hide filters')]"
+  },
+  "span_Site": {
+    "class": "k-panelbar-item-text",
+    "tag": "span",
+    "text": "Site",
+    "xpath": "//span[contains(normalize-space(text()), 'Site') and contains(@class,'k-panelbar-item-text')]"
+  },
+  "span_Disease": {
+    "class": "k-panelbar-item-text",
+    "tag": "span",
+    "text": "Disease",
+    "xpath": "//span[contains(normalize-space(text()), 'Disease')]"
+  },
+  "span_Observation method": {
+    "class": "k-panelbar-item-text",
+    "tag": "span",
+    "text": "Observation method",
+    "xpath": "//span[contains(normalize-space(text()), 'Observation method')]"
+  },
+  "all_k-panelbar-item-text": {
+    "class": "k-panelbar-item-text",
+    "tag": "span",
+    "xpath": "//span[contains(@class,'k-panelbar-item-text')]"
   }
-
 }

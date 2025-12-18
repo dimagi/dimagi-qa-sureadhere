@@ -56,13 +56,18 @@ class AdminPage(BasePage):
         time.sleep(2)
 
     def open_announcement(self):
-        self.click('k-tabstrip-tab-Announcements')
+        self.click('k-tabstrip-tab-Announcements', strict=True)
+        time.sleep(5)
         self.wait_for_page_to_load()
         try:
             self.kendo_dialog_wait_open()  # no title constraint
             self.kendo_dialog_click_button("Continue")
         except Exception:
             print("popup not present")
+        text =  self.get_text('k-opened-tabstrip-tab')
+        print(text)
+        assert "Announcements" == text.strip(), "Announcements is not opened"
+        print("Announcements is opened")
 
     def open_feature_flags(self):
         self.click('k-tabstrip-tab-Feature_Flags')

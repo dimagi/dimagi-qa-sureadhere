@@ -16,12 +16,13 @@ class AdminAnnouncementPage(BasePage):
 
 
     def verify_announcements_page(self):
-        time.sleep(5)
-        self.wait_for_page_to_load()
-        self.wait_for_element('k-opened-tabstrip-tab')
+        time.sleep(10)
+        self.wait_for_page_to_load(50)
+        self.wait_for_element('k-opened-tabstrip-tab', 60)
         tabname = self.get_text('k-opened-tabstrip-tab')
         self.wait_for_element('span_ADD_ANNOUNCEMENT')
-        assert tabname == "Announcements", "Announcements tab is not opened"
+        assert self.is_element_present('span_ADD_ANNOUNCEMENT'), "Add Announcement is not present"
+        print("Add Announcement is present")
 
     def add_announcement(self):
         self.click('span_ADD_ANNOUNCEMENT')

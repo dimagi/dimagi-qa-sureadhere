@@ -4,6 +4,8 @@
 name: SureAdhere Tests - Extended
 
 on:
+  schedule:
+    - cron: '30 11 * * 4'
   push:
     branches-ignore:
       - main   # run on all branches except master
@@ -39,6 +41,10 @@ jobs:
           echo "::set-output name=matrix::{\"environment\": [\"${{ inputs.environment }}\"]}"
       - id: set-matrix-default
         if: ${{ !contains(github.event_name , 'dispatch') }}
+        run: |
+          echo "::set-output name=matrix::{\"environment\": [\"banner\", \"securevoteu\", \"secure\"]}"
+      - id: set-matrix-schedule
+        if: ${{ !contains(github.event_name , 'schedule') }}
         run: |
           echo "::set-output name=matrix::{\"environment\": [\"banner\", \"securevoteu\", \"secure\"]}"
           
@@ -85,7 +91,7 @@ jobs:
             --dashboard --html=presetup_extendedtests-report-${{ matrix.environment }}.html  --maxfail=1
           pytest -v -m extendedtests \
             --browser=chrome --headless --headless2 \
-            --reruns 1 -n 3 --dist=loadscope\
+            --reruns 1 -n 4 --dist=loadscope\
             --dashboard --html=extendedtests-report-${{ matrix.environment }}.html
 
       - name: Parse test counts
@@ -158,7 +164,7 @@ jobs:
             					"type": "section",
             					"text": {
             						"type": "mrkdwn",
-            						"text": " Hola :bye_boo: \n*${{ github.workflow }}* were just triggered by ${{ github.event_name }}! \n"
+            						"text": " Hola :bye_boo: \n*${{ github.workflow }} Run #${{ github.run_number }}* were just triggered by ${{ github.event_name }}! \n"
             					}
             				},
             				{
@@ -227,7 +233,7 @@ jobs:
             					"type": "section",
             					"text": {
             						"type": "mrkdwn",
-            						"text": " Hola :bye_boo: \n*${{ github.workflow }}* were just triggered by ${{ github.event_name }}! \n"
+            						"text": " Hola :bye_boo: \n*${{ github.workflow }} Run #${{ github.run_number }}* were just triggered by ${{ github.event_name }}! \n"
             					}
             				},
             				{
@@ -293,7 +299,7 @@ jobs:
           script: |
             const { promises: fs } = require('fs')
             const {JOB_STATUS, NOW, CC_ENV, GITHUB_HEAD_REF} = process.env
-            const prefix = `[${CC_ENV}] SureAdhere Tests - ${JOB_STATUS.toUpperCase()} - Run #${context.runNumber}`
+            const prefix = `[${CC_ENV}] SureAdhere Extended Tests - ${JOB_STATUS.toUpperCase()} - Run #${context.runNumber}`
             const suffix = `at ${NOW}`
             let subject = `${prefix} on branch "${GITHUB_HEAD_REF}" ${suffix}`
 
@@ -303,7 +309,7 @@ jobs:
             }
             
             let actionRunLink = context.payload.repository.html_url + `/actions/runs/${context.runId}`
-            let testSuite = 'SureAdhere Tests'
+            let testSuite = 'SureAdhere Extended Tests'
             let bodyContent = await fs.readFile(bodyFile, 'utf8')
             bodyContent = bodyContent.replace(/{{actionRunLink}}/g, actionRunLink)
                 .replace(/{{runNumber}}/g, context.runNumber)
@@ -335,4 +341,5 @@ jobs:
           convert_markdown: true
           attachments: sbase-extendedtests-artifacts-${{ matrix.environment }}.zip
           in_reply_to: ${{ fromJSON(steps.configure_email.outputs.result).reference }}
+
 

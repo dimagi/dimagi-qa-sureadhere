@@ -114,11 +114,13 @@ class test_module_02_admin(BaseCase):
             default_client = UserData.client[3]
         else:
             default_client = UserData.client[2]
-        try:
-            home.open_dashboard_page()
-        except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+        login.login(self.settings["login_username"], self.settings["login_password"])
+
+        home.open_dashboard_page()
         home.open_manage_patient_page()
         patient.search_test_patients()
         patient.open_first_patient()
@@ -139,13 +141,13 @@ class test_module_02_admin(BaseCase):
         p_regimen.verify_patient_regimen_page()
         p_regimen.verify_drugs_present(d['drug_name'], d['drug_switch'])
 
-        try:
-            home.open_dashboard_page()
-            home.open_admin_page()
-        except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
-            home.open_admin_page()
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+        login.login(self.settings["login_username"], self.settings["login_password"])
+
+        home.open_dashboard_page()
+        home.open_admin_page()
         admin.validate_admin_page(default_client)
         admin.expand_diseases()
         disease_switch_now, disease_name = a_disease.toggle_for_disease(d['disease_name'], "OFF")
@@ -212,6 +214,8 @@ class test_module_02_admin(BaseCase):
     @pytest.mark.dependency(name="tc_admin_3", scope="class")
     def test_case_03_admin_announcement(self):
         login = LoginPage(self, "login")
+        self._login_once()
+        profile = UserProfilePage(self, "user")
         home = HomePage(self, "dashboard")
         admin = AdminPage(self, 'admin')
         a_announce = AdminAnnouncementPage(self, 'announcements')
@@ -227,7 +231,20 @@ class test_module_02_admin(BaseCase):
         else:
             default_client = UserData.client[2]
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        try:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.validate_login_page()
+        except:
+            print("Already logged out")
+        try:
+            login.launch_browser(self.settings["url"])
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.validate_dashboard_page()
+        except:
+            print("Already logged in")
+            home.open_dashboard_page()
 
         home.validate_dashboard_page()
         home.open_admin_page()

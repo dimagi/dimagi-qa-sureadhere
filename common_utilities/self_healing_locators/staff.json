@@ -670,14 +670,13 @@
     "text": "Active Inactive Test",
     "xpath": "//ul[contains(normalize-space(text()), 'Active\nInactive\nTest')]"
   },
-  "k-tabstrip-tab-890f8d31-c569-403d-8e9e-d1363c724bd4-0": {
-    "id": "k-tabstrip-tab-890f8d31-c569-403d-8e9e-d1363c724bd4-0",
-    "class": "ng-tns-c655264150-13 k-item k-state-default k-active ng-star-inserted",
+  "li_Active": {
+    "class": "k-active",
     "tag": "li",
     "text": "Active",
-    "xpath": "//li[@id='k-tabstrip-tab-890f8d31-c569-403d-8e9e-d1363c724bd4-0']"
+    "xpath": "//li[contains(@class,'k-active')]"
   },
-  "span_Active_164": {
+  "span_Active_tab": {
     "class": "k-link ng-star-inserted",
     "tag": "span",
     "text": "Active",
@@ -689,7 +688,7 @@
     "text": "Active",
     "xpath": "//div[contains(normalize-space(text()), 'Active')]"
   },
-  "span_Active_166": {
+  "span_Active": {
     "tag": "span",
     "text": "Active",
     "xpath": "//span[contains(normalize-space(text()), 'Active')]"
@@ -857,7 +856,7 @@
     "text": "Name",
     "xpath": "//span[contains(normalize-space(text()), 'Name')]"
   },
-  "span__195": {
+  "k-sort-icon": {
     "class": "k-sort-icon",
     "tag": "span",
     "xpath": "//span[@class='k-sort-icon']"
@@ -1301,36 +1300,55 @@
     "class": "ng-star-inserted",
     "tag": "li",
     "text": "PM",
-    "xpath": "//td[@aria-colindex='3']//li[//span[contains(normalize-space(text()), 'PM')]]"
+    "xpath": "//td[@aria-colindex='3']//li[.//span[contains(normalize-space(text()), 'PM')]]/span"
   },
   "li_role_TM": {
     "class": "ng-star-inserted",
     "tag": "li",
-    "text": "PM",
-    "xpath": "//td[@aria-colindex='3']//li[//span[contains(normalize-space(text()), 'PM')]]"
+    "text": "TM",
+    "xpath": "//td[@aria-colindex='3']//li[.//span[contains(normalize-space(text()), 'TM')]]/span"
   },
   "li_role_SM": {
     "class": "ng-star-inserted",
     "tag": "li",
-    "text": "PM",
-    "xpath": "//td[@aria-colindex='3']//li[//span[contains(normalize-space(text()), 'PM')]]"
+    "text": "sM",
+    "xpath": "//td[@aria-colindex='3']//li[.//span[contains(normalize-space(text()), 'SM')]]/span"
   },
   "li_role_SS": {
     "class": "ng-star-inserted",
     "tag": "li",
-    "text": "PM",
-    "xpath": "//td[@aria-colindex='3']//li[//span[contains(normalize-space(text()), 'PM')]]"
+    "text": "SS",
+    "xpath": "//td[@aria-colindex='3']//li[.//span[contains(normalize-space(text()), 'SS')]]/span"
   },
   "li_role_CS": {
     "class": "ng-star-inserted",
     "tag": "li",
-    "text": "PM",
-    "xpath": "//td[@aria-colindex='3']//li[//span[contains(normalize-space(text()), 'PM')]]"
+    "text": "CS",
+    "xpath": "//td[@aria-colindex='3']//li[.//span[contains(normalize-space(text()), 'CS')]]/span"
   },
   "td_phone_number": {
     "class": "k-table-td k-touch-action-auto ng-star-inserted",
     "tag": "td",
     "aria-colindex":"4",
     "xpath": "//td[@aria-colindex='4']"
+  },
+  "table_header_sort": {
+    "class": "k-table-th",
+    "tag": "th",
+    "role": "columnheader",
+    "xpath": "//th[contains(@class, 'k-table-th')]"
+  },
+  "table_columns": {
+    "class": "k-table-td",
+    "tag": "td",
+    "role": "gridcell",
+    "xpath": "//td[contains(@class,'k-table-td')]"
+  },
+  "no_data": {
+    "class": "message",
+    "tag": "div",
+    "text": "No data.",
+    "xpath": "//div[@class='message']"
   }
+
 }

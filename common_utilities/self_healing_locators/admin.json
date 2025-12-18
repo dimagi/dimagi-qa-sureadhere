@@ -658,16 +658,15 @@
     "xpath": "//span[contains(normalize-space(text()), 'Feature Flags')]"
   },
   "k-tabstrip-tab-Announcements": {
-    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "class": "k-item",
     "tag": "li",
     "text": "Announcements",
-    "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Announcements')]"
+    "xpath": "//li[contains(@class,'k-item')]//span[contains(normalize-space(text()), 'Announcements')]"
   },
   "k-opened-tabstrip-tab": {
-    "class": "k-item k-state-default ng-star-inserted k-active",
-    "id": "k-tabstrip-tab",
+    "class": "k-active",
     "tag": "li",
-    "xpath": "//li[contains(@id,'k-tabstrip-tab') and @aria-selected='true']//div/span"
+    "xpath": "//li[contains(@class,'k-active')]"
   },
   "span_Announceme_163": {
     "class": "k-link ng-star-inserted",

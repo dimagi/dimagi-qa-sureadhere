@@ -152,11 +152,10 @@
     "text": "demouser2@demo.sureadhere.com Choose language: Reset password Logout",
     "xpath": "//div[contains(normalize-space(text()), 'demouser2@demo.sureadhere.com\n  Choose language:\n  Reset password\n  Logout')]"
   },
-  "div_demouser2@_60": {
+  "current-user-name": {
     "class": "current-user-name",
     "tag": "div",
-    "text": "demouser2@demo.sureadhere.com",
-    "xpath": "//div[contains(normalize-space(text()), 'demouser2@demo.sureadhere.com')]"
+    "xpath": "//div[@class='current-user-name']"
   },
   "a_Choose lan_61": {
     "tag": "a",
@@ -178,7 +177,7 @@
     "tag": "path",
     "xpath": "//path"
   },
-  "a_Reset pass_65": {
+  "a_Reset_password": {
     "tag": "a",
     "text": "Reset password",
     "xpath": "//a[contains(normalize-space(text()), 'Reset password')]"

@@ -67,15 +67,23 @@ class PatientProfilePage(BasePage):
         self.wait_for_field_value_contains('input_First_name', fname)
         self.wait_for_field_value_contains('input_Last_name', lname)
 
-    def edit_patient_form(self,mfname, mlname,  fname, lname, mrn, email, username, phn, country, site, sa_id):
+    def edit_patient_form(self,mfname, mlname,  fname, lname, mrn, email, username, phn, country, site, sa_id, patient_manager=True, treatment_monitor=True, active_patient=False):
         manager_fullname = mfname + " " + mlname
         print(manager_fullname)
         self.wait_for_patient_to_load(fname, lname)
         self.verify_patient_profile_details(fname, lname, mrn, email, username, phn, country, site)
-        self.kendo_dd_select_text_old("kendo-dropdownlist-patient-manager", manager_fullname, match="exact", timeout=25)
-        self.inactive_patient()
-
-        account_active = False
+        if patient_manager:
+            self.kendo_dd_select_text_old("kendo-dropdownlist-patient-manager", manager_fullname, match="exact", timeout=25)
+        if treatment_monitor:
+            self.kendo_dd_select_text_old("kendo-dropdownlist-treatment-monitor", manager_fullname, match="exact",
+                                          timeout=25
+                                          )
+        if active_patient:
+            self.active_patient()
+            account_active = True
+        else:
+            self.inactive_patient()
+            account_active = False
         new_fname=fname+"_new"
         new_lname=lname+"_new"
         self.type('input_First_name', new_fname)
@@ -93,10 +101,15 @@ class PatientProfilePage(BasePage):
             print("popup not present after save")
 
         print(new_fname, new_lname)
-        print(self.resolve("kendo-dropdownlist-patient-manager"))
-        patient_manager = self.kendo_dd_get_selected_text(logical_name="kendo-dropdownlist-patient-manager")
-        print(f"Selected manager is {patient_manager}")
-        assert patient_manager.strip() == manager_fullname
+
+        if patient_manager:
+            patient_manager_name = self.kendo_dd_get_selected_text(logical_name="kendo-dropdownlist-patient-manager")
+            print(f"Selected manager is {patient_manager_name}")
+            assert patient_manager_name.strip() == manager_fullname
+        if treatment_monitor:
+            treatment_monitor_name = self.kendo_dd_get_selected_text(logical_name="kendo-dropdownlist-treatment-monitor")
+            print(f"Selected Monitor is {treatment_monitor_name}")
+            assert treatment_monitor_name.strip() == manager_fullname
 
         return new_fname, new_lname, account_active
 

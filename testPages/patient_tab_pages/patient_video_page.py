@@ -96,7 +96,9 @@ class PatientVideoPage(BasePage):
         except Exception:
             print("form is not open")
 
-
+    def verify_video_error(self):
+        assert self.is_element_present('video_error'), "Video error not present"
+        print("Video error is present")
 
 
 

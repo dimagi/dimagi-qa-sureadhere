@@ -6,7 +6,7 @@ import time
 from typing import Dict, Any, Iterable, List, Tuple, Optional
 import platform
 from selenium.webdriver.common.keys import Keys
-from selenium.common.exceptions import StaleElementReferenceException, TimeoutException
+from selenium.common.exceptions import StaleElementReferenceException, TimeoutException, NoSuchFrameException
 from selenium.common.exceptions import ElementClickInterceptedException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -24,7 +24,7 @@ from selenium.common.exceptions import (
 # ---- Tunables ---------------------------------------------------------------
 
 PRIMARY_TIMEOUT = 6         # seconds for fast checks
-CLICK_TIMEOUT = 15          # seconds for user actions
+CLICK_TIMEOUT = 30          # seconds for user actions
 VISIBLE_REQUIRED = True     # only accept visible elements
 SIM_THRESHOLD = 0.62        # fuzzy match threshold for text-ish attrs
 MIN_STABLE_PREFIX = 3       # for dynamic-id starts-with heuristics
@@ -312,7 +312,7 @@ class BasePage:
         if col is not None:
             if (el.get_attribute("aria-colindex") or "").strip() != str(col):
                 return False
-        # class tokens guard (token-based, not substring)
+        # class tokens guard – ONLY for table-ish cells where we really care
         cls = entry.get("class") or ""
         if cls and not self._class_has_tokens(el, cls):
             return False
@@ -372,7 +372,7 @@ class BasePage:
         # 4) Attribute combos (equals)
         # inside your candidate builder, add aria-colindex to equality attributes
         combo_attrs = [
-            "id", "name", "type", "placeholder", "aria-label", "role",
+            "id", "name", "type", "placeholder", "aria-label", "title", "role",
             "data-testid", "data-id", "data-value", "aria-colindex"  # <--- add this
             ]
 
@@ -445,7 +445,7 @@ class BasePage:
             tag = (el.tag_name or "").lower()
             if entry.get("tag") and tag == (entry["tag"] or "").lower():
                 score += 0.35
-            for a in ["type", "placeholder", "aria-label", "name", "id", "class"]:
+            for a in ["type", "placeholder", "aria-label", "name", "id", "class", "title", "role"]:
                 want = entry.get(a)
                 if not want:
                     continue
@@ -554,6 +554,13 @@ class BasePage:
         sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
         self.sb.wait_for_element(sel, timeout=timeout)
 
+    def wait_for_text(self, text: str, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
+        sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
+        text = text.strip()
+        self.sb.wait_for_element_present(sel, timeout=timeout)
+        self.sb.wait_for_element_visible(sel, timeout=timeout)
+        self.sb.wait_for_text(text, sel, timeout=timeout)
+
     def find_elements(self, logical_name: str, timeout: int = CLICK_TIMEOUT):
         sel = self.resolve_strict(logical_name)
         print(sel)
@@ -565,6 +572,30 @@ class BasePage:
 
         # Return all currently matching elements
         return self.sb.find_elements(sel)
+
+    def find_elements_raw(self, selector: str, by: str = "xpath", timeout: int = 10):
+        by = by.lower()
+        if by == "xpath":
+            by_type = By.XPATH
+        elif by == "css":
+            by_type = By.CSS_SELECTOR
+        elif by == "id":
+            by_type = By.ID
+        elif by == "name":
+            by_type = By.NAME
+        else:
+            raise ValueError(f"Unsupported selector type: {by}")
+
+        print(f"[RAW FIND] {by_type} -> {selector}")
+
+        try:
+            WebDriverWait(self.driver, timeout).until(
+                lambda d: d.find_elements(by_type, selector)
+                )
+        except TimeoutException:
+            return []
+
+        return self.driver.find_elements(by_type, selector)
 
     def go_back(self):
         """Go back one page in browser history."""
@@ -590,6 +621,11 @@ class BasePage:
         # self.sb.highlight(sel)
         self.sb.type(sel, value)
 
+    def idle_wait(self, idle_time=300):
+        print(f"⏳ Simulating {idle_time / 60} minutes of inactivity...")
+        for i in range(idle_time // 60):
+            time.sleep(60)
+            print(f"   ... {i + 1} minute(s) passed")
 
     def type_and_trigger(self, logical_name: str, text: str, *,
                          timeout: int = 15, blur: bool = True, clear_first: bool = True):
@@ -874,6 +910,22 @@ class BasePage:
         val = self.get_attribute(logical_name, "checked", normalize=False)  # bool or "true"/None
         # Selenium returns "true"/None for boolean attrs; some drivers return True/False
         return bool(val) and str(val).lower() != "false"
+
+    def is_field_enabled(self, logical_name: str, timeout: int = 10) -> bool:
+        """
+        Returns True if the field is enabled, False otherwise.
+        Works for inputs, checkboxes, buttons, selects, etc.
+        """
+        sel = self.resolve(logical_name)
+        el = self._get_webelement(sel, timeout=timeout)
+
+        try:
+            enabled = el.is_enabled()
+        except Exception:
+            enabled = False
+
+        print(f"[IS ENABLED] {logical_name} → {enabled}")
+        return enabled
 
     # --- Gone / absent waits -------------------------------------------------
     def _by_tuple(self, selector):
@@ -3413,4 +3465,267 @@ class BasePage:
         return (dt.replace(second=0, microsecond=0)
                 + timedelta(minutes=1) if dt.second >= 30 else dt.replace(second=0, microsecond=0))
 
+    def get_current_url(self):
+        return self.sb.get_current_url()
 
+    def normalize_values(self, values: list[str]):
+        """
+        Convert values into comparable formats:
+        - Phone numbers (10 digits) => keep as strings (preserve leading zeros)
+        - Pure numerics => floats
+        - Otherwise => strings
+        """
+        cleaned = [v for v in values if v is not None]
+        if not cleaned:
+            return cleaned
+
+        # Phone numbers: keep as strings
+        if all(str(v).isdigit() and len(str(v)) == 10 for v in cleaned):
+            return [str(v) for v in cleaned]
+
+        # Try numeric conversion (all must be numeric)
+        numeric = []
+        for v in cleaned:
+            s = str(v).strip()
+            try:
+                numeric.append(float(s.replace(",", "")))
+            except ValueError:
+                return [str(x) for x in cleaned]  # fallback to strings
+
+        return numeric
+
+    def try_parse_datetime(self, value: str):
+        formats = [
+            "%b %d %H:%M:%S",
+            "%b %d %Y %H:%M:%S",
+            ]
+        for fmt in formats:
+            try:
+                dt = datetime.strptime(value, fmt)
+                if "%Y" not in fmt:
+                    dt = dt.replace(year=datetime.now().year)
+                return dt
+            except ValueError:
+                pass
+        return None
+
+    def is_sorted(self, final_values, sorted_as: str):
+        if not final_values:
+            return
+
+        reverse = (sorted_as == "descending")
+
+        # 1) datetime?
+        parsed = []
+        date_mode = True
+        for v in final_values:
+            dt = self.try_parse_datetime(str(v).strip())
+            if dt is None:
+                date_mode = False
+                break
+            parsed.append(dt)
+
+        if date_mode:
+            expected = sorted(parsed, reverse=reverse)
+            if parsed != expected:
+                print("ACTUAL datetimes :", parsed)
+                print("EXPECTED datetimes:", expected)
+                raise AssertionError(f"Date column NOT sorted {sorted_as}")
+            return
+
+        # 2) numeric?
+        if isinstance(final_values[0], (int, float)):
+            expected = sorted(final_values, reverse=reverse)
+            if final_values != expected:
+                print("ACTUAL :", final_values)
+                print("EXPECTED:", expected)
+                raise AssertionError(f"Column NOT sorted {sorted_as}")
+            return
+
+        # 3) strings: try BOTH lexicographic and natural (Kendo varies by column)
+        if self.is_email_column(final_values):
+            expected_lex = sorted(final_values, key=lambda s: str(s).casefold(), reverse=reverse)
+            if final_values != expected_lex:
+                print("ACTUAL :", final_values)
+                print("EXPECTED (LEX):", expected_lex)
+                raise AssertionError(f"Email column NOT sorted {sorted_as}")
+            return
+
+        expected_lex = sorted(final_values, key=lambda s: str(s).casefold(), reverse=reverse)
+        expected_nat = sorted(final_values, key=self.natural_key, reverse=reverse)
+
+        if final_values == expected_lex or final_values == expected_nat:
+            return  # ✅ matches at least one valid Kendo-like ordering
+
+        print("ACTUAL :", final_values)
+        print("EXPECTED (LEX):", expected_lex)
+        print("EXPECTED (NAT):", expected_nat)
+        raise AssertionError(f"Column NOT sorted {sorted_as}")
+
+    def _get_column_values(self, col_index: int) -> list[str]:
+        """
+        Reads values from a Kendo table column (1-based index).
+        Uses k-table-row + k-table-td (your DOM).
+        Skips the first row if it contains 0 cells (header-like row).
+        """
+        rows = self.find_elements_raw("//*[contains(@class,'k-table-row')]", by="xpath")
+        print(f"DEBUG: found {len(rows)} rows for column {col_index}")
+
+        values = []
+        for i, row in enumerate(rows, start=1):
+            cells = row.find_elements(By.XPATH, ".//*[contains(@class,'k-table-td')]")
+            # print(f"  Row {i}: {len(cells)} cells")  # very noisy
+
+            if len(cells) < col_index:
+                continue
+
+            txt = (cells[col_index - 1].text or "").strip()
+            if txt:
+                values.append(txt)
+
+        return values
+
+    def kendo_multiselect_clear_all(self, input_logical_name: str, timeout: int = 10) -> None:
+        sel = self.resolve(input_logical_name)
+        inp = self._get_webelement(sel, timeout=timeout)
+
+        # Focus input (safe)
+        try:
+            inp.click()
+        except Exception:
+            pass
+
+        # ✅ EARLY GUARD: ensure this IS a Kendo MultiSelect
+        try:
+            ms_container = inp.find_element(By.XPATH, "ancestor::*[contains(@class,'k-multiselect')]")
+        except Exception:
+            print(
+                f"[kendo_multiselect_clear_all] "
+                f"Element '{input_logical_name}' is not inside a Kendo MultiSelect. Skipping."
+                )
+            return
+
+        # ⚠️ Only now it is safe to resolve root
+        try:
+            root = self._ms_root(inp)
+        except TimeoutException:
+            print(
+                f"[kendo_multiselect_clear_all] "
+                f"Kendo widget not ready for '{input_logical_name}'. Skipping clear."
+                )
+            return
+
+        wait = WebDriverWait(self.driver, timeout)
+
+        def chips():
+            return root.find_elements(By.CSS_SELECTOR, ".k-chip-list .k-chip")
+
+        # ✅ NEW: if no chips, do nothing
+        if not chips():
+            print(
+                f"[kendo_multiselect_clear_all] "
+                f"No selections present for '{input_logical_name}'. Nothing to clear."
+                )
+            return
+
+        # Try global clear icon
+        clear_btns = root.find_elements(
+            By.CSS_SELECTOR,
+            ".k-clear-value, .k-multiselect-clearable .k-clear-value"
+            )
+        if clear_btns:
+            try:
+                clear_btns[0].click()
+                wait.until(lambda d: len(chips()) == 0)
+                return
+            except Exception:
+                pass
+
+        # Fallback: remove chip-by-chip
+        end = time.time() + timeout
+        while time.time() < end and chips():
+            btns = root.find_elements(
+                By.CSS_SELECTOR,
+                ".k-chip-remove-action, .k-chip-remove, .k-chip .k-icon.k-i-close"
+                )
+            if not btns:
+                break
+
+            try:
+                btns[0].click()
+            except StaleElementReferenceException:
+                continue
+            except Exception:
+                try:
+                    self.driver.execute_script("arguments[0].click();", btns[0])
+                except Exception:
+                    break
+
+            time.sleep(0.1)
+
+        try:
+            wait.until(lambda d: len(chips()) == 0)
+        except TimeoutException:
+            print(
+                f"⚠ kendo_multiselect_clear_all('{input_logical_name}'): "
+                f"{len(chips())} chip(s) still remain"
+                )
+
+    def get_li_items(self, ul_logical_name: str, timeout: int = 10) -> list[str]:
+        """
+        Given a locator for a <ul>, return text of all <li> elements under it.
+        """
+
+        sel = self.resolve(ul_logical_name)
+        try:
+            ul = self._get_webelement(sel, timeout=timeout)
+        except TimeoutException:
+            return []
+
+        lis = ul.find_elements(By.TAG_NAME, "li")
+        values = [li.text.strip() for li in lis if li.text.strip()]
+
+        print(f"[UL → LI VALUES] {values}")
+        return values
+
+    def assert_list_contains_only(self, actual: list, expected: list):
+        """
+        Assert that actual list contains ONLY expected values (order-independent).
+        """
+        actual_set = set(actual)
+        expected_set = set(expected)
+
+        missing = expected_set - actual_set
+        extra = actual_set - expected_set
+
+        assert not missing and not extra, (
+            f"List contents mismatch.\n"
+            f"Missing: {sorted(missing)}\n"
+            f"Extra  : {sorted(extra)}\n"
+            f"Actual : {actual}"
+        )
+
+    def get_elements_texts(self, logical_name: str, timeout: int = 10) -> list[str]:
+        """
+        Given a logical locator that matches multiple elements,
+        return text of all matching elements.
+        """
+
+        sel = self.resolve(logical_name)
+
+        try:
+            elements = self.find_elements(logical_name, timeout=timeout)
+        except TimeoutException:
+            return []
+
+        values = [el.text.strip() for el in elements if el.text and el.text.strip()]
+
+        print(f"[ELEMENT TEXTS → {logical_name}] {values}")
+        return values
+
+    def natural_key(self, s):
+        return [int(x) if x.isdigit() else x.casefold()
+                for x in re.split(r"(\d+)", str(s))]
+
+    def is_email_column(self, values):
+        return values and all("@" in str(v) for v in values)

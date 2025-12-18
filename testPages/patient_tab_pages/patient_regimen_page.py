@@ -75,7 +75,20 @@ class PatientRegimenPage(BasePage):
         except Exception:
             time.sleep(5)
             values = self.kendo_dd_get_all_texts("kendo-dropdownlist-Disease")
-        selected_disease = random.choice(values)
+        # ✅ keep only single-word values without ',' or '/'
+        filtered = [
+            v for v in values
+            if v
+               and ',' not in v
+               and '/' not in v
+            ]
+
+        if not filtered:
+            raise AssertionError("No valid single-word disease found in dropdown")
+
+        selected_disease = random.choice(filtered)
+        print(f"Selected disease: {selected_disease}")
+
         self.kendo_dd_select_text_old('kendo-dropdownlist-Disease', selected_disease)
         print(self.resolve('span_NEW_SCHEDULE'))
         self.click_robust('span_NEW_SCHEDULE')
@@ -107,8 +120,9 @@ class PatientRegimenPage(BasePage):
         self.kendo_select("input_drugs", text=selected_drug)
         # self.kendo_select_first("input_drugs")
         time.sleep(4)
-        assert selected_drug == self.get_text('label_Drug_name_text'), "Incorrect drug added"
-        print("correct drug added")
+        present_text = self.get_text('label_Drug_name_text')
+        assert selected_drug == present_text, f"Incorrect drug added: {present_text} is not same as {selected_drug} "
+        print(f"Correct drug added: {present_text} is same as {selected_drug} ")
 
         self.wait_for_element('span_drug_colour', 50)
         colour_code = self.get_attribute('span_drug_colour', "style")
