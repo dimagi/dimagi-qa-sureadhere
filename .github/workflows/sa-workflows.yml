@@ -175,7 +175,7 @@ jobs:
             					"type": "section",
             					"text": {
             						"type": "mrkdwn",
-            						"text": " Hola :bye_boo: \n*${{ github.workflow }} Run# ${context.runNumber}* were just triggered by ${{ github.event_name }}! \n"
+            						"text": " Hola :bye_boo: \n*${{ github.workflow }} Run #${{ github.run_number }}* were just triggered by ${{ github.event_name }}! \n"
             					}
             				},
             				{
@@ -244,7 +244,7 @@ jobs:
             					"type": "section",
             					"text": {
             						"type": "mrkdwn",
-            						"text": " Hola :bye_boo: \n*${{ github.workflow }} Run# ${context.runNumber}* were just triggered by ${{ github.event_name }}! \n"
+            						"text": " Hola :bye_boo: \n*${{ github.workflow }} Run #${{ github.run_number }}* were just triggered by ${{ github.event_name }}! \n"
             					}
             				},
             				{
