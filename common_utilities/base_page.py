@@ -3494,19 +3494,46 @@ class BasePage:
 
         return numeric
 
+    # def try_parse_datetime(self, value: str):
+    #     formats = [
+    #         "%b %d %H:%M:%S",
+    #         "%b %d %Y %H:%M:%S",
+    #         ]
+    #     for fmt in formats:
+    #         try:
+    #             dt = datetime.strptime(value, fmt)
+    #             if "%Y" not in fmt:
+    #                 dt = dt.replace(year=datetime.now().year)
+    #             return dt
+    #         except ValueError:
+    #             pass
+    #     return None
+
     def try_parse_datetime(self, value: str):
         formats = [
-            "%b %d %H:%M:%S",
-            "%b %d %Y %H:%M:%S",
+            "%b %d %H:%M:%S",  # Dec 10 19:53:15
+            "%b %d %Y %H:%M:%S",  # Dec 10 2025 19:53:15
             ]
+
+        value = (value or "").strip()
+        now = datetime.now()
+
         for fmt in formats:
             try:
                 dt = datetime.strptime(value, fmt)
+
+                # If year not provided, infer it
                 if "%Y" not in fmt:
-                    dt = dt.replace(year=datetime.now().year)
+                    dt = dt.replace(year=now.year)
+
+                    # ✅ If it ends up in the future, it belongs to last year
+                    if dt > now:
+                        dt = dt.replace(year=now.year - 1)
+
                 return dt
             except ValueError:
                 pass
+
         return None
 
     def is_sorted(self, final_values, sorted_as: str):
