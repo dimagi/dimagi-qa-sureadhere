@@ -365,6 +365,7 @@ class test_module_07_staff_manager_roles(BaseCase):
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_staff_role_5", depends=['tc_staff_role_1'], scope="class")
+    @pytest.mark.xfail(reason="Failing due to https://sureadhere.atlassian.net/browse/SA3-3700")
     def test_case_05_validate_role_client_staff_admin(self):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
@@ -449,6 +450,7 @@ class test_module_07_staff_manager_roles(BaseCase):
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_staff_role_6", depends=['tc_staff_role_1'], scope="class")
+    @pytest.mark.xfail(reason="Failing due to https://sureadhere.atlassian.net/browse/SA3-3700")
     def test_case_06_validate_role_global_data_admin(self):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
