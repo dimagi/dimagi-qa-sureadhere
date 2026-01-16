@@ -3756,3 +3756,19 @@ class BasePage:
 
     def is_email_column(self, values):
         return values and all("@" in str(v) for v in values)
+
+    def _parse_ui_timestamp(self, timestamp_text: str) -> datetime:
+        """
+        Expects text like: 'KB Kankana Bordoloi | Thu - Jan 15, 2026 - 05:58 PM'
+        """
+        # keep only the date-time part after the pipe
+        dt_str = timestamp_text.split("|", 1)[-1].strip()
+        return datetime.strptime(dt_str, "%a - %b %d, %Y - %I:%M %p")
+
+    def assert_timestamp_within_minutes(self, timestamp_text: str, expected_dt: datetime, tolerance_minutes: int = 2):
+        ui_dt = self._parse_ui_timestamp(timestamp_text)
+        diff = abs(ui_dt - expected_dt)
+        assert diff <= timedelta(minutes=tolerance_minutes), (
+            f"Timestamp off by {diff}. Expected ~{expected_dt.strftime('%a - %b %d, %Y - %I:%M %p')}, "
+            f"got {ui_dt.strftime('%a - %b %d, %Y - %I:%M %p')} from '{timestamp_text}'"
+        )

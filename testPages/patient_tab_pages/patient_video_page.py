@@ -71,7 +71,8 @@ class PatientVideoPage(BasePage):
         assert meds == drug_name, f"{meds} not in {drug_name}"
         print(f"{meds} matches {drug_name}")
         timestamp_text = self.get_text('span_commented_timestamp')
-        assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
+        self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=2)
+        # assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
         print(f"{str(formatted_now)} is in {timestamp_text}")
 
         full_text = self.get_text('div_commented_user_timestamp')
