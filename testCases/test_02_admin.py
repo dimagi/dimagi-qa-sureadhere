@@ -154,7 +154,7 @@ class test_module_02_admin(BaseCase):
         login.after_logout()
         login.login(self.settings["login_username"], self.settings["login_password"])
 
-        home.open_dashboard_page()
+        home.validate_dashboard_page()
         home.open_admin_page()
         admin.validate_admin_page(default_client)
         admin.expand_diseases()

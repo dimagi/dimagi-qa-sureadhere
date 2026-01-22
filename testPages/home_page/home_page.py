@@ -30,7 +30,7 @@ class HomePage(BasePage):
 
     def open_dashboard_page(self):
         self.click('p_Dashboard')
-        self.wait_for_page_to_load(150)
+        self.wait_for_page_to_load(100)
         time.sleep(6)
 
     def open_reports_page(self):
