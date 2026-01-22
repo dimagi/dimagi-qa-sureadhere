@@ -365,7 +365,7 @@ class test_module_07_staff_manager_roles(BaseCase):
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_staff_role_5", depends=['tc_staff_role_1'], scope="class")
-    @pytest.mark.xfail(reason="Failing due to https://sureadhere.atlassian.net/browse/SA3-3700")
+    # @pytest.mark.xfail(reason="Failing due to https://sureadhere.atlassian.net/browse/SA3-3700")
     def test_case_05_validate_role_client_staff_admin(self):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
@@ -436,7 +436,7 @@ class test_module_07_staff_manager_roles(BaseCase):
         staff.search_staff(fname, lname, email, phn,  manager=None, site=site)
         staff.open_staff(fname, lname)
         user_staff.verify_presence_of_save_button(presence=True)
-        user_staff.edit_staff_info_options(fname, lname, remove_managers=['PM'])
+        user_staff.edit_staff_info_options(fname, lname, remove_managers=['SS'])
         user_staff.save_changes()
         staff.search_staff(fname, lname, email, phn,  manager=None, site=site)
 
