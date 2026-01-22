@@ -8,7 +8,7 @@ class HomePage(BasePage):
         super().__init__(sb, page_name=page_name)
 
     def validate_dashboard_page(self):
-        self.wait_for_page_to_load()
+        self.wait_for_page_to_load(60)
         self.verify_page_title("SureAdhere", 60)
         self.wait_for_element("p_Dashboard", 100)
         assert self.is_element_visible("p_Dashboard"), "Its is not the Dashboard"
@@ -16,7 +16,7 @@ class HomePage(BasePage):
         time.sleep(3)
 
     def validate_not_dashboard_page(self):
-        self.wait_for_page_to_load()
+        self.wait_for_page_to_load(60)
         assert not self.is_element_present("p_Dashboard")
         time.sleep(3)
 
@@ -25,15 +25,18 @@ class HomePage(BasePage):
 
     def open_manage_staff_page(self):
         self.click('p_Staff')
-        self.wait_for_page_to_load()
+        self.wait_for_page_to_load(60)
+        time.sleep(10)
 
     def open_dashboard_page(self):
         self.click('p_Dashboard')
-        self.wait_for_page_to_load()
+        self.wait_for_page_to_load(60)
+        time.sleep(10)
 
     def open_reports_page(self):
         self.click('p_Reports')
-        self.wait_for_page_to_load()
+        self.wait_for_page_to_load(60)
+        time.sleep(10)
 
     def click_admin_profile_button(self):
         time.sleep(2)
@@ -82,12 +85,13 @@ class HomePage(BasePage):
 
     def open_manage_patient_page(self):
         self.click('p_Patients')
-        self.wait_for_page_to_load()
+        self.wait_for_page_to_load(60)
+        time.sleep(10)
 
     def open_admin_page(self):
         self.click('p_Admin')
-        time.sleep(5)
-        self.wait_for_page_to_load()
+        time.sleep(10)
+        self.wait_for_page_to_load(60)
 
     def check_for_quick_actions(self):
         self.wait_for_element('div-quick_actions')
@@ -110,7 +114,7 @@ class HomePage(BasePage):
                 print(f"{sa_id} is present. Matches {sa_id_text}")
                 vids.click()
                 time.sleep(10)
-                self.wait_for_page_to_load()
+                self.wait_for_page_to_load(60)
                 break  # stop looping after success
             else:
                 print(f"{sa_id} does not match {sa_id_text}")
