@@ -31,8 +31,8 @@ class UserData:
         "Regimen approval workflow": "OFF"
         }
     invalid_password = "12auto34test!"
-    inactive_user_email = "automation.inactive@email.com"
-    inactive_user_email_rogers = "automation.inactive+test@email.com"
+    inactive_user_email = "automation.inactive@gmail.com"
+    inactive_user_email_rogers = "automation.inactive+test@gmail.com"
     inactive_user_full_name = "Automation Inactive"
     invalid_credential_error = ["Invalid email or password. Please try again.", "Your password is incorrect", "We can't seem to find your account"]
     invalid_email = "invalid!!__@test.com"
