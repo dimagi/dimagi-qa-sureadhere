@@ -86,7 +86,7 @@ class PatientVideoPage(BasePage):
             self.wait_for_overlays_to_clear(5)
         except Exception:
             print("popup not present after save")
-        return formatted_now, review_text
+        return now, formatted_now, review_text
 
     def close_form(self):
         try:

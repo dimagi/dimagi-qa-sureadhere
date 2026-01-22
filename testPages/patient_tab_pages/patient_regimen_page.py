@@ -115,7 +115,21 @@ class PatientRegimenPage(BasePage):
         # assert "Drug 1" in self.kendo_ms_get_selected("kendo-multiselect-drugs")
         self.wait_for_element("kendo-multiselect-drugs")
         drugs = self.kendo_ms_get_all_texts("kendo-multiselect-drugs")
-        selected_drug = random.choice(drugs)
+        filtered_drugs = [
+            d.strip() for d in drugs
+            if d and d.strip()
+               and ',' not in d
+               and '/' not in d
+               and ' ' not in d
+               and 'Sofosbuvir' not in d  # optional: single-word only
+            ]
+
+        if not filtered_drugs:
+            raise AssertionError(f"No valid drug found. Raw drugs list: {drugs}")
+
+        selected_drug = random.choice(filtered_drugs)
+        print(f"Selected drug: {selected_drug}")
+
         self.click('kendo-multiselect-drugs')
         self.kendo_select("input_drugs", text=selected_drug)
         # self.kendo_select_first("input_drugs")
