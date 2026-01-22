@@ -171,9 +171,9 @@ class test_module_03(BaseCase):
         home.check_for_quick_actions()
         home.check_for_video_review(d["patient_fname"]+" "+d["patient_lname"], d['SA_ID'])
         p_vdo.verify_patient_video_page()
-        formatted_now, review_text=p_vdo.fill_up_review_form(d['drug_name'], d['total_pills'],d['dose_per_pill'])
+        now, formatted_now, review_text=p_vdo.fill_up_review_form(d['drug_name'], d['total_pills'],d['dose_per_pill'])
         p_adhere.verify_patient_adherence_page()
-        p_adhere.check_calendar_and_comment_for_adherence(formatted_now, review_text)
+        p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
         side_effect = p_adhere.fillup_side_effects()
         p_vdo.close_form()
         self.__class__.data.update(

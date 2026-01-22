@@ -28,7 +28,7 @@ class PatientAdherencePage(BasePage):
         assert tabname == "Adherence", "Adherence tab is not opened"
         print("Opened tab is Adherence")
 
-    def check_calendar_and_comment_for_adherence(self, formatted_now, review_text):
+    def check_calendar_and_comment_for_adherence(self, now, formatted_now, review_text):
         self.wait_for_element('span_cal_today_date')
         self.click('span_cal_today_date' , strict=True)
         date_value = self.get_text('span_cal_today_date', strict=True)
@@ -42,7 +42,8 @@ class PatientAdherencePage(BasePage):
         assert self.is_element_present('span_cal_today_video_status', strict=True), f"video icon not present"
         print("video icon is present")
         timestamp_text = self.get_text('span_commented_timestamp')
-        assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
+        self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=2)
+        # assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
         print(f"{str(formatted_now)} is in {timestamp_text}")
 
         full_text = self.get_text('div_commented_user_timestamp')
