@@ -130,7 +130,6 @@ class PatientRegimenPage(BasePage):
         selected_drug = random.choice(filtered_drugs)
         print(f"Selected drug: {selected_drug}")
 
-        selected_drug = random.choice(drugs)
         self.click('kendo-multiselect-drugs')
         self.kendo_select("input_drugs", text=selected_drug)
         # self.kendo_select_first("input_drugs")
