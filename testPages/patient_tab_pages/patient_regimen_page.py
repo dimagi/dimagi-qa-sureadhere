@@ -121,7 +121,8 @@ class PatientRegimenPage(BasePage):
             if d and d.strip()
                and ',' not in d
                and '/' not in d
-               and ' ' not in d  # optional: single-word only
+               and ' ' not in d
+               and 'Sofosbuvir' not in d # optional: single-word only
             ]
 
         if not filtered_drugs:

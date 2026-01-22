@@ -7,8 +7,8 @@ class HomePage(BasePage):
     def __init__(self, sb, page_name):
         super().__init__(sb, page_name=page_name)
 
-    def validate_dashboard_page(self):
-        self.wait_for_page_to_load(150)
+    def validate_dashboard_page(self, timeout=150):
+        self.wait_for_page_to_load(timeout)
         self.verify_page_title("SureAdhere", 60)
         self.wait_for_element("p_Dashboard", 100)
         assert self.is_element_visible("p_Dashboard"), "Its is not the Dashboard"
@@ -30,7 +30,7 @@ class HomePage(BasePage):
 
     def open_dashboard_page(self):
         self.click('p_Dashboard')
-        self.wait_for_page_to_load(100)
+        self.wait_for_page_to_load()
         time.sleep(6)
 
     def open_reports_page(self):
