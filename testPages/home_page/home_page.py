@@ -16,7 +16,7 @@ class HomePage(BasePage):
         time.sleep(3)
 
     def validate_not_dashboard_page(self):
-        self.wait_for_page_to_load(80)
+        self.wait_for_page_to_load()
         assert not self.is_element_present("p_Dashboard")
         time.sleep(3)
 
@@ -25,17 +25,17 @@ class HomePage(BasePage):
 
     def open_manage_staff_page(self):
         self.click('p_Staff')
-        self.wait_for_page_to_load(80)
+        self.wait_for_page_to_load()
         time.sleep(6)
 
     def open_dashboard_page(self):
         self.click('p_Dashboard')
-        self.wait_for_page_to_load(80)
+        self.wait_for_page_to_load(150)
         time.sleep(6)
 
     def open_reports_page(self):
         self.click('p_Reports')
-        self.wait_for_page_to_load(80)
+        self.wait_for_page_to_load()
         time.sleep(6)
 
     def click_admin_profile_button(self):
@@ -85,13 +85,13 @@ class HomePage(BasePage):
 
     def open_manage_patient_page(self):
         self.click('p_Patients')
-        self.wait_for_page_to_load(80)
+        self.wait_for_page_to_load()
         time.sleep(6)
 
     def open_admin_page(self):
         self.click('p_Admin')
         time.sleep(6)
-        self.wait_for_page_to_load(80)
+        self.wait_for_page_to_load()
 
     def check_for_quick_actions(self):
         self.wait_for_element('div-quick_actions')
