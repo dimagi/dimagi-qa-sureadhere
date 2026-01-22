@@ -150,8 +150,8 @@ class PatientRegimenPage(BasePage):
         print( f"Total dose match: {str(UserData.no_of_pills * UserData.dose_per_pill)} and {total_pills}")
 
         self.click_robust('button_CREATE')
-        self.wait_for_page_to_load()
-        time.sleep(5)
+        self.wait_for_page_to_load(60)
+        time.sleep(15)
 
         # Example: start on 2025-10-27, weekdays only, for 3 weeks
 
