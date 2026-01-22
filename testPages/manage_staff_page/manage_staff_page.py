@@ -76,7 +76,7 @@ class ManageStaffPage(BasePage):
 
     def open_inactive_tab(self):
         self.click("li_span_Inactive_tab")
-        time.sleep(5)
+        time.sleep(15)
         self.wait_for_page_to_load()
         self.wait_for_element("span_Manage_staff", 50)
         self.wait_for_element("tbody_staff", 100)
@@ -84,7 +84,7 @@ class ManageStaffPage(BasePage):
 
     def open_test_tab(self):
         self.click("li_span_Test_tab")
-        time.sleep(5)
+        time.sleep(15)
         self.wait_for_page_to_load()
         self.wait_for_element("span_Manage_staff", 50)
         self.wait_for_element("tbody_staff", 100)
