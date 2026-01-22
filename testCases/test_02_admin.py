@@ -90,6 +90,7 @@ class test_module_02_admin(BaseCase):
              "drug_switch": drug_switch, "drug_name": drug_name}
             )
 
+
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_admin_2", depends=['tc_admin_1'] ,scope="class")
     def test_case_02_verify_disease_and_drugs(self):
@@ -115,10 +116,17 @@ class test_module_02_admin(BaseCase):
         else:
             default_client = UserData.client[2]
 
-        home.click_admin_profile_button()
-        profile.logout_user()
-        login.after_logout()
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        try:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+        except:
+            print("Logged out already")
+
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except:
+            print("Not the Login Page")
 
         home.open_dashboard_page()
         home.open_manage_patient_page()
