@@ -115,22 +115,7 @@ class PatientRegimenPage(BasePage):
         # assert "Drug 1" in self.kendo_ms_get_selected("kendo-multiselect-drugs")
         self.wait_for_element("kendo-multiselect-drugs")
         drugs = self.kendo_ms_get_all_texts("kendo-multiselect-drugs")
-
-        filtered_drugs = [
-            d.strip() for d in drugs
-            if d and d.strip()
-               and ',' not in d
-               and '/' not in d
-               and ' ' not in d
-               and 'Sofosbuvir' not in d # optional: single-word only
-            ]
-
-        if not filtered_drugs:
-            raise AssertionError(f"No valid drug found. Raw drugs list: {drugs}")
-
-        selected_drug = random.choice(filtered_drugs)
-        print(f"Selected drug: {selected_drug}")
-
+        selected_drug = random.choice(drugs)
         self.click('kendo-multiselect-drugs')
         self.kendo_select("input_drugs", text=selected_drug)
         # self.kendo_select_first("input_drugs")
@@ -150,8 +135,8 @@ class PatientRegimenPage(BasePage):
         print( f"Total dose match: {str(UserData.no_of_pills * UserData.dose_per_pill)} and {total_pills}")
 
         self.click_robust('button_CREATE')
-        self.wait_for_page_to_load(60)
-        time.sleep(15)
+        self.wait_for_page_to_load()
+        time.sleep(5)
 
         # Example: start on 2025-10-27, weekdays only, for 3 weeks
 
