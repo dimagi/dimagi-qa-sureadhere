@@ -225,8 +225,6 @@ class test_module_06_staff_tests(BaseCase):
         login.after_logout()
 
 
-
-
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_staff_8", depends= ["tc_staff_1"], scope="class")
     def test_case_08_search_staff(self):
@@ -236,6 +234,7 @@ class test_module_06_staff_tests(BaseCase):
         user = UserPage(self, "add_users")
         staff = ManageStaffPage(self, "staff")
         user_staff = UserStaffPage(self, "add_staff")
+        profile = UserProfilePage(self, "user")
 
         d = self.__class__.data  # shared dict
         try:
@@ -275,9 +274,12 @@ class test_module_06_staff_tests(BaseCase):
         staff.validate_manage_staff_page()
         staff.search_staff_with_partial_info(d['fname_stf'],d['lname_stf'], caps=True)
 
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_staff_10", depends=["tc_staff_1"], scope="class")
-
     def test_case_10_edit_staff(self):
         self._login_once()
         login = LoginPage(self, "login")
@@ -285,6 +287,7 @@ class test_module_06_staff_tests(BaseCase):
         user = UserPage(self, "add_users")
         staff = ManageStaffPage(self, "staff")
         user_staff = UserStaffPage(self, "add_staff")
+        profile = UserProfilePage(self, "user")
 
         d = self.__class__.data
 
@@ -331,6 +334,9 @@ class test_module_06_staff_tests(BaseCase):
         staff.search_staff(new_fname, new_lname,  manager=UserData.default_managers, site=default_site_manager)
         self.__class__.data.update({"fname_stf": new_fname, "lname_stf": new_lname})
 
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_staff_11", scope="class")
