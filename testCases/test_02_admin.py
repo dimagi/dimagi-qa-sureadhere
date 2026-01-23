@@ -92,8 +92,8 @@ class test_module_02_admin(BaseCase):
 
 
     @pytest.mark.smoketest
-    @pytest.mark.dependency(name="tc_admin_2", depends=['tc_admin_1'] ,scope="class")
-    def test_case_02_verify_disease_and_drugs(self):
+    @pytest.mark.dependency(name="tc_admin_2_a", depends=['tc_admin_1'] ,scope="class")
+    def test_case_02_verify_disease_and_drugs_part_1(self):
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
@@ -135,18 +135,6 @@ class test_module_02_admin(BaseCase):
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
         p_regimen.verify_diseases_present(d['disease_name'], d['disease_switch'])
-
-        try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-        except Exception:
-            print("Login Page is not present")
-
-        home.open_dashboard_page()
-        home.open_manage_patient_page()
-        patient.search_test_patients()
-        patient.open_first_patient()
-        p_regimen.open_patient_regimen_page()
-        p_regimen.verify_patient_regimen_page()
         p_regimen.verify_drugs_present(d['drug_name'], d['drug_switch'])
 
         home.click_admin_profile_button()
@@ -187,9 +175,7 @@ class test_module_02_admin(BaseCase):
         a_drug.double_check_on_toggle(drug_name, drug_switch_now)
 
         print(f"Before: {d['disease_switch']}, Drug Name: {disease_name}, After: {disease_switch_now}")
-
-        print("sleeping for the changes to reflect...")
-        time.sleep(15)
+        print(f"Before: {d['drug_switch']}, Drug Name: {d['drug_name']}, After: {drug_switch_now}")
 
         try:
             home.open_dashboard_page()
@@ -197,26 +183,18 @@ class test_module_02_admin(BaseCase):
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.open_dashboard_page()
 
-
         home.open_manage_patient_page()
         patient.search_test_patients()
         patient.open_first_patient()
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
         p_regimen.verify_diseases_present(disease_name, disease_switch_now)
-
-        home.open_dashboard_page()
-        print(f"Before: {d['drug_switch']}, Drug Name: {d['drug_name']}, After: {drug_switch_now}")
-        home.open_manage_patient_page()
-        patient.search_test_patients()
-        patient.open_first_patient()
-        p_regimen.open_patient_regimen_page()
-        p_regimen.verify_patient_regimen_page()
         p_regimen.verify_drugs_present(drug_name, drug_switch_now)
 
         home.click_admin_profile_button()
         profile.logout_user()
         login.after_logout()
+
 
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_admin_3", scope="class")
