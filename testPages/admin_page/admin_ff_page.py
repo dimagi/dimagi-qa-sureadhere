@@ -19,7 +19,6 @@ class AdminFFPage(BasePage):
     def validate_admin_ff_page(self, client):
         self.wait_for_element('kendo-dropdownlist-input-value-Client')
         self.wait_for_element('div_content')
-        text = self.kendo_dd_get_selected_text('kendo-dropdownlist-input-value-Client')
         if self.kendo_dd_get_selected_text('kendo-dropdownlist-input-value-Client') != client:
             self.kendo_dd_select_text_old('kendo-dropdownlist-input-value-Client', client)
         else:
@@ -31,6 +30,7 @@ class AdminFFPage(BasePage):
         #     text = self.get_text('kendo-dropdownlist-input-value-Client')
         # else:
         #     print(f"Correct Client {client} is present")
+        text = self.kendo_dd_get_selected_text('kendo-dropdownlist-input-value-Client')
         assert text == client, f"Correct Client {client} is not present"
         # print(f"Correct Client {client} is not present")
         print(f"Admin Feature Flag opened with Client {text}")
