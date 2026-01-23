@@ -287,7 +287,7 @@ class test_module_06_staff_tests(BaseCase):
         user = UserPage(self, "add_users")
         staff = ManageStaffPage(self, "staff")
         user_staff = UserStaffPage(self, "add_staff")
-
+        profile = UserProfilePage(self, "user")
 
         d = self.__class__.data
 
@@ -334,6 +334,9 @@ class test_module_06_staff_tests(BaseCase):
         staff.search_staff(new_fname, new_lname,  manager=UserData.default_managers, site=default_site_manager)
         self.__class__.data.update({"fname_stf": new_fname, "lname_stf": new_lname})
 
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_staff_11", scope="class")
