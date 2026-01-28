@@ -681,7 +681,15 @@ class BasePage:
             sel = self.resolve_strict(logical_name)
         self.sb.wait_for_element(sel, timeout=timeout)
         self.sb.highlight(sel)
+
         return self.sb.get_text(sel)
+
+    def get_full_text(self, logical_name: str, timeout=30, strict: bool = False) -> str:
+        sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
+        self.sb.wait_for_element(sel, timeout=timeout)
+        el = self.sb.find_element(sel)  # SeleniumBase returns a WebElement
+        return self.sb.execute_script("return arguments[0].textContent;", el).strip()
+
 
     def is_element_present(self, logical_name: str, strict: bool = False, timeout: int = 0) -> bool:
         try:

@@ -335,13 +335,13 @@
   },
   "div_patient_name": {
     "class": "patient-name",
-    "tag": "div",
-    "xpath": "//div[@class='patient-name']"
+    "tag": "*",
+    "xpath": "//*[contains(@class,'patient-name')]"
   },
   "span_site_name": {
     "class": "ng-star-inserted",
     "tag": "span",
-    "xpath": "//div[@class='patient-name']//span[@class='ng-star-inserted']"
+    "xpath": "//*[contains(@class,'patient-name')]//span[contains(@class,'ng-star-inserted')]"
   },
   "div_pat_1 pat__94": {
     "class": "patient-name",

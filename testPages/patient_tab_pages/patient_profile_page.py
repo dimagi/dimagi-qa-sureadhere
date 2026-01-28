@@ -27,7 +27,7 @@ class PatientProfilePage(BasePage):
         email_value = self.get_value("email")
         username_value = self.get_value("user_name")
         phn_value = self.get_value("phone_number")
-        fullname_text = self.get_text("div_patient_name")
+        fullname_text = self.get_full_text("div_patient_name", strict=True)
         print(fullname_text)
         fullname_text = fullname_text.split("|")
 
