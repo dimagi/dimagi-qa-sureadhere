@@ -10,31 +10,31 @@ class HomePage(BasePage):
     def validate_dashboard_page(self, timeout=150):
         self.wait_for_page_to_load(timeout)
         self.verify_page_title("SureAdhere", 60)
-        self.wait_for_element("p_Dashboard", 100)
-        assert self.is_element_visible("p_Dashboard"), "Its is not the Dashboard"
+        self.wait_for_element("p_Dashboard", 100, strict=True)
+        assert self.is_element_visible("p_Dashboard", strict=True), "Its is not the Dashboard"
         print("This is the Dashboard")
         time.sleep(3)
 
     def validate_not_dashboard_page(self):
         self.wait_for_page_to_load()
-        assert not self.is_element_present("p_Dashboard")
+        assert not self.is_element_present("p_Dashboard", strict=True)
         time.sleep(3)
 
     def click_add_user(self):
         self.click("button_add_user")
 
     def open_manage_staff_page(self):
-        self.click('p_Staff')
+        self.click('p_Staff', strict=True)
         self.wait_for_page_to_load()
         time.sleep(6)
 
     def open_dashboard_page(self):
-        self.click('p_Dashboard')
+        self.click('p_Dashboard', strict=True)
         self.wait_for_page_to_load()
         time.sleep(6)
 
     def open_reports_page(self):
-        self.click('p_Reports')
+        self.click('p_Reports', strict=True)
         self.wait_for_page_to_load()
         time.sleep(6)
 
@@ -45,51 +45,51 @@ class HomePage(BasePage):
 
     def verify_presence_of_staff_menu(self, presence=True):
         if presence:
-            assert self.is_element_visible('p_Staff'), "Staff Menu access is missing"
+            assert self.is_element_visible('p_Staff', strict=True), "Staff Menu access is missing"
             print("Staff Menu is accessible")
         else:
-            assert not self.is_element_visible('p_Staff'), "Staff Menu is accessible"
+            assert not self.is_element_visible('p_Staff', strict=True), "Staff Menu is accessible"
             print("Staff Menu is not accessible")
 
     def verify_presence_of_patient_menu(self, presence=True):
         if presence:
-            assert self.is_element_visible('p_Patients'), "Patient Menu access is missing"
+            assert self.is_element_visible('p_Patients', strict=True), "Patient Menu access is missing"
             print("Patient Menu is accessible")
         else:
-            assert not self.is_element_visible('p_Patients'), "Patient Menu is accessible"
+            assert not self.is_element_visible('p_Patients', strict=True), "Patient Menu is accessible"
             print("Patient Menu is not accessible")
 
     def verify_presence_of_admin_menu(self, presence=True):
         if presence:
-            assert self.is_element_visible('p_Admin'), "Admin Menu access is missing"
+            assert self.is_element_visible('p_Admin', strict=True), "Admin Menu access is missing"
             print("Admin Menu is accessible")
         else:
-            assert not self.is_element_visible('p_Admin'), "Admin Menu is accessible"
+            assert not self.is_element_visible('p_Admin', strict=True), "Admin Menu is accessible"
             print("Admin Menu is not accessible")
 
     def verify_presence_of_dashboard_menu(self, presence=True):
         if presence:
-            assert self.is_element_visible('p_Dashboard'), "Dashboard Menu access is missing"
+            assert self.is_element_visible('p_Dashboard', strict=True), "Dashboard Menu access is missing"
             print("Dashboard Menu is accessible")
         else:
-            assert not self.is_element_present('p_Dashboard'), "Dashboard Menu is accessible"
+            assert not self.is_element_present('p_Dashboard', strict=True), "Dashboard Menu is accessible"
             print("Dashboard Menu is not accessible")
 
     def verify_presence_of_reports_menu(self, presence=True):
         if presence:
-            assert self.is_element_visible('p_Reports'), "Reports Menu access is missing"
+            assert self.is_element_visible('p_Reports', strict=True), "Reports Menu access is missing"
             print("Reports Menu is accessible")
         else:
-            assert not self.is_element_visible('p_Reports'), "Reports Menu is accessible"
+            assert not self.is_element_visible('p_Reports', strict=True), "Reports Menu is accessible"
             print("Reports Menu is not accessible")
 
     def open_manage_patient_page(self):
-        self.click('p_Patients')
+        self.click('p_Patients', strict=True)
         self.wait_for_page_to_load()
         time.sleep(6)
 
     def open_admin_page(self):
-        self.click('p_Admin')
+        self.click('p_Admin', strict=True)
         time.sleep(6)
         self.wait_for_page_to_load()
 

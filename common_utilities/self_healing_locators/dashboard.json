@@ -224,9 +224,9 @@
     "xpath": "//path"
   },
   "p_Dashboard": {
-    "tag": "p",
+    "tag": "*",
     "text": "Dashboard",
-    "xpath": "//p[contains(normalize-space(text()), 'Dashboard') or contains(normalize-space(text()), 'Home')]"
+    "xpath": "//*[contains(normalize-space(text()), 'Dashboard') or contains(normalize-space(text()), 'Home')]"
   },
   "li_Patients": {
     "class": "k-drawer-item",
@@ -255,9 +255,9 @@
     "xpath": "//path"
   },
   "p_Patients": {
-    "tag": "p",
+    "tag": "*",
     "text": "Patients",
-    "xpath": "//p[contains(normalize-space(text()), 'Patients')]"
+    "xpath": "//*[contains(normalize-space(text()), 'Patients')]"
   },
   "li_Staff": {
     "class": "k-drawer-item",
@@ -286,9 +286,9 @@
     "xpath": "//path"
   },
   "p_Staff": {
-    "tag": "p",
+    "tag": "*",
     "text": "Staff",
-    "xpath": "//p[contains(normalize-space(text()), 'Staff')]"
+    "xpath": "//*[contains(normalize-space(text()), 'Staff')]"
   },
   "li_Reports_82": {
     "class": "k-drawer-item",
@@ -317,9 +317,9 @@
     "xpath": "//path"
   },
   "p_Reports": {
-    "tag": "p",
+    "tag": "*",
     "text": "Reports",
-    "xpath": "//p[contains(normalize-space(text()), 'Reports')]"
+    "xpath": "//*[contains(normalize-space(text()), 'Reports')]"
   },
   "li_Admin_88": {
     "class": "k-drawer-item",
@@ -348,9 +348,9 @@
     "xpath": "//path"
   },
   "p_Admin": {
-    "tag": "p",
+    "tag": "*",
     "text": "Admin",
-    "xpath": "//p[contains(normalize-space(text()), 'Admin')]"
+    "xpath": "//*[contains(normalize-space(text()), 'Admin')]"
   },
   "kendo-drawer-content_Dashboard _94": {
     "class": "k-drawer-content",
