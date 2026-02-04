@@ -226,7 +226,7 @@
   "p_Dashboard": {
     "tag": "p",
     "text": "Dashboard",
-    "xpath": "//p[contains(normalize-space(text()), 'Dashboard')]"
+    "xpath": "//p[contains(normalize-space(text()), 'Dashboard') or contains(normalize-space(text()), 'Home')]"
   },
   "li_Patients": {
     "class": "k-drawer-item",

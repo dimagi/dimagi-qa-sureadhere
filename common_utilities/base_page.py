@@ -301,12 +301,11 @@ class BasePage:
         need_tokens = [t for t in needed.split() if t]
         return all(t in have_tokens for t in need_tokens)
 
-    def _candidate_matches_entry(self, el, entry: dict) -> bool:
-        """Hard-guard: ensure found element matches key JSON attributes."""
-        # tag guard
+    def _candidate_matches_entry(self, el, entry: dict, *, ignore_tag=False) -> bool:
         tag = (entry.get("tag") or "").lower().strip()
-        if tag and (el.tag_name or "").lower().strip() != tag:
-            return False
+        if tag and not ignore_tag:
+            if (el.tag_name or "").lower().strip() != tag:
+                return False
         # aria-colindex guard
         col = entry.get("aria-colindex")
         if col is not None:
@@ -330,19 +329,23 @@ class BasePage:
         # default to XPATH
         return (By.XPATH, sel)
 
-    def _try_selector(self, sel: str, entry: dict, timeout: int):
-        """Return selector if it finds a matching element that passes attribute guard."""
-        from selenium.webdriver.support.ui import WebDriverWait
-        from selenium.webdriver.support import expected_conditions as EC
+    def _try_selector(self, sel, entry, timeout, *, ignore_tag=False):
         by = self._selector_to_by(sel)
         try:
-            el = WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located(by))
-            # Attribute guard: ensure it’s the intended element (e.g., aria-colindex='2')
-            if self._candidate_matches_entry(el, entry):
+            el = WebDriverWait(self.driver, timeout).until(
+                EC.presence_of_element_located(by)
+                )
+
+            # 🔥 NEW: if text-based locator, ensure visibility
+            if entry.get("text") and not el.is_displayed():
+                return None
+
+            if self._candidate_matches_entry(el, entry, ignore_tag=ignore_tag):
                 return sel
         except Exception:
             pass
         return None
+
 
     def _candidates_for(self, entry: Dict[str, Any]) -> List[str]:
         tag = entry.get("tag") or "*"
@@ -505,18 +508,41 @@ class BasePage:
         if not entry:
             raise KeyError(f"Locator '{logical_name}' not found in {self.page_name}")
 
-        # 1) HARD preference for explicit selectors from JSON
-        # 1) HARD preference for explicit selectors from JSON (attribute-guarded)
+        quick = min(timeout, 8)
         explicit = entry.get("xpath") or entry.get("css")
+
+        # 1) Explicit selector from JSON
         if explicit:
-            quick = min(timeout, 8)
             ok = self._try_selector(explicit, entry, timeout=quick)
             if ok:
-                self._resolved_cache[key] = explicit
-                return explicit
-            # else fall through to alternates / healing
+                if self._is_degenerate_xpath(ok):
+                    # Reject things like //p, //span, //*
+                    ok = None
+                else:
+                    self._resolved_cache[key] = ok
+                    return ok
 
-        # 2) Alternates (if any) — also attribute-guarded
+            # 🔁 TAG → * fallback (XPath only)
+            if explicit.startswith("//") and entry.get("tag"):
+                wildcard = self._xpath_with_wildcard_tag(explicit, entry["tag"])
+                if wildcard:
+                    ok = self._try_selector(
+                        wildcard,
+                        entry,
+                        timeout=quick,
+                        ignore_tag=True
+                        )
+                    if ok:
+                        if self._is_degenerate_xpath(ok):
+                            # 🔥 DO NOT ACCEPT //p or //* EVER
+                            ok = None
+                        else:
+                            self._resolved_cache[key] = ok
+                            if PERSIST_HEALED:
+                                self._persist_healed(logical_name, ok)
+                            return ok
+
+        # 2) Alternates
         for alt in entry.get("alternates", []):
             ok = self._try_selector(alt, entry, timeout=3)
             if ok:
@@ -525,7 +551,7 @@ class BasePage:
                     self._persist_healed(logical_name, alt)
                 return alt
 
-        # 3) Self-healing
+        # 3) Runtime self-healing
         healed = self._resolve_runtime(logical_name, entry)
         try:
             self.sb.wait_for_element(healed, timeout=timeout)
@@ -533,10 +559,31 @@ class BasePage:
             WebDriverWait(self.driver, timeout).until(
                 EC.presence_of_element_located((By.XPATH, healed))
                 )
+
         self._resolved_cache[key] = healed
         if PERSIST_HEALED:
             self._persist_healed(logical_name, healed)
         return healed
+
+    def _xpath_with_wildcard_tag(self, xp: str, tag: str) -> str | None:
+        """
+        Convert:
+          //p[condition]  ->  //* [condition]
+          //p             ->  //*   (rare, but safe)
+        """
+        if not xp or not tag:
+            return None
+
+        xp = xp.strip()
+        prefix = f"//{tag}"
+
+        if not xp.startswith(prefix):
+            return None
+
+        return "//*" + xp[len(prefix):]
+
+    def _is_degenerate_xpath(self, xp: str) -> bool:
+        return xp in {"//p", "//span", "//*"}
 
     # ----------------- Public actions (compatible API) -----------------------
     def convert_date(self, date_str: str) -> str:
@@ -551,8 +598,16 @@ class BasePage:
         raise ValueError(f"Date format not recognized: {date_str}")
 
     def wait_for_element(self, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
+        key = (self.page_name or "", logical_name)
         sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
-        self.sb.wait_for_element(sel, timeout=timeout)
+
+        try:
+            self.sb.wait_for_element_present(sel, timeout=timeout)
+            self.sb.wait_for_element_visible(sel, timeout=timeout)
+        except Exception:
+            # 🔥 Evict bad cached selector
+            self._resolved_cache.pop(key, None)
+            raise
 
     def wait_for_text(self, text: str, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
         sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
