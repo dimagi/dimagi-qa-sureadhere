@@ -23,7 +23,7 @@ class AdminFFPage(BasePage):
             self.kendo_dd_select_text_old('kendo-dropdownlist-input-value-Client', client)
         else:
             print("Site already selected")
-
+        time.sleep(5)
         # if text != client:
         #     self.kendo_dd_select_text_old('kendo-dropdownlist-input-value-Client', client)
         #     time.sleep(2)
