@@ -1279,7 +1279,7 @@ class BasePage:
                 return False
         return True
 
-    def kendo_dialog_wait_open(self, title: str | None = None, *, timeout: int = 15):
+    def kendo_dialog_wait_open(self, title: str | None = None, *, timeout: int = 30):
         """Wait until a visible Kendo dialog (optionally with a specific title) is open; returns the dialog root WebElement."""
         dlg = self._kendo_find_visible_dialog(title, timeout)
         try:
@@ -1288,7 +1288,7 @@ class BasePage:
             pass
         return dlg
 
-    def kendo_dialog_wait_close(self, title: str | None = None, *, timeout: int = 15) -> bool:
+    def kendo_dialog_wait_close(self, title: str | None = None, *, timeout: int = 25) -> bool:
         """Wait until no visible dialog (optionally with that title) remains."""
         wait = WebDriverWait(self.driver, timeout, poll_frequency=0.2)
         return wait.until(lambda d: self._kendo_no_visible_dialog(title))
@@ -3620,7 +3620,7 @@ class BasePage:
 
         return values
 
-    def kendo_multiselect_clear_all(self, input_logical_name: str, timeout: int = 10) -> None:
+    def kendo_multiselect_clear_all(self, input_logical_name: str, timeout: int = 15) -> None:
         sel = self.resolve(input_logical_name)
         inp = self._get_webelement(sel, timeout=timeout)
 
@@ -3740,7 +3740,7 @@ class BasePage:
             f"Actual : {actual}"
         )
 
-    def get_elements_texts(self, logical_name: str, timeout: int = 10) -> list[str]:
+    def get_elements_texts(self, logical_name: str, timeout: int = 15) -> list[str]:
         """
         Given a logical locator that matches multiple elements,
         return text of all matching elements.
