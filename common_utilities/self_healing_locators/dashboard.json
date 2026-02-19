@@ -224,9 +224,10 @@
     "xpath": "//path"
   },
   "p_Dashboard": {
-    "tag": "*",
+    "tag": "span",
     "text": "Dashboard",
-    "xpath": "//*[contains(normalize-space(text()), 'Dashboard') or contains(normalize-space(text()), 'Home')]"
+    "class": "nav-label",
+    "xpath": "//span[contains(normalize-space(text()), 'Home') and @class='nav-label']"
   },
   "li_Patients": {
     "class": "k-drawer-item",
@@ -255,9 +256,10 @@
     "xpath": "//path"
   },
   "p_Patients": {
-    "tag": "*",
+    "tag": "span",
     "text": "Patients",
-    "xpath": "//*[contains(normalize-space(text()), 'Patients')]"
+    "class": "nav-label",
+    "xpath": "//span[contains(normalize-space(text()), 'Patients') and @class='nav-label']"
   },
   "li_Staff": {
     "class": "k-drawer-item",
@@ -286,9 +288,10 @@
     "xpath": "//path"
   },
   "p_Staff": {
-    "tag": "*",
+    "tag": "span",
     "text": "Staff",
-    "xpath": "//*[contains(normalize-space(text()), 'Staff')]"
+    "class": "nav-label",
+    "xpath": "//span[contains(normalize-space(text()), 'Staff') and @class='nav-label']"
   },
   "li_Reports_82": {
     "class": "k-drawer-item",
@@ -317,9 +320,10 @@
     "xpath": "//path"
   },
   "p_Reports": {
-    "tag": "*",
+    "tag": "span",
     "text": "Reports",
-    "xpath": "//*[contains(normalize-space(text()), 'Reports')]"
+    "class": "nav-label",
+    "xpath": "//span[contains(normalize-space(text()), 'Reports') and @class='nav-label']"
   },
   "li_Admin_88": {
     "class": "k-drawer-item",
@@ -348,9 +352,10 @@
     "xpath": "//path"
   },
   "p_Admin": {
-    "tag": "*",
+    "tag": "span",
     "text": "Admin",
-    "xpath": "//*[contains(normalize-space(text()), 'Admin')]"
+    "class": "nav-label",
+    "xpath": "//span[contains(normalize-space(text()), 'Admin') and @class='nav-label']"
   },
   "kendo-drawer-content_Dashboard _94": {
     "class": "k-drawer-content",
@@ -872,11 +877,11 @@
     "text": "23",
     "xpath": "//span[contains(normalize-space(text()), '23')]"
   },
-  "p_Open_206": {
+  "p_Open": {
     "class": "icon-text",
-    "tag": "p",
+    "tag": "span",
     "text": "Open",
-    "xpath": "//p[contains(normalize-space(text()), 'Open')]"
+    "xpath": "//span[contains(normalize-space(text()), 'Open')]"
   },
   "div_0 Taken_207": {
     "class": "status-icons col-3 col-lg-12",
@@ -895,11 +900,11 @@
     "text": "0",
     "xpath": "//span[contains(normalize-space(text()), '0')]"
   },
-  "p_Taken_210": {
+  "p_Taken": {
     "class": "icon-text",
-    "tag": "p",
+    "tag": "span",
     "text": "Taken",
-    "xpath": "//p[contains(normalize-space(text()), 'Taken')]"
+    "xpath": "//span[contains(normalize-space(text()), 'Taken')]"
   },
   "div_0 Missed_211": {
     "class": "status-icons col-3 col-lg-12",
@@ -918,11 +923,11 @@
     "text": "0",
     "xpath": "//span[contains(normalize-space(text()), '0')]"
   },
-  "p_Missed_214": {
+  "p_Missed": {
     "class": "icon-text",
-    "tag": "p",
+    "tag": "span",
     "text": "Missed",
-    "xpath": "//p[contains(normalize-space(text()), 'Missed')]"
+    "xpath": "//span[contains(normalize-space(text()), 'Missed')]"
   },
   "div_0 Unknown_215": {
     "class": "status-icons col-3 col-lg-12",
@@ -941,11 +946,11 @@
     "text": "0",
     "xpath": "//span[contains(normalize-space(text()), '0')]"
   },
-  "p_Unknown_218": {
+  "p_Unknown": {
     "class": "icon-text",
-    "tag": "p",
+    "tag": "span",
     "text": "Unknown",
-    "xpath": "//p[contains(normalize-space(text()), 'Unknown')]"
+    "xpath": "//span[contains(normalize-space(text()), 'Unknown')]"
   },
   "div_Sat Aug 9 _219": {
     "class": "col-lg-10 col-md-12 chart-content",
