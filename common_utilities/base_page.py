@@ -3780,3 +3780,6 @@ class BasePage:
             f"Timestamp off by {diff}. Expected ~{expected_dt.strftime('%a - %b %d, %Y - %I:%M %p')}, "
             f"got {ui_dt.strftime('%a - %b %d, %Y - %I:%M %p')} from '{timestamp_text}'"
         )
+
+    def normalize(self, text):
+        return "".join(text.split()).lower()

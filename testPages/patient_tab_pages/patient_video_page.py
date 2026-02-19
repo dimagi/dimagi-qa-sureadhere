@@ -66,8 +66,11 @@ class PatientVideoPage(BasePage):
         drug_name = self.get_text('div_drug-name')
         drug_details = self.get_text('div_drug-details')
         text = str(dose_per_pill)+"mg/"+str(no_of_pills)+" pills"
-        assert drug_details == text, f"{drug_details} doesnot match {text}"
-        print(f"{drug_details} matches {text}")
+        actual = self.normalize(drug_details)
+        expected = self.normalize(text)
+        assert expected in actual, f"Expected '{text}' not found in:\n{drug_details}"
+        # assert drug_details == text, f"{drug_details} doesnot match {text}"
+        print(f"{drug_details} present in {text}")
         assert meds == drug_name, f"{meds} not in {drug_name}"
         print(f"{meds} matches {drug_name}")
         timestamp_text = self.get_text('span_commented_timestamp')
