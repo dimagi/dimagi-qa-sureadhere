@@ -38,6 +38,8 @@ class test_module_00_presetup(BaseCase):
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
+    @pytest.mark.testcase("https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A7:J7")
+    @pytest.mark.tcid("Presetup FF")
     @pytest.mark.presetup
     @pytest.mark.order(1)  # ensure this test runs first
     @pytest.mark.dependency(name="presetup")

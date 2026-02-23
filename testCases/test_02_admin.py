@@ -37,6 +37,10 @@ class test_module_02_admin(BaseCase):
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
+    @pytest.mark.testcase(
+        "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A27:J27"
+        )
+    @pytest.mark.tcid("admin_1")
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_admin_1", scope="class")
     def test_case_01_edit_disease_and_drugs(self):
@@ -90,7 +94,10 @@ class test_module_02_admin(BaseCase):
              "drug_switch": drug_switch, "drug_name": drug_name}
             )
 
-
+    @pytest.mark.testcase(
+        "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A28:J28"
+        )
+    @pytest.mark.tcid("admin_2")
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_admin_2_a", depends=['tc_admin_1'] ,scope="class")
     def test_case_02_verify_disease_and_drugs_part_1(self):
@@ -196,6 +203,10 @@ class test_module_02_admin(BaseCase):
         login.after_logout()
 
 
+    @pytest.mark.testcase(
+        "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A29:J29"
+        )
+    @pytest.mark.tcid("admin_3")
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_admin_3", scope="class")
     def test_case_03_admin_announcement(self):

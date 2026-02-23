@@ -38,6 +38,10 @@ class test_module_03(BaseCase):
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
+    @pytest.mark.testcase(
+        "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A17:J17"
+        )
+    @pytest.mark.tcid("mobile_and_web_0")
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_mobile_1", scope="class")
     def test_case_00_create_patient(self):
@@ -108,6 +112,10 @@ class test_module_03(BaseCase):
              }
             )
 
+    @pytest.mark.testcase(
+        "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A18:J21"
+        )
+    @pytest.mark.tcid("mobile_and_web_1, mobile_and_web_2, mobile_and_web_3, mobile_and_web_4")
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_mobile_2",depends= ["tc_mobile_1"],scope="class")
     def test_case_01_mobile_login_and_message(self):
@@ -150,6 +158,10 @@ class test_module_03(BaseCase):
              }
             )
 
+    @pytest.mark.testcase(
+        "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A22:J23"
+        )
+    @pytest.mark.tcid("mobile_and_web_5, mobile_and_web_6")
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_mobile_3", depends=["tc_mobile_1", "tc_mobile_2"], scope="class")
     def test_case_02_review_video_and_adherence(self):
@@ -181,6 +193,10 @@ class test_module_03(BaseCase):
              }
             )
 
+    @pytest.mark.testcase(
+        "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A24:J24"
+        )
+    @pytest.mark.tcid("mobile_and_web_7")
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_mobile_4", depends=["tc_mobile_1", "tc_mobile_2", "tc_mobile_3"], scope="class")
     def test_case_03_review_overview(self):
@@ -210,6 +226,10 @@ class test_module_03(BaseCase):
         p_overview.verify_patient_overview_page()
         p_overview.check_calendar_and_doses(d['commented_timestamp'], d['commented_text'], d['drug_name'], d['start_date'], d['total_pills'])
 
+    @pytest.mark.testcase(
+        "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A25:J25"
+        )
+    @pytest.mark.tcid("mobile_and_web_8")
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_mobile_5", depends=["tc_mobile_1","tc_mobile_2", "tc_mobile_3"], scope="class")
     def test_case_04_review_reports(self):

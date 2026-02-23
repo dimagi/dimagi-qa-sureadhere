@@ -29,6 +29,8 @@ class test_module_01_users(BaseCase):
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
+    @pytest.mark.testcase("https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A8:J8")
+    @pytest.mark.tcid("new_entities_1")
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_1", scope="class")
     def test_case_01_add_staff(self):
@@ -58,6 +60,10 @@ class test_module_01_users(BaseCase):
         self.__class__.data.update({"fname": fname, "lname": lname, "email": email, "phn": phn, "isClientAdmint": client, "site": site})
         print(self.data)
 
+    @pytest.mark.testcase(
+        "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A9:J9"
+        )
+    @pytest.mark.tcid("new_entities_2")
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_2", depends=["tc_users_1"], scope="class")
     def test_case_02_edit_staff(self):
@@ -97,6 +103,10 @@ class test_module_01_users(BaseCase):
             )
         print(self.data)
 
+    @pytest.mark.testcase(
+        "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A10:J10"
+        )
+    @pytest.mark.tcid("new_entities_3")
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_3", depends=["tc_users_1", "tc_users_2"], scope="class")
     def test_case_03_add_patient(self):
@@ -130,6 +140,10 @@ class test_module_01_users(BaseCase):
              "patient_phn": phn, "patient_username": username,
              "mrn": mrn, "phone_country":phn_country, "SA_ID": sa_id})
 
+    @pytest.mark.testcase(
+        "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A11:J11"
+        )
+    @pytest.mark.tcid("new_entities_4")
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_4", depends=["tc_users_1", "tc_users_2", "tc_users_3"], scope="class")
     def test_case_04_edit_patient(self):
@@ -175,6 +189,10 @@ class test_module_01_users(BaseCase):
              "is_patient_active": patient_test_account}
             )
 
+    @pytest.mark.testcase(
+        "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A12:J12"
+        )
+    @pytest.mark.tcid("new_entities_5")
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_5", depends=["tc_users_1", "tc_users_2", "tc_users_3", "tc_users_4"], scope="class")
     def test_case_05_set_pin_patient(self):
@@ -210,6 +228,10 @@ class test_module_01_users(BaseCase):
             {"is_patient_active": patient_test_account, "patient_pin": patient_pin }
             )
 
+    @pytest.mark.testcase(
+        "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A13:J13"
+        )
+    @pytest.mark.tcid("new_entities_6_new")
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_6", depends=["tc_users_1", "tc_users_2", "tc_users_3", "tc_users_4", "tc_users_5"], scope="class")
     def test_case_06_new_regimen(self):

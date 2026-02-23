@@ -90,14 +90,14 @@ jobs:
           echo ${{env.NOW}}
           echo ${{env.DIMAGIQA_ENV}}
           google-chrome --version || true
-          pytest -v -m presetup\
+          pytest -q -m presetup\
             --browser=chrome --headless --headless2 \
             --reruns 1 \
-            --dashboard --html=presetup_extendedtests-report-${{ matrix.environment }}.html  --maxfail=1
-          pytest -v -m extendedtests \
+            --dashboard --html=presetup_extendedtests-report-${{ matrix.environment }}.html  --tb=short --maxfail=1
+          pytest -q -m extendedtests \
             --browser=chrome --headless --headless2 \
             --reruns 1 -n 4 --dist=loadscope\
-            --dashboard --html=extendedtests-report-${{ matrix.environment }}.html
+            --dashboard --html=extendedtests-report-${{ matrix.environment }}.html --tb=short
 
       - name: Parse test counts
         id: parse_counts

@@ -46,6 +46,10 @@ def configure_sb(settings):
     sb_config.settings.HEADLESS = settings.get("CI") == "true"
     sb_config.settings.START_PAGE = settings.get("url")
     sb_config.settings.IMPLICIT_WAIT = 10
+
+    # 👇 Remove noisy logs
+    sb_config.settings.VERBOSE = False
+    sb_config.settings.PRINT_STEP_TIMING = False
     return sb_config.settings
 
 # ---------------------
@@ -85,6 +89,28 @@ def pytest_runtest_makereport(item):
     report = outcome.get_result()
     # NOTE: Only works if you are using BaseCase-based test class (self.driver)
     driver_instance = getattr(item.instance, "driver", None)
+    # -------------------------
+    # Add Google Sheet Link
+    # -------------------------
+    testcase_marker = item.get_closest_marker("testcase")
+    tcid_marker = item.get_closest_marker("tcid")
+
+    if testcase_marker and tcid_marker:
+        tcid = tcid_marker.args[0]
+        link = testcase_marker.args[0]
+        link_html = (
+            f'<div style="margin-bottom:8px;">'
+            f'<span style="margin-right:4px;">📄 Link to testcase:</span>'
+            f'<a href="{link}" target="_blank" '
+            f'style="font-weight:600;color:#1a73e8;text-decoration:none;">'
+            f'{tcid}</a>'
+            f'</div>'
+        )
+        extra = getattr(report, "extra", [])
+        extra.append(
+            item.config.pluginmanager.getplugin("html").extras.html(link_html)
+            )
+        report.extra = extra
 
     if report.when in ("call", "teardown") and report.failed and driver_instance:
         screen_img = _capture_screenshot(driver_instance)
