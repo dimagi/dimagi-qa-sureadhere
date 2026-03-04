@@ -149,6 +149,22 @@ class PatientProfilePage(BasePage):
         else:
             print("Account is already set to inactive")
 
+    def select_treatment_monitor(self, manager_fullname):
+        self.kendo_dd_select_text_old("kendo-dropdownlist-treatment-monitor", manager_fullname, match="exact", timeout=25)
+        print(self.resolve("kendo-dropdownlist-treatment-monitor"))
+        patient_manager = self.kendo_dd_get_selected_text(logical_name="kendo-dropdownlist-treatment-monitor")
+        print(f"Selected manager is {patient_manager}")
+        assert patient_manager.strip() == manager_fullname
+        self.click_robust('button_SAVE')
+        # self.wait_for_invisible('button_SAVE')
+        time.sleep(1)
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            assert "Profile saved" in self.kendo_dialog_get_text()
+            self.kendo_dialog_click_button("Ok")
+        except Exception:
+            print("popup not present after save")
+
     def set_patient_pin(self,fname, lname, mrn, email, username, phn, country, site):
         self.wait_for_patient_to_load(fname, lname)
         self.verify_patient_profile_details(fname, lname, mrn, email, username, phn, country, site)

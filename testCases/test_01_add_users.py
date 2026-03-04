@@ -247,12 +247,13 @@ class test_module_01_users(BaseCase):
         d = self.__class__.data  # shared dict
 
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
         except Exception:
-            print("Login Screen not present")
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
 
-        home.open_dashboard_page()
-        home.validate_dashboard_page()
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
         patient.open_patient(d["patient_fname"], d["patient_lname"])

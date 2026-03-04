@@ -84,19 +84,22 @@ class test_module_03(BaseCase):
                                                          default_site_manager, sa_id=True
                                                          )
         p_profile.select_patient_manager(UserData.default_staff_name)
+        p_profile.select_treatment_monitor(UserData.default_staff_name)
         patient_test_account, patient_pin = p_profile.set_patient_pin(pfname, plname, mrn, pemail,
                                                                       username, phn, phn_country, default_site_manager
                                                                       )
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
         start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule()
-        try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-        except Exception:
-            print("Login Page is not present")
 
-        home.open_dashboard_page()
-        home.validate_dashboard_page()
+        try:
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+        except Exception:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+
         home.open_manage_patient_page()
         patient.search_patient(pfname, plname, mrn,username, sa_id,
                                start_date, end_date, no_of_pill
