@@ -40,7 +40,7 @@ class test_module_01_users(BaseCase):
         user = UserPage(self, "add_users")
         staff = ManageStaffPage(self, "staff")
         user_staff = UserStaffPage(self, "add_staff")
-
+        login = LoginPage(self, "login")
         if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
             default_site_manager = UserData.site_manager[0]
         elif "securevoteu" in self.settings["url"]:
@@ -52,6 +52,15 @@ class test_module_01_users(BaseCase):
             user_staff.cancel_form()
         except:
             print("Form is already closed")
+
+        try:
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+        except Exception:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+
         home.click_add_user()
         user.add_staff()
         fname, lname, email, phn, client, site = user_staff.fill_staff_form(default_site_manager, rerun=rerun_count)
