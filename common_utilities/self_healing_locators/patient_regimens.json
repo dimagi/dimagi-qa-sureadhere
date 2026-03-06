@@ -533,7 +533,7 @@
     "xpath": "//li[contains(@id,'k-tabstrip-tab') and @aria-selected='true']//div/span"
   },
   "k-tabstrip-tab-Regimen": {
-    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "class": "k-item k-state-default ng-star-inserted k-active",
     "tag": "li",
     "text": "Regimen",
     "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Regimen')]"

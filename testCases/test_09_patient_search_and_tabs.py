@@ -432,7 +432,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_pat_search_tabs_8a", scope="class")
     def test_case_08a_pill_count_ff_setup_on(self):
-        # login = LoginPage(self, "login")
+        login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
         admin = AdminPage(self, 'admin')
@@ -451,9 +451,15 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         else:
             default_client = UserData.client[2]
             flag = True
+        try:
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+        except Exception:
+            login.launch_browser(self.settings["url"])
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
 
-        home.open_dashboard_page()
-        home.validate_dashboard_page()
         home.open_admin_page()
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
@@ -513,7 +519,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_pat_search_tabs_8b", depends=['tc_pat_search_tabs_8', 'tc_pat_search_tabs_8a'], scope="class")
     def test_case_08c_pill_count_ff_setup_off(self):
-        # login = LoginPage(self, "login")
+        login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
         admin = AdminPage(self, 'admin')
@@ -532,8 +538,15 @@ class test_module_09_patient_search_and_tabs(BaseCase):
             default_client = UserData.client[2]
             flag = True
 
-        home.open_dashboard_page()
-        home.validate_dashboard_page()
+        try:
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+        except Exception:
+            login.launch_browser(self.settings["url"])
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+
         home.open_admin_page()
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
