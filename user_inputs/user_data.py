@@ -31,6 +31,12 @@ class UserData:
         "Regimen approval workflow": "OFF",
         "Automatic Opt In for SMS": "OFF"
         }
+    pill_count_ff_before = {
+        "Pill Count": "ON",
+        }
+    pill_count_ff_after = {
+        "Pill Count": "OFF",
+        }
     invalid_password = "12auto34test!"
     inactive_user_email = "automation.inactive@gmail.com"
     inactive_user_email_rogers = "automation.inactive+test@gmail.com"
