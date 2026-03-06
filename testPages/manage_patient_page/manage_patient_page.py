@@ -129,7 +129,7 @@ class ManagePatientPage(BasePage):
         mrn_value = self.get_text('td_mrn')
         sa_id_value = self.get_text("td_sa_id")
         print(fname, lname, mrn_value, username_value, sa_id_value)
-        return fname, lname, mrn_value, username_value, sa_id_value
+        return fname, lname, mrn_value, username_value, sa_id_value.upper()
 
     def search_test_patients(self, name='pat_fn'):
         self.type('input_search_patient', name)

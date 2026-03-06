@@ -35,43 +35,6 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
-    # @pytest.mark.extendedtests
-    # @pytest.mark.dependency(name="tc_pat_search_tabs_1", scope="class")
-    # def test_case_00_search_patient(self):
-    #     self._login_once()
-    #     login = LoginPage(self, "login")
-    #     home = HomePage(self, "dashboard")
-    #     user = UserPage(self, "add_users")
-    #     user_patient = UserPatientPage(self, "add_patient")
-    #     p_profile = PatientProfilePage(self, 'patient_profile')
-    #     patient = ManagePatientPage(self, "patients")
-    #     profile = UserProfilePage(self, "user")
-    #
-    #     if "banner" in self.settings["url"]:
-    #         default_site_manager = UserData.site_manager[0]
-    #     elif "rogers" in self.settings["url"]:
-    #         default_site_manager = UserData.site_manager[0]
-    #     elif "securevoteu" in self.settings["url"]:
-    #         default_site_manager = UserData.site_manager[2]
-    #     else:
-    #         default_site_manager = UserData.site_manager[1]
-    #
-    #     home.click_add_user()
-    #     user.add_patient()
-    #     pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(default_site_manager,
-    #                                                                                              rerun_count=rerun_count
-    #                                                                                              )
-    #     p_profile.verify_patient_profile_page()
-    #     sa_id = p_profile.verify_patient_profile_details(pfname, plname, mrn, pemail, username, phn, phn_country,
-    #                                                      default_site_manager, sa_id=True
-    #                                                      )
-    #     self.__class__.data.update(
-    #         {"patient_fname": pfname, "patient_lname": plname,
-    #          "patient_email": pemail,
-    #          "patient_phn": phn, "patient_username": username,
-    #          "mrn": mrn, "phone_country": phn_country, "SA_ID": sa_id}
-    #         )
-
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_pat_search_tabs_1", scope="class")
     def test_case_01_search_patient(self):
@@ -89,7 +52,6 @@ class test_module_09_patient_search_and_tabs(BaseCase):
             home.open_dashboard_page()
             home.validate_dashboard_page()
         except Exception:
-            login.launch_browser(self.settings["url"])
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.open_dashboard_page()
             home.validate_dashboard_page()
@@ -469,7 +431,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_pat_search_tabs_8a", scope="class")
-    def test_case_08_before_pill_count_ff_setup(self):
+    def test_case_08a_pill_count_ff_setup_on(self):
         # login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
@@ -495,17 +457,17 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         home.open_admin_page()
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
-        a_ff.set_ffs("Pill Count", "ON")
+        a_ff.set_ffs({"Pill Count": "OFF"}, True)
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
-        a_ff.double_check_ff("Pill Count", "ON")
+        a_ff.double_check_ff({"Pill Count": "OFF"}, True)
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_pat_search_tabs_8", depends=['tc_pat_search_tabs_2', 'tc_pat_search_tabs_8a'], scope="class")
-    def test_case_08_patient_tab_switch_pill_count(self):
+    def test_case_08b_patient_tab_switch_pill_count(self):
         rerun_count = getattr(self, "rerun_count", 0)
         self._login_once()
         login = LoginPage(self, "login")
@@ -549,8 +511,8 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         p_pill.verify_patient_pill_count_page()
 
     @pytest.mark.extendedtests
-    @pytest.mark.dependency(name="tc_pat_search_tabs_8b", scope="class")
-    def test_case_08_after_pill_count_ff_setup(self):
+    @pytest.mark.dependency(name="tc_pat_search_tabs_8b", depends=['tc_pat_search_tabs_8', 'tc_pat_search_tabs_8a'], scope="class")
+    def test_case_08c_pill_count_ff_setup_off(self):
         # login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
@@ -575,10 +537,10 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         home.open_admin_page()
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
-        a_ff.set_ffs("Pill Count", "OFF")
+        a_ff.set_ffs({"Pill Count": "OFF"}, False)
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
-        a_ff.double_check_ff("Pill Count", "OFF")
+        a_ff.double_check_ff({"Pill Count": "OFF"}, False)
