@@ -284,10 +284,10 @@ class ManagePatientPage(BasePage):
 
             # ---------- FIRST CLICK ----------
             headers = self.find_elements("table_header_sort")
-            # header = headers[index - 1]
-            time.sleep(2)
-            self.driver.execute_script("arguments[0].click();", headers[index - 1])
-            # header.click()
+            header = headers[index - 1]
+            # time.sleep(2)
+            # self.driver.execute_script("arguments[0].click();", headers[index - 1])
+            header.click()
             time.sleep(8)
             self.wait_for_page_to_load(50)
 
@@ -307,12 +307,13 @@ class ManagePatientPage(BasePage):
                 processed = self.normalize_values(values)
                 self.is_sorted(processed, sort_type)
 
+            time.sleep(3)
             # ---------- SECOND CLICK (REVERSE) ----------
             headers = self.find_elements("table_header_sort")
-            # header = headers[index - 1]
-            # header.click()
-            time.sleep(2)
-            self.driver.execute_script("arguments[0].click();", headers[index - 1])
+            header = headers[index - 1]
+            header.click()
+            # time.sleep(2)
+            # self.driver.execute_script("arguments[0].click();", headers[index - 1])
             time.sleep(8)
             self.wait_for_page_to_load(50)
 
