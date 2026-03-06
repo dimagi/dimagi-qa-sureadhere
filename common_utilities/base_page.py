@@ -3781,5 +3781,49 @@ class BasePage:
             f"got {ui_dt.strftime('%a - %b %d, %Y - %I:%M %p')} from '{timestamp_text}'"
         )
 
+    def scroll_to_element(self, logical_name: str, timeout=30, strict: bool = False):
+        sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
+        self.sb.wait_for_element(sel, timeout=timeout)
+        self.sb.scroll_to(sel)
+
+    def is_enabled(self, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
+        is_disabled = self.get_attribute(logical_name, "disabled", timeout=timeout, strict=strict)
+        return not bool(is_disabled)
+
     def normalize(self, text):
         return "".join(text.split()).lower()
+
+    def click_dynamic(self, template: str, *args, timeout: int = 15):
+        xpath = template.format(*args)
+        self.sb.wait_for_element_clickable(xpath, timeout=timeout)
+        self.sb.highlight(xpath)
+        self.sb.click(xpath)
+
+    def js_click(self, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
+        """
+        Click an element using JavaScript.
+        Useful when normal Selenium click is intercepted or blocked.
+        """
+        sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
+
+        # Wait for element to exist
+        self.sb.wait_for_element_present(sel, timeout=timeout)
+
+        element = self._get_webelement(sel, timeout=timeout)
+
+        # Scroll element into view
+        try:
+            self.driver.execute_script(
+                "arguments[0].scrollIntoView({block:'center'});", element
+                )
+        except Exception:
+            pass
+
+        # Highlight (optional)
+        try:
+            self.sb.highlight(element)
+        except Exception:
+            pass
+
+        # JS click
+        self.driver.execute_script("arguments[0].click();", element)

@@ -1,0 +1,1393 @@
+{
+  "html_Client_Tes_0": {
+    "tag": "html",
+    "text": "Client_Test_1_US Home Patients Staff Reports Admin PATIENT pat_pill_count test_auto | Site_1_US TREATMENT START DATE Mar 2, 2026 EXP. END DATE Jul 19, 2026 MRN pill123 SA-ID SA-8531 PATIENT MANAGER None TREATMENT MONITOR None Overview Adherence Regimen Profile Messages Pill count Reports Pill count ADD NEW PILL COUNT Drugs Date dispensed Kit Number \u2014 Pills dispensed Date of return Pills returned Damaged/lost pills Percent returned 0% ADD DRUG Total proportion returned 0% CANCEL SAVE March 2, 2026 Drugs Abacavir Date dispensed 2026-03-02 Kit Number \u2014 no. of pills dispensed 1 Date of return 2026-03-17 no. of pills returned 1 no. of pills lost/damaged 0 Percent returned 100% @2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//html[contains(normalize-space(text()), 'Client_Test_1_US\nHome\nPatients\nStaff\nReports\nAdmin\nPATIENT\npat_pill_count test_auto | Site_1_US\nTREATMENT START DATE\nMar 2, 2026\nEXP. END DATE\nJul 19, 2026\nMRN\npill123\nSA-ID\nSA-8531\nPATIENT MANAGER\nNone\nTREATMENT MONITOR\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPill count\nADD NEW PILL COUNT\nDrugs\nDate dispensed\nKit Number\n\u2014\nPills dispensed\nDate of return\nPills returned\nDamaged/lost pills\nPercent returned\n0%\nADD DRUG\nTotal proportion returned 0%\nCANCEL\nSAVE\nMarch 2, 2026\nDrugs\nAbacavir\nDate dispensed\n2026-03-02\nKit Number\n\u2014\nno. of pills dispensed\n1\nDate of return\n2026-03-17\nno. of pills returned\n1\nno. of pills lost/damaged\n0\nPercent returned\n100%\n@2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "body_Client_Tes_29": {
+    "class": "pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done ng-tns-0-0",
+    "tag": "body",
+    "text": "Client_Test_1_US Home Patients Staff Reports Admin PATIENT pat_pill_count test_auto | Site_1_US TREATMENT START DATE Mar 2, 2026 EXP. END DATE Jul 19, 2026 MRN pill123 SA-ID SA-8531 PATIENT MANAGER None TREATMENT MONITOR None Overview Adherence Regimen Profile Messages Pill count Reports Pill count ADD NEW PILL COUNT Drugs Date dispensed Kit Number \u2014 Pills dispensed Date of return Pills returned Damaged/lost pills Percent returned 0% ADD DRUG Total proportion returned 0% CANCEL SAVE March 2, 2026 Drugs Abacavir Date dispensed 2026-03-02 Kit Number \u2014 no. of pills dispensed 1 Date of return 2026-03-17 no. of pills returned 1 no. of pills lost/damaged 0 Percent returned 100% @2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//body[contains(normalize-space(text()), 'Client_Test_1_US\nHome\nPatients\nStaff\nReports\nAdmin\nPATIENT\npat_pill_count test_auto | Site_1_US\nTREATMENT START DATE\nMar 2, 2026\nEXP. END DATE\nJul 19, 2026\nMRN\npill123\nSA-ID\nSA-8531\nPATIENT MANAGER\nNone\nTREATMENT MONITOR\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPill count\nADD NEW PILL COUNT\nDrugs\nDate dispensed\nKit Number\n\u2014\nPills dispensed\nDate of return\nPills returned\nDamaged/lost pills\nPercent returned\n0%\nADD DRUG\nTotal proportion returned 0%\nCANCEL\nSAVE\nMarch 2, 2026\nDrugs\nAbacavir\nDate dispensed\n2026-03-02\nKit Number\n\u2014\nno. of pills dispensed\n1\nDate of return\n2026-03-17\nno. of pills returned\n1\nno. of pills lost/damaged\n0\nPercent returned\n100%\n@2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div__30": {
+    "class": "pace pace-inactive",
+    "tag": "div",
+    "xpath": "//div[@class='pace pace-inactive']"
+  },
+  "div__31": {
+    "class": "pace-progress",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress']"
+  },
+  "div__32": {
+    "class": "pace-progress-inner",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress-inner']"
+  },
+  "div__33": {
+    "class": "pace-activity",
+    "tag": "div",
+    "xpath": "//div[@class='pace-activity']"
+  },
+  "app_Client_Tes_34": {
+    "tag": "app",
+    "text": "Client_Test_1_US Home Patients Staff Reports Admin PATIENT pat_pill_count test_auto | Site_1_US TREATMENT START DATE Mar 2, 2026 EXP. END DATE Jul 19, 2026 MRN pill123 SA-ID SA-8531 PATIENT MANAGER None TREATMENT MONITOR None Overview Adherence Regimen Profile Messages Pill count Reports Pill count ADD NEW PILL COUNT Drugs Date dispensed Kit Number \u2014 Pills dispensed Date of return Pills returned Damaged/lost pills Percent returned 0% ADD DRUG Total proportion returned 0% CANCEL SAVE March 2, 2026 Drugs Abacavir Date dispensed 2026-03-02 Kit Number \u2014 no. of pills dispensed 1 Date of return 2026-03-17 no. of pills returned 1 no. of pills lost/damaged 0 Percent returned 100% @2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//app[contains(normalize-space(text()), 'Client_Test_1_US\nHome\nPatients\nStaff\nReports\nAdmin\nPATIENT\npat_pill_count test_auto | Site_1_US\nTREATMENT START DATE\nMar 2, 2026\nEXP. END DATE\nJul 19, 2026\nMRN\npill123\nSA-ID\nSA-8531\nPATIENT MANAGER\nNone\nTREATMENT MONITOR\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPill count\nADD NEW PILL COUNT\nDrugs\nDate dispensed\nKit Number\n\u2014\nPills dispensed\nDate of return\nPills returned\nDamaged/lost pills\nPercent returned\n0%\nADD DRUG\nTotal proportion returned 0%\nCANCEL\nSAVE\nMarch 2, 2026\nDrugs\nAbacavir\nDate dispensed\n2026-03-02\nKit Number\n\u2014\nno. of pills dispensed\n1\nDate of return\n2026-03-17\nno. of pills returned\n1\nno. of pills lost/damaged\n0\nPercent returned\n100%\n@2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_Client_Tes_35": {
+    "class": "custom-toolbar",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "div__36": {
+    "class": "logo",
+    "tag": "div",
+    "xpath": "//div[@class='logo']"
+  },
+  "div_Client_Tes_37": {
+    "class": "client-name d-none d-md-inline-flex",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "span__38": {
+    "class": "right-navbar ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='right-navbar ng-star-inserted']"
+  },
+  "client-header__39": {
+    "tag": "client-header",
+    "xpath": "//client-header"
+  },
+  "div__40": {
+    "class": "header-actions",
+    "tag": "div",
+    "xpath": "//div[@class='header-actions']"
+  },
+  "button__41": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat ng-star-inserted",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat ng-star-inserted' and @type='submit']"
+  },
+  "span__42": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__43": {
+    "class": "ng-fa-icon toolbar-icon text-success",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-success']"
+  },
+  "svg__44": {
+    "class": "svg-inline--fa fa-user-plus",
+    "data-icon": "user-plus",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-plus']"
+  },
+  "path__45": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__46": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__47": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__48": {
+    "class": "ng-fa-icon toolbar-icon text-warning",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-warning']"
+  },
+  "svg__49": {
+    "class": "svg-inline--fa fa-circle-question",
+    "data-icon": "circle-question",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-question']"
+  },
+  "path__50": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__51": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__52": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__53": {
+    "class": "ng-fa-icon toolbar-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon']"
+  },
+  "svg__54": {
+    "class": "svg-inline--fa fa-circle-user",
+    "data-icon": "circle-user",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-user']"
+  },
+  "path__55": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "kendo-drawer-container_Home Patie_56": {
+    "class": "k-drawer-container k-drawer-mini k-drawer-push",
+    "tag": "kendo-drawer-container",
+    "text": "Home Patients Staff Reports Admin PATIENT pat_pill_count test_auto | Site_1_US TREATMENT START DATE Mar 2, 2026 EXP. END DATE Jul 19, 2026 MRN pill123 SA-ID SA-8531 PATIENT MANAGER None TREATMENT MONITOR None Overview Adherence Regimen Profile Messages Pill count Reports Pill count ADD NEW PILL COUNT Drugs Date dispensed Kit Number \u2014 Pills dispensed Date of return Pills returned Damaged/lost pills Percent returned 0% ADD DRUG Total proportion returned 0% CANCEL SAVE March 2, 2026 Drugs Abacavir Date dispensed 2026-03-02 Kit Number \u2014 no. of pills dispensed 1 Date of return 2026-03-17 no. of pills returned 1 no. of pills lost/damaged 0 Percent returned 100% @2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//kendo-drawer-container[contains(normalize-space(text()), 'Home\nPatients\nStaff\nReports\nAdmin\nPATIENT\npat_pill_count test_auto | Site_1_US\nTREATMENT START DATE\nMar 2, 2026\nEXP. END DATE\nJul 19, 2026\nMRN\npill123\nSA-ID\nSA-8531\nPATIENT MANAGER\nNone\nTREATMENT MONITOR\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPill count\nADD NEW PILL COUNT\nDrugs\nDate dispensed\nKit Number\n\u2014\nPills dispensed\nDate of return\nPills returned\nDamaged/lost pills\nPercent returned\n0%\nADD DRUG\nTotal proportion returned 0%\nCANCEL\nSAVE\nMarch 2, 2026\nDrugs\nAbacavir\nDate dispensed\n2026-03-02\nKit Number\n\u2014\nno. of pills dispensed\n1\nDate of return\n2026-03-17\nno. of pills returned\n1\nno. of pills lost/damaged\n0\nPercent returned\n100%\n@2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "kendo-drawer_Home Patie_57": {
+    "class": "border-0 k-drawer k-drawer-start",
+    "tag": "kendo-drawer",
+    "text": "Home Patients Staff Reports Admin",
+    "xpath": "//kendo-drawer[contains(normalize-space(text()), 'Home\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "div_Home Patie_58": {
+    "class": "k-drawer-wrapper",
+    "tag": "div",
+    "text": "Home Patients Staff Reports Admin",
+    "xpath": "//div[contains(normalize-space(text()), 'Home\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "ul_Home Patie_59": {
+    "class": "k-drawer-items",
+    "tag": "ul",
+    "text": "Home Patients Staff Reports Admin",
+    "xpath": "//ul[contains(normalize-space(text()), 'Home\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "li_Home_60": {
+    "class": "k-drawer-item ng-star-inserted",
+    "tag": "li",
+    "text": "Home",
+    "xpath": "//li[contains(normalize-space(text()), 'Home')]"
+  },
+  "div_Home_61": {
+    "class": "nav-item-container ng-star-inserted",
+    "tag": "div",
+    "text": "Home",
+    "xpath": "//div[contains(normalize-space(text()), 'Home')]"
+  },
+  "div__62": {
+    "class": "nav-icon-wrapper",
+    "tag": "div",
+    "xpath": "//div[@class='nav-icon-wrapper']"
+  },
+  "fa-icon__63": {
+    "class": "ng-fa-icon nav-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon nav-icon']"
+  },
+  "svg__64": {
+    "class": "svg-inline--fa fa-house",
+    "data-icon": "house",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-house']"
+  },
+  "path__65": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "span_Home_66": {
+    "class": "nav-label",
+    "tag": "span",
+    "text": "Home",
+    "xpath": "//span[contains(normalize-space(text()), 'Home')]"
+  },
+  "li_Patients_67": {
+    "class": "k-drawer-item ng-star-inserted k-selected",
+    "tag": "li",
+    "text": "Patients",
+    "xpath": "//li[contains(normalize-space(text()), 'Patients')]"
+  },
+  "div_Patients_68": {
+    "class": "nav-item-container ng-star-inserted",
+    "tag": "div",
+    "text": "Patients",
+    "xpath": "//div[contains(normalize-space(text()), 'Patients')]"
+  },
+  "div__69": {
+    "class": "nav-icon-wrapper selected",
+    "tag": "div",
+    "xpath": "//div[@class='nav-icon-wrapper selected']"
+  },
+  "fa-icon__70": {
+    "class": "ng-fa-icon nav-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon nav-icon']"
+  },
+  "svg__71": {
+    "class": "svg-inline--fa fa-user",
+    "data-icon": "user",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user']"
+  },
+  "path__72": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "span_Patients_73": {
+    "class": "nav-label",
+    "tag": "span",
+    "text": "Patients",
+    "xpath": "//span[contains(normalize-space(text()), 'Patients')]"
+  },
+  "li_Staff_74": {
+    "class": "k-drawer-item ng-star-inserted",
+    "tag": "li",
+    "text": "Staff",
+    "xpath": "//li[contains(normalize-space(text()), 'Staff')]"
+  },
+  "div_Staff_75": {
+    "class": "nav-item-container ng-star-inserted",
+    "tag": "div",
+    "text": "Staff",
+    "xpath": "//div[contains(normalize-space(text()), 'Staff')]"
+  },
+  "div__76": {
+    "class": "nav-icon-wrapper",
+    "tag": "div",
+    "xpath": "//div[@class='nav-icon-wrapper']"
+  },
+  "fa-icon__77": {
+    "class": "ng-fa-icon nav-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon nav-icon']"
+  },
+  "svg__78": {
+    "class": "svg-inline--fa fa-address-book",
+    "data-icon": "address-book",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-address-book']"
+  },
+  "path__79": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "span_Staff_80": {
+    "class": "nav-label",
+    "tag": "span",
+    "text": "Staff",
+    "xpath": "//span[contains(normalize-space(text()), 'Staff')]"
+  },
+  "li_Reports_81": {
+    "class": "k-drawer-item ng-star-inserted",
+    "tag": "li",
+    "text": "Reports",
+    "xpath": "//li[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div_Reports_82": {
+    "class": "nav-item-container ng-star-inserted",
+    "tag": "div",
+    "text": "Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div__83": {
+    "class": "nav-icon-wrapper",
+    "tag": "div",
+    "xpath": "//div[@class='nav-icon-wrapper']"
+  },
+  "fa-icon__84": {
+    "class": "ng-fa-icon nav-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon nav-icon']"
+  },
+  "svg__85": {
+    "class": "svg-inline--fa fa-chart-bar",
+    "data-icon": "chart-bar",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-chart-bar']"
+  },
+  "path__86": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "span_Reports_87": {
+    "class": "nav-label",
+    "tag": "span",
+    "text": "Reports",
+    "xpath": "//span[contains(normalize-space(text()), 'Reports')]"
+  },
+  "li_Admin_88": {
+    "class": "k-drawer-item ng-star-inserted",
+    "tag": "li",
+    "text": "Admin",
+    "xpath": "//li[contains(normalize-space(text()), 'Admin')]"
+  },
+  "div_Admin_89": {
+    "class": "nav-item-container ng-star-inserted",
+    "tag": "div",
+    "text": "Admin",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin')]"
+  },
+  "div__90": {
+    "class": "nav-icon-wrapper",
+    "tag": "div",
+    "xpath": "//div[@class='nav-icon-wrapper']"
+  },
+  "fa-icon__91": {
+    "class": "ng-fa-icon nav-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon nav-icon']"
+  },
+  "svg__92": {
+    "class": "svg-inline--fa fa-gear",
+    "data-icon": "gear",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-gear']"
+  },
+  "path__93": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "span_Admin_94": {
+    "class": "nav-label",
+    "tag": "span",
+    "text": "Admin",
+    "xpath": "//span[contains(normalize-space(text()), 'Admin')]"
+  },
+  "kendo-drawer-content_PATIENT pa_95": {
+    "class": "k-drawer-content",
+    "tag": "kendo-drawer-content",
+    "text": "PATIENT pat_pill_count test_auto | Site_1_US TREATMENT START DATE Mar 2, 2026 EXP. END DATE Jul 19, 2026 MRN pill123 SA-ID SA-8531 PATIENT MANAGER None TREATMENT MONITOR None Overview Adherence Regimen Profile Messages Pill count Reports Pill count ADD NEW PILL COUNT Drugs Date dispensed Kit Number \u2014 Pills dispensed Date of return Pills returned Damaged/lost pills Percent returned 0% ADD DRUG Total proportion returned 0% CANCEL SAVE March 2, 2026 Drugs Abacavir Date dispensed 2026-03-02 Kit Number \u2014 no. of pills dispensed 1 Date of return 2026-03-17 no. of pills returned 1 no. of pills lost/damaged 0 Percent returned 100% @2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//kendo-drawer-content[contains(normalize-space(text()), 'PATIENT\npat_pill_count test_auto | Site_1_US\nTREATMENT START DATE\nMar 2, 2026\nEXP. END DATE\nJul 19, 2026\nMRN\npill123\nSA-ID\nSA-8531\nPATIENT MANAGER\nNone\nTREATMENT MONITOR\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPill count\nADD NEW PILL COUNT\nDrugs\nDate dispensed\nKit Number\n\u2014\nPills dispensed\nDate of return\nPills returned\nDamaged/lost pills\nPercent returned\n0%\nADD DRUG\nTotal proportion returned 0%\nCANCEL\nSAVE\nMarch 2, 2026\nDrugs\nAbacavir\nDate dispensed\n2026-03-02\nKit Number\n\u2014\nno. of pills dispensed\n1\nDate of return\n2026-03-17\nno. of pills returned\n1\nno. of pills lost/damaged\n0\nPercent returned\n100%\n@2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "adherence_PATIENT pa_97": {
+    "class": "ng-star-inserted",
+    "tag": "adherence",
+    "text": "PATIENT pat_pill_count test_auto | Site_1_US TREATMENT START DATE Mar 2, 2026 EXP. END DATE Jul 19, 2026 MRN pill123 SA-ID SA-8531 PATIENT MANAGER None TREATMENT MONITOR None Overview Adherence Regimen Profile Messages Pill count Reports Pill count ADD NEW PILL COUNT Drugs Date dispensed Kit Number \u2014 Pills dispensed Date of return Pills returned Damaged/lost pills Percent returned 0% ADD DRUG Total proportion returned 0% CANCEL SAVE March 2, 2026 Drugs Abacavir Date dispensed 2026-03-02 Kit Number \u2014 no. of pills dispensed 1 Date of return 2026-03-17 no. of pills returned 1 no. of pills lost/damaged 0 Percent returned 100% @2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//adherence[contains(normalize-space(text()), 'PATIENT\npat_pill_count test_auto | Site_1_US\nTREATMENT START DATE\nMar 2, 2026\nEXP. END DATE\nJul 19, 2026\nMRN\npill123\nSA-ID\nSA-8531\nPATIENT MANAGER\nNone\nTREATMENT MONITOR\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPill count\nADD NEW PILL COUNT\nDrugs\nDate dispensed\nKit Number\n\u2014\nPills dispensed\nDate of return\nPills returned\nDamaged/lost pills\nPercent returned\n0%\nADD DRUG\nTotal proportion returned 0%\nCANCEL\nSAVE\nMarch 2, 2026\nDrugs\nAbacavir\nDate dispensed\n2026-03-02\nKit Number\n\u2014\nno. of pills dispensed\n1\nDate of return\n2026-03-17\nno. of pills returned\n1\nno. of pills lost/damaged\n0\nPercent returned\n100%\n@2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "ng-sidebar-container_PATIENT pa_98": {
+    "class": "adherence-wrapper",
+    "tag": "ng-sidebar-container",
+    "text": "PATIENT pat_pill_count test_auto | Site_1_US TREATMENT START DATE Mar 2, 2026 EXP. END DATE Jul 19, 2026 MRN pill123 SA-ID SA-8531 PATIENT MANAGER None TREATMENT MONITOR None Overview Adherence Regimen Profile Messages Pill count Reports Pill count ADD NEW PILL COUNT Drugs Date dispensed Kit Number \u2014 Pills dispensed Date of return Pills returned Damaged/lost pills Percent returned 0% ADD DRUG Total proportion returned 0% CANCEL SAVE March 2, 2026 Drugs Abacavir Date dispensed 2026-03-02 Kit Number \u2014 no. of pills dispensed 1 Date of return 2026-03-17 no. of pills returned 1 no. of pills lost/damaged 0 Percent returned 100% @2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//ng-sidebar-container[contains(normalize-space(text()), 'PATIENT\npat_pill_count test_auto | Site_1_US\nTREATMENT START DATE\nMar 2, 2026\nEXP. END DATE\nJul 19, 2026\nMRN\npill123\nSA-ID\nSA-8531\nPATIENT MANAGER\nNone\nTREATMENT MONITOR\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPill count\nADD NEW PILL COUNT\nDrugs\nDate dispensed\nKit Number\n\u2014\nPills dispensed\nDate of return\nPills returned\nDamaged/lost pills\nPercent returned\n0%\nADD DRUG\nTotal proportion returned 0%\nCANCEL\nSAVE\nMarch 2, 2026\nDrugs\nAbacavir\nDate dispensed\n2026-03-02\nKit Number\n\u2014\nno. of pills dispensed\n1\nDate of return\n2026-03-17\nno. of pills returned\n1\nno. of pills lost/damaged\n0\nPercent returned\n100%\n@2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_PATIENT pa_99": {
+    "class": "ng-sidebar__content ng-sidebar__content--animate",
+    "tag": "div",
+    "text": "PATIENT pat_pill_count test_auto | Site_1_US TREATMENT START DATE Mar 2, 2026 EXP. END DATE Jul 19, 2026 MRN pill123 SA-ID SA-8531 PATIENT MANAGER None TREATMENT MONITOR None Overview Adherence Regimen Profile Messages Pill count Reports Pill count ADD NEW PILL COUNT Drugs Date dispensed Kit Number \u2014 Pills dispensed Date of return Pills returned Damaged/lost pills Percent returned 0% ADD DRUG Total proportion returned 0% CANCEL SAVE March 2, 2026 Drugs Abacavir Date dispensed 2026-03-02 Kit Number \u2014 no. of pills dispensed 1 Date of return 2026-03-17 no. of pills returned 1 no. of pills lost/damaged 0 Percent returned 100% @2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//div[contains(normalize-space(text()), 'PATIENT\npat_pill_count test_auto | Site_1_US\nTREATMENT START DATE\nMar 2, 2026\nEXP. END DATE\nJul 19, 2026\nMRN\npill123\nSA-ID\nSA-8531\nPATIENT MANAGER\nNone\nTREATMENT MONITOR\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPill count\nADD NEW PILL COUNT\nDrugs\nDate dispensed\nKit Number\n\u2014\nPills dispensed\nDate of return\nPills returned\nDamaged/lost pills\nPercent returned\n0%\nADD DRUG\nTotal proportion returned 0%\nCANCEL\nSAVE\nMarch 2, 2026\nDrugs\nAbacavir\nDate dispensed\n2026-03-02\nKit Number\n\u2014\nno. of pills dispensed\n1\nDate of return\n2026-03-17\nno. of pills returned\n1\nno. of pills lost/damaged\n0\nPercent returned\n100%\n@2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_PATIENT pa_100": {
+    "class": "main-container",
+    "tag": "div",
+    "text": "PATIENT pat_pill_count test_auto | Site_1_US TREATMENT START DATE Mar 2, 2026 EXP. END DATE Jul 19, 2026 MRN pill123 SA-ID SA-8531 PATIENT MANAGER None TREATMENT MONITOR None Overview Adherence Regimen Profile Messages Pill count Reports Pill count ADD NEW PILL COUNT Drugs Date dispensed Kit Number \u2014 Pills dispensed Date of return Pills returned Damaged/lost pills Percent returned 0% ADD DRUG Total proportion returned 0% CANCEL SAVE March 2, 2026 Drugs Abacavir Date dispensed 2026-03-02 Kit Number \u2014 no. of pills dispensed 1 Date of return 2026-03-17 no. of pills returned 1 no. of pills lost/damaged 0 Percent returned 100% @2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//div[contains(normalize-space(text()), 'PATIENT\npat_pill_count test_auto | Site_1_US\nTREATMENT START DATE\nMar 2, 2026\nEXP. END DATE\nJul 19, 2026\nMRN\npill123\nSA-ID\nSA-8531\nPATIENT MANAGER\nNone\nTREATMENT MONITOR\nNone\nOverview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPill count\nADD NEW PILL COUNT\nDrugs\nDate dispensed\nKit Number\n\u2014\nPills dispensed\nDate of return\nPills returned\nDamaged/lost pills\nPercent returned\n0%\nADD DRUG\nTotal proportion returned 0%\nCANCEL\nSAVE\nMarch 2, 2026\nDrugs\nAbacavir\nDate dispensed\n2026-03-02\nKit Number\n\u2014\nno. of pills dispensed\n1\nDate of return\n2026-03-17\nno. of pills returned\n1\nno. of pills lost/damaged\n0\nPercent returned\n100%\n@2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "div_PATIENT pa_101": {
+    "class": "patient-adherence-header",
+    "tag": "div",
+    "text": "PATIENT pat_pill_count test_auto | Site_1_US TREATMENT START DATE Mar 2, 2026 EXP. END DATE Jul 19, 2026 MRN pill123 SA-ID SA-8531 PATIENT MANAGER None TREATMENT MONITOR None",
+    "xpath": "//div[contains(normalize-space(text()), 'PATIENT\npat_pill_count test_auto | Site_1_US\nTREATMENT START DATE\nMar 2, 2026\nEXP. END DATE\nJul 19, 2026\nMRN\npill123\nSA-ID\nSA-8531\nPATIENT MANAGER\nNone\nTREATMENT MONITOR\nNone')]"
+  },
+  "div_PATIENT pa_102": {
+    "class": "info-wrapper ng-star-inserted",
+    "tag": "div",
+    "text": "PATIENT pat_pill_count test_auto | Site_1_US TREATMENT START DATE Mar 2, 2026 EXP. END DATE Jul 19, 2026 MRN pill123 SA-ID SA-8531 PATIENT MANAGER None TREATMENT MONITOR None",
+    "xpath": "//div[contains(normalize-space(text()), 'PATIENT\npat_pill_count test_auto | Site_1_US\nTREATMENT START DATE\nMar 2, 2026\nEXP. END DATE\nJul 19, 2026\nMRN\npill123\nSA-ID\nSA-8531\nPATIENT MANAGER\nNone\nTREATMENT MONITOR\nNone')]"
+  },
+  "div_PATIENT pa_103": {
+    "class": "info-item info-item-patient",
+    "tag": "div",
+    "text": "PATIENT pat_pill_count test_auto | Site_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'PATIENT\npat_pill_count test_auto | Site_1_US')]"
+  },
+  "h6_PATIENT_104": {
+    "tag": "h6",
+    "text": "PATIENT",
+    "xpath": "//h6[contains(normalize-space(text()), 'PATIENT')]"
+  },
+  "span_pat_pill_c_105": {
+    "class": "patient-name-inline",
+    "tag": "span",
+    "text": "pat_pill_count test_auto | Site_1_US",
+    "xpath": "//span[contains(normalize-space(text()), 'pat_pill_count test_auto | Site_1_US')]"
+  },
+  "span_| Site_1_U_106": {
+    "class": "site-badge ng-star-inserted",
+    "tag": "span",
+    "text": "| Site_1_US",
+    "xpath": "//span[contains(normalize-space(text()), '| Site_1_US')]"
+  },
+  "div_TREATMENT _107": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "TREATMENT START DATE Mar 2, 2026",
+    "xpath": "//div[contains(normalize-space(text()), 'TREATMENT START DATE\nMar 2, 2026')]"
+  },
+  "h6_TREATMENT _108": {
+    "tag": "h6",
+    "text": "TREATMENT START DATE",
+    "xpath": "//h6[contains(normalize-space(text()), 'TREATMENT START DATE')]"
+  },
+  "span_Mar 2, 202_109": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "Mar 2, 2026",
+    "xpath": "//span[contains(normalize-space(text()), 'Mar 2, 2026')]"
+  },
+  "div_EXP. END D_110": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "EXP. END DATE Jul 19, 2026",
+    "xpath": "//div[contains(normalize-space(text()), 'EXP. END DATE\nJul 19, 2026')]"
+  },
+  "h6_EXP. END D_111": {
+    "tag": "h6",
+    "text": "EXP. END DATE",
+    "xpath": "//h6[contains(normalize-space(text()), 'EXP. END DATE')]"
+  },
+  "span_Jul 19, 20_112": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "Jul 19, 2026",
+    "xpath": "//span[contains(normalize-space(text()), 'Jul 19, 2026')]"
+  },
+  "div_MRN pill12_113": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "MRN pill123",
+    "xpath": "//div[contains(normalize-space(text()), 'MRN\npill123')]"
+  },
+  "h6_MRN_114": {
+    "tag": "h6",
+    "text": "MRN",
+    "xpath": "//h6[contains(normalize-space(text()), 'MRN')]"
+  },
+  "div_SA-ID SA-8_115": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "SA-ID SA-8531",
+    "xpath": "//div[contains(normalize-space(text()), 'SA-ID\nSA-8531')]"
+  },
+  "h6_SA-ID_116": {
+    "tag": "h6",
+    "text": "SA-ID",
+    "xpath": "//h6[contains(normalize-space(text()), 'SA-ID')]"
+  },
+  "span_SA-8531_117": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "SA-8531",
+    "xpath": "//span[contains(normalize-space(text()), 'SA-8531')]"
+  },
+  "div_PATIENT MA_118": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "PATIENT MANAGER None",
+    "xpath": "//div[contains(normalize-space(text()), 'PATIENT MANAGER\nNone')]"
+  },
+  "h6_PATIENT MA_119": {
+    "tag": "h6",
+    "text": "PATIENT MANAGER",
+    "xpath": "//h6[contains(normalize-space(text()), 'PATIENT MANAGER')]"
+  },
+  "span_None_120": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "None",
+    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+  },
+  "div_TREATMENT _121": {
+    "class": "info-item",
+    "tag": "div",
+    "text": "TREATMENT MONITOR None",
+    "xpath": "//div[contains(normalize-space(text()), 'TREATMENT MONITOR\nNone')]"
+  },
+  "h6_TREATMENT _122": {
+    "tag": "h6",
+    "text": "TREATMENT MONITOR",
+    "xpath": "//h6[contains(normalize-space(text()), 'TREATMENT MONITOR')]"
+  },
+  "span_None_123": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "None",
+    "xpath": "//span[contains(normalize-space(text()), 'None')]"
+  },
+  "main_Overview A_124": {
+    "class": "main adherence-content",
+    "tag": "main",
+    "text": "Overview Adherence Regimen Profile Messages Pill count Reports Pill count ADD NEW PILL COUNT Drugs Date dispensed Kit Number \u2014 Pills dispensed Date of return Pills returned Damaged/lost pills Percent returned 0% ADD DRUG Total proportion returned 0% CANCEL SAVE March 2, 2026 Drugs Abacavir Date dispensed 2026-03-02 Kit Number \u2014 no. of pills dispensed 1 Date of return 2026-03-17 no. of pills returned 1 no. of pills lost/damaged 0 Percent returned 100%",
+    "xpath": "//main[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPill count\nADD NEW PILL COUNT\nDrugs\nDate dispensed\nKit Number\n\u2014\nPills dispensed\nDate of return\nPills returned\nDamaged/lost pills\nPercent returned\n0%\nADD DRUG\nTotal proportion returned 0%\nCANCEL\nSAVE\nMarch 2, 2026\nDrugs\nAbacavir\nDate dispensed\n2026-03-02\nKit Number\n\u2014\nno. of pills dispensed\n1\nDate of return\n2026-03-17\nno. of pills returned\n1\nno. of pills lost/damaged\n0\nPercent returned\n100%')]"
+  },
+  "kendo-tabstrip_Overview A_125": {
+    "class": "ng-tns-c655264150-13 k-tabstrip k-pos-relative k-tabstrip-top ng-star-inserted",
+    "tag": "kendo-tabstrip",
+    "text": "Overview Adherence Regimen Profile Messages Pill count Reports Pill count ADD NEW PILL COUNT Drugs Date dispensed Kit Number \u2014 Pills dispensed Date of return Pills returned Damaged/lost pills Percent returned 0% ADD DRUG Total proportion returned 0% CANCEL SAVE March 2, 2026 Drugs Abacavir Date dispensed 2026-03-02 Kit Number \u2014 no. of pills dispensed 1 Date of return 2026-03-17 no. of pills returned 1 no. of pills lost/damaged 0 Percent returned 100%",
+    "xpath": "//kendo-tabstrip[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports\nPill count\nADD NEW PILL COUNT\nDrugs\nDate dispensed\nKit Number\n\u2014\nPills dispensed\nDate of return\nPills returned\nDamaged/lost pills\nPercent returned\n0%\nADD DRUG\nTotal proportion returned 0%\nCANCEL\nSAVE\nMarch 2, 2026\nDrugs\nAbacavir\nDate dispensed\n2026-03-02\nKit Number\n\u2014\nno. of pills dispensed\n1\nDate of return\n2026-03-17\nno. of pills returned\n1\nno. of pills lost/damaged\n0\nPercent returned\n100%')]"
+  },
+  "div_Overview A_126": {
+    "class": "k-tabstrip-items-wrapper ng-tns-c655264150-13 k-hstack ng-star-inserted",
+    "tag": "div",
+    "text": "Overview Adherence Regimen Profile Messages Pill count Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports')]"
+  },
+  "ul_Overview A_127": {
+    "class": "k-reset k-tabstrip-items ng-tns-c655264150-13",
+    "tag": "ul",
+    "text": "Overview Adherence Regimen Profile Messages Pill count Reports",
+    "xpath": "//ul[contains(normalize-space(text()), 'Overview\nAdherence\nRegimen\nProfile\nMessages\nPill count\nReports')]"
+  },
+  "k-tabstrip-tab-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-0": {
+    "id": "k-tabstrip-tab-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-0",
+    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Overview",
+    "xpath": "//li[@id='k-tabstrip-tab-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-0']"
+  },
+  "span_Overview_129": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Overview",
+    "xpath": "//span[contains(normalize-space(text()), 'Overview')]"
+  },
+  "div_Overview_130": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Overview",
+    "xpath": "//div[contains(normalize-space(text()), 'Overview')]"
+  },
+  "span_Overview_131": {
+    "tag": "span",
+    "text": "Overview",
+    "xpath": "//span[contains(normalize-space(text()), 'Overview')]"
+  },
+  "k-tabstrip-tab-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-1": {
+    "id": "k-tabstrip-tab-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-1",
+    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Adherence",
+    "xpath": "//li[@id='k-tabstrip-tab-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-1']"
+  },
+  "span_Adherence_133": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Adherence",
+    "xpath": "//span[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "div_Adherence_134": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Adherence",
+    "xpath": "//div[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "span_Adherence_135": {
+    "tag": "span",
+    "text": "Adherence",
+    "xpath": "//span[contains(normalize-space(text()), 'Adherence')]"
+  },
+  "k-tabstrip-tab-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-2": {
+    "id": "k-tabstrip-tab-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-2",
+    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Regimen",
+    "xpath": "//li[@id='k-tabstrip-tab-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-2']"
+  },
+  "span_Regimen_137": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Regimen",
+    "xpath": "//span[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "div_Regimen_138": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Regimen",
+    "xpath": "//div[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "span_Regimen_139": {
+    "tag": "span",
+    "text": "Regimen",
+    "xpath": "//span[contains(normalize-space(text()), 'Regimen')]"
+  },
+  "k-tabstrip-tab-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-3": {
+    "id": "k-tabstrip-tab-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-3",
+    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Profile",
+    "xpath": "//li[@id='k-tabstrip-tab-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-3']"
+  },
+  "span_Profile_141": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Profile",
+    "xpath": "//span[contains(normalize-space(text()), 'Profile')]"
+  },
+  "div_Profile_142": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Profile",
+    "xpath": "//div[contains(normalize-space(text()), 'Profile')]"
+  },
+  "span_Profile_143": {
+    "tag": "span",
+    "text": "Profile",
+    "xpath": "//span[contains(normalize-space(text()), 'Profile')]"
+  },
+  "k-tabstrip-tab-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-4": {
+    "id": "k-tabstrip-tab-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-4",
+    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Messages",
+    "xpath": "//li[@id='k-tabstrip-tab-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-4']"
+  },
+  "span_Messages_145": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Messages",
+    "xpath": "//span[contains(normalize-space(text()), 'Messages')]"
+  },
+  "div_Messages_146": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Messages",
+    "xpath": "//div[contains(normalize-space(text()), 'Messages')]"
+  },
+  "span_Messages_147": {
+    "tag": "span",
+    "text": "Messages",
+    "xpath": "//span[contains(normalize-space(text()), 'Messages')]"
+  },
+  "k-tabstrip-tab-Pill count": {
+    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "text": "Pill count",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Pill count')]"
+  },
+  "k-opened-tabstrip-tab": {
+    "class": "k-item k-state-default ng-star-inserted k-active",
+    "id": "k-tabstrip-tab",
+    "tag": "li",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab') and @aria-selected='true']//div/span"
+  },
+  "span_Pill count_149": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Pill count",
+    "xpath": "//span[contains(normalize-space(text()), 'Pill count')]"
+  },
+  "div_Pill count_150": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Pill count",
+    "xpath": "//div[contains(normalize-space(text()), 'Pill count')]"
+  },
+  "span_Pill count_151": {
+    "tag": "span",
+    "text": "Pill count",
+    "xpath": "//span[contains(normalize-space(text()), 'Pill count')]"
+  },
+  "k-tabstrip-tab-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-6": {
+    "id": "k-tabstrip-tab-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-6",
+    "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Reports",
+    "xpath": "//li[@id='k-tabstrip-tab-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-6']"
+  },
+  "span_Reports_153": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Reports",
+    "xpath": "//span[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div_Reports_154": {
+    "class": "tab-title ng-star-inserted",
+    "tag": "div",
+    "text": "Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
+  },
+  "span_Reports_155": {
+    "tag": "span",
+    "text": "Reports",
+    "xpath": "//span[contains(normalize-space(text()), 'Reports')]"
+  },
+  "k-tabstrip-tabpanel-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-5": {
+    "id": "k-tabstrip-tabpanel-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-5",
+    "class": "ng-tns-c655264150-13 ng-trigger ng-trigger-state k-tabstrip-content k-active ng-star-inserted",
+    "tag": "div",
+    "text": "Pill count ADD NEW PILL COUNT Drugs Date dispensed Kit Number \u2014 Pills dispensed Date of return Pills returned Damaged/lost pills Percent returned 0% ADD DRUG Total proportion returned 0% CANCEL SAVE March 2, 2026 Drugs Abacavir Date dispensed 2026-03-02 Kit Number \u2014 no. of pills dispensed 1 Date of return 2026-03-17 no. of pills returned 1 no. of pills lost/damaged 0 Percent returned 100%",
+    "xpath": "//div[@id='k-tabstrip-tabpanel-23f5bba5-b4dc-4cdf-80ed-cf9617341f74-5']"
+  },
+  "pill-count_Pill count_157": {
+    "class": "ng-star-inserted",
+    "tag": "pill-count",
+    "text": "Pill count ADD NEW PILL COUNT Drugs Date dispensed Kit Number \u2014 Pills dispensed Date of return Pills returned Damaged/lost pills Percent returned 0% ADD DRUG Total proportion returned 0% CANCEL SAVE March 2, 2026 Drugs Abacavir Date dispensed 2026-03-02 Kit Number \u2014 no. of pills dispensed 1 Date of return 2026-03-17 no. of pills returned 1 no. of pills lost/damaged 0 Percent returned 100%",
+    "xpath": "//pill-count[contains(normalize-space(text()), 'Pill count\nADD NEW PILL COUNT\nDrugs\nDate dispensed\nKit Number\n\u2014\nPills dispensed\nDate of return\nPills returned\nDamaged/lost pills\nPercent returned\n0%\nADD DRUG\nTotal proportion returned 0%\nCANCEL\nSAVE\nMarch 2, 2026\nDrugs\nAbacavir\nDate dispensed\n2026-03-02\nKit Number\n\u2014\nno. of pills dispensed\n1\nDate of return\n2026-03-17\nno. of pills returned\n1\nno. of pills lost/damaged\n0\nPercent returned\n100%')]"
+  },
+  "div_Pill count_158": {
+    "class": "pillcounts-wrapper",
+    "tag": "div",
+    "text": "Pill count ADD NEW PILL COUNT Drugs Date dispensed Kit Number \u2014 Pills dispensed Date of return Pills returned Damaged/lost pills Percent returned 0% ADD DRUG Total proportion returned 0% CANCEL SAVE March 2, 2026 Drugs Abacavir Date dispensed 2026-03-02 Kit Number \u2014 no. of pills dispensed 1 Date of return 2026-03-17 no. of pills returned 1 no. of pills lost/damaged 0 Percent returned 100%",
+    "xpath": "//div[contains(normalize-space(text()), 'Pill count\nADD NEW PILL COUNT\nDrugs\nDate dispensed\nKit Number\n\u2014\nPills dispensed\nDate of return\nPills returned\nDamaged/lost pills\nPercent returned\n0%\nADD DRUG\nTotal proportion returned 0%\nCANCEL\nSAVE\nMarch 2, 2026\nDrugs\nAbacavir\nDate dispensed\n2026-03-02\nKit Number\n\u2014\nno. of pills dispensed\n1\nDate of return\n2026-03-17\nno. of pills returned\n1\nno. of pills lost/damaged\n0\nPercent returned\n100%')]"
+  },
+  "div_Pill count_159": {
+    "class": "visits-container ng-star-inserted",
+    "tag": "div",
+    "text": "Pill count ADD NEW PILL COUNT Drugs Date dispensed Kit Number \u2014 Pills dispensed Date of return Pills returned Damaged/lost pills Percent returned 0% ADD DRUG Total proportion returned 0% CANCEL SAVE March 2, 2026 Drugs Abacavir Date dispensed 2026-03-02 Kit Number \u2014 no. of pills dispensed 1 Date of return 2026-03-17 no. of pills returned 1 no. of pills lost/damaged 0 Percent returned 100%",
+    "xpath": "//div[contains(normalize-space(text()), 'Pill count\nADD NEW PILL COUNT\nDrugs\nDate dispensed\nKit Number\n\u2014\nPills dispensed\nDate of return\nPills returned\nDamaged/lost pills\nPercent returned\n0%\nADD DRUG\nTotal proportion returned 0%\nCANCEL\nSAVE\nMarch 2, 2026\nDrugs\nAbacavir\nDate dispensed\n2026-03-02\nKit Number\n\u2014\nno. of pills dispensed\n1\nDate of return\n2026-03-17\nno. of pills returned\n1\nno. of pills lost/damaged\n0\nPercent returned\n100%')]"
+  },
+  "h3_Pill count": {
+    "tag": "h3",
+    "text": "Pill count",
+    "xpath": "//h3[contains(normalize-space(text()), 'Pill count')]"
+  },
+  "button_ADD NEW PILL COUNT": {
+    "class": "k-button k-button-md k-rounded-md k-button-solid-base k-button-solid ng-star-inserted k-focus",
+    "type": "submit",
+    "tag": "button",
+    "text": "ADD NEW PILL COUNT",
+    "xpath": "//button[contains(normalize-space(text()), 'ADD NEW PILL COUNT')]"
+  },
+  "span_ADD NEW PILL COUNT": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "ADD NEW PILL COUNT",
+    "xpath": "//span[contains(normalize-space(text()), 'ADD NEW PILL COUNT')]"
+  },
+  "div_Drugs Date_163": {
+    "class": "visit ng-star-inserted",
+    "tag": "div",
+    "text": "Drugs Date dispensed Kit Number \u2014 Pills dispensed Date of return Pills returned Damaged/lost pills Percent returned 0% ADD DRUG Total proportion returned 0% CANCEL SAVE",
+    "xpath": "//div[contains(normalize-space(text()), 'Drugs\nDate dispensed\nKit Number\n\u2014\nPills dispensed\nDate of return\nPills returned\nDamaged/lost pills\nPercent returned\n0%\nADD DRUG\nTotal proportion returned 0%\nCANCEL\nSAVE')]"
+  },
+  "div__164": {
+    "class": "title",
+    "tag": "div",
+    "xpath": "//div[@class='title']"
+  },
+  "div__165": {
+    "class": "datepicker ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='datepicker ng-star-inserted']"
+  },
+  "input__166": {
+    "placeholder": "Visit date",
+    "class": "bold-text ng-untouched ng-pristine ng-valid",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@placeholder='Visit date']"
+  },
+  "span__167": {
+    "class": "k-select",
+    "tag": "span",
+    "xpath": "//span[@class='k-select']"
+  },
+  "span__168": {
+    "class": "bi-calendar",
+    "tag": "span",
+    "xpath": "//span[@class='bi-calendar']"
+  },
+  "div__169": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='ng-star-inserted']"
+  },
+  "div_Drugs Date_170": {
+    "class": "row drug px-2 row-cols-12 mb-lg-0 mb-3 ng-star-inserted",
+    "tag": "div",
+    "text": "Drugs Date dispensed Kit Number \u2014 Pills dispensed Date of return Pills returned Damaged/lost pills Percent returned 0%",
+    "xpath": "//div[contains(normalize-space(text()), 'Drugs\nDate dispensed\nKit Number\n\u2014\nPills dispensed\nDate of return\nPills returned\nDamaged/lost pills\nPercent returned\n0%')]"
+  },
+  "div_Drugs_171": {
+    "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1 ng-star-inserted",
+    "tag": "div",
+    "text": "Drugs",
+    "xpath": "//div[contains(normalize-space(text()), 'Drugs')]"
+  },
+  "div_Drugs_172": {
+    "class": "label",
+    "tag": "div",
+    "text": "Drugs",
+    "xpath": "//div[contains(normalize-space(text()), 'Drugs')]"
+  },
+  "div__173": {
+    "class": "value",
+    "tag": "div",
+    "xpath": "//div[@class='value']"
+  },
+  "kendo-autocomplete__174": {
+    "class": "k-input-md k-rounded-md k-input-solid k-autocomplete k-input ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-autocomplete",
+    "xpath": "//kendo-autocomplete[@class='k-input-md k-rounded-md k-input-solid k-autocomplete k-input ng-untouched ng-pristine ng-valid']"
+  },
+  "kendo-searchbar__175": {
+    "class": "k-searchbar",
+    "tag": "kendo-searchbar",
+    "xpath": "//kendo-searchbar[@class='k-searchbar']"
+  },
+  "k-e5dee58c-9412-44a4-83ba-a1eacd8d40f1": {
+    "id": "k-e5dee58c-9412-44a4-83ba-a1eacd8d40f1",
+    "placeholder": "Select drug...",
+    "class": "k-input-inner",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@id='k-e5dee58c-9412-44a4-83ba-a1eacd8d40f1']"
+  },
+  "responsive-renderer__177": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__178": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div_Date dispe_179": {
+    "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1 ng-star-inserted",
+    "tag": "div",
+    "text": "Date dispensed",
+    "xpath": "//div[contains(normalize-space(text()), 'Date dispensed')]"
+  },
+  "div_Date dispe_180": {
+    "class": "label",
+    "tag": "div",
+    "text": "Date dispensed",
+    "xpath": "//div[contains(normalize-space(text()), 'Date dispensed')]"
+  },
+  "div__181": {
+    "class": "value",
+    "tag": "div",
+    "xpath": "//div[@class='value']"
+  },
+  "div__182": {
+    "class": "datepicker",
+    "tag": "div",
+    "xpath": "//div[@class='datepicker']"
+  },
+  "input__183": {
+    "placeholder": "Date dispensed",
+    "class": "ng-untouched ng-pristine ng-valid",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@placeholder='Date dispensed']"
+  },
+  "span__184": {
+    "class": "k-select",
+    "tag": "span",
+    "xpath": "//span[@class='k-select']"
+  },
+  "span__185": {
+    "class": "bi-calendar",
+    "tag": "span",
+    "xpath": "//span[@class='bi-calendar']"
+  },
+  "div_Kit Number_186": {
+    "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1",
+    "tag": "div",
+    "text": "Kit Number \u2014",
+    "xpath": "//div[contains(normalize-space(text()), 'Kit Number\n\u2014')]"
+  },
+  "div_Kit Number_187": {
+    "class": "label",
+    "tag": "div",
+    "text": "Kit Number",
+    "xpath": "//div[contains(normalize-space(text()), 'Kit Number')]"
+  },
+  "div_\u2014_188": {
+    "class": "value",
+    "tag": "div",
+    "text": "\u2014",
+    "xpath": "//div[contains(normalize-space(text()), '\u2014')]"
+  },
+  "span_\u2014_189": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "\u2014",
+    "xpath": "//span[contains(normalize-space(text()), '\u2014')]"
+  },
+  "div_Pills disp_190": {
+    "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1",
+    "tag": "div",
+    "text": "Pills dispensed",
+    "xpath": "//div[contains(normalize-space(text()), 'Pills dispensed')]"
+  },
+  "div_Pills disp_191": {
+    "class": "label",
+    "tag": "div",
+    "text": "Pills dispensed",
+    "xpath": "//div[contains(normalize-space(text()), 'Pills dispensed')]"
+  },
+  "div__192": {
+    "class": "value",
+    "tag": "div",
+    "xpath": "//div[@class='value']"
+  },
+  "kendo-numerictextbox__193": {
+    "class": "k-input k-numerictextbox ng-untouched ng-pristine ng-valid k-input-md k-rounded-md k-input-solid",
+    "tag": "kendo-numerictextbox",
+    "xpath": "//kendo-numerictextbox[@class='k-input k-numerictextbox ng-untouched ng-pristine ng-valid k-input-md k-rounded-md k-input-solid']"
+  },
+  "k-43af1dd8-11de-4825-8b67-0f8f84760633": {
+    "id": "k-43af1dd8-11de-4825-8b67-0f8f84760633",
+    "placeholder": "Pills dispensed",
+    "class": "k-input-inner",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@id='k-43af1dd8-11de-4825-8b67-0f8f84760633']"
+  },
+  "div_Date of re_195": {
+    "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1",
+    "tag": "div",
+    "text": "Date of return",
+    "xpath": "//div[contains(normalize-space(text()), 'Date of return')]"
+  },
+  "div_Date of re_196": {
+    "class": "label",
+    "tag": "div",
+    "text": "Date of return",
+    "xpath": "//div[contains(normalize-space(text()), 'Date of return')]"
+  },
+  "div__197": {
+    "class": "value",
+    "tag": "div",
+    "xpath": "//div[@class='value']"
+  },
+  "div__198": {
+    "class": "datepicker",
+    "tag": "div",
+    "xpath": "//div[@class='datepicker']"
+  },
+  "input__199": {
+    "placeholder": "Date of return",
+    "class": "ng-untouched ng-pristine ng-valid",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@placeholder='Date of return']"
+  },
+  "span__200": {
+    "class": "k-select",
+    "tag": "span",
+    "xpath": "//span[@class='k-select']"
+  },
+  "span__201": {
+    "class": "bi-calendar",
+    "tag": "span",
+    "xpath": "//span[@class='bi-calendar']"
+  },
+  "div_Pills retu_202": {
+    "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1",
+    "tag": "div",
+    "text": "Pills returned",
+    "xpath": "//div[contains(normalize-space(text()), 'Pills returned')]"
+  },
+  "div_Pills retu_203": {
+    "class": "label",
+    "tag": "div",
+    "text": "Pills returned",
+    "xpath": "//div[contains(normalize-space(text()), 'Pills returned')]"
+  },
+  "div__204": {
+    "class": "value",
+    "tag": "div",
+    "xpath": "//div[@class='value']"
+  },
+  "kendo-numerictextbox__205": {
+    "class": "k-input k-numerictextbox ng-untouched ng-pristine ng-valid k-input-md k-rounded-md k-input-solid",
+    "tag": "kendo-numerictextbox",
+    "xpath": "//kendo-numerictextbox[@class='k-input k-numerictextbox ng-untouched ng-pristine ng-valid k-input-md k-rounded-md k-input-solid']"
+  },
+  "k-e291a8eb-f5f3-43e3-a5ee-3d5f78384849": {
+    "id": "k-e291a8eb-f5f3-43e3-a5ee-3d5f78384849",
+    "placeholder": "Pills returned",
+    "class": "k-input-inner",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@id='k-e291a8eb-f5f3-43e3-a5ee-3d5f78384849']"
+  },
+  "div_Damaged/lo_207": {
+    "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1",
+    "tag": "div",
+    "text": "Damaged/lost pills",
+    "xpath": "//div[contains(normalize-space(text()), 'Damaged/lost pills')]"
+  },
+  "div_Damaged/lo_208": {
+    "class": "label",
+    "tag": "div",
+    "text": "Damaged/lost pills",
+    "xpath": "//div[contains(normalize-space(text()), 'Damaged/lost pills')]"
+  },
+  "div__209": {
+    "class": "value",
+    "tag": "div",
+    "xpath": "//div[@class='value']"
+  },
+  "kendo-numerictextbox__210": {
+    "class": "k-input k-numerictextbox ng-untouched ng-pristine ng-valid k-input-md k-rounded-md k-input-solid",
+    "tag": "kendo-numerictextbox",
+    "xpath": "//kendo-numerictextbox[@class='k-input k-numerictextbox ng-untouched ng-pristine ng-valid k-input-md k-rounded-md k-input-solid']"
+  },
+  "k-feacc889-1d47-42fe-96ae-2e5b7d26c84a": {
+    "id": "k-feacc889-1d47-42fe-96ae-2e5b7d26c84a",
+    "placeholder": "Damaged/lost pills",
+    "class": "k-input-inner",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@id='k-feacc889-1d47-42fe-96ae-2e5b7d26c84a']"
+  },
+  "div_Percent re_212": {
+    "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1",
+    "tag": "div",
+    "text": "Percent returned 0%",
+    "xpath": "//div[contains(normalize-space(text()), 'Percent returned\n0%')]"
+  },
+  "div_Percent re_213": {
+    "class": "label",
+    "tag": "div",
+    "text": "Percent returned",
+    "xpath": "//div[contains(normalize-space(text()), 'Percent returned')]"
+  },
+  "div_0%_214": {
+    "class": "value",
+    "tag": "div",
+    "text": "0%",
+    "xpath": "//div[contains(normalize-space(text()), '0%')]"
+  },
+  "div__215": {
+    "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1",
+    "tag": "div",
+    "xpath": "//div[@class='col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1']"
+  },
+  "div__216": {
+    "class": "label",
+    "tag": "div",
+    "xpath": "//div[@class='label']"
+  },
+  "div__217": {
+    "class": "value",
+    "tag": "div",
+    "xpath": "//div[@class='value']"
+  },
+  "span__218": {
+    "class": "k-select",
+    "tag": "span",
+    "xpath": "//span[@class='k-select']"
+  },
+  "span__219": {
+    "class": "bi-trash",
+    "tag": "span",
+    "xpath": "//span[@class='bi-trash']"
+  },
+  "div_ADD DRUG T_220": {
+    "class": "row mt-3 ng-star-inserted",
+    "tag": "div",
+    "text": "ADD DRUG Total proportion returned 0%",
+    "xpath": "//div[contains(normalize-space(text()), 'ADD DRUG\nTotal proportion returned 0%')]"
+  },
+  "div_ADD DRUG_221": {
+    "class": "col-md-6 text-md-start text-center",
+    "tag": "div",
+    "text": "ADD DRUG",
+    "xpath": "//div[contains(normalize-space(text()), 'ADD DRUG')]"
+  },
+  "button_ADD DRUG_222": {
+    "class": "mb-2 k-button k-button-md k-rounded-md k-button-solid-base k-button-solid",
+    "type": "submit",
+    "tag": "button",
+    "text": "ADD DRUG",
+    "xpath": "//button[contains(normalize-space(text()), 'ADD DRUG')]"
+  },
+  "span__223": {
+    "class": "k-button-icon icon-add_circle ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-icon icon-add_circle ng-star-inserted']"
+  },
+  "span_ADD DRUG_224": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "ADD DRUG",
+    "xpath": "//span[contains(normalize-space(text()), 'ADD DRUG')]"
+  },
+  "div_Total prop_225": {
+    "class": "col-md-6 text-md-end text-center",
+    "tag": "div",
+    "text": "Total proportion returned 0%",
+    "xpath": "//div[contains(normalize-space(text()), 'Total proportion returned 0%')]"
+  },
+  "div_Total prop_226": {
+    "class": "total-proportion",
+    "tag": "div",
+    "text": "Total proportion returned 0%",
+    "xpath": "//div[contains(normalize-space(text()), 'Total proportion returned 0%')]"
+  },
+  "div_CANCEL SAV_227": {
+    "class": "row mt-3 mt-lg-0 mt-md-0 ng-star-inserted",
+    "tag": "div",
+    "text": "CANCEL SAVE",
+    "xpath": "//div[contains(normalize-space(text()), 'CANCEL\nSAVE')]"
+  },
+  "div_CANCEL SAV_228": {
+    "class": "col-12 text-md-end text-center",
+    "tag": "div",
+    "text": "CANCEL SAVE",
+    "xpath": "//div[contains(normalize-space(text()), 'CANCEL\nSAVE')]"
+  },
+  "button_CANCEL_229": {
+    "class": "k-button k-button-md k-rounded-md k-button-solid-base k-button-solid",
+    "type": "submit",
+    "tag": "button",
+    "text": "CANCEL",
+    "xpath": "//button[contains(normalize-space(text()), 'CANCEL')]"
+  },
+  "span_CANCEL_230": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "CANCEL",
+    "xpath": "//span[contains(normalize-space(text()), 'CANCEL')]"
+  },
+  "button_SAVE_231": {
+    "class": "k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid",
+    "type": "submit",
+    "tag": "button",
+    "text": "SAVE",
+    "xpath": "//button[contains(normalize-space(text()), 'SAVE')]"
+  },
+  "span_SAVE_232": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "SAVE",
+    "xpath": "//span[contains(normalize-space(text()), 'SAVE')]"
+  },
+  "div_March 2, 2_233": {
+    "class": "visit ng-star-inserted",
+    "tag": "div",
+    "text": "March 2, 2026 Drugs Abacavir Date dispensed 2026-03-02 Kit Number \u2014 no. of pills dispensed 1 Date of return 2026-03-17 no. of pills returned 1 no. of pills lost/damaged 0 Percent returned 100%",
+    "xpath": "//div[contains(normalize-space(text()), 'March 2, 2026\nDrugs\nAbacavir\nDate dispensed\n2026-03-02\nKit Number\n\u2014\nno. of pills dispensed\n1\nDate of return\n2026-03-17\nno. of pills returned\n1\nno. of pills lost/damaged\n0\nPercent returned\n100%')]"
+  },
+  "div_March 2, 2_234": {
+    "class": "title",
+    "tag": "div",
+    "text": "March 2, 2026",
+    "xpath": "//div[contains(normalize-space(text()), 'March 2, 2026')]"
+  },
+  "div_March 2, 2_235": {
+    "class": "bold-text ng-star-inserted",
+    "tag": "div",
+    "text": "March 2, 2026",
+    "xpath": "//div[contains(normalize-space(text()), 'March 2, 2026')]"
+  },
+  "button__236": {
+    "class": "edit-button k-button k-icon-button k-button-md k-rounded-md k-button-solid-base k-button-solid ng-star-inserted",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='edit-button k-button k-icon-button k-button-md k-rounded-md k-button-solid-base k-button-solid ng-star-inserted' and @type='submit']"
+  },
+  "span__237": {
+    "class": "k-button-icon icon-mode_edit ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-icon icon-mode_edit ng-star-inserted']"
+  },
+  "span__238": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "div_Drugs Abac_239": {
+    "class": "row drug px-2 row-cols-9 mb-lg-0 mb-3 ng-star-inserted",
+    "tag": "div",
+    "text": "Drugs Abacavir Date dispensed 2026-03-02 Kit Number \u2014 no. of pills dispensed 1 Date of return 2026-03-17 no. of pills returned 1 no. of pills lost/damaged 0 Percent returned 100%",
+    "xpath": "//div[contains(normalize-space(text()), 'Drugs\nAbacavir\nDate dispensed\n2026-03-02\nKit Number\n\u2014\nno. of pills dispensed\n1\nDate of return\n2026-03-17\nno. of pills returned\n1\nno. of pills lost/damaged\n0\nPercent returned\n100%')]"
+  },
+  "div_Drugs Abac_240": {
+    "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1",
+    "tag": "div",
+    "text": "Drugs Abacavir",
+    "xpath": "//div[contains(normalize-space(text()), 'Drugs\nAbacavir')]"
+  },
+  "div_Drugs_241": {
+    "class": "label",
+    "tag": "div",
+    "text": "Drugs",
+    "xpath": "//div[contains(normalize-space(text()), 'Drugs')]"
+  },
+  "div_Abacavir_242": {
+    "class": "value",
+    "tag": "div",
+    "text": "Abacavir",
+    "xpath": "//div[contains(normalize-space(text()), 'Abacavir')]"
+  },
+  "div_Date dispe_243": {
+    "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1",
+    "tag": "div",
+    "text": "Date dispensed 2026-03-02",
+    "xpath": "//div[contains(normalize-space(text()), 'Date dispensed\n2026-03-02')]"
+  },
+  "div_Date dispe_244": {
+    "class": "label",
+    "tag": "div",
+    "text": "Date dispensed",
+    "xpath": "//div[contains(normalize-space(text()), 'Date dispensed')]"
+  },
+  "div_2026-03-02_245": {
+    "class": "value",
+    "tag": "div",
+    "text": "2026-03-02",
+    "xpath": "//div[contains(normalize-space(text()), '2026-03-02')]"
+  },
+  "div_Kit Number_246": {
+    "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1",
+    "tag": "div",
+    "text": "Kit Number \u2014",
+    "xpath": "//div[contains(normalize-space(text()), 'Kit Number\n\u2014')]"
+  },
+  "div_Kit Number_247": {
+    "class": "label",
+    "tag": "div",
+    "text": "Kit Number",
+    "xpath": "//div[contains(normalize-space(text()), 'Kit Number')]"
+  },
+  "div_\u2014_248": {
+    "class": "value",
+    "tag": "div",
+    "text": "\u2014",
+    "xpath": "//div[contains(normalize-space(text()), '\u2014')]"
+  },
+  "span_\u2014_249": {
+    "class": "ng-star-inserted",
+    "tag": "span",
+    "text": "\u2014",
+    "xpath": "//span[contains(normalize-space(text()), '\u2014')]"
+  },
+  "div_no. of pil_250": {
+    "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1",
+    "tag": "div",
+    "text": "no. of pills dispensed 1",
+    "xpath": "//div[contains(normalize-space(text()), 'no. of pills dispensed\n1')]"
+  },
+  "div_no. of pil_251": {
+    "class": "label",
+    "tag": "div",
+    "text": "no. of pills dispensed",
+    "xpath": "//div[contains(normalize-space(text()), 'no. of pills dispensed')]"
+  },
+  "div_1_252": {
+    "class": "value",
+    "tag": "div",
+    "text": "1",
+    "xpath": "//div[contains(normalize-space(text()), '1')]"
+  },
+  "div_Date of re_253": {
+    "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1",
+    "tag": "div",
+    "text": "Date of return 2026-03-17",
+    "xpath": "//div[contains(normalize-space(text()), 'Date of return\n2026-03-17')]"
+  },
+  "div_Date of re_254": {
+    "class": "label",
+    "tag": "div",
+    "text": "Date of return",
+    "xpath": "//div[contains(normalize-space(text()), 'Date of return')]"
+  },
+  "div_2026-03-17_255": {
+    "class": "value",
+    "tag": "div",
+    "text": "2026-03-17",
+    "xpath": "//div[contains(normalize-space(text()), '2026-03-17')]"
+  },
+  "div_no. of pil_256": {
+    "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1",
+    "tag": "div",
+    "text": "no. of pills returned 1",
+    "xpath": "//div[contains(normalize-space(text()), 'no. of pills returned\n1')]"
+  },
+  "div_no. of pil_257": {
+    "class": "label",
+    "tag": "div",
+    "text": "no. of pills returned",
+    "xpath": "//div[contains(normalize-space(text()), 'no. of pills returned')]"
+  },
+  "div_1_258": {
+    "class": "value",
+    "tag": "div",
+    "text": "1",
+    "xpath": "//div[contains(normalize-space(text()), '1')]"
+  },
+  "div_no. of pil_259": {
+    "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1",
+    "tag": "div",
+    "text": "no. of pills lost/damaged 0",
+    "xpath": "//div[contains(normalize-space(text()), 'no. of pills lost/damaged\n0')]"
+  },
+  "div_no. of pil_260": {
+    "class": "label",
+    "tag": "div",
+    "text": "no. of pills lost/damaged",
+    "xpath": "//div[contains(normalize-space(text()), 'no. of pills lost/damaged')]"
+  },
+  "div_0_261": {
+    "class": "value",
+    "tag": "div",
+    "text": "0",
+    "xpath": "//div[contains(normalize-space(text()), '0')]"
+  },
+  "div_Percent re_262": {
+    "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1",
+    "tag": "div",
+    "text": "Percent returned 100%",
+    "xpath": "//div[contains(normalize-space(text()), 'Percent returned\n100%')]"
+  },
+  "div_Percent re_263": {
+    "class": "label",
+    "tag": "div",
+    "text": "Percent returned",
+    "xpath": "//div[contains(normalize-space(text()), 'Percent returned')]"
+  },
+  "div_100%_264": {
+    "class": "value",
+    "tag": "div",
+    "text": "100%",
+    "xpath": "//div[contains(normalize-space(text()), '100%')]"
+  },
+  "div__265": {
+    "class": "d-flex justify-content-end mt-3 ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='d-flex justify-content-end mt-3 ng-star-inserted']"
+  },
+  "div__266": {
+    "class": "total-proportion",
+    "tag": "div",
+    "xpath": "//div[@class='total-proportion']"
+  },
+  "popover__267": {
+    "tag": "popover",
+    "xpath": "//popover"
+  },
+  "client-footer_@2026 Sure_268": {
+    "tag": "client-footer",
+    "text": "@2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//client-footer[contains(normalize-space(text()), '@2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "footer_@2026 Sure_269": {
+    "class": "footer pt-0 footer-height",
+    "tag": "footer",
+    "text": "@2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//footer[contains(normalize-space(text()), '@2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "p_@2026 Sure_270": {
+    "tag": "p",
+    "text": "@2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service",
+    "xpath": "//p[contains(normalize-space(text()), '@2026 SureAdhere Mobile Technology, Inc. Privacy Policy and Terms of Service')]"
+  },
+  "a_Privacy Po_271": {
+    "tag": "a",
+    "text": "Privacy Policy and Terms of Service",
+    "xpath": "//a[contains(normalize-space(text()), 'Privacy Policy and Terms of Service')]"
+  },
+  "popover__272": {
+    "tag": "popover",
+    "xpath": "//popover"
+  }
+}
