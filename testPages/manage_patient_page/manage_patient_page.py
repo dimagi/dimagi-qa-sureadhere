@@ -66,8 +66,6 @@ class ManagePatientPage(BasePage):
         except Exception:
             print("popup not present")
 
-
-
     def open_inactive_tab(self):
         self.click("li_span_Inactive_tab")
         self.wait_for_page_to_load()

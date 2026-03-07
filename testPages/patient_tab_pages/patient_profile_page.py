@@ -169,6 +169,7 @@ class PatientProfilePage(BasePage):
             print("popup not present after save")
 
     def active_patient(self):
+        self.wait_for_element("accountIsActiv_chb")
         print(self.resolve("accountIsActiv_chb"))
         if self.is_checked('accountIsActiv_chb'):
             print("Account is already set to active")
@@ -176,7 +177,7 @@ class PatientProfilePage(BasePage):
             print("Account is active is not selected")
             self.click("accountIsActiv_chb")
             assert self.is_checked('accountIsActiv_chb')
-            print("Account is not set to active")
+            print("Account is set to active")
 
 
     def inactive_patient(self):
