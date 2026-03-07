@@ -39,6 +39,8 @@ class UserPatientPage(BasePage):
 
         self.type('first_name', fname)
         self.type('last_name', lname)
+        self.unheal_all('mrn')
+        time.sleep(1)
         self.type('mrn', mrn)
         self.type('email', email)
         self.type('phone_number', UserData.phone_number)

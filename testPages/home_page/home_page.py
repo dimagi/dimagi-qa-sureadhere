@@ -21,6 +21,7 @@ class HomePage(BasePage):
         time.sleep(3)
 
     def click_add_user(self):
+        self.scroll_to_element("button_add_user")
         self.click("button_add_user")
 
     def open_manage_staff_page(self):

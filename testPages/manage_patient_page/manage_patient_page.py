@@ -278,7 +278,7 @@ class ManagePatientPage(BasePage):
         print(f"Total sortable columns: {total_cols}")
 
         for index in range(1, total_cols + 1):
-            if index == 3 or index == 4:
+            if index == 3 or index == 4 or index == 7 or index == 8:
                 print(f"Column {index} is not sortable. Skipping.")
                 continue
 

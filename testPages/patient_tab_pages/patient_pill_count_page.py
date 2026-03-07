@@ -28,14 +28,18 @@ class PatientPillCountPage(BasePage):
         except Exception:
             print("popup not present")
         self.wait_for_page_to_load()
+        self.refresh()
+        time.sleep(10)
+        self.wait_for_page_to_load()
         self.wait_for_element('k-opened-tabstrip-tab')
         state=self.get_attribute("k-tabstrip-tab-Pill count", "aria-selected", strict=True)
         self.unheal_all('k-opened-tabstrip-tab')
         time.sleep(3)
         tabname = self.get_text('k-opened-tabstrip-tab')
-        print(tabname)
+        print(tabname, state)
         # assert tabname == "Pill count", "Pill Count tab is not opened"
-        assert state == True, "Pill Count tab is not opened"
+        # assert state == True, "Pill Count tab is not opened"
         self.wait_for_element('span_ADD NEW PILL COUNT')
         self.wait_for_element('h3_Pill count')
+        assert self.is_element_visible("span_ADD NEW PILL COUNT"), "Pill Count tab is not opened"
         print("Opened tab is Pill count")

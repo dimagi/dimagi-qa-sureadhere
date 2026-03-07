@@ -346,14 +346,14 @@ class test_module_08_patient_tests(BaseCase):
         home.validate_dashboard_page()
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
-        patient.search_and_sort_columns("pat_fn")
+        patient.search_and_sort_columns("pat_fnmob")
 
         home.open_dashboard_page()
         home.open_manage_patient_page()
         patient.open_inactive_tab()
-        patient.search_and_sort_columns("pat_fn")
+        patient.search_and_sort_columns("pat_fnmob")
 
         home.open_dashboard_page()
         home.open_manage_patient_page()
         patient.open_test_tab()
-        patient.search_and_sort_columns("pat_fn")
+        patient.search_and_sort_columns("pat_fnmob")
