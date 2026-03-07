@@ -170,20 +170,23 @@ class PatientProfilePage(BasePage):
 
     def active_patient(self):
         self.wait_for_element("accountIsActiv_chb")
+        self.scroll_to_element("accountIsActiv_chb")
         print(self.resolve("accountIsActiv_chb"))
         if self.is_checked('accountIsActiv_chb'):
             print("Account is already set to active")
         else:
             print("Account is active is not selected")
-            self.click("accountIsActiv_chb")
+            self.js_click("accountIsActiv_chb")
             assert self.is_checked('accountIsActiv_chb')
             print("Account is set to active")
 
 
     def inactive_patient(self):
+        self.wait_for_element("accountIsActiv_chb")
+        self.scroll_to_element("accountIsActiv_chb")
         if self.is_checked('accountIsActiv_chb'):
             print("Account is active is selected")
-            self.click("accountIsActiv_chb")
+            self.js_click("accountIsActiv_chb")
             assert not self.is_checked('accountIsActiv_chb')
             print("Account is set to inactive")
         else:
@@ -195,7 +198,9 @@ class PatientProfilePage(BasePage):
         elif flag == False and not self.is_checked('accountIsTest_chb'):
             print("Test account is already unchecked")
         else:
-            self.click("accountIsTest_chb")
+            self.wait_for_element("accountIsTest_chb")
+            self.scroll_to_element("accountIsTest_chb")
+            self.js_click("accountIsTest_chb")
             state = self.is_checked('accountIsTest_chb')
             print(f"Test account is set to {state}")
 
