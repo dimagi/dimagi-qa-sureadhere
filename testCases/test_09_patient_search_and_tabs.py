@@ -449,13 +449,13 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         d = self.__class__.data
 
         try:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-        except Exception:
-            login.launch_browser(self.settings["url"])
             login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
+        except Exception:
+            print("Not in the login page")
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.login(self.settings["login_username"], self.settings["login_password"])
 
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()

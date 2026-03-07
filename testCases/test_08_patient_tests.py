@@ -193,6 +193,9 @@ class test_module_08_patient_tests(BaseCase):
 
         patient.search_patient(nfname, nlname, d["mrn"], d["patient_username"], d["SA_ID"])
 
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
         self.__class__.data.update(
             {"patient_fname": nfname, "patient_lname": nlname,
              "patient_email": nemail
@@ -218,11 +221,15 @@ class test_module_08_patient_tests(BaseCase):
             print("Form is already closed")
 
         try:
-            home.open_dashboard_page()
-        except Exception:
             login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
+        except Exception:
+            print("Not in the login page")
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.login(self.settings["login_username"], self.settings["login_password"])
 
+        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
@@ -341,7 +348,11 @@ class test_module_08_patient_tests(BaseCase):
         try:
             login.login(self.settings["login_username"], self.settings["login_password"])
         except Exception:
-            print("Login Page is not present")
+            print("Not in the login page")
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.login(self.settings["login_username"], self.settings["login_password"])
 
         home.validate_dashboard_page()
         home.open_manage_patient_page()
