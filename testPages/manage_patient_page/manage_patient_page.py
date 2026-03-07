@@ -236,7 +236,7 @@ class ManagePatientPage(BasePage):
                 time.sleep(5)
                 self.wait_for_page_to_load()
                 self.wait_for_element('tbody_patient')
-                self.wait_for_text(search_name.lower(), 'td_sa_id', 50)
+                self.wait_for_text(search_name, 'td_sa_id', 50)
                 sa_id_value = self.get_text("td_sa_id")
                 assert search_name.lower() in sa_id_value.lower().strip(), f"SA ID mismatch {sa_id_value.lower().strip()} and {search_name.lower()}"
                 print(f"Correct patient with SA ID {search_name} is displayed for {i} search")

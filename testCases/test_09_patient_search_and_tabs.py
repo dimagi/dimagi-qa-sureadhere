@@ -383,55 +383,9 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         fname, lname = patient.open_first_patient()
         p_message.verify_patient_messages_page()
 
-
     @pytest.mark.extendedtests
-    @pytest.mark.dependency(name="tc_pat_search_tabs_7", depends=['tc_pat_search_tabs_2'], scope="class")
-    def test_case_07_patient_tab_switch_report(self):
-        rerun_count = getattr(self, "rerun_count", 0)
-        self._login_once()
-        login = LoginPage(self, "login")
-        home = HomePage(self, "dashboard")
-        user = UserPage(self, "add_users")
-        user_patient = UserPatientPage(self, "add_patient")
-        p_profile = PatientProfilePage(self, 'patient_profile')
-        patient = ManagePatientPage(self, "patients")
-        profile = UserProfilePage(self, "user")
-        p_report = PatientReportsPage(self, 'patient_reports')
-
-        d = self.__class__.data
-
-        try:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-        except Exception:
-            login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-
-        home.open_manage_patient_page()
-        patient.validate_manage_patient_page()
-        patient.search_patient(d['patient_fname'], d['patient_lname'], d['mrn'], d['patient_username'], d['SA_ID'])
-        patient.open_patient(d['patient_fname'], d['patient_lname'])
-        p_report.open_patient_reports_page()
-        p_report.verify_patient_reports_page()
-
-        home.click_admin_profile_button()
-        profile.logout_user()
-        login.after_logout()
-
-        login.login(self.settings["login_username"], self.settings["login_password"])
-
-        home.validate_dashboard_page()
-        home.open_manage_patient_page()
-        patient.validate_manage_patient_page()
-        patient.search_test_patients(UserData.client_1_patient_details[d["env"]][0])
-        fname, lname = patient.open_first_patient()
-        p_report.verify_patient_reports_page()
-
-    @pytest.mark.extendedtests
-    @pytest.mark.dependency(name="tc_pat_search_tabs_8a", scope="class")
-    def test_case_08a_pill_count_ff_setup_on(self):
+    @pytest.mark.dependency(name="tc_pat_search_tabs_7a", scope="class")
+    def test_case_07a_pill_count_ff_setup_on(self):
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
@@ -472,8 +426,8 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         a_ff.double_check_ff(UserData.pill_count_ff_before, flag)
 
     @pytest.mark.extendedtests
-    @pytest.mark.dependency(name="tc_pat_search_tabs_8", depends=['tc_pat_search_tabs_2', 'tc_pat_search_tabs_8a'], scope="class")
-    def test_case_08b_patient_tab_switch_pill_count(self):
+    @pytest.mark.dependency(name="tc_pat_search_tabs_7", depends=['tc_pat_search_tabs_2', 'tc_pat_search_tabs_7a'], scope="class")
+    def test_case_07b_patient_tab_switch_pill_count(self):
         rerun_count = getattr(self, "rerun_count", 0)
         self._login_once()
         login = LoginPage(self, "login")
@@ -517,8 +471,8 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         p_pill.verify_patient_pill_count_page()
 
     @pytest.mark.extendedtests
-    @pytest.mark.dependency(name="tc_pat_search_tabs_8b", depends=['tc_pat_search_tabs_8', 'tc_pat_search_tabs_8a'], scope="class")
-    def test_case_08c_pill_count_ff_setup_off(self):
+    @pytest.mark.dependency(name="tc_pat_search_tabs_7c", depends=['tc_pat_search_tabs_7', 'tc_pat_search_tabs_7a'], scope="class")
+    def test_case_07c_pill_count_ff_setup_off(self):
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
@@ -557,3 +511,50 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
         a_ff.double_check_ff(UserData.pill_count_ff_after, flag)
+
+
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_pat_search_tabs_8", depends=['tc_pat_search_tabs_2'], scope="class")
+    def test_case_08_patient_tab_switch_report(self):
+        rerun_count = getattr(self, "rerun_count", 0)
+        self._login_once()
+        login = LoginPage(self, "login")
+        home = HomePage(self, "dashboard")
+        user = UserPage(self, "add_users")
+        user_patient = UserPatientPage(self, "add_patient")
+        p_profile = PatientProfilePage(self, 'patient_profile')
+        patient = ManagePatientPage(self, "patients")
+        profile = UserProfilePage(self, "user")
+        p_report = PatientReportsPage(self, 'patient_reports')
+
+        d = self.__class__.data
+
+        try:
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+        except Exception:
+            login.launch_browser(self.settings["url"])
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+
+        home.open_manage_patient_page()
+        patient.validate_manage_patient_page()
+        patient.search_patient(d['patient_fname'], d['patient_lname'], d['mrn'], d['patient_username'], d['SA_ID'])
+        patient.open_patient(d['patient_fname'], d['patient_lname'])
+        p_report.open_patient_reports_page()
+        p_report.verify_patient_reports_page()
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+
+        login.login(self.settings["login_username"], self.settings["login_password"])
+
+        home.validate_dashboard_page()
+        home.open_manage_patient_page()
+        patient.validate_manage_patient_page()
+        patient.search_test_patients(UserData.client_1_patient_details[d["env"]][0])
+        fname, lname = patient.open_first_patient()
+        p_report.verify_patient_reports_page()
