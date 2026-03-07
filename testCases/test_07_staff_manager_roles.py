@@ -56,24 +56,24 @@ class test_module_07_staff_manager_roles(BaseCase):
             default_site_manager = UserData.site_manager[1]
 
         rerun_count = getattr(self, "rerun_count", 0)
-        try:
-            user_staff.cancel_form()
-        except:
-            print("No dialog present")
-        try:
-            home.click_admin_profile_button()
-            profile.logout_user()
-            login.after_logout()
-            login.validate_login_page()
-        except:
-            print("Already logged out")
-        try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.validate_dashboard_page()
-        except:
-            print("Already logged in")
-            home.open_dashboard_page()
-        # if rerun_count != 0:
+        if rerun_count != 0:
+            try:
+                user_staff.cancel_form()
+            except:
+                print("No dialog present")
+            try:
+                home.click_admin_profile_button()
+                profile.logout_user()
+                login.after_logout()
+                login.validate_login_page()
+            except:
+                print("Already logged out")
+            try:
+                login.login(self.settings["login_username"], self.settings["login_password"])
+                home.validate_dashboard_page()
+            except:
+                print("Already logged in")
+                home.open_dashboard_page()
 
         home.click_add_user()
         user.add_staff()
@@ -88,6 +88,9 @@ class test_module_07_staff_manager_roles(BaseCase):
 
         login.login(email, UserData.pwd)
         home.validate_dashboard_page()
+        home.open_filter()
+        home.open_filter_search_staff("Patient Manager", f"{fname} {lname}")
+        home.close_filter()
         home.click_add_user()
         user.add_patient()
         pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(site, mob='pm',
@@ -111,10 +114,8 @@ class test_module_07_staff_manager_roles(BaseCase):
         home.open_manage_patient_page()
         patient.search_test_patients(UserData.client_1_patient_details[env][0])
         patient.search_test_patients_not_present(UserData.client_2_patient_details[env][0])
-        home.open_filter()
-        home.open_filter_search_staff("Patient Manager", f"{fname} {lname}")
-        home.close_filter()
-        home.open_dashboard_page()
+
+        home.click_admin_profile_button()
         profile.logout_user()
         login.after_logout()
         login.validate_login_page()
@@ -166,7 +167,9 @@ class test_module_07_staff_manager_roles(BaseCase):
 
         login.login(d['email_stf'], UserData.pwd)
         home.validate_dashboard_page()
-
+        home.open_filter()
+        home.open_filter_search_staff("Treatment Monitor", f"{d['fname_stf']} { d['lname_stf']}")
+        home.close_filter()
         home.click_add_user()
         user.add_patient()
         pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(d['site_stf'], mob='tm',
@@ -190,10 +193,6 @@ class test_module_07_staff_manager_roles(BaseCase):
         home.open_manage_patient_page()
         patient.search_test_patients(UserData.client_1_patient_details[env][0])
         patient.search_test_patients_not_present(UserData.client_2_patient_details[env][0])
-
-        home.open_filter()
-        home.open_filter_search_staff("Treatment Monitor", f"{d['fname_stf']} {d['lname_stf']}")
-        home.close_filter()
 
         home.click_admin_profile_button()
         profile.logout_user()
