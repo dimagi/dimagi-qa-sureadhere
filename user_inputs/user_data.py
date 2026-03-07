@@ -28,7 +28,15 @@ class UserData:
         "Self Report - pills taken with food": "OFF",
         "Self Report - pills with food": "OFF",
         "Self Report - pills with provider present": "OFF",
-        "Regimen approval workflow": "OFF"
+        "Regimen approval workflow": "OFF",
+        "Automatic Opt In for SMS": "OFF",
+        "Patient MRN validated with lookup": "OFF"
+        }
+    pill_count_ff_before = {
+        "Pill Count": "ON",
+        }
+    pill_count_ff_after = {
+        "Pill Count": "OFF",
         }
     invalid_password = "12auto34test!"
     inactive_user_email = "automation.inactive@gmail.com"
@@ -73,3 +81,4 @@ class UserData:
     default_managers = ['PM', 'SM', 'TM', 'SS']
     access_warning = "You don't have access to edit this patient"
     global_reports = ['User access', 'Most recent patient videos', 'Monthly video count by patient']
+    patient_list_columns = [ "Name","UserName","Treatment progress","Est. doses remaining","MRN","SA-ID","Start date","End date"]

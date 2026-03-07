@@ -16,15 +16,23 @@ class PatientAdherencePage(BasePage):
         self.click('k-tabstrip-tab-Adherence')
         try:
             self.kendo_dialog_wait_open()  # no title constraint
-            self.kendo_dialog_click_button("Continue")
+            self.kendo_dialog_click_button("Ok")
         except Exception:
             print("popup not present")
 
     def verify_patient_adherence_page(self):
         time.sleep(5)
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Ok")
+        except Exception:
+            print("popup not present")
         self.wait_for_page_to_load()
         self.wait_for_element('k-opened-tabstrip-tab')
+        self.unheal_all('k-opened-tabstrip-tab')
+        time.sleep(3)
         tabname = self.get_text('k-opened-tabstrip-tab')
+        print(tabname)
         assert tabname == "Adherence", "Adherence tab is not opened"
         print("Opened tab is Adherence")
 

@@ -21,6 +21,7 @@ class HomePage(BasePage):
         time.sleep(3)
 
     def click_add_user(self):
+        self.scroll_to_element("button_add_user")
         self.click("button_add_user")
 
     def open_manage_staff_page(self):
@@ -152,7 +153,7 @@ class HomePage(BasePage):
     def open_filter(self):
         self.wait_for_element("filter_icon")
         self.click("filter_icon")
-        self.wait_for_element("span_Site", strict=True)
+        self.wait_for_element("span_Sites", strict=True)
         assert self.is_element_present("div_hide_filter"), "Dashboard Filter is not open"
         print("Dashboard Filter is opened")
 
@@ -163,17 +164,31 @@ class HomePage(BasePage):
         assert not self.is_element_visible("div_hide_filter"), "Dashboard Filter is not closed"
         print("Dashboard Filter is closed")
 
-    def open_filter_search_staff(self, filter_name, name):
-        self.click(f"span_{filter_name}")
-        time.sleep(5)
-        self.wait_for_page_to_load(80)
-        time.sleep(6)
-        self.wait_for_element(f"{filter_name}_bar", 60)
+    def open_filter_search_staff(self, filter_name, name, select=False):
+        if filter_name!='Sites':
+            self.click(f"span_{filter_name}")
+            time.sleep(5)
+            self.wait_for_page_to_load(80)
+            time.sleep(6)
+            self.wait_for_element(f"{filter_name}_bar", 60)
+        else:
+            try:
+                self.wait_for_element(f"{filter_name}_bar", 60)
+            except:
+                self.click(f"span_{filter_name}")
+                time.sleep(5)
+                self.wait_for_page_to_load(80)
+                time.sleep(6)
+                self.wait_for_element(f"{filter_name}_bar", 60)
         values = self.get_li_items(f"{filter_name}_bar")
         # print(values)
-        assert name in values, f"{name} not in list"
-        print(f"{name} present in list")
-        self.click(f"span_{filter_name}")
+        assert name in values, f"{name} not in {filter_name} list"
+        if select:
+            self.click_rendered(f"global_filter_item_{filter_name}", text=name)
+        print(f"{name} present in {filter_name} list")
+        self.scroll_to_element(f"span_{filter_name}")
+        time.sleep(2)
+        self.js_click(f"span_{filter_name}")
 
     def verify_filter_presence(self, filter_name, presence=True):
         strict = True
@@ -201,3 +216,12 @@ class HomePage(BasePage):
             assert not self.is_element_visible("div_chart"), "Data Chart is present"
             print("Data Chart is not present")
 
+    def clear_filter(self):
+        self.open_filter()
+        try:
+            self.wait_for_element('reset_filters')
+            self.click('reset_filters')
+            self.wait_for_invisible('reset_filters')
+        except:
+            print("No Filters set")
+        self.close_filter()

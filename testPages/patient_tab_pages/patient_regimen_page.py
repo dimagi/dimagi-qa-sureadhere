@@ -26,9 +26,17 @@ class PatientRegimenPage(BasePage):
 
     def verify_patient_regimen_page(self):
         time.sleep(5)
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Continue")
+        except Exception:
+            print("popup not present")
         self.wait_for_page_to_load()
         self.wait_for_element('k-opened-tabstrip-tab')
+        self.unheal_all('k-opened-tabstrip-tab')
+        time.sleep(3)
         tabname = self.get_text('k-opened-tabstrip-tab')
+        print(tabname)
         assert tabname == "Regimen", "Regimen tab is not opened"
         self.wait_for_element('kendo-dropdownlist-Disease', 40)
         self.wait_for_element('input_regimen_name' )
