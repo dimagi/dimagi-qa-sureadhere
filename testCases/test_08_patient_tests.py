@@ -122,6 +122,12 @@ class test_module_08_patient_tests(BaseCase):
         p_profile = PatientProfilePage(self, 'patient_profile')
         patient = ManagePatientPage(self, "patients")
         d = self.__class__.data  # shared dict
+
+        try:
+            user_patient.cancel_patient_form()
+        except:
+            print("Form is already closed")
+
         try:
             home.open_dashboard_page()
         except Exception:
@@ -156,6 +162,10 @@ class test_module_08_patient_tests(BaseCase):
         p_profile = PatientProfilePage(self, 'patient_profile')
         patient = ManagePatientPage(self, "patients")
         d = self.__class__.data  # shared dict
+        try:
+            user_patient.cancel_patient_form()
+        except:
+            print("Form is already closed")
         try:
             home.open_dashboard_page()
         except Exception:
@@ -202,6 +212,11 @@ class test_module_08_patient_tests(BaseCase):
         p_profile = PatientProfilePage(self, 'patient_profile')
         patient = ManagePatientPage(self, "patients")
         d = self.__class__.data  # shared dict
+        try:
+            user_patient.cancel_patient_form()
+        except:
+            print("Form is already closed")
+
         try:
             home.open_dashboard_page()
         except Exception:
@@ -275,6 +290,10 @@ class test_module_08_patient_tests(BaseCase):
             default_site_manager = UserData.site_manager[2]
         else:
             default_site_manager = UserData.site_manager[1]
+        try:
+            user_patient.cancel_patient_form()
+        except:
+            print("Form is already closed")
         try:
             home.open_dashboard_page()
         except Exception:

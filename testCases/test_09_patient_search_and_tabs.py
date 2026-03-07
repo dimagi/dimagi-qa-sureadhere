@@ -49,6 +49,10 @@ class test_module_09_patient_search_and_tabs(BaseCase):
 
         env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
         try:
+            user_patient.cancel_patient_form()
+        except:
+            print("Form is already closed")
+        try:
             home.open_dashboard_page()
             home.validate_dashboard_page()
         except Exception:
@@ -218,7 +222,10 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         p_overview = PatientOverviewPage(self, 'patient_overview')
 
         d = self.__class__.data
-
+        try:
+            user_patient.cancel_patient_form()
+        except:
+            print("Form is already closed")
         try:
             home.open_dashboard_page()
             home.validate_dashboard_page()

@@ -495,7 +495,7 @@
     "class": "k-item k-state-default ng-star-inserted k-active",
     "tag": "li",
     "text": "Reports",
-    "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Reports')]"
+    "xpath": "//li[contains(@id,'k-tabstrip-tab')][.//span[contains(normalize-space(text()), 'Reports')]]"
   },
   "span_Overview_119": {
     "class": "k-link ng-star-inserted",

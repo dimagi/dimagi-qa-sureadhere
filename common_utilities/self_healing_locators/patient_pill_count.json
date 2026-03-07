@@ -667,7 +667,7 @@
     "class": "ng-tns-c655264150-13 k-item k-state-default ng-star-inserted k-active",
     "tag": "li",
     "text": "Pill count",
-    "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Pill count')]"
+    "xpath": "//li[contains(@id,'k-tabstrip-tab')][.//span[contains(normalize-space(text()), 'Pill count')]]"
   },
   "k-opened-tabstrip-tab": {
     "class": "k-item k-state-default ng-star-inserted k-active",
