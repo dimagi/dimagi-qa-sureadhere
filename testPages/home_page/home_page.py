@@ -152,14 +152,16 @@ class HomePage(BasePage):
 
     def open_filter(self):
         self.wait_for_element("filter_icon")
-        self.click("filter_icon")
+        self.js_click("filter_icon")
+        time.sleep(2)
         self.wait_for_element("span_Sites", strict=True)
         assert self.is_element_present("div_hide_filter"), "Dashboard Filter is not open"
         print("Dashboard Filter is opened")
 
     def close_filter(self):
         self.wait_for_element("div_hide_filter")
-        self.click("div_hide_filter")
+        self.js_click("div_hide_filter")
+        time.sleep(2)
         self.wait_for_invisible("div_hide_filter")
         assert not self.is_element_visible("div_hide_filter"), "Dashboard Filter is not closed"
         print("Dashboard Filter is closed")
@@ -217,7 +219,6 @@ class HomePage(BasePage):
             print("Data Chart is not present")
 
     def clear_filter(self):
-        self.open_filter()
         try:
             if self.is_element_visible("reset_filters"):
                 self.wait_for_element('reset_filters')
@@ -227,5 +228,4 @@ class HomePage(BasePage):
                 print("No Filters set")
         except:
             print("No Filters set")
-        self.close_filter()
         time.sleep(3)
