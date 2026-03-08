@@ -110,7 +110,7 @@ class test_module_08_patient_tests(BaseCase):
             )
 
     @pytest.mark.extendedtests
-    @pytest.mark.dependency(name="tc_patient_3", scope="class")
+    @pytest.mark.dependency(name="tc_patient_3", depends=['tc_patient_2'], scope="class")
     def test_case_03_edit_patient_created_invalid_data(self):
         rerun_count = getattr(self, "rerun_count", 0)
         login = LoginPage(self, "login")
@@ -257,6 +257,12 @@ class test_module_08_patient_tests(BaseCase):
                                                  )
         p_profile.test_patient(True)
         p_profile.save_patient_changes()
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+        login.login(self.settings["login_username"], self.settings["login_password"])
+
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
@@ -267,10 +273,10 @@ class test_module_08_patient_tests(BaseCase):
                                                  d["patient_email"], d['patient_username'], d["patient_phn"],
                                                  d['phone_country'], d['site'], active_account=False, account_test=True
                                                  )
+        p_profile.activate_patient(True)
         p_profile.test_patient(False)
         p_profile.save_patient_changes()
-        p_profile.active_patient()
-        p_profile.save_patient_changes()
+
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
@@ -367,6 +373,7 @@ class test_module_08_patient_tests(BaseCase):
         login.login(self.settings["login_username"], self.settings["login_password"])
         home.open_dashboard_page()
         home.open_manage_patient_page()
+        patient.validate_manage_patient_page()
         patient.open_inactive_tab()
         patient.search_and_sort_columns("pat_fnmob")
 
@@ -377,5 +384,6 @@ class test_module_08_patient_tests(BaseCase):
         login.login(self.settings["login_username"], self.settings["login_password"])
         home.open_dashboard_page()
         home.open_manage_patient_page()
+        patient.validate_manage_patient_page()
         patient.open_test_tab()
         patient.search_and_sort_columns("pat_fnmob")

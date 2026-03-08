@@ -167,6 +167,7 @@ class PatientProfilePage(BasePage):
             self.kendo_dialog_click_button("Ok")
         except Exception:
             print("popup not present after save")
+        time.sleep(2)
 
     def active_patient(self):
         self.wait_for_element("accountIsActiv_chb")
@@ -179,6 +180,7 @@ class PatientProfilePage(BasePage):
             self.js_click("accountIsActiv_chb")
             assert self.is_checked('accountIsActiv_chb')
             print("Account is set to active")
+        time.sleep(2)
 
 
     def inactive_patient(self):
@@ -191,6 +193,7 @@ class PatientProfilePage(BasePage):
             print("Account is set to inactive")
         else:
             print("Account is already set to inactive")
+        time.sleep(2)
 
     def test_patient(self, flag):
         if flag == True and self.is_checked('accountIsTest_chb'):
@@ -203,6 +206,20 @@ class PatientProfilePage(BasePage):
             self.js_click("accountIsTest_chb")
             state = self.is_checked('accountIsTest_chb')
             print(f"Test account is set to {state}")
+        time.sleep(2)
+
+    def activate_patient(self, flag):
+        if flag == True and self.is_checked('accountIsActiv_chb'):
+            print("Active account is already checked")
+        elif flag == False and not self.is_checked('accountIsActiv_chb'):
+            print("Active account is already unchecked")
+        else:
+            self.wait_for_element("accountIsActiv_chb")
+            self.scroll_to_element("accountIsActiv_chb")
+            self.js_click("accountIsActiv_chb")
+            state = self.is_checked('accountIsActiv_chb')
+            print(f"Active account is set to {state}")
+        time.sleep(2)
 
     def set_patient_pin(self,fname, lname, mrn, email, username, phn, country, site):
         self.wait_for_patient_to_load(fname, lname)
