@@ -348,11 +348,6 @@ class test_module_08_patient_tests(BaseCase):
         d = self.__class__.data  # shared dict
 
         try:
-            home.clear_filter()
-        except:
-            print("No Global filter is open")
-
-        try:
             login.login(self.settings["login_username"], self.settings["login_password"])
         except Exception:
             print("Not in the login page")
@@ -360,6 +355,12 @@ class test_module_08_patient_tests(BaseCase):
             profile.logout_user()
             login.after_logout()
             login.login(self.settings["login_username"], self.settings["login_password"])
+
+
+        try:
+            home.clear_filter()
+        except:
+            print("No Global filter is open")
 
         home.validate_dashboard_page()
         home.open_manage_patient_page()
