@@ -315,10 +315,10 @@ class test_module_08_patient_tests(BaseCase):
             home.open_dashboard_page()
 
         home.validate_dashboard_page()
+        home.clear_filter()
         home.open_manage_patient_page()
         page_count_before = patient.get_total_pages()
         patient.validate_patient_table()
-        home.clear_filter()
         home.open_filter()
         home.open_filter_search_staff("Sites", default_site_manager, select=True)
         # home.close_filter()
@@ -348,7 +348,6 @@ class test_module_08_patient_tests(BaseCase):
         d = self.__class__.data  # shared dict
 
         try:
-            home.close_filter()
             home.clear_filter()
         except:
             print("No Global filter is open")

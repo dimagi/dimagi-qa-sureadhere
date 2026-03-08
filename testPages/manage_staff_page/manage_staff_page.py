@@ -128,8 +128,10 @@ class ManageStaffPage(BasePage):
             print(f"Correct staff with name {name} is displayed for {i} search")
 
     def search_and_sort_columns(self, name: str):
-        self.type('input_search_staff', name)
-        self.wait_for_page_to_load()
+        if name:
+            self.type('input_search_staff', name)
+            time.sleep(30)
+            self.wait_for_page_to_load()
         self.wait_for_element('tbody_staff')
 
         total_cols = len(self.find_elements("table_header_sort"))

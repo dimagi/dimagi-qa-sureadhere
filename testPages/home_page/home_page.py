@@ -225,3 +225,4 @@ class HomePage(BasePage):
         except:
             print("No Filters set")
         self.close_filter()
+        time.sleep(3)

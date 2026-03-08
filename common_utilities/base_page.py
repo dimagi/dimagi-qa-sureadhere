@@ -3586,16 +3586,22 @@ class BasePage:
                 raise AssertionError(f"Email column NOT sorted {sorted_as}")
             return
 
-        expected_lex = sorted(final_values, key=lambda s: str(s).casefold(), reverse=reverse)
-        expected_nat = sorted(final_values, key=self.natural_key, reverse=reverse)
+        expected_lex = sorted(
+            final_values,
+            key=lambda s: str(s).split()[0].casefold(),
+            reverse=reverse
+            )
+        expected_nat = sorted(
+            final_values,
+            key=lambda s: self.natural_key(str(s).split()[0]),
+            reverse=reverse
+            )
+        # expected_lex = sorted(final_values, key=lambda s: str(s).casefold(), reverse=reverse)
+        # expected_nat = sorted(final_values, key=self.natural_key, reverse=reverse)
 
         if final_values == expected_lex or final_values == expected_nat:
             return  # ✅ matches at least one valid Kendo-like ordering
 
-        prefix_sorted = sorted(final_values, key=lambda s: str(s).split()[0].casefold(), reverse=reverse)
-
-        if final_values == prefix_sorted:
-            return
 
         print("ACTUAL :", final_values)
         print("EXPECTED (LEX):", expected_lex)

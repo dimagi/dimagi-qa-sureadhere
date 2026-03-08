@@ -253,9 +253,10 @@ class ManagePatientPage(BasePage):
             print("No search value provided")
 
     def search_and_sort_columns(self, name: str):
-        self.type('input_search_patient', name)
-        time.sleep(30)
-        self.wait_for_page_to_load(60)
+        if name:
+            self.type('input_search_patient', name)
+            time.sleep(30)
+            self.wait_for_page_to_load(60)
         self.wait_for_element('tbody_patient')
 
         total_cols = len(self.find_elements("table_header_sort"))

@@ -477,4 +477,4 @@ class test_module_06_staff_tests(BaseCase):
         staff.validate_manage_staff_page()
         staff.open_test_tab()
         staff.validate_test_tab()
-        staff.search_and_sort_columns("test")
+        staff.search_and_sort_columns("test_")
