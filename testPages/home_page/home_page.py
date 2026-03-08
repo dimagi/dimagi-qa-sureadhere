@@ -169,18 +169,16 @@ class HomePage(BasePage):
     def open_filter_search_staff(self, filter_name, name, select=False):
         if filter_name!='Sites':
             self.click(f"span_{filter_name}")
-            time.sleep(5)
+            time.sleep(2)
             self.wait_for_page_to_load(80)
-            time.sleep(6)
             self.wait_for_element(f"{filter_name}_bar", 60)
         else:
             try:
                 self.wait_for_element(f"{filter_name}_bar", 60)
             except:
                 self.click(f"span_{filter_name}")
-                time.sleep(5)
+                time.sleep(2)
                 self.wait_for_page_to_load(80)
-                time.sleep(6)
                 self.wait_for_element(f"{filter_name}_bar", 60)
         values = self.get_li_items(f"{filter_name}_bar")
         # print(values)
@@ -191,6 +189,8 @@ class HomePage(BasePage):
         self.scroll_to_element(f"span_{filter_name}")
         time.sleep(2)
         self.js_click(f"span_{filter_name}")
+        time.sleep(5)
+        self.wait_for_page_to_load(80)
 
     def verify_filter_presence(self, filter_name, presence=True):
         strict = True
@@ -220,12 +220,11 @@ class HomePage(BasePage):
 
     def clear_filter(self):
         try:
-            if self.is_element_visible("reset_filters"):
-                self.wait_for_element('reset_filters')
-                self.click('reset_filters')
-                self.wait_for_invisible('reset_filters')
-            else:
-                print("No Filters set")
+            self.wait_for_element('reset_filters', strict=True)
+            time.sleep(1)
+            self.click('reset_filters', strict=True)
+            self.wait_for_invisible('reset_filters', strict=True)
         except:
             print("No Filters set")
-        time.sleep(3)
+        time.sleep(1)
+        self.wait_for_page_to_load(80)

@@ -1816,6 +1816,6 @@
     "class": "clear-link",
     "tag": "span",
     "text": "here",
-    "xpath": "//span[normalize-space(text())='here']"
+    "xpath": "//span[@class='clear-link']"
   }
 }

@@ -310,18 +310,15 @@ class test_module_08_patient_tests(BaseCase):
             print("Form is already closed")
         try:
             login.login(self.settings["login_username"], self.settings["login_password"])
+            home.validate_dashboard_page()
         except Exception:
             print("Not in the login page")
 
-        home.open_dashboard_page()
-        home.validate_dashboard_page()
         home.open_manage_patient_page()
         page_count_before = patient.get_total_pages()
         patient.validate_patient_table()
         home.open_filter()
         home.clear_filter()
-        home.close_filter()
-        home.open_filter()
         home.open_filter_search_staff("Sites", default_site_manager, select=True)
         # home.close_filter()
         # home.open_filter()
@@ -329,13 +326,16 @@ class test_module_08_patient_tests(BaseCase):
         # home.close_filter()
         # home.open_filter()
         home.open_filter_search_staff("Patient Manager", UserData.default_staff_name, select=True)
-        home.close_filter()
+        # home.close_filter()
         page_count_after = patient.get_total_pages()
         assert page_count_before != page_count_after, f"{page_count_after} is not less than {page_count_before}"
-        home.open_filter()
+        # home.open_dashboard_page()
+        # home.open_manage_patient_page()
+        # home.open_filter()
         home.clear_filter()
         home.close_filter()
-        assert page_count_before == patient.get_total_pages()
+        page_count_now = patient.get_total_pages()
+        assert page_count_before == page_count_now, f"{page_count_now} is not equal {page_count_before}"
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_patient_7", scope="class")
