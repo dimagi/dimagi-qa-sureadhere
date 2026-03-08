@@ -375,6 +375,7 @@ class test_module_08_patient_tests(BaseCase):
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
         patient.open_inactive_tab()
+        patient.validate_inactive_tab()
         patient.search_and_sort_columns("pat_fnmob")
 
         home.click_admin_profile_button()
@@ -386,4 +387,5 @@ class test_module_08_patient_tests(BaseCase):
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
         patient.open_test_tab()
+        patient.validate_test_tab()
         patient.search_and_sort_columns("pat_fnmob")

@@ -683,11 +683,11 @@
     "text": "Active",
     "xpath": "//li[@id='k-tabstrip-tab-ee6b7df1-290d-4e33-babb-8c549f06a04b-0']"
   },
-  "li_span_Active_tab": {
-    "class": "k-link ng-star-inserted",
-    "tag": "span",
+  "li_Active": {
+    "class": "k-active",
+    "tag": "li",
     "text": "Active",
-    "xpath": "//li//span[contains(normalize-space(text()), 'Active')]"
+    "xpath": "//li[contains(@class,'k-active')]"
   },
   "div_Active_164": {
     "class": "tab-title ng-star-inserted",
@@ -695,7 +695,7 @@
     "text": "Active",
     "xpath": "//div[contains(normalize-space(text()), 'Active')]"
   },
-  "span_Active_165": {
+  "span_Active": {
     "tag": "span",
     "text": "Active",
     "xpath": "//span[contains(normalize-space(text()), 'Active')]"

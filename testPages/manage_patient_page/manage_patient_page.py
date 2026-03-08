@@ -68,18 +68,19 @@ class ManagePatientPage(BasePage):
 
     def open_inactive_tab(self):
         self.click("li_span_Inactive_tab")
+        time.sleep(15)
         self.wait_for_page_to_load()
         self.wait_for_element("span_Patients", 50)
-        time.sleep(20)
-        self.wait_for_element('k-opened-tabstrip-tab')
         self.wait_for_element("tbody_patient", 100)
-        self.unheal_all('k-opened-tabstrip-tab')
-        time.sleep(5)
-        tabname = self.get_text('k-opened-tabstrip-tab')
-        print(tabname)
-        assert tabname == "Inactive", "Inactive tab is not opened"
-        print("Opened tab is Inactive")
+        self.wait_for_element('a_name', 50)
+
+    def open_test_tab(self):
+        self.click("li_span_Test_tab")
+        time.sleep(15)
+        self.wait_for_page_to_load()
+        self.wait_for_element("span_Patients", 50)
         self.wait_for_element("tbody_patient", 100)
+        self.wait_for_element('a_name', 50)
 
     def open_active_tab(self):
         self.click("li_span_Active_tab")
@@ -92,21 +93,6 @@ class ManagePatientPage(BasePage):
         assert tabname == "Active", f"{tabname} is open and not Active"
         print("Opened tab is Active")
         self.wait_for_element("tbody_patient", 100)
-
-    def open_test_tab(self):
-        self.click("li_span_Test_tab")
-        self.wait_for_page_to_load()
-        self.wait_for_element("span_Patients", 50)
-        time.sleep(20)
-        self.wait_for_page_to_load()
-        self.wait_for_element('k-opened-tabstrip-tab')
-        self.wait_for_element("tbody_patient", 100)
-        self.unheal_all('k-opened-tabstrip-tab')
-        time.sleep(5)
-        tabname = self.get_text('k-opened-tabstrip-tab')
-        print(tabname)
-        assert tabname == "Test", "Test tab is not opened"
-        print("Opened tab is Test")
 
 
     def open_first_patient(self):
@@ -348,3 +334,17 @@ class ManagePatientPage(BasePage):
         for items in columns:
             assert self.is_element_visible(f"th_{items}"), f"Column {items} not present"
             print(f"Column {items} present")
+
+    def validate_test_tab(self):
+        self.wait_for_page_to_load(50)
+        self.wait_for_element('span_Active')
+        text = self.get_text('li_Active')
+        assert "Test" in text, "Active tab is not opened"
+        print("Test tab is opened")
+
+    def validate_inactive_tab(self):
+        self.wait_for_page_to_load(50)
+        self.wait_for_element('span_Active')
+        text = self.get_text('li_Active')
+        assert "Inactive" in text, "Inactive tab is not opened"
+        print("Inactive tab is opened")
