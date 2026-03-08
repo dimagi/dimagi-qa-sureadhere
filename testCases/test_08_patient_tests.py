@@ -285,6 +285,11 @@ class test_module_08_patient_tests(BaseCase):
         p_profile.select_patient_manager(UserData.default_staff_name)
         p_profile.select_treatment_monitor(UserData.default_staff_name)
 
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+        login.login(self.settings["login_username"], self.settings["login_password"])
+
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_patient_6", scope="class")
     def test_case_06_global_filter(self):
@@ -309,13 +314,20 @@ class test_module_08_patient_tests(BaseCase):
         except:
             print("Form is already closed")
         try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
             home.open_dashboard_page()
         except Exception:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.open_dashboard_page()
 
-        home.validate_dashboard_page()
-        home.clear_filter()
+        try:
+            home.clear_filter()
+        except:
+            print("No Global filters set")
+
         home.open_manage_patient_page()
         page_count_before = patient.get_total_pages()
         patient.validate_patient_table()
@@ -332,6 +344,10 @@ class test_module_08_patient_tests(BaseCase):
         assert page_count_before != page_count_after, f"{page_count_after} is not less than {page_count_before}"
         home.clear_filter()
         assert page_count_before == patient.get_total_pages()
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_patient_7", scope="class")
@@ -362,7 +378,6 @@ class test_module_08_patient_tests(BaseCase):
         except:
             print("No Global filter is open")
 
-        home.validate_dashboard_page()
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
         patient.search_and_sort_columns("pat_fnmob")

@@ -219,9 +219,12 @@ class HomePage(BasePage):
     def clear_filter(self):
         self.open_filter()
         try:
-            self.wait_for_element('reset_filters')
-            self.click('reset_filters')
-            self.wait_for_invisible('reset_filters')
+            if self.is_element_visible("reset_filters"):
+                self.wait_for_element('reset_filters')
+                self.click('reset_filters')
+                self.wait_for_invisible('reset_filters')
+            else:
+                print("No Filters set")
         except:
             print("No Filters set")
         self.close_filter()
