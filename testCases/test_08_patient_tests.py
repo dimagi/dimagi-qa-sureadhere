@@ -318,6 +318,7 @@ class test_module_08_patient_tests(BaseCase):
         home.open_manage_patient_page()
         page_count_before = patient.get_total_pages()
         patient.validate_patient_table()
+        home.clear_filter()
         home.open_filter()
         home.open_filter_search_staff("Sites", default_site_manager, select=True)
         # home.close_filter()
