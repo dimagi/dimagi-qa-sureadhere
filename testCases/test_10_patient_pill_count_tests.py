@@ -20,7 +20,7 @@ from testPages.user_profile.user_profile_page import UserProfilePage
 from user_inputs.user_data import UserData
 
 
-class test_module_09_patient_search_and_tabs(BaseCase):
+class test_module_10_patient_pill_count_tests(BaseCase):
     data = {}
     _session_ready = False  # guard so we only open/login once
 
@@ -34,6 +34,48 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         login.login(self.settings["login_username"], self.settings["login_password"])
         home.validate_dashboard_page()
         type(self)._session_ready = True
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_pat_pill_count_0a", scope="class")
+    def test_case_00a_pill_count_ff_setup_off(self):
+        login = LoginPage(self, "login")
+        self._login_once()
+        home = HomePage(self, "dashboard")
+        admin = AdminPage(self, 'admin')
+        a_ff = AdminFFPage(self, 'feature_flags')
+
+        if "banner" in self.settings["url"]:
+            default_client = UserData.client[0]
+            flag = True
+        elif "rogers" in self.settings["url"]:
+            default_client = UserData.client[1]
+            flag = False
+        elif "securevoteu" in self.settings["url"]:
+            default_client = UserData.client[3]
+            flag = False
+        else:
+            default_client = UserData.client[2]
+            flag = True
+
+        try:
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+        except Exception:
+            login.launch_browser(self.settings["url"])
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+
+        home.open_admin_page()
+        admin.open_feature_flags()
+        a_ff.validate_admin_ff_page(default_client)
+        a_ff.set_ffs(UserData.pill_count_ff_after, flag)
+        home.open_dashboard_page()
+        home.validate_dashboard_page()
+        home.open_admin_page()
+        admin.open_feature_flags()
+        a_ff.validate_admin_ff_page(default_client)
+        a_ff.double_check_ff(UserData.pill_count_ff_after, flag)
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_pat_search_tabs_1", scope="class")
@@ -155,11 +197,11 @@ class test_module_09_patient_search_and_tabs(BaseCase):
             print("Form is already closed")
 
         try:
-            login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
             home.open_dashboard_page()
             home.validate_dashboard_page()
         except Exception:
+            login.launch_browser(self.settings["url"])
+            login.login(self.settings["login_username"], self.settings["login_password"])
             home.open_dashboard_page()
             home.validate_dashboard_page()
 

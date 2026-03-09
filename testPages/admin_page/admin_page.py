@@ -85,3 +85,12 @@ class AdminPage(BasePage):
             self.kendo_dialog_click_button("Continue")
         except Exception:
             print("popup not present")
+
+    def open_reports_by_clients(self):
+        self.click('k-tabstrip-tab-Reports by Clients')
+        self.wait_for_page_to_load()
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Continue")
+        except Exception:
+            print("popup not present")

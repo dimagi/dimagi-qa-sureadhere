@@ -82,3 +82,4 @@ class UserData:
     access_warning = "You don't have access to edit this patient"
     global_reports = ['User access', 'Most recent patient videos', 'Monthly video count by patient']
     patient_list_columns = [ "Name","UserName","Treatment progress","Est. doses remaining","MRN","SA-ID","Start date","End date"]
+    per_user_reports = ["Patient Videos", "Summary DOT Record", "Dose Status", "7 Days Adherence", "Summary Event Record", "Summary Side Effects and Comments"]

@@ -1306,5 +1306,15 @@
     "tag": "td",
     "aria-colindex": "3",
     "xpath": "//tbody[@class='k-table-tbody']//td[@aria-colindex='3']"
+  },
+  "td_no_records": {
+    "class": "k-table-td",
+    "tag": "td",
+    "xpath": "//td[contains(., 'No records available.')]"
+  },
+  "a_report_links": {
+    "class": "ng-star-inserted",
+    "tag": "a",
+    "xpath_template": "//a[contains(normalize-space(text()), {text})]"
   }
 }

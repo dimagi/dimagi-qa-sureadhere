@@ -87,3 +87,10 @@ class PatientReportsPage(BasePage):
         print(f"{upload_time} matched with report time {report_time}")
 
         self.go_back()
+
+    def validate_report_links(self, reports, flag):
+        if flag == False:
+            assert self.is_element_visible('td_no_records', strict=True)
+        elif flag == True:
+            for items in reports:
+                assert self.is_element_visible_rendered("a_report_links", text=items)

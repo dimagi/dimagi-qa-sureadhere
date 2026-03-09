@@ -2,11 +2,14 @@ import pytest
 from pytest_dependency import depends
 from seleniumbase import BaseCase
 
+from testPages.admin_page.admin_page import AdminPage
+from testPages.admin_page.admin_reports_by_clients_page import AdminReportsByClientsPage
 from testPages.home_page.home_page import HomePage
 from testPages.login_page.login_page import LoginPage
 from testPages.manage_patient_page.manage_patient_page import ManagePatientPage
 from testPages.patient_tab_pages.patient_profile_page import PatientProfilePage
 from testPages.patient_tab_pages.patient_regimen_page import PatientRegimenPage
+from testPages.patient_tab_pages.patient_reports_page import PatientReportsPage
 from testPages.user_page.user_page import UserPage
 from testPages.user_page.user_patient_page import UserPatientPage
 from testPages.user_profile.user_profile_page import UserProfilePage
@@ -320,18 +323,14 @@ class test_module_08_patient_tests(BaseCase):
         home.open_filter()
         home.clear_filter()
         home.open_filter_search_staff("Sites", default_site_manager, select=True)
-        # home.close_filter()
-        # home.open_filter()
+
         home.open_filter_search_staff("Treatment Monitor", UserData.default_staff_name, select=True)
-        # home.close_filter()
-        # home.open_filter()
+
         home.open_filter_search_staff("Patient Manager", UserData.default_staff_name, select=True)
-        # home.close_filter()
+
         page_count_after = patient.get_total_pages()
         assert page_count_before != page_count_after, f"{page_count_after} is not less than {page_count_before}"
-        # home.open_dashboard_page()
-        # home.open_manage_patient_page()
-        # home.open_filter()
+
         home.clear_filter()
         home.close_filter()
         page_count_now = patient.get_total_pages()
@@ -394,3 +393,187 @@ class test_module_08_patient_tests(BaseCase):
         patient.open_test_tab()
         patient.validate_test_tab()
         patient.search_and_sort_columns("pat_fnmob")
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_patient_8a", scope="class")
+    def test_case_08a_reports_setup_off(self):
+        login = LoginPage(self, "login")
+        self._login_once()
+        home = HomePage(self, "dashboard")
+        admin = AdminPage(self, 'admin')
+        a_rbc = AdminReportsByClientsPage(self, 'reports_by_clients')
+
+        if "banner" in self.settings["url"]:
+            default_client = UserData.client[0]
+        elif "rogers" in self.settings["url"]:
+            default_client = UserData.client[1]
+        elif "securevoteu" in self.settings["url"]:
+            default_client = UserData.client[3]
+        else:
+            default_client = UserData.client[2]
+
+        try:
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+        except Exception:
+            login.launch_browser(self.settings["url"])
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+
+        reports = {items: "OFF" for items in UserData.per_user_reports}
+        home.open_admin_page()
+        admin.open_reports_by_clients()
+        a_rbc.validate_admin_report_page(default_client)
+        a_rbc.set_ffs(reports)
+        # home.open_dashboard_page()
+        # home.validate_dashboard_page()
+        home.open_admin_page()
+        admin.open_reports_by_clients()
+        a_rbc.validate_admin_report_page(default_client)
+        a_rbc.double_check_ff(reports)
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_patient_8b", depends=['tc_patient_8a'], scope="class")
+    def test_case_08b_reports_page_check_off(self):
+        login = LoginPage(self, "login")
+        self._login_once()
+        home = HomePage(self, "dashboard")
+        admin = AdminPage(self, 'admin')
+        a_rbc = AdminReportsByClientsPage(self, 'reports_by_clients')
+        patient = ManagePatientPage(self, "patients")
+        p_report = PatientReportsPage(self, 'patient_reports')
+        profile = UserProfilePage(self, "user")
+
+        try:
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+        except Exception:
+            login.launch_browser(self.settings["url"])
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+
+        home.open_manage_patient_page()
+        patient.validate_manage_patient_page()
+        patient.search_and_sort_columns("pat_fnmob")
+        patient.open_first_patient()
+        p_report.open_patient_reports_page()
+        p_report.validate_report_links(UserData.per_user_reports, False)
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+
+        if "banner" in self.settings["url"]:
+            default_staff_email = UserData.default_staff_email[0]
+        elif "rogers" in self.settings["url"]:
+            default_staff_email = UserData.default_staff_email[1]
+        elif "securevoteu" in self.settings["url"]:
+            default_staff_email = UserData.default_staff_email[3]
+        else:
+            default_staff_email = UserData.default_staff_email[2]
+
+        login.login(default_staff_email, UserData.pwd)
+        home.open_manage_patient_page()
+        patient.validate_manage_patient_page()
+        patient.search_and_sort_columns("pat_fnmob")
+        patient.open_first_patient()
+        p_report.open_patient_reports_page()
+        p_report.validate_report_links(UserData.per_user_reports, False)
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_patient_8c", scope="class")
+    def test_case_08c_reports_setup_on(self):
+        login = LoginPage(self, "login")
+        self._login_once()
+        home = HomePage(self, "dashboard")
+        admin = AdminPage(self, 'admin')
+        a_rbc = AdminReportsByClientsPage(self, 'reports_by_clients')
+
+        if "banner" in self.settings["url"]:
+            default_client = UserData.client[0]
+        elif "rogers" in self.settings["url"]:
+            default_client = UserData.client[1]
+        elif "securevoteu" in self.settings["url"]:
+            default_client = UserData.client[3]
+        else:
+            default_client = UserData.client[2]
+
+        try:
+            login.launch_browser(self.settings["url"])
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+        except Exception:
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+
+        reports = {items: "ON" for items in UserData.per_user_reports}
+        home.open_admin_page()
+        admin.open_reports_by_clients()
+        a_rbc.validate_admin_report_page(default_client)
+        a_rbc.set_ffs(reports)
+        # home.open_dashboard_page()
+        # home.validate_dashboard_page()
+        home.open_admin_page()
+        admin.open_reports_by_clients()
+        a_rbc.validate_admin_report_page(default_client)
+        a_rbc.double_check_ff(reports)
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_patient_8d", depends=['tc_patient_8c'], scope="class")
+    def test_case_08d_reports_page_check_on(self):
+        login = LoginPage(self, "login")
+        self._login_once()
+        home = HomePage(self, "dashboard")
+        admin = AdminPage(self, 'admin')
+        a_rbc = AdminReportsByClientsPage(self, 'reports_by_clients')
+        patient = ManagePatientPage(self, "patients")
+        p_report = PatientReportsPage(self, 'patient_reports')
+        profile = UserProfilePage(self, "user")
+
+        try:
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+        except Exception:
+            login.launch_browser(self.settings["url"])
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+
+        home.open_manage_patient_page()
+        patient.validate_manage_patient_page()
+        patient.search_and_sort_columns("pat_fnmob")
+        patient.open_first_patient()
+        p_report.open_patient_reports_page()
+        p_report.validate_report_links(UserData.per_user_reports, True)
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+
+        if "banner" in self.settings["url"]:
+            default_staff_email = UserData.default_staff_email[0]
+        elif "rogers" in self.settings["url"]:
+            default_staff_email = UserData.default_staff_email[1]
+        elif "securevoteu" in self.settings["url"]:
+            default_staff_email = UserData.default_staff_email[3]
+        else:
+            default_staff_email = UserData.default_staff_email[2]
+
+        login.login(default_staff_email, UserData.pwd)
+        home.open_manage_patient_page()
+        patient.validate_manage_patient_page()
+        patient.search_and_sort_columns("pat_fnmob")
+        patient.open_first_patient()
+        p_report.open_patient_reports_page()
+        p_report.validate_report_links(UserData.per_user_reports, True)
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()

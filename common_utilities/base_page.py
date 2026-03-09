@@ -1460,6 +1460,30 @@ class BasePage:
         self.sb.highlight(xp)
         self.sb.click(xp)
 
+    def is_element_present_rendered(self, logical_name: str, timeout: int = 15, **params):
+        try:
+            locator = self.render_xpath(logical_name, **params)
+
+            if not locator:
+                return False
+
+            if timeout > 0:
+                WebDriverWait(self.driver, timeout).until(
+                    EC.presence_of_element_located((By.XPATH, locator))
+                    )
+                return True
+            else:
+                return len(self.driver.find_elements(By.XPATH, locator))
+        except Exception:
+            return False
+
+    def is_element_visible_rendered(self, logical_name: str, **params):
+        try:
+            sel = self.render_xpath(logical_name, **params)
+            return self.sb.is_element_visible(sel)
+        except Exception:
+            return False
+
     def get_text_rendered(self, logical_name: str, timeout: int = 10, **params) -> str:
         xp = self.render_xpath(logical_name, **params)
         self.sb.wait_for_element_visible(xp, timeout=timeout)
