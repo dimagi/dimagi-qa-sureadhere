@@ -92,5 +92,7 @@ class PatientReportsPage(BasePage):
         if flag == False:
             assert self.is_element_visible('td_no_records', strict=True)
         elif flag == True:
-            for items in reports:
+            formatted_reports = [self.to_ui_format(x) for x in reports]
+            print(formatted_reports)
+            for items in formatted_reports:
                 assert self.is_element_visible_rendered("a_report_links", text=items)

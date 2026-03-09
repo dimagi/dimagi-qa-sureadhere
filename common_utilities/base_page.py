@@ -1,3 +1,4 @@
+import locale
 import os
 import json
 import re
@@ -1480,6 +1481,7 @@ class BasePage:
     def is_element_visible_rendered(self, logical_name: str, **params):
         try:
             sel = self.render_xpath(logical_name, **params)
+            print(sel)
             return self.sb.is_element_visible(sel)
         except Exception:
             return False
@@ -3610,9 +3612,10 @@ class BasePage:
                 raise AssertionError(f"Email column NOT sorted {sorted_as}")
             return
 
+        locale.setlocale(locale.LC_ALL, '')
         expected_lex = sorted(
             final_values,
-            key=lambda s: str(s).split()[0].casefold(),
+            key=lambda s: locale.strxfrm(str(s).split()[0].lower()),
             reverse=reverse
             )
         expected_nat = sorted(
@@ -3620,6 +3623,17 @@ class BasePage:
             key=lambda s: self.natural_key(str(s).split()[0]),
             reverse=reverse
             )
+
+        # expected_lex = sorted(
+        #     final_values,
+        #     key=lambda s: str(s).split()[0].casefold(),
+        #     reverse=reverse
+        #     )
+        # expected_nat = sorted(
+        #     final_values,
+        #     key=lambda s: self.natural_key(str(s).split()[0]),
+        #     reverse=reverse
+        #     )
         # expected_lex = sorted(final_values, key=lambda s: str(s).casefold(), reverse=reverse)
         # expected_nat = sorted(final_values, key=self.natural_key, reverse=reverse)
 
@@ -3862,3 +3876,17 @@ class BasePage:
 
         # JS click
         self.driver.execute_script("arguments[0].click();", element)
+
+    def to_ui_format(self, text: str) -> str:
+        words = text.split()
+        formatted = []
+
+        for i, w in enumerate(words):
+            if w.isupper():  # keep acronyms like DOT
+                formatted.append(w)
+            elif i == 0:  # first word capitalized
+                formatted.append(w.capitalize())
+            else:  # rest lowercase
+                formatted.append(w.lower())
+
+        return " ".join(formatted)

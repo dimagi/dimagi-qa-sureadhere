@@ -1315,6 +1315,6 @@
   "a_report_links": {
     "class": "ng-star-inserted",
     "tag": "a",
-    "xpath_template": "//a[contains(normalize-space(text()), {text})]"
+    "xpath_template": "//a[contains(., {text})]"
   }
 }

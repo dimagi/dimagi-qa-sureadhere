@@ -98,7 +98,7 @@ class ManagePatientPage(BasePage):
     def open_first_patient(self):
         name = self.get_text('a_name')
         self.click('a_name')
-        time.sleep(10)
+        time.sleep(5)
         name = name.split(" ")
         fname = name[0]
         lname = name[1]
