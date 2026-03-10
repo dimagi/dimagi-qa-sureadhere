@@ -28,7 +28,9 @@ class UserData:
         "Self Report - pills taken with food": "OFF",
         "Self Report - pills with food": "OFF",
         "Self Report - pills with provider present": "OFF",
-        "Regimen approval workflow": "OFF"
+        "Regimen approval workflow": "OFF",
+        "Automatic Opt In for SMS": "OFF",
+        "Patient MRN validated with lookup": "OFF"
         }
     invalid_password = "12auto34test!"
     inactive_user_email = "automation.inactive@gmail.com"
