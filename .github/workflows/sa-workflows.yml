@@ -101,11 +101,11 @@ jobs:
           echo ${{env.NOW}}
           echo ${{env.DIMAGIQA_ENV}}
           google-chrome --version || true
-          pytest -q -m presetup\
+          pytest -vv -m presetup\
             --browser=chrome --headless --headless2 \
             --reruns 1 \
             --dashboard --html=presetup_report-${{ matrix.environment }}.html --tb=short --maxfail=1
-          pytest -q -m smoketest \
+          pytest -vv -m smoketest \
             --browser=chrome --headless --headless2 \
             --reruns 1 -n 3 --dist=loadscope\
             --dashboard --html=report-${{ matrix.environment }}.html --tb=short
