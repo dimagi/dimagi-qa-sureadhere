@@ -127,7 +127,7 @@ class ManageStaffPage(BasePage):
             assert full_name.lower() in name.strip(), f"Name mismatch {name} and {full_name}"
             print(f"Correct staff with name {name} is displayed for {i} search")
 
-    def search_and_sort_columns(self, name: str):
+    def search_and_sort_columns(self, name=None):
         if name:
             self.type('input_search_staff', name)
             time.sleep(30)

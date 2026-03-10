@@ -452,7 +452,7 @@ class test_module_06_staff_tests(BaseCase):
 
         home.open_manage_staff_page()
         staff.validate_manage_staff_page()
-        staff.search_and_sort_columns("test_")
+        staff.search_and_sort_columns()
 
         home.click_admin_profile_button()
         profile.logout_user()

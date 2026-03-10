@@ -35,7 +35,7 @@ class AdminFFPage(BasePage):
         # print(f"Correct Client {client} is not present")
         print(f"Admin Feature Flag opened with Client {text}")
 
-    def set_ffs(self, ff_dict, flag_ff):
+    def set_ffs(self, ff_dict, flag_ff=None):
         for ff, toggle in ff_dict.items():
             print(ff, toggle)
             target = True if toggle == "ON" else False
@@ -59,7 +59,7 @@ class AdminFFPage(BasePage):
                 print(f"element {element} is not present")
         time.sleep(10)
 
-    def double_check_ff(self, ff_dict, flag_ff):
+    def double_check_ff(self, ff_dict, flag_ff=None):
         for ff, toggle in ff_dict.items():
             print(f"Current parameters: {ff}, {toggle}")
             element = f"kendo-switch_{ff}"

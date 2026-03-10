@@ -32,11 +32,17 @@ class UserData:
         "Automatic Opt In for SMS": "OFF",
         "Patient MRN validated with lookup": "OFF"
         }
-    pill_count_ff_before = {
+    pill_count_ff_on = {
         "Pill Count": "ON",
         }
-    pill_count_ff_after = {
+    pill_count_ff_off = {
         "Pill Count": "OFF",
+        }
+    regimen_approval_ff_off = {
+        "Regimen approval workflow": "OFF",
+        }
+    regimen_approval_ff_on = {
+        "Regimen approval workflow": "ON",
         }
     invalid_password = "12auto34test!"
     inactive_user_email = "automation.inactive@gmail.com"

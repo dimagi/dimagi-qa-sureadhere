@@ -265,3 +265,51 @@ class PatientRegimenPage(BasePage):
 
         else:
             print("Invalid toggle option")
+
+    def delete_schedule(self):
+        self.wait_for_page_to_load(50)
+        time.sleep(10)
+        self.wait_for_element('input_regimen_name')
+        time.sleep(3)
+        name_list = self.get_pill_names()
+        if len(name_list) != 0:
+            self.wait_for_element('span_EDIT')
+            count = self.find_elements('span_EDIT')
+            print(len(count), len(count))
+            for items in name_list:
+                print(items)
+                self.click_rendered('edit_against_drug', text=items)
+                self.wait_for_element('span_DELETE')
+                self.click_robust('span_DELETE')
+                time.sleep(1)
+                self.wait_for_element('span_DELETE_CONFIRM', strict=True)
+                self.click('span_DELETE_CONFIRM', strict=True)
+                try:
+                    self.kendo_dialog_wait_open()  # no title constraint
+                    self.kendo_dialog_click_button("Ok")
+                except Exception:
+                    print("popup not present")
+                time.sleep(3)
+                self.wait_for_page_to_load()
+        else:
+            print("No drugs present to be deleted")
+
+    def get_pill_names(self):
+        self.wait_for_page_to_load(50)
+        time.sleep(10)
+        self.wait_for_element('input_regimen_name')
+        time.sleep(3)
+        try:
+            self.wait_for_element('span_EDIT')
+            count = self.find_elements('div_pill_name')
+            print(len(count))
+            name_list = []
+            for items in count:
+                name = items.text
+                name_list.append(name)
+            print(name_list)
+            return name_list
+        except:
+            print("No Pills present")
+            return None
+

@@ -424,13 +424,13 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         home.open_admin_page()
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
-        a_ff.set_ffs(UserData.pill_count_ff_before, flag)
+        a_ff.set_ffs(UserData.pill_count_ff_on, flag)
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
-        a_ff.double_check_ff(UserData.pill_count_ff_before, flag)
+        a_ff.double_check_ff(UserData.pill_count_ff_on, flag)
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_pat_search_tabs_7", depends=['tc_pat_search_tabs_2', 'tc_pat_search_tabs_7a'], scope="class")
@@ -511,13 +511,13 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         home.open_admin_page()
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
-        a_ff.set_ffs(UserData.pill_count_ff_after, flag)
+        a_ff.set_ffs(UserData.pill_count_ff_off, flag)
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
-        a_ff.double_check_ff(UserData.pill_count_ff_after, flag)
+        a_ff.double_check_ff(UserData.pill_count_ff_off, flag)
 
 
 

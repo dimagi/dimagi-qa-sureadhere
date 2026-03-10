@@ -20,6 +20,21 @@ class PatientPillCountPage(BasePage):
         except Exception:
             print("popup not present")
 
+    def verify_patient_pill_count_page_presence(self, flag):
+        time.sleep(5)
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Ok")
+        except Exception:
+            print("popup not present")
+        if flag:
+            assert self.is_element_visible('k-tabstrip-tab-Pill count'), 'Pill count is not present'
+            print('Pill count tab is present')
+        else:
+            assert not self.is_element_visible('k-tabstrip-tab-Pill count'), 'Pill count is present'
+            print('Pill count tab is not present')
+
+
     def verify_patient_pill_count_page(self):
         time.sleep(5)
         try:

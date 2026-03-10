@@ -1389,5 +1389,11 @@
   "popover__272": {
     "tag": "popover",
     "xpath": "//popover"
+  },
+  "div_pill_count_error": {
+    "class": "alert alert-danger ng-star-inserted",
+    "tag": "div",
+    "text": "This patient has unreviewed regimen changes. Please review and approve on the Regimen tab in order to dispense medication.",
+    "xpath": "//div[normalize-space(.)= 'This patient has unreviewed regimen changes. Please review and approve on the Regimen tab in order to dispense medication.']"
   }
 }
