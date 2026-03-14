@@ -167,7 +167,7 @@
     "text": "Create patient record",
     "xpath": "//span[@id='kendo-dialog-title-806465']"
   },
-  "div_Create pat_67": {
+  "div_custom-modal-title": {
     "class": "custom-modal-title",
     "tag": "div",
     "text": "Create patient record",

@@ -765,17 +765,27 @@
     "text": "Drugs Date dispensed Kit Number \u2014 Pills dispensed Date of return Pills returned Damaged/lost pills Percent returned 0% ADD DRUG Total proportion returned 0% CANCEL SAVE",
     "xpath": "//div[contains(normalize-space(text()), 'Drugs\nDate dispensed\nKit Number\n\u2014\nPills dispensed\nDate of return\nPills returned\nDamaged/lost pills\nPercent returned\n0%\nADD DRUG\nTotal proportion returned 0%\nCANCEL\nSAVE')]"
   },
-  "div__164": {
+  "div_title": {
     "class": "title",
     "tag": "div",
     "xpath": "//div[@class='title']"
+  },
+  "div_title_custom": {
+    "class": "title",
+    "tag": "div",
+    "xpath_template": "//div[@class='title'][contains(.,{text})]"
+  },
+  "edit_title_custom": {
+    "class": "title",
+    "tag": "div",
+    "xpath_template": "//div[@class='title'][contains(.,{text})]//button"
   },
   "div__165": {
     "class": "datepicker ng-star-inserted",
     "tag": "div",
     "xpath": "//div[@class='datepicker ng-star-inserted']"
   },
-  "input__166": {
+  "input_visit_date": {
     "placeholder": "Visit date",
     "class": "bold-text ng-untouched ng-pristine ng-valid",
     "type": "text",
@@ -830,13 +840,12 @@
     "tag": "kendo-searchbar",
     "xpath": "//kendo-searchbar[@class='k-searchbar']"
   },
-  "k-e5dee58c-9412-44a4-83ba-a1eacd8d40f1": {
-    "id": "k-e5dee58c-9412-44a4-83ba-a1eacd8d40f1",
+  "drug_name_input": {
     "placeholder": "Select drug...",
     "class": "k-input-inner",
     "type": "text",
     "tag": "input",
-    "xpath": "//input[@id='k-e5dee58c-9412-44a4-83ba-a1eacd8d40f1']"
+    "xpath_template": "(//input[@placeholder='Select drug...'])"
   },
   "responsive-renderer__177": {
     "tag": "responsive-renderer",
@@ -868,12 +877,12 @@
     "tag": "div",
     "xpath": "//div[@class='datepicker']"
   },
-  "input__183": {
+  "input_Date dispensed": {
     "placeholder": "Date dispensed",
     "class": "ng-untouched ng-pristine ng-valid",
     "type": "text",
     "tag": "input",
-    "xpath": "//input[@placeholder='Date dispensed']"
+    "xpath_template": "(//input[@placeholder='Date dispensed'])"
   },
   "span__184": {
     "class": "k-select",
@@ -897,11 +906,12 @@
     "text": "Kit Number",
     "xpath": "//div[contains(normalize-space(text()), 'Kit Number')]"
   },
-  "div_\u2014_188": {
-    "class": "value",
-    "tag": "div",
-    "text": "\u2014",
-    "xpath": "//div[contains(normalize-space(text()), '\u2014')]"
+  "input_Kit Number": {
+    "placeholder": "Kit Number",
+    "class": "k-input-inner",
+    "type": "text",
+    "tag": "input",
+    "xpath_template": "(//input[@placeholder='Kit Number'])"
   },
   "span_\u2014_189": {
     "class": "ng-star-inserted",
@@ -931,13 +941,12 @@
     "tag": "kendo-numerictextbox",
     "xpath": "//kendo-numerictextbox[@class='k-input k-numerictextbox ng-untouched ng-pristine ng-valid k-input-md k-rounded-md k-input-solid']"
   },
-  "k-43af1dd8-11de-4825-8b67-0f8f84760633": {
-    "id": "k-43af1dd8-11de-4825-8b67-0f8f84760633",
+  "input_Pills dispensed": {
     "placeholder": "Pills dispensed",
     "class": "k-input-inner",
     "type": "text",
     "tag": "input",
-    "xpath": "//input[@id='k-43af1dd8-11de-4825-8b67-0f8f84760633']"
+    "xpath_template": "(//input[@placeholder='Pills dispensed'])"
   },
   "div_Date of re_195": {
     "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1",
@@ -961,12 +970,12 @@
     "tag": "div",
     "xpath": "//div[@class='datepicker']"
   },
-  "input__199": {
+  "input_Date of return": {
     "placeholder": "Date of return",
     "class": "ng-untouched ng-pristine ng-valid",
     "type": "text",
     "tag": "input",
-    "xpath": "//input[@placeholder='Date of return']"
+    "xpath_template": "(//input[@placeholder='Date of return'])"
   },
   "span__200": {
     "class": "k-select",
@@ -1000,13 +1009,12 @@
     "tag": "kendo-numerictextbox",
     "xpath": "//kendo-numerictextbox[@class='k-input k-numerictextbox ng-untouched ng-pristine ng-valid k-input-md k-rounded-md k-input-solid']"
   },
-  "k-e291a8eb-f5f3-43e3-a5ee-3d5f78384849": {
-    "id": "k-e291a8eb-f5f3-43e3-a5ee-3d5f78384849",
+  "input_Pills returned": {
     "placeholder": "Pills returned",
     "class": "k-input-inner",
     "type": "text",
     "tag": "input",
-    "xpath": "//input[@id='k-e291a8eb-f5f3-43e3-a5ee-3d5f78384849']"
+    "xpath_template": "(//input[@placeholder='Pills returned'])"
   },
   "div_Damaged/lo_207": {
     "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1",
@@ -1030,13 +1038,12 @@
     "tag": "kendo-numerictextbox",
     "xpath": "//kendo-numerictextbox[@class='k-input k-numerictextbox ng-untouched ng-pristine ng-valid k-input-md k-rounded-md k-input-solid']"
   },
-  "k-feacc889-1d47-42fe-96ae-2e5b7d26c84a": {
-    "id": "k-feacc889-1d47-42fe-96ae-2e5b7d26c84a",
+  "input_damaged_lost_pills": {
     "placeholder": "Damaged/lost pills",
     "class": "k-input-inner",
     "type": "text",
     "tag": "input",
-    "xpath": "//input[@id='k-feacc889-1d47-42fe-96ae-2e5b7d26c84a']"
+    "xpath_template": "(//input[@placeholder='Damaged/lost pills'])"
   },
   "div_Percent re_212": {
     "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1",
@@ -1076,7 +1083,7 @@
     "tag": "span",
     "xpath": "//span[@class='k-select']"
   },
-  "span__219": {
+  "span_delete_pill": {
     "class": "bi-trash",
     "tag": "span",
     "xpath": "//span[@class='bi-trash']"
@@ -1093,7 +1100,7 @@
     "text": "ADD DRUG",
     "xpath": "//div[contains(normalize-space(text()), 'ADD DRUG')]"
   },
-  "button_ADD DRUG_222": {
+  "button_ADD DRUG": {
     "class": "mb-2 k-button k-button-md k-rounded-md k-button-solid-base k-button-solid",
     "type": "submit",
     "tag": "button",
@@ -1155,7 +1162,7 @@
     "text": "SAVE",
     "xpath": "//button[contains(normalize-space(text()), 'SAVE')]"
   },
-  "span_SAVE_232": {
+  "span_SAVE": {
     "class": "k-button-text",
     "tag": "span",
     "text": "SAVE",
@@ -1179,11 +1186,11 @@
     "text": "March 2, 2026",
     "xpath": "//div[contains(normalize-space(text()), 'March 2, 2026')]"
   },
-  "button__236": {
+  "button_edit": {
     "class": "edit-button k-button k-icon-button k-button-md k-rounded-md k-button-solid-base k-button-solid ng-star-inserted",
-    "type": "submit",
+    "role": "button",
     "tag": "button",
-    "xpath": "//button[@class='edit-button k-button k-icon-button k-button-md k-rounded-md k-button-solid-base k-button-solid ng-star-inserted' and @type='submit']"
+    "xpath": "//button[@class='edit-button k-button k-icon-button k-button-md k-rounded-md k-button-solid-base k-button-solid ng-star-inserted']"
   },
   "span__237": {
     "class": "k-button-icon icon-mode_edit ng-star-inserted",
@@ -1195,11 +1202,10 @@
     "tag": "span",
     "xpath": "//span[@class='k-button-text']"
   },
-  "div_Drugs Abac_239": {
+  "div_drug_rows": {
     "class": "row drug px-2 row-cols-9 mb-lg-0 mb-3 ng-star-inserted",
     "tag": "div",
-    "text": "Drugs Abacavir Date dispensed 2026-03-02 Kit Number \u2014 no. of pills dispensed 1 Date of return 2026-03-17 no. of pills returned 1 no. of pills lost/damaged 0 Percent returned 100%",
-    "xpath": "//div[contains(normalize-space(text()), 'Drugs\nAbacavir\nDate dispensed\n2026-03-02\nKit Number\n\u2014\nno. of pills dispensed\n1\nDate of return\n2026-03-17\nno. of pills returned\n1\nno. of pills lost/damaged\n0\nPercent returned\n100%')]"
+    "xpath": "//div[contains(@class, 'row drug px-2 row-cols-9 mb-lg-0 mb-3 ng-star-inserted')]"
   },
   "div_Drugs Abac_240": {
     "class": "col-lg col-md-4 col-6 mb-lg-0 mb-2 px-lg-1",

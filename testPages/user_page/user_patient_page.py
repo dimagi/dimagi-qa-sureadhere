@@ -26,6 +26,9 @@ class UserPatientPage(BasePage):
 
     def fill_patient_form(self, site, mob=None, rerun_count=0):
         self.wait_for_page_to_load()
+        self.wait_for_element('div_custom-modal-title')
+        assert self.get_text('div_custom-modal-title').strip() == 'Create patient record', "Title mismatch"
+        print(self.resolve('first_name'))
         self.wait_for_element('first_name')
         self.wait_for_element('button_SAVE')
         self.wait_for_element('kendo-dropdownlist-site')

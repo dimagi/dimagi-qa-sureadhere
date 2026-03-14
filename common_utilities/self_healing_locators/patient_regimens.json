@@ -1360,8 +1360,8 @@
   "span_DELETE_CONFIRM": {
     "class": "k-button-text",
     "tag": "span",
-    "text": "YES, DELETE THIS SCHEDULE",
-    "xpath": "//span[contains(normalize-space(text()), 'YES, DELETE THIS SCHEDULE')]"
+    "text": "Yes, delete this schedule",
+    "xpath": "//span[contains(normalize-space(text()), 'Yes, delete this schedule')]"
   },
   "button_schedule_SAVE": {
     "class": "k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid ng-star-inserted",

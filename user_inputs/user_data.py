@@ -89,3 +89,4 @@ class UserData:
     global_reports = ['User access', 'Most recent patient videos', 'Monthly video count by patient']
     patient_list_columns = [ "Name","UserName","Treatment progress","Est. doses remaining","MRN","SA-ID","Start date","End date"]
     per_user_reports = ["Patient Videos", "Summary DOT Record", "Dose Status", "7 Days Adherence", "Summary Event Record", "Summary Side Effects and Comments"]
+    pill_count_drug = 'Quabodepistat'
