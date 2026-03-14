@@ -2300,5 +2300,10 @@
     "class": "k-switch-thumb k-rounded-full",
     "tag": "span",
     "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "kendo-switch_Pill Count": {
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Pill Count')]]//descendant::kendo-switch"
   }
 }

@@ -467,7 +467,7 @@
     "tag": "div",
     "xpath": "//div[@class='k-content k-panelbar-content ng-tns-c3003368627-1 ng-star-inserted']"
   },
-  "sites_bar": {
+  "Sites_bar": {
     "id": "sites_bar",
     "class": "ng-star-inserted",
     "tag": "ul",
@@ -1764,7 +1764,7 @@
     "text": "Hide filters",
     "xpath": "//div[contains(normalize-space(text()), 'Hide filters')]"
   },
-  "span_Site": {
+  "span_Sites": {
     "class": "k-panelbar-item-text",
     "tag": "span",
     "text": "Site",
@@ -1786,5 +1786,36 @@
     "class": "k-panelbar-item-text",
     "tag": "span",
     "xpath": "//span[contains(@class,'k-panelbar-item-text')]"
+  },
+  "global_filter_item_Patient Manager": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath_template": "//ul[@id='managers_bar']//label[contains(.,{text})]"
+  },
+  "global_filter_item_Treatment Monitor": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath_template": "//ul[@id='treatment_monitors']//label[contains(.,{text})]"
+  },
+  "global_filter_item_Sites": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath_template": "//ul[@id='sites_bar']//label[contains(.,{text})]"
+  },
+  "global_filter_item_Disease": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath_template": "//ul[@id='diseases_bar']//label[contains(.,{text})]"
+  },
+  "global_filter_item_Observation method": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath_template": "//ul[@id='observationTypes_bar']//label[contains(.,{text})]"
+  },
+  "reset_filters": {
+    "class": "clear-link",
+    "tag": "span",
+    "text": "here",
+    "xpath": "//span[@class='clear-link']"
   }
 }

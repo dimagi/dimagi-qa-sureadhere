@@ -646,9 +646,9 @@
     "xpath": "//span[contains(normalize-space(text()), 'Configurable Lookups')]"
   },
   "k-tabstrip-tab-Feature_Flags": {
-    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "class": "k-item k-state-default ng-star-inserted k-active",
     "tag": "li",
-    "text": "Announcements",
+    "text": "Feature Flags",
     "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Feature Flags')]"
   },
   "span_Feature Fl_161": {
@@ -1122,5 +1122,11 @@
     "class": "content",
     "tag": "div",
     "xpath": "//div[@class='content']"
+  },
+  "k-tabstrip-tab-Reports by Clients": {
+    "class": "k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "text": "Reports by Clients",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Reports by Clients')]"
   }
 }

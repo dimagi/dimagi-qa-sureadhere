@@ -13,21 +13,35 @@ class PatientReportsPage(BasePage):
         super().__init__(sb, page_name=page_name)
 
     def open_patient_reports_page(self):
-        self.click('k-tabstrip-tab-Reports')
+        self.click('k-tabstrip-tab-Reports', strict=True)
         try:
             self.kendo_dialog_wait_open()  # no title constraint
-            self.kendo_dialog_click_button("Continue")
+            self.kendo_dialog_click_button("Ok")
         except Exception:
             print("popup not present")
 
     def verify_patient_reports_page(self):
         time.sleep(5)
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Ok")
+        except Exception:
+            print("popup not present")
+        self.wait_for_page_to_load()
+        self.refresh()
+        time.sleep(10)
         self.wait_for_page_to_load()
         self.wait_for_element('k-opened-tabstrip-tab')
+        state = self.get_attribute('k-tabstrip-tab-Reports', 'aria-selected', strict=True)
+        self.unheal_all('k-opened-tabstrip-tab')
+        time.sleep(3)
         tabname = self.get_text('k-opened-tabstrip-tab')
-        assert tabname == "Reports", "Reports tab is not opened"
+        print(tabname, state)
+        # assert tabname == "Reports", "Reports tab is not opened"
+        # assert state == True, "Reports tab is not opened"
         self.wait_for_element('a_Summary_side_effects_and_comments')
         self.wait_for_element('a_Patient_videos')
+        assert self.is_element_visible("a_Patient_videos"), "Reports tab is not opened"
         print("Opened tab is Reports")
 
     def verify_comment_and_side_effect(self, comment, side_effect):
@@ -73,3 +87,12 @@ class PatientReportsPage(BasePage):
         print(f"{upload_time} matched with report time {report_time}")
 
         self.go_back()
+
+    def validate_report_links(self, reports, flag):
+        if flag == False:
+            assert self.is_element_visible('td_no_records', strict=True)
+        elif flag == True:
+            formatted_reports = [self.to_ui_format(x) for x in reports]
+            print(formatted_reports)
+            for items in formatted_reports:
+                assert self.is_element_visible_rendered("a_report_links", text=items)

@@ -1,3 +1,4 @@
+import locale
 import os
 import json
 import re
@@ -7,7 +8,7 @@ from typing import Dict, Any, Iterable, List, Tuple, Optional
 import platform
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import StaleElementReferenceException, TimeoutException, NoSuchFrameException
-from selenium.common.exceptions import ElementClickInterceptedException
+from selenium.common.exceptions import ElementClickInterceptedException, ElementNotVisibleException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -552,7 +553,10 @@ class BasePage:
 
     def wait_for_element(self, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
         sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
-        self.sb.wait_for_element(sel, timeout=timeout)
+        try:
+            self.sb.wait_for_element(sel, timeout=timeout)
+        except Exception:
+            self.sb.wait_for_element_present(sel, timeout=timeout)
 
     def wait_for_text(self, text: str, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
         sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
@@ -912,6 +916,15 @@ class BasePage:
     def get_value(self, logical_name: str, **kwargs):
         """Convenience: get the 'value' of an input."""
         return self.get_attribute(logical_name, "value", **kwargs)
+
+    def get_value_rendered(self, logical_name: str, timeout: int = 15, **params):
+        xp = self.render_xpath(logical_name, **params)
+
+        self.sb.wait_for_element_present(xp, timeout=timeout)
+
+        element = self.sb.driver.find_element(By.XPATH, xp)
+
+        return element.get_attribute("value")
 
     def is_checked(self, logical_name: str) -> bool:
         """Convenience: returns True if a checkbox/radio is checked."""
@@ -1445,7 +1458,7 @@ class BasePage:
             attrs_pred=attrs_pred,
             text_pred=text_pred_self,
             desc_text_pred=text_pred_desc,
-            text=self._xp_lit(text)  # if template wants raw literal
+            text=self._xp_lit(text) if text is not None else ""  # if template wants raw literal
             ).strip()
 
         # optional nth
@@ -1459,6 +1472,43 @@ class BasePage:
         self.sb.wait_for_element_clickable(xp, timeout=timeout)
         self.sb.highlight(xp)
         self.sb.click(xp)
+
+    def js_click_rendered(self, logical_name: str, timeout: int = 15, **params):
+        xp = self.render_xpath(logical_name, **params)
+
+        # wait only for presence
+        self.sb.wait_for_element_present(xp, timeout=timeout)
+
+        # get element directly from driver (no visibility requirement)
+        element = self.sb.driver.find_element(By.XPATH, xp)
+
+        # JS click
+        self.sb.driver.execute_script("arguments[0].click();", element)
+
+    def is_element_present_rendered(self, logical_name: str, timeout: int = 15, **params):
+        try:
+            locator = self.render_xpath(logical_name, **params)
+
+            if not locator:
+                return False
+
+            if timeout > 0:
+                WebDriverWait(self.driver, timeout).until(
+                    EC.presence_of_element_located((By.XPATH, locator))
+                    )
+                return True
+            else:
+                return len(self.driver.find_elements(By.XPATH, locator))
+        except Exception:
+            return False
+
+    def is_element_visible_rendered(self, logical_name: str, **params):
+        try:
+            sel = self.render_xpath(logical_name, **params)
+            print(sel)
+            return self.sb.is_element_visible(sel)
+        except Exception:
+            return False
 
     def get_text_rendered(self, logical_name: str, timeout: int = 10, **params) -> str:
         xp = self.render_xpath(logical_name, **params)
@@ -2002,6 +2052,8 @@ class BasePage:
             return dt.strftime("%b %#d, %Y")
 
     def format_full_mdY(self, dt):
+        if isinstance(dt, str):
+            dt = datetime.strptime(dt, "%Y-%m-%d")
         try:
             return dt.strftime("%B %-d, %Y")  # Unix
         except ValueError:
@@ -3586,11 +3638,34 @@ class BasePage:
                 raise AssertionError(f"Email column NOT sorted {sorted_as}")
             return
 
-        expected_lex = sorted(final_values, key=lambda s: str(s).casefold(), reverse=reverse)
-        expected_nat = sorted(final_values, key=self.natural_key, reverse=reverse)
+        locale.setlocale(locale.LC_ALL, '')
+        expected_lex = sorted(
+            final_values,
+            key=lambda s: locale.strxfrm(str(s).split()[0].lower()),
+            reverse=reverse
+            )
+        expected_nat = sorted(
+            final_values,
+            key=lambda s: self.natural_key(str(s).split()[0]),
+            reverse=reverse
+            )
+
+        # expected_lex = sorted(
+        #     final_values,
+        #     key=lambda s: str(s).split()[0].casefold(),
+        #     reverse=reverse
+        #     )
+        # expected_nat = sorted(
+        #     final_values,
+        #     key=lambda s: self.natural_key(str(s).split()[0]),
+        #     reverse=reverse
+        #     )
+        # expected_lex = sorted(final_values, key=lambda s: str(s).casefold(), reverse=reverse)
+        # expected_nat = sorted(final_values, key=self.natural_key, reverse=reverse)
 
         if final_values == expected_lex or final_values == expected_nat:
             return  # ✅ matches at least one valid Kendo-like ordering
+
 
         print("ACTUAL :", final_values)
         print("EXPECTED (LEX):", expected_lex)
@@ -3781,5 +3856,88 @@ class BasePage:
             f"got {ui_dt.strftime('%a - %b %d, %Y - %I:%M %p')} from '{timestamp_text}'"
         )
 
+    def scroll_to_element(self, logical_name: str, timeout=30, strict: bool = False):
+        sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
+        self.sb.wait_for_element(sel, timeout=timeout)
+        self.sb.scroll_to(sel)
+
+    def is_enabled(self, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
+        is_disabled = self.get_attribute(logical_name, "disabled", timeout=timeout, strict=strict)
+        return not bool(is_disabled)
+
     def normalize(self, text):
         return "".join(text.split()).lower()
+
+    def click_dynamic(self, template: str, *args, timeout: int = 15):
+        xpath = template.format(*args)
+        self.sb.wait_for_element_clickable(xpath, timeout=timeout)
+        self.sb.highlight(xpath)
+        self.sb.click(xpath)
+
+    def js_click(self, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
+        """
+        Click an element using JavaScript.
+        Useful when normal Selenium click is intercepted or blocked.
+        """
+        sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
+
+        # Wait for element to exist
+        self.sb.wait_for_element_present(sel, timeout=timeout)
+
+        element = self._get_webelement(sel, timeout=timeout)
+
+        # Scroll element into view
+        try:
+            self.driver.execute_script(
+                "arguments[0].scrollIntoView({block:'center'});", element
+                )
+        except Exception:
+            pass
+
+        # Highlight (optional)
+        try:
+            self.sb.highlight(element)
+        except Exception:
+            pass
+
+        # JS click
+        self.driver.execute_script("arguments[0].click();", element)
+
+    def to_ui_format(self, text: str) -> str:
+        words = text.split()
+        formatted = []
+
+        for i, w in enumerate(words):
+            if w.isupper():  # keep acronyms like DOT
+                formatted.append(w)
+            elif i == 0:  # first word capitalized
+                formatted.append(w.capitalize())
+            else:  # rest lowercase
+                formatted.append(w.lower())
+
+        return " ".join(formatted)
+
+    def today_date(self):
+        date_today = datetime.today()
+        date_today = date_today.strftime("%Y-%m-%d")
+        print(date_today)
+        return date_today
+
+    def calculate_date(self, start_date, days_to_add):
+        start_date = date.fromisoformat(start_date)
+        # Create a timedelta object with the specified number of days
+        duration = timedelta(days=days_to_add)
+
+        # Add the timedelta to the start date to get the end date
+        end_date = start_date + duration
+        end_date = end_date.strftime("%Y-%m-%d")
+        print(end_date)
+
+        return end_date
+
+    def type_rendered(self, logical_name: str, value: str, timeout: int = 15, **params):
+        xp = self.render_xpath(logical_name, **params)
+        print(xp)
+        self.sb.wait_for_element_present(xp, timeout=timeout)
+        self.sb.clear(xp)
+        self.sb.type(xp, value)

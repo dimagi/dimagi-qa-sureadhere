@@ -32,6 +32,18 @@ class UserData:
         "Automatic Opt In for SMS": "OFF",
         "Patient MRN validated with lookup": "OFF"
         }
+    pill_count_ff_on = {
+        "Pill Count": "ON",
+        }
+    pill_count_ff_off = {
+        "Pill Count": "OFF",
+        }
+    regimen_approval_ff_off = {
+        "Regimen approval workflow": "OFF",
+        }
+    regimen_approval_ff_on = {
+        "Regimen approval workflow": "ON",
+        }
     invalid_password = "12auto34test!"
     inactive_user_email = "automation.inactive@gmail.com"
     inactive_user_email_rogers = "automation.inactive+test@gmail.com"
@@ -75,3 +87,6 @@ class UserData:
     default_managers = ['PM', 'SM', 'TM', 'SS']
     access_warning = "You don't have access to edit this patient"
     global_reports = ['User access', 'Most recent patient videos', 'Monthly video count by patient']
+    patient_list_columns = [ "Name","UserName","Treatment progress","Est. doses remaining","MRN","SA-ID","Start date","End date"]
+    per_user_reports = ["Patient Videos", "Summary DOT Record", "Dose Status", "7 Days Adherence", "Summary Event Record", "Summary Side Effects and Comments"]
+    pill_count_drug = 'Quabodepistat'

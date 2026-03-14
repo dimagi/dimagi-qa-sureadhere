@@ -439,6 +439,7 @@ class test_module_06_staff_tests(BaseCase):
         user = UserPage(self, "add_users")
         staff = ManageStaffPage(self, "staff")
         user_staff = UserStaffPage(self, "add_staff")
+        profile = UserProfilePage(self, "user")
 
         d = self.__class__.data  # shared dict
 
@@ -451,7 +452,13 @@ class test_module_06_staff_tests(BaseCase):
 
         home.open_manage_staff_page()
         staff.validate_manage_staff_page()
-        staff.search_and_sort_columns("test_")
+        staff.search_and_sort_columns()
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+
+        login.login(self.settings["login_username"], self.settings["login_password"])
 
         home.open_dashboard_page()
         home.open_manage_staff_page()
@@ -459,8 +466,15 @@ class test_module_06_staff_tests(BaseCase):
         staff.validate_inactive_tab()
         staff.search_and_sort_columns("test_")
 
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+
+        login.login(self.settings["login_username"], self.settings["login_password"])
+
         home.open_dashboard_page()
         home.open_manage_staff_page()
+        staff.validate_manage_staff_page()
         staff.open_test_tab()
         staff.validate_test_tab()
         staff.search_and_sort_columns("test_")
