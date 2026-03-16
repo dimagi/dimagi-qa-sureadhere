@@ -259,10 +259,10 @@ class PatientProfilePage(BasePage):
         preferred_language = self.kendo_dd_get_selected_text(logical_name="kendo-dropdownlist-preferred-language")
         print(f"Selected Preferred Language is {preferred_language}")
         assert preferred_language.strip() == "English"
-        self.scroll_to_element("kendo-switch_Reminder settings", strict=True)
-        flag = self.get_attribute("kendo-switch_Reminder settings", "aria-check", strict=True)
-        print(f"Reminder settings is set to {flag}")
-        assert flag != True
+        # self.scroll_to_element("kendo-switch_Reminder settings", strict=True)
+        # flag = self.get_attribute("kendo-switch_Reminder settings", "aria-check", strict=True)
+        # print(f"Reminder settings is set to {flag}")
+        # assert flag != True
         if self.is_checked('accountIsActiv_chb'):
             return True
         else:

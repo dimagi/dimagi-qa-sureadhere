@@ -64,7 +64,7 @@ class PatientRegimenPage(BasePage):
         print(time_now)
         return str(time_now)
 
-    def create_new_schedule(self, multi=False, disease_flag=True, drug_name=None):
+    def create_new_schedule(self, multi=False, disease_flag=True, drug_name=None, add_pill=True):
         self.wait_for_page_to_load(50)
         time.sleep(4)
         if disease_flag==True:
@@ -154,12 +154,14 @@ class PatientRegimenPage(BasePage):
         colour_code = self.get_attribute('span_drug_colour', "style")
         print(colour_code)
 
-        self.type('input_Number_of_pills', str(UserData.no_of_pills))
-        self.type('input_Dose_per_pill', str(UserData.dose_per_pill))
-        total_pills = self.get_text('div_Total_dose_text')
-        assert total_pills == str(UserData.no_of_pills * UserData.dose_per_pill), f"Total dose mismatch: {str(UserData.no_of_pills * UserData.dose_per_pill)} and {total_pills}"
-        print( f"Total dose match: {str(UserData.no_of_pills * UserData.dose_per_pill)} and {total_pills}")
-
+        if add_pill:
+            self.type('input_Number_of_pills', str(UserData.no_of_pills))
+            self.type('input_Dose_per_pill', str(UserData.dose_per_pill))
+            total_pills = self.get_text('div_Total_dose_text')
+            assert total_pills == str(UserData.no_of_pills * UserData.dose_per_pill), f"Total dose mismatch: {str(UserData.no_of_pills * UserData.dose_per_pill)} and {total_pills}"
+            print( f"Total dose match: {str(UserData.no_of_pills * UserData.dose_per_pill)} and {total_pills}")
+        else:
+            total_pills = 0
         self.click_robust('button_CREATE')
         time.sleep(2)
         self.wait_for_page_to_load(60)

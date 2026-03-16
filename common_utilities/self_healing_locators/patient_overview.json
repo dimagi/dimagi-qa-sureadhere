@@ -3064,5 +3064,111 @@
     "aria-colindex": "4",
     "colspan": "1",
     "xpath": "//div[@aria-label='Data table' and @aria-rowcount='2']//td[@aria-colindex='4']"
+  },
+  "td_drug_no_records": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-rowcount": "1",
+    "text": "No records available.",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='1']//td[contains(normalize-space(text()),'No records available.')]"
+  },
+  "towards_adherence_td_drug_name": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "1",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[1]//td[@aria-colindex='1']"
+  },
+  "towards_adherence_td_drug_taken": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "2",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[1]//td[@aria-colindex='2']"
+  },
+  "towards_adherence_td_drug_left": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "3",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[1]//td[@aria-colindex='3']"
+  },
+  "towards_adherence_td_drug_scheduled": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "4",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[1]//td[@aria-colindex='4']"
+  },
+  "towards_adherence_td_drug_held": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "4",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[1]//td[@aria-colindex='5']"
+  },
+  "towards_adherence_td_drug_challenged": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "4",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[1]//td[@aria-colindex='6']"
+  },
+  "towards_adherence_td_drug_rescheduled": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "4",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[1]//td[@aria-colindex='7']"
+  },
+  "not_towards_adherence_td_drug_name": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "1",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[2]//td[@aria-colindex='1']"
+  },
+  "not_towards_adherence_td_drug_taken": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "2",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[2]//td[@aria-colindex='2']"
+  },
+  "not_towards_adherence_td_drug_left": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "3",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[2]//td[@aria-colindex='3']"
+  },
+  "not_towards_adherence_td_drug_scheduled": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "4",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[2]//td[@aria-colindex='4']"
+  },
+  "not_towards_adherence_td_drug_held": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "4",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[2]//td[@aria-colindex='5']"
+  },
+  "not_towards_adherence_td_drug_challenged": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "4",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[2]//td[@aria-colindex='6']"
+  },
+  "not_towards_adherence_td_drug_rescheduled": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "4",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[2]//td[@aria-colindex='7']"
   }
+
 }
