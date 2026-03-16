@@ -393,6 +393,7 @@ class test_module_10_patient_search_and_tabs(BaseCase):
         patient.open_first_patient()
         p_regimen.open_patient_regimen_page()
         p_pill.open_patient_pill_count_page()
+        p_pill.verify_patient_pill_count_page()
         p_pill.delete_pill_count(date_list=date_list, drug_name=d['drug_name_list'])
 
         home.click_admin_profile_button()

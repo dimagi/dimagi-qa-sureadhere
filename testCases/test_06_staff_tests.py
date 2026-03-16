@@ -452,7 +452,7 @@ class test_module_06_staff_tests(BaseCase):
 
         home.open_manage_staff_page()
         staff.validate_manage_staff_page()
-        staff.search_and_sort_columns()
+        staff.search_and_sort_columns("test_first_")
 
         home.click_admin_profile_button()
         profile.logout_user()
@@ -464,7 +464,7 @@ class test_module_06_staff_tests(BaseCase):
         home.open_manage_staff_page()
         staff.open_inactive_tab()
         staff.validate_inactive_tab()
-        staff.search_and_sort_columns("test_")
+        staff.search_and_sort_columns("test_first_")
 
         home.click_admin_profile_button()
         profile.logout_user()
@@ -477,4 +477,4 @@ class test_module_06_staff_tests(BaseCase):
         staff.validate_manage_staff_page()
         staff.open_test_tab()
         staff.validate_test_tab()
-        staff.search_and_sort_columns("test_")
+        staff.search_and_sort_columns("test_first_")

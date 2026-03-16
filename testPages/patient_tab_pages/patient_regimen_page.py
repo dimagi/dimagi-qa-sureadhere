@@ -286,28 +286,31 @@ class PatientRegimenPage(BasePage):
         self.wait_for_page_to_load(30)
         time.sleep(3)
         self.wait_for_element('input_regimen_name')
-        name_list = self.get_pill_names()
-        if name_list is not None:
-            self.wait_for_element('span_EDIT')
-            count = self.find_elements('span_EDIT')
-            print(len(count), len(count))
-            for items in name_list:
-                print(items)
-                self.click_rendered('edit_against_drug', text=items)
-                self.wait_for_element('span_DELETE')
-                self.click_robust('span_DELETE')
-                time.sleep(1)
-                self.wait_for_element('span_DELETE_CONFIRM', strict=True)
-                self.js_click('span_DELETE_CONFIRM', strict=True)
-                try:
-                    self.kendo_dialog_wait_open()  # no title constraint
-                    self.kendo_dialog_click_button("Ok")
-                except Exception:
-                    print("popup not present")
-                time.sleep(3)
-                self.wait_for_page_to_load()
+        if self.is_element_present('span_EDIT'):
+            name_list = self.get_pill_names()
+            if name_list is not None:
+                self.wait_for_element('span_EDIT')
+                count = self.find_elements('span_EDIT')
+                print(len(count), len(count))
+                for items in name_list:
+                    print(items)
+                    self.click_rendered('edit_against_drug', text=items)
+                    self.wait_for_element('span_DELETE')
+                    self.click_robust('span_DELETE')
+                    time.sleep(1)
+                    self.wait_for_element('span_DELETE_CONFIRM', strict=True)
+                    self.js_click('span_DELETE_CONFIRM', strict=True)
+                    try:
+                        self.kendo_dialog_wait_open()  # no title constraint
+                        self.kendo_dialog_click_button("Ok")
+                    except Exception:
+                        print("popup not present")
+                    time.sleep(3)
+                    self.wait_for_page_to_load()
+            else:
+                print("No drugs present to be deleted")
         else:
-            print("No drugs present to be deleted")
+            print("No edit button present")
 
     def get_pill_names(self):
         self.wait_for_page_to_load(30)
