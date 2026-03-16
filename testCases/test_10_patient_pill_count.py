@@ -384,7 +384,8 @@ class test_module_10_patient_search_and_tabs(BaseCase):
         print(fname, lname)
         p_regimen.open_patient_regimen_page()
         p_pill.open_patient_pill_count_page()
-        date_list = p_pill.edit_pill_count(date_list=d['date_list'], drug_name=d['drug_name_list'], visit_date=d['visit_date'], return_date=d['return_date'])
+        date_list_new = p_pill.edit_pill_count(date_list=d['date_list'], drug_name=d['drug_name_list'], visit_date=d['visit_date'], return_date=d['return_date'])
+        print(date_list_new)
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
@@ -394,7 +395,7 @@ class test_module_10_patient_search_and_tabs(BaseCase):
         p_regimen.open_patient_regimen_page()
         p_pill.open_patient_pill_count_page()
         p_pill.verify_patient_pill_count_page()
-        p_pill.delete_pill_count(date_list=date_list, drug_name=d['drug_name_list'])
+        p_pill.delete_pill_count(date_list=date_list_new, drug_name=d['drug_name_list'])
 
         home.click_admin_profile_button()
         profile.logout_user()

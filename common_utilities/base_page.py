@@ -1481,7 +1481,7 @@ class BasePage:
 
         # get element directly from driver (no visibility requirement)
         element = self.sb.driver.find_element(By.XPATH, xp)
-
+        print(element)
         # JS click
         self.sb.driver.execute_script("arguments[0].click();", element)
 
