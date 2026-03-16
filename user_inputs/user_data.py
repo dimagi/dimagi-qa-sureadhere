@@ -30,7 +30,8 @@ class UserData:
         "Self Report - pills with provider present": "OFF",
         "Regimen approval workflow": "OFF",
         "Automatic Opt In for SMS": "OFF",
-        "Patient MRN validated with lookup": "OFF"
+        "Patient MRN validated with lookup": "OFF",
+        "Medication Event Reminder Monitor": "OFF"
         }
     pill_count_ff_on = {
         "Pill Count": "ON",

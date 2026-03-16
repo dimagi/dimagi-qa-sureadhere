@@ -88,7 +88,15 @@ class test_module_10_patient_search_and_tabs(BaseCase):
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
         a_ff.set_ffs(UserData.pill_count_ff_on)
-        home.open_dashboard_page()
+
+        try:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.open_feature_flags()
@@ -138,7 +146,6 @@ class test_module_10_patient_search_and_tabs(BaseCase):
             home.open_dashboard_page()
             home.validate_dashboard_page()
 
-        home.open_dashboard_page()
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
         patient.search_test_patients(UserData.client_1_patient_details[env][0])
@@ -152,18 +159,17 @@ class test_module_10_patient_search_and_tabs(BaseCase):
         a_ff.set_ffs(UserData.regimen_approval_ff_on)
         a_ff.set_ffs(UserData.pill_count_ff_on)
 
-        home.click_admin_profile_button()
-        profile.logout_user()
-        login.after_logout()
-        login.login(self.settings["login_username"], self.settings["login_password"])
-
-        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
         a_ff.double_check_ff(UserData.regimen_approval_ff_on)
         a_ff.double_check_ff(UserData.pill_count_ff_on)
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+        login.login(self.settings["login_username"], self.settings["login_password"])
 
         home.open_dashboard_page()
         home.open_manage_patient_page()
@@ -240,8 +246,19 @@ class test_module_10_patient_search_and_tabs(BaseCase):
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
         a_ff.double_check_ff(UserData.regimen_approval_ff_off)
+        home.open_dashboard_page()
+
+        try:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.login(self.settings["login_username"], self.settings["login_password"])
+        except:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+
 
         home.open_admin_page()
+        admin.open_config_lookup()
         admin.validate_admin_page(default_client)
         admin.expand_drugs()
         drug_switch, drug_name = a_drug.toggle_for_drugs(UserData.pill_count_drug, "ON")
@@ -381,6 +398,9 @@ class test_module_10_patient_search_and_tabs(BaseCase):
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
         patient.search_test_patients(d['patient_fname'] + " " + d['patient_lname'])
+        patient.open_first_patient()
+        p_regimen.open_patient_regimen_page()
+        p_pill.open_patient_pill_count_page()
         p_pill.delete_pill_count(date_list=date_list, drug_name=d['drug_name_list'])
 
         home.click_admin_profile_button()

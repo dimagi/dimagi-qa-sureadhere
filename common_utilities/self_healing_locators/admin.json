@@ -632,14 +632,13 @@
     "text": "Configurable Lookups Feature Flags Announcements",
     "xpath": "//ul[contains(normalize-space(text()), 'Configurable Lookups\nFeature Flags\nAnnouncements')]"
   },
-  "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-0": {
-    "id": "k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-0",
-    "class": "ng-tns-c655264150-24 k-item k-state-default k-active ng-star-inserted",
+  "k-tabstrip-tab-Configurable Lookups": {
+    "class": "k-item",
     "tag": "li",
     "text": "Configurable Lookups",
-    "xpath": "//li[@id='k-tabstrip-tab-4de49805-c2fd-4373-94e9-15b798ab48e0-0']"
+    "xpath": "//li[contains(@class,'k-item')]//span[contains(normalize-space(text()), 'Configurable Lookups')]"
   },
-  "span_Configurab_159": {
+  "span_Configurable Lookups": {
     "class": "k-link ng-star-inserted",
     "tag": "span",
     "text": "Configurable Lookups",
