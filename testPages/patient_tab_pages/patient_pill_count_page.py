@@ -142,7 +142,6 @@ class PatientPillCountPage(BasePage):
             visit_date_current = self.calculate_date(visit_date, 1)
             return_date_current = self.calculate_date(return_date, 1)
             self.type('input_visit_date', value=visit_date_current)
-            formated_visit_date = self.format_full_mdY(visit_date_current)
 
             for i, drug in enumerate(drug_name):
                 row = i + 1
@@ -153,12 +152,14 @@ class PatientPillCountPage(BasePage):
                 self.type_rendered('input_damaged_lost_pills', value='0', index=row)
                 try:
                     kit = self.get_value('input_Kit Number')
-                    new_kit = f"n{kit}"
+                    new_kit = f"1{kit}"
                     print(kit, new_kit)
                     self.type('input_Kit Number', value=new_kit)
                 except:
                     print("No kit number field present")
 
+            date_visit = self.get_value('input_visit_date')
+            formated_visit_date = self.format_full_mdY(date_visit)
             date_list_new.append(formated_visit_date)
 
             self.click_robust('span_SAVE')
@@ -187,9 +188,10 @@ class PatientPillCountPage(BasePage):
         return date_list_new
 
     def delete_pill_count(self, date_list, drug_name):
-        for item in date_list:
+        time.sleep(3)
+        for item in drug_name:
             self.js_click_rendered('edit_title_custom', text=item)
-            time.sleep(5)
+            time.sleep(10)
             self.wait_for_element('span_delete_pill')
             delete_btns = self.find_elements('span_delete_pill')
             print(len(delete_btns))
@@ -211,14 +213,17 @@ class PatientPillCountPage(BasePage):
 
                 time.sleep(2)
 
-            self.click_robust('span_SAVE')
-            try:
-                self.kendo_dialog_wait_open()  # no title constraint
-                self.kendo_dialog_click_button("Ok")
-            except Exception:
-                print("popup not present")
-            self.wait_for_page_to_load()
-            time.sleep(2)
+            if self.is_element_present('span_SAVE'):
+                self.click_robust('span_SAVE')
+                try:
+                    self.kendo_dialog_wait_open()  # no title constraint
+                    self.kendo_dialog_click_button("Ok")
+                except Exception:
+                    print("popup not present")
+                self.wait_for_page_to_load()
+                time.sleep(2)
+            else:
+                print("Save button not present")
 
         titles = self.get_elements_texts('div_title')
         drug_details = self.find_elements('div_drug_rows')

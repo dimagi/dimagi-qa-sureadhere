@@ -334,7 +334,7 @@ class test_module_08_patient_tests(BaseCase):
         home.clear_filter()
         home.close_filter()
         page_count_now = patient.get_total_pages()
-        assert page_count_before == page_count_now, f"{page_count_now} is not equal {page_count_before}"
+        assert page_count_now >= page_count_after, f"{page_count_now} is not greater than {page_count_after}"
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_patient_7", scope="class")

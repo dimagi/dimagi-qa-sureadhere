@@ -319,23 +319,15 @@ class test_module_10_patient_search_and_tabs(BaseCase):
         sa_id = p_profile.verify_patient_profile_details(fname, lname, mrn, pemail, username, phn, phn_country,
                                                          default_site_manager, sa_id=True
                                                          )
-        # patient.search_test_patients("pat_fnmob")
-        # patient.search_test_patients(fname+" "+lname)
-        # fname, lname = patient.open_first_patient()
-        # print(fname, lname)
+
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
-        # p_regimen.delete_schedule()
         p_regimen.create_new_schedule(disease_flag=False, drug_name=UserData.pill_count_drug)
         p_regimen.create_new_schedule(disease_flag=False)
         name_list = p_regimen.get_pill_names()
         p_pill.open_patient_pill_count_page()
         date_list, visit_date, return_date = p_pill.add_pill_count(drug_name=name_list)
         print(date_list)
-        # p_pill.edit_pill_count(['March 11, 2026'])
-        # p_regimen.open_patient_regimen_page()
-        # p_regimen.verify_patient_regimen_page()
-        # p_regimen.delete_schedule()
 
         home.click_admin_profile_button()
         profile.logout_user()
