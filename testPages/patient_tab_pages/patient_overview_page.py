@@ -79,3 +79,31 @@ class PatientOverviewPage(BasePage):
         assert str(drug_scheduled) == str(total_dose), f"{drug_scheduled} not matching {total_dose}"
 
         print("All drug details are correctly displayed.")
+
+
+    def check_calendar_presence(self):
+        self.wait_for_element('div_calendar')
+        assert self.is_element_visible('div_calendar'), "Calender is not present"
+        print("Calender is present")
+
+    def check_doses_table_before(self):
+        self.wait_for_element('div_calendar')
+        assert self.is_element_visible('div_calendar'), "Calender is not present"
+        print("Calender is present")
+
+        assert self.is_element_present('towards_adherence_td_drug_name', strict=True), "Counts towards adherence row not present"
+        print("Counts towards adherence row present")
+        assert self.is_element_present('not_towards_adherence_td_drug_name', strict=True), "does not count towards adherence row not present"
+        print("Does not count towards adherence row present")
+
+        assert self.is_element_present('td_drug_no_records', strict=True), "No records available not present"
+        print("No records available present")
+
+        for item in UserData.overview_doses_table_columns:
+            adherence = self.get_text(f"towards_adherence_td_drug_{item}").strip()
+            not_adherence = self.get_text(f"not_towards_adherence_td_drug_{item}").strip()
+            assert 0 == int(adherence), f"towards_adherence_td_drug_{item} value {adherence} does not match 0"
+            print( f"towards_adherence_td_drug_{item} value {adherence} match 0")
+            assert 0 == int(not_adherence), f"not_towards_adherence_td_drug_{item} value {not_adherence} does not match 0"
+            print(f"not_towards_adherence_td_drug_{item} value {not_adherence} match 0")
+

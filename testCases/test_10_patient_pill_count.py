@@ -22,7 +22,7 @@ from testPages.user_profile.user_profile_page import UserProfilePage
 from user_inputs.user_data import UserData
 
 
-class test_module_10_patient_search_and_tabs(BaseCase):
+class test_module_10_patient_pill_count(BaseCase):
     data = {}
     _session_ready = False  # guard so we only open/login once
 
@@ -386,16 +386,60 @@ class test_module_10_patient_search_and_tabs(BaseCase):
         p_pill.open_patient_pill_count_page()
         date_list_new = p_pill.edit_pill_count(date_list=d['date_list'], drug_name=d['drug_name_list'], visit_date=d['visit_date'], return_date=d['return_date'])
         print(date_list_new)
-        home.open_dashboard_page()
-        home.validate_dashboard_page()
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+
+        self.__class__.data.update(
+            {
+             "date_list": date_list_new
+             }
+            )
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_pat_pill_count_05", depends=['tc_pat_pill_count_03', 'tc_pat_pill_count_04'], scope="class")
+    def test_case_05_delete_pill_count(self):
+        d = self.__class__.data
+        login = LoginPage(self, "login")
+        self._login_once()
+        user = UserPage(self, "add_users")
+        home = HomePage(self, "dashboard")
+        admin = AdminPage(self, 'admin')
+        a_ff = AdminFFPage(self, 'feature_flags')
+        patient = ManagePatientPage(self, "patients")
+        profile = UserProfilePage(self, "user")
+        p_pill = PatientPillCountPage(self, 'patient_pill_count')
+        p_regimen = PatientRegimenPage(self, 'patient_regimens')
+        user_patient = UserPatientPage(self, "add_patient")
+        p_profile = PatientProfilePage(self, 'patient_profile')
+
+        if "banner" in self.settings["url"]:
+            default_site_manager = UserData.site_manager[0]
+        elif "rogers" in self.settings["url"]:
+            default_site_manager = UserData.site_manager[0]
+        elif "securevoteu" in self.settings["url"]:
+            default_site_manager = UserData.site_manager[2]
+        else:
+            default_site_manager = UserData.site_manager[1]
+
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+        except Exception:
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
         patient.search_test_patients(d['patient_fname'] + " " + d['patient_lname'])
-        patient.open_first_patient()
+
+        fname, lname = patient.open_first_patient()
+        print(fname, lname)
         p_regimen.open_patient_regimen_page()
         p_pill.open_patient_pill_count_page()
-        p_pill.verify_patient_pill_count_page()
-        p_pill.delete_pill_count(date_list=date_list_new, drug_name=d['drug_name_list'])
+        p_pill.delete_pill_count(date_list=d['date_list'], drug_name=d['drug_name_list'])
 
         home.click_admin_profile_button()
         profile.logout_user()

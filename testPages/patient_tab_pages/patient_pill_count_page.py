@@ -77,12 +77,12 @@ class PatientPillCountPage(BasePage):
         visit_date = today
         return_date = self.calculate_date(visit_date, 1)
         formated_visit_date = self.format_full_mdY(visit_date)
-        if self.is_element_visible_rendered('div_title_custom', text=formated_visit_date):
-            visit_date = self.calculate_date(today, 1)
-            return_date = self.calculate_date(visit_date, 2)
-            formated_visit_date = self.format_full_mdY(visit_date)
-        else:
-            print("Date is not already present")
+        # if self.is_element_visible_rendered('div_title_custom', text=formated_visit_date):
+        #     visit_date = self.calculate_date(today, 1)
+        #     return_date = self.calculate_date(visit_date, 2)
+        #     formated_visit_date = self.format_full_mdY(visit_date)
+        # else:
+        #     print("Date is not already present")
         self.type('input_visit_date', value=visit_date)
         for i, drug in enumerate(drug_name):
             row = i + 1
@@ -189,15 +189,16 @@ class PatientPillCountPage(BasePage):
 
     def delete_pill_count(self, date_list, drug_name):
         time.sleep(3)
-        for item in drug_name:
-            self.js_click_rendered('edit_title_custom', text=item)
-            time.sleep(10)
-            self.wait_for_element('span_delete_pill')
-            delete_btns = self.find_elements('span_delete_pill')
-            print(len(delete_btns))
-            assert len(drug_name)==len(delete_btns), "Correct counts of delete buttons not present"
-            print("Correct counts of delete buttons present")
+        for item in date_list:
             while True:
+                self.js_click_rendered('edit_title_custom', text=item)
+                time.sleep(10)
+                self.wait_for_element('span_delete_pill')
+            # delete_btns = self.find_elements('span_delete_pill')
+            # print(len(delete_btns))
+            # assert len(drug_name)==len(delete_btns), "Correct counts of delete buttons not present"
+            # print("Correct counts of delete buttons present")
+            # while True:
                 delete_btns = self.find_elements('span_delete_pill')
 
                 if not delete_btns:

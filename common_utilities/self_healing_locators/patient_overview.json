@@ -2051,11 +2051,10 @@
     "tag": "span",
     "xpath": "//*[contains(@class,'cal-cell cal-day-cell cal-today')]//div[@class='events-wrapper ng-star-inserted']//span[@class='self-report-icon']"
   },
-  "div_31 1 2 3 4_398": {
+  "div_calendar": {
     "class": "cal-days",
     "tag": "div",
-    "text": "31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4",
-    "xpath": "//div[contains(normalize-space(text()), '31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4')]"
+    "xpath": "//div[contains(@class,'cal-days')]"
   },
   "div_31 1 2 3 4_399": {
     "class": "ng-star-inserted",
@@ -3077,7 +3076,8 @@
     "tag": "td",
     "aria-colindex": "1",
     "colspan": "1",
-    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[1]//td[@aria-colindex='1']"
+    "text": "Counts towards adherence",
+    "xpath": "//td[contains(normalize-space(text()),'Counts towards adherence')]"
   },
   "towards_adherence_td_drug_taken": {
     "class": "k-table-td k-touch-action-auto ng-star-inserted",
@@ -3086,7 +3086,7 @@
     "colspan": "1",
     "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[1]//td[@aria-colindex='2']"
   },
-  "towards_adherence_td_drug_left": {
+  "towards_adherence_td_drug_not_taken": {
     "class": "k-table-td k-touch-action-auto ng-star-inserted",
     "tag": "td",
     "aria-colindex": "3",
@@ -3107,7 +3107,7 @@
     "colspan": "1",
     "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[1]//td[@aria-colindex='5']"
   },
-  "towards_adherence_td_drug_challenged": {
+  "towards_adherence_td_drug_challenge": {
     "class": "k-table-td k-touch-action-auto ng-star-inserted",
     "tag": "td",
     "aria-colindex": "4",
@@ -3126,7 +3126,8 @@
     "tag": "td",
     "aria-colindex": "1",
     "colspan": "1",
-    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[2]//td[@aria-colindex='1']"
+    "text": "Does not count towards adherence",
+    "xpath": "//td[contains(normalize-space(text()),'Does not count towards adherence')]"
   },
   "not_towards_adherence_td_drug_taken": {
     "class": "k-table-td k-touch-action-auto ng-star-inserted",
@@ -3135,7 +3136,7 @@
     "colspan": "1",
     "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[2]//td[@aria-colindex='2']"
   },
-  "not_towards_adherence_td_drug_left": {
+  "not_towards_adherence_td_drug_not_taken": {
     "class": "k-table-td k-touch-action-auto ng-star-inserted",
     "tag": "td",
     "aria-colindex": "3",
@@ -3156,7 +3157,7 @@
     "colspan": "1",
     "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[2]//td[@aria-colindex='5']"
   },
-  "not_towards_adherence_td_drug_challenged": {
+  "not_towards_adherence_td_drug_challenge": {
     "class": "k-table-td k-touch-action-auto ng-star-inserted",
     "tag": "td",
     "aria-colindex": "4",

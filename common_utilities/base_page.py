@@ -1,4 +1,3 @@
-import locale
 import os
 import json
 import re
@@ -553,10 +552,7 @@ class BasePage:
 
     def wait_for_element(self, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
         sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
-        try:
-            self.sb.wait_for_element(sel, timeout=timeout)
-        except Exception:
-            self.sb.wait_for_element_present(sel, timeout=timeout)
+        self.sb.wait_for_element(sel, timeout=timeout)
 
     def wait_for_text(self, text: str, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
         sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
@@ -916,15 +912,6 @@ class BasePage:
     def get_value(self, logical_name: str, **kwargs):
         """Convenience: get the 'value' of an input."""
         return self.get_attribute(logical_name, "value", **kwargs)
-
-    def get_value_rendered(self, logical_name: str, timeout: int = 15, **params):
-        xp = self.render_xpath(logical_name, **params)
-
-        self.sb.wait_for_element_present(xp, timeout=timeout)
-
-        element = self.sb.driver.find_element(By.XPATH, xp)
-
-        return element.get_attribute("value")
 
     def is_checked(self, logical_name: str) -> bool:
         """Convenience: returns True if a checkbox/radio is checked."""
@@ -1458,7 +1445,7 @@ class BasePage:
             attrs_pred=attrs_pred,
             text_pred=text_pred_self,
             desc_text_pred=text_pred_desc,
-            text=self._xp_lit(text) if text is not None else ""  # if template wants raw literal
+            text=self._xp_lit(text)  # if template wants raw literal
             ).strip()
 
         # optional nth
