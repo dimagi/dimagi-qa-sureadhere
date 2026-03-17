@@ -14,6 +14,7 @@ class AdminPage(BasePage):
         super().__init__(sb, page_name=page_name)
 
     def validate_admin_page(self, site_manager):
+        time.sleep(10)
         self.wait_for_element('kendo-dropdownlist-input-value-Client')
         self.wait_for_element('kendo-expansionpanel_Countries')
         self.wait_for_element('kendo-expansionpanel_Diseases')

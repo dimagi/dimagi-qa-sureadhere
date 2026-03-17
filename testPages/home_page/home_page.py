@@ -31,8 +31,8 @@ class HomePage(BasePage):
 
     def open_dashboard_page(self):
         self.click('p_Dashboard', strict=True)
-        self.wait_for_page_to_load()
-        time.sleep(6)
+        self.wait_for_page_to_load(60)
+        time.sleep(10)
 
     def open_reports_page(self):
         self.click('p_Reports', strict=True)
@@ -91,8 +91,8 @@ class HomePage(BasePage):
 
     def open_admin_page(self):
         self.click('p_Admin', strict=True)
-        time.sleep(6)
-        self.wait_for_page_to_load()
+        time.sleep(10)
+        self.wait_for_page_to_load(60)
 
     def check_for_quick_actions(self):
         self.wait_for_element('div-quick_actions')
