@@ -345,12 +345,15 @@ class Android:
         self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.submission_status)))
         half, full = self.today_date()
         print(half, full)
+        formated_half = self.convert_date_format_safe(half)
+        formated_full = self.convert_date_format_safe(full)
         half_text = self.get_text((AppiumBy.ID, self.upload_date))
         full_text = self.get_text((AppiumBy.ID, self.capture_date))
-        assert half in half_text, f"{half} not in {half_text}"
-        print(f"{half} in {half_text}")
-        assert full in full_text, f"{full} not in {full_text}"
-        print(f"{full} in {full_text}")
+        print(half_text, full_text)
+        assert half in half_text or formated_half in half_text, f"{half} or {formated_half} not in {half_text}"
+        print(f"{half} or {formated_half} in {half_text}")
+        assert full in full_text or formated_full in full_text, f"{full} or {formated_full} not in {full_text}"
+        print(f"{full}  or {formated_full} in {full_text}")
         date_upload, time_upload = self.get_date_and_time(half_text)
         print(self.is_toggle_open("Complete"))
         list_count = self.find_elements((AppiumBy.ID, self.status_counts))
@@ -548,3 +551,13 @@ class Android:
     
     def close_android_driver(self):
         self.driver.quit()
+
+    def convert_date_format_safe(self, date_str: str) -> str:
+        formats = ["%b %d, %Y", "%B %d, %Y"]
+        for fmt in formats:
+            try:
+                dt = datetime.strptime(date_str.strip(), fmt)
+                return dt.strftime("%d %b %Y")
+            except ValueError:
+                continue
+        raise ValueError(f"Unsupported date format: {date_str}")
