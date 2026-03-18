@@ -990,7 +990,7 @@
     "text": "TakenMissed",
     "xpath": "//div[contains(normalize-space(text()), 'TakenMissed')]"
   },
-  "taken": {
+  "radio_taken": {
     "id": "taken",
     "name": "status",
     "class": "k-radio k-radio-md",
@@ -1004,7 +1004,7 @@
     "text": "Taken",
     "xpath": "//label[contains(normalize-space(text()), 'Taken')]"
   },
-  "missed": {
+  "radio_missed": {
     "id": "missed",
     "name": "status",
     "class": "k-radio k-radio-md",
@@ -3171,5 +3171,4 @@
     "colspan": "1",
     "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[2]//td[@aria-colindex='7']"
   }
-
 }

@@ -107,3 +107,24 @@ class PatientOverviewPage(BasePage):
             assert 0 == int(not_adherence), f"not_towards_adherence_td_drug_{item} value {not_adherence} does not match 0"
             print(f"not_towards_adherence_td_drug_{item} value {not_adherence} match 0")
 
+
+    def check_pie_chart(self):
+        self.wait_for_element('div_calendar')
+        assert self.is_element_visible('div_calendar'), "Calender is not present"
+        print("Calender is present")
+
+        self.click('radio_missed')
+        time.sleep(2)
+        self.validate_charts_for_selection('missed')
+
+        self.click('radio_taken')
+        time.sleep(2)
+        self.validate_charts_for_selection('taken')
+
+        taken_count = self.get_text(f"towards_adherence_td_drug_taken").strip()
+        open_count = self.get_text(f"towards_adherence_td_drug_not_taken").strip()
+        print(taken_count, open_count)
+        self.validate_kendo_pie_chart_data("Taken", taken_count)
+        self.validate_kendo_pie_chart_data("Open", open_count)
+
+

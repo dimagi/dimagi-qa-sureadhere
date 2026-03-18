@@ -1,3 +1,4 @@
+import locale
 import os
 import json
 import re
@@ -5,6 +6,8 @@ import difflib
 import time
 from typing import Dict, Any, Iterable, List, Tuple, Optional
 import platform
+
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import StaleElementReferenceException, TimeoutException, NoSuchFrameException
 from selenium.common.exceptions import ElementClickInterceptedException, ElementNotVisibleException
@@ -3928,3 +3931,118 @@ class BasePage:
         self.sb.wait_for_element_present(xp, timeout=timeout)
         self.sb.clear(xp)
         self.sb.type(xp, value)
+
+    # def validate_kendo_pie_chart_all_slices(self, expected_text):
+    #     wait = WebDriverWait(self.driver, 20)
+    #
+    #     chart = self.driver.find_element(By.XPATH, "(//div[contains(@class,'overview-charts')]//div[contains(@class,'k-chart-surface')])[1]")
+    #
+    #     slices = chart.find_elements(By.XPATH, ".//*[name()='path' and not(contains(@fill,'rgb')) and not(@fill-opacity='0')]")
+    #
+    #     # Remove background paths
+    #     valid_slices = [
+    #         s for s in slices if "M0 0" not in s.get_attribute("d")
+    #         ]
+    #
+    #     print(f"Valid slices count: {len(valid_slices)}")
+    #
+    #     found = False
+    #     tooltip_texts = []
+    #     last_tooltip_text = ""
+    #
+    #     for index, slice_el in enumerate(valid_slices):
+    #         try:
+    #             # 👉 Create fresh action each time (important)
+    #             ActionChains(self.driver).move_to_element_with_offset(slice_el, 5, 5).perform()
+    #
+    #             # 👉 Wait for tooltip AND text change
+    #             tooltip = wait.until(
+    #                 EC.visibility_of_element_located(
+    #                     (By.XPATH, "//div[contains(@class,'k-tooltip')]")
+    #                     )
+    #                 )
+    #
+    #             wait.until(lambda d: tooltip.text.strip() != last_tooltip_text)
+    #
+    #             text = tooltip.text.strip()
+    #             last_tooltip_text = text
+    #
+    #             tooltip_texts.append(text)
+    #
+    #             print(f"Slice {index} tooltip: {text}")
+    #
+    #             if expected_text in text:
+    #                 found = True
+    #
+    #         except Exception as e:
+    #             print(f"⚠️ Hover failed on slice {index}: {e}")
+    #             continue
+    #
+    #     if not found:
+    #         raise AssertionError(
+    #             f"'{expected_text}' not found in any slice.\n"
+    #             f"Captured tooltips: {tooltip_texts}"
+    #             )
+    #
+    #     print("✅ Validation passed!")
+
+    def validate_kendo_pie_chart_data(self, expected_label, expected_value):
+        data = self.driver.execute_script("""
+            var el = document.querySelector('.k-chart');
+            if (!el) return null;
+
+            var chart = $(el).data('kendoChart');
+            if (!chart) return null;
+
+            return chart.options.series[0].data;
+        """
+                                          )
+
+        if not data:
+            raise AssertionError("Could not fetch chart data")
+
+        print("Chart Data:", data)
+
+        found = False
+
+        for item in data:
+            label = item.get("category") or item.get("name") or ""
+            value = item.get("value") or 0
+
+            print(f"{label} : {value}")
+
+            if expected_label.lower() in str(label).lower() and int(value) == int(expected_value):
+                found = True
+                break
+
+        if not found:
+            raise AssertionError(
+                f"{expected_label} : {expected_value} not found in {data}"
+                )
+
+        print("✅ Validation passed!")
+
+
+    def validate_charts_for_selection(self, selection):
+        chart1 = self.driver.find_element(
+            By.XPATH,
+            "(//div[contains(@class,'overview-charts')]//div[contains(@class,'k-chart-surface')])[1]"
+            )
+        chart2 = self.driver.find_element(
+            By.XPATH,
+            "(//div[contains(@class,'overview-charts')]//div[contains(@class,'k-chart-surface')])[2]"
+            )
+
+        visible1 = chart1.is_displayed()
+        visible2 = chart2.is_displayed()
+
+        print(f"Chart1 visible: {visible1}")
+        print(f"Chart2 visible: {visible2}")
+
+        if selection.lower() == "taken" or selection.lower() == "chart1":
+            assert visible1 is True
+            assert visible2 is True
+
+        elif selection.lower() == "missed" or selection.lower() == "chart2":
+            assert visible1 is True
+            assert visible2 is False

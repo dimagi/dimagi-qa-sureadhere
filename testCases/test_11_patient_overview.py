@@ -147,13 +147,20 @@ class test_module_11_patient_overview(BaseCase):
 
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
+        if rerun_count != 0:
+            p_regimen.delete_schedule()
         start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule()
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
 
         mobile.select_environment(self.settings['url'])
         mobile.login_patient(d['patient_username'], d['patient_pin'])
         vdo_upload_date, vdo_upload_time = mobile.record_video_and_submit(med_name)
         mobile.close_android_driver()
 
+        login.login(self.settings["login_username"], self.settings["login_password"])
         home.open_dashboard_page()
 
         home.validate_dashboard_page()
@@ -183,4 +190,49 @@ class test_module_11_patient_overview(BaseCase):
              }
             )
 
+    # depends = ['tc_pat_overview_01', 'tc_pat_overview_02']
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_pat_overview_03", depends = ['tc_pat_overview_01', 'tc_pat_overview_02'], scope="class")
+    def test_case_03_overview_charts(self):
+        rerun_count = getattr(self, "rerun_count", 0)
+        login = LoginPage(self, "login")
+        self._login_once()
+        user = UserPage(self, "add_users")
+        home = HomePage(self, "dashboard")
+        admin = AdminPage(self, 'admin')
+        a_ff = AdminFFPage(self, 'feature_flags')
+        patient = ManagePatientPage(self, "patients")
+        profile = UserProfilePage(self, "user")
+        p_pill = PatientPillCountPage(self, 'patient_pill_count')
+        p_regimen = PatientRegimenPage(self, 'patient_regimens')
+        user_patient = UserPatientPage(self, "add_patient")
+        p_profile = PatientProfilePage(self, 'patient_profile')
+        p_overview = PatientOverviewPage(self, 'patient_overview')
+        mobile = Android(self.settings)
+        p_vdo = PatientVideoPage(self, 'patient_video_form')
+        p_adhere = PatientAdherencePage(self, 'patient_adherence')
 
+        d = self.__class__.data
+
+        try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+        except Exception:
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+
+        home.open_manage_patient_page()
+        patient.validate_manage_patient_page()
+        patient.search_test_patients(d['patient_fname'] + " " + d['patient_lname'])
+        # patient.search_test_patients("pat_fmob_03c2xs pat_lmob_03c2xs")
+        fname, lname = patient.open_first_patient()
+        print(fname, lname)
+
+        p_overview.open_patient_overview_page()
+        p_overview.verify_patient_overview_page()
+        p_overview.check_pie_chart()
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
