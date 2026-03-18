@@ -46,7 +46,7 @@ class PatientMessagesPage(BasePage):
         send_text = "Sending from web " + fetch_random_string()
         self.type('textarea-message', send_text)
         self.click('button_send_button')
-        time.sleep(3)
+        time.sleep(10)
         return send_text
 
 
