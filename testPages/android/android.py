@@ -407,6 +407,7 @@ class Android:
         return send_text
 
     def read_messages(self, msg):
+        time.sleep(10)
         self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.messages)))
         self.click_xpath(self.messages)
         new_text=self.get_last_message_text()
