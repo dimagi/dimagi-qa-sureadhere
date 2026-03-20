@@ -72,6 +72,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requires.txt
 
+      - name: Install Tesseract + English lang
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tesseract-ocr tesseract-ocr-eng
+
       - name: SureAdhere Extended Tests with pytest
         env:
           DIMAGIQA_ENV: ${{ matrix.environment }}

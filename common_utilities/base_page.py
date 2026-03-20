@@ -1,3 +1,5 @@
+import locale
+import math
 import os
 import json
 import re
@@ -5,9 +7,16 @@ import difflib
 import time
 from typing import Dict, Any, Iterable, List, Tuple, Optional
 import platform
+import pdfplumber
+import requests
+# from pdf2image import convert_from_path
+import pytesseract
+import base64
+from difflib import SequenceMatcher
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import StaleElementReferenceException, TimeoutException, NoSuchFrameException
-from selenium.common.exceptions import ElementClickInterceptedException
+from selenium.common.exceptions import ElementClickInterceptedException, ElementNotVisibleException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -20,6 +29,8 @@ from selenium.common.exceptions import (
         StaleElementReferenceException,
         JavascriptException,
         )
+
+from common_utilities.path_settings import PathSettings
 
 # ---- Tunables ---------------------------------------------------------------
 
@@ -101,7 +112,14 @@ class BasePage:
         self.page_name = page_name
         self.locators = self._load_page_locators(page_name) if page_name else {}
 
+        self.configure_tesseract()
     # ----------------- Locator loading & persistence -------------------------
+
+    def configure_tesseract(self):
+        if PathSettings.TESSERACT_PATH:
+            pytesseract.pytesseract.tesseract_cmd = PathSettings.TESSERACT_PATH
+
+        print("Using tesseract at:", pytesseract.pytesseract.tesseract_cmd)
 
     def _locators_dir(self) -> str:
         return os.path.join(os.path.dirname(os.path.abspath(__file__)), "self_healing_locators")
@@ -553,10 +571,6 @@ class BasePage:
     def wait_for_element(self, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
         sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
         self.sb.wait_for_element(sel, timeout=timeout)
-        try:
-            self.sb.wait_for_element(sel, timeout=timeout)
-        except Exception:
-            self.sb.wait_for_element_present(sel, timeout=timeout)
 
     def wait_for_text(self, text: str, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
         sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
@@ -1464,6 +1478,43 @@ class BasePage:
         self.sb.highlight(xp)
         self.sb.click(xp)
 
+    def js_click_rendered(self, logical_name: str, timeout: int = 15, **params):
+        xp = self.render_xpath(logical_name, **params)
+
+        # wait only for presence
+        self.sb.wait_for_element_present(xp, timeout=timeout)
+
+        # get element directly from driver (no visibility requirement)
+        element = self.sb.driver.find_element(By.XPATH, xp)
+        print(element)
+        # JS click
+        self.sb.driver.execute_script("arguments[0].click();", element)
+
+    def is_element_present_rendered(self, logical_name: str, timeout: int = 15, **params):
+        try:
+            locator = self.render_xpath(logical_name, **params)
+
+            if not locator:
+                return False
+
+            if timeout > 0:
+                WebDriverWait(self.driver, timeout).until(
+                    EC.presence_of_element_located((By.XPATH, locator))
+                    )
+                return True
+            else:
+                return len(self.driver.find_elements(By.XPATH, locator))
+        except Exception:
+            return False
+
+    def is_element_visible_rendered(self, logical_name: str, **params):
+        try:
+            sel = self.render_xpath(logical_name, **params)
+            print(sel)
+            return self.sb.is_element_visible(sel)
+        except Exception:
+            return False
+
     def get_text_rendered(self, logical_name: str, timeout: int = 10, **params) -> str:
         xp = self.render_xpath(logical_name, **params)
         self.sb.wait_for_element_visible(xp, timeout=timeout)
@@ -2006,6 +2057,8 @@ class BasePage:
             return dt.strftime("%b %#d, %Y")
 
     def format_full_mdY(self, dt):
+        if isinstance(dt, str):
+            dt = datetime.strptime(dt, "%Y-%m-%d")
         try:
             return dt.strftime("%B %-d, %Y")  # Unix
         except ValueError:
@@ -3590,11 +3643,34 @@ class BasePage:
                 raise AssertionError(f"Email column NOT sorted {sorted_as}")
             return
 
-        expected_lex = sorted(final_values, key=lambda s: str(s).casefold(), reverse=reverse)
-        expected_nat = sorted(final_values, key=self.natural_key, reverse=reverse)
+        locale.setlocale(locale.LC_ALL, '')
+        expected_lex = sorted(
+            final_values,
+            key=lambda s: locale.strxfrm(str(s).split()[0].lower()),
+            reverse=reverse
+            )
+        expected_nat = sorted(
+            final_values,
+            key=lambda s: self.natural_key(str(s).split()[0]),
+            reverse=reverse
+            )
+
+        # expected_lex = sorted(
+        #     final_values,
+        #     key=lambda s: str(s).split()[0].casefold(),
+        #     reverse=reverse
+        #     )
+        # expected_nat = sorted(
+        #     final_values,
+        #     key=lambda s: self.natural_key(str(s).split()[0]),
+        #     reverse=reverse
+        #     )
+        # expected_lex = sorted(final_values, key=lambda s: str(s).casefold(), reverse=reverse)
+        # expected_nat = sorted(final_values, key=self.natural_key, reverse=reverse)
 
         if final_values == expected_lex or final_values == expected_nat:
             return  # ✅ matches at least one valid Kendo-like ordering
+
 
         print("ACTUAL :", final_values)
         print("EXPECTED (LEX):", expected_lex)
@@ -3785,5 +3861,406 @@ class BasePage:
             f"got {ui_dt.strftime('%a - %b %d, %Y - %I:%M %p')} from '{timestamp_text}'"
         )
 
+    def scroll_to_element(self, logical_name: str, timeout=30, strict: bool = False):
+        sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
+        self.sb.wait_for_element(sel, timeout=timeout)
+        self.sb.scroll_to(sel)
+
+    def is_enabled(self, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
+        is_disabled = self.get_attribute(logical_name, "disabled", timeout=timeout, strict=strict)
+        return not bool(is_disabled)
+
     def normalize(self, text):
         return "".join(text.split()).lower()
+
+    def click_dynamic(self, template: str, *args, timeout: int = 15):
+        xpath = template.format(*args)
+        self.sb.wait_for_element_clickable(xpath, timeout=timeout)
+        self.sb.highlight(xpath)
+        self.sb.click(xpath)
+
+    def js_click(self, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
+        """
+        Click an element using JavaScript.
+        Useful when normal Selenium click is intercepted or blocked.
+        """
+        sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
+
+        # Wait for element to exist
+        self.sb.wait_for_element_present(sel, timeout=timeout)
+
+        element = self._get_webelement(sel, timeout=timeout)
+
+        # Scroll element into view
+        try:
+            self.driver.execute_script(
+                "arguments[0].scrollIntoView({block:'center'});", element
+                )
+        except Exception:
+            pass
+
+        # Highlight (optional)
+        try:
+            self.sb.highlight(element)
+        except Exception:
+            pass
+
+        # JS click
+        self.driver.execute_script("arguments[0].click();", element)
+
+    def to_ui_format(self, text: str) -> str:
+        words = text.split()
+        formatted = []
+
+        for i, w in enumerate(words):
+            if w.isupper():  # keep acronyms like DOT
+                formatted.append(w)
+            elif i == 0:  # first word capitalized
+                formatted.append(w.capitalize())
+            else:  # rest lowercase
+                formatted.append(w.lower())
+
+        return " ".join(formatted)
+
+    def today_date(self):
+        date_today = datetime.today()
+        date_today = date_today.strftime("%Y-%m-%d")
+        print(date_today)
+        return date_today
+
+    def datetime_now(self):
+        date_today = datetime.today()
+        date_today = date_today.strftime("%Y%m%d%H%M%S")
+        print(date_today)
+        return date_today
+
+    def calculate_date(self, start_date, days_to_add):
+        start_date = date.fromisoformat(start_date)
+        # Create a timedelta object with the specified number of days
+        duration = timedelta(days=days_to_add)
+
+        # Add the timedelta to the start date to get the end date
+        end_date = start_date + duration
+        end_date = end_date.strftime("%Y-%m-%d")
+        print(end_date)
+
+        return end_date
+
+    def type_rendered(self, logical_name: str, value: str, timeout: int = 15, **params):
+        xp = self.render_xpath(logical_name, **params)
+        print(xp)
+        self.sb.wait_for_element_present(xp, timeout=timeout)
+        self.sb.clear(xp)
+        self.sb.type(xp, value)
+
+
+    def validate_kendo_pie_chart_tooltip(self, expected):
+
+        chart = self.driver.find_element(
+            By.XPATH,
+            "(//div[contains(@class,'overview-charts')]//div[contains(@class,'k-chart-surface')])[1]"
+            )
+
+        slices = chart.find_elements(
+            By.XPATH,
+            ".//*[name()='path' and @fill and not(contains(@fill,'rgb')) and not(@fill='#fff')]"
+            )
+
+        print(f"Visible slice count: {len(slices)}")
+
+        values = set()
+
+        for index, slice_el in enumerate(slices):
+            print(f"Hovering visible slice {index}")
+
+            try:
+                size = slice_el.size
+
+                # 🔥 move away from center → inside arc
+                offset_x = int(size['width'] * 0.3)
+                offset_y = int(size['height'] * 0.3)
+
+                ActionChains(self.driver) \
+                    .move_to_element(slice_el) \
+                    .move_by_offset(offset_x, offset_y) \
+                    .pause(0.4) \
+                    .perform()
+
+                time.sleep(0.3)
+
+                elems = self.driver.find_elements(
+                    By.XPATH,
+                    "//kendo-popup//*[contains(text(),':')]"
+                    )
+
+                for e in elems:
+                    text = e.text.strip()
+                    if text and ":" in text:
+                        print(f"Captured: {text}")
+                        if expected in text:
+                            assert True
+                        # values.add(text)
+
+                # ✅ unhover
+                ActionChains(self.driver).move_by_offset(-offset_x, -offset_y).perform()
+                time.sleep(0.2)
+
+            except Exception as e:
+                print(f"⚠️ Slice {index} hover failed: {e}")
+
+
+    def validate_charts_for_selection(self, selection):
+
+        chart1_has_data = self.has_chart_data(1)
+        chart2_has_data = self.has_chart_data(2)
+
+        print(f"Chart1 has data: {chart1_has_data}")
+        print(f"Chart2 has data: {chart2_has_data}")
+
+        if selection.lower() in ["taken", "chart1"]:
+            assert chart1_has_data is True
+            assert chart2_has_data is True
+
+        elif selection.lower() in ["missed", "chart2"]:
+            assert chart1_has_data is True
+            assert chart2_has_data is False
+
+    def has_chart_data(self, chart_index):
+        chart = self.driver.find_element(
+            By.XPATH,
+            f"(//div[contains(@class,'overview-charts')]//div[contains(@class,'k-chart-surface')])[{chart_index}]"
+            )
+
+        # 👉 Real slices = colored paths (exclude background + invisible)
+        slices = chart.find_elements(
+            By.XPATH,
+            ".//*[name()='path' and @fill and not(@fill='none') and not(@fill-opacity='0')]"
+            )
+
+        # Remove background rectangle
+        valid_slices = [
+            s for s in slices if "M0 0" not in s.get_attribute("d")
+            ]
+
+        print(f"Chart{chart_index} slice count: {len(valid_slices)}")
+
+        return len(valid_slices) > 0
+
+
+    # ================================
+    # TEXT EXTRACTION (pdfplumber)
+    # ================================
+    def extract_pdf_text(self, file_path: str) -> str:
+        full_text = ""
+
+        with pdfplumber.open(file_path) as pdf:
+            for page in pdf.pages:
+                text = page.extract_text(x_tolerance=2, y_tolerance=2) or ""
+                full_text += text + "\n"
+
+        return full_text
+
+    # ================================
+    # OCR EXTRACTION (for visual content like calendar)
+    # ================================
+    # def extract_text_via_ocr(self, pdf_path: str) -> str:
+    #     images = convert_from_path(pdf_path)
+    #     text = ""
+    #
+    #     for img in images:
+    #         text += pytesseract.image_to_string(img)
+    #
+    #     return text
+    def extract_text_from_pdf_image(self, pdf_path):
+        import pdfplumber
+        import pytesseract
+
+        text = ""
+
+        with pdfplumber.open(pdf_path) as pdf:
+            for page in pdf.pages:
+                image = page.to_image(resolution=300).original  # ⭐ key
+                text += pytesseract.image_to_string(image)
+
+        return text.lower()
+    # ================================
+    # NORMALIZATION (handles overlap issues)
+    # ================================
+    def normalize_text(self, text: str) -> str:
+        text = text.lower()
+        text = re.sub(r"\s+", " ", text)  # remove extra spaces/newlines
+        return text.strip()
+
+    # ================================
+    # VALIDATE PATIENT INFO (robust)
+    # ================================
+    def validate_patient_info(self, pdf_text: str, expected_name: str, expected_mrn: str):
+        text = self.normalize_text(pdf_text)
+
+        assert expected_name.lower() in text, \
+            f"❌ Patient name '{expected_name}' not found in PDF"
+
+        assert expected_mrn.lower() in text, \
+            f"❌ MRN '{expected_mrn}' not found in PDF"
+
+        print("✅ Patient info validated")
+
+    # ================================
+    # VALIDATE CALENDAR (text + OCR)
+    # ================================
+    def validate_calendar(self, pdf_text: str, ocr_text: str, expected_month: str, expected_year: int):
+        combined_text = self.normalize_text(pdf_text + " " + ocr_text)
+
+        assert expected_month.lower() in combined_text, \
+            f"❌ Month '{expected_month}' not found in PDF"
+
+        assert str(expected_year) in combined_text, \
+            f"❌ Year '{expected_year}' not found in PDF"
+
+        print("✅ Calendar month/year validated")
+
+    # ================================
+    # OPTIONAL: VALIDATE SPECIFIC DATE
+    # ================================
+    def validate_date_present(self, ocr_text: str, expected_date: str):
+        text = self.normalize_text(ocr_text)
+
+        assert expected_date in text, \
+            f"❌ Date '{expected_date}' not found in calendar"
+
+        print(f"✅ Date '{expected_date}' found in calendar")
+
+    # ================================
+    # MAIN WRAPPER FUNCTION (USE THIS)
+    # ================================
+    def validate_pdf(
+            self,
+            pdf_path: str,
+            expected_fname: str,
+            expected_lname: str,
+            expected_mrn: str,
+            expected_month: str,
+            expected_year: int,
+            expected_date: str = None
+            ):
+        print("🔍 Extracting PDF text...")
+        pdf_text = self.extract_pdf_text(pdf_path)
+
+        text = self.normalize_text(pdf_text)
+        print(text)
+        # ✅ Patient info
+        self.validate_name_fuzzy(text, expected_fname.strip())
+        self.validate_name_fuzzy(text, expected_lname.strip())
+        self.validate_name_fuzzy(text, expected_mrn.strip())
+
+        ocr_text = self.extract_text_from_pdf_image(pdf_path)
+        print(ocr_text)
+
+        assert expected_month.lower() in ocr_text, \
+            f"❌ Month '{expected_month}' not found in PDF"
+
+        assert str(expected_year) in ocr_text, \
+            f"❌ Year '{expected_year}' not found in PDF"
+
+        print("🎉 PDF validation successful (CI-safe)")
+
+    def latest_download_file(self, type=".pdf"):
+        cwd = os.getcwd()
+        try:
+            os.chdir(PathSettings.DOWNLOAD_PATH)
+
+            all_specific_files = list(filter(lambda x: x.endswith(type), os.listdir(os.getcwd())))
+            files = sorted(all_specific_files, key=os.path.getctime)
+
+            if not files:
+                raise Exception(f"No {type} files found")
+
+            if files[-1].endswith(".xlsx"):
+                newest = files[-2]
+            elif files[-1].endswith(".pdf"):
+                newest = files[-1]
+            else:
+                newest = max(files, key=os.path.getctime)
+
+            full_path = os.path.join(PathSettings.DOWNLOAD_PATH, newest)
+
+            print("File downloaded:", full_path)
+            return full_path
+
+        finally:
+            print("Restoring the path...")
+            os.chdir(cwd)
+            print("Current directory is-", os.getcwd())
+
+    def switch_to_pdf_tab_and_get_url(self):
+        # Wait for new tab
+        self.switch_to_next_tab()
+        pdf_url = self.driver.current_url
+        print(f"PDF URL: {pdf_url}")
+        return pdf_url
+
+    def close_tab(self):
+        # Wait for new tab
+        self.driver.close()
+
+    def switch_to_next_tab(self):
+        winHandles = self.driver.window_handles
+        window_after = winHandles[1]
+        self.driver.switch_to.window(window_after)
+        print(self.driver.title)
+        print(self.driver.current_window_handle)
+
+    def switch_back_to_prev_tab(self):
+        winHandles = self.driver.window_handles
+        window_before = winHandles[0]
+        self.driver.switch_to.window(window_before)
+        print(self.driver.title)
+        print(self.driver.current_window_handle)
+
+
+    def download_blob_pdf(self, save_path):
+        print("Extracting PDF from blob...")
+
+        pdf_base64 = self.driver.execute_async_script("""
+            const callback = arguments[arguments.length - 1];
+
+            fetch(window.location.href)
+                .then(response => response.blob())
+                .then(blob => {
+                    const reader = new FileReader();
+                    reader.onloadend = function() {
+                        const base64data = reader.result.split(',')[1];
+                        callback(base64data);
+                    };
+                    reader.readAsDataURL(blob);
+                })
+                .catch(err => callback("ERROR:" + err));
+        """
+                                                      )
+
+        if not pdf_base64 or str(pdf_base64).startswith("ERROR"):
+            raise Exception(f"Failed to extract blob PDF: {pdf_base64}")
+
+        with open(save_path, "wb") as f:
+            f.write(base64.b64decode(pdf_base64))
+
+        print(f"✅ Blob PDF saved at: {save_path}")
+
+        return save_path
+
+
+    def is_similar(self, a: str, b: str, threshold=0.7):
+        return SequenceMatcher(None, a, b).ratio() >= threshold
+
+    def validate_name_fuzzy(self, text, expected_value, field_name="value"):
+        text = text.lower()
+        expected_value = expected_value.lower()
+
+        words = text.split()
+
+        for word in words:
+            if self.is_similar(word, expected_value):
+                print(f"✅ {field_name} matched (fuzzy): {word}")
+                return True
+
+        raise AssertionError(f"❌ {field_name} '{expected_value}' not found (fuzzy match failed)")

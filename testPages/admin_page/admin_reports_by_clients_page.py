@@ -9,14 +9,12 @@ from common_utilities.generate_random_string import fetch_random_string
 from user_inputs.user_data import UserData
 
 
-class AdminFFPage(BasePage):
+class AdminReportsByClientsPage(BasePage):
 
     def __init__(self, sb, page_name):
         super().__init__(sb, page_name=page_name)
 
-
-
-    def validate_admin_ff_page(self, client):
+    def validate_admin_report_page(self, client):
         self.wait_for_element('kendo-dropdownlist-input-value-Client')
         self.wait_for_element('div_content')
         if self.kendo_dd_get_selected_text('kendo-dropdownlist-input-value-Client') != client:
@@ -33,9 +31,9 @@ class AdminFFPage(BasePage):
         text = self.kendo_dd_get_selected_text('kendo-dropdownlist-input-value-Client')
         assert text == client, f"Correct Client {client} is not present"
         # print(f"Correct Client {client} is not present")
-        print(f"Admin Feature Flag opened with Client {text}")
+        print(f"Admin Reports by Clients opened with Client {text}")
 
-    def set_ffs(self, ff_dict, flag_ff=None):
+    def set_ffs(self, ff_dict):
         for ff, toggle in ff_dict.items():
             print(ff, toggle)
             target = True if toggle == "ON" else False
@@ -59,7 +57,7 @@ class AdminFFPage(BasePage):
                 print(f"element {element} is not present")
         time.sleep(10)
 
-    def double_check_ff(self, ff_dict, flag_ff=None):
+    def double_check_ff(self, ff_dict):
         for ff, toggle in ff_dict.items():
             print(f"Current parameters: {ff}, {toggle}")
             element = f"kendo-switch_{ff}"

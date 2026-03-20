@@ -107,10 +107,13 @@ def pytest_runtest_makereport(item):
             f'</div>'
         )
         extra = getattr(report, "extra", [])
-        extra.append(
-            item.config.pluginmanager.getplugin("html").extras.html(link_html)
-            )
-        report.extra = extra
+        html = item.config.pluginmanager.getplugin("html")
+        if html:
+            extra.append(html.extras.html(link_html))
+        # extra.append(
+        #     item.config.pluginmanager.getplugin("html").extras.html(link_html)
+        #     )
+            report.extra = extra
 
     if report.when in ("call", "teardown") and report.failed and driver_instance:
         screen_img = _capture_screenshot(driver_instance)

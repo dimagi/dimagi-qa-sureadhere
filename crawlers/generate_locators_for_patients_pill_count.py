@@ -1,5 +1,7 @@
 import time
 
+from selenium.webdriver import Keys
+
 
 def build_resilient_xpath(el):
     tag = el.tag_name
@@ -224,7 +226,7 @@ def cancel_page(driver):
     wait = WebDriverWait(driver, 20)
     wait.until(EC.element_to_be_clickable((By.XPATH, "//button//span[.='Cancel']")))
     driver.find_element(By.XPATH, "//button//span[.='Cancel']").click()
-    wait.until(EC.presence_of_element_located((By.XPATH, "//p[.='Dashboard']")))
+    wait.until(EC.presence_of_element_located((By.XPATH, "//span[.='Home']")))
 
 
 def add_user(driver):
@@ -246,8 +248,6 @@ def crawl_pages(driver, pages_to_visit, out_dir):
             time.sleep(15)
 
             extract_locators(driver, name, out_dir)
-            WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, path))).click()
-
         except Exception:
             print(f"❌ Couldn't open {name}")
             continue
@@ -265,21 +265,26 @@ def main():
     try:
         login_to_app(driver, settings)
         time.sleep(15)
-        driver.find_element(By.XPATH, "//span[contains(@class,'nav-label') and contains(.,'Admin')]").click()
-        time.sleep(10)
+        driver.find_element(By.XPATH, "//span[contains(@class,'nav-label') and contains(.,'Patients')]").click()
+        time.sleep(5)
+        # driver.find_element(By.XPATH, "//input[contains(@placeholder,'Search patient')]").click()
+        # time.sleep(0.5)
+        driver.find_element(By.XPATH, "//input[contains(@placeholder,'Search patient')]").send_keys("SA-8531"+Keys.ENTER)
+        time.sleep(5)
+        driver.find_element(By.XPATH, "//a[contains(.,'pat_pill_count')]").click()
+        time.sleep(20)
+        # driver.find_element((By.XPATH, "//li//div/span[contains(.,'Pill')]")).click()
+        # time.sleep(15)
 
 
 
         pages_to_visit = {
-            # "admin_countries": "//div[@role='button'][contains(.,'Countries')]",
-            # "admin_diseases": "//div[@role='button'][contains(.,'Diseases')]",
-            # "admin_drugs": "//div[@role='button'][contains(.,'Drugs')]",
-            # "admin_languages": "//div[@role='button'][contains(.,'Languages')]",
-            # "admin_site_languages": "//div[@role='button'][contains(.,'Site Languages')]",
-            # "admin_observation_types": "//div[@role='button'][contains(.,'Observation Types')]",
-            "reports_by_client": "//li/span[.='Reports by Clients']",
-            # "admin_side_effects": "//div[@role='button'][contains(.,'Side Effects')]",
-
+            # "patient_overview": "//li/span[.='Overview']",
+            "patient_pill_count": "//li/span[.='Pill count']",
+            "patient_pill_count_tab": "//button[contains(.,'Add new pill count')]",
+            # "patient_messagess": "//li/span[.='Messages']",
+            # "patient_reports": "//li/span[.='Reports']",
+            # "patient_profile": "//li/span[.='Profile']",
             # Add more
             }
 

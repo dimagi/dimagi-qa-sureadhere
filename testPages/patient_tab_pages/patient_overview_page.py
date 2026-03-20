@@ -1,9 +1,11 @@
+import os
 import random
 import time
 from datetime import date, datetime
 
 from common_utilities.base_page import BasePage
 from common_utilities.generate_random_string import fetch_random_string, fetch_random_digit
+from common_utilities.path_settings import PathSettings
 from user_inputs.user_data import UserData
 
 
@@ -17,15 +19,23 @@ class PatientOverviewPage(BasePage):
         self.click('k-tabstrip-tab-Overview')
         try:
             self.kendo_dialog_wait_open()  # no title constraint
-            self.kendo_dialog_click_button("Continue")
+            self.kendo_dialog_click_button("Ok")
         except Exception:
             print("popup not present")
 
     def verify_patient_overview_page(self):
         time.sleep(5)
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Ok")
+        except Exception:
+            print("popup not present")
         self.wait_for_page_to_load()
         self.wait_for_element('k-opened-tabstrip-tab')
+        self.unheal_all('k-opened-tabstrip-tab')
+        time.sleep(3)
         tabname = self.get_text('k-opened-tabstrip-tab')
+        print(tabname)
         assert tabname == "Overview", "Overview tab is not opened"
         print("Opened tab is Overview")
 
@@ -71,3 +81,89 @@ class PatientOverviewPage(BasePage):
         assert str(drug_scheduled) == str(total_dose), f"{drug_scheduled} not matching {total_dose}"
 
         print("All drug details are correctly displayed.")
+
+
+    def check_calendar_presence(self):
+        self.wait_for_element('div_calendar')
+        assert self.is_element_visible('div_calendar'), "Calender is not present"
+        print("Calender is present")
+
+    def check_doses_table_before(self):
+        self.wait_for_element('div_calendar')
+        assert self.is_element_visible('div_calendar'), "Calender is not present"
+        print("Calender is present")
+
+        assert self.is_element_present('towards_adherence_td_drug_name', strict=True), "Counts towards adherence row not present"
+        print("Counts towards adherence row present")
+        assert self.is_element_present('not_towards_adherence_td_drug_name', strict=True), "does not count towards adherence row not present"
+        print("Does not count towards adherence row present")
+
+        assert self.is_element_present('td_drug_no_records', strict=True), "No records available not present"
+        print("No records available present")
+
+        for item in UserData.overview_doses_table_columns:
+            adherence = self.get_text(f"towards_adherence_td_drug_{item}").strip()
+            not_adherence = self.get_text(f"not_towards_adherence_td_drug_{item}").strip()
+            assert 0 == int(adherence), f"towards_adherence_td_drug_{item} value {adherence} does not match 0"
+            print( f"towards_adherence_td_drug_{item} value {adherence} match 0")
+            assert 0 == int(not_adherence), f"not_towards_adherence_td_drug_{item} value {not_adherence} does not match 0"
+            print(f"not_towards_adherence_td_drug_{item} value {not_adherence} match 0")
+
+
+    def check_pie_chart(self):
+        self.wait_for_element('div_calendar')
+        assert self.is_element_visible('div_calendar'), "Calender is not present"
+        print("Calender is present")
+
+        taken_count = self.get_text(f"towards_adherence_td_drug_taken").strip()
+        open_count = self.get_text(f"towards_adherence_td_drug_not_taken").strip()
+        print(taken_count, open_count)
+
+        self.validate_kendo_pie_chart_tooltip(f"Taken : {taken_count}")
+        self.validate_kendo_pie_chart_tooltip(f"Open : {open_count}")
+
+        self.click('radio_missed')
+        time.sleep(2)
+        self.validate_charts_for_selection('missed')
+
+        self.click('radio_taken')
+        time.sleep(2)
+        self.validate_charts_for_selection('taken')
+
+    def export_pdf(self, fname, lname, mrn):
+        text_month = self.get_text('div_calendar-header')
+        print(text_month)
+        text_month = text_month.split(' ')
+        print(f"expected_month={text_month[0].strip()}, expected_year={text_month[1].strip()}")
+        self.click_robust('button_EXPORT_TO_PDF')
+        time.sleep(7)
+        pdf_url = self.switch_to_pdf_tab_and_get_url()
+        # ⚠️ DEBUG (IMPORTANT)
+        date_time = self.datetime_now()
+        print(f"PDF URL = {pdf_url}")
+        # Step 4: Download PDF using cookies
+        pdf_path = os.path.join(PathSettings.DOWNLOAD_PATH, f"temp_pdf_{date_time}.pdf")
+        self.download_blob_pdf(pdf_path)
+        self.close_tab()
+        self.switch_back_to_prev_tab()
+        file_name = self.latest_download_file('.pdf')
+        print(file_name)
+        date_value = self.get_text('span_cal_today_date', strict=True)
+        print(date_value)
+        self.validate_pdf(
+            pdf_path=pdf_path,
+            expected_fname=fname,
+            expected_lname=lname,
+            expected_mrn=mrn,
+            expected_month=text_month[0].strip(),
+            expected_year=int(text_month[1].strip()),
+            expected_date=date_value.strip()  # optional
+            )
+
+    def click_any_date(self):
+        value = fetch_random_digit(start=8, end=22)
+        print(f"Date selected {value}")
+        self.click_rendered('span_any_day', text=str(value))
+        time.sleep(3)
+        self.wait_for_page_to_load()
+        return str(value)
