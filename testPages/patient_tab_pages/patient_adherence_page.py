@@ -110,3 +110,9 @@ class PatientAdherencePage(BasePage):
 
     def open_video_event(self):
         self.click('div_event_item')
+
+    def verify_selected_date(self, date_selected):
+        value = self.get_text('div_selected_date', strict=True)
+        print(value)
+        assert str(value) == str(date_selected), f"{value} did not match {date_selected}"
+        print(f"{value} matched {date_selected}")

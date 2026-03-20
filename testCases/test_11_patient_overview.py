@@ -190,7 +190,6 @@ class test_module_11_patient_overview(BaseCase):
              }
             )
 
-    # depends = ['tc_pat_overview_01', 'tc_pat_overview_02']
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_pat_overview_03", depends = ['tc_pat_overview_01', 'tc_pat_overview_02'], scope="class")
     def test_case_03_overview_charts(self):
@@ -208,8 +207,6 @@ class test_module_11_patient_overview(BaseCase):
         user_patient = UserPatientPage(self, "add_patient")
         p_profile = PatientProfilePage(self, 'patient_profile')
         p_overview = PatientOverviewPage(self, 'patient_overview')
-        mobile = Android(self.settings)
-        p_vdo = PatientVideoPage(self, 'patient_video_form')
         p_adhere = PatientAdherencePage(self, 'patient_adherence')
 
         d = self.__class__.data
@@ -225,7 +222,6 @@ class test_module_11_patient_overview(BaseCase):
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
         patient.search_test_patients(d['patient_fname'] + " " + d['patient_lname'])
-        # patient.search_test_patients("pat_fmob_03c2xs pat_lmob_03c2xs")
         fname, lname = patient.open_first_patient()
         print(fname, lname)
 
@@ -233,6 +229,11 @@ class test_module_11_patient_overview(BaseCase):
         p_overview.verify_patient_overview_page()
         p_overview.check_pie_chart()
 
+        p_overview.export_pdf(fname=d['patient_fname'], lname=d['patient_lname'], mrn=d['mrn'])
+        value = p_overview.click_any_date()
+
+        p_adhere.verify_patient_adherence_page()
+        p_adhere.verify_selected_date(value)
         home.click_admin_profile_button()
         profile.logout_user()
         login.after_logout()

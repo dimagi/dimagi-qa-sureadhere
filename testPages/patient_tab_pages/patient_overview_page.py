@@ -1,9 +1,11 @@
+import os
 import random
 import time
 from datetime import date, datetime
 
 from common_utilities.base_page import BasePage
 from common_utilities.generate_random_string import fetch_random_string, fetch_random_digit
+from common_utilities.path_settings import PathSettings
 from user_inputs.user_data import UserData
 
 
@@ -113,6 +115,13 @@ class PatientOverviewPage(BasePage):
         assert self.is_element_visible('div_calendar'), "Calender is not present"
         print("Calender is present")
 
+        taken_count = self.get_text(f"towards_adherence_td_drug_taken").strip()
+        open_count = self.get_text(f"towards_adherence_td_drug_not_taken").strip()
+        print(taken_count, open_count)
+
+        self.validate_kendo_pie_chart_tooltip(f"Taken : {taken_count}")
+        self.validate_kendo_pie_chart_tooltip(f"Open : {open_count}")
+
         self.click('radio_missed')
         time.sleep(2)
         self.validate_charts_for_selection('missed')
@@ -121,10 +130,40 @@ class PatientOverviewPage(BasePage):
         time.sleep(2)
         self.validate_charts_for_selection('taken')
 
-        taken_count = self.get_text(f"towards_adherence_td_drug_taken").strip()
-        open_count = self.get_text(f"towards_adherence_td_drug_not_taken").strip()
-        print(taken_count, open_count)
-        self.validate_kendo_pie_chart_data("Taken", taken_count)
-        self.validate_kendo_pie_chart_data("Open", open_count)
+    def export_pdf(self, fname, lname, mrn):
+        text_month = self.get_text('div_calendar-header')
+        print(text_month)
+        text_month = text_month.split(' ')
+        print(f"expected_month={text_month[0].strip()}, expected_year={text_month[1].strip()}")
+        self.click_robust('button_EXPORT_TO_PDF')
+        time.sleep(7)
+        pdf_url = self.switch_to_pdf_tab_and_get_url()
+        # ⚠️ DEBUG (IMPORTANT)
+        date_time = self.datetime_now()
+        print(f"PDF URL = {pdf_url}")
+        # Step 4: Download PDF using cookies
+        pdf_path = os.path.join(PathSettings.DOWNLOAD_PATH, f"temp_pdf_{date_time}.pdf")
+        self.download_blob_pdf(pdf_path)
+        self.close_tab()
+        self.switch_back_to_prev_tab()
+        file_name = self.latest_download_file('.pdf')
+        print(file_name)
+        date_value = self.get_text('span_cal_today_date', strict=True)
+        print(date_value)
+        self.validate_pdf(
+            pdf_path=pdf_path,
+            expected_fname=fname,
+            expected_lname=lname,
+            expected_mrn=mrn,
+            expected_month=text_month[0].strip(),
+            expected_year=int(text_month[1].strip()),
+            expected_date=date_value.strip()  # optional
+            )
 
-
+    def click_any_date(self):
+        value = fetch_random_digit(start=8, end=22)
+        print(f"Date selected {value}")
+        self.click_rendered('span_any_day', text=str(value))
+        time.sleep(3)
+        self.wait_for_page_to_load()
+        return str(value)

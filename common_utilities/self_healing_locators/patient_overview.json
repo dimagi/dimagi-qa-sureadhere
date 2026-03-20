@@ -1902,11 +1902,10 @@
     "tag": "span",
     "xpath": "//span[@class='icon-keyboard_arrow_left']"
   },
-  "div_September _377": {
+  "div_calendar-header": {
     "class": "calendar-header",
     "tag": "div",
-    "text": "September 2025",
-    "xpath": "//div[contains(normalize-space(text()), 'September 2025')]"
+    "xpath": "//div[contains(@class, 'calendar-header')]"
   },
   "div__378": {
     "class": "k-button k-button-sm",
@@ -1924,7 +1923,7 @@
     "text": "EXPORT TO PDF",
     "xpath": "//div[contains(normalize-space(text()), 'EXPORT TO PDF')]"
   },
-  "button_EXPORT TO _381": {
+  "button_EXPORT_TO_PDF": {
     "class": "export-to-pdf k-button k-button-md float-sm-end",
     "type": "submit",
     "tag": "button",
@@ -2015,11 +2014,10 @@
     "text": "Friday",
     "xpath": "//div[contains(normalize-space(text()), 'Friday')]"
   },
-  "div_Saturday_397": {
-    "class": "cal-cell cal-future cal-weekend ng-star-inserted",
+  "div_selected_date": {
+    "class": "cal-day-selected",
     "tag": "div",
-    "text": "Saturday",
-    "xpath": "//div[contains(normalize-space(text()), 'Saturday')]"
+    "xpath": "//*[contains(@class, 'cal-day-selected')]//span[@class='cal-day-number']"
   },
   "div_cal_today": {
     "class": "cal-cell cal-today ng-star-inserted",
@@ -3170,5 +3168,10 @@
     "aria-colindex": "4",
     "colspan": "1",
     "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[2]//td[@aria-colindex='7']"
+  },
+  "span_any_day": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "xpath_template": "//*[contains(@class, 'cal-day-cell')]//span[contains(normalize-space(text()), {text})]"
   }
 }
