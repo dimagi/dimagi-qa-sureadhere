@@ -153,7 +153,6 @@ jobs:
 
             return SLACK_WEBHOOK_URL
 
-
       - name: Build artifact URL
         id: artifact_url
         run: |
