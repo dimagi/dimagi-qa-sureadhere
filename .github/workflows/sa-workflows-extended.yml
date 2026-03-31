@@ -127,6 +127,61 @@ jobs:
           name: sbase-extendedtests-artifacts-${{ matrix.environment }}
           path: sbase-extendedtests-artifacts-${{ matrix.environment }}.zip
 
+      - name: Create run summary for dashboard
+        if: always()
+        run: |
+          mkdir -p metrics_out
+
+          python <<'PY'
+          import json, os, datetime
+
+          env = os.environ.get("DIMAGIQA_ENV", "unknown")
+
+          counts_file = f"sa_test_counts_{env}.txt"
+
+          data = {
+              "timestamp_utc": datetime.datetime.utcnow().isoformat() + "Z",
+              "env": env,
+              "suite": "SureAdhere Tests",
+              "status": "pass",
+              "passed": 0,
+              "failed": 0,
+              "skipped": 0,
+              "rerun_count": 0,
+              "github": {
+                  "run_id": os.environ.get("GITHUB_RUN_ID"),
+                  "run_number": os.environ.get("GITHUB_RUN_NUMBER"),
+                  "repository": os.environ.get("GITHUB_REPOSITORY")
+              }
+          }
+
+          if os.path.exists(counts_file):
+              with open(counts_file) as f:
+                  for line in f:
+                      k, v = line.strip().split("=")
+                      v = int(v)
+                      if k == "PASSED": data["passed"] = v
+                      if k == "FAILED": data["failed"] = v
+                      if k == "SKIPPED": data["skipped"] = v
+
+          data["status"] = "fail" if data["failed"] > 0 else "pass"
+
+          with open("metrics_out/run_summary.json", "w") as f:
+              json.dump(data, f)
+
+          print("run_summary.json created")
+          PY
+
+      - name: Upload run summary JSON (central dashboard)
+        if: ${{ always() && !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: run-summary-${{ matrix.environment }}
+          path: metrics_out/run_summary.json
+          retention-days: 30
+
+
+
       - name: Set slack vars
         if: ${{ always() }}
         id: configure_slack
