@@ -2,6 +2,7 @@ import locale
 import math
 import os
 import json
+import random
 import re
 import difflib
 import time
@@ -571,6 +572,10 @@ class BasePage:
     def wait_for_element(self, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
         sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
         self.sb.wait_for_element(sel, timeout=timeout)
+
+    def wait_for_element_rendered(self, logical_name: str, timeout: int = 15, **params):
+        xp = self.render_xpath(logical_name, **params)
+        self.sb.wait_for_element(xp, timeout=timeout)
 
     def wait_for_text(self, text: str, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
         sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
@@ -3866,6 +3871,11 @@ class BasePage:
         self.sb.wait_for_element(sel, timeout=timeout)
         self.sb.scroll_to(sel)
 
+    def scroll_to_element_rendered(self, logical_name: str, timeout: int = 15, **params):
+        sel = self.render_xpath(logical_name, **params)
+        self.sb.wait_for_element(sel, timeout=timeout)
+        self.sb.scroll_to(sel)
+
     def is_enabled(self, logical_name: str, timeout: int = CLICK_TIMEOUT, strict: bool = False):
         is_disabled = self.get_attribute(logical_name, "disabled", timeout=timeout, strict=strict)
         return not bool(is_disabled)
@@ -4264,3 +4274,360 @@ class BasePage:
                 return True
 
         raise AssertionError(f"❌ {field_name} '{expected_value}' not found (fuzzy match failed)")
+
+    def validate_kendo_bar_chart(self, expected_days: int):
+
+        chart = self.driver.find_element(
+            By.XPATH,
+            "//div[contains(@class,'k-chart-surface')]"
+            )
+
+        bars = chart.find_elements(
+            By.XPATH,
+            ".//*[name()='path' and @fill and not(contains(@fill,'rgb')) and not(@fill='#fff') and @stroke-opacity='1']"
+            )
+        labels = chart.find_elements(
+            By.XPATH,
+            ".//*[name()='text']"
+            )
+
+        # --- 1. Get bars (deduplicate by X position to handle stacked segments) ---
+        unique_x = {}
+        for bar in bars:
+            try:
+                d = bar.get_attribute("d")
+                match = re.search(r"M([\d\.]+)", d)
+                if match:
+                    x = round(float(match.group(1)), 1)
+                    unique_x[x] = bar
+            except Exception:
+                continue
+        bars = list(unique_x.values())
+        bar_count = len(bars)
+        print("Bar count (deduplicated):", bar_count)
+
+        # --- 2. Get labels ---
+        # labels = self.find_elements_raw(labels_xpath, by="xpath")
+        label_texts = [l.text.strip() for l in labels if l.text.strip()]
+
+        print("Labels:", label_texts)
+
+        filtered = [l for l in label_texts if not l.isdigit()]
+
+        clean_labels = []
+        i = 0
+
+        while i < len(filtered):
+            # combine "Wed" + "Mar 25"
+            if i + 1 < len(filtered) and re.match(r'^[A-Za-z]{3}$', filtered[i]):
+                combined = f"{filtered[i]} {filtered[i + 1]}"
+                clean_labels.append(combined)
+                i += 2
+            else:
+                clean_labels.append(filtered[i])
+                i += 1
+
+        print("Clean labels:", clean_labels)
+
+        # =========================
+        # 4. PARSE DATES
+        # =========================
+        parsed_dates = []
+
+        for text in clean_labels:
+
+            if "Today" in text:
+                parsed_dates.append(datetime.today().date())
+
+            elif "Yesterday" in text:
+                parsed_dates.append((datetime.today() - timedelta(days=1)).date())
+
+            else:
+                try:
+                    dt = datetime.strptime(text, "%a %b %d")
+                    dt = dt.replace(year=datetime.today().year)
+                    parsed_dates.append(dt.date())
+                except:
+                    continue
+
+        print("Parsed dates:", parsed_dates)
+
+        # =========================
+        # 5. VALIDATIONS
+        # =========================
+
+        # --- Primary: bar count ---
+        assert bar_count == expected_days, \
+            f"❌ Expected {expected_days} bars, found {bar_count}"
+
+        print("✅ Bar count validation passed")
+
+        # --- Secondary: date validation ---
+        if parsed_dates:
+            expected_start = (datetime.today() - timedelta(days=expected_days - 1)).date()
+
+            print("Expected start:", expected_start)
+
+            assert expected_start in parsed_dates or int(len(clean_labels)) == int(expected_days), \
+                f"❌ Expected start date {expected_start} not found in {parsed_dates} or {len(clean_labels)} didnot match count of {expected_days}"
+
+            print("✅ Date validation passed")
+
+    def get_unique_bars(self, bars_xpath):
+        elements = self.find_elements_raw(bars_xpath, by="xpath")
+
+        unique = {}
+
+        for el in elements:
+            d = el.get_attribute("d")  # path data
+
+            # Extract X position from path (first number after M)
+            match = re.search(r"M([\d\.]+)", d)
+            if not match:
+                continue
+
+            x = round(float(match.group(1)), 1)  # normalize
+
+            # Keep only ONE per X (latest = top segment)
+            unique[x] = el
+
+        bars = list(unique.values())
+        print(f"Unique bars: {len(bars)}")
+
+        return bars
+
+    def parse_labels_to_dates(self, clean_labels: list):
+        parsed_dates = []
+        for text in clean_labels:
+            if "Today" in text:
+                parsed_dates.append(datetime.today().date())
+            elif "Yesterday" in text:
+                parsed_dates.append((datetime.today() - timedelta(days=1)).date())
+            else:
+                try:
+                    dt = datetime.strptime(text, "%a %b %d")
+                    dt = dt.replace(year=datetime.today().year)
+                    parsed_dates.append(dt.date())
+                except Exception:
+                    continue
+        return parsed_dates
+
+    def get_current_labels(self):
+
+        chart = self.driver.find_element(
+            By.XPATH,
+            "//div[contains(@class,'k-chart-surface')]"
+            )
+
+        bars = chart.find_elements(
+            By.XPATH,
+            ".//*[name()='path' and @fill and not(contains(@fill,'rgb')) and not(@fill='#fff') and @stroke-opacity='1']"
+            )
+        labels = chart.find_elements(
+            By.XPATH,
+            ".//*[name()='text']"
+            )
+
+        # --- 1. Get bars (deduplicate by X position to handle stacked segments) ---
+        unique_x = {}
+        for bar in bars:
+            try:
+                d = bar.get_attribute("d")
+                match = re.search(r"M([\d\.]+)", d)
+                if match:
+                    x = round(float(match.group(1)), 1)
+                    unique_x[x] = bar
+            except Exception:
+                continue
+        bars = list(unique_x.values())
+        bar_count = len(bars)
+        print("Bar count (deduplicated):", bar_count)
+
+        label_texts = [l.text.strip() for l in labels if l.text.strip()]
+
+        print("Labels:", label_texts)
+
+        filtered = [l for l in label_texts if not l.isdigit()]
+
+        clean_labels = []
+        i = 0
+
+        while i < len(filtered):
+            # combine "Wed" + "Mar 25"
+            if i + 1 < len(filtered) and re.match(r'^[A-Za-z]{3}$', filtered[i]):
+                combined = f"{filtered[i]} {filtered[i + 1]}"
+                clean_labels.append(combined)
+                i += 2
+            else:
+                clean_labels.append(filtered[i])
+                i += 1
+
+        print("Clean labels:", clean_labels)
+        return clean_labels
+
+    def get_stable_kendo_bars(self, min_count=4, retries=5):
+        """Re-fetch and deduplicate Kendo bar chart paths until count is stable and sufficient."""
+        for _ in range(retries):
+            try:
+                chart = self.driver.find_element(
+                    By.XPATH, "//div[contains(@class,'k-chart-surface')]")
+                raw = chart.find_elements(
+                    By.XPATH,
+                    ".//*[name()='path' and @fill and not(contains(@fill,'rgb')) and not(@fill='#fff') and @stroke-opacity='1']"
+                )
+                unique_x = {}
+                for bar in raw:
+                    try:
+                        d = bar.get_attribute("d")
+                        match = re.search(r"M([\d.]+)", d)
+                        if match:
+                            x = round(float(match.group(1)), 1)
+                            unique_x[x] = bar
+                    except Exception:
+                        continue
+                if len(unique_x) >= min_count:
+                    return list(unique_x.values())
+            except Exception:
+                pass
+            time.sleep(4)
+        raise AssertionError(f"Chart did not render {min_count}+ bars after {retries} retries")
+
+    def unhover_chart(self):
+        """Move mouse to a neutral element to restore bar attributes after hovering."""
+        try:
+            neutral = self.driver.find_element(By.XPATH, "//h1 | //h2 | //nav | //header")
+            ActionChains(self.driver).move_to_element(neutral).perform()
+        except Exception:
+            ActionChains(self.driver).move_by_offset(0, -300).perform()
+        time.sleep(2)
+
+    def get_bar_breakdown(self):
+        """Collect breakdown panel data after hovering over a bar."""
+        time.sleep(1)
+        data = {}
+        try:
+            data['title'] = self.driver.find_element(
+                By.XPATH, self.resolve('div_breakdown_text')).text.strip()
+        except Exception:
+            data['title'] = ''
+        for key in ['span_open_doses', 'span_taken_doses', 'span_missed_doses', 'span_unknown_doses']:
+            try:
+                icon_el = self.driver.find_element(By.XPATH, self.resolve(key))
+                parent = icon_el.find_element(By.XPATH, '..')
+                data[key] = parent.text.strip()
+            except Exception:
+                data[key] = ''
+        print(f"Breakdown data: {data}")
+        return data
+
+    def validate_bar_hover_data(self):
+        """Hover first and last bars to store breakdown data, then verify middle bar differs."""
+        bars = self.get_stable_kendo_bars()
+        print(f"number of bars present {len(bars)}")
+
+        # Hover first bar → store
+        print(f"Hovering first bar (index 0 of {len(bars)})")
+        ActionChains(self.driver).move_to_element(bars[0]).perform()
+        time.sleep(4)
+        first_data = self.get_bar_breakdown()
+        print(f"First bar data: {first_data}")
+
+        # Un-hover, re-fetch, hover last bar → store
+        self.unhover_chart()
+        bars = self.get_stable_kendo_bars()
+        print(f"Hovering last bar (index {len(bars) - 1} of {len(bars)})")
+        ActionChains(self.driver).move_to_element(bars[-1]).perform()
+        time.sleep(4)
+        last_data = self.get_bar_breakdown()
+        print(f"Last bar data: {last_data}")
+
+        # Un-hover, re-fetch, hover middle bar → compare
+        self.unhover_chart()
+        bars = self.get_stable_kendo_bars()
+        mid = len(bars) // 2
+        print(f"Hovering middle bar (index {mid} of {len(bars)})")
+        ActionChains(self.driver).move_to_element(bars[mid]).perform()
+        time.sleep(4)
+        compare_data = self.get_bar_breakdown()
+        print(f"Middle bar data: {compare_data}")
+
+        assert compare_data != first_data, \
+            f"❌ Middle bar has same breakdown as first bar: {compare_data}"
+        assert compare_data != last_data, \
+            f"❌ Middle bar has same breakdown as last bar: {compare_data}"
+
+        print("✅ Bar hover validation passed: middle bar differs from first and last bars")
+
+    def kendo_area_graph_hover(self, sample_points: int = 3):
+        """
+        Validates a Kendo area chart by hovering at exact data point x positions
+        (derived from vertical gridlines) and capturing the kendo-popup tooltip at each.
+        Asserts that different data points show different tooltip content.
+        """
+        chart = self.driver.find_element(
+            By.XPATH, "//div[contains(@class,'k-chart-surface')]")
+        width = chart.size["width"]
+        height = chart.size["height"]
+        half_w = width / 2
+        print(f"Chart size: {width} x {height}")
+
+        # Get all gridline paths and filter for vertical ones (same x on both endpoints)
+        gridline_paths = chart.find_elements(
+            By.XPATH,
+            ".//*[name()='path' and @stroke='rgba(0, 0, 0, 0.08)' and @fill='none' and @stroke-width='1']"
+        )
+        vertical_x = []
+        for p in gridline_paths:
+            try:
+                d = p.get_attribute("d")
+                # Vertical line: "M{x} {y1} L {x} {y2}" — both x values are equal
+                m = re.match(r"M([\d.]+)\s+[\d.]+\s+L\s+([\d.]+)\s+[\d.]+", d)
+                if m and round(float(m.group(1)), 1) == round(float(m.group(2)), 1):
+                    vertical_x.append(round(float(m.group(1)), 1))
+            except Exception:
+                continue
+
+        vertical_x = sorted(set(vertical_x))
+        print(f"Vertical gridline x positions: {vertical_x}")
+        assert len(vertical_x) >= 3, \
+            f"❌ Not enough vertical gridlines found (got {len(vertical_x)})"
+
+        # Pick evenly spaced gridline positions
+        step = max(1, len(vertical_x) // (sample_points + 1))
+        selected_x = [vertical_x[step * (i + 1)] for i in range(sample_points)
+                      if step * (i + 1) < len(vertical_x)]
+        print(f"Selected data point x positions: {selected_x}")
+
+        tooltip_xpath = "//kendo-popup[contains(@class,'k-chart-tooltip-wrapper')]"
+        tooltips_collected = []
+
+        for i, svg_x in enumerate(selected_x):
+            # Convert SVG x coordinate to center-relative offset
+            x_offset = int(svg_x - half_w)
+            print(f"Hovering data point {i + 1} at svg_x={svg_x}, offset={x_offset}")
+            ActionChains(self.driver).move_to_element_with_offset(
+                chart, x_offset, 0).perform()
+            time.sleep(2)
+
+            try:
+                popup = WebDriverWait(self.driver, 5).until(
+                    EC.visibility_of_element_located((By.XPATH, tooltip_xpath)))
+                tooltip_text = popup.text.strip()
+                print(f"  Tooltip {i + 1}: {tooltip_text!r}")
+                if tooltip_text:
+                    tooltips_collected.append(tooltip_text)
+            except TimeoutException:
+                print(f"  ⚠️ No tooltip found at data point {i + 1}")
+
+            # Move away to dismiss tooltip before next hover
+            ActionChains(self.driver).move_to_element_with_offset(
+                chart, 0, -int(height * 0.4)).perform()
+            time.sleep(1)
+
+        assert len(tooltips_collected) >= 2, \
+            f"❌ Expected at least 2 tooltips, got {len(tooltips_collected)}"
+        assert len(set(tooltips_collected)) > 1, \
+            f"❌ All {len(tooltips_collected)} tooltips are identical: {tooltips_collected[0]!r}"
+
+        print(f"✅ Area graph validated: {len(set(tooltips_collected))} unique tooltips from {len(tooltips_collected)} points")
+        return tooltips_collected

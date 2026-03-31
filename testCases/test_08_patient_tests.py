@@ -322,11 +322,11 @@ class test_module_08_patient_tests(BaseCase):
         patient.validate_patient_table()
         home.open_filter()
         home.clear_filter()
-        home.open_filter_search_staff("Sites", default_site_manager, select=True)
+        home.open_filter_search_staff("Sites", name=default_site_manager, select=True)
 
-        home.open_filter_search_staff("Treatment Monitor", UserData.default_staff_name, select=True)
+        home.open_filter_search_staff("Treatment Monitor", name=UserData.default_staff_name, select=True)
 
-        home.open_filter_search_staff("Patient Manager", UserData.default_staff_name, select=True)
+        home.open_filter_search_staff("Patient Manager", name=UserData.default_staff_name, select=True)
 
         page_count_after = patient.get_total_pages()
         assert page_count_before != page_count_after, f"{page_count_after} is not less than {page_count_before}"

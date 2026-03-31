@@ -93,3 +93,6 @@ class UserData:
     pill_count_drug = 'Quabodepistat'
 
     overview_doses_table_columns=['taken', 'not_taken', 'scheduled', 'held', 'challenge', 'rescheduled']
+    observation_method = 'Recorded VDOT'
+    quick_actions =['new video', 'missed review', 'low review rate']
+    adherence_dropdown =['Last 7 days', 'Last 30 days']

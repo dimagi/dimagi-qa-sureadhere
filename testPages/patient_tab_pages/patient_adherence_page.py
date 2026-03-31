@@ -105,7 +105,6 @@ class PatientAdherencePage(BasePage):
         assert self.is_element_visible('span_cal_today_symptoms'), "side effects not updated in calendar"
         print("side effects updated in calendar")
 
-
         return side_effect_text
 
     def open_video_event(self):
