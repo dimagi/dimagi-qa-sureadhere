@@ -41,7 +41,7 @@ class HomePage(BasePage):
     def click_admin_profile_button(self):
         time.sleep(2)
         self.wait_for_element("button_user_profile")
-        self.click("button_user_profile")
+        self.click("button_user_profile", strict=True)
 
     def verify_presence_of_staff_menu(self, presence=True):
         if presence:

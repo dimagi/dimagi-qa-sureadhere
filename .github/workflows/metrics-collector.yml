@@ -169,7 +169,10 @@ jobs:
                       except Exception:
                           pass
           
+          ALLOWED_ENVS = {"banner", "secure", "securevoteu", "rogers"}
+
           added = 0
+          skipped_unknown = 0
           with open("metrics/runs.jsonl", "a", encoding="utf-8") as out:
               for root, _, files in os.walk("incoming"):
                   for name in files:
@@ -177,24 +180,30 @@ jobs:
                           path = os.path.join(root, name)
                           with open(path, encoding="utf-8") as fh:
                               obj = json.load(fh)
-          
+
                           rid = (
                               obj.get("github", {}).get("run_id")
                               or obj.get("run_id")
                           )
-          
+
                           if not rid:
                               continue
-          
+
                           rid = str(rid)
                           if rid in existing_ids:
                               continue
-          
+
+                          env = obj.get("env") or obj.get("environment", "")
+                          if env not in ALLOWED_ENVS:
+                              print(f"Skipping run {rid} with unrecognised env: {env!r}")
+                              skipped_unknown += 1
+                              continue
+
                           out.write(json.dumps(obj, ensure_ascii=False) + "\n")
                           existing_ids.add(rid)
                           added += 1
-          
-          print(f"Added {added} new runs")
+
+          print(f"Added {added} new run(s), skipped {skipped_unknown} with unrecognised environment")
 
           PY
 

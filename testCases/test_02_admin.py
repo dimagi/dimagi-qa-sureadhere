@@ -50,6 +50,7 @@ class test_module_02_admin(BaseCase):
         home = HomePage(self, "dashboard")
         admin = AdminPage(self, 'admin')
         a_drug = AdminDrugPage(self, 'admin_drugs')
+        profile = UserProfilePage(self, "user")
 
         selected_disease = random.choice(UserData.admin_disease)
         selected_drug = random.choice(UserData.admin_drug)
@@ -88,6 +89,10 @@ class test_module_02_admin(BaseCase):
         drug_switch, drug_name = a_drug.toggle_for_drugs(selected_drug, "ON")
 
         try:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.login(self.settings["login_username"], self.settings["login_password"])
             home.open_dashboard_page()
         except Exception:
             login.login(self.settings["login_username"], self.settings["login_password"])
