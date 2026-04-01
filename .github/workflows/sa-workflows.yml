@@ -285,6 +285,13 @@ jobs:
             						"action_id": "button-action",
             						"style": "danger"
             					}
+            				},
+            				{
+            					"type": "section",
+            					"text": {
+            						"type": "mrkdwn",
+            						"text": "🔗 *Dashboard:* https://dimagi.github.io/dimagi-qa-sureadhere/"
+            					}
             				}
             			]
             		}
@@ -353,6 +360,13 @@ jobs:
             						"url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}",
             						"action_id": "button-action",
             						"style": "primary"
+            					}
+            				},
+            				{
+            					"type": "section",
+            					"text": {
+            						"type": "mrkdwn",
+            						"text": "🔗 *Dashboard:* https://dimagi.github.io/dimagi-qa-sureadhere/"
             					}
             				}
             			]
