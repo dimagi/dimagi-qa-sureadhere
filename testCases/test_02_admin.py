@@ -196,10 +196,15 @@ class test_module_02_admin(BaseCase):
         print(f"Before: {d['drug_switch']}, Drug Name: {d['drug_name']}, After: {drug_switch_now}")
 
         try:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.login(self.settings["login_username"], self.settings["login_password"])
             home.open_dashboard_page()
         except Exception:
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.open_dashboard_page()
+
 
         home.open_manage_patient_page()
         patient.search_test_patients()
