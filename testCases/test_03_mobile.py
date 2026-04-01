@@ -60,6 +60,7 @@ class test_module_03(BaseCase):
         home.click_admin_profile_button()
         profile.logout_user()
         login.after_logout()
+
         if "banner" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[0]
             default_site_manager = UserData.site_manager[0]
@@ -155,6 +156,9 @@ class test_module_03(BaseCase):
         mobile.read_messages(web_msg)
         vdo_upload_date, vdo_upload_time = mobile.record_video_and_submit(d['drug_name'])
         mobile.close_android_driver()
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
         self.__class__.data.update(
             {"mob_msg": mob_msg, "web_msg": web_msg, "video_upload_date": vdo_upload_date,
              "video_upload_time": vdo_upload_time
@@ -173,17 +177,20 @@ class test_module_03(BaseCase):
         home = HomePage(self, "dashboard")
         p_vdo = PatientVideoPage(self, 'patient_video_form')
         p_adhere = PatientAdherencePage(self, 'patient_adherence')
+        profile = UserProfilePage(self, "user")
 
         d = self.__class__.data
 
         try:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
+            login.login(self.settings["login_username"], self.settings["login_password"])
         except Exception:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
             login.login(self.settings["login_username"], self.settings["login_password"])
 
+        home.open_dashboard_page()
+        home.validate_dashboard_page()
         home.check_for_quick_actions()
         home.check_for_video_review(d["patient_fname"]+" "+d["patient_lname"], d['SA_ID'])
         p_vdo.verify_patient_video_page()

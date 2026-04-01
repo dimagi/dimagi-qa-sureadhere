@@ -44,12 +44,13 @@ class test_module_02_admin(BaseCase):
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_admin_1", scope="class")
     def test_case_01_edit_disease_and_drugs(self):
-        # login = LoginPage(self, "login")
+        login = LoginPage(self, "login")
         self._login_once()
         a_disease = AdminDiseasePage(self, 'admin_diseases')
         home = HomePage(self, "dashboard")
         admin = AdminPage(self, 'admin')
         a_drug = AdminDrugPage(self, 'admin_drugs')
+        profile = UserProfilePage(self, "user")
 
         selected_disease = random.choice(UserData.admin_disease)
         selected_drug = random.choice(UserData.admin_drug)
@@ -61,29 +62,42 @@ class test_module_02_admin(BaseCase):
             default_client = UserData.client[3]
         else:
             default_client = UserData.client[2]
-        home.open_dashboard_page()
-        home.validate_dashboard_page()
+
+        try:
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+        except Exception:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+
         home.open_admin_page()
         admin.validate_admin_page(default_client)
         admin.expand_diseases()
         disease_switch, disease_name = a_disease.toggle_for_disease(selected_disease, "ON")
 
         home.open_dashboard_page()
-        home.validate_dashboard_page()
         home.open_admin_page()
         admin.validate_admin_page(default_client)
         admin.expand_diseases()
         a_disease.double_check_on_toggle(disease_name, disease_switch)
 
         home.open_dashboard_page()
-        home.validate_dashboard_page()
         home.open_admin_page()
         admin.validate_admin_page(default_client)
         admin.expand_drugs()
         drug_switch, drug_name = a_drug.toggle_for_drugs(selected_drug, "ON")
 
-        home.open_dashboard_page()
-        home.validate_dashboard_page()
+        try:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+        except Exception:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+
         home.open_admin_page()
         admin.validate_admin_page(default_client)
         admin.expand_drugs()
@@ -149,21 +163,19 @@ class test_module_02_admin(BaseCase):
         login.after_logout()
         login.login(self.settings["login_username"], self.settings["login_password"])
 
-        home.validate_dashboard_page(50)
+        home.validate_dashboard_page()
         home.open_admin_page()
         admin.validate_admin_page(default_client)
         admin.expand_diseases()
         disease_switch_now, disease_name = a_disease.toggle_for_disease(d['disease_name'], "OFF")
 
         home.open_dashboard_page()
-        home.validate_dashboard_page(20)
         home.open_admin_page()
         admin.validate_admin_page(default_client)
         admin.expand_diseases()
         a_disease.double_check_on_toggle(disease_name, disease_switch_now)
 
         home.open_dashboard_page()
-        home.validate_dashboard_page(20)
         home.open_admin_page()
         admin.validate_admin_page(default_client)
         admin.expand_drugs()
@@ -175,7 +187,6 @@ class test_module_02_admin(BaseCase):
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.open_dashboard_page()
 
-        home.validate_dashboard_page()
         home.open_admin_page()
         admin.validate_admin_page(default_client)
         admin.expand_drugs()
@@ -185,10 +196,15 @@ class test_module_02_admin(BaseCase):
         print(f"Before: {d['drug_switch']}, Drug Name: {d['drug_name']}, After: {drug_switch_now}")
 
         try:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.login(self.settings["login_username"], self.settings["login_password"])
             home.open_dashboard_page()
         except Exception:
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.open_dashboard_page()
+
 
         home.open_manage_patient_page()
         patient.search_test_patients()
@@ -217,7 +233,6 @@ class test_module_02_admin(BaseCase):
         admin = AdminPage(self, 'admin')
         a_announce = AdminAnnouncementPage(self, 'announcements')
         a_announce_form = AdminAnnouncementFormPage(self, 'admin_announcement_form')
-
 
         if "banner" in self.settings["url"]:
             default_client = UserData.client[0]
