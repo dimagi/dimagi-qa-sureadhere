@@ -700,7 +700,11 @@ function renderFailEnvPie(d) {
       .sort((a,b) => new Date(b.timestamp_utc) - new Date(a.timestamp_utc));
 
     for (const r of failed) {
-      const url = (r.github && r.github.run_url) ? r.github.run_url : "";
+      const url = r.github && r.github.run_url
+        ? r.github.run_url
+        : (r.github && r.github.run_id && r.github.repository)
+          ? `https://github.com/${r.github.repository}/actions/runs/${r.github.run_id}`
+          : "";
       failedBody.innerHTML += `
         <tr>
           <td>${r.timestamp_utc || ""}</td>
@@ -786,8 +790,9 @@ function renderFailEnvPie(d) {
       );
     }
 
+    const ALLOWED_ENVS = new Set(["banner", "secure", "securevoteu", "rogers"]);
     raw = arr
-      .filter(r => r.env && r.timestamp_utc)
+      .filter(r => r.timestamp_utc && ALLOWED_ENVS.has(r.env))
       .map(r => ({
         ...r,
         q: quarterFromISO(r.timestamp_utc),

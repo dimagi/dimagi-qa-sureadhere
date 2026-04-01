@@ -163,7 +163,8 @@ jobs:
               "github": {
                   "run_id": os.environ.get("GITHUB_RUN_ID"),
                   "run_number": os.environ.get("GITHUB_RUN_NUMBER"),
-                  "repository": os.environ.get("GITHUB_REPOSITORY")
+                  "repository": os.environ.get("GITHUB_REPOSITORY"),
+                  "run_url": f"{os.environ.get('GITHUB_SERVER_URL', 'https://github.com')}/{os.environ.get('GITHUB_REPOSITORY')}/actions/runs/{os.environ.get('GITHUB_RUN_ID')}"
               }
           }
 
