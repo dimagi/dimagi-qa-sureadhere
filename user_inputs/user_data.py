@@ -30,7 +30,20 @@ class UserData:
         "Self Report - pills with provider present": "OFF",
         "Regimen approval workflow": "OFF",
         "Automatic Opt In for SMS": "OFF",
-        "Patient MRN validated with lookup": "OFF"
+        "Patient MRN validated with lookup": "OFF",
+        "Medication Event Reminder Monitor": "OFF"
+        }
+    pill_count_ff_on = {
+        "Pill Count": "ON",
+        }
+    pill_count_ff_off = {
+        "Pill Count": "OFF",
+        }
+    regimen_approval_ff_off = {
+        "Regimen approval workflow": "OFF",
+        }
+    regimen_approval_ff_on = {
+        "Regimen approval workflow": "ON",
         }
     invalid_password = "12auto34test!"
     inactive_user_email = "automation.inactive@gmail.com"
@@ -75,3 +88,11 @@ class UserData:
     default_managers = ['PM', 'SM', 'TM', 'SS']
     access_warning = "You don't have access to edit this patient"
     global_reports = ['User access', 'Most recent patient videos', 'Monthly video count by patient']
+    patient_list_columns = [ "Name","UserName","Treatment progress","Est. doses remaining","MRN","SA-ID","Start date","End date"]
+    per_user_reports = ["Patient Videos", "Summary DOT Record", "Dose Status", "7 Days Adherence", "Summary Event Record", "Summary Side Effects and Comments"]
+    pill_count_drug = 'Quabodepistat'
+
+    overview_doses_table_columns=['taken', 'not_taken', 'scheduled', 'held', 'challenge', 'rescheduled']
+    observation_method = 'Recorded VDOT'
+    quick_actions =['new video', 'missed review', 'low review rate']
+    adherence_dropdown =['Last 7 days', 'Last 30 days']

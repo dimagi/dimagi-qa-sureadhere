@@ -16,7 +16,7 @@ class PatientVideoPage(BasePage):
 
 
     def verify_patient_video_page(self):
-        time.sleep(5)
+        time.sleep(10)
         self.wait_for_page_to_load()
         self.wait_for_element('newCommentInput')
         print("Opened screen is Video Review")

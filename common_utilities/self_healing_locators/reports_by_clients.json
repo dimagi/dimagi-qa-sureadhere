@@ -1,0 +1,2253 @@
+{
+  "html_Client_Tes_0": {
+    "tag": "html",
+    "text": "Client_Test_1_US Home Patients Staff Reports Admin Admin Settings Configurable Lookups Feature Flags Reports by Clients Announcements Choose client: Accessibility Tests Global Reports All Active Regimens Monthly Video Count by Patient TBR Summary All 7 Days Adherence Aggregate DOT Record Most Recent Patient Videos User Access All Dose Status Video Quality Control All Patients Pill Count MERM CRA Support Actions Comments Self-Report Discrepancy Total Treatment Dose Counts Adherence User Audit Per User Reports Patient Videos Summary DOT Record Dose Status 7 Days Adherence Summary Event Record Summary Side Effects and Comments",
+    "xpath": "//html[contains(normalize-space(text()), 'Client_Test_1_US\nHome\nPatients\nStaff\nReports\nAdmin\nAdmin Settings\nConfigurable Lookups\nFeature Flags\nReports by Clients\nAnnouncements\nChoose client:\nAccessibility Tests\nGlobal Reports\nAll Active Regimens\nMonthly Video Count by Patient\nTBR Summary\nAll 7 Days Adherence\nAggregate DOT Record\nMost Recent Patient Videos\nUser Access\nAll Dose Status\nVideo Quality Control\nAll Patients\nPill Count\nMERM\nCRA\nSupport Actions\nComments\nSelf-Report Discrepancy\nTotal Treatment Dose Counts\nAdherence User Audit\nPer User Reports\nPatient Videos\nSummary DOT Record\nDose Status\n7 Days Adherence\nSummary Event Record\nSummary Side Effects and Comments')]"
+  },
+  "body_Client_Tes_26": {
+    "class": "pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done pace-done ng-tns-0-0",
+    "tag": "body",
+    "text": "Client_Test_1_US Home Patients Staff Reports Admin Admin Settings Configurable Lookups Feature Flags Reports by Clients Announcements Choose client: Accessibility Tests Global Reports All Active Regimens Monthly Video Count by Patient TBR Summary All 7 Days Adherence Aggregate DOT Record Most Recent Patient Videos User Access All Dose Status Video Quality Control All Patients Pill Count MERM CRA Support Actions Comments Self-Report Discrepancy Total Treatment Dose Counts Adherence User Audit Per User Reports Patient Videos Summary DOT Record Dose Status 7 Days Adherence Summary Event Record Summary Side Effects and Comments",
+    "xpath": "//body[contains(normalize-space(text()), 'Client_Test_1_US\nHome\nPatients\nStaff\nReports\nAdmin\nAdmin Settings\nConfigurable Lookups\nFeature Flags\nReports by Clients\nAnnouncements\nChoose client:\nAccessibility Tests\nGlobal Reports\nAll Active Regimens\nMonthly Video Count by Patient\nTBR Summary\nAll 7 Days Adherence\nAggregate DOT Record\nMost Recent Patient Videos\nUser Access\nAll Dose Status\nVideo Quality Control\nAll Patients\nPill Count\nMERM\nCRA\nSupport Actions\nComments\nSelf-Report Discrepancy\nTotal Treatment Dose Counts\nAdherence User Audit\nPer User Reports\nPatient Videos\nSummary DOT Record\nDose Status\n7 Days Adherence\nSummary Event Record\nSummary Side Effects and Comments')]"
+  },
+  "div__27": {
+    "class": "pace pace-inactive",
+    "tag": "div",
+    "xpath": "//div[@class='pace pace-inactive']"
+  },
+  "div__28": {
+    "class": "pace-progress",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress']"
+  },
+  "div__29": {
+    "class": "pace-progress-inner",
+    "tag": "div",
+    "xpath": "//div[@class='pace-progress-inner']"
+  },
+  "div__30": {
+    "class": "pace-activity",
+    "tag": "div",
+    "xpath": "//div[@class='pace-activity']"
+  },
+  "app_Client_Tes_31": {
+    "tag": "app",
+    "text": "Client_Test_1_US Home Patients Staff Reports Admin Admin Settings Configurable Lookups Feature Flags Reports by Clients Announcements Choose client: Accessibility Tests Global Reports All Active Regimens Monthly Video Count by Patient TBR Summary All 7 Days Adherence Aggregate DOT Record Most Recent Patient Videos User Access All Dose Status Video Quality Control All Patients Pill Count MERM CRA Support Actions Comments Self-Report Discrepancy Total Treatment Dose Counts Adherence User Audit Per User Reports Patient Videos Summary DOT Record Dose Status 7 Days Adherence Summary Event Record Summary Side Effects and Comments",
+    "xpath": "//app[contains(normalize-space(text()), 'Client_Test_1_US\nHome\nPatients\nStaff\nReports\nAdmin\nAdmin Settings\nConfigurable Lookups\nFeature Flags\nReports by Clients\nAnnouncements\nChoose client:\nAccessibility Tests\nGlobal Reports\nAll Active Regimens\nMonthly Video Count by Patient\nTBR Summary\nAll 7 Days Adherence\nAggregate DOT Record\nMost Recent Patient Videos\nUser Access\nAll Dose Status\nVideo Quality Control\nAll Patients\nPill Count\nMERM\nCRA\nSupport Actions\nComments\nSelf-Report Discrepancy\nTotal Treatment Dose Counts\nAdherence User Audit\nPer User Reports\nPatient Videos\nSummary DOT Record\nDose Status\n7 Days Adherence\nSummary Event Record\nSummary Side Effects and Comments')]"
+  },
+  "div_Client_Tes_32": {
+    "class": "custom-toolbar",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "div__33": {
+    "class": "logo",
+    "tag": "div",
+    "xpath": "//div[@class='logo']"
+  },
+  "div_Client_Tes_34": {
+    "class": "client-name d-none d-md-inline-flex",
+    "tag": "div",
+    "text": "Client_Test_1_US",
+    "xpath": "//div[contains(normalize-space(text()), 'Client_Test_1_US')]"
+  },
+  "span__35": {
+    "class": "right-navbar ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='right-navbar ng-star-inserted']"
+  },
+  "client-header__36": {
+    "tag": "client-header",
+    "xpath": "//client-header"
+  },
+  "div__37": {
+    "class": "header-actions",
+    "tag": "div",
+    "xpath": "//div[@class='header-actions']"
+  },
+  "button__38": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat ng-star-inserted",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat ng-star-inserted' and @type='submit']"
+  },
+  "span__39": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__40": {
+    "class": "ng-fa-icon toolbar-icon text-success",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-success']"
+  },
+  "svg__41": {
+    "class": "svg-inline--fa fa-user-plus",
+    "data-icon": "user-plus",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user-plus']"
+  },
+  "path__42": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__43": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__44": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__45": {
+    "class": "ng-fa-icon toolbar-icon text-warning",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon text-warning']"
+  },
+  "svg__46": {
+    "class": "svg-inline--fa fa-circle-question",
+    "data-icon": "circle-question",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-question']"
+  },
+  "path__47": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "button__48": {
+    "class": "k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat",
+    "type": "submit",
+    "tag": "button",
+    "xpath": "//button[@class='k-i-menu k-button k-button-md k-rounded-md k-button-flat-base k-button-flat' and @type='submit']"
+  },
+  "span__49": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//span[@class='k-button-text']"
+  },
+  "fa-icon__50": {
+    "class": "ng-fa-icon toolbar-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon toolbar-icon']"
+  },
+  "svg__51": {
+    "class": "svg-inline--fa fa-circle-user",
+    "data-icon": "circle-user",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-circle-user']"
+  },
+  "path__52": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "kendo-drawer-container_Home Patie_53": {
+    "class": "k-drawer-container k-drawer-mini k-drawer-push",
+    "tag": "kendo-drawer-container",
+    "text": "Home Patients Staff Reports Admin Admin Settings Configurable Lookups Feature Flags Reports by Clients Announcements Choose client: Accessibility Tests Global Reports All Active Regimens Monthly Video Count by Patient TBR Summary All 7 Days Adherence Aggregate DOT Record Most Recent Patient Videos User Access All Dose Status Video Quality Control All Patients Pill Count MERM CRA Support Actions Comments Self-Report Discrepancy Total Treatment Dose Counts Adherence User Audit Per User Reports Patient Videos Summary DOT Record Dose Status 7 Days Adherence Summary Event Record Summary Side Effects and Comments",
+    "xpath": "//kendo-drawer-container[contains(normalize-space(text()), 'Home\nPatients\nStaff\nReports\nAdmin\nAdmin Settings\nConfigurable Lookups\nFeature Flags\nReports by Clients\nAnnouncements\nChoose client:\nAccessibility Tests\nGlobal Reports\nAll Active Regimens\nMonthly Video Count by Patient\nTBR Summary\nAll 7 Days Adherence\nAggregate DOT Record\nMost Recent Patient Videos\nUser Access\nAll Dose Status\nVideo Quality Control\nAll Patients\nPill Count\nMERM\nCRA\nSupport Actions\nComments\nSelf-Report Discrepancy\nTotal Treatment Dose Counts\nAdherence User Audit\nPer User Reports\nPatient Videos\nSummary DOT Record\nDose Status\n7 Days Adherence\nSummary Event Record\nSummary Side Effects and Comments')]"
+  },
+  "kendo-drawer_Home Patie_54": {
+    "class": "border-0 k-drawer k-drawer-start",
+    "tag": "kendo-drawer",
+    "text": "Home Patients Staff Reports Admin",
+    "xpath": "//kendo-drawer[contains(normalize-space(text()), 'Home\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "div_Home Patie_55": {
+    "class": "k-drawer-wrapper",
+    "tag": "div",
+    "text": "Home Patients Staff Reports Admin",
+    "xpath": "//div[contains(normalize-space(text()), 'Home\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "ul_Home Patie_56": {
+    "class": "k-drawer-items",
+    "tag": "ul",
+    "text": "Home Patients Staff Reports Admin",
+    "xpath": "//ul[contains(normalize-space(text()), 'Home\nPatients\nStaff\nReports\nAdmin')]"
+  },
+  "li_Home_57": {
+    "class": "k-drawer-item ng-star-inserted",
+    "tag": "li",
+    "text": "Home",
+    "xpath": "//li[contains(normalize-space(text()), 'Home')]"
+  },
+  "div_Home_58": {
+    "class": "nav-item-container ng-star-inserted",
+    "tag": "div",
+    "text": "Home",
+    "xpath": "//div[contains(normalize-space(text()), 'Home')]"
+  },
+  "div__59": {
+    "class": "nav-icon-wrapper",
+    "tag": "div",
+    "xpath": "//div[@class='nav-icon-wrapper']"
+  },
+  "fa-icon__60": {
+    "class": "ng-fa-icon nav-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon nav-icon']"
+  },
+  "svg__61": {
+    "class": "svg-inline--fa fa-house",
+    "data-icon": "house",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-house']"
+  },
+  "path__62": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "span_Home_63": {
+    "class": "nav-label",
+    "tag": "span",
+    "text": "Home",
+    "xpath": "//span[contains(normalize-space(text()), 'Home')]"
+  },
+  "li_Patients_64": {
+    "class": "k-drawer-item ng-star-inserted",
+    "tag": "li",
+    "text": "Patients",
+    "xpath": "//li[contains(normalize-space(text()), 'Patients')]"
+  },
+  "div_Patients_65": {
+    "class": "nav-item-container ng-star-inserted",
+    "tag": "div",
+    "text": "Patients",
+    "xpath": "//div[contains(normalize-space(text()), 'Patients')]"
+  },
+  "div__66": {
+    "class": "nav-icon-wrapper",
+    "tag": "div",
+    "xpath": "//div[@class='nav-icon-wrapper']"
+  },
+  "fa-icon__67": {
+    "class": "ng-fa-icon nav-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon nav-icon']"
+  },
+  "svg__68": {
+    "class": "svg-inline--fa fa-user",
+    "data-icon": "user",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-user']"
+  },
+  "path__69": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "span_Patients_70": {
+    "class": "nav-label",
+    "tag": "span",
+    "text": "Patients",
+    "xpath": "//span[contains(normalize-space(text()), 'Patients')]"
+  },
+  "li_Staff_71": {
+    "class": "k-drawer-item ng-star-inserted",
+    "tag": "li",
+    "text": "Staff",
+    "xpath": "//li[contains(normalize-space(text()), 'Staff')]"
+  },
+  "div_Staff_72": {
+    "class": "nav-item-container ng-star-inserted",
+    "tag": "div",
+    "text": "Staff",
+    "xpath": "//div[contains(normalize-space(text()), 'Staff')]"
+  },
+  "div__73": {
+    "class": "nav-icon-wrapper",
+    "tag": "div",
+    "xpath": "//div[@class='nav-icon-wrapper']"
+  },
+  "fa-icon__74": {
+    "class": "ng-fa-icon nav-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon nav-icon']"
+  },
+  "svg__75": {
+    "class": "svg-inline--fa fa-address-book",
+    "data-icon": "address-book",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-address-book']"
+  },
+  "path__76": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "span_Staff_77": {
+    "class": "nav-label",
+    "tag": "span",
+    "text": "Staff",
+    "xpath": "//span[contains(normalize-space(text()), 'Staff')]"
+  },
+  "li_Reports_78": {
+    "class": "k-drawer-item ng-star-inserted",
+    "tag": "li",
+    "text": "Reports",
+    "xpath": "//li[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div_Reports_79": {
+    "class": "nav-item-container ng-star-inserted",
+    "tag": "div",
+    "text": "Reports",
+    "xpath": "//div[contains(normalize-space(text()), 'Reports')]"
+  },
+  "div__80": {
+    "class": "nav-icon-wrapper",
+    "tag": "div",
+    "xpath": "//div[@class='nav-icon-wrapper']"
+  },
+  "fa-icon__81": {
+    "class": "ng-fa-icon nav-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon nav-icon']"
+  },
+  "svg__82": {
+    "class": "svg-inline--fa fa-chart-bar",
+    "data-icon": "chart-bar",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-chart-bar']"
+  },
+  "path__83": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "span_Reports_84": {
+    "class": "nav-label",
+    "tag": "span",
+    "text": "Reports",
+    "xpath": "//span[contains(normalize-space(text()), 'Reports')]"
+  },
+  "li_Admin_85": {
+    "class": "k-drawer-item ng-star-inserted k-selected",
+    "tag": "li",
+    "text": "Admin",
+    "xpath": "//li[contains(normalize-space(text()), 'Admin')]"
+  },
+  "div_Admin_86": {
+    "class": "nav-item-container ng-star-inserted",
+    "tag": "div",
+    "text": "Admin",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin')]"
+  },
+  "div__87": {
+    "class": "nav-icon-wrapper selected",
+    "tag": "div",
+    "xpath": "//div[@class='nav-icon-wrapper selected']"
+  },
+  "fa-icon__88": {
+    "class": "ng-fa-icon nav-icon",
+    "tag": "fa-icon",
+    "xpath": "//fa-icon[@class='ng-fa-icon nav-icon']"
+  },
+  "svg__89": {
+    "class": "svg-inline--fa fa-gear",
+    "data-icon": "gear",
+    "tag": "svg",
+    "xpath": "//svg[@class='svg-inline--fa fa-gear']"
+  },
+  "path__90": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "span_Admin_91": {
+    "class": "nav-label",
+    "tag": "span",
+    "text": "Admin",
+    "xpath": "//span[contains(normalize-space(text()), 'Admin')]"
+  },
+  "kendo-drawer-content_Admin Sett_92": {
+    "class": "k-drawer-content",
+    "tag": "kendo-drawer-content",
+    "text": "Admin Settings Configurable Lookups Feature Flags Reports by Clients Announcements Choose client: Accessibility Tests Global Reports All Active Regimens Monthly Video Count by Patient TBR Summary All 7 Days Adherence Aggregate DOT Record Most Recent Patient Videos User Access All Dose Status Video Quality Control All Patients Pill Count MERM CRA Support Actions Comments Self-Report Discrepancy Total Treatment Dose Counts Adherence User Audit Per User Reports Patient Videos Summary DOT Record Dose Status 7 Days Adherence Summary Event Record Summary Side Effects and Comments",
+    "xpath": "//kendo-drawer-content[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nReports by Clients\nAnnouncements\nChoose client:\nAccessibility Tests\nGlobal Reports\nAll Active Regimens\nMonthly Video Count by Patient\nTBR Summary\nAll 7 Days Adherence\nAggregate DOT Record\nMost Recent Patient Videos\nUser Access\nAll Dose Status\nVideo Quality Control\nAll Patients\nPill Count\nMERM\nCRA\nSupport Actions\nComments\nSelf-Report Discrepancy\nTotal Treatment Dose Counts\nAdherence User Audit\nPer User Reports\nPatient Videos\nSummary DOT Record\nDose Status\n7 Days Adherence\nSummary Event Record\nSummary Side Effects and Comments')]"
+  },
+  "app-admin_Admin Sett_94": {
+    "class": "ng-star-inserted",
+    "tag": "app-admin",
+    "text": "Admin Settings Configurable Lookups Feature Flags Reports by Clients Announcements Choose client: Accessibility Tests Global Reports All Active Regimens Monthly Video Count by Patient TBR Summary All 7 Days Adherence Aggregate DOT Record Most Recent Patient Videos User Access All Dose Status Video Quality Control All Patients Pill Count MERM CRA Support Actions Comments Self-Report Discrepancy Total Treatment Dose Counts Adherence User Audit Per User Reports Patient Videos Summary DOT Record Dose Status 7 Days Adherence Summary Event Record Summary Side Effects and Comments",
+    "xpath": "//app-admin[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nReports by Clients\nAnnouncements\nChoose client:\nAccessibility Tests\nGlobal Reports\nAll Active Regimens\nMonthly Video Count by Patient\nTBR Summary\nAll 7 Days Adherence\nAggregate DOT Record\nMost Recent Patient Videos\nUser Access\nAll Dose Status\nVideo Quality Control\nAll Patients\nPill Count\nMERM\nCRA\nSupport Actions\nComments\nSelf-Report Discrepancy\nTotal Treatment Dose Counts\nAdherence User Audit\nPer User Reports\nPatient Videos\nSummary DOT Record\nDose Status\n7 Days Adherence\nSummary Event Record\nSummary Side Effects and Comments')]"
+  },
+  "sidebar-filter_Admin Sett_95": {
+    "tag": "sidebar-filter",
+    "text": "Admin Settings Configurable Lookups Feature Flags Reports by Clients Announcements Choose client: Accessibility Tests Global Reports All Active Regimens Monthly Video Count by Patient TBR Summary All 7 Days Adherence Aggregate DOT Record Most Recent Patient Videos User Access All Dose Status Video Quality Control All Patients Pill Count MERM CRA Support Actions Comments Self-Report Discrepancy Total Treatment Dose Counts Adherence User Audit Per User Reports Patient Videos Summary DOT Record Dose Status 7 Days Adherence Summary Event Record Summary Side Effects and Comments",
+    "xpath": "//sidebar-filter[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nReports by Clients\nAnnouncements\nChoose client:\nAccessibility Tests\nGlobal Reports\nAll Active Regimens\nMonthly Video Count by Patient\nTBR Summary\nAll 7 Days Adherence\nAggregate DOT Record\nMost Recent Patient Videos\nUser Access\nAll Dose Status\nVideo Quality Control\nAll Patients\nPill Count\nMERM\nCRA\nSupport Actions\nComments\nSelf-Report Discrepancy\nTotal Treatment Dose Counts\nAdherence User Audit\nPer User Reports\nPatient Videos\nSummary DOT Record\nDose Status\n7 Days Adherence\nSummary Event Record\nSummary Side Effects and Comments')]"
+  },
+  "main_Admin Sett_96": {
+    "class": "main",
+    "tag": "main",
+    "text": "Admin Settings Configurable Lookups Feature Flags Reports by Clients Announcements Choose client: Accessibility Tests Global Reports All Active Regimens Monthly Video Count by Patient TBR Summary All 7 Days Adherence Aggregate DOT Record Most Recent Patient Videos User Access All Dose Status Video Quality Control All Patients Pill Count MERM CRA Support Actions Comments Self-Report Discrepancy Total Treatment Dose Counts Adherence User Audit Per User Reports Patient Videos Summary DOT Record Dose Status 7 Days Adherence Summary Event Record Summary Side Effects and Comments",
+    "xpath": "//main[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nReports by Clients\nAnnouncements\nChoose client:\nAccessibility Tests\nGlobal Reports\nAll Active Regimens\nMonthly Video Count by Patient\nTBR Summary\nAll 7 Days Adherence\nAggregate DOT Record\nMost Recent Patient Videos\nUser Access\nAll Dose Status\nVideo Quality Control\nAll Patients\nPill Count\nMERM\nCRA\nSupport Actions\nComments\nSelf-Report Discrepancy\nTotal Treatment Dose Counts\nAdherence User Audit\nPer User Reports\nPatient Videos\nSummary DOT Record\nDose Status\n7 Days Adherence\nSummary Event Record\nSummary Side Effects and Comments')]"
+  },
+  "ng-sidebar-container_Admin Sett_97": {
+    "class": "wrapper-with-sidebar",
+    "tag": "ng-sidebar-container",
+    "text": "Admin Settings Configurable Lookups Feature Flags Reports by Clients Announcements Choose client: Accessibility Tests Global Reports All Active Regimens Monthly Video Count by Patient TBR Summary All 7 Days Adherence Aggregate DOT Record Most Recent Patient Videos User Access All Dose Status Video Quality Control All Patients Pill Count MERM CRA Support Actions Comments Self-Report Discrepancy Total Treatment Dose Counts Adherence User Audit Per User Reports Patient Videos Summary DOT Record Dose Status 7 Days Adherence Summary Event Record Summary Side Effects and Comments",
+    "xpath": "//ng-sidebar-container[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nReports by Clients\nAnnouncements\nChoose client:\nAccessibility Tests\nGlobal Reports\nAll Active Regimens\nMonthly Video Count by Patient\nTBR Summary\nAll 7 Days Adherence\nAggregate DOT Record\nMost Recent Patient Videos\nUser Access\nAll Dose Status\nVideo Quality Control\nAll Patients\nPill Count\nMERM\nCRA\nSupport Actions\nComments\nSelf-Report Discrepancy\nTotal Treatment Dose Counts\nAdherence User Audit\nPer User Reports\nPatient Videos\nSummary DOT Record\nDose Status\n7 Days Adherence\nSummary Event Record\nSummary Side Effects and Comments')]"
+  },
+  "ng-sidebar__98": {
+    "tag": "ng-sidebar",
+    "xpath": "//ng-sidebar"
+  },
+  "aside__99": {
+    "class": "ng-sidebar--inert ng-sidebar ng-sidebar--closed ng-sidebar--right ng-sidebar--push",
+    "tag": "aside",
+    "xpath": "//aside[@class='ng-sidebar--inert ng-sidebar ng-sidebar--closed ng-sidebar--right ng-sidebar--push']"
+  },
+  "div__100": {
+    "class": "clear-filters",
+    "tag": "div",
+    "xpath": "//div[@class='clear-filters']"
+  },
+  "div__101": {
+    "class": "close-filterbar",
+    "tag": "div",
+    "xpath": "//div[@class='close-filterbar']"
+  },
+  "span__102": {
+    "class": "icon-close2 position-relative",
+    "tag": "span",
+    "xpath": "//span[@class='icon-close2 position-relative']"
+  },
+  "div__103": {
+    "class": "header-filterbar",
+    "tag": "div",
+    "xpath": "//div[@class='header-filterbar']"
+  },
+  "div__104": {
+    "class": "sidebar-filter",
+    "tag": "div",
+    "xpath": "//div[@class='sidebar-filter']"
+  },
+  "kendo-panelbar__105": {
+    "class": "k-panelbar k-pos-relative",
+    "tag": "kendo-panelbar",
+    "xpath": "//kendo-panelbar[@class='k-panelbar k-pos-relative']"
+  },
+  "k-panelbar-1-item-sites": {
+    "id": "k-panelbar-1-item-sites",
+    "class": "ng-tns-c3003368627-8 k-level-0 k-panelbar-item k-state-default k-expanded k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-1-item-sites']"
+  },
+  "span__107": {
+    "class": "ng-tns-c3003368627-8 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-8 k-link']"
+  },
+  "span__108": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-8 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-8 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__109": {
+    "class": "ng-tns-c3003368627-8 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-8 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__110": {
+    "class": "k-svg-i-chevron-up k-panelbar-toggle k-panelbar-collapse k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-up k-panelbar-toggle k-panelbar-collapse k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__111": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "path__112": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "div__113": {
+    "class": "ng-tns-c3003368627-8 ng-trigger ng-trigger-toggle ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='ng-tns-c3003368627-8 ng-trigger ng-trigger-toggle ng-star-inserted']"
+  },
+  "div__114": {
+    "class": "k-content k-panelbar-content ng-tns-c3003368627-8 ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='k-content k-panelbar-content ng-tns-c3003368627-8 ng-star-inserted']"
+  },
+  "sites_bar": {
+    "id": "sites_bar",
+    "class": "ng-star-inserted",
+    "tag": "ul",
+    "xpath": "//ul[@id='sites_bar']"
+  },
+  "li__116": {
+    "class": "ng-star-inserted",
+    "tag": "li",
+    "xpath": "//li[@class='ng-star-inserted']"
+  },
+  "site_1": {
+    "id": "site_1",
+    "class": "k-checkbox",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='site_1']"
+  },
+  "label__118": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath": "//label[@class='k-checkbox-label k-label']"
+  },
+  "li__119": {
+    "class": "ng-star-inserted",
+    "tag": "li",
+    "xpath": "//li[@class='ng-star-inserted']"
+  },
+  "site_2": {
+    "id": "site_2",
+    "class": "k-checkbox",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='site_2']"
+  },
+  "label__121": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath": "//label[@class='k-checkbox-label k-label']"
+  },
+  "li__122": {
+    "class": "ng-star-inserted",
+    "tag": "li",
+    "xpath": "//li[@class='ng-star-inserted']"
+  },
+  "site_3": {
+    "id": "site_3",
+    "class": "k-checkbox",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='site_3']"
+  },
+  "label__124": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath": "//label[@class='k-checkbox-label k-label']"
+  },
+  "li__125": {
+    "class": "ng-star-inserted",
+    "tag": "li",
+    "xpath": "//li[@class='ng-star-inserted']"
+  },
+  "site_4": {
+    "id": "site_4",
+    "class": "k-checkbox",
+    "type": "checkbox",
+    "tag": "input",
+    "xpath": "//input[@id='site_4']"
+  },
+  "label__127": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath": "//label[@class='k-checkbox-label k-label']"
+  },
+  "k-panelbar-1-item-treatment_monitors": {
+    "id": "k-panelbar-1-item-treatment_monitors",
+    "class": "ng-tns-c3003368627-9 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-1-item-treatment_monitors']"
+  },
+  "span__129": {
+    "class": "ng-tns-c3003368627-9 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-9 k-link']"
+  },
+  "span__130": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-9 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-9 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__131": {
+    "class": "ng-tns-c3003368627-9 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-9 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__132": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__133": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "path__134": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "k-panelbar-1-item-patient_managers": {
+    "id": "k-panelbar-1-item-patient_managers",
+    "class": "ng-tns-c3003368627-10 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-1-item-patient_managers']"
+  },
+  "span__136": {
+    "class": "ng-tns-c3003368627-10 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-10 k-link']"
+  },
+  "span__137": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-10 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-10 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__138": {
+    "class": "ng-tns-c3003368627-10 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-10 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__139": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__140": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "path__141": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "k-panelbar-1-item-diseases": {
+    "id": "k-panelbar-1-item-diseases",
+    "class": "ng-tns-c3003368627-11 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-1-item-diseases']"
+  },
+  "span__143": {
+    "class": "ng-tns-c3003368627-11 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-11 k-link']"
+  },
+  "span__144": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-11 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-11 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__145": {
+    "class": "ng-tns-c3003368627-11 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-11 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__146": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__147": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "path__148": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "k-panelbar-1-item-observation_types": {
+    "id": "k-panelbar-1-item-observation_types",
+    "class": "ng-tns-c3003368627-12 k-level-0 k-panelbar-item k-state-default k-panelbar-header ng-star-inserted",
+    "tag": "kendo-panelbar-item",
+    "xpath": "//kendo-panelbar-item[@id='k-panelbar-1-item-observation_types']"
+  },
+  "span__150": {
+    "class": "ng-tns-c3003368627-12 k-link",
+    "tag": "span",
+    "xpath": "//span[@class='ng-tns-c3003368627-12 k-link']"
+  },
+  "span__151": {
+    "class": "k-panelbar-item-text ng-tns-c3003368627-12 ng-star-inserted",
+    "tag": "span",
+    "xpath": "//span[@class='k-panelbar-item-text ng-tns-c3003368627-12 ng-star-inserted']"
+  },
+  "kendo-icon-wrapper__152": {
+    "class": "ng-tns-c3003368627-12 k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='ng-tns-c3003368627-12 k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__153": {
+    "class": "k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-chevron-down k-panelbar-toggle k-panelbar-expand k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__154": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "path__155": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "div_Admin Sett_156": {
+    "class": "ng-sidebar__content ng-sidebar__content--animate",
+    "tag": "div",
+    "text": "Admin Settings Configurable Lookups Feature Flags Reports by Clients Announcements Choose client: Accessibility Tests Global Reports All Active Regimens Monthly Video Count by Patient TBR Summary All 7 Days Adherence Aggregate DOT Record Most Recent Patient Videos User Access All Dose Status Video Quality Control All Patients Pill Count MERM CRA Support Actions Comments Self-Report Discrepancy Total Treatment Dose Counts Adherence User Audit Per User Reports Patient Videos Summary DOT Record Dose Status 7 Days Adherence Summary Event Record Summary Side Effects and Comments",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nReports by Clients\nAnnouncements\nChoose client:\nAccessibility Tests\nGlobal Reports\nAll Active Regimens\nMonthly Video Count by Patient\nTBR Summary\nAll 7 Days Adherence\nAggregate DOT Record\nMost Recent Patient Videos\nUser Access\nAll Dose Status\nVideo Quality Control\nAll Patients\nPill Count\nMERM\nCRA\nSupport Actions\nComments\nSelf-Report Discrepancy\nTotal Treatment Dose Counts\nAdherence User Audit\nPer User Reports\nPatient Videos\nSummary DOT Record\nDose Status\n7 Days Adherence\nSummary Event Record\nSummary Side Effects and Comments')]"
+  },
+  "div_Admin Sett_157": {
+    "class": "content-wrapper",
+    "tag": "div",
+    "text": "Admin Settings Configurable Lookups Feature Flags Reports by Clients Announcements Choose client: Accessibility Tests Global Reports All Active Regimens Monthly Video Count by Patient TBR Summary All 7 Days Adherence Aggregate DOT Record Most Recent Patient Videos User Access All Dose Status Video Quality Control All Patients Pill Count MERM CRA Support Actions Comments Self-Report Discrepancy Total Treatment Dose Counts Adherence User Audit Per User Reports Patient Videos Summary DOT Record Dose Status 7 Days Adherence Summary Event Record Summary Side Effects and Comments",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings\nConfigurable Lookups\nFeature Flags\nReports by Clients\nAnnouncements\nChoose client:\nAccessibility Tests\nGlobal Reports\nAll Active Regimens\nMonthly Video Count by Patient\nTBR Summary\nAll 7 Days Adherence\nAggregate DOT Record\nMost Recent Patient Videos\nUser Access\nAll Dose Status\nVideo Quality Control\nAll Patients\nPill Count\nMERM\nCRA\nSupport Actions\nComments\nSelf-Report Discrepancy\nTotal Treatment Dose Counts\nAdherence User Audit\nPer User Reports\nPatient Videos\nSummary DOT Record\nDose Status\n7 Days Adherence\nSummary Event Record\nSummary Side Effects and Comments')]"
+  },
+  "div_Admin Sett_158": {
+    "class": "sub-header",
+    "tag": "div",
+    "text": "Admin Settings",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings')]"
+  },
+  "div_Admin Sett_159": {
+    "class": "sub-nav",
+    "tag": "div",
+    "text": "Admin Settings",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings')]"
+  },
+  "div_Admin Sett_160": {
+    "class": "breadcrumb-custom",
+    "tag": "div",
+    "text": "Admin Settings",
+    "xpath": "//div[contains(normalize-space(text()), 'Admin Settings')]"
+  },
+  "span_Admin Sett_161": {
+    "class": "my-header-name",
+    "tag": "span",
+    "text": "Admin Settings",
+    "xpath": "//span[contains(normalize-space(text()), 'Admin Settings')]"
+  },
+  "div__162": {
+    "class": "sidebar-toggle-icon ng-star-inserted",
+    "tag": "div",
+    "xpath": "//div[@class='sidebar-toggle-icon ng-star-inserted']"
+  },
+  "span__163": {
+    "class": "icon-funnel",
+    "tag": "span",
+    "xpath": "//span[@class='icon-funnel']"
+  },
+  "div_Configurab_164": {
+    "class": "my-page-content pb-50px",
+    "tag": "div",
+    "text": "Configurable Lookups Feature Flags Reports by Clients Announcements Choose client: Accessibility Tests Global Reports All Active Regimens Monthly Video Count by Patient TBR Summary All 7 Days Adherence Aggregate DOT Record Most Recent Patient Videos User Access All Dose Status Video Quality Control All Patients Pill Count MERM CRA Support Actions Comments Self-Report Discrepancy Total Treatment Dose Counts Adherence User Audit Per User Reports Patient Videos Summary DOT Record Dose Status 7 Days Adherence Summary Event Record Summary Side Effects and Comments",
+    "xpath": "//div[contains(normalize-space(text()), 'Configurable Lookups\nFeature Flags\nReports by Clients\nAnnouncements\nChoose client:\nAccessibility Tests\nGlobal Reports\nAll Active Regimens\nMonthly Video Count by Patient\nTBR Summary\nAll 7 Days Adherence\nAggregate DOT Record\nMost Recent Patient Videos\nUser Access\nAll Dose Status\nVideo Quality Control\nAll Patients\nPill Count\nMERM\nCRA\nSupport Actions\nComments\nSelf-Report Discrepancy\nTotal Treatment Dose Counts\nAdherence User Audit\nPer User Reports\nPatient Videos\nSummary DOT Record\nDose Status\n7 Days Adherence\nSummary Event Record\nSummary Side Effects and Comments')]"
+  },
+  "kendo-tabstrip_Configurab_165": {
+    "class": "ng-tns-c655264150-7 k-tabstrip k-pos-relative k-tabstrip-top ng-star-inserted",
+    "tag": "kendo-tabstrip",
+    "text": "Configurable Lookups Feature Flags Reports by Clients Announcements Choose client: Accessibility Tests Global Reports All Active Regimens Monthly Video Count by Patient TBR Summary All 7 Days Adherence Aggregate DOT Record Most Recent Patient Videos User Access All Dose Status Video Quality Control All Patients Pill Count MERM CRA Support Actions Comments Self-Report Discrepancy Total Treatment Dose Counts Adherence User Audit Per User Reports Patient Videos Summary DOT Record Dose Status 7 Days Adherence Summary Event Record Summary Side Effects and Comments",
+    "xpath": "//kendo-tabstrip[contains(normalize-space(text()), 'Configurable Lookups\nFeature Flags\nReports by Clients\nAnnouncements\nChoose client:\nAccessibility Tests\nGlobal Reports\nAll Active Regimens\nMonthly Video Count by Patient\nTBR Summary\nAll 7 Days Adherence\nAggregate DOT Record\nMost Recent Patient Videos\nUser Access\nAll Dose Status\nVideo Quality Control\nAll Patients\nPill Count\nMERM\nCRA\nSupport Actions\nComments\nSelf-Report Discrepancy\nTotal Treatment Dose Counts\nAdherence User Audit\nPer User Reports\nPatient Videos\nSummary DOT Record\nDose Status\n7 Days Adherence\nSummary Event Record\nSummary Side Effects and Comments')]"
+  },
+  "div_Configurab_166": {
+    "class": "k-tabstrip-items-wrapper ng-tns-c655264150-7 k-hstack ng-star-inserted",
+    "tag": "div",
+    "text": "Configurable Lookups Feature Flags Reports by Clients Announcements",
+    "xpath": "//div[contains(normalize-space(text()), 'Configurable Lookups\nFeature Flags\nReports by Clients\nAnnouncements')]"
+  },
+  "ul_Configurab_167": {
+    "class": "k-reset k-tabstrip-items ng-tns-c655264150-7",
+    "tag": "ul",
+    "text": "Configurable Lookups Feature Flags Reports by Clients Announcements",
+    "xpath": "//ul[contains(normalize-space(text()), 'Configurable Lookups\nFeature Flags\nReports by Clients\nAnnouncements')]"
+  },
+  "k-tabstrip-tab-c98843a2-0d03-4548-b98a-545f5892100b-0": {
+    "id": "k-tabstrip-tab-c98843a2-0d03-4548-b98a-545f5892100b-0",
+    "class": "ng-tns-c655264150-7 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Configurable Lookups",
+    "xpath": "//li[@id='k-tabstrip-tab-c98843a2-0d03-4548-b98a-545f5892100b-0']"
+  },
+  "span_Configurab_169": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Configurable Lookups",
+    "xpath": "//span[contains(normalize-space(text()), 'Configurable Lookups')]"
+  },
+  "k-tabstrip-tab-c98843a2-0d03-4548-b98a-545f5892100b-1": {
+    "id": "k-tabstrip-tab-c98843a2-0d03-4548-b98a-545f5892100b-1",
+    "class": "ng-tns-c655264150-7 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Feature Flags",
+    "xpath": "//li[@id='k-tabstrip-tab-c98843a2-0d03-4548-b98a-545f5892100b-1']"
+  },
+  "span_Feature Fl_171": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Feature Flags",
+    "xpath": "//span[contains(normalize-space(text()), 'Feature Flags')]"
+  },
+  "k-tabstrip-tab-c98843a2-0d03-4548-b98a-545f5892100b-2": {
+    "id": "k-tabstrip-tab-c98843a2-0d03-4548-b98a-545f5892100b-2",
+    "class": "ng-tns-c655264150-7 k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "text": "Reports by Clients",
+    "xpath": "//li[@id='k-tabstrip-tab-c98843a2-0d03-4548-b98a-545f5892100b-2']"
+  },
+  "span_Reports by_173": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Reports by Clients",
+    "xpath": "//span[contains(normalize-space(text()), 'Reports by Clients')]"
+  },
+  "k-tabstrip-tab-c98843a2-0d03-4548-b98a-545f5892100b-3": {
+    "id": "k-tabstrip-tab-c98843a2-0d03-4548-b98a-545f5892100b-3",
+    "class": "ng-tns-c655264150-7 k-item k-state-default ng-star-inserted",
+    "tag": "li",
+    "text": "Announcements",
+    "xpath": "//li[@id='k-tabstrip-tab-c98843a2-0d03-4548-b98a-545f5892100b-3']"
+  },
+  "span_Announceme_175": {
+    "class": "k-link ng-star-inserted",
+    "tag": "span",
+    "text": "Announcements",
+    "xpath": "//span[contains(normalize-space(text()), 'Announcements')]"
+  },
+  "k-tabstrip-tabpanel-c98843a2-0d03-4548-b98a-545f5892100b-2": {
+    "id": "k-tabstrip-tabpanel-c98843a2-0d03-4548-b98a-545f5892100b-2",
+    "class": "ng-tns-c655264150-7 ng-trigger ng-trigger-state k-tabstrip-content k-active ng-star-inserted",
+    "tag": "div",
+    "text": "Choose client: Accessibility Tests Global Reports All Active Regimens Monthly Video Count by Patient TBR Summary All 7 Days Adherence Aggregate DOT Record Most Recent Patient Videos User Access All Dose Status Video Quality Control All Patients Pill Count MERM CRA Support Actions Comments Self-Report Discrepancy Total Treatment Dose Counts Adherence User Audit Per User Reports Patient Videos Summary DOT Record Dose Status 7 Days Adherence Summary Event Record Summary Side Effects and Comments",
+    "xpath": "//div[@id='k-tabstrip-tabpanel-c98843a2-0d03-4548-b98a-545f5892100b-2']"
+  },
+  "div_Choose cli_177": {
+    "class": "main-container ng-star-inserted",
+    "tag": "div",
+    "text": "Choose client: Accessibility Tests Global Reports All Active Regimens Monthly Video Count by Patient TBR Summary All 7 Days Adherence Aggregate DOT Record Most Recent Patient Videos User Access All Dose Status Video Quality Control All Patients Pill Count MERM CRA Support Actions Comments Self-Report Discrepancy Total Treatment Dose Counts Adherence User Audit Per User Reports Patient Videos Summary DOT Record Dose Status 7 Days Adherence Summary Event Record Summary Side Effects and Comments",
+    "xpath": "//div[contains(normalize-space(text()), 'Choose client:\nAccessibility Tests\nGlobal Reports\nAll Active Regimens\nMonthly Video Count by Patient\nTBR Summary\nAll 7 Days Adherence\nAggregate DOT Record\nMost Recent Patient Videos\nUser Access\nAll Dose Status\nVideo Quality Control\nAll Patients\nPill Count\nMERM\nCRA\nSupport Actions\nComments\nSelf-Report Discrepancy\nTotal Treatment Dose Counts\nAdherence User Audit\nPer User Reports\nPatient Videos\nSummary DOT Record\nDose Status\n7 Days Adherence\nSummary Event Record\nSummary Side Effects and Comments')]"
+  },
+  "div_Choose cli_178": {
+    "class": "clients-list",
+    "tag": "div",
+    "text": "Choose client: Accessibility Tests",
+    "xpath": "//div[contains(normalize-space(text()), 'Choose client:\nAccessibility Tests')]"
+  },
+  "k-62a05cf7-13c8-4c91-adc9-079833d0792a": {
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "text": "Accessibility Tests",
+    "xpath": "//kendo-dropdownlist[@id='k-62a05cf7-13c8-4c91-adc9-079833d0792a']"
+  },
+  "kendo-dropdownlist-input-value-Client": {
+    "class": "k-input-value-text",
+    "tag": "span",
+    "xpath": "//kendo-dropdownlist//span[@class='k-input-value-text']"
+  },
+  "span_Accessibil_181": {
+    "class": "k-input-value-text",
+    "tag": "span",
+    "text": "Accessibility Tests",
+    "xpath": "//span[contains(normalize-space(text()), 'Accessibility Tests')]"
+  },
+  "button__182": {
+    "aria-label": "Select",
+    "class": "k-input-button k-button k-icon-button k-button-md k-button-solid k-button-solid-base",
+    "type": "button",
+    "tag": "button",
+    "xpath": "//button[@aria-label='Select']"
+  },
+  "kendo-icon-wrapper__183": {
+    "class": "k-icon-wrapper-host ng-star-inserted",
+    "tag": "kendo-icon-wrapper",
+    "xpath": "//kendo-icon-wrapper[@class='k-icon-wrapper-host ng-star-inserted']"
+  },
+  "kendo-svgicon__184": {
+    "class": "k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted",
+    "tag": "kendo-svgicon",
+    "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted']"
+  },
+  "svg__185": {
+    "class": "ng-star-inserted",
+    "tag": "svg",
+    "xpath": "//svg[@class='ng-star-inserted']"
+  },
+  "path__186": {
+    "tag": "path",
+    "xpath": "//path"
+  },
+  "responsive-renderer__187": {
+    "tag": "responsive-renderer",
+    "xpath": "//responsive-renderer"
+  },
+  "kendo-actionsheet__188": {
+    "tag": "kendo-actionsheet",
+    "xpath": "//kendo-actionsheet"
+  },
+  "div_Global Rep_189": {
+    "class": "reports-configuration ng-star-inserted",
+    "tag": "div",
+    "text": "Global Reports All Active Regimens Monthly Video Count by Patient TBR Summary All 7 Days Adherence Aggregate DOT Record Most Recent Patient Videos User Access All Dose Status Video Quality Control All Patients Pill Count MERM CRA Support Actions Comments Self-Report Discrepancy Total Treatment Dose Counts Adherence User Audit Per User Reports Patient Videos Summary DOT Record Dose Status 7 Days Adherence Summary Event Record Summary Side Effects and Comments",
+    "xpath": "//div[contains(normalize-space(text()), 'Global Reports\nAll Active Regimens\nMonthly Video Count by Patient\nTBR Summary\nAll 7 Days Adherence\nAggregate DOT Record\nMost Recent Patient Videos\nUser Access\nAll Dose Status\nVideo Quality Control\nAll Patients\nPill Count\nMERM\nCRA\nSupport Actions\nComments\nSelf-Report Discrepancy\nTotal Treatment Dose Counts\nAdherence User Audit\nPer User Reports\nPatient Videos\nSummary DOT Record\nDose Status\n7 Days Adherence\nSummary Event Record\nSummary Side Effects and Comments')]"
+  },
+  "div_Global Rep_190": {
+    "class": "content",
+    "tag": "div",
+    "text": "Global Reports All Active Regimens Monthly Video Count by Patient TBR Summary All 7 Days Adherence Aggregate DOT Record Most Recent Patient Videos User Access All Dose Status Video Quality Control All Patients Pill Count MERM CRA Support Actions Comments Self-Report Discrepancy Total Treatment Dose Counts Adherence User Audit Per User Reports Patient Videos Summary DOT Record Dose Status 7 Days Adherence Summary Event Record Summary Side Effects and Comments",
+    "xpath": "//div[contains(normalize-space(text()), 'Global Reports\nAll Active Regimens\nMonthly Video Count by Patient\nTBR Summary\nAll 7 Days Adherence\nAggregate DOT Record\nMost Recent Patient Videos\nUser Access\nAll Dose Status\nVideo Quality Control\nAll Patients\nPill Count\nMERM\nCRA\nSupport Actions\nComments\nSelf-Report Discrepancy\nTotal Treatment Dose Counts\nAdherence User Audit\nPer User Reports\nPatient Videos\nSummary DOT Record\nDose Status\n7 Days Adherence\nSummary Event Record\nSummary Side Effects and Comments')]"
+  },
+  "div_Global Rep_191": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Global Reports All Active Regimens Monthly Video Count by Patient TBR Summary All 7 Days Adherence Aggregate DOT Record Most Recent Patient Videos User Access All Dose Status Video Quality Control All Patients Pill Count MERM CRA Support Actions Comments Self-Report Discrepancy Total Treatment Dose Counts Adherence User Audit Per User Reports Patient Videos Summary DOT Record Dose Status 7 Days Adherence Summary Event Record Summary Side Effects and Comments",
+    "xpath": "//div[contains(normalize-space(text()), 'Global Reports\nAll Active Regimens\nMonthly Video Count by Patient\nTBR Summary\nAll 7 Days Adherence\nAggregate DOT Record\nMost Recent Patient Videos\nUser Access\nAll Dose Status\nVideo Quality Control\nAll Patients\nPill Count\nMERM\nCRA\nSupport Actions\nComments\nSelf-Report Discrepancy\nTotal Treatment Dose Counts\nAdherence User Audit\nPer User Reports\nPatient Videos\nSummary DOT Record\nDose Status\n7 Days Adherence\nSummary Event Record\nSummary Side Effects and Comments')]"
+  },
+  "div_Global Rep_192": {
+    "class": "reports-section ng-star-inserted",
+    "tag": "div",
+    "text": "Global Reports All Active Regimens Monthly Video Count by Patient TBR Summary All 7 Days Adherence Aggregate DOT Record Most Recent Patient Videos User Access All Dose Status Video Quality Control All Patients Pill Count MERM CRA Support Actions Comments Self-Report Discrepancy Total Treatment Dose Counts Adherence User Audit",
+    "xpath": "//div[contains(normalize-space(text()), 'Global Reports\nAll Active Regimens\nMonthly Video Count by Patient\nTBR Summary\nAll 7 Days Adherence\nAggregate DOT Record\nMost Recent Patient Videos\nUser Access\nAll Dose Status\nVideo Quality Control\nAll Patients\nPill Count\nMERM\nCRA\nSupport Actions\nComments\nSelf-Report Discrepancy\nTotal Treatment Dose Counts\nAdherence User Audit')]"
+  },
+  "h4_Global Reports": {
+    "class": "section-title",
+    "tag": "h4",
+    "text": "Global Reports",
+    "xpath": "//h4[contains(normalize-space(text()), 'Global Reports')]"
+  },
+  "div_All Active_194": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "All Active Regimens",
+    "xpath": "//div[contains(normalize-space(text()), 'All Active Regimens')]"
+  },
+  "div_All Active_195": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "All Active Regimens",
+    "xpath": "//div[contains(normalize-space(text()), 'All Active Regimens')]"
+  },
+  "div_All Active_196": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "All Active Regimens",
+    "xpath": "//div[contains(normalize-space(text()), 'All Active Regimens')]"
+  },
+  "div__197": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-b519c971-6973-4d67-89e3-d065edae28f0": {
+    "id": "k-b519c971-6973-4d67-89e3-d065edae28f0",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-b519c971-6973-4d67-89e3-d065edae28f0']"
+  },
+  "span__199": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__200": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__201": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__202": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__203": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Monthly Vi_204": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Monthly Video Count by Patient",
+    "xpath": "//div[contains(normalize-space(text()), 'Monthly Video Count by Patient')]"
+  },
+  "div_Monthly Vi_205": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Monthly Video Count by Patient",
+    "xpath": "//div[contains(normalize-space(text()), 'Monthly Video Count by Patient')]"
+  },
+  "div_Monthly Vi_206": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Monthly Video Count by Patient",
+    "xpath": "//div[contains(normalize-space(text()), 'Monthly Video Count by Patient')]"
+  },
+  "div__207": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-558bdb6a-e683-4384-a249-19d32aa92e32": {
+    "id": "k-558bdb6a-e683-4384-a249-19d32aa92e32",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-558bdb6a-e683-4384-a249-19d32aa92e32']"
+  },
+  "span__209": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__210": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__211": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__212": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__213": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_TBR Summar_214": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "TBR Summary",
+    "xpath": "//div[contains(normalize-space(text()), 'TBR Summary')]"
+  },
+  "div_TBR Summar_215": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "TBR Summary",
+    "xpath": "//div[contains(normalize-space(text()), 'TBR Summary')]"
+  },
+  "div_TBR Summar_216": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "TBR Summary",
+    "xpath": "//div[contains(normalize-space(text()), 'TBR Summary')]"
+  },
+  "div__217": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-857b6a58-92cd-42ba-baa9-6150ad900b02": {
+    "id": "k-857b6a58-92cd-42ba-baa9-6150ad900b02",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-857b6a58-92cd-42ba-baa9-6150ad900b02']"
+  },
+  "span__219": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__220": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__221": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__222": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__223": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_All 7 Days_224": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "All 7 Days Adherence",
+    "xpath": "//div[contains(normalize-space(text()), 'All 7 Days Adherence')]"
+  },
+  "div_All 7 Days_225": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "All 7 Days Adherence",
+    "xpath": "//div[contains(normalize-space(text()), 'All 7 Days Adherence')]"
+  },
+  "div_All 7 Days_226": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "All 7 Days Adherence",
+    "xpath": "//div[contains(normalize-space(text()), 'All 7 Days Adherence')]"
+  },
+  "div__227": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-99118a21-95de-4e25-bdb1-4f4af46d493a": {
+    "id": "k-99118a21-95de-4e25-bdb1-4f4af46d493a",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-99118a21-95de-4e25-bdb1-4f4af46d493a']"
+  },
+  "span__229": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__230": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__231": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__232": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__233": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Aggregate _234": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Aggregate DOT Record",
+    "xpath": "//div[contains(normalize-space(text()), 'Aggregate DOT Record')]"
+  },
+  "div_Aggregate _235": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Aggregate DOT Record",
+    "xpath": "//div[contains(normalize-space(text()), 'Aggregate DOT Record')]"
+  },
+  "div_Aggregate _236": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Aggregate DOT Record",
+    "xpath": "//div[contains(normalize-space(text()), 'Aggregate DOT Record')]"
+  },
+  "div__237": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-4c8fd3f4-b7a2-4c69-93d0-873d4183122e": {
+    "id": "k-4c8fd3f4-b7a2-4c69-93d0-873d4183122e",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-4c8fd3f4-b7a2-4c69-93d0-873d4183122e']"
+  },
+  "span__239": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__240": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__241": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__242": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__243": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Most Recen_244": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Most Recent Patient Videos",
+    "xpath": "//div[contains(normalize-space(text()), 'Most Recent Patient Videos')]"
+  },
+  "div_Most Recen_245": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Most Recent Patient Videos",
+    "xpath": "//div[contains(normalize-space(text()), 'Most Recent Patient Videos')]"
+  },
+  "div_Most Recen_246": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Most Recent Patient Videos",
+    "xpath": "//div[contains(normalize-space(text()), 'Most Recent Patient Videos')]"
+  },
+  "div__247": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-fa8c13af-16d2-4632-85c4-e43a690395f0": {
+    "id": "k-fa8c13af-16d2-4632-85c4-e43a690395f0",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-fa8c13af-16d2-4632-85c4-e43a690395f0']"
+  },
+  "span__249": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__250": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__251": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__252": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__253": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_User Acces_254": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "User Access",
+    "xpath": "//div[contains(normalize-space(text()), 'User Access')]"
+  },
+  "div_User Acces_255": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "User Access",
+    "xpath": "//div[contains(normalize-space(text()), 'User Access')]"
+  },
+  "div_User Acces_256": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "User Access",
+    "xpath": "//div[contains(normalize-space(text()), 'User Access')]"
+  },
+  "div__257": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-13ee4c01-3ffc-4ca6-8dfa-1aca4ec94e0b": {
+    "id": "k-13ee4c01-3ffc-4ca6-8dfa-1aca4ec94e0b",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-13ee4c01-3ffc-4ca6-8dfa-1aca4ec94e0b']"
+  },
+  "span__259": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__260": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__261": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__262": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__263": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_All Dose S_264": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "All Dose Status",
+    "xpath": "//div[contains(normalize-space(text()), 'All Dose Status')]"
+  },
+  "div_All Dose S_265": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "All Dose Status",
+    "xpath": "//div[contains(normalize-space(text()), 'All Dose Status')]"
+  },
+  "div_All Dose S_266": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "All Dose Status",
+    "xpath": "//div[contains(normalize-space(text()), 'All Dose Status')]"
+  },
+  "div__267": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-453ecd87-9fdf-458f-b87c-946df9144850": {
+    "id": "k-453ecd87-9fdf-458f-b87c-946df9144850",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-453ecd87-9fdf-458f-b87c-946df9144850']"
+  },
+  "span__269": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__270": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__271": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__272": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__273": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Video Qual_274": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Video Quality Control",
+    "xpath": "//div[contains(normalize-space(text()), 'Video Quality Control')]"
+  },
+  "div_Video Qual_275": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Video Quality Control",
+    "xpath": "//div[contains(normalize-space(text()), 'Video Quality Control')]"
+  },
+  "div_Video Qual_276": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Video Quality Control",
+    "xpath": "//div[contains(normalize-space(text()), 'Video Quality Control')]"
+  },
+  "div__277": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-06a97513-ed13-407c-83af-ff1827ec7c4f": {
+    "id": "k-06a97513-ed13-407c-83af-ff1827ec7c4f",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-06a97513-ed13-407c-83af-ff1827ec7c4f']"
+  },
+  "span__279": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__280": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__281": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__282": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__283": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_All Patien_284": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "All Patients",
+    "xpath": "//div[contains(normalize-space(text()), 'All Patients')]"
+  },
+  "div_All Patien_285": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "All Patients",
+    "xpath": "//div[contains(normalize-space(text()), 'All Patients')]"
+  },
+  "div_All Patien_286": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "All Patients",
+    "xpath": "//div[contains(normalize-space(text()), 'All Patients')]"
+  },
+  "div__287": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-982079d8-04b6-4520-bbde-c6b0b60cd988": {
+    "id": "k-982079d8-04b6-4520-bbde-c6b0b60cd988",
+    "class": "k-switch-off k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-982079d8-04b6-4520-bbde-c6b0b60cd988']"
+  },
+  "span__289": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__290": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__291": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__292": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__293": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Pill Count_294": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Pill Count",
+    "xpath": "//div[contains(normalize-space(text()), 'Pill Count')]"
+  },
+  "div_Pill Count_295": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Pill Count",
+    "xpath": "//div[contains(normalize-space(text()), 'Pill Count')]"
+  },
+  "div_Pill Count_296": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Pill Count",
+    "xpath": "//div[contains(normalize-space(text()), 'Pill Count')]"
+  },
+  "div__297": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-28dc5072-4045-4473-ad56-a3be087e89c8": {
+    "id": "k-28dc5072-4045-4473-ad56-a3be087e89c8",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-28dc5072-4045-4473-ad56-a3be087e89c8']"
+  },
+  "span__299": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__300": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__301": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__302": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__303": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_MERM_304": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "MERM",
+    "xpath": "//div[contains(normalize-space(text()), 'MERM')]"
+  },
+  "div_MERM_305": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "MERM",
+    "xpath": "//div[contains(normalize-space(text()), 'MERM')]"
+  },
+  "div_MERM_306": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "MERM",
+    "xpath": "//div[contains(normalize-space(text()), 'MERM')]"
+  },
+  "div__307": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-0523075a-b63e-48e9-920c-7c570cef3755": {
+    "id": "k-0523075a-b63e-48e9-920c-7c570cef3755",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-0523075a-b63e-48e9-920c-7c570cef3755']"
+  },
+  "span__309": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__310": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__311": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__312": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__313": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_CRA_314": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "CRA",
+    "xpath": "//div[contains(normalize-space(text()), 'CRA')]"
+  },
+  "div_CRA_315": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "CRA",
+    "xpath": "//div[contains(normalize-space(text()), 'CRA')]"
+  },
+  "div_CRA_316": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "CRA",
+    "xpath": "//div[contains(normalize-space(text()), 'CRA')]"
+  },
+  "div__317": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-1dfc3b09-b7e8-41e6-92e3-b855f74e1a11": {
+    "id": "k-1dfc3b09-b7e8-41e6-92e3-b855f74e1a11",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-1dfc3b09-b7e8-41e6-92e3-b855f74e1a11']"
+  },
+  "span__319": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__320": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__321": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__322": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__323": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Support Ac_324": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Support Actions",
+    "xpath": "//div[contains(normalize-space(text()), 'Support Actions')]"
+  },
+  "div_Support Ac_325": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Support Actions",
+    "xpath": "//div[contains(normalize-space(text()), 'Support Actions')]"
+  },
+  "div_Support Ac_326": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Support Actions",
+    "xpath": "//div[contains(normalize-space(text()), 'Support Actions')]"
+  },
+  "div__327": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-9410b139-67ee-4a94-bfb3-1ffbde22af68": {
+    "id": "k-9410b139-67ee-4a94-bfb3-1ffbde22af68",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-9410b139-67ee-4a94-bfb3-1ffbde22af68']"
+  },
+  "span__329": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__330": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__331": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__332": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__333": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Comments_334": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Comments",
+    "xpath": "//div[contains(normalize-space(text()), 'Comments')]"
+  },
+  "div_Comments_335": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Comments",
+    "xpath": "//div[contains(normalize-space(text()), 'Comments')]"
+  },
+  "div_Comments_336": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Comments",
+    "xpath": "//div[contains(normalize-space(text()), 'Comments')]"
+  },
+  "div__337": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-6b8a8e8f-235b-4b40-9857-ef593ef9766d": {
+    "id": "k-6b8a8e8f-235b-4b40-9857-ef593ef9766d",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-6b8a8e8f-235b-4b40-9857-ef593ef9766d']"
+  },
+  "span__339": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__340": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__341": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__342": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__343": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Self-Repor_344": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Self-Report Discrepancy",
+    "xpath": "//div[contains(normalize-space(text()), 'Self-Report Discrepancy')]"
+  },
+  "div_Self-Repor_345": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Self-Report Discrepancy",
+    "xpath": "//div[contains(normalize-space(text()), 'Self-Report Discrepancy')]"
+  },
+  "div_Self-Repor_346": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Self-Report Discrepancy",
+    "xpath": "//div[contains(normalize-space(text()), 'Self-Report Discrepancy')]"
+  },
+  "div__347": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-90f1d2f4-cb3a-4e7d-bed5-ecc7e86c8f7d": {
+    "id": "k-90f1d2f4-cb3a-4e7d-bed5-ecc7e86c8f7d",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-90f1d2f4-cb3a-4e7d-bed5-ecc7e86c8f7d']"
+  },
+  "span__349": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__350": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__351": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__352": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__353": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Total Trea_354": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Total Treatment Dose Counts",
+    "xpath": "//div[contains(normalize-space(text()), 'Total Treatment Dose Counts')]"
+  },
+  "div_Total Trea_355": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Total Treatment Dose Counts",
+    "xpath": "//div[contains(normalize-space(text()), 'Total Treatment Dose Counts')]"
+  },
+  "div_Total Trea_356": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Total Treatment Dose Counts",
+    "xpath": "//div[contains(normalize-space(text()), 'Total Treatment Dose Counts')]"
+  },
+  "div__357": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-852a9ffb-7d78-47dd-955c-43d287b96763": {
+    "id": "k-852a9ffb-7d78-47dd-955c-43d287b96763",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-852a9ffb-7d78-47dd-955c-43d287b96763']"
+  },
+  "span__359": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__360": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__361": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__362": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__363": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Adherence _364": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Adherence User Audit",
+    "xpath": "//div[contains(normalize-space(text()), 'Adherence User Audit')]"
+  },
+  "div_Adherence _365": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Adherence User Audit",
+    "xpath": "//div[contains(normalize-space(text()), 'Adherence User Audit')]"
+  },
+  "div_Adherence _366": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Adherence User Audit",
+    "xpath": "//div[contains(normalize-space(text()), 'Adherence User Audit')]"
+  },
+  "div__367": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-1963f7d3-da1e-46d8-bc6a-c85eff7ce05b": {
+    "id": "k-1963f7d3-da1e-46d8-bc6a-c85eff7ce05b",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-1963f7d3-da1e-46d8-bc6a-c85eff7ce05b']"
+  },
+  "span__369": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__370": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__371": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__372": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__373": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Per User R_374": {
+    "class": "reports-section ng-star-inserted",
+    "tag": "div",
+    "text": "Per User Reports Patient Videos Summary DOT Record Dose Status 7 Days Adherence Summary Event Record Summary Side Effects and Comments",
+    "xpath": "//div[contains(normalize-space(text()), 'Per User Reports\nPatient Videos\nSummary DOT Record\nDose Status\n7 Days Adherence\nSummary Event Record\nSummary Side Effects and Comments')]"
+  },
+  "div_content": {
+    "class": "content",
+    "tag": "div",
+    "xpath": "//div[@class='content']"
+  },
+  "h4_Per User Reports": {
+    "class": "section-title",
+    "tag": "h4",
+    "text": "Per User Reports",
+    "xpath": "//h4[contains(normalize-space(text()), 'Per User Reports')]"
+  },
+  "div_Patient Vi_376": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Patient Videos",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient Videos')]"
+  },
+  "div_Patient Vi_377": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Patient Videos",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient Videos')]"
+  },
+  "div_Patient Vi_378": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Patient Videos",
+    "xpath": "//div[contains(normalize-space(text()), 'Patient Videos')]"
+  },
+  "div__379": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-aa712a06-e0f8-404c-a0bc-4e7c11c6a6bd": {
+    "id": "k-aa712a06-e0f8-404c-a0bc-4e7c11c6a6bd",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-aa712a06-e0f8-404c-a0bc-4e7c11c6a6bd']"
+  },
+  "span__381": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__382": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__383": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__384": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__385": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Summary DO_386": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Summary DOT Record",
+    "xpath": "//div[contains(normalize-space(text()), 'Summary DOT Record')]"
+  },
+  "div_Summary DO_387": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Summary DOT Record",
+    "xpath": "//div[contains(normalize-space(text()), 'Summary DOT Record')]"
+  },
+  "div_Summary DO_388": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Summary DOT Record",
+    "xpath": "//div[contains(normalize-space(text()), 'Summary DOT Record')]"
+  },
+  "div__389": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-45e09e1e-d6e3-46f4-8344-c60bd52b8182": {
+    "id": "k-45e09e1e-d6e3-46f4-8344-c60bd52b8182",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-45e09e1e-d6e3-46f4-8344-c60bd52b8182']"
+  },
+  "span__391": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__392": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__393": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__394": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__395": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Dose Statu_396": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Dose Status",
+    "xpath": "//div[contains(normalize-space(text()), 'Dose Status')]"
+  },
+  "div_Dose Statu_397": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Dose Status",
+    "xpath": "//div[contains(normalize-space(text()), 'Dose Status')]"
+  },
+  "div_Dose Statu_398": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Dose Status",
+    "xpath": "//div[contains(normalize-space(text()), 'Dose Status')]"
+  },
+  "div__399": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-d3ba7c76-24af-4804-b64e-475f17945f1d": {
+    "id": "k-d3ba7c76-24af-4804-b64e-475f17945f1d",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-d3ba7c76-24af-4804-b64e-475f17945f1d']"
+  },
+  "span__401": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__402": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__403": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__404": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__405": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_7 Days Adh_406": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "7 Days Adherence",
+    "xpath": "//div[contains(normalize-space(text()), '7 Days Adherence')]"
+  },
+  "div_7 Days Adh_407": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "7 Days Adherence",
+    "xpath": "//div[contains(normalize-space(text()), '7 Days Adherence')]"
+  },
+  "div_7 Days Adh_408": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "7 Days Adherence",
+    "xpath": "//div[contains(normalize-space(text()), '7 Days Adherence')]"
+  },
+  "div__409": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-155f2075-ce7d-4752-bb9c-4938ee10909d": {
+    "id": "k-155f2075-ce7d-4752-bb9c-4938ee10909d",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-155f2075-ce7d-4752-bb9c-4938ee10909d']"
+  },
+  "span__411": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__412": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__413": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__414": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__415": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Summary Ev_416": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Summary Event Record",
+    "xpath": "//div[contains(normalize-space(text()), 'Summary Event Record')]"
+  },
+  "div_Summary Ev_417": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Summary Event Record",
+    "xpath": "//div[contains(normalize-space(text()), 'Summary Event Record')]"
+  },
+  "div_Summary Ev_418": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Summary Event Record",
+    "xpath": "//div[contains(normalize-space(text()), 'Summary Event Record')]"
+  },
+  "div__419": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-209ad4a5-585e-4dc7-ab44-adcdd1141c0f": {
+    "id": "k-209ad4a5-585e-4dc7-ab44-adcdd1141c0f",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-209ad4a5-585e-4dc7-ab44-adcdd1141c0f']"
+  },
+  "span__421": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__422": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__423": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__424": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__425": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "div_Summary Si_426": {
+    "class": "ng-star-inserted",
+    "tag": "div",
+    "text": "Summary Side Effects and Comments",
+    "xpath": "//div[contains(normalize-space(text()), 'Summary Side Effects and Comments')]"
+  },
+  "div_Summary Si_427": {
+    "class": "row list-item",
+    "tag": "div",
+    "text": "Summary Side Effects and Comments",
+    "xpath": "//div[contains(normalize-space(text()), 'Summary Side Effects and Comments')]"
+  },
+  "div_Summary Si_428": {
+    "class": "col-3 fw-bold",
+    "tag": "div",
+    "text": "Summary Side Effects and Comments",
+    "xpath": "//div[contains(normalize-space(text()), 'Summary Side Effects and Comments')]"
+  },
+  "div__429": {
+    "class": "col",
+    "tag": "div",
+    "xpath": "//div[@class='col']"
+  },
+  "k-f3d81999-9008-43d8-87a7-85f189e62c6b": {
+    "id": "k-f3d81999-9008-43d8-87a7-85f189e62c6b",
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full k-switch-on",
+    "tag": "kendo-switch",
+    "xpath": "//kendo-switch[@id='k-f3d81999-9008-43d8-87a7-85f189e62c6b']"
+  },
+  "span__431": {
+    "class": "k-switch-track k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-track k-rounded-full']"
+  },
+  "span__432": {
+    "class": "k-switch-label-on",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-on']"
+  },
+  "span__433": {
+    "class": "k-switch-label-off",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-label-off']"
+  },
+  "span__434": {
+    "class": "k-switch-thumb-wrap",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb-wrap']"
+  },
+  "span__435": {
+    "class": "k-switch-thumb k-rounded-full",
+    "tag": "span",
+    "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "kendo-switch_Patient Videos": {
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//h4[contains(.,'Per User Reports')]/following::div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Patient Videos')]]//descendant::kendo-switch"
+  },
+  "kendo-switch_Summary DOT Record": {
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//h4[contains(.,'Per User Reports')]/following::div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Summary DOT Record')]]//descendant::kendo-switch"
+  },
+  "kendo-switch_Dose Status": {
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//h4[contains(.,'Per User Reports')]/following::div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Dose Status')]]//descendant::kendo-switch"
+  },
+  "kendo-switch_7 Days Adherence": {
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//h4[contains(.,'Per User Reports')]/following::div[@class='row list-item'][.//div[contains(normalize-space(text()), '7 Days Adherence')]]//descendant::kendo-switch"
+  },
+  "kendo-switch_Summary Event Record": {
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//h4[contains(.,'Per User Reports')]/following::div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Summary Event Record')]]//descendant::kendo-switch"
+  },
+  "kendo-switch_Summary Side Effects and Comments": {
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//h4[contains(.,'Per User Reports')]/following::div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Summary Side Effects and Comments')]]//descendant::kendo-switch"
+  }
+}

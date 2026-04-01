@@ -17,3 +17,8 @@ scikit-learn
 pytest-dependency
 pytest-xdist
 pytest-xdist[psutil]
+pdfplumber
+pdf2image
+pytesseract
+pillow
+opencv-python

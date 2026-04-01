@@ -467,7 +467,7 @@
     "tag": "div",
     "xpath": "//div[@class='k-content k-panelbar-content ng-tns-c3003368627-1 ng-star-inserted']"
   },
-  "sites_bar": {
+  "Sites_bar": {
     "id": "sites_bar",
     "class": "ng-star-inserted",
     "tag": "ul",
@@ -661,17 +661,17 @@
     "text": "Adherence for doses in the last 7 days 3.13%",
     "xpath": "//div[contains(normalize-space(text()), 'Adherence\nfor doses in the last 7 days\n3.13%')]"
   },
-  "div_Adherence_158": {
+  "div_Adherence": {
     "class": "k-font-size-xl k-font-semibold",
     "tag": "div",
     "text": "Adherence",
     "xpath": "//div[contains(normalize-space(text()), 'Adherence')]"
   },
-  "div_for doses _159": {
+  "div_for_doses": {
     "class": "k-font-size-md",
     "tag": "div",
-    "text": "for doses in the last 7 days",
-    "xpath": "//div[contains(normalize-space(text()), 'for doses in the last 7 days')]"
+    "text": "for doses in the last",
+    "xpath": "//div[contains(normalize-space(text()), 'for doses in the last')]"
   },
   "h1_3.13%_160": {
     "class": "mt-2",
@@ -733,12 +733,10 @@
     "text": "Last 7 days",
     "xpath": "//div[contains(normalize-space(text()), 'Last 7 days')]"
   },
-  "k-31b62c1f-df31-4002-ab56-b29bed2559c2": {
-    "id": "k-31b62c1f-df31-4002-ab56-b29bed2559c2",
+  "kendo-dropdownlist_adherence": {
     "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
     "tag": "kendo-dropdownlist",
-    "text": "Last 7 days",
-    "xpath": "//kendo-dropdownlist[@id='k-31b62c1f-df31-4002-ab56-b29bed2559c2']"
+    "xpath": "//div[@class='chart-menu']//kendo-dropdownlist"
   },
   "k-8e4b4abe-cea1-47c1-9e62-f8b8c7f47a11": {
     "id": "k-8e4b4abe-cea1-47c1-9e62-f8b8c7f47a11",
@@ -790,11 +788,11 @@
   },
   "columnChart": {
     "id": "columnChart",
-    "class": "k-button k-state-disabled icon-button",
+    "class": "k-button icon-button",
     "tag": "div",
     "xpath": "//div[@id='columnChart']"
   },
-  "span__191": {
+  "span_icon-chart-bars": {
     "class": "icon-chart-bars",
     "tag": "span",
     "xpath": "//span[@class='icon-chart-bars']"
@@ -805,7 +803,7 @@
     "tag": "div",
     "xpath": "//div[@id='areaChart']"
   },
-  "span__193": {
+  "span_icon-chart-area": {
     "class": "icon-chart-area",
     "tag": "span",
     "xpath": "//span[@class='icon-chart-area']"
@@ -821,7 +819,7 @@
     "tag": "div",
     "xpath": "//div[@id='moveChartLeft']"
   },
-  "span__196": {
+  "span_left_arrow": {
     "class": "icon-keyboard_arrow_left",
     "tag": "span",
     "xpath": "//span[@class='icon-keyboard_arrow_left']"
@@ -832,7 +830,7 @@
     "tag": "div",
     "xpath": "//div[@id='moveChartRight']"
   },
-  "span__198": {
+  "span_right_arrow8": {
     "class": "icon-keyboard_arrow_right",
     "tag": "span",
     "xpath": "//span[@class='icon-keyboard_arrow_right']"
@@ -855,10 +853,10 @@
     "text": "23 Open 0 Taken 0 Missed 0 Unknown",
     "xpath": "//div[contains(normalize-space(text()), '23\nOpen\n0\nTaken\n0\nMissed\n0\nUnknown')]"
   },
-  "div__202": {
-    "class": "center-line d-lg-none",
+  "div_breakdown_text": {
+    "class": "mb-2 text-center text-lg-start k-font-size-lg k-font-semibold",
     "tag": "div",
-    "xpath": "//div[@class='center-line d-lg-none']"
+    "xpath": "//div[@class='mb-2 text-center text-lg-start k-font-size-lg k-font-semibold' and contains(.,'Breakdown of')]"
   },
   "div_23 Open_203": {
     "class": "status-icons col-3 col-lg-12",
@@ -866,10 +864,25 @@
     "text": "23 Open",
     "xpath": "//div[contains(normalize-space(text()), '23\nOpen')]"
   },
-  "div__204": {
+  "span_open_doses": {
     "class": "chart-icon open-dose-icon",
-    "tag": "div",
-    "xpath": "//div[@class='chart-icon open-dose-icon']"
+    "tag": "span",
+    "xpath": "//div[contains(@class,'chart-icon open-dose-icon')]"
+  },
+  "span_taken_doses": {
+    "class": "chart-icon taken-dose-icon",
+    "tag": "span",
+    "xpath": "//span[contains(@class,'chart-icon taken-dose-icon')]"
+  },
+  "span_missed_doses": {
+    "class": "chart-icon missed-dose-icon",
+    "tag": "span",
+    "xpath": "//span[contains(@class,'chart-icon missed-dose-icon')]"
+  },
+  "span_unknown_doses": {
+    "class": "chart-icon unknown-dose-icon",
+    "tag": "span",
+    "xpath": "//span[contains(@class,'chart-icon unknown-dose-icon')]"
   },
   "span_23_205": {
     "class": "icon-data",
@@ -889,11 +902,7 @@
     "text": "0 Taken",
     "xpath": "//div[contains(normalize-space(text()), '0\nTaken')]"
   },
-  "span__208": {
-    "class": "chart-icon taken-dose-icon",
-    "tag": "span",
-    "xpath": "//span[@class='chart-icon taken-dose-icon']"
-  },
+
   "span_0_209": {
     "class": "icon-data",
     "tag": "span",
@@ -912,11 +921,6 @@
     "text": "0 Missed",
     "xpath": "//div[contains(normalize-space(text()), '0\nMissed')]"
   },
-  "span__212": {
-    "class": "chart-icon missed-dose-icon",
-    "tag": "span",
-    "xpath": "//span[@class='chart-icon missed-dose-icon']"
-  },
   "span_0_213": {
     "class": "icon-data",
     "tag": "span",
@@ -934,11 +938,6 @@
     "tag": "div",
     "text": "0 Unknown",
     "xpath": "//div[contains(normalize-space(text()), '0\nUnknown')]"
-  },
-  "span__216": {
-    "class": "chart-icon unknown-dose-icon",
-    "tag": "span",
-    "xpath": "//span[@class='chart-icon unknown-dose-icon']"
   },
   "span_0_217": {
     "class": "icon-data",
@@ -1027,6 +1026,12 @@
     "tag": "ul",
     "text": "New patient videos (58) New messages (16) Todays virtual visits (0) Urgent follow-Up needed (50) Open doses (52)",
     "xpath": "//ul[contains(normalize-space(text()), 'New patient videos (58)\nNew messages (16)\nToday's virtual visits (0)\nUrgent follow-Up needed (50)\nOpen doses (52)')]"
+  },
+  "k-tabstrip-tab-New patient videos": {
+    "class": "k-item k-state-default ng-star-inserted k-active",
+    "tag": "li",
+    "text": "New patient videos",
+    "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(.), 'New patient videos')]"
   },
   "k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-0": {
     "id": "k-tabstrip-tab-72aabaad-bb51-4d2c-8b40-25424f3a9ada-0",
@@ -1497,11 +1502,11 @@
     "tag": "col",
     "xpath": "//col[@class='ng-star-inserted']"
   },
-  "tbody_232332 Aug_369": {
+  "tbody_dashboard": {
     "class": "k-table-tbody",
     "tag": "tbody",
-    "text": "232332 Aug 13 09:06 PM Aug 13 09:07 PM 13082025 Aug 13 08:44 PM Aug 13 08:46 PM 13082025 Aug 13 05:44 PM 13082025 Aug 13 05:44 PM Aug 13 05:46 PM 13082025 Aug 13 04:47 PM 13082025 Aug 13 11:43 AM Aug 13 11:45 AM 13082025 Aug 13 11:34 AM Aug 13 11:37 AM 13082025 Aug 13 11:19 AM Aug 13 11:21 AM 13082025 Aug 13 11:14 AM Aug 13 11:16 AM 13082025 Aug 13 11:09 AM Aug 13 11:11 AM",
-    "xpath": "//tbody[contains(normalize-space(text()), '232332 Aug 13\n09:06 PM Aug 13\n09:07 PM\n13082025 Aug 13\n08:44 PM Aug 13\n08:46 PM\n13082025 Aug 13\n05:44 PM\n13082025 Aug 13\n05:44 PM Aug 13\n05:46 PM\n13082025 Aug 13\n04:47 PM\n13082025 Aug 13\n11:43 AM Aug 13\n11:45 AM\n13082025 Aug 13\n11:34 AM Aug 13\n11:37 AM\n13082025 Aug 13\n11:19 AM Aug 13\n11:21 AM\n13082025 Aug 13\n11:14 AM Aug 13\n11:16 AM\n13082025 Aug 13\n11:09 AM Aug 13\n11:11 AM')]"
+    "role": "rowgroup",
+    "xpath": "//tbody[@class='k-table-tbody' and @role='rowgroup']"
   },
   "div__370": {
     "class": "k-height-container",
@@ -1721,7 +1726,20 @@
   "span-patient-video-review": {
     "class": "k-button-text",
     "tag": "span",
-    "xpath": "//div//span[@class='k-button-text'][contains(text(),'Review Video')]"
+    "xpath": "//div//span[@class='k-button-text'][contains(text(),'Review Video')]",
+    "xpath_template": "//div//span[@class='k-button-text'][contains(text(),'Review Video')]"
+  },
+  "span-message-patient": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//div//span[@class='k-button-text'][contains(text(),'Message Patient')]",
+    "xpath_template": "//div//span[@class='k-button-text'][contains(text(),'Message Patient')]"
+  },
+  "span-email-staff": {
+    "class": "k-button-text",
+    "tag": "span",
+    "xpath": "//div//span[@class='k-button-text'][contains(text(),'Email Staff')]",
+    "xpath_template": "//div//span[@class='k-button-text'][contains(text(),'Email Staff')]"
   },
   "span-patient-sa-id-review": {
     "class": "k-color-subtle k-font-size-sm",
@@ -1734,6 +1752,18 @@
     "text": "additional new videos",
     "xpath": "//span[contains(text(),'additional new videos')]/following-sibling::button[@class='expand-button']"
   },
+  "additional_missed_videos": {
+    "class": "k-color-subtle k-font-size-sm",
+    "tag": "span",
+    "text": "additional missed videos",
+    "xpath": "//span[contains(text(),'additional missed videos')]/following-sibling::button[@class='expand-button']"
+  },
+  "additional_low_review_rate": {
+    "class": "k-color-subtle k-font-size-sm",
+    "tag": "span",
+    "text": "site-level updates",
+    "xpath": "//span[contains(text(),'site-level updates')]/following-sibling::button[@class='expand-button']"
+  },
   "Patient Manager_bar": {
     "id": "managers_bar",
     "class": "ng-star-inserted",
@@ -1745,6 +1775,18 @@
     "class": "ng-star-inserted",
     "tag": "ul",
     "xpath": "//ul[@id='treatment_monitors']"
+  },
+  "Disease_bar": {
+    "id": "diseases_bar",
+    "class": "ng-star-inserted",
+    "tag": "ul",
+    "xpath": "//ul[@id='diseases_bar']"
+  },
+  "Observation method_bar": {
+    "id": "observationTypes_bar",
+    "class": "ng-star-inserted",
+    "tag": "ul",
+    "xpath": "//ul[@id='observationTypes_bar']"
   },
   "span_Treatment Monitor": {
     "class": "k-panelbar-item-text",
@@ -1764,7 +1806,7 @@
     "text": "Hide filters",
     "xpath": "//div[contains(normalize-space(text()), 'Hide filters')]"
   },
-  "span_Site": {
+  "span_Sites": {
     "class": "k-panelbar-item-text",
     "tag": "span",
     "text": "Site",
@@ -1786,5 +1828,69 @@
     "class": "k-panelbar-item-text",
     "tag": "span",
     "xpath": "//span[contains(@class,'k-panelbar-item-text')]"
+  },
+  "global_filter_item_Patient Manager": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath_template": "//ul[@id='managers_bar']//label[contains(.,{text})]"
+  },
+  "global_filter_item_Treatment Monitor": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath_template": "//ul[@id='treatment_monitors']//label[contains(.,{text})]"
+  },
+  "global_filter_item_Sites": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath_template": "//ul[@id='sites_bar']//label[contains(.,{text})]"
+  },
+  "global_filter_item_Disease": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath_template": "//ul[@id='diseases_bar']//label[contains(.,{text})]"
+  },
+  "global_filter_item_Disease_first": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath": "//ul[@id='diseases_bar']/li[1]"
+  },
+  "global_filter_item_Observation method": {
+    "class": "k-checkbox-label k-label",
+    "tag": "label",
+    "xpath_template": "//ul[@id='observationTypes_bar']//label[contains(.,{text})]"
+  },
+  "reset_filters": {
+    "class": "clear-link",
+    "tag": "span",
+    "text": "here",
+    "xpath": "//span[@class='clear-link']"
+  },
+  "td_patient_manager": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex":"4",
+    "xpath": "//td[@aria-colindex='4']"
+  },
+  "td_treatment_monitor": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex":"5",
+    "xpath": "//td[@aria-colindex='5']"
+  },
+  "td_recorded": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex":"2",
+    "xpath": "//td[@aria-colindex='2']"
+  },
+  "table_no_data": {
+    "class": "message",
+    "tag": "div",
+    "xpath": "//td//div[contains(normalize-space(.),'No data')]"
+  },
+  "kendo-pager-info": {
+    "class": "k-pager-info k-label ng-star-inserted",
+    "tag": "kendo-pager-info",
+    "xpath": "//kendo-pager-info[contains(@class,'k-pager-info k-label ng-star-inserted')]"
   }
 }

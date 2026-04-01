@@ -78,8 +78,31 @@ class AdminPage(BasePage):
         assert "Announcements" == text.strip(), "Announcements is not opened"
         print("Announcements is opened")
 
+    def open_config_lookup(self):
+        self.click('k-tabstrip-tab-Configurable Lookups', strict=True)
+        time.sleep(5)
+        self.wait_for_page_to_load()
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Continue")
+        except Exception:
+            print("popup not present")
+        text =  self.get_text('k-opened-tabstrip-tab')
+        print(text)
+        assert "Configurable Lookups" == text.strip(), "Configurable Lookups is not opened"
+        print("Configurable Lookups is opened")
+
     def open_feature_flags(self):
         self.click('k-tabstrip-tab-Feature_Flags')
+        self.wait_for_page_to_load()
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Continue")
+        except Exception:
+            print("popup not present")
+
+    def open_reports_by_clients(self):
+        self.click('k-tabstrip-tab-Reports by Clients')
         self.wait_for_page_to_load()
         try:
             self.kendo_dialog_wait_open()  # no title constraint
