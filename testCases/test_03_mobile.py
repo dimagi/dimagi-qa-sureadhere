@@ -177,12 +177,13 @@ class test_module_03(BaseCase):
         d = self.__class__.data
 
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
         except Exception:
-            print("Login Screen not present")
-        home.open_dashboard_page()
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+            login.login(self.settings["login_username"], self.settings["login_password"])
 
-        home.validate_dashboard_page()
         home.check_for_quick_actions()
         home.check_for_video_review(d["patient_fname"]+" "+d["patient_lname"], d['SA_ID'])
         p_vdo.verify_patient_video_page()
