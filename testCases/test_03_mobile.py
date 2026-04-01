@@ -60,6 +60,7 @@ class test_module_03(BaseCase):
         home.click_admin_profile_button()
         profile.logout_user()
         login.after_logout()
+
         if "banner" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[0]
             default_site_manager = UserData.site_manager[0]
