@@ -371,7 +371,7 @@
 
   // Deterministic suite -> color
   function suiteColor(name) {
-    const s = String(name || "unknown");
+    const s = String(name );
     let h = 0;
     for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
     return SUITE_COLORS[h % SUITE_COLORS.length];
@@ -395,7 +395,11 @@ function renderPassEnvPie(d) {
   const map = {};
   for (const r of d) {
     if (r.status !== "pass") continue;
-    const env = r.env || "unknown";
+    if (!r.env) {
+    console.warn("Skipping record with missing env:", r);
+    continue;
+  }
+    const env = r.env;
     map[env] = (map[env] || 0) + 1;
   }
 
@@ -426,7 +430,11 @@ function renderFailEnvPie(d) {
   const map = {};
   for (const r of d) {
     if (r.status !== "fail") continue;
-    const env = r.env || "unknown";
+    if (!r.env) {
+    console.warn("Skipping record with missing env:", r);
+    continue;
+  }
+    const env = r.env;
     map[env] = (map[env] || 0) + 1;
   }
 
@@ -455,7 +463,8 @@ function renderFailEnvPie(d) {
   function renderQuarterTrend(d) {
     const qMap = {};
     for (const r of d) {
-      const q = r.q || "unknown";
+      if (!r.q) continue;
+      const q = r.q ;
       if (!qMap[q]) qMap[q] = { t:0, f:0 };
       qMap[q].t++;
       if (r.status === "fail") qMap[q].f++;
@@ -498,7 +507,7 @@ function renderFailEnvPie(d) {
     // top 10 by total runs
     const m = {};
     for (const r of d) {
-      const s = r.suite || "unknown";
+      const s = r.suite ;
       if (!m[s]) m[s] = { p:0, f:0, t:0 };
       m[s].t++;
       if (r.status === "pass") m[s].p++;
@@ -537,7 +546,7 @@ function renderFailEnvPie(d) {
   function renderTopFailSuites(d) {
     const m = {};
     for (const r of d) {
-      const s = r.suite || "unknown";
+      const s = r.suite ;
       if (!m[s]) m[s] = { f:0 };
       if (r.status === "fail") m[s].f++;
     }
@@ -581,8 +590,9 @@ function renderFailEnvPie(d) {
     const qSet = new Set();
 
     for (const r of d) {
-      const s = r.suite || "unknown";
-      const q = r.q || "unknown";
+      if (!r.suite || !r.q) continue;
+      const s = r.suite ;
+      const q = r.q ;
       qSet.add(q);
       per[s] ??= {};
       per[s][q] ??= {t:0,f:0};
@@ -776,11 +786,13 @@ function renderFailEnvPie(d) {
       );
     }
 
-    raw = arr.map(r => ({
-      ...r,
-      q: quarterFromISO(r.timestamp_utc),
-      status: (r.status || "").toLowerCase()
-    }));
+    raw = arr
+      .filter(r => r.env && r.timestamp_utc)
+      .map(r => ({
+        ...r,
+        q: quarterFromISO(r.timestamp_utc),
+        status: (r.status || "").toLowerCase()
+     }));
 
     initFiltersFromData();
     renderAll();
