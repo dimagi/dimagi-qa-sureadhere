@@ -248,29 +248,50 @@ jobs:
           now = datetime.datetime.now(datetime.timezone.utc)
           cutoff = now - datetime.timedelta(hours=24)
 
+          ALLOWED_ENVS = {"banner", "secure", "securevoteu", "rogers"}
+
           stats = defaultdict(lambda: {"pass": 0, "fail": 0})
           total = 0
 
           with open("metrics/runs.jsonl", encoding="utf-8") as f:
               for line in f:
-                  r = json.loads(line)
+                  line = line.strip()
+                  if not line:
+                      continue
+
+                  try:
+                      r = json.loads(line)
+                  except Exception:
+                      print(f"Skipping bad JSON line: {line[:100]}")
+                      continue
+
                   ts = r.get("timestamp_utc")
                   if not ts:
                       continue
+
                   t = datetime.datetime.fromisoformat(ts.replace("Z", "+00:00"))
                   if t < cutoff:
                       continue
 
-                  env = r.get("env") or r.get("environment") or "unknown"
+                  env = r.get("env") or r.get("environment")
+
+                  if env not in ALLOWED_ENVS:
+                      continue
+
                   total += 1
+
                   if (r.get("status") or "").lower() == "pass":
                       stats[env]["pass"] += 1
                   else:
                       stats[env]["fail"] += 1
 
-          # stable ordering in Slack
-          env_order = sorted(stats.keys())
-          lines = [f"• *{e}* → ✅ {stats[e]['pass']} | ❌ {stats[e]['fail']}" for e in env_order]
+          # ensure all 4 envs always show (even if 0)
+          env_order = ["banner", "secure", "securevoteu", "rogers"]
+
+          lines = [
+              f"• *{e}* → ✅ {stats[e]['pass']} | ❌ {stats[e]['fail']}"
+              for e in env_order
+          ]
 
           fail_total = sum(v["fail"] for v in stats.values())
           fail_rate = round((fail_total / total * 100), 1) if total else 0
@@ -278,7 +299,7 @@ jobs:
           msg = (
               "📊 *SureAdhere Automation Dashboard (last 24h)*\n\n"
               "*Environment summary:*\n"
-              + ("\n".join(lines) if lines else "_No runs in last 24h_")
+              + "\n".join(lines)
               + f"\n\n• Runs: *{total}*\n"
               + f"• Fail rate: *{fail_rate}%*\n\n"
               + "🔗 https://dimagi.github.io/dimagi-qa-sureadhere/"

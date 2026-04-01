@@ -57,10 +57,14 @@ class UserPatientPage(BasePage):
         # self.assert_list_contains_only([site],values)
         # print(f"The Patient can only be created for {values}")
 
-        if self.kendo_dd_get_selected_text('kendo-dropdownlist-site') != site:
+        site_text_already = self.kendo_dd_get_selected_text('kendo-dropdownlist-site')
+        time.sleep(2)
+        if site_text_already.strip() != site:
+            print("Site not yet selected")
             self.kendo_dd_select_text_old('kendo-dropdownlist-site', site)
         else:
             print("Site already selected")
+        time.sleep(2)
         site_text = self.kendo_dd_get_selected_text('kendo-dropdownlist-site')
         print(site_text, site)
         phn_country_text = self.kendo_dd_get_selected_text('kendo-dropdownlist-phone-country')
