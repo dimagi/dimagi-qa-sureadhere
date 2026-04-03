@@ -6,8 +6,6 @@ on:
       - "SureAdhere Tests"
       - "SureAdhere Tests - Extended"
     types: [completed]
-    branches:
-      - main
 
 
   workflow_dispatch:
