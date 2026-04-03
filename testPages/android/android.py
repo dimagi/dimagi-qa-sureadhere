@@ -554,11 +554,16 @@ class Android:
         self.driver.quit()
 
     def convert_date_format_safe(self, date_str: str) -> str:
-        formats = ["%b %d, %Y", "%B %d, %Y"]
+        # strptime %d accepts both "1" and "01", so these handle non-padded input too
+        formats = ["%b %d, %Y", "%b %-d, %Y", "%B %d, %Y", "%B %-d, %Y"]
         for fmt in formats:
             try:
                 dt = datetime.strptime(date_str.strip(), fmt)
-                return dt.strftime("%d %b %Y")
+                # Output without leading zero to match app format e.g. "1 Apr 2026"
+                try:
+                    return dt.strftime("%-d %b %Y")   # Unix/Linux/macOS
+                except ValueError:
+                    return dt.strftime("%#d %b %Y")   # Windows
             except ValueError:
                 continue
         raise ValueError(f"Unsupported date format: {date_str}")

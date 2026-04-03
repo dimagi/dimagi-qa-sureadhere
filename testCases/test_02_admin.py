@@ -269,6 +269,7 @@ class test_module_02_admin(BaseCase):
         admin.open_announcement()
         a_announce.verify_announcement_created(announcement_text, status, client)
         home.open_dashboard_page()
+        home.validate_dashboard_page()
         home.verify_announcement(announcement_text)
 
         home.open_admin_page()
