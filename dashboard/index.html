@@ -566,7 +566,7 @@ function renderFailEnvPie(d) {
         datasets: [{
           label: "Failed runs",
           data: suites.length ? vals : [0],
-          backgroundColor: suites.length ? suites.map(suiteColor) : [FAIL_RED],
+          backgroundColor: suites.length ? suites.map((_, i) => FAIL_COLORS[i % FAIL_COLORS.length]) : [FAIL_RED],
           ...BAR_OPTS
         }]
       },
@@ -625,7 +625,7 @@ function renderFailEnvPie(d) {
           datasets: [{
             label: `${selectedSuite} fail rate (%)`,
             data: rates,
-            backgroundColor: suiteColor(selectedSuite),
+            backgroundColor: FAIL_COLORS[0],
             ...BAR_OPTS
           }]
         },
@@ -665,13 +665,13 @@ function renderFailEnvPie(d) {
     }
 
     // Stacked datasets: each suite across quarters (fail rate %)
-    const datasets = topSuites.map((s) => ({
+    const datasets = topSuites.map((s, i) => ({
       label: s,
       data: quarters.map(q => {
         const v = (per[s] && per[s][q]) ? per[s][q] : {t:0,f:0};
         return v.t ? formatPct((v.f/v.t)*100) : 0;
       }),
-      backgroundColor: suiteColor(s),
+      backgroundColor: FAIL_COLORS[i % FAIL_COLORS.length],
       ...BAR_OPTS
     }));
 
