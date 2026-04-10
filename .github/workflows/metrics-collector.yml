@@ -252,8 +252,12 @@ jobs:
           import json, datetime
           from collections import defaultdict
 
-          now = datetime.datetime.now(datetime.timezone.utc)
-          cutoff = now - datetime.timedelta(hours=24)
+          IST = datetime.timezone(datetime.timedelta(hours=5, minutes=30))
+          now_ist = datetime.datetime.now(IST)
+          # Anchor to midnight IST so the window covers a full IST calendar day
+          # and doesn't shrink as tests trigger intraday updates.
+          today_midnight_ist = now_ist.replace(hour=0, minute=0, second=0, microsecond=0)
+          cutoff = today_midnight_ist - datetime.timedelta(hours=24)
 
           ALLOWED_ENVS = {"banner", "secure", "securevoteu", "rogers"}
 
@@ -293,10 +297,16 @@ jobs:
                       stats[env]["fail"] += 1
 
           # ensure all 4 envs always show (even if 0)
+          ENV_LABELS = {
+              "banner":      "Staging",
+              "rogers":      "QA",
+              "secure":      "US Prod",
+              "securevoteu": "EU Prod",
+          }
           env_order = ["banner", "secure", "securevoteu", "rogers"]
 
           lines = [
-              f"• *{e}* → ✅ {stats[e]['pass']} | ❌ {stats[e]['fail']}"
+              f"• *{ENV_LABELS.get(e, e)}* → ✅ {stats[e]['pass']} | ❌ {stats[e]['fail']}"
               for e in env_order
           ]
 

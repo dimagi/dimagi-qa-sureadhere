@@ -50,7 +50,7 @@
       margin: 0;
     }
     .card .value {
-      font-size: 21px;  /* reduced from 25 */
+      font-size: 21px;
       font-weight: 750;
       margin-top: 6px;
       letter-spacing: 0.2px;
@@ -73,7 +73,7 @@
 
       display: flex;
       flex-direction: column;
-      gap: 10px;   /* ✅ use gap instead of space-between */
+      gap: 10px;
     }
 
     canvas {
@@ -87,7 +87,26 @@
     }
 
     .pieWrap { max-width: 420px; margin: auto; }
-    #envPie { height: 240px !important; } /* slightly smaller pie */
+
+    .env-pies-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .env-pie-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .env-pie-cell h3 {
+      font-size: 13px;
+      font-weight: 600;
+      margin: 0 0 4px;
+      color: #444;
+    }
+    .env-pie-cell canvas {
+      height: 160px !important;
+    }
 
     table {
       width: 100%;
@@ -129,6 +148,12 @@
       </select>
     </label>
 
+    <label>Trigger:
+      <select id="triggerFilter">
+        <option value="All">All</option>
+      </select>
+    </label>
+
     <label>Time window:
       <select id="timeFilter">
         <option value="1">Last 24h</option>
@@ -157,46 +182,59 @@
     <div class="card"><h3>Reruns</h3><div class="value" id="rerunCount">0</div></div>
   </div>
 
-  <!-- ROW 1: Pass + Fail -->
-<div class="grid2">
+  <!-- ROW 1: Pass + Fail pies -->
+  <div class="grid2">
+    <div class="box">
+      <h2>Pass by Environment</h2>
+      <div class="pieWrap">
+        <canvas id="passEnvPie"></canvas>
+      </div>
+    </div>
 
-  <div class="box">
-    <h2>Pass by Environment</h2>
-    <div class="pieWrap">
-      <canvas id="passEnvPie"></canvas>
+    <div class="box">
+      <h2>Fail by Environment</h2>
+      <div class="pieWrap">
+        <canvas id="failEnvPie"></canvas>
+      </div>
     </div>
   </div>
 
-  <div class="box">
-    <h2>Fail by Environment</h2>
-    <div class="pieWrap">
-      <canvas id="failEnvPie"></canvas>
-    </div>
+  <!-- ROW 2: Quarterly trend -->
+  <div class="box" style="margin-top:22px;">
+    <h2>Quarterly Fail Rate Trend</h2>
+    <div class="muted">Fail rate (%) across quarters for current filters.</div>
+    <canvas id="quarterTrend"></canvas>
   </div>
 
-</div>
-
-<!-- ROW 2: Quarterly -->
-<div class="box" style="margin-top:22px;">
-  <h2>Quarterly Fail Rate Trend</h2>
-  <div class="muted">Fail rate (%) across quarters for current filters.</div>
-  <canvas id="quarterTrend"></canvas>
-</div>
-
+  <!-- ROW 3: Pass vs Fail bar + 4 per-env pie charts -->
   <div class="grid2" style="margin-top:22px;">
     <div class="box">
-      <h2>Per-suite quarterly comparison</h2>
-      <div class="muted">
-        If Suite = <b>All</b>, shows top 8 suites by failed runs (stacked by quarter, values are fail rate %).
-        If a suite is selected, shows that suite’s quarterly fail rate.
-      </div>
-      <canvas id="suiteQuarterCompare"></canvas>
+      <h2>Pass vs Fail by Environment</h2>
+      <div class="muted">Number of passed and failed runs per environment.</div>
+      <canvas id="envBars"></canvas>
     </div>
 
     <div class="box">
-      <h2>Top failing suites</h2>
-      <div class="muted">Top 8 suites by failed runs in current filters.</div>
-      <canvas id="topFailSuites"></canvas>
+      <h2>Pass / Fail split per Environment</h2>
+      <div class="muted">Proportion of passed vs failed runs for each environment.</div>
+      <div class="env-pies-grid">
+        <div class="env-pie-cell">
+          <h3>Staging</h3>
+          <canvas id="envPie_banner"></canvas>
+        </div>
+        <div class="env-pie-cell">
+          <h3>QA</h3>
+          <canvas id="envPie_rogers"></canvas>
+        </div>
+        <div class="env-pie-cell">
+          <h3>US Prod</h3>
+          <canvas id="envPie_secure"></canvas>
+        </div>
+        <div class="env-pie-cell">
+          <h3>EU Prod</h3>
+          <canvas id="envPie_securevoteu"></canvas>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -207,7 +245,7 @@
   </div>
 
   <div class="box" style="margin-top:22px;">
-    <h2>❌ Failed Runs (click to open GitHub run)</h2>
+    <h2>&#10060; Failed Runs (click to open GitHub run)</h2>
     <table>
       <thead>
         <tr>
@@ -215,6 +253,7 @@
           <th>Quarter</th>
           <th>Env</th>
           <th>Suite</th>
+          <th>Trigger</th>
           <th>Fail</th>
           <th>Run</th>
         </tr>
@@ -232,6 +271,7 @@
           <th>Quarter</th>
           <th>Env</th>
           <th>Suite</th>
+          <th>Trigger</th>
           <th>Status</th>
           <th>Fail</th>
           <th>Reruns</th>
@@ -242,12 +282,27 @@
   </div>
 
 <script>
+  // Env display name mapping
+  const ENV_LABELS = {
+    banner:      "Staging",
+    rogers:      "QA",
+    secure:      "US Prod",
+    securevoteu: "EU Prod"
+  };
+  function envLabel(e) { return ENV_LABELS[e] || e; }
+
+  // Per-env accent colors (consistent across charts)
+  const ENV_COLORS = {
+    banner:      "#3b82f6",
+    rogers:      "#22c55e",
+    secure:      "#f59e0b",
+    securevoteu: "#a855f7"
+  };
+
   // --- Core colors
-  // (using the lighter blue you liked)
-  const PASS_BLUE = "#3b82f6";  // lighter, clean blue
+  const PASS_BLUE = "#3b82f6";
   const FAIL_RED  = "#e53935";
 
-  // Stable palette for suites (reused across charts)
   const SUITE_COLORS = [
     "#3b82f6","#22c55e","#f59e0b","#a855f7",
     "#06b6d4","#ef4444","#84cc16","#ec4899",
@@ -255,30 +310,29 @@
   ];
 
   const FAIL_COLORS = [
-    "#7f1d1d", // deep maroon
-    "#b91c1c", // dark red
-    "#dc2626", // vivid red
-    "#e11d48", // dark pink (rose)
-    "#f43f5e", // bright pink
-    "#f97316", // orange
-    "#ea580c", // burnt orange
-    "#f59e0b", // amber / mustard
-    "#d97706", // dark mustard
+    "#7f1d1d",
+    "#b91c1c",
+    "#dc2626",
+    "#e11d48",
+    "#f43f5e",
+    "#f97316",
+    "#ea580c",
+    "#f59e0b",
+    "#d97706",
   ];
 
   const PASS_COLORS = [
-    "#1e3a8a", // navy blue
-    "#3b82f6", // blue
-    "#60a5fa", // light blue
-    "#22c55e", // green
-    "#4ade80", // light green
-    "#34d399", // mint
-    "#10b981", // emerald
-    "#a78bfa", // lavender
-    "#c4b5fd", // light lavender
+    "#1e3a8a",
+    "#3b82f6",
+    "#60a5fa",
+    "#22c55e",
+    "#4ade80",
+    "#34d399",
+    "#10b981",
+    "#a78bfa",
+    "#c4b5fd",
   ];
 
-  // Slimmer bars + tighter spacing
   const BAR_OPTS = {
     barThickness: 16,
     maxBarThickness: 18,
@@ -286,7 +340,6 @@
     barPercentage: 0.85
   };
 
-  // Shared axis styling (smaller ticks, less padding)
   const AXIS_TICKS = {
     font: { size: 11 },
     padding: 2
@@ -339,17 +392,19 @@
   function nowUTCms() { return Date.now(); }
 
   function filtered() {
-    const s = $("suiteFilter").value;
-    const e = $("envFilter").value;
-    const q = $("quarterFilter").value;
-    const t = $("timeFilter").value;
+    const s  = $("suiteFilter").value;
+    const e  = $("envFilter").value;
+    const q  = $("quarterFilter").value;
+    const t  = $("timeFilter").value;
+    const tr = $("triggerFilter").value;
 
     const now = nowUTCms();
 
     return raw.filter(r => {
-      if (s !== "All" && r.suite !== s) return false;
-      if (e !== "All" && r.env !== e) return false;
-      if (q !== "All" && r.q !== q) return false;
+      if (s  !== "All" && r.suite   !== s)  return false;
+      if (e  !== "All" && r.env     !== e)  return false;
+      if (q  !== "All" && r.q       !== q)  return false;
+      if (tr !== "All" && r.trigger !== tr) return false;
 
       if (t !== "all") {
         const ageDays = (now - new Date(r.timestamp_utc).getTime()) / 86400000;
@@ -369,15 +424,14 @@
     return Math.round(x * 10) / 10;
   }
 
-  // Deterministic suite -> color
   function suiteColor(name) {
-    const s = String(name );
+    const s = String(name);
     let h = 0;
     for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
     return SUITE_COLORS[h % SUITE_COLORS.length];
   }
 
-  // ---- Rendering
+  // ---- KPIs
   function renderKPIs(d) {
     $("runsCount").textContent = d.length;
     $("passRuns").textContent  = d.filter(r => r.status === "pass").length;
@@ -389,82 +443,152 @@
     $("rerunCount").textContent= d.reduce((a,r)=>a+(r.rerun_count||0),0);
   }
 
-    // New Code starts
-// ---- Pass by Environment
-function renderPassEnvPie(d) {
-  const map = {};
-  for (const r of d) {
-    if (r.status !== "pass") continue;
-    if (!r.env) {
-    console.warn("Skipping record with missing env:", r);
-    continue;
-  }
-    const env = r.env;
-    map[env] = (map[env] || 0) + 1;
-  }
-
-  const labels = Object.keys(map);
-  const values = Object.values(map);
-
-  draw("passEnvPie", {
-    type: "pie",
-    data: {
-      labels,
-      datasets: [{
-        data: values,
-        backgroundColor: labels.map((_, i) => PASS_COLORS[i % PASS_COLORS.length]),
-        borderColor: "#fff",
-        borderWidth: 2
-      }]
-    },
-    options: {
-      plugins: {
-        legend: { position: "bottom", labels: { font: { size: 11 } } }
-      }
+  // ---- Pass by Environment pie
+  function renderPassEnvPie(d) {
+    const map = {};
+    for (const r of d) {
+      if (r.status !== "pass" || !r.env) continue;
+      map[r.env] = (map[r.env] || 0) + 1;
     }
-  });
-}
 
-// ---- Fail by Environment
-function renderFailEnvPie(d) {
-  const map = {};
-  for (const r of d) {
-    if (r.status !== "fail") continue;
-    if (!r.env) {
-    console.warn("Skipping record with missing env:", r);
-    continue;
-  }
-    const env = r.env;
-    map[env] = (map[env] || 0) + 1;
-  }
+    const envs   = Object.keys(map);
+    const labels = envs.map(envLabel);
+    const values = envs.map(e => map[e]);
+    const colors = envs.map(e => ENV_COLORS[e] || PASS_BLUE);
 
-  const labels = Object.keys(map);
-  const values = Object.values(map);
-
-  draw("failEnvPie", {
-    type: "pie",
-    data: {
-      labels,
-      datasets: [{
-        data: values,
-        backgroundColor: labels.map((_, i) => FAIL_COLORS[i % FAIL_COLORS.length]),
-        borderColor: "#fff",
-        borderWidth: 2
-      }]
-    },
-    options: {
-      plugins: {
-        legend: { position: "bottom", labels: { font: { size: 11 } } }
+    draw("passEnvPie", {
+      type: "pie",
+      data: {
+        labels,
+        datasets: [{ data: values, backgroundColor: colors, borderColor: "#fff", borderWidth: 2 }]
+      },
+      options: {
+        plugins: { legend: { position: "bottom", labels: { font: { size: 11 } } } }
       }
+    });
+  }
+
+  // ---- Fail by Environment pie
+  function renderFailEnvPie(d) {
+    const map = {};
+    for (const r of d) {
+      if (r.status !== "fail" || !r.env) continue;
+      map[r.env] = (map[r.env] || 0) + 1;
     }
-  });
-}
+
+    const envs   = Object.keys(map);
+    const labels = envs.map(envLabel);
+    const values = envs.map(e => map[e]);
+
+    draw("failEnvPie", {
+      type: "pie",
+      data: {
+        labels,
+        datasets: [{
+          data: values,
+          backgroundColor: labels.map((_,i) => FAIL_COLORS[i % FAIL_COLORS.length]),
+          borderColor: "#fff",
+          borderWidth: 2
+        }]
+      },
+      options: {
+        plugins: { legend: { position: "bottom", labels: { font: { size: 11 } } } }
+      }
+    });
+  }
+
+  // ---- Pass vs Fail grouped bar chart by Environment
+  const ENV_ORDER = ["banner", "rogers", "secure", "securevoteu"];
+
+  function renderEnvBars(d) {
+    const map = {};
+    for (const e of ENV_ORDER) map[e] = { p: 0, f: 0 };
+
+    for (const r of d) {
+      if (!r.env || !map[r.env]) continue;
+      if (r.status === "pass") map[r.env].p++;
+      else map[r.env].f++;
+    }
+
+    draw("envBars", {
+      type: "bar",
+      data: {
+        labels: ENV_ORDER.map(envLabel),
+        datasets: [
+          { label: "Passed runs", data: ENV_ORDER.map(e => map[e].p), backgroundColor: PASS_BLUE, ...BAR_OPTS },
+          { label: "Failed runs", data: ENV_ORDER.map(e => map[e].f), backgroundColor: FAIL_RED,  ...BAR_OPTS }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { position: "bottom", labels: { font: { size: 11 } } } },
+        scales: {
+          x: { ticks: AXIS_TICKS },
+          y: { beginAtZero: true, ticks: AXIS_TICKS }
+        }
+      }
+    });
+  }
+
+  // ---- 4 mini pie charts — one per environment
+  function renderEnvPies(d) {
+    for (const env of ENV_ORDER) {
+      const canvasId = `envPie_${env}`;
+      if (!$(canvasId)) continue;
+
+      const envRuns = d.filter(r => r.env === env);
+      const pass = envRuns.filter(r => r.status === "pass").length;
+      const fail = envRuns.filter(r => r.status === "fail").length;
+
+      if (envRuns.length === 0) {
+        draw(canvasId, {
+          type: "pie",
+          data: {
+            labels: ["No data"],
+            datasets: [{ data: [1], backgroundColor: ["#e5e7eb"], borderColor: "#fff", borderWidth: 2 }]
+          },
+          options: {
+            plugins: { legend: { display: false }, tooltip: { enabled: false } }
+          }
+        });
+        continue;
+      }
+
+      draw(canvasId, {
+        type: "pie",
+        data: {
+          labels: ["Passed", "Failed"],
+          datasets: [{
+            data: [pass, fail],
+            backgroundColor: [PASS_BLUE, FAIL_RED],
+            borderColor: "#fff",
+            borderWidth: 2
+          }]
+        },
+        options: {
+          plugins: {
+            legend: { position: "bottom", labels: { font: { size: 10 }, boxWidth: 10 } },
+            tooltip: {
+              callbacks: {
+                label: ctx => {
+                  const total = pass + fail;
+                  const pct = total ? Math.round(ctx.parsed / total * 100) : 0;
+                  return `${ctx.label}: ${ctx.parsed} (${pct}%)`;
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+  }
 
   function renderQuarterTrend(d) {
     const qMap = {};
     for (const r of d) {
       if (!r.q) continue;
-      const q = r.q ;
+      const q = r.q;
       if (!qMap[q]) qMap[q] = { t:0, f:0 };
       qMap[q].t++;
       if (r.status === "fail") qMap[q].f++;
@@ -504,10 +628,9 @@ function renderFailEnvPie(d) {
   }
 
   function renderSuiteBars(d) {
-    // top 10 by total runs
     const m = {};
     for (const r of d) {
-      const s = r.suite ;
+      const s = r.suite;
       if (!m[s]) m[s] = { p:0, f:0, t:0 };
       m[s].t++;
       if (r.status === "pass") m[s].p++;
@@ -525,7 +648,7 @@ function renderFailEnvPie(d) {
         labels: suites,
         datasets: [
           { label: "Passed runs", data: suites.map(s => m[s].p), backgroundColor: PASS_BLUE, ...BAR_OPTS },
-          { label: "Failed runs", data: suites.map(s => m[s].f), backgroundColor: FAIL_RED, ...BAR_OPTS }
+          { label: "Failed runs", data: suites.map(s => m[s].f), backgroundColor: FAIL_RED,  ...BAR_OPTS }
         ]
       },
       options: {
@@ -533,158 +656,8 @@ function renderFailEnvPie(d) {
         maintainAspectRatio: false,
         plugins: { legend: { position: "bottom", labels: { font: { size: 11 } } } },
         scales: {
-          x: {
-            stacked: false,
-            ticks: { ...AXIS_TICKS, maxRotation: 0, minRotation: 0 }
-          },
+          x: { stacked: false, ticks: { ...AXIS_TICKS, maxRotation: 0, minRotation: 0 } },
           y: { beginAtZero: true, ticks: AXIS_TICKS }
-        }
-      }
-    });
-  }
-
-  function renderTopFailSuites(d) {
-    const m = {};
-    for (const r of d) {
-      const s = r.suite ;
-      if (!m[s]) m[s] = { f:0 };
-      if (r.status === "fail") m[s].f++;
-    }
-
-    const suites = Object.entries(m)
-      .sort((a,b) => b[1].f - a[1].f)
-      .filter(([,v]) => v.f > 0)
-      .slice(0, 8)
-      .map(([s]) => s);
-
-    const vals = suites.map(s => m[s].f);
-
-    draw("topFailSuites", {
-      type: "bar",
-      data: {
-        labels: suites.length ? suites : ["No failures"],
-        datasets: [{
-          label: "Failed runs",
-          data: suites.length ? vals : [0],
-          backgroundColor: suites.length ? suites.map((_, i) => FAIL_COLORS[i % FAIL_COLORS.length]) : [FAIL_RED],
-          ...BAR_OPTS
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { position: "bottom", labels: { font: { size: 11 } } } },
-        scales: {
-          x: { ticks: { ...AXIS_TICKS, maxRotation: 0, minRotation: 0 } },
-          y: { beginAtZero: true, ticks: AXIS_TICKS }
-        }
-      }
-    });
-  }
-
-  function renderSuiteQuarterCompare(d) {
-    const selectedSuite = $("suiteFilter").value;
-
-    // Build per suite per quarter totals
-    const per = {}; // per[suite][q] = {t,f}
-    const qSet = new Set();
-
-    for (const r of d) {
-      if (!r.suite || !r.q) continue;
-      const s = r.suite ;
-      const q = r.q ;
-      qSet.add(q);
-      per[s] ??= {};
-      per[s][q] ??= {t:0,f:0};
-      per[s][q].t++;
-      if (r.status === "fail") per[s][q].f++;
-    }
-
-    const quarters = Array.from(qSet).sort();
-
-    if (!quarters.length) {
-      draw("suiteQuarterCompare", {
-        type:"bar",
-        data:{ labels:["No data"], datasets:[{label:"Fail rate (%)", data:[0], backgroundColor: FAIL_RED, ...BAR_OPTS}] },
-        options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{position:"bottom"}}, scales:{y:{beginAtZero:true}} }
-      });
-      return;
-    }
-
-    // If suite is selected -> single dataset (fail rate across quarters)
-    if (selectedSuite !== "All") {
-      const rates = quarters.map(q => {
-        const v = (per[selectedSuite] && per[selectedSuite][q]) ? per[selectedSuite][q] : {t:0,f:0};
-        return v.t ? formatPct((v.f/v.t)*100) : 0;
-      });
-
-      draw("suiteQuarterCompare", {
-        type: "bar",
-        data: {
-          labels: quarters,
-          datasets: [{
-            label: `${selectedSuite} fail rate (%)`,
-            data: rates,
-            backgroundColor: FAIL_COLORS[0],
-            ...BAR_OPTS
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: { legend: { position: "bottom", labels: { font: { size: 11 } } } },
-          scales: {
-            x: { ticks: AXIS_TICKS },
-            y: { beginAtZero: true, ticks: AXIS_TICKS }
-          }
-        }
-      });
-      return;
-    }
-
-    // Suite = All -> top 8 by failed runs overall
-    const failTotals = Object.entries(per).map(([s, byQ]) => {
-      let f = 0;
-      for (const q of Object.keys(byQ)) f += byQ[q].f;
-      return [s, f];
-    });
-
-    const topSuites = failTotals
-      .sort((a,b) => b[1] - a[1])
-      .filter(([,f]) => f > 0)
-      .slice(0, 8)
-      .map(([s]) => s);
-
-    if (!topSuites.length) {
-      const byRuns = Object.entries(per).map(([s, byQ]) => {
-        let t = 0;
-        for (const q of Object.keys(byQ)) t += byQ[q].t;
-        return [s, t];
-      }).sort((a,b)=>b[1]-a[1]).slice(0,8).map(([s])=>s);
-      topSuites.push(...byRuns);
-    }
-
-    // Stacked datasets: each suite across quarters (fail rate %)
-    const datasets = topSuites.map((s, i) => ({
-      label: s,
-      data: quarters.map(q => {
-        const v = (per[s] && per[s][q]) ? per[s][q] : {t:0,f:0};
-        return v.t ? formatPct((v.f/v.t)*100) : 0;
-      }),
-      backgroundColor: FAIL_COLORS[i % FAIL_COLORS.length],
-      ...BAR_OPTS
-    }));
-
-    draw("suiteQuarterCompare", {
-      type: "bar",
-      data: { labels: quarters, datasets },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { position: "bottom", labels: { font: { size: 11 } } } },
-        scales: {
-          x: { stacked: true, ticks: AXIS_TICKS },
-          y: { stacked: true, beginAtZero: true, ticks: AXIS_TICKS }
         }
       }
     });
@@ -709,10 +682,11 @@ function renderFailEnvPie(d) {
         <tr>
           <td>${r.timestamp_utc || ""}</td>
           <td>${r.q || ""}</td>
-          <td>${r.env || ""}</td>
+          <td>${envLabel(r.env) || ""}</td>
           <td>${r.suite || ""}</td>
+          <td>${r.trigger || ""}</td>
           <td>${r.failed ?? 0}</td>
-          <td>${url ? `<a target="_blank" href="${url}">Open run ↗</a>` : `<span class="muted">—</span>`}</td>
+          <td>${url ? `<a target="_blank" href="${url}">Open run &#8599;</a>` : `<span class="muted">&#8212;</span>`}</td>
         </tr>
       `;
     }
@@ -727,8 +701,9 @@ function renderFailEnvPie(d) {
         <tr>
           <td>${r.timestamp_utc || ""}</td>
           <td>${r.q || ""}</td>
-          <td>${r.env || ""}</td>
+          <td>${envLabel(r.env) || ""}</td>
           <td>${r.suite || ""}</td>
+          <td>${r.trigger || ""}</td>
           <td>${r.status || ""}</td>
           <td>${r.failed ?? 0}</td>
           <td>${r.rerun_count ?? 0}</td>
@@ -743,22 +718,29 @@ function renderFailEnvPie(d) {
     renderPassEnvPie(d);
     renderFailEnvPie(d);
     renderQuarterTrend(d);
-    renderSuiteQuarterCompare(d);
-    renderTopFailSuites(d);
+    renderEnvBars(d);
+    renderEnvPies(d);
     renderSuiteBars(d);
     renderTables(d);
   }
 
   function initFiltersFromData() {
-    const suites = uniqSorted(raw.map(r => r.suite).filter(Boolean));
-    const envs   = uniqSorted(raw.map(r => r.env).filter(Boolean));
-    const qs     = uniqSorted(raw.map(r => r.q).filter(Boolean));
+    const suites   = uniqSorted(raw.map(r => r.suite).filter(Boolean));
+    const envKeys  = uniqSorted(raw.map(r => r.env).filter(Boolean));
+    const qs       = uniqSorted(raw.map(r => r.q).filter(Boolean));
+    const triggers = uniqSorted(raw.map(r => r.trigger).filter(v => v && v !== "Unknown"));
 
     fillSelect($("suiteFilter"), suites);
-    fillSelect($("envFilter"), envs);
     fillSelect($("quarterFilter"), qs);
+    fillSelect($("triggerFilter"), triggers);
 
-    ["suiteFilter","envFilter","timeFilter","quarterFilter"].forEach(id => {
+    // Env filter: option value stays as internal key, label shows display name
+    fillSelect($("envFilter"), envKeys);
+    for (const opt of $("envFilter").options) {
+      if (opt.value !== "All") opt.textContent = envLabel(opt.value);
+    }
+
+    ["suiteFilter","envFilter","timeFilter","quarterFilter","triggerFilter"].forEach(id => {
       $(id).addEventListener("change", () => renderAll());
     });
   }
@@ -773,7 +755,7 @@ function renderFailEnvPie(d) {
       text = await resp.text();
     } catch (e) {
       showError(
-        "❌ Could not load metrics data.\n" +
+        "Could not load metrics data.\n" +
         `Tried: ${url}\n\n` +
         "Check that GitHub Pages has published the latest artifact and that site/data/runs.jsonl exists.\n\n" +
         "Error: " + (e && e.message ? e.message : String(e))
@@ -784,7 +766,7 @@ function renderFailEnvPie(d) {
     const arr = safeParseJSONL(text);
     if (!arr.length) {
       showError(
-        "⚠️ runs.jsonl loaded but contained 0 valid rows.\n" +
+        "runs.jsonl loaded but contained 0 valid rows.\n" +
         "If you recently updated data, GitHub Pages might still be serving a stale build.\n" +
         "Try hard refresh or check the Pages deploy job logs."
       );
@@ -796,8 +778,9 @@ function renderFailEnvPie(d) {
       .map(r => ({
         ...r,
         q: quarterFromISO(r.timestamp_utc),
-        status: (r.status || "").toLowerCase()
-     }));
+        status: (r.status || "").toLowerCase(),
+        trigger: r.trigger || "Unknown"
+      }));
 
     initFiltersFromData();
     renderAll();
