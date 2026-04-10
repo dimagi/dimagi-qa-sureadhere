@@ -88,6 +88,13 @@
 
     .pieWrap { max-width: 420px; margin: auto; }
 
+    #triggerTypePie {
+      width: 260px !important;
+      height: 260px !important;
+      margin: auto;
+      display: block;
+    }
+
     .env-pies-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -510,8 +517,8 @@
         maintainAspectRatio: false,
         plugins: { legend: { position: "bottom", labels: { font: { size: 11 } } } },
         scales: {
-          x: { ticks: AXIS_TICKS },
-          y: { beginAtZero: true, ticks: AXIS_TICKS }
+          x: { stacked: false, ticks: AXIS_TICKS },
+          y: { stacked: false, beginAtZero: true, ticks: AXIS_TICKS }
         }
       }
     });
