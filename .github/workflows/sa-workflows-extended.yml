@@ -140,6 +140,14 @@ jobs:
 
           counts_file = f"sa_test_counts_{env}.txt"
 
+          event_name = os.environ.get("GITHUB_EVENT_NAME", "unknown")
+          trigger_map = {
+              "schedule": "Scheduled",
+              "workflow_dispatch": "Manual",
+              "push": "Push/Pull",
+              "pull_request": "Push/Pull",
+          }
+
           data = {
               "timestamp_utc": datetime.datetime.utcnow().isoformat() + "Z",
               "env": env,
@@ -149,6 +157,7 @@ jobs:
               "failed": 0,
               "skipped": 0,
               "rerun_count": 0,
+              "trigger": trigger_map.get(event_name, event_name),
               "github": {
                   "run_id": os.environ.get("GITHUB_RUN_ID"),
                   "run_number": os.environ.get("GITHUB_RUN_NUMBER"),
@@ -183,6 +192,18 @@ jobs:
           retention-days: 30
 
 
+
+      - name: Map env display name
+        if: always()
+        id: env_display
+        run: |
+          case "${{ matrix.environment }}" in
+            banner)      echo "display_name=Staging" >> $GITHUB_OUTPUT ;;
+            rogers)      echo "display_name=QA" >> $GITHUB_OUTPUT ;;
+            secure)      echo "display_name=US Prod" >> $GITHUB_OUTPUT ;;
+            securevoteu) echo "display_name=EU Prod" >> $GITHUB_OUTPUT ;;
+            *)           echo "display_name=${{ matrix.environment }}" >> $GITHUB_OUTPUT ;;
+          esac
 
       - name: Set slack vars
         if: ${{ always() }}
@@ -245,7 +266,7 @@ jobs:
             					"elements": [
             						{
             							"type": "mrkdwn",
-            							"text": "*Environment: *\n ${{ matrix.environment }}  \n"
+            							"text": "*Environment: *\n ${{ steps.env_display.outputs.display_name }}  \n"
             						},
             						{
             							"type": "mrkdwn",
@@ -321,7 +342,7 @@ jobs:
             					"elements": [
             						{
             							"type": "mrkdwn",
-            							"text": "*Environment: *\n ${{ matrix.environment }}  \n"
+            							"text": "*Environment: *\n ${{ steps.env_display.outputs.display_name }}  \n"
             						},
             						{
             							"type": "mrkdwn",
@@ -379,7 +400,9 @@ jobs:
           script: |
             const { promises: fs } = require('fs')
             const {JOB_STATUS, NOW, CC_ENV, GITHUB_HEAD_REF} = process.env
-            const prefix = `[${CC_ENV}] SureAdhere Extended Tests - ${JOB_STATUS.toUpperCase()} - Run #${context.runNumber}`
+            const envLabels = {banner: "Staging", rogers: "QA", secure: "US Prod", securevoteu: "EU Prod"}
+            const envDisplay = envLabels[CC_ENV] || CC_ENV
+            const prefix = `[${envDisplay}] SureAdhere Extended Tests - ${JOB_STATUS.toUpperCase()} - Run #${context.runNumber}`
             const suffix = `at ${NOW}`
             let subject = `${prefix} on branch "${GITHUB_HEAD_REF}" ${suffix}`
 
@@ -387,13 +410,13 @@ jobs:
             if (JOB_STATUS !== 'success') {
               bodyFile = './common_utilities/mail_templates/email_fail.md'
             }
-            
+
             let actionRunLink = context.payload.repository.html_url + `/actions/runs/${context.runId}`
             let testSuite = 'SureAdhere Extended Tests'
             let bodyContent = await fs.readFile(bodyFile, 'utf8')
             bodyContent = bodyContent.replace(/{{actionRunLink}}/g, actionRunLink)
                 .replace(/{{runNumber}}/g, context.runNumber)
-                .replace(/{{environment}}/g, CC_ENV)
+                .replace(/{{environment}}/g, envDisplay)
                 .replace(/{{testSuite}}/g, testSuite)
             
             let receivers = 'qa-automation@dimagi.com'
