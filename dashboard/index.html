@@ -216,24 +216,16 @@
     </div>
 
     <div class="box">
-      <h2>Pass / Fail split per Environment</h2>
-      <div class="muted">Proportion of passed vs failed runs for each environment.</div>
-      <div class="env-pies-grid">
+      <h2>Pass / Fail split by Trigger Type</h2>
+      <div class="muted">Proportion of passed vs failed runs per workflow trigger.</div>
+      <div class="env-pies-grid" style="grid-template-columns: 1fr 1fr; justify-items: center;">
         <div class="env-pie-cell">
-          <h3>Staging</h3>
-          <canvas id="envPie_banner"></canvas>
+          <h3>Standard</h3>
+          <canvas id="triggerPie_standard"></canvas>
         </div>
         <div class="env-pie-cell">
-          <h3>QA</h3>
-          <canvas id="envPie_rogers"></canvas>
-        </div>
-        <div class="env-pie-cell">
-          <h3>US Prod</h3>
-          <canvas id="envPie_secure"></canvas>
-        </div>
-        <div class="env-pie-cell">
-          <h3>EU Prod</h3>
-          <canvas id="envPie_securevoteu"></canvas>
+          <h3>Extended</h3>
+          <canvas id="triggerPie_extended"></canvas>
         </div>
       </div>
     </div>
@@ -532,17 +524,22 @@
     });
   }
 
-  // ---- 4 mini pie charts — one per environment
-  function renderEnvPies(d) {
-    for (const env of ENV_ORDER) {
-      const canvasId = `envPie_${env}`;
+  // ---- 2 mini pie charts — one per trigger type (suite)
+  const TRIGGER_SUITES = {
+    standard: "SureAdhere Tests",
+    extended: "SureAdhere Tests - Extended",
+  };
+
+  function renderTriggerPies(d) {
+    for (const [key, suiteName] of Object.entries(TRIGGER_SUITES)) {
+      const canvasId = `triggerPie_${key}`;
       if (!$(canvasId)) continue;
 
-      const envRuns = d.filter(r => r.env === env);
-      const pass = envRuns.filter(r => r.status === "pass").length;
-      const fail = envRuns.filter(r => r.status === "fail").length;
+      const runs = d.filter(r => r.suite === suiteName);
+      const pass = runs.filter(r => r.status === "pass").length;
+      const fail = runs.filter(r => r.status === "fail").length;
 
-      if (envRuns.length === 0) {
+      if (runs.length === 0) {
         draw(canvasId, {
           type: "pie",
           data: {
@@ -720,7 +717,7 @@
     renderFailEnvPie(d);
     renderQuarterTrend(d);
     renderEnvBars(d);
-    renderEnvPies(d);
+    renderTriggerPies(d);
     renderSuiteBars(d);
     renderTables(d);
   }
