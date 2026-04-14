@@ -103,7 +103,7 @@ jobs:
             --dashboard --html=presetup_extendedtests-report-${{ matrix.environment }}.html  --tb=short --maxfail=1
           pytest -vv -m extendedtests \
             --browser=chrome --headless --headless2 \
-            --reruns 1 -n 4 --dist=loadscope\
+            --reruns 1 -n 5 --dist=loadscope\
             --dashboard --html=extendedtests-report-${{ matrix.environment }}.html --tb=short \
             --junitxml=extendedtests-report-${{ matrix.environment }}.xml
 
