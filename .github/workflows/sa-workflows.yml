@@ -255,7 +255,9 @@ jobs:
           ENV_DISPLAY:   ${{ steps.env_display.outputs.display_name }}
           PASSED:        ${{ steps.parse_counts.outputs.PASSED }}
           FAILED:        ${{ steps.parse_counts.outputs.FAILED }}
+          ERROR:         ${{ steps.parse_counts.outputs.ERROR }}
           SKIPPED:       ${{ steps.parse_counts.outputs.SKIPPED }}
+          XFAIL:         ${{ steps.parse_counts.outputs.XFAIL }}
           ARTIFACT_ID:   ${{ steps.artifact-upload-step.outputs.artifact-id }}
         run: |
           pip install --quiet slack_sdk
@@ -274,7 +276,9 @@ jobs:
           env_display = os.environ.get("ENV_DISPLAY", "")
           passed      = os.environ.get("PASSED", "0")
           failed      = os.environ.get("FAILED", "0")
+          error       = os.environ.get("ERROR", "0")
           skipped     = os.environ.get("SKIPPED", "0")
+          xfail       = os.environ.get("XFAIL", "0")
           run_number  = os.environ.get("GITHUB_RUN_NUMBER", "")
           run_id      = os.environ.get("GITHUB_RUN_ID", "")
           repo        = os.environ.get("GITHUB_REPOSITORY", "")
@@ -284,25 +288,58 @@ jobs:
           event       = os.environ.get("GITHUB_EVENT_NAME", "")
 
           artifact_url = f"{server}/{repo}/actions/runs/{run_id}/artifacts/{artifact_id}"
-          icon  = "✅" if job_status == "success" else "❌"
-          color = "#36a64f" if job_status == "success" else "#FF0000"
+          color        = "#36a64f" if job_status == "success" else "#FF0000"
+          status_emoji = ":white_check_mark:" if job_status == "success" else ":x:"
 
-          text = (
-              f"{icon} *{workflow} Run #{run_number}* triggered by {event}\n"
-              f"*Environment:* {env_display}   *Status:* {job_status.upper()}\n"
-              f"*Passed:* {passed}  *Failed:* {failed}  *Skipped:* {skipped}\n"
-              f"📎 <{artifact_url}|Download Report>\n"
-              f"🔗 Dashboard: https://dimagi.github.io/dimagi-qa-sureadhere/"
-          )
+          attachments = [{
+              "color": color,
+              "blocks": [
+                  {
+                      "type": "section",
+                      "text": {
+                          "type": "mrkdwn",
+                          "text": f" Hola :bye_boo: \n*{workflow} Run #{run_number}* were just triggered by {event}! \n"
+                      }
+                  },
+                  {
+                      "type": "section",
+                      "text": {
+                          "type": "mrkdwn",
+                          "text": f"*Passed:* {passed} *Failed:* {failed} *Error:* {error} *Skipped:* {skipped} *XFail:* {xfail}\n"
+                      }
+                  },
+                  {
+                      "type": "context",
+                      "elements": [
+                          {"type": "mrkdwn", "text": f"*Environment: *\n {env_display}  \n"},
+                          {"type": "mrkdwn", "text": " "},
+                          {"type": "mrkdwn", "text": f"*Status: *\n {job_status}  {status_emoji}"}
+                      ]
+                  },
+                  {
+                      "type": "section",
+                      "text": {"type": "mrkdwn", "text": "Here's the corresponding report :arrow_right::arrow_right:"},
+                      "accessory": {
+                          "type": "button",
+                          "text": {"type": "plain_text", "text": "Click to Download", "emoji": True},
+                          "value": "click_me_123",
+                          "url": artifact_url,
+                          "action_id": "button-action",
+                          "style": "primary" if job_status == "success" else "danger"
+                      }
+                  },
+                  {
+                      "type": "section",
+                      "text": {"type": "mrkdwn", "text": "\U0001f517 *Dashboard:* https://dimagi.github.io/dimagi-qa-sureadhere/"}
+                  }
+              ]
+          }]
 
           client = WebClient(token=token)
           parent_ts = None
 
           try:
-              resp = client.chat_postMessage(
-                  channel=channel,
-                  attachments=[{"color": color, "text": text, "mrkdwn_in": ["text"]}],
-              )
+              resp = client.chat_postMessage(channel=channel, attachments=attachments)
               parent_ts = resp["ts"]
               print(f"Slack message posted ts={parent_ts}")
           except SlackApiError as e:
