@@ -125,7 +125,8 @@ class test_module_03(BaseCase):
     def test_case_01_mobile_login_and_message(self):
         login = LoginPage(self, "login")
         self._login_once()
-        mobile = Android(self.settings)
+        self.mobile = Android(self.settings)
+        mobile = self.mobile
         home = HomePage(self, "dashboard")
         profile = UserProfilePage(self, "user")
         patient = ManagePatientPage(self, "patients")

@@ -81,10 +81,21 @@ def pytest_configure(config):
 # Screenshot capture on failure (also adds to HTML report)
 # ---------------------
 def _capture_screenshot(driver):
-    return base64.b64encode(driver.get_screenshot_as_png()).decode("utf-8")
+    if not driver:
+        return None
+    try:
+        png = driver.get_screenshot_as_png()
+        if not png:
+            return None
+        return base64.b64encode(png).decode("utf-8")
+    except Exception as e:
+        print(f"[WARN] Screenshot capture failed: {e}")
+        return None
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item):
+    pytest_html = item.config.pluginmanager.getplugin("html")
+
     outcome = yield
     report = outcome.get_result()
     # NOTE: Only works if you are using BaseCase-based test class (self.driver)
@@ -107,23 +118,27 @@ def pytest_runtest_makereport(item):
             f'</div>'
         )
         extra = getattr(report, "extra", [])
-        html = item.config.pluginmanager.getplugin("html")
-        if html:
-            extra.append(html.extras.html(link_html))
-        # extra.append(
-        #     item.config.pluginmanager.getplugin("html").extras.html(link_html)
-        #     )
+        if pytest_html:
+            extra.append(pytest_html.extras.html(link_html))
             report.extra = extra
 
-    if report.when in ("call", "teardown") and report.failed and driver_instance:
-        screen_img = _capture_screenshot(driver_instance)
-        html_content = (
-            f'<div><img src="data:image/png;base64,{screen_img}" alt="screenshot" '
-            f'style="width:600px;height:300px;" onclick="window.open(this.src)" align="right"/></div>'
-        )
+    if report.when in ("call", "teardown") and report.failed:
         extra = getattr(report, "extra", [])
-        extra.append(item.config.pluginmanager.getplugin("html").extras.html(html_content))
-        report.extra = extra
+
+        if driver_instance:
+            screen_img = _capture_screenshot(driver_instance)
+            if screen_img and pytest_html:
+                extra.append(pytest_html.extras.image(screen_img, "Web Screenshot"))
+
+        mobile_instance = getattr(item.instance, "mobile", None)
+        mobile_driver = getattr(mobile_instance, "driver", None) if mobile_instance else None
+        if mobile_driver:
+            mob_img = _capture_screenshot(mobile_driver)
+            if mob_img and pytest_html:
+                extra.append(pytest_html.extras.image(mob_img, "Mobile Screenshot"))
+
+        if extra != getattr(report, "extra", []):
+            report.extra = extra
 
 def pytest_terminal_summary(terminalreporter, exitstatus, config):
     # Collect test counts

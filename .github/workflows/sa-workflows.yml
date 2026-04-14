@@ -98,6 +98,7 @@ jobs:
           DIMAGIQA_BS_USER: ${{ secrets.DIMAGIQA_BS_USER }}
           DIMAGIQA_BS_KEY: ${{ secrets.DIMAGIQA_BS_KEY }}
           DIMAGIQA_SA_IMAP_PASSWORD: ${{ secrets.DIMAGIQA_SA_IMAP_PASSWORD }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
         run: |
           echo "client_payload: ${{ toJson(github.event.client_payload) }}"
@@ -114,7 +115,20 @@ jobs:
           pytest -vv -m smoketest \
             --browser=chrome --headless --headless2 \
             --reruns 1 -n 3 --dist=loadscope\
-            --dashboard --html=report-${{ matrix.environment }}.html --tb=short
+            --dashboard --html=report-${{ matrix.environment }}.html --tb=short \
+            --junitxml=report-${{ matrix.environment }}.xml
+
+      - name: AI Failure Analysis
+        if: always()
+        run: python utils/ai_failure_analyst.py report-${{ matrix.environment }}.xml
+
+      - name: Upload AI Failure Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-failure-report-${{ matrix.environment }}
+          path: ai_failure_report.md
+          if-no-files-found: ignore
 
       - name: Parse test counts
         id: parse_counts
