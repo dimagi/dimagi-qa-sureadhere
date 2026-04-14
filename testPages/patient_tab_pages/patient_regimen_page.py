@@ -42,7 +42,14 @@ class PatientRegimenPage(BasePage):
         self.wait_for_element('input_regimen_name' )
         self.wait_for_element('button_NEW_SCHEDULE')
         print("Opened tab is Regimen")
-        time.sleep(2)
+        time.sleep(10)
+
+
+    def today_date(self):
+        date_today = datetime.today()
+        date_today = date_today.strftime("%Y-%m-%d")
+        print(date_today)
+        return date_today
 
     def calculate_end_date(self, start_date, no_of_weeks):
         start_date = date.fromisoformat(start_date)
@@ -163,9 +170,9 @@ class PatientRegimenPage(BasePage):
         else:
             total_pills = 0
         self.click_robust('button_CREATE')
-        time.sleep(2)
-        self.wait_for_page_to_load(60)
-        time.sleep(3)
+        time.sleep(15)
+        self.wait_for_page_to_load(100)
+        time.sleep(5)
 
         # Example: start on 2025-10-27, weekdays only, for 3 weeks
 

@@ -15,7 +15,7 @@ class UserProfilePage(BasePage):
 
     def logout_user(self):
         self.wait_for_element('a_Logout')
-        self.click("a_Logout")
+        self.click("a_Logout", strict=True)
 
     def reset_password(self):
         self.wait_for_element('a_Reset_password')

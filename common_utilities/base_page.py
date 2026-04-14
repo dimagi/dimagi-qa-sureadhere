@@ -876,6 +876,7 @@ class BasePage:
 
         # 1) Try SeleniumBase (if available on your test object)
         try:
+            self.scroll_to_element(logical_name, strict)
             val = self.sb.get_attribute(selector, attribute)
             if wait_for_nonempty:
                 WebDriverWait(self.driver, timeout).until(
@@ -1905,7 +1906,16 @@ class BasePage:
 
     # --- Parse "August 2025" from the calendar header ----------------------------
     def calendar_visible_year_month(self, header_logical: str, *, timeout: int = 6) -> tuple[int, int]:
-        hdr = self._get_webelement(self.resolve(header_logical), timeout=timeout)
+        header_sel = self.resolve(header_logical)
+        # Wait until the header element has non-empty text (guards against timing/race conditions
+        # where the element is present in the DOM but its text content hasn't rendered yet)
+        try:
+            WebDriverWait(self.driver, timeout).until(
+                lambda d: (self._get_webelement(header_sel, timeout=timeout).text or "").strip()
+            )
+        except Exception:
+            pass  # fall through to raise the descriptive RuntimeError below
+        hdr = self._get_webelement(header_sel, timeout=timeout)
         text = (hdr.text or "").strip()
         # expect "August 2025" or similar
         parts = text.split()

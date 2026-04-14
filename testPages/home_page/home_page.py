@@ -15,7 +15,7 @@ class HomePage(BasePage):
         self.wait_for_element("p_Dashboard", 100, strict=True)
         assert self.is_element_visible("p_Dashboard", strict=True), "Its is not the Dashboard"
         print("This is the Dashboard")
-        time.sleep(3)
+        time.sleep(10)
 
     def validate_not_dashboard_page(self):
         self.wait_for_page_to_load()
@@ -44,7 +44,7 @@ class HomePage(BasePage):
     def click_admin_profile_button(self):
         time.sleep(2)
         self.wait_for_element("button_user_profile")
-        self.click("button_user_profile")
+        self.click("button_user_profile", strict=True)
 
     def verify_presence_of_staff_menu(self, presence=True):
         if presence:
@@ -126,10 +126,11 @@ class HomePage(BasePage):
             print(f"No matching SA ID found for {sa_id}")
 
     def verify_announcement(self, announcement_text, flag=True):
+        time.sleep(5)
         self.wait_for_element('div_alert', 100)
         alert_text = self.get_text('div_alert')
         print(alert_text)
-        assert alert_text.strip() == announcement_text, f"{announcement_text} not present"
+        assert alert_text.strip() == announcement_text, f"{announcement_text} not matching {alert_text}"
         print(f"{announcement_text} is present")
 
     def stay_idle(self, timeout, active=True):

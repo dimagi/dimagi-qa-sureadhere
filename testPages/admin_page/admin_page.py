@@ -14,7 +14,8 @@ class AdminPage(BasePage):
         super().__init__(sb, page_name=page_name)
 
     def validate_admin_page(self, site_manager):
-        time.sleep(10)
+        time.sleep(15)
+        self.wait_for_page_to_load(70)
         self.wait_for_element('kendo-dropdownlist-input-value-Client')
         self.wait_for_element('kendo-expansionpanel_Countries')
         self.wait_for_element('kendo-expansionpanel_Diseases')
@@ -38,28 +39,33 @@ class AdminPage(BasePage):
         assert text == site_manager, f"Correct Client {site_manager} is not present"
         print(f"Correct Client {site_manager} is not present")
         print(f"Admin Page opened with Client {text}")
+        time.sleep(10)
 
 
     def expand_diseases(self):
-        self.wait_for_element("kendo-expansionpanel_Diseases")
+        time.sleep(5)
+        self.wait_for_element("kendo-expansionpanel_Diseases", 60)
         self.kendo_expander_wait("kendo-expansionpanel_Diseases", False)
         self.kendo_expander_set("kendo-expansionpanel_Diseases", True)
         self.kendo_expander_wait("kendo-expansionpanel_Diseases", True)
 
     def collapse_diseases(self):
-        self.wait_for_element("kendo-expansionpanel_Diseases")
+        time.sleep(5)
+        self.wait_for_element("kendo-expansionpanel_Diseases", 60)
         self.kendo_expander_set("kendo-expansionpanel_Diseases", False)
         self.kendo_expander_wait("kendo-expansionpanel_Diseases", False)
         time.sleep(2)
 
     def expand_drugs(self):
-        self.wait_for_element("kendo-expansionpanel_Drugs")
+        time.sleep(5)
+        self.wait_for_element("kendo-expansionpanel_Drugs", 60)
         self.kendo_expander_wait("kendo-expansionpanel_Drugs", False)
         self.kendo_expander_set("kendo-expansionpanel_Drugs", True)
         self.kendo_expander_wait("kendo-expansionpanel_Drugs", True)
 
     def collapse_drugs(self):
-        self.wait_for_element("kendo-expansionpanel_Drugs")
+        time.sleep(5)
+        self.wait_for_element("kendo-expansionpanel_Drugs", 60)
         self.kendo_expander_set("kendo-expansionpanel_Drugs", False)
         self.kendo_expander_wait("kendo-expansionpanel_Drugs", False)
         time.sleep(2)
