@@ -109,6 +109,8 @@ jobs:
 
       - name: AI Failure Analysis
         if: always()
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python utils/ai_failure_analyst.py extendedtests-report-${{ matrix.environment }}.xml
 
       - name: Upload AI Failure Report
