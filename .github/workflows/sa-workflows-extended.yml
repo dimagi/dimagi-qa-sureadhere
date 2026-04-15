@@ -87,6 +87,7 @@ jobs:
           DIMAGIQA_BS_USER: ${{ secrets.DIMAGIQA_BS_USER }}
           DIMAGIQA_BS_KEY: ${{ secrets.DIMAGIQA_BS_KEY }}
           DIMAGIQA_SA_IMAP_PASSWORD: ${{ secrets.DIMAGIQA_SA_IMAP_PASSWORD }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
         run: |
           echo "client_payload: ${{ toJson(github.event.client_payload) }}"
@@ -102,8 +103,23 @@ jobs:
             --dashboard --html=presetup_extendedtests-report-${{ matrix.environment }}.html  --tb=short --maxfail=1
           pytest -vv -m extendedtests \
             --browser=chrome --headless --headless2 \
-            --reruns 1 -n 4 --dist=loadscope\
-            --dashboard --html=extendedtests-report-${{ matrix.environment }}.html --tb=short
+            --reruns 1 -n 5 --dist=loadscope\
+            --dashboard --html=extendedtests-report-${{ matrix.environment }}.html --tb=short \
+            --junitxml=extendedtests-report-${{ matrix.environment }}.xml
+
+      - name: AI Failure Analysis
+        if: always()
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python utils/ai_failure_analyst.py extendedtests-report-${{ matrix.environment }}.xml
+
+      - name: Upload AI Failure Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-failure-report-${{ matrix.environment }}
+          path: ai_failure_report.md
+          if-no-files-found: ignore
 
       - name: Parse test counts
         id: parse_counts
@@ -209,185 +225,122 @@ jobs:
         if: ${{ always() }}
         id: configure_slack
         uses: actions/github-script@v6
-        env:
-            JOB_STATUS: ${{ job.status }}
-            CC_ENV: ${{ matrix.environment }}
-            CC_EVENT: ${{ github.event_name }}
         with:
           result-encoding: string
           script: |
-            const {CC_ENV, JOB_STATUS, CC_EVENT} = process.env
-            let SLACK_WEBHOOK_URL = '${{ secrets.SLACK_WEBHOOK_URL_SA }}'
-            if (CC_EVENT == 'repository_dispatch') {
-              SLACK_WEBHOOK_URL = '${{ secrets.SLACK_WEBHOOK_URL_SA }}'
-              console.log( "Triggered on deploy")
-            } else if (CC_EVENT != 'repository_dispatch') {
-              SLACK_WEBHOOK_URL = '${{ secrets.SLACK_WEBHOOK_URL_SA }}'
-              console.log( "Not triggered on deploy")
-            } else {
-              SLACK_WEBHOOK_URL = ''
-              console.log("No notification sent")
-            }
+            return '${{ secrets.SLACK_CHANNEL_ID_SA_RELEASE }}'
 
-            return SLACK_WEBHOOK_URL
-
-      - name: Build artifact URL
-        id: artifact_url
+      - name: Upload Combined Chart to Slack
+        if: ${{ always() && steps.configure_slack.outputs.result != '' }}
+        env:
+          SLACK_TOKEN:    ${{ secrets.SLACK_QA_BOT_TOKEN }}
+          SLACK_CHANNEL:  ${{ steps.configure_slack.outputs.result }}
+          JOB_STATUS:     ${{ job.status }}
+          ENV_DISPLAY:    ${{ steps.env_display.outputs.display_name }}
+          PASSED:         ${{ steps.parse_counts.outputs.PASSED }}
+          FAILED:         ${{ steps.parse_counts.outputs.FAILED }}
+          ERROR:          ${{ steps.parse_counts.outputs.ERROR }}
+          SKIPPED:        ${{ steps.parse_counts.outputs.SKIPPED }}
+          XFAIL:          ${{ steps.parse_counts.outputs.XFAIL }}
+          ARTIFACT_ID:    ${{ steps.artifact-upload-step.outputs.artifact-id }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          echo "url=https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}" >> $GITHUB_OUTPUT
+          pip install --quiet slack_sdk
+          python - <<'PY'
+          import os, pathlib, time
+          from slack_sdk import WebClient
+          from slack_sdk.errors import SlackApiError
 
-      - name: Post to Slack channel on Failure
-        id: slack_fail
-        uses: slackapi/slack-github-action@v1.23.0
-        if: ${{ steps.configure_slack.outputs.result != '' && failure() }}
-        with:
-          payload: |
-            {
-            	"attachments": [
-            		{
-            			"color": "#FF0000",
-            			"blocks": [
-            				{
-            					"type": "section",
-            					"text": {
-            						"type": "mrkdwn",
-            						"text": " Hola :bye_boo: \n*${{ github.workflow }} Run #${{ github.run_number }}* were just triggered by ${{ github.event_name }}! \n"
-            					}
-            				},
-            				{
-            					"type": "section",
-            					"text": {
-            						"type": "mrkdwn",
-            						"text": "*Passed:* ${{ steps.parse_counts.outputs.PASSED }} *Failed:* ${{ steps.parse_counts.outputs.FAILED }} *Error:* ${{ steps.parse_counts.outputs.ERROR }} *Skipped:* ${{ steps.parse_counts.outputs.SKIPPED }} *XFail:* ${{ steps.parse_counts.outputs.XFAIL }}\n"
-            					}
-            				},
-            				{
-            					"type": "context",
-            					"elements": [
-            						{
-            							"type": "mrkdwn",
-            							"text": "*Environment: *\n ${{ steps.env_display.outputs.display_name }}  \n"
-            						},
-            						{
-            							"type": "mrkdwn",
-            							"text": " "
-            						},
-            						{
-            							"type": "mrkdwn",
-            							"text": "*Status: *\n ${{ job.status }}  :x:"
-            						}
-            					]
-            				},
-            				{
-            					"type": "section",
-            					"text": {
-            						"type": "mrkdwn",
-            						"text": "Here's the corresponding report :arrow_right::arrow_right:"
-            					},
-            					"accessory": {
-            						"type": "button",
-            						"text": {
-            							"type": "plain_text",
-            							"text": "Click to Downlaod",
-            							"emoji": true
-            						},
-            						"value": "click_me_123",
-            						"url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}",
-            						"action_id": "button-action",
-            						"style": "danger"
-            					}
-            				},
-            				{
-            					"type": "section",
-            					"text": {
-            						"type": "mrkdwn",
-            						"text": "🔗 *Dashboard:* https://dimagi.github.io/dimagi-qa-sureadhere/"
-            					}
-            				}
-            			]
-            		}
-            	]
-            }
-        env:
-          SLACK_WEBHOOK_URL: ${{ steps.configure_slack.outputs.result }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          token   = os.environ.get("SLACK_TOKEN", "")
+          channel = os.environ.get("SLACK_CHANNEL", "")
+          if not token or not channel:
+              print("Slack token/channel not configured — skipping")
+              raise SystemExit(0)
 
-      - name: Post to Slack channel on Success
-        id: slack_pass
-        uses: slackapi/slack-github-action@v1.23.0
-        if: ${{ steps.configure_slack.outputs.result != '' && success() }}
-        with:
-          payload: |
-            {
-            	"attachments": [
-            		{
-            			"color": "#36a64f",
-            			"blocks": [
-            				{
-            					"type": "section",
-            					"text": {
-            						"type": "mrkdwn",
-            						"text": " Hola :bye_boo: \n*${{ github.workflow }} Run #${{ github.run_number }}* were just triggered by ${{ github.event_name }}! \n"
-            					}
-            				},
-            				{
-            					"type": "section",
-            					"text": {
-            						"type": "mrkdwn",
-            						"text": "*Passed:* ${{ steps.parse_counts.outputs.PASSED }} *Failed:* ${{ steps.parse_counts.outputs.FAILED }} *Error:* ${{ steps.parse_counts.outputs.ERROR }} *Skipped:* ${{ steps.parse_counts.outputs.SKIPPED }} *XFail:* ${{ steps.parse_counts.outputs.XFAIL }}\n"
-            					}
-            				},
-            				{
-            					"type": "context",
-            					"elements": [
-            						{
-            							"type": "mrkdwn",
-            							"text": "*Environment: *\n ${{ steps.env_display.outputs.display_name }}  \n"
-            						},
-            						{
-            							"type": "mrkdwn",
-            							"text": " "
-            						},
-            						{
-            							"type": "mrkdwn",
-            							"text": "*Status: *\n ${{ job.status }}  :white_check_mark:"
-            						}
-            					]
-            				},
-            				{
-            					"type": "section",
-            					"text": {
-            						"type": "mrkdwn",
-            						"text": "Here's the corresponding report :arrow_right::arrow_right:"
-            					},
-            					"accessory": {
-            						"type": "button",
-            						"text": {
-            							"type": "plain_text",
-            							"text": "Click to Download",
-            							"emoji": true
-            						},
-            						"value": "click_me_123",
-            						"url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}",
-            						"action_id": "button-action",
-            						"style": "primary"
-            					}
-            				},
-            				{
-            					"type": "section",
-            					"text": {
-            						"type": "mrkdwn",
-            						"text": "🔗 *Dashboard:* https://dimagi.github.io/dimagi-qa-sureadhere/"
-            					}
-            				}
-            			]
-            		}
-            	]
-            }
+          job_status  = os.environ.get("JOB_STATUS", "failure")
+          env_display = os.environ.get("ENV_DISPLAY", "")
+          passed      = os.environ.get("PASSED", "0")
+          failed      = os.environ.get("FAILED", "0")
+          error       = os.environ.get("ERROR", "0")
+          skipped     = os.environ.get("SKIPPED", "0")
+          xfail       = os.environ.get("XFAIL", "0")
+          run_number  = os.environ.get("GITHUB_RUN_NUMBER", "")
+          run_id      = os.environ.get("GITHUB_RUN_ID", "")
+          repo        = os.environ.get("GITHUB_REPOSITORY", "")
+          server      = os.environ.get("GITHUB_SERVER_URL", "https://github.com")
+          artifact_id = os.environ.get("ARTIFACT_ID", "")
+          workflow    = os.environ.get("GITHUB_WORKFLOW", "SureAdhere Tests - Extended")
+          event       = os.environ.get("GITHUB_EVENT_NAME", "")
 
-        env:
-          SLACK_WEBHOOK_URL: ${{ steps.configure_slack.outputs.result }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          status_icon  = "✅" if job_status == "success" else "❌"
+          artifact_url = f"{server}/{repo}/actions/runs/{run_id}/artifacts/{artifact_id}"
+          event_map = {
+              "schedule": "SCHEDULED TRIGGER", "workflow_dispatch": "MANUAL TRIGGER",
+              "push": "PUSH/PULL", "pull_request": "PUSH/PULL",
+              "repository_dispatch": "DEPLOY_SUCCESS",
+          }
+          event_label = event_map.get(event, event.upper() or "UNKNOWN")
+
+          message = (
+              f"{status_icon} 📊 *[{env_display}] {workflow} Run #{run_number} — {event_label}*\n\n"
+              f"*Passed:* {passed}  *Failed:* {failed}  *Error:* {error}  *Skipped:* {skipped}  *XFail:* {xfail}\n\n"
+              f"📎 *Artifact:* <{artifact_url}|Download here>\n"
+              f"🔗 *Dashboard:* https://dimagi.github.io/dimagi-qa-sureadhere/"
+          )
+
+          client = WebClient(token=token)
+          png_path = "slack_charts/summary_combined.png"
+          parent_ts = None
+
+          if pathlib.Path(png_path).exists():
+              try:
+                  client.files_upload_v2(
+                      file=png_path,
+                      filename="summary_combined.png",
+                      title="Test Summary",
+                      channel=channel,
+                      initial_comment=message,
+                  )
+                  print("Chart + summary posted to Slack")
+                  time.sleep(2)
+                  try:
+                      now = time.time()
+                      history = client.conversations_history(channel=channel, limit=5)
+                      for msg in history.get("messages", []):
+                          if now - float(msg.get("ts", 0)) < 60 and msg.get("files"):
+                              if env_display.upper() in (msg.get("text", "") or "").upper():
+                                  parent_ts = msg["ts"]
+                                  break
+                  except Exception as ts_err:
+                      print(f"Could not get ts for threading: {ts_err}")
+              except SlackApiError as e:
+                  print(f"files_upload_v2 failed: {e}")
+          else:
+              print(f"Chart not found at {png_path}, falling back to text message")
+              try:
+                  resp = client.chat_postMessage(channel=channel, text=message, mrkdwn=True)
+                  parent_ts = resp["ts"]
+              except SlackApiError as e:
+                  print(f"chat_postMessage failed: {e}")
+                  raise SystemExit(0)
+
+          report = pathlib.Path("ai_failure_report.md")
+          if parent_ts and report.exists() and int(failed or 0) > 0:
+              content = report.read_text(encoding="utf-8").strip()
+              if content and "No failures" not in content:
+                  if len(content) > 3000:
+                      content = content[:3000] + "\n... [see artifact for full report]"
+                  try:
+                      client.chat_postMessage(
+                          channel=channel,
+                          thread_ts=parent_ts,
+                          text=f"🤖 *AI Failure Analysis — {env_display}*\n\n{content}",
+                          mrkdwn=True,
+                      )
+                      print("AI analysis posted as thread reply")
+                  except Exception as e:
+                      print(f"AI thread post failed: {e}")
+          PY
 
       - name: Set email vars
         if: ${{ success() || failure() }}
