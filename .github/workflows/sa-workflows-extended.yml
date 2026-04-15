@@ -230,23 +230,24 @@ jobs:
           script: |
             return '${{ secrets.SLACK_CHANNEL_ID_SA_RELEASE }}'
 
-      - name: Slack Notify + AI Analysis
+      - name: Upload Combined Chart to Slack
         if: ${{ always() && steps.configure_slack.outputs.result != '' }}
         env:
-          SLACK_TOKEN:   ${{ secrets.SLACK_QA_BOT_TOKEN }}
-          SLACK_CHANNEL: ${{ steps.configure_slack.outputs.result }}
-          JOB_STATUS:    ${{ job.status }}
-          ENV_DISPLAY:   ${{ steps.env_display.outputs.display_name }}
-          PASSED:        ${{ steps.parse_counts.outputs.PASSED }}
-          FAILED:        ${{ steps.parse_counts.outputs.FAILED }}
-          ERROR:         ${{ steps.parse_counts.outputs.ERROR }}
-          SKIPPED:       ${{ steps.parse_counts.outputs.SKIPPED }}
-          XFAIL:         ${{ steps.parse_counts.outputs.XFAIL }}
-          ARTIFACT_ID:   ${{ steps.artifact-upload-step.outputs.artifact-id }}
+          SLACK_TOKEN:    ${{ secrets.SLACK_QA_BOT_TOKEN }}
+          SLACK_CHANNEL:  ${{ steps.configure_slack.outputs.result }}
+          JOB_STATUS:     ${{ job.status }}
+          ENV_DISPLAY:    ${{ steps.env_display.outputs.display_name }}
+          PASSED:         ${{ steps.parse_counts.outputs.PASSED }}
+          FAILED:         ${{ steps.parse_counts.outputs.FAILED }}
+          ERROR:          ${{ steps.parse_counts.outputs.ERROR }}
+          SKIPPED:        ${{ steps.parse_counts.outputs.SKIPPED }}
+          XFAIL:          ${{ steps.parse_counts.outputs.XFAIL }}
+          ARTIFACT_ID:    ${{ steps.artifact-upload-step.outputs.artifact-id }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           pip install --quiet slack_sdk
           python - <<'PY'
-          import os, pathlib
+          import os, pathlib, time
           from slack_sdk import WebClient
           from slack_sdk.errors import SlackApiError
 
@@ -271,64 +272,57 @@ jobs:
           workflow    = os.environ.get("GITHUB_WORKFLOW", "SureAdhere Tests - Extended")
           event       = os.environ.get("GITHUB_EVENT_NAME", "")
 
+          status_icon  = "✅" if job_status == "success" else "❌"
           artifact_url = f"{server}/{repo}/actions/runs/{run_id}/artifacts/{artifact_id}"
-          color        = "#36a64f" if job_status == "success" else "#FF0000"
-          status_emoji = ":white_check_mark:" if job_status == "success" else ":x:"
+          event_map = {
+              "schedule": "SCHEDULED TRIGGER", "workflow_dispatch": "MANUAL TRIGGER",
+              "push": "PUSH/PULL", "pull_request": "PUSH/PULL",
+              "repository_dispatch": "DEPLOY_SUCCESS",
+          }
+          event_label = event_map.get(event, event.upper() or "UNKNOWN")
 
-          attachments = [{
-              "color": color,
-              "blocks": [
-                  {
-                      "type": "section",
-                      "text": {
-                          "type": "mrkdwn",
-                          "text": f" Hola :bye_boo: \n*{workflow} Run #{run_number}* were just triggered by {event}! \n"
-                      }
-                  },
-                  {
-                      "type": "section",
-                      "text": {
-                          "type": "mrkdwn",
-                          "text": f"*Passed:* {passed} *Failed:* {failed} *Error:* {error} *Skipped:* {skipped} *XFail:* {xfail}\n"
-                      }
-                  },
-                  {
-                      "type": "context",
-                      "elements": [
-                          {"type": "mrkdwn", "text": f"*Environment: *\n {env_display}  \n"},
-                          {"type": "mrkdwn", "text": " "},
-                          {"type": "mrkdwn", "text": f"*Status: *\n {job_status}  {status_emoji}"}
-                      ]
-                  },
-                  {
-                      "type": "section",
-                      "text": {"type": "mrkdwn", "text": "Here's the corresponding report :arrow_right::arrow_right:"},
-                      "accessory": {
-                          "type": "button",
-                          "text": {"type": "plain_text", "text": "Click to Download", "emoji": True},
-                          "value": "click_me_123",
-                          "url": artifact_url,
-                          "action_id": "button-action",
-                          "style": "primary" if job_status == "success" else "danger"
-                      }
-                  },
-                  {
-                      "type": "section",
-                      "text": {"type": "mrkdwn", "text": "\U0001f517 *Dashboard:* https://dimagi.github.io/dimagi-qa-sureadhere/"}
-                  }
-              ]
-          }]
+          message = (
+              f"{status_icon} 📊 *[{env_display}] {workflow} Run #{run_number} — {event_label}*\n\n"
+              f"*Passed:* {passed}  *Failed:* {failed}  *Error:* {error}  *Skipped:* {skipped}  *XFail:* {xfail}\n\n"
+              f"📎 *Artifact:* <{artifact_url}|Download here>\n"
+              f"🔗 *Dashboard:* https://dimagi.github.io/dimagi-qa-sureadhere/"
+          )
 
           client = WebClient(token=token)
+          png_path = "slack_charts/summary_combined.png"
           parent_ts = None
 
-          try:
-              resp = client.chat_postMessage(channel=channel, attachments=attachments)
-              parent_ts = resp["ts"]
-              print(f"Slack message posted ts={parent_ts}")
-          except SlackApiError as e:
-              print(f"chat_postMessage failed: {e}")
-              raise SystemExit(0)
+          if pathlib.Path(png_path).exists():
+              try:
+                  client.files_upload_v2(
+                      file=png_path,
+                      filename="summary_combined.png",
+                      title="Test Summary",
+                      channel=channel,
+                      initial_comment=message,
+                  )
+                  print("Chart + summary posted to Slack")
+                  time.sleep(2)
+                  try:
+                      now = time.time()
+                      history = client.conversations_history(channel=channel, limit=5)
+                      for msg in history.get("messages", []):
+                          if now - float(msg.get("ts", 0)) < 60 and msg.get("files"):
+                              if env_display.upper() in (msg.get("text", "") or "").upper():
+                                  parent_ts = msg["ts"]
+                                  break
+                  except Exception as ts_err:
+                      print(f"Could not get ts for threading: {ts_err}")
+              except SlackApiError as e:
+                  print(f"files_upload_v2 failed: {e}")
+          else:
+              print(f"Chart not found at {png_path}, falling back to text message")
+              try:
+                  resp = client.chat_postMessage(channel=channel, text=message, mrkdwn=True)
+                  parent_ts = resp["ts"]
+              except SlackApiError as e:
+                  print(f"chat_postMessage failed: {e}")
+                  raise SystemExit(0)
 
           report = pathlib.Path("ai_failure_report.md")
           if parent_ts and report.exists() and int(failed or 0) > 0:
