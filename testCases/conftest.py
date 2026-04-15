@@ -8,6 +8,8 @@ from seleniumbase import config as sb_config
 from common_utilities.load_settings import load_settings
 from common_utilities.path_settings import PathSettings
 from selenium.webdriver.chrome.options import Options
+import matplotlib.pyplot as plt
+from PIL import Image
 
 # ---------------------
 # Load environment settings
@@ -81,10 +83,21 @@ def pytest_configure(config):
 # Screenshot capture on failure (also adds to HTML report)
 # ---------------------
 def _capture_screenshot(driver):
-    return base64.b64encode(driver.get_screenshot_as_png()).decode("utf-8")
+    if not driver:
+        return None
+    try:
+        png = driver.get_screenshot_as_png()
+        if not png:
+            return None
+        return base64.b64encode(png).decode("utf-8")
+    except Exception as e:
+        print(f"[WARN] Screenshot capture failed: {e}")
+        return None
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item):
+    pytest_html = item.config.pluginmanager.getplugin("html")
+
     outcome = yield
     report = outcome.get_result()
     # NOTE: Only works if you are using BaseCase-based test class (self.driver)
@@ -107,20 +120,95 @@ def pytest_runtest_makereport(item):
             f'</div>'
         )
         extra = getattr(report, "extra", [])
-        extra.append(
-            item.config.pluginmanager.getplugin("html").extras.html(link_html)
-            )
-        report.extra = extra
+        if pytest_html:
+            extra.append(pytest_html.extras.html(link_html))
+            report.extra = extra
 
-    if report.when in ("call", "teardown") and report.failed and driver_instance:
-        screen_img = _capture_screenshot(driver_instance)
-        html_content = (
-            f'<div><img src="data:image/png;base64,{screen_img}" alt="screenshot" '
-            f'style="width:600px;height:300px;" onclick="window.open(this.src)" align="right"/></div>'
-        )
+    if report.when in ("call", "teardown") and report.failed:
         extra = getattr(report, "extra", [])
-        extra.append(item.config.pluginmanager.getplugin("html").extras.html(html_content))
-        report.extra = extra
+
+        if driver_instance:
+            screen_img = _capture_screenshot(driver_instance)
+            if screen_img and pytest_html:
+                extra.append(pytest_html.extras.image(screen_img, "Web Screenshot"))
+
+        mobile_instance = getattr(item.instance, "mobile", None)
+        mobile_driver = getattr(mobile_instance, "driver", None) if mobile_instance else None
+        if mobile_driver:
+            mob_img = _capture_screenshot(mobile_driver)
+            if mob_img and pytest_html:
+                extra.append(pytest_html.extras.image(mob_img, "Mobile Screenshot"))
+
+        if extra != getattr(report, "extra", []):
+            report.extra = extra
+
+def save_summary_charts(stats):
+    out_dir = Path("slack_charts")
+    out_dir.mkdir(exist_ok=True)
+
+    passed  = stats.get("passed", 0)
+    failed  = stats.get("failed", 0)
+    skipped = stats.get("skipped", 0)
+    reruns  = stats.get("reruns", 0)
+
+    # Pie / donut chart
+    fig, ax = plt.subplots()
+    ax.pie(
+        [passed, failed, skipped],
+        labels=None,
+        colors=["#66bb6a", "#ef5350", "#fad000"],
+        startangle=90,
+        wedgeprops=dict(width=0.4),
+    )
+    ax.axis("equal")
+    ax.set_title("Test Summary")
+    ax.legend(
+        [f"Passed: {passed}", f"Failed: {failed}", f"Skipped: {skipped}"],
+        loc="lower center",
+        ncol=3,
+        bbox_to_anchor=(0.5, -0.15),
+    )
+    fig.savefig(out_dir / "summary_pie.png", bbox_inches="tight")
+    plt.close(fig)
+
+    # Bar chart (only when there are failures or reruns)
+    bar_path = None
+    if failed > 0 or reruns > 0:
+        fig, ax = plt.subplots()
+        bars = ax.bar(["Failed", "Reruns"], [failed, reruns], color=["#ef5350", "#ffa726"])
+        ax.set_ylabel("Number of Tests")
+        ax.set_title("Failures and Reruns")
+        ax.legend(
+            [bars[0], bars[1]],
+            [f"Failed: {failed}", f"Reruns: {reruns}"],
+            loc="lower center",
+            ncol=2,
+            bbox_to_anchor=(0.5, -0.15),
+        )
+        bar_path = out_dir / "summary_bar.png"
+        fig.savefig(bar_path, bbox_inches="tight")
+        plt.close(fig)
+
+    _combine_charts(
+        pie_path=out_dir / "summary_pie.png",
+        bar_path=bar_path,
+        combined_path=out_dir / "summary_combined.png",
+    )
+
+
+def _combine_charts(pie_path, bar_path, combined_path):
+    pie = Image.open(pie_path)
+    if bar_path and Path(bar_path).exists():
+        bar = Image.open(bar_path)
+        bar = bar.resize((bar.width * pie.height // bar.height, pie.height))
+        combined = Image.new("RGB", (pie.width + bar.width, pie.height), (255, 255, 255))
+        combined.paste(pie, (0, 0))
+        combined.paste(bar, (pie.width, 0))
+    else:
+        combined = pie.copy()
+    combined.save(combined_path)
+    print(f"[charts] Combined chart saved -> {combined_path}")
+
 
 def pytest_terminal_summary(terminalreporter, exitstatus, config):
     # Collect test counts
@@ -129,6 +217,7 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
     error = terminalreporter.stats.get('error', [])
     skipped = terminalreporter.stats.get('skipped', [])
     xfail = terminalreporter.stats.get('xfail', [])
+    reruns = terminalreporter.stats.get('rerun', [])
 
     env = os.environ.get("DIMAGIQA_ENV", "default_env")
 
@@ -142,6 +231,14 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
         f.write(f'ERROR={len(error)}\n')
         f.write(f'SKIPPED={len(skipped)}\n')
         f.write(f'XFAIL={len(xfail)}\n')
+
+    # Generate summary charts for Slack
+    save_summary_charts({
+        "passed":  len(passed),
+        "failed":  len(failed),
+        "skipped": len(skipped),
+        "reruns":  len(reruns),
+    })
 
 @pytest.fixture(scope="session", autouse=True)
 def global_presetup_fixture():
