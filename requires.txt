@@ -22,3 +22,5 @@ pdf2image
 pytesseract
 pillow
 opencv-python
+openai
+slack_sdk
