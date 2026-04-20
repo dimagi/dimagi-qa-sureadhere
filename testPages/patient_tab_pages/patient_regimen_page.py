@@ -71,6 +71,13 @@ class PatientRegimenPage(BasePage):
         print(time_now)
         return str(time_now)
 
+    def add_regimen_name(self):
+        self.wait_for_element('input_regimen_name')
+        time_now = self.get_time_now()
+        reg_name=f"reg_{time_now}"
+        self.type('input_regimen_name', reg_name)
+        return reg_name
+
     def create_new_schedule(self, multi=False, disease_flag=True, drug_name=None, add_pill=True):
         self.wait_for_page_to_load(50)
         time.sleep(4)

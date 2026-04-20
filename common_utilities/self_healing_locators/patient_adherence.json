@@ -2388,10 +2388,10 @@
     "tag": "kendo-svgicon",
     "xpath": "//kendo-svgicon[@class='k-svg-i-caret-alt-down k-button-icon k-svg-icon k-icon ng-star-inserted']"
   },
-  "svg__450": {
+  "span_regimen_name": {
     "class": "ng-star-inserted",
-    "tag": "svg",
-    "xpath": "//svg[@class='ng-star-inserted']"
+    "tag": "span",
+    "xpath_template": "//span[@class='ng-star-inserted'][contains(.,{text})]"
   },
   "responsive-renderer__452": {
     "tag": "responsive-renderer",
