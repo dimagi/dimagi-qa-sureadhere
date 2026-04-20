@@ -24,7 +24,7 @@ from testPages.user_profile.user_profile_page import UserProfilePage
 from user_inputs.user_data import UserData
 
 
-class test_module_11_dashboard(BaseCase):
+class test_module_13_regimen(BaseCase):
     data = {}
     _session_ready = False  # guard so we only open/login once
 
@@ -40,8 +40,8 @@ class test_module_11_dashboard(BaseCase):
         type(self)._session_ready = True
 
     @pytest.mark.extendedtests
-    @pytest.mark.dependency(name="tc_dashboard_01", scope="class")
-    def test_case_01_verify_dashboard_and_filters(self):
+    @pytest.mark.dependency(name="tc_regimen_01", scope="class")
+    def test_case_01_verify_regimen_name(self):
         rerun_count = getattr(self, "rerun_count", 0)
         # login = LoginPage(self, "login")
         login = LoginPage(self, "login")
