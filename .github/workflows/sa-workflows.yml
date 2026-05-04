@@ -15,13 +15,13 @@ on:
       environment:
         description: 'Environment to run tests against'
         required: true
-        default: 'banner'
+        default: 'banner (Staging)'
         type: choice
         options:
-          - banner
-          - rogers
-          - securevoteu
-          - secure
+          - banner (Staging)
+          - rogers (QA)
+          - securevoteu (EU Prod)
+          - secure (US Prod)
           - all_no_rogers
 
 concurrency:
@@ -50,7 +50,9 @@ jobs:
       - id: set-matrix-manual
         if: ${{ github.event_name == 'workflow_dispatch' }}
         run: |
-          if [ "${{ inputs.environment }}" = "all_no_rogers" ]; then
+          env_input="${{ inputs.environment }}"
+          env_key="${env_input%% (*}"
+          if [ "$env_key" = "all_no_rogers" ]; then
             echo "::set-output name=matrix::{\"environment\": [\"banner\", \"securevoteu\", \"secure\"]}"
           else
             echo "::set-output name=matrix::{\"environment\": [\"${{ inputs.environment }}\"]}"
@@ -93,7 +95,7 @@ jobs:
           DIMAGIQA_ENV: ${{ matrix.environment }}
           DIMAGIQA_LOGIN_USERNAME: ${{ secrets.DIMAGIQA_LOGIN_USERNAME }}
           DIMAGIQA_LOGIN_PASSWORD: ${{ secrets.DIMAGIQA_LOGIN_PASSWORD }}
-          DIMAGIQA_ADMIN_USERNAME: ${{ secrets.DIMAGIQA_ADMIN_USERNAME }}
+          DIMAGIQA_ADMIN_USERNAME: ${{ secrets[format('DIMAGIQA_ADMIN_{0}_USERNAME', matrix.environment)] }}
           DIMAGIQA_ADMIN_PASSWORD: ${{ secrets.DIMAGIQA_ADMIN_PASSWORD }}
           DIMAGIQA_BS_USER: ${{ secrets.DIMAGIQA_BS_USER }}
           DIMAGIQA_BS_KEY: ${{ secrets.DIMAGIQA_BS_KEY }}

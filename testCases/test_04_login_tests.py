@@ -306,7 +306,8 @@ class test_module_04_login_tests(BaseCase):
             login.after_logout()
             login.validate_login_page()
 
-        env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
+
+        env = self.settings['domain'] if self.settings['domain'] in ("rogers", "securevoteu")  else "others"
         print(self.settings['domain'], env)
 
         # client 1 patient access

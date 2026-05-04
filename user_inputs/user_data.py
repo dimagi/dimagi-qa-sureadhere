@@ -1,23 +1,26 @@
 class UserData:
 
     phone_number = "(000) 000-0000"
-    site_manager = ["Site_1_US", "Menlo Park", "Durban"]
+    site_manager = ["Site_1_US", "Menlo Park", "Cape Town"]#"Durban"]
     pwd = "abc@123456"
     regimen_disease = ["Diabetes", "Active TB"]
     med_time = "08:00 AM"
     regimen_repeats = "Daily"
+    regimen_repeats_weekdays = "Weekdays"
     regimen_drugs = ["Ofloxacin", "Drug 2"]
     no_of_pills = 7
     dose_per_pill = 2
     admin_disease = ["Depression", "Hepatitis C", "Ebola"]
     admin_drug = ["Levofloxacin", "Rifapentine", "Truvada", "Stribild"]
-    default_staff_email = ["automation.user.banner@gmail.com", "automation.user.rogers@gmail.com", "automation.user.secure@gmail.com", "automation.user.eu@gmail.com"]
+    # default_staff_email = ["automation.user.banner@gmail.com", "automation.user.rogers@gmail.com", "automation.user.secure@gmail.com", "automation.user.eu@gmail.com"]
+    default_staff_email = ["sureadhere.automation.user+banner@gmail.com", "automation.user.rogers@gmail.com", "sureadhere.automation.user+secure@gmail.com", "sureadhere.automation.user+eu@gmail.com"]
     default_staff_name = "Automation Testuser"
+
     med_status = "Taken"
     provider_observation = "Patient"
     side_effect = ["Anxiety", "Depression", "Irritability", "Insomnia"]
     colour_code = "#730099"
-    client = ["Client_Test_1_US", "Client_1_US", "St. Eligius", "EU Demo Client 2"]
+    client = ["Client_Test_1_US", "Client_1_US", "St. Eligius", "EU Demo Client 1"]
     ff = {
         "Patient Self Reporting": "ON",
         "Side Effects": "ON",
@@ -50,16 +53,18 @@ class UserData:
     account_block_error_message = "Your account is temporarily locked to prevent unauthorized use. Try again later."
     client_1_patient_details = {
         "others": ["pat_cl1 automation", "cl1123", "pat_cl1_auto", "pat_cl1_auto@test.com"],
+        "securevoteu": ["pat_cl1 automation", "cl1123", "pat_cl1_auto_eu", "pat_cl1_auto@test.com"],
         "rogers": ["pat_cl1 automation", "cl1123", "pat_cl1_auto", "pat_cl1_auto_test@test.com"]
         }
     client_2_patient_details = {
         "others": ["pat_cl2 automation", "cl2123", "pat_cl2_auto", "pat_cl2_auto@test.com"],
+        "securevoteu": ["pat_cl2 automation", "cl2123", "pat_cl2_auto_eu", "pat_cl2_auto@test.com"],
         "rogers": ["pat_cl2 automation", "cl2123", "pat_cl2_auto", "pat_cl12auto_test@test.com"]
         }
     client_env = {
         "clients_banner": ["Site_1_US", "Site_2_US"],
         "clients_rogers": ["Site_1_US", "Site_2_UK"],
-        "clients_securevoteu": ["Durban", "Kimberley"],
+        "clients_securevoteu": ["Cape Town", "Joburg"],# ["Durban", "Kimberley"],
         "clients_secure": ["Menlo Park", "Palo Alto"]
         }
     client_1_staff_details = {

@@ -47,7 +47,7 @@ class test_module_07_staff_manager_roles(BaseCase):
         p_profile = PatientProfilePage(self, 'patient_profile')
         patient = ManagePatientPage(self, "patients")
 
-        env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
+        env = self.settings['domain'] if self.settings['domain'] in ("rogers", "securevoteu")  else "others"
         if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
             default_site_manager = UserData.site_manager[0]
         elif "securevoteu" in self.settings["url"]:
@@ -137,7 +137,7 @@ class test_module_07_staff_manager_roles(BaseCase):
 
         d = self.__class__.data  # shared dict
 
-        env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
+        env = self.settings['domain'] if self.settings['domain'] in ("rogers", "securevoteu")  else "others"
 
         rerun_count = getattr(self, "rerun_count", 0)
         try:
@@ -214,7 +214,7 @@ class test_module_07_staff_manager_roles(BaseCase):
 
         d = self.__class__.data  # shared dict
 
-        env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
+        env = self.settings['domain'] if self.settings['domain'] in ("rogers", "securevoteu")  else "others"
 
         rerun_count = getattr(self, "rerun_count", 0)
         try:
@@ -296,7 +296,7 @@ class test_module_07_staff_manager_roles(BaseCase):
 
         d = self.__class__.data  # shared dict
 
-        env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
+        env = self.settings['domain'] if self.settings['domain'] in ("rogers", "securevoteu")  else "others"
 
         rerun_count = getattr(self, "rerun_count", 0)
         try:
@@ -379,7 +379,7 @@ class test_module_07_staff_manager_roles(BaseCase):
 
         d = self.__class__.data  # shared dict
 
-        env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
+        env = self.settings['domain'] if self.settings['domain'] in ("rogers", "securevoteu")  else "others"
 
         rerun_count = getattr(self, "rerun_count", 0)
 
@@ -465,7 +465,7 @@ class test_module_07_staff_manager_roles(BaseCase):
 
         d = self.__class__.data  # shared dict
 
-        env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
+        env = self.settings['domain'] if self.settings['domain'] in ("rogers", "securevoteu")  else "others"
 
         rerun_count = getattr(self, "rerun_count", 0)
 
@@ -557,7 +557,7 @@ class test_module_07_staff_manager_roles(BaseCase):
 
         d = self.__class__.data  # shared dict
 
-        env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
+        env = self.settings['domain'] if self.settings['domain'] in ("rogers", "securevoteu")  else "others"
 
         rerun_count = getattr(self, "rerun_count", 0)
 
