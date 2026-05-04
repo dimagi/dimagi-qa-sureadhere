@@ -238,6 +238,10 @@ class test_module_03(BaseCase):
         p_overview.verify_patient_overview_page()
         p_overview.check_calendar_and_doses(d['commented_timestamp'], d['commented_text'], d['drug_name'], d['start_date'], d['total_pills'])
 
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+    
     @pytest.mark.testcase(
         "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A25:J25"
         )
