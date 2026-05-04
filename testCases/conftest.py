@@ -31,6 +31,48 @@ def _inject_values(request, rerun_count):
         inst.rerun_count = rerun_count
 
 
+def _relogin(inst):
+    """Re-establish a logged-in session on test reruns.
+
+    If the browser is already on the login page, login directly.
+    Otherwise logout first, then login.
+    Falls back to a fresh URL load if either path raises an exception.
+    """
+    from testPages.login_page.login_page import LoginPage
+    from testPages.home_page.home_page import HomePage
+    from testPages.user_profile.user_profile_page import UserProfilePage
+
+    login = LoginPage(inst, "login")
+    home = HomePage(inst, "dashboard")
+    settings = inst.settings
+
+    try:
+        if login.is_element_visible("next"):
+            print("[rerun] Already on login page — logging in directly")
+            login.login(settings["login_username"], settings["login_password"])
+        else:
+            print("[rerun] Not on login page — logging out first, then logging in")
+            home.click_admin_profile_button()
+            profile = UserProfilePage(inst, "user")
+            profile.logout_user()
+            login.after_logout()
+            login.login(settings["login_username"], settings["login_password"])
+        home.validate_dashboard_page()
+    except Exception as e:
+        print(f"[rerun] Re-login via current page failed ({e}), retrying via URL...")
+        login.launch_browser(settings["url"])
+        login.login(settings["login_username"], settings["login_password"])
+        home.validate_dashboard_page()
+
+
+@pytest.fixture(autouse=True)
+def _relogin_on_rerun(request, rerun_count):
+    inst = getattr(request, "instance", None)
+    if inst is not None and rerun_count > 0:
+        _relogin(inst)
+    yield
+
+
 @pytest.fixture(autouse=True)
 def inject_settings_to_self(request, settings):
     if hasattr(request.node, "cls"):
@@ -249,6 +291,14 @@ def global_presetup_fixture():
     print("\n>>> Global presetup teardown after all tests <<<")
 
 
+def _uses_adminff(fspath) -> bool:
+    """Return True if the module instantiates AdminFFPage anywhere."""
+    try:
+        return "AdminFFPage(" in Path(fspath).read_text(encoding="utf-8")
+    except OSError:
+        return False
+
+
 def pytest_collection_modifyitems(config, items):
     for item in items:
         # Skip if this test itself *defines* the presetup dependency root
@@ -260,6 +310,17 @@ def pytest_collection_modifyitems(config, items):
 
         # For everything else, make it depend on presetup
         item.add_marker(pytest.mark.dependency(depends=["presetup"]))
+
+    # Any module that instantiates AdminFFPage toggles feature flags and must
+    # run last so it doesn't interfere with other parallel tests.
+    adminff_files = {item.fspath for item in items if _uses_adminff(item.fspath)}
+    regular, last = [], []
+    for item in items:
+        if item.fspath in adminff_files:
+            last.append(item)
+        else:
+            regular.append(item)
+    items[:] = regular + last
 
 
 def pytest_runtest_setup(item):

@@ -82,10 +82,12 @@ class UserData:
         }
     client_1_staff_details = {
         "others": ["Staff CL1", "sureadhere.automation.user+scl1@gmail.com"],
+        "securevoteu": ["Staff CL1", "sureadhere.automation.user+scl1@gmail.com"],
         "rogers": ["Staff CL1", "sureadhere.automation.user+test+scl1@gmail.com"]
         }
     client_2_staff_details = {
         "others": ["Staff CL2", "sureadhere.automation.user+scl2@gmail.com"],
+        "securevoteu": ["Staff CL2", "sureadhere.automation.user+scl2@gmail.com"],
         "rogers": ["Staff CL2", "sureadhere.automation.user+test+scl2@gmail.com"]
         }
     email_error = "Error: This email address is already being used for another staff account. Each staff user must have a unique email address."

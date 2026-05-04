@@ -233,7 +233,7 @@ jobs:
           esac
 
       - name: Set slack vars
-        if: ${{ always() }}
+        if: ${{ !cancelled() }}
         id: configure_slack
         uses: actions/github-script@v6
         env:
@@ -251,7 +251,7 @@ jobs:
             }
 
       - name: Upload Combined Chart to Slack
-        if: ${{ always() && steps.configure_slack.outputs.result != '' }}
+        if: ${{ !cancelled() && steps.configure_slack.outputs.result != '' }}
         env:
           SLACK_TOKEN:    ${{ secrets.SLACK_QA_BOT_TOKEN }}
           SLACK_CHANNEL:  ${{ steps.configure_slack.outputs.result }}

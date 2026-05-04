@@ -192,12 +192,13 @@ class PatientRegimenPage(BasePage):
                 self.type('input_Number_of_pills', no_of_pills)
             else:
                 self.type('input_Number_of_pills', str(UserData.no_of_pills))
-            pills = self.get_text('input_Number_of_pills')
+
             if doses:
                 self.type('input_Dose_per_pill', doses)
             else:
                 self.type('input_Dose_per_pill', str(UserData.dose_per_pill))
-            dose_per_pill = self.get_text('input_Dose_per_pill')
+            pills = self.get_value('input_Number_of_pills')
+            dose_per_pill = self.get_value('input_Dose_per_pill')
             total_pills = self.get_text('div_Total_dose_text')
             assert total_pills == str(pills * dose_per_pill
                                       ), f"Total dose mismatch: {str(pills * dose_per_pill)} and {total_pills}"
@@ -412,10 +413,12 @@ class PatientRegimenPage(BasePage):
 
         if no_of_pills:
             self.type('input_Number_of_pills', no_of_pills)
-            pills = self.get_text('input_Number_of_pills')
+
         if doses:
             self.type('input_Dose_per_pill', doses)
-            dose_per_pill = self.get_text('input_Dose_per_pill')
+
+        pills = self.get_value('input_Number_of_pills')
+        dose_per_pill = self.get_value('input_Dose_per_pill')
         total_pills = self.get_text('div_Total_dose_text')
         assert total_pills == str(pills * dose_per_pill), f"Total dose mismatch: {str(pills * dose_per_pill)} and {total_pills}"
         print( f"Total dose match: {str(pills * dose_per_pill)} and {total_pills}")
@@ -427,7 +430,7 @@ class PatientRegimenPage(BasePage):
             self.type('enddate', date)
 
         self.click('button_SAVE_DRUG', strict=True)
-        time.sleep(15)
+        time.sleep(5)
         self.wait_for_page_to_load(100)
         time.sleep(5)
 
