@@ -91,7 +91,7 @@ class PatientRegimenPage(BasePage):
         self.click('button_SAVE')
         return reg_name
 
-    def create_new_schedule(self, multi=False, disease_flag=True, drug_name=None, add_pill=True, time_of_drug=False, past_date=False, no_of_weeks='1', donot_add_drug=None):
+    def create_new_schedule(self, multi=False, disease_flag=True, drug_name=None, add_pill=True, time_of_drug=False, past_date=False, no_of_weeks='1', donot_add_drug=None, no_of_pills=None, doses=None):
         self.wait_for_page_to_load(50)
         time.sleep(4)
         if disease_flag==True:
@@ -188,11 +188,24 @@ class PatientRegimenPage(BasePage):
         print(colour_code)
 
         if add_pill:
-            self.type('input_Number_of_pills', str(UserData.no_of_pills))
-            self.type('input_Dose_per_pill', str(UserData.dose_per_pill))
+            if no_of_pills:
+                self.type('input_Number_of_pills', no_of_pills)
+            else:
+                self.type('input_Number_of_pills', str(UserData.no_of_pills))
+            pills = self.get_text('input_Number_of_pills')
+            if doses:
+                self.type('input_Dose_per_pill', doses)
+            else:
+                self.type('input_Dose_per_pill', str(UserData.dose_per_pill))
+            dose_per_pill = self.get_text('input_Dose_per_pill')
             total_pills = self.get_text('div_Total_dose_text')
-            assert total_pills == str(UserData.no_of_pills * UserData.dose_per_pill), f"Total dose mismatch: {str(UserData.no_of_pills * UserData.dose_per_pill)} and {total_pills}"
-            print( f"Total dose match: {str(UserData.no_of_pills * UserData.dose_per_pill)} and {total_pills}")
+            assert total_pills == str(pills * dose_per_pill
+                                      ), f"Total dose mismatch: {str(pills * dose_per_pill)} and {total_pills}"
+            print(f"Total dose match: {str(pills * dose_per_pill)} and {total_pills}")
+
+            # total_pills = self.get_text('div_Total_dose_text')
+            # assert total_pills == str(UserData.no_of_pills * UserData.dose_per_pill), f"Total dose mismatch: {str(UserData.no_of_pills * UserData.dose_per_pill)} and {total_pills}"
+            # print( f"Total dose match: {str(UserData.no_of_pills * UserData.dose_per_pill)} and {total_pills}")
         else:
             total_pills = 0
         self.click_robust('button_CREATE')
@@ -413,7 +426,7 @@ class PatientRegimenPage(BasePage):
             end_date = self.future_date(date, 5)
             self.type('enddate', date)
 
-        self.click_robust('button_CREATE')
+        self.click('button_SAVE_DRUG', strict=True)
         time.sleep(15)
         self.wait_for_page_to_load(100)
         time.sleep(5)
@@ -451,6 +464,4 @@ class PatientRegimenPage(BasePage):
         assert expected_no_leading_zero.lower() in schedule_str or expected.lower() in schedule_str, (
             f"{med_time} not in {schedule_text}"
         )
-
-
         return text_date_format, end_date, UserData.no_of_pills, total_pills

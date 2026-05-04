@@ -772,6 +772,13 @@
     "text": "SAVE",
     "xpath": "//button[contains(normalize-space(text()), 'SAVE')]"
   },
+  "button_SAVE_DRUG": {
+    "class": "k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid ng-star-inserted",
+    "type": "submit",
+    "tag": "button",
+    "text": "SAVE",
+    "xpath": "(//button[contains(normalize-space(.), 'Save')])[2]"
+  },
   "span_SAVE": {
     "class": "k-button-text",
     "tag": "span",
