@@ -3,6 +3,8 @@ from datetime import datetime, date, timedelta
 import time
 import random
 
+from selenium.webdriver import Keys
+
 from common_utilities.base_page import BasePage
 from common_utilities.generate_random_string import fetch_random_string, fetch_random_digit
 from user_inputs.user_data import UserData
@@ -188,22 +190,19 @@ class PatientRegimenPage(BasePage):
         print(colour_code)
 
         if add_pill:
-            if no_of_pills:
-                self.type('input_Number_of_pills', no_of_pills)
-            else:
-                self.type('input_Number_of_pills', str(UserData.no_of_pills))
+            pills = no_of_pills if no_of_pills else UserData.no_of_pills
+            self.type_and_trigger('input_Number_of_pills', str(pills), blur=False)
 
-            if doses:
-                self.type('input_Dose_per_pill', doses)
-            else:
-                self.type('input_Dose_per_pill', str(UserData.dose_per_pill))
-            pills = self.get_value('input_Number_of_pills')
-            dose_per_pill = self.get_value('input_Dose_per_pill')
+            dose_per_pill = doses if doses else UserData.dose_per_pill
+            self.type_and_trigger('input_Dose_per_pill', str(dose_per_pill), blur=False)
+
+            pills_entered = self.get_value('input_Number_of_pills')
+            dose_entered = self.get_value('input_Dose_per_pill')
+
             total_pills = self.get_text('div_Total_dose_text')
-            assert total_pills == str(pills * dose_per_pill
-                                      ), f"Total dose mismatch: {str(pills * dose_per_pill)} and {total_pills}"
+            assert total_pills == str(pills * dose_per_pill), f"Total dose mismatch: {str(pills * dose_per_pill)} and {total_pills}"
             print(f"Total dose match: {str(pills * dose_per_pill)} and {total_pills}")
-
+            print(pills_entered, dose_entered)
             # total_pills = self.get_text('div_Total_dose_text')
             # assert total_pills == str(UserData.no_of_pills * UserData.dose_per_pill), f"Total dose mismatch: {str(UserData.no_of_pills * UserData.dose_per_pill)} and {total_pills}"
             # print( f"Total dose match: {str(UserData.no_of_pills * UserData.dose_per_pill)} and {total_pills}")
@@ -411,17 +410,21 @@ class PatientRegimenPage(BasePage):
         colour_code = self.get_attribute('span_drug_colour', "style")
         print(colour_code)
 
-        if no_of_pills:
-            self.type('input_Number_of_pills', no_of_pills)
+        if no_of_pills or doses:
+            if no_of_pills:
+                self.type_and_trigger('input_Number_of_pills', str(no_of_pills), blur=False)
+            if doses:
+                self.type_and_trigger('input_Dose_per_pill', str(doses), blur=False)
 
-        if doses:
-            self.type('input_Dose_per_pill', doses)
+            pills_entered = self.get_value('input_Number_of_pills')
+            dose_entered = self.get_value('input_Dose_per_pill')
 
-        pills = self.get_value('input_Number_of_pills')
-        dose_per_pill = self.get_value('input_Dose_per_pill')
-        total_pills = self.get_text('div_Total_dose_text')
-        assert total_pills == str(pills * dose_per_pill), f"Total dose mismatch: {str(pills * dose_per_pill)} and {total_pills}"
-        print( f"Total dose match: {str(pills * dose_per_pill)} and {total_pills}")
+            total_pills = self.get_text('div_Total_dose_text')
+            assert total_pills == str(pills_entered * dose_entered
+                                      ), f"Total dose mismatch: {str(pills_entered * dose_entered)} and {total_pills}"
+            print(f"Total dose match: {str(pills_entered * dose_entered)} and {total_pills}")
+            print(pills_entered, dose_entered)
+
 
         if end_date:
             text_date = datetime.strptime(date, "%Y-%m-%d")
@@ -467,4 +470,4 @@ class PatientRegimenPage(BasePage):
         assert expected_no_leading_zero.lower() in schedule_str or expected.lower() in schedule_str, (
             f"{med_time} not in {schedule_text}"
         )
-        return text_date_format, end_date, UserData.no_of_pills, total_pills
+        return text_date_format, end_date, no_of_pills, total_pills

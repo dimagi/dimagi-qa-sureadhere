@@ -711,7 +711,7 @@
     "text": "Active TB",
     "xpath": "//div[contains(normalize-space(text()), 'Active TB')]"
   },
- "kendo-dropdownlist-Disease": {
+  "kendo-dropdownlist-Disease": {
     "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
     "tag": "kendo-dropdownlist",
     "xpath": "//kendo-dropdownlist"
@@ -1054,10 +1054,10 @@
     "xpath": "//label[contains(normalize-space(text()), 'Number of pills')]"
   },
   "input_Number_of_pills": {
-    "class": "w-100 ng-untouched ng-pristine ng-invalid k-textbox k-input k-input-md k-rounded-md k-input-solid",
+    "class": "w-100 k-textbox k-input k-input-md k-rounded-md k-input-solid",
     "type": "number",
     "tag": "input",
-    "xpath": "//input[@class='w-100 ng-untouched ng-pristine ng-invalid k-textbox k-input k-input-md k-rounded-md k-input-solid' and @type='number']"
+    "xpath": "//label[contains(normalize-space(text()),'Number of pills')]/following-sibling::input[@type='number']"
   },
   "div_Dose per p_219": {
     "class": "col-xl-3 col-md-6 schedule-item",
@@ -1078,10 +1078,10 @@
     "xpath": "//label[contains(normalize-space(text()), 'Dose per pill (mg/ml)')]"
   },
   "input_Dose_per_pill": {
-    "class": "ng-untouched ng-pristine ng-invalid k-textbox k-input k-input-md k-rounded-md k-input-solid",
+    "class": "k-textbox k-input k-input-md k-rounded-md k-input-solid",
     "type": "number",
     "tag": "input",
-    "xpath": "//input[@class='ng-untouched ng-pristine ng-invalid k-textbox k-input k-input-md k-rounded-md k-input-solid' and @type='number']"
+    "xpath": "//label[contains(normalize-space(text()),'Dose per pill')]/following-sibling::input[@type='number']"
   },
   "div_Total_dose_223": {
     "class": "col-xl-3 col-md-6 schedule-item",
@@ -1336,7 +1336,7 @@
     "text": "Number of weeks",
     "xpath": "//div[contains(normalize-space(text()), 'Number of weeks')]"
   },
-"label_Number_of_weeks": {
+  "label_Number_of_weeks": {
     "class": "regiment-label ng-star-inserted",
     "tag": "label",
     "text": "Number of weeks",
