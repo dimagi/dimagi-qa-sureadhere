@@ -255,13 +255,15 @@ class test_module_03(BaseCase):
         d = self.__class__.data
 
         p_vdo.close_form()
+
         try:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-        except Exception:
             login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
+        except Exception:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.login(self.settings["login_username"], self.settings["login_password"])
+    
 
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
