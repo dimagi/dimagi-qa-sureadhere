@@ -13,6 +13,8 @@ class PatientReportsPage(BasePage):
         super().__init__(sb, page_name=page_name)
 
     def open_patient_reports_page(self):
+        self.wait_for_element('k-tabstrip-tab-Reports', strict=True)
+        time.sleep(2)
         self.click('k-tabstrip-tab-Reports', strict=True)
         try:
             self.kendo_dialog_wait_open()  # no title constraint
