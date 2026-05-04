@@ -51,6 +51,18 @@ class PatientRegimenPage(BasePage):
         print(date_today)
         return date_today
 
+    def past_date(self, days=1):
+        date_past = datetime.today() - timedelta(days=days)
+        date_past = date_past.strftime("%Y-%m-%d")
+        print(date_past)
+        return date_past
+
+    def future_date(self, days=1):
+        date_future = datetime.today() + timedelta(days=days)
+        date_future = date_future.strftime("%Y-%m-%d")
+        print(date_future)
+        return date_future
+
     def calculate_end_date(self, start_date, no_of_weeks):
         start_date = date.fromisoformat(start_date)
         days_to_add = (no_of_weeks * 7) - 1
@@ -76,9 +88,10 @@ class PatientRegimenPage(BasePage):
         time_now = self.get_time_now()
         reg_name=f"reg_{time_now}"
         self.type('input_regimen_name', reg_name)
+        self.click('button_SAVE')
         return reg_name
 
-    def create_new_schedule(self, multi=False, disease_flag=True, drug_name=None, add_pill=True):
+    def create_new_schedule(self, multi=False, disease_flag=True, drug_name=None, add_pill=True, time_of_drug=False, past_date=False, no_of_weeks='1', donot_add_drug=None):
         self.wait_for_page_to_load(50)
         time.sleep(4)
         if disease_flag==True:
@@ -110,7 +123,10 @@ class PatientRegimenPage(BasePage):
             print("Disease flag is False")
         print(self.resolve('span_NEW_SCHEDULE'))
         self.click_robust('span_NEW_SCHEDULE')
-        date = self.today_date()
+        if past_date:
+            date = self.past_date()
+        else:
+            date = self.today_date()
         self.wait_for_element('timepicker')
         print("regimen name: ", self.resolve('input_regimen_name'))
         print("startdate: ", self.resolve('startdate'))
@@ -118,12 +134,14 @@ class PatientRegimenPage(BasePage):
         time.sleep(1)
 
         # self.type('timepicker', UserData.med_time)
-        med_time = self.get_time_now()
-        self.type('timepicker', med_time)
+        if time_of_drug:
+            drug_time = self.get_time_now()
+            self.type('timepicker', drug_time)
         time.sleep(1)
+        med_time = self.get_value('timepicker')
         self.wait_for_element('kendo-dropdownlist-Repeats')
         self.kendo_dd_select_text_old('kendo-dropdownlist-Repeats', UserData.regimen_repeats)
-        self.type('input_Enter_weeks','1')
+        self.type('input_Enter_weeks',no_of_weeks)
         # self.kendo_ms_select_text("kendo-multiselect-drugs", "Drug 1")
         #
         # # Add several
@@ -148,6 +166,7 @@ class PatientRegimenPage(BasePage):
                    and ' ' not in d
                    and 'Sofosbuvir' not in d
                    and 'Quabodepistat' not in d# optional: single-word only
+                   and (donot_add_drug is None or donot_add_drug not in d)
                 ]
 
             if not filtered_drugs:
@@ -344,3 +363,94 @@ class PatientRegimenPage(BasePage):
             print("No Pills present")
             return None
 
+
+    def edit_schedule(self, drug_name, past_date=False, time_of_drug=False, end_date=None, no_of_pills=None, doses=None, repeat=False):
+
+        self.wait_for_page_to_load(50)
+        time.sleep(4)
+        self.click_rendered('edit_against_drug', text=drug_name)
+
+        if past_date:
+            date = self.past_date()
+        else:
+            date = self.today_date()
+        self.wait_for_element('timepicker')
+
+        self.type('startdate', date)
+        time.sleep(1)
+
+        if time_of_drug:
+            drug_time = self.get_time_now()
+            self.type('timepicker', drug_time)
+        time.sleep(1)
+        med_time = self.get_value('timepicker')
+        time.sleep(1)
+        self.wait_for_element('kendo-dropdownlist-Repeats')
+        if repeat:
+            self.kendo_dd_select_text_old('kendo-dropdownlist-Repeats', UserData.regimen_repeats_weekdays)
+        else:
+            self.kendo_dd_select_text_old('kendo-dropdownlist-Repeats', UserData.regimen_repeats)
+
+        present_text = self.get_text('label_Drug_name_text')
+
+        self.wait_for_element('span_drug_colour', 50)
+        colour_code = self.get_attribute('span_drug_colour', "style")
+        print(colour_code)
+
+        if no_of_pills:
+            self.type('input_Number_of_pills', no_of_pills)
+            pills = self.get_text('input_Number_of_pills')
+        if doses:
+            self.type('input_Dose_per_pill', doses)
+            dose_per_pill = self.get_text('input_Dose_per_pill')
+        total_pills = self.get_text('div_Total_dose_text')
+        assert total_pills == str(pills * dose_per_pill), f"Total dose mismatch: {str(pills * dose_per_pill)} and {total_pills}"
+        print( f"Total dose match: {str(pills * dose_per_pill)} and {total_pills}")
+
+        if end_date:
+            text_date = datetime.strptime(date, "%Y-%m-%d")
+            text_date_format = self.format_mdY(text_date)
+            end_date = self.future_date(date, 5)
+            self.type('enddate', date)
+
+        self.click_robust('button_CREATE')
+        time.sleep(15)
+        self.wait_for_page_to_load(100)
+        time.sleep(5)
+
+        # Example: start on 2025-10-27, weekdays only, for 3 weeks
+
+        missing, styles = self.calendar_verify_dots_multi_month(
+            start=date,
+            weeks=1,
+            mode=UserData.regimen_repeats,  # or "daily"
+            header_logical="calendar-header",
+            next_btn_logical="cal_next_btn",
+            prev_btn_logical="cal_prev_btn",
+            expect_color_substring=colour_code,
+            )
+        assert not missing, f"Missing/incorrect dots on: {[d.isoformat() for d in missing]}"
+
+        print("Couloured dots are present correctly")
+        self.wait_for_element('div-schedule-summary')
+        schedule_text = self.get_elements_texts('div-schedule-info')
+
+        print(schedule_text)
+
+        expected = med_time #UserData.med_time
+        expected_no_leading_zero = re.sub(r'\b0(?=\d:)', '', expected)
+
+        schedule_str = " ".join(schedule_text).lower()
+
+        # assert selected_drug.lower() in schedule_str, f"{selected_drug} not in {schedule_text}"
+        # assert selected_drug in schedule_text, f"{selected_drug} not in {schedule_text}"
+        # assert UserData.med_time in schedule_text, f"{UserData.med_time} not in {schedule_text}"
+        assert text_date_format.lower() in schedule_str, f"{text_date_format} not in {schedule_text}"
+        assert end_date.lower() in schedule_str, f"{end_date} not in {schedule_text}"
+        assert str(UserData.no_of_pills).lower() in schedule_str, f"{UserData.no_of_pills} not in {schedule_text}"
+        assert expected_no_leading_zero.lower() in schedule_str or expected.lower() in schedule_str, (
+            f"{med_time} not in {schedule_text}"
+        )
+
+
+        return text_date_format, end_date, UserData.no_of_pills, total_pills

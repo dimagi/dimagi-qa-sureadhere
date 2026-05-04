@@ -1204,6 +1204,22 @@
     "tag": "input",
     "xpath": "//input[contains(@id,'timepicker') and @placeholder='Set Time']"
   },
+  "changeDate": {
+    "id": "changeDate",
+    "placeholder": "When should this change take effect?",
+    "class": "ng-untouched ng-pristine ng-invalid",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//label[contains(normalize-space(text()), 'Change date')]//following::input[@id='changeDate']"
+  },
+  "enddate": {
+    "id": "enddate",
+    "placeholder": "Select end date",
+    "class": "ng-untouched ng-pristine ng-invalid",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//label[contains(normalize-space(text()), 'End date')]//following::input[@id='enddate']"
+  },
   "button__245": {
     "aria-label": "Toggle time list",
     "class": "k-input-button k-button k-icon-button k-button-md k-button-solid k-button-solid-base",

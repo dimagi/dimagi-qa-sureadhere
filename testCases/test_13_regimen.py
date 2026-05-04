@@ -55,10 +55,6 @@ class test_module_13_regimen(BaseCase):
         p_regimen = PatientRegimenPage(self, 'patient_regimens')
         p_adhere = PatientAdherencePage(self, 'patient_adherence')
 
-        home.click_admin_profile_button()
-        profile.logout_user()
-        login.after_logout()
-
         if "banner" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[0]
             default_site_manager = UserData.site_manager[0]
@@ -72,7 +68,13 @@ class test_module_13_regimen(BaseCase):
             default_staff_email = UserData.default_staff_email[2]
             default_site_manager = UserData.site_manager[1]
 
-        login.login(default_staff_email, UserData.pwd)
+        try:
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+        except Exception:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.click_add_user()
@@ -96,28 +98,191 @@ class test_module_13_regimen(BaseCase):
         p_adhere.open_patient_adherence_page()
         p_adhere.verify_patient_adherence_page()
         p_adhere.verify_regimen_name_presence(reg_name)
+        p_regimen.open_patient_regimen_page()
+        p_regimen.verify_patient_regimen_page()
+        start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule(past_date=True, time_of_drug=False)
+        home.validate_dashboard_page()
+        home.open_manage_patient_page()
+        patient.search_patient(pfname, plname, mrn, username,sa_id,
+                               start_date, end_date, no_of_pill
+                               )
+        self.__class__.data.update(
+            {"patient_fname": pfname, "patient_lname": plname,
+             "patient_email": pemail,
+             "patient_phn": phn, "patient_username": username,
+             "mrn": mrn, "phone_country": phn_country, "SA_ID": sa_id,
+             "site": default_site_manager, "is_patient_active": patient_test_account,
+             "patient_pin": patient_pin, "drug_name": med_name
+             }
+            )
 
-        # start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule()
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_regimen_02", depends=["tc_regimen_01"], scope="class")
+    def test_case_02_edit_regimen(self):
+        d = self.__class__.data
+        rerun_count = getattr(self, "rerun_count", 0)
+        # login = LoginPage(self, "login")
+        login = LoginPage(self, "login")
+        self._login_once()
+        home = HomePage(self, "dashboard")
+        user = UserPage(self, "add_users")
+        patient = ManagePatientPage(self, "patients")
+        profile = UserProfilePage(self, "user")
+        user_patient = UserPatientPage(self, "add_patient")
+        p_profile = PatientProfilePage(self, 'patient_profile')
+        p_regimen = PatientRegimenPage(self, 'patient_regimens')
+        p_adhere = PatientAdherencePage(self, 'patient_adherence')
 
-        # try:
-        #     home.open_dashboard_page()
-        #     home.validate_dashboard_page()
-        # except Exception:
-        #     login.login(self.settings["login_username"], self.settings["login_password"])
-        #     home.open_dashboard_page()
-        #     home.validate_dashboard_page()
-        #
-        # home.open_manage_patient_page()
-        # patient.search_patient(pfname, plname, mrn, username, sa_id,
-        #                        start_date, end_date, no_of_pill
-        #                        )
-        # self.__class__.data.update(
-        #     {"patient_fname": pfname, "patient_lname": plname,
-        #      "patient_email": pemail,
-        #      "patient_phn": phn, "patient_username": username,
-        #      "mrn": mrn, "phone_country": phn_country, "SA_ID": sa_id,
-        #      "site": default_site_manager, "is_patient_active": patient_test_account,
-        #      "patient_pin": patient_pin, "start_date": start_date, "end_date": end_date,
-        #      "total_pills": no_of_pill, "drug_name": med_name, "dose_per_pill": dose_per_pill
-        #      }
-        #     )
+
+        if "banner" in self.settings["url"]:
+            default_staff_email = UserData.default_staff_email[0]
+            default_site_manager = UserData.site_manager[0]
+        elif "rogers" in self.settings["url"]:
+            default_staff_email = UserData.default_staff_email[1]
+            default_site_manager = UserData.site_manager[0]
+        elif "securevoteu" in self.settings["url"]:
+            default_staff_email = UserData.default_staff_email[3]
+            default_site_manager = UserData.site_manager[2]
+        else:
+            default_staff_email = UserData.default_staff_email[2]
+            default_site_manager = UserData.site_manager[1]
+
+        try:
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+        except Exception:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+
+        home.open_manage_patient_page()
+        patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
+        patient.open_patient(d["patient_fname"], d["patient_lname"])
+        p_regimen.open_patient_regimen_page()
+        p_regimen.verify_patient_regimen_page()
+        start_date, end_date, no_of_pill, dose_per_pill = p_regimen.edit_schedule(past_date=False, time_of_drug=True, no_of_pills=5, doses=1, repeat=True, end_date=True)
+        home.validate_dashboard_page()
+        home.open_manage_patient_page()
+        patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"],
+                               start_date, end_date, no_of_pill
+                               )
+        self.__class__.data.update(
+            {"start_date": start_date, "end_date": end_date,
+             "total_pills": no_of_pill, "dose_per_pill": dose_per_pill}
+            )
+
+        @pytest.mark.extendedtests
+        @pytest.mark.dependency(name="tc_regimen_03", depends=["tc_regimen_01"], scope="class")
+        def test_case_03_multiple_drugs_different_name(self):
+            d = self.__class__.data
+            rerun_count = getattr(self, "rerun_count", 0)
+            # login = LoginPage(self, "login")
+            login = LoginPage(self, "login")
+            self._login_once()
+            home = HomePage(self, "dashboard")
+            user = UserPage(self, "add_users")
+            patient = ManagePatientPage(self, "patients")
+            profile = UserProfilePage(self, "user")
+            user_patient = UserPatientPage(self, "add_patient")
+            p_profile = PatientProfilePage(self, 'patient_profile')
+            p_regimen = PatientRegimenPage(self, 'patient_regimens')
+            p_adhere = PatientAdherencePage(self, 'patient_adherence')
+
+            if "banner" in self.settings["url"]:
+                default_staff_email = UserData.default_staff_email[0]
+                default_site_manager = UserData.site_manager[0]
+            elif "rogers" in self.settings["url"]:
+                default_staff_email = UserData.default_staff_email[1]
+                default_site_manager = UserData.site_manager[0]
+            elif "securevoteu" in self.settings["url"]:
+                default_staff_email = UserData.default_staff_email[3]
+                default_site_manager = UserData.site_manager[2]
+            else:
+                default_staff_email = UserData.default_staff_email[2]
+                default_site_manager = UserData.site_manager[1]
+
+            try:
+                home.open_dashboard_page()
+                home.validate_dashboard_page()
+            except Exception:
+                login.login(self.settings["login_username"], self.settings["login_password"])
+                home.open_dashboard_page()
+                home.validate_dashboard_page()
+
+            home.open_manage_patient_page()
+            patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
+            patient.open_patient(d["patient_fname"], d["patient_lname"])
+            p_regimen.open_patient_regimen_page()
+            p_regimen.verify_patient_regimen_page()
+            start_date, end_date, no_of_pill, med_name, dose_per_pill=p_regimen.create_new_schedule(disease_flag=False, past_date=False,time_of_drug=True, donot_add_drug=d['drug_name'])
+            # start_date, end_date, no_of_pill, dose_per_pill = p_regimen.edit_schedule(past_date=False,
+            #                                                                           time_of_drug=True, no_of_pills=5,
+            #                                                                           doses=1, repeat=True,
+            #                                                                           end_date=True
+            #                                                                           )
+
+            self.__class__.data.update(
+                {"start_date_2": start_date, "end_date_2": end_date,
+                 "total_pills_2": no_of_pill, "dose_per_pill_2": dose_per_pill, "drug_name_2": med_name}
+                )
+
+    @pytest.mark.extendedtests
+    @pytest.mark.dependency(name="tc_regimen_04", depends=["tc_regimen_01"], scope="class")
+    def test_case_04_multiple_drugs_same_name(self):
+        d = self.__class__.data
+        rerun_count = getattr(self, "rerun_count", 0)
+        # login = LoginPage(self, "login")
+        login = LoginPage(self, "login")
+        self._login_once()
+        home = HomePage(self, "dashboard")
+        user = UserPage(self, "add_users")
+        patient = ManagePatientPage(self, "patients")
+        profile = UserProfilePage(self, "user")
+        user_patient = UserPatientPage(self, "add_patient")
+        p_profile = PatientProfilePage(self, 'patient_profile')
+        p_regimen = PatientRegimenPage(self, 'patient_regimens')
+        p_adhere = PatientAdherencePage(self, 'patient_adherence')
+
+        if "banner" in self.settings["url"]:
+            default_staff_email = UserData.default_staff_email[0]
+            default_site_manager = UserData.site_manager[0]
+        elif "rogers" in self.settings["url"]:
+            default_staff_email = UserData.default_staff_email[1]
+            default_site_manager = UserData.site_manager[0]
+        elif "securevoteu" in self.settings["url"]:
+            default_staff_email = UserData.default_staff_email[3]
+            default_site_manager = UserData.site_manager[2]
+        else:
+            default_staff_email = UserData.default_staff_email[2]
+            default_site_manager = UserData.site_manager[1]
+
+        try:
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+        except Exception:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+
+        home.open_manage_patient_page()
+        patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
+        patient.open_patient(d["patient_fname"], d["patient_lname"])
+        p_regimen.open_patient_regimen_page()
+        p_regimen.verify_patient_regimen_page()
+        p_regimen.delete_schedule()
+        start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule(past_date=True,
+                                                                                                  time_of_drug=False
+                                                                                                  )
+        start_date_2, end_date_2, no_of_pill_2, med_name_2, dose_per_pill_2 = p_regimen.create_new_schedule(past_date=False,
+                                                                                                  time_of_drug=True,
+                                                                                                  drug_name=med_name
+                                                                                                  )
+
+
+        self.__class__.data.update(
+            {"start_date": start_date, "end_date": end_date,
+             "total_pills": no_of_pill, "dose_per_pill": dose_per_pill, "drug_name": med_name,
+             "start_date_2": start_date_2, "end_date_2": end_date_2,
+             "total_pills_2": no_of_pill_2, "dose_per_pill_2": dose_per_pill_2, "drug_name_2": med_name_2
+             }
+            )

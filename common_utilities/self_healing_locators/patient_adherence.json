@@ -2391,7 +2391,7 @@
   "span_regimen_name": {
     "class": "ng-star-inserted",
     "tag": "span",
-    "xpath_template": "//span[@class='ng-star-inserted'][contains(.,{text})]"
+    "xpath_template": "//h3/span[@class='ng-star-inserted'][contains(.,{text})]"
   },
   "responsive-renderer__452": {
     "tag": "responsive-renderer",

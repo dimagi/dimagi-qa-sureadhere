@@ -21,7 +21,7 @@ class PatientAdherencePage(BasePage):
             print("popup not present")
 
     def verify_regimen_name_presence(self, name):
-        assert self.is_element_present_rendered('span_regimen_name', name), f"{name} is not present"
+        assert self.is_element_present_rendered('span_regimen_name', text=name), f"{name} is not present"
         print(f"{name} is present")
 
     def verify_patient_adherence_page(self):
