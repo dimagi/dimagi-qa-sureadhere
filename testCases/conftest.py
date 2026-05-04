@@ -68,8 +68,21 @@ def _relogin(inst):
 @pytest.fixture(autouse=True)
 def _relogin_on_rerun(request, rerun_count):
     inst = getattr(request, "instance", None)
-    if inst is not None and rerun_count > 0:
+    if inst is None or rerun_count == 0:
+        yield
+        return
+
+    # Autouse fixtures run before BaseCase.setUp() initializes the driver, so
+    # calling SeleniumBase methods here would raise OutOfScopeException.
+    # Instead, wrap setUp() so the relogin runs immediately after the driver
+    # is ready.
+    original_setUp = inst.setUp
+
+    def patched_setUp():
+        original_setUp()
         _relogin(inst)
+
+    inst.setUp = patched_setUp
     yield
 
 
