@@ -492,10 +492,10 @@
     "xpath": "//li[contains(@id,'k-tabstrip-tab') and @aria-selected='true']//div/span"
   },
   "k-tabstrip-tab-Reports": {
-    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "class": "k-item k-state-default ng-star-inserted k-active",
     "tag": "li",
     "text": "Reports",
-    "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Reports')]"
+    "xpath": "//li[contains(@id,'k-tabstrip-tab')][.//span[contains(normalize-space(text()), 'Reports')]]"
   },
   "span_Overview_119": {
     "class": "k-link ng-star-inserted",
@@ -1306,5 +1306,15 @@
     "tag": "td",
     "aria-colindex": "3",
     "xpath": "//tbody[@class='k-table-tbody']//td[@aria-colindex='3']"
+  },
+  "td_no_records": {
+    "class": "k-table-td",
+    "tag": "td",
+    "xpath": "//td[contains(., 'No records available.')]"
+  },
+  "a_report_links": {
+    "class": "ng-star-inserted",
+    "tag": "a",
+    "xpath_template": "//a[contains(., {text})]"
   }
 }

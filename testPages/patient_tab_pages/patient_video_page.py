@@ -16,7 +16,7 @@ class PatientVideoPage(BasePage):
 
 
     def verify_patient_video_page(self):
-        time.sleep(5)
+        time.sleep(10)
         self.wait_for_page_to_load()
         self.wait_for_element('newCommentInput')
         print("Opened screen is Video Review")
@@ -94,9 +94,12 @@ class PatientVideoPage(BasePage):
 
     def close_form(self):
         try:
-            self.click('button_Close')
-            self.wait_for_invisible('videoPlayer')
-            print("form closed")
+            if self.is_element_visible('button_Close'):
+                self.click('button_Close')
+                self.wait_for_invisible('videoPlayer')
+                print("form closed")
+            else:
+                print("No Close button present")
         except Exception:
             print("form is not open")
 

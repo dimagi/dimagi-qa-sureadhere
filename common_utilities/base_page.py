@@ -1499,7 +1499,7 @@ class BasePage:
     def is_element_present_rendered(self, logical_name: str, timeout: int = 15, **params):
         try:
             locator = self.render_xpath(logical_name, **params)
-
+            print(locator)
             if not locator:
                 return False
 

@@ -990,7 +990,7 @@
     "text": "TakenMissed",
     "xpath": "//div[contains(normalize-space(text()), 'TakenMissed')]"
   },
-  "taken": {
+  "radio_taken": {
     "id": "taken",
     "name": "status",
     "class": "k-radio k-radio-md",
@@ -1004,7 +1004,7 @@
     "text": "Taken",
     "xpath": "//label[contains(normalize-space(text()), 'Taken')]"
   },
-  "missed": {
+  "radio_missed": {
     "id": "missed",
     "name": "status",
     "class": "k-radio k-radio-md",
@@ -1902,11 +1902,10 @@
     "tag": "span",
     "xpath": "//span[@class='icon-keyboard_arrow_left']"
   },
-  "div_September _377": {
+  "div_calendar-header": {
     "class": "calendar-header",
     "tag": "div",
-    "text": "September 2025",
-    "xpath": "//div[contains(normalize-space(text()), 'September 2025')]"
+    "xpath": "//div[contains(@class, 'calendar-header')]"
   },
   "div__378": {
     "class": "k-button k-button-sm",
@@ -1924,7 +1923,7 @@
     "text": "EXPORT TO PDF",
     "xpath": "//div[contains(normalize-space(text()), 'EXPORT TO PDF')]"
   },
-  "button_EXPORT TO _381": {
+  "button_EXPORT_TO_PDF": {
     "class": "export-to-pdf k-button k-button-md float-sm-end",
     "type": "submit",
     "tag": "button",
@@ -2015,11 +2014,10 @@
     "text": "Friday",
     "xpath": "//div[contains(normalize-space(text()), 'Friday')]"
   },
-  "div_Saturday_397": {
-    "class": "cal-cell cal-future cal-weekend ng-star-inserted",
+  "div_selected_date": {
+    "class": "cal-day-selected",
     "tag": "div",
-    "text": "Saturday",
-    "xpath": "//div[contains(normalize-space(text()), 'Saturday')]"
+    "xpath": "//*[contains(@class, 'cal-day-selected')]//span[@class='cal-day-number']"
   },
   "div_cal_today": {
     "class": "cal-cell cal-today ng-star-inserted",
@@ -2051,11 +2049,10 @@
     "tag": "span",
     "xpath": "//*[contains(@class,'cal-cell cal-day-cell cal-today')]//div[@class='events-wrapper ng-star-inserted']//span[@class='self-report-icon']"
   },
-  "div_31 1 2 3 4_398": {
+  "div_calendar": {
     "class": "cal-days",
     "tag": "div",
-    "text": "31 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 1 2 3 4",
-    "xpath": "//div[contains(normalize-space(text()), '31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n3\n4')]"
+    "xpath": "//div[contains(@class,'cal-days')]"
   },
   "div_31 1 2 3 4_399": {
     "class": "ng-star-inserted",
@@ -3064,5 +3061,117 @@
     "aria-colindex": "4",
     "colspan": "1",
     "xpath": "//div[@aria-label='Data table' and @aria-rowcount='2']//td[@aria-colindex='4']"
+  },
+  "td_drug_no_records": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-rowcount": "1",
+    "text": "No records available.",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='1']//td[contains(normalize-space(text()),'No records available.')]"
+  },
+  "towards_adherence_td_drug_name": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "1",
+    "colspan": "1",
+    "text": "Counts towards adherence",
+    "xpath": "//td[contains(normalize-space(text()),'Counts towards adherence')]"
+  },
+  "towards_adherence_td_drug_taken": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "2",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[1]//td[@aria-colindex='2']"
+  },
+  "towards_adherence_td_drug_not_taken": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "3",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[1]//td[@aria-colindex='3']"
+  },
+  "towards_adherence_td_drug_scheduled": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "4",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[1]//td[@aria-colindex='4']"
+  },
+  "towards_adherence_td_drug_held": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "4",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[1]//td[@aria-colindex='5']"
+  },
+  "towards_adherence_td_drug_challenge": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "4",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[1]//td[@aria-colindex='6']"
+  },
+  "towards_adherence_td_drug_rescheduled": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "4",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[1]//td[@aria-colindex='7']"
+  },
+  "not_towards_adherence_td_drug_name": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "1",
+    "colspan": "1",
+    "text": "Does not count towards adherence",
+    "xpath": "//td[contains(normalize-space(text()),'Does not count towards adherence')]"
+  },
+  "not_towards_adherence_td_drug_taken": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "2",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[2]//td[@aria-colindex='2']"
+  },
+  "not_towards_adherence_td_drug_not_taken": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "3",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[2]//td[@aria-colindex='3']"
+  },
+  "not_towards_adherence_td_drug_scheduled": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "4",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[2]//td[@aria-colindex='4']"
+  },
+  "not_towards_adherence_td_drug_held": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "4",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[2]//td[@aria-colindex='5']"
+  },
+  "not_towards_adherence_td_drug_challenge": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "4",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[2]//td[@aria-colindex='6']"
+  },
+  "not_towards_adherence_td_drug_rescheduled": {
+    "class": "k-table-td k-touch-action-auto ng-star-inserted",
+    "tag": "td",
+    "aria-colindex": "4",
+    "colspan": "1",
+    "xpath": "//div[@aria-label='Data table' and @aria-rowcount='3']//tr[2]//td[@aria-colindex='7']"
+  },
+  "span_any_day": {
+    "class": "cal-day-number",
+    "tag": "span",
+    "xpath_template": "//*[contains(@class, 'cal-day-cell')]//span[contains(normalize-space(text()), {text})]"
   }
 }

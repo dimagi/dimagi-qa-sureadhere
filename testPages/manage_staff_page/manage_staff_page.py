@@ -127,9 +127,11 @@ class ManageStaffPage(BasePage):
             assert full_name.lower() in name.strip(), f"Name mismatch {name} and {full_name}"
             print(f"Correct staff with name {name} is displayed for {i} search")
 
-    def search_and_sort_columns(self, name: str):
-        self.type('input_search_staff', name)
-        self.wait_for_page_to_load()
+    def search_and_sort_columns(self, name=None):
+        if name:
+            self.type('input_search_staff', name)
+            time.sleep(30)
+            self.wait_for_page_to_load()
         self.wait_for_element('tbody_staff')
 
         total_cols = len(self.find_elements("table_header_sort"))
@@ -144,7 +146,7 @@ class ManageStaffPage(BasePage):
             headers = self.find_elements("table_header_sort")
             header = headers[index - 1]
             header.click()
-            time.sleep(5)
+            time.sleep(15)
             self.wait_for_page_to_load(50)
 
             headers = self.find_elements("table_header_sort")
@@ -167,7 +169,7 @@ class ManageStaffPage(BasePage):
             headers = self.find_elements("table_header_sort")
             header = headers[index - 1]
             header.click()
-            time.sleep(5)
+            time.sleep(15)
             self.wait_for_page_to_load(50)
 
             headers = self.find_elements("table_header_sort")

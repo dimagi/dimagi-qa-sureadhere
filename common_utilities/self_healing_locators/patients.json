@@ -683,11 +683,11 @@
     "text": "Active",
     "xpath": "//li[@id='k-tabstrip-tab-ee6b7df1-290d-4e33-babb-8c549f06a04b-0']"
   },
-  "li_span_Active_tab": {
-    "class": "k-link ng-star-inserted",
-    "tag": "span",
+  "li_Active": {
+    "class": "k-active",
+    "tag": "li",
     "text": "Active",
-    "xpath": "//li//span[contains(normalize-space(text()), 'Active')]"
+    "xpath": "//li[contains(@class,'k-active')]"
   },
   "div_Active_164": {
     "class": "tab-title ng-star-inserted",
@@ -695,7 +695,7 @@
     "text": "Active",
     "xpath": "//div[contains(normalize-space(text()), 'Active')]"
   },
-  "span_Active_165": {
+  "span_Active": {
     "tag": "span",
     "text": "Active",
     "xpath": "//span[contains(normalize-space(text()), 'Active')]"
@@ -730,11 +730,10 @@
     "text": "Test",
     "xpath": "//li[@id='k-tabstrip-tab-ee6b7df1-290d-4e33-babb-8c549f06a04b-2']"
   },
-  "span_Test_171": {
-    "class": "k-link ng-star-inserted",
+  "li_span_Test_tab": {
     "tag": "span",
-    "text": "Test",
-    "xpath": "//span[contains(normalize-space(text()), 'Test')]"
+    "text": "Inactive",
+    "xpath": "//li//span[contains(normalize-space(text()), 'Test')]"
   },
   "div_Test_172": {
     "class": "tab-title ng-star-inserted",
@@ -842,6 +841,11 @@
     "text": "Name UserName Treatment progress Est. doses remaining MRN SA-ID Start date End date",
     "xpath": "//thead[contains(normalize-space(text()), 'Name\nUserName\nTreatment progress\nEst. doses remaining\nMRN\nSA-ID\nStart date\nEnd date')]"
   },
+  "tr_patient_rows": {
+    "class": "k-table-row ng-star-inserted",
+    "tag": "tr",
+    "xpath": "//tbody[@class='k-table-tbody' and @role='rowgroup']//tr[contains(@class, 'k-table-row')]"
+  },
   "tr_Name UserN_191": {
     "class": "k-table-row ng-star-inserted",
     "tag": "tr",
@@ -932,7 +936,7 @@
     "tag": "span",
     "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
   },
-  "th_Treatment _208": {
+  "th_Treatment progress": {
     "class": "k-header k-table-th ng-star-inserted",
     "tag": "th",
     "text": "Treatment progress",
@@ -961,7 +965,7 @@
     "tag": "span",
     "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
   },
-  "th_Est. doses_213": {
+  "th_Est. doses remaining": {
     "class": "k-header k-table-th ng-star-inserted",
     "tag": "th",
     "text": "Est. doses remaining",
@@ -990,7 +994,7 @@
     "tag": "span",
     "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
   },
-  "th_MRN_218": {
+  "th_MRN": {
     "class": "k-header k-table-th ng-star-inserted",
     "tag": "th",
     "text": "MRN",
@@ -1024,7 +1028,7 @@
     "tag": "span",
     "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
   },
-  "th_SA-ID_224": {
+  "th_SA-ID": {
     "class": "k-header k-table-th ng-star-inserted",
     "tag": "th",
     "text": "SA-ID",
@@ -1058,7 +1062,7 @@
     "tag": "span",
     "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
   },
-  "th_Start date_230": {
+  "th_Start date": {
     "class": "k-header k-table-th ng-star-inserted",
     "tag": "th",
     "text": "Start date",
@@ -1092,7 +1096,7 @@
     "tag": "span",
     "xpath": "//span[@class='k-column-resizer ng-star-inserted']"
   },
-  "th_End date_236": {
+  "th_End date": {
     "class": "k-header k-table-th ng-star-inserted",
     "tag": "th",
     "text": "End date",
@@ -1363,11 +1367,10 @@
     "tag": "span",
     "xpath": "//span[@class='k-button-text']"
   },
-  "kendo-pager-info_1 - 10 of _296": {
+  "kendo-pager-info": {
     "class": "k-pager-info k-label ng-star-inserted",
     "tag": "kendo-pager-info",
-    "text": "1 - 10 of 117 items",
-    "xpath": "//kendo-pager-info[contains(normalize-space(text()), '1 - 10 of 117 items')]"
+    "xpath": "//kendo-pager-info[contains(@class,'k-pager-info k-label ng-star-inserted')]"
   },
   "kendo-resize-sensor__297": {
     "class": "ng-star-inserted",
@@ -1436,5 +1439,17 @@
     "tag": "div",
     "text": "No data.",
     "xpath": "//div[@class='message']"
+  },
+  "table_header_sort": {
+    "class": "k-table-th",
+    "tag": "th",
+    "role": "columnheader",
+    "xpath": "//th[contains(@class, 'k-table-th')]"
+  },
+  "table_columns": {
+    "class": "k-table-td",
+    "tag": "td",
+    "role": "gridcell",
+    "xpath": "//td[contains(@class,'k-table-td')]"
   }
 }

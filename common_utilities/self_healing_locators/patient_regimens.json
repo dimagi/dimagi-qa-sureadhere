@@ -533,7 +533,7 @@
     "xpath": "//li[contains(@id,'k-tabstrip-tab') and @aria-selected='true']//div/span"
   },
   "k-tabstrip-tab-Regimen": {
-    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "class": "k-item k-state-default ng-star-inserted k-active",
     "tag": "li",
     "text": "Regimen",
     "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Regimen')]"
@@ -711,7 +711,7 @@
     "text": "Active TB",
     "xpath": "//div[contains(normalize-space(text()), 'Active TB')]"
   },
- "kendo-dropdownlist-Disease": {
+  "kendo-dropdownlist-Disease": {
     "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
     "tag": "kendo-dropdownlist",
     "xpath": "//kendo-dropdownlist"
@@ -772,6 +772,13 @@
     "text": "SAVE",
     "xpath": "//button[contains(normalize-space(text()), 'SAVE')]"
   },
+  "button_SAVE_DRUG": {
+    "class": "k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid ng-star-inserted",
+    "type": "submit",
+    "tag": "button",
+    "text": "SAVE",
+    "xpath": "(//button[contains(normalize-space(.), 'Save')])[2]"
+  },
   "span_SAVE": {
     "class": "k-button-text",
     "tag": "span",
@@ -796,6 +803,12 @@
     "tag": "span",
     "text": "NEW SCHEDULE",
     "xpath": "//span[contains(normalize-space(text()), 'NEW SCHEDULE')]"
+  },
+  "span_EDIT": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "Edit",
+    "xpath": "//span[contains(normalize-space(text()), 'Edit')]"
   },
   "i__173": {
     "class": "bi bi-plus-lg me-2",
@@ -1041,10 +1054,10 @@
     "xpath": "//label[contains(normalize-space(text()), 'Number of pills')]"
   },
   "input_Number_of_pills": {
-    "class": "w-100 ng-untouched ng-pristine ng-invalid k-textbox k-input k-input-md k-rounded-md k-input-solid",
+    "class": "w-100 k-textbox k-input k-input-md k-rounded-md k-input-solid",
     "type": "number",
     "tag": "input",
-    "xpath": "//input[@class='w-100 ng-untouched ng-pristine ng-invalid k-textbox k-input k-input-md k-rounded-md k-input-solid' and @type='number']"
+    "xpath": "//label[contains(normalize-space(text()),'Number of pills')]/following-sibling::input[@type='number']"
   },
   "div_Dose per p_219": {
     "class": "col-xl-3 col-md-6 schedule-item",
@@ -1065,10 +1078,10 @@
     "xpath": "//label[contains(normalize-space(text()), 'Dose per pill (mg/ml)')]"
   },
   "input_Dose_per_pill": {
-    "class": "ng-untouched ng-pristine ng-invalid k-textbox k-input k-input-md k-rounded-md k-input-solid",
+    "class": "k-textbox k-input k-input-md k-rounded-md k-input-solid",
     "type": "number",
     "tag": "input",
-    "xpath": "//input[@class='ng-untouched ng-pristine ng-invalid k-textbox k-input k-input-md k-rounded-md k-input-solid' and @type='number']"
+    "xpath": "//label[contains(normalize-space(text()),'Dose per pill')]/following-sibling::input[@type='number']"
   },
   "div_Total_dose_223": {
     "class": "col-xl-3 col-md-6 schedule-item",
@@ -1323,7 +1336,7 @@
     "text": "Number of weeks",
     "xpath": "//div[contains(normalize-space(text()), 'Number of weeks')]"
   },
-"label_Number_of_weeks": {
+  "label_Number_of_weeks": {
     "class": "regiment-label ng-star-inserted",
     "tag": "label",
     "text": "Number of weeks",
@@ -1358,8 +1371,20 @@
     "class": "float-start me-2 text-white bg-danger k-button k-button-md k-rounded-md k-button-solid-base k-button-solid ng-star-inserted",
     "role": "button",
     "tag": "button",
+    "text": "Delete",
+    "xpath": "//button[contains(normalize-space(.), 'Delete')]"
+  },
+  "span_DELETE": {
+    "class": "k-button-text",
+    "tag": "span",
     "text": "DELETE",
-    "xpath": "//button[contains(normalize-space(text()), 'DELETE')]"
+    "xpath": "//span[contains(normalize-space(text()), 'DELETE')]"
+  },
+  "span_DELETE_CONFIRM": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "Yes, delete this schedule",
+    "xpath": "//span[contains(normalize-space(text()), 'Yes, delete this schedule')]"
   },
   "button_schedule_SAVE": {
     "class": "k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid ng-star-inserted",
@@ -2600,5 +2625,21 @@
   "popover__487": {
     "tag": "popover",
     "xpath": "//popover"
+  },
+  "div_regimen_error": {
+    "class": "alert alert-warning",
+    "tag": "div",
+    "text": "This patient has unreviewed regimen changes.\nPill dispensation will not be allowed until these changes are approved.",
+    "xpath": "//div[normalize-space(.)= 'This patient has unreviewed regimen changes. Pill dispensation will not be allowed until these changes are approved.']"
+  },
+  "div_pill_name": {
+    "class": "schedule-info",
+    "tag": "div",
+    "xpath": "//div[@class='schedule-info']//span[contains(@class,'ng-star-inserted')]/strong"
+  },
+  "edit_against_drug": {
+    "class": "schedule-info",
+    "tag": "div",
+    "xpath_template": "//div[@class='schedule-info'][.//strong[contains(normalize-space(.),{text})]]/following-sibling::div[contains(@class,'action')]//button[contains(normalize-space(.),'Edit')]"
   }
 }

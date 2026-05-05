@@ -66,8 +66,13 @@ class test_module_01_users(BaseCase):
         fname, lname, email, phn, client, site = user_staff.fill_staff_form(default_site_manager, rerun=rerun_count)
         staff.validate_manage_staff_page()
         staff.search_staff(fname, lname, email, phn)
+        home.click_admin_profile_button()
+        profile = UserProfilePage(self, "user")
+        profile.logout_user()
+        login.after_logout()
         self.__class__.data.update({"fname": fname, "lname": lname, "email": email, "phn": phn, "isClientAdmint": client, "site": site})
         print(self.data)
+
 
     @pytest.mark.testcase(
         "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A9:J9"
@@ -107,6 +112,10 @@ class test_module_01_users(BaseCase):
         user_staff.wait_for_staff_to_load(new_fname, new_lname)
         user_staff.verify_basic_staff_data(new_fname, new_lname, d["email"], d["phn"], client=d["isClientAdmint"], active=account_active, test=test_account)
         user_staff.make_staff_active(new_fname, new_lname, d["email"], d["phn"])
+        home.click_admin_profile_button()
+        profile = UserProfilePage(self, "user")
+        profile.logout_user()
+        login.after_logout()
         self.__class__.data.update(
             {"fname": new_fname, "lname": new_lname, "isActive": account_active, "isTest": test_account}
             )
@@ -132,10 +141,12 @@ class test_module_01_users(BaseCase):
             user_patient.cancel_patient_form()
         except:
             print("Form is already closed")
-        home.click_admin_profile_button()
-        profile.logout_user()
-        login.after_logout()
-
+        try:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+        except:
+            print("Already logged out")
         login.login(d["email"], UserData.pwd)
         home.validate_dashboard_page()
         home.click_add_user()
@@ -148,6 +159,10 @@ class test_module_01_users(BaseCase):
              "patient_email": pemail,
              "patient_phn": phn, "patient_username": username,
              "mrn": mrn, "phone_country":phn_country, "SA_ID": sa_id})
+        home.click_admin_profile_button()
+        profile = UserProfilePage(self, "user")
+        profile.logout_user()
+        login.after_logout()
 
     @pytest.mark.testcase(
         "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A11:J11"
@@ -197,6 +212,10 @@ class test_module_01_users(BaseCase):
             {"patient_fname": new_fname, "patient_lname": new_lname,
              "is_patient_active": patient_test_account}
             )
+        home.click_admin_profile_button()
+        profile = UserProfilePage(self, "user")
+        profile.logout_user()
+        login.after_logout()
 
     @pytest.mark.testcase(
         "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A12:J12"
@@ -236,6 +255,10 @@ class test_module_01_users(BaseCase):
         self.__class__.data.update(
             {"is_patient_active": patient_test_account, "patient_pin": patient_pin }
             )
+        home.click_admin_profile_button()
+        profile = UserProfilePage(self, "user")
+        profile.logout_user()
+        login.after_logout()
 
     @pytest.mark.testcase(
         "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A13:J13"

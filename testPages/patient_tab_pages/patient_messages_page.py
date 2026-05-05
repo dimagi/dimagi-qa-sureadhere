@@ -14,16 +14,24 @@ class PatientMessagesPage(BasePage):
         self.click('k-tabstrip-tab-Messages')
         try:
             self.kendo_dialog_wait_open()  # no title constraint
-            self.kendo_dialog_click_button("Continue")
+            self.kendo_dialog_click_button("Ok")
         except Exception:
             print("popup not present")
 
 
     def verify_patient_messages_page(self):
         time.sleep(5)
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Ok")
+        except Exception:
+            print("popup not present")
         self.wait_for_page_to_load()
         self.wait_for_element('k-opened-tabstrip-tab')
+        self.unheal_all('k-opened-tabstrip-tab')
+        time.sleep(3)
         tabname = self.get_text('k-opened-tabstrip-tab')
+        print(tabname)
         assert tabname == "Messages", "Messages tab is not opened"
         self.wait_for_element('textarea-message')
         self.wait_for_element('button_send_button')

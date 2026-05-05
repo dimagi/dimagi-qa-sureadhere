@@ -15,11 +15,14 @@ class PatientProfilePage(BasePage):
         self.wait_for_page_to_load()
         self.wait_for_element('k-opened-tabstrip-tab', 50)
         self.wait_for_element("input_First_name", 100)
+        self.unheal_all('k-opened-tabstrip-tab')
+        time.sleep(3)
         tabname = self.get_text('k-opened-tabstrip-tab')
+        print(tabname)
         assert tabname == "Profile", "Profile tab is not opened"
         print("Opened tab is Profile")
 
-    def verify_patient_profile_details(self, fname, lname, mrn, email, user_name, phn, phn_country, site, active_account=None, sa_id=False):
+    def verify_patient_profile_details(self, fname, lname, mrn, email, user_name, phn, phn_country, site, active_account=None, sa_id=False, account_test=None):
         self.wait_for_field_value_contains('input_First_name', fname)
         fn_value = self.get_value("input_First_name")
         ln_value = self.get_value("input_Last_name")
@@ -54,6 +57,15 @@ class PatientProfilePage(BasePage):
             print("Account is active correctly")
         else:
             print("Account active check is not requested")
+
+        if account_test == False:
+            assert not self.is_checked('accountIsTest_chb'), "Account is test"
+            print("Account is not test")
+        elif account_test == True:
+            assert self.is_checked('accountIsTest_chb'), "Account is not test"
+            print("Account is test")
+        else:
+            print("Account Test check is not requested")
 
         print("All basic values matched")
         if sa_id:
@@ -113,6 +125,17 @@ class PatientProfilePage(BasePage):
 
         return new_fname, new_lname, account_active
 
+    def save_patient_changes(self):
+        self.click_robust('button_SAVE')
+        # self.wait_for_invisible('button_SAVE')
+        time.sleep(1)
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            assert "Profile saved" in self.kendo_dialog_get_text()
+            self.kendo_dialog_click_button("Ok")
+        except Exception:
+            print("popup not present after save")
+
     def select_patient_manager(self, manager_fullname):
         self.kendo_dd_select_text_old("kendo-dropdownlist-patient-manager", manager_fullname, match="exact", timeout=25)
         print(self.resolve("kendo-dropdownlist-patient-manager"))
@@ -129,26 +152,6 @@ class PatientProfilePage(BasePage):
         except Exception:
             print("popup not present after save")
 
-    def active_patient(self):
-        print(self.resolve("accountIsActiv_chb"))
-        if self.is_checked('accountIsActiv_chb'):
-            print("Account is already set to active")
-        else:
-            print("Account is active is not selected")
-            self.click("accountIsActiv_chb")
-            assert self.is_checked('accountIsActiv_chb')
-            print("Account is not set to active")
-
-
-    def inactive_patient(self):
-        if self.is_checked('accountIsActiv_chb'):
-            print("Account is active is selected")
-            self.click("accountIsActiv_chb")
-            assert not self.is_checked('accountIsActiv_chb')
-            print("Account is set to inactive")
-        else:
-            print("Account is already set to inactive")
-
     def select_treatment_monitor(self, manager_fullname):
         self.kendo_dd_select_text_old("kendo-dropdownlist-treatment-monitor", manager_fullname, match="exact", timeout=25)
         print(self.resolve("kendo-dropdownlist-treatment-monitor"))
@@ -164,6 +167,59 @@ class PatientProfilePage(BasePage):
             self.kendo_dialog_click_button("Ok")
         except Exception:
             print("popup not present after save")
+        time.sleep(2)
+
+    def active_patient(self):
+        self.wait_for_element("accountIsActiv_chb")
+        self.scroll_to_element("accountIsActiv_chb")
+        print(self.resolve("accountIsActiv_chb"))
+        if self.is_checked('accountIsActiv_chb'):
+            print("Account is already set to active")
+        else:
+            print("Account is active is not selected")
+            self.js_click("accountIsActiv_chb")
+            assert self.is_checked('accountIsActiv_chb')
+            print("Account is set to active")
+        time.sleep(2)
+
+
+    def inactive_patient(self):
+        self.wait_for_element("accountIsActiv_chb")
+        self.scroll_to_element("accountIsActiv_chb")
+        if self.is_checked('accountIsActiv_chb'):
+            print("Account is active is selected")
+            self.js_click("accountIsActiv_chb")
+            assert not self.is_checked('accountIsActiv_chb')
+            print("Account is set to inactive")
+        else:
+            print("Account is already set to inactive")
+        time.sleep(2)
+
+    def test_patient(self, flag):
+        if flag == True and self.is_checked('accountIsTest_chb'):
+            print("Test account is already checked")
+        elif flag == False and not self.is_checked('accountIsTest_chb'):
+            print("Test account is already unchecked")
+        else:
+            self.wait_for_element("accountIsTest_chb")
+            self.scroll_to_element("accountIsTest_chb")
+            self.js_click("accountIsTest_chb")
+            state = self.is_checked('accountIsTest_chb')
+            print(f"Test account is set to {state}")
+        time.sleep(2)
+
+    def activate_patient(self, flag):
+        if flag == True and self.is_checked('accountIsActiv_chb'):
+            print("Active account is already checked")
+        elif flag == False and not self.is_checked('accountIsActiv_chb'):
+            print("Active account is already unchecked")
+        else:
+            self.wait_for_element("accountIsActiv_chb")
+            self.scroll_to_element("accountIsActiv_chb")
+            self.js_click("accountIsActiv_chb")
+            state = self.is_checked('accountIsActiv_chb')
+            print(f"Active account is set to {state}")
+        time.sleep(2)
 
     def set_patient_pin(self,fname, lname, mrn, email, username, phn, country, site):
         self.wait_for_patient_to_load(fname, lname)
@@ -197,3 +253,75 @@ class PatientProfilePage(BasePage):
         self.wait_for_overlays_to_clear(5)
 
         return account_active, pin
+
+    def verify_patient_profile_additional_details(self):
+        self.scroll_to_element("kendo-dropdownlist-preferred-language")
+        preferred_language = self.kendo_dd_get_selected_text(logical_name="kendo-dropdownlist-preferred-language")
+        print(f"Selected Preferred Language is {preferred_language}")
+        assert preferred_language.strip() == "English"
+        # self.scroll_to_element("kendo-switch_Reminder settings", strict=True)
+        # flag = self.get_attribute("kendo-switch_Reminder settings", "aria-check", strict=True)
+        # print(f"Reminder settings is set to {flag}")
+        # assert flag != True
+        if self.is_checked('accountIsActiv_chb'):
+            return True
+        else:
+            return False
+
+
+    def verify_mandatory_fields_with_invalid_data(self, fname, lname, mrn, email, username, phn, country, site, sa_id):
+        self.load_patient(fname, lname, mrn, email, username, phn, country, site, sa_id)
+
+        assert self.is_enabled("user_name") == False, "Username field is enabled"
+        print("Username field is disabled")
+        assert self.is_enabled("input-mrn") == True, "MRN field is not enabled"
+        print("Username field is enabled")
+        assert self.is_enabled("phone_number") == True, "Username field is not enabled"
+        print("Username field is enabled")
+
+        self.clear("input-mrn")
+        self.clear("phone_number")
+
+        self.type("email", UserData.invalid_email)
+        time.sleep(2)
+        self.wait_for_element('missing_mrn')
+
+        assert self.is_element_visible('missing_mrn'), "Error 'Valid MRN/ID required.' is not present"
+        print("Error 'Valid MRN/ID required.' is present")
+        assert self.is_element_visible('missing_phone_number'), "Error 'Valid phone number is required' is not present"
+        print("Error 'Valid phone number is required' is present")
+        assert self.is_element_visible('invalid_email'), "Error 'Valid email is required' is not present"
+        print("Error 'Valid email is required' is present")
+
+        self.click_robust('button_CANCEL')
+        time.sleep(3)
+        self.wait_for_page_to_load()
+        self.scroll_to_element("input_First_name")
+        self.wait_for_field_value_contains('input-mrn', mrn)
+        self.wait_for_field_value_contains('email', email)
+
+
+    def edit_mandatory_fields_with_valid_data(self, fname, lname, mrn, email, username, phn, country, site, sa_id):
+        self.wait_for_patient_to_load(fname, lname)
+        self.verify_patient_profile_details(fname, lname, mrn, email, username, phn, country, site, sa_id)
+        new_fname = fname + "_new"
+        new_lname = lname + "_new"
+        new_email = f"n{email}"
+        self.type('input_First_name', new_fname)
+        self.type('input_Last_name', new_lname)
+        self.type("email", new_email)
+
+        self.scroll_to_element("kendo-dropdownlist-alt-phone-country")
+        self.kendo_dd_select_text_old("kendo-dropdownlist-alt-phone-country", country, match="exact", timeout=25)
+        time.sleep(2)
+        self.wait_for_element("alt_phone_number")
+        self.type("alt_phone_number", phn)
+
+        self.save_patient_changes()
+        return new_fname, new_lname, new_email
+
+    def load_patient(self, fname, lname, mrn, email, username, phn, country, site, sa_id):
+        self.wait_for_patient_to_load(fname, lname)
+        self.verify_patient_profile_details(fname, lname, mrn, email, username, phn, country, site, sa_id)
+
+
