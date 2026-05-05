@@ -33,6 +33,9 @@ class PatientReportsPage(BasePage):
         self.refresh()
         time.sleep(4)
         self.wait_for_page_to_load()
+        self.click('k-tabstrip-tab-Reports', strict=True)
+        time.sleep(2)
+        self.wait_for_page_to_load()
         self.wait_for_element('k-opened-tabstrip-tab')
         state = self.get_attribute('k-tabstrip-tab-Reports', 'aria-selected', strict=True)
         self.unheal_all('k-opened-tabstrip-tab')
@@ -47,7 +50,7 @@ class PatientReportsPage(BasePage):
         print("Opened tab is Reports")
 
     def verify_comment_and_side_effect(self, comment, side_effect):
-        self.click('span_Summary_side_effects_and_comments', strict=True)
+        self.click('a_Summary_side_effects_and_comments')
         time.sleep(5)
         self.wait_for_page_to_load()
         self.wait_for_element('tbody_reports')
@@ -58,7 +61,7 @@ class PatientReportsPage(BasePage):
         self.go_back()
 
     def verify_video_report(self, upload_date, upload_time):
-        self.click('span_Patient_videos', strict=True)
+        self.click('a_Patient_videos')
         time.sleep(5)
         self.wait_for_page_to_load()
         self.wait_for_element('tbody_reports')

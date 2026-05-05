@@ -856,7 +856,7 @@
     "class": "ng-star-inserted",
     "tag": "a",
     "text": "Summary side effects and comments",
-    "xpath": "//a[contains(normalize-space(.), 'Summary side effects and comments')]"
+    "xpath": "//a[contains(normalize-space(text()), 'Summary side effects and comments')]"
   },
   "span_Summary_side_effects_and_comments": {
     "class": "seach-highlighted-text",
