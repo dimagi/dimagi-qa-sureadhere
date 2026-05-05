@@ -94,9 +94,12 @@ class PatientVideoPage(BasePage):
 
     def close_form(self):
         try:
-            self.click('button_Close')
-            self.wait_for_invisible('videoPlayer')
-            print("form closed")
+            if self.is_element_visible('button_Close'):
+                self.click('button_Close')
+                self.wait_for_invisible('videoPlayer')
+                print("form closed")
+            else:
+                print("No Close button present")
         except Exception:
             print("form is not open")
 
