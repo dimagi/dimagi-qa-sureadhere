@@ -275,13 +275,18 @@ class test_module_01_users(BaseCase):
         patient = ManagePatientPage(self, "patients")
         p_profile = PatientProfilePage(self, 'patient_profile')
         p_regimen = PatientRegimenPage(self, 'patient_regimens')
+        profile = UserProfilePage(self, "user")
 
         d = self.__class__.data  # shared dict
 
         try:
+            login.login(self.settings["login_username"], self.settings["login_password"])
             home.open_dashboard_page()
             home.validate_dashboard_page()
         except Exception:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.open_dashboard_page()
             home.validate_dashboard_page()
