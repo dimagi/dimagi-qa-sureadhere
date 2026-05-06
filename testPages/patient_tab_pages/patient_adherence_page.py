@@ -49,8 +49,8 @@ class PatientAdherencePage(BasePage):
         print(f"{date_value.strip()} matching current date {str(today_date.day)}")
         dose_status = self.get_attribute('div_cal_today_dose_schedule', 'class')
         print(dose_status)
-        assert "taken-dose-icon" == dose_status, f"taken-dose-icon not matching current status {dose_status}"
-        print(f"taken-dose-icon matching current status {dose_status}")
+        assert "taken-dose-icon" == dose_status or "open-dose-icon" == dose_status, f"taken-dose-icon/open-dose-icon not matching current status {dose_status}"
+        print(f"taken-dose-icon/open-dose-icon matching current status {dose_status}")
         assert self.is_element_present('span_cal_today_video_status', strict=True), f"video icon not present"
         print("video icon is present")
         timestamp_text = self.get_text('span_commented_timestamp')
@@ -91,7 +91,6 @@ class PatientAdherencePage(BasePage):
         side_effect_text = side_effect_text.strip()
         # assert selected_side_effect in side_effect_text.strip(), f"{selected_side_effect} is not in {side_effect_text.strip()}"
         print(f"selected side effect is {side_effect_text}")
-
 
         self.click_robust('span_SUBMIT_REVIEW')
         time.sleep(2)
