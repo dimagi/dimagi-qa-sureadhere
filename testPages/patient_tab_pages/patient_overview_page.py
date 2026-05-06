@@ -55,7 +55,7 @@ class PatientOverviewPage(BasePage):
         left_doses = int(total_dose)-int(taken_doses)
         print(f"Total pills: {total_dose}, Taken doses: {taken_doses}, Left Doses: {left_doses}")
 
-        self.wait_for_element('span_cal_today_date')
+        # self.wait_for_element('span_cal_today_date')
 
         date_value = self.get_text('span_cal_today_date', strict=True)
         today_date = date.today()

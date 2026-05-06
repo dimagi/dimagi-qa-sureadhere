@@ -34,7 +34,10 @@ class UserData:
         "Regimen approval workflow": "OFF",
         "Automatic Opt In for SMS": "OFF",
         "Patient MRN validated with lookup": "OFF",
-        "Medication Event Reminder Monitor": "OFF"
+        "Medication Event Reminder Monitor": "OFF",
+        "Per Drug Adherence": "OFF",
+        "Events panel - inline dose preview": "OFF",
+        "Unlinking and re-linking Video events": "OFF"
         }
     pill_count_ff_on = {
         "Pill Count": "ON",
