@@ -108,4 +108,96 @@ class PatientVideoPage(BasePage):
         print("Video error is present")
 
 
+    def fill_up_review_form_ff_on(self, meds, no_of_pills, dose_per_pill):
+        review_text = "Meds taken, Review Approved"
+        self.type_and_trigger('newCommentInput', review_text)
+        self.wait_for_element('span_Comment')
+        self.click('span_Comment')
+        assert not self.is_element_present('span_MARK_AS_ADHERENT'), "Mark As Adherence is present"
+        now = datetime.now()
+        formatted_now = now.strftime(f"%a - %b %d, %Y - %I:%M %p")
+        drug_name = self.get_text('div_drug-name')
+        drug_details = self.get_text('div_drug-details')
+        text = str(dose_per_pill)+"mg/"+str(no_of_pills)+" pills"
+        actual = self.normalize(drug_details)
+        expected = self.normalize(text)
+        assert expected in actual, f"Expected '{text}' not found in:\n{drug_details}"
+        # assert drug_details == text, f"{drug_details} doesnot match {text}"
+        print(f"{drug_details} present in {text}")
+        assert meds == drug_name, f"{meds} not in {drug_name}"
+        print(f"{meds} matches {drug_name}")
+        timestamp_text = self.get_text('span_commented_timestamp')
+        self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=2)
+        # assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
+        print(f"{str(formatted_now)} is in {timestamp_text}")
 
+        full_text = self.get_text('div_commented_user_timestamp')
+        assert review_text in full_text, f"{review_text} not in {full_text}"
+        print(f"{review_text} is in {full_text}")
+
+        self.select_dose_status("Taken")
+
+        self.click_robust('span_SUBMIT_REVIEW')
+        time.sleep(2)
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Ok")
+            self.wait_for_overlays_to_clear(5)
+        except Exception:
+            print("popup not present after save")
+        return now, formatted_now, review_text
+
+    def select_dose_status(self, status):
+        self.kendo_dd_select_text_old('doseStatus', status)
+        text = self.kendo_dd_get_selected_text('doseStatus')
+        assert str(text).strip() == status, f"{status} is not selected"
+        print(f"{status} is selected")
+
+    def fill_up_side_effects(self):
+        self.kendo_autocomplete_select("input-side_effects", "a", select_first=True)
+        time.sleep(1)
+        self.wait_for_element('li_current-side-effects')
+        side_effect_text = self.get_text('li_current-side-effects')
+        print(side_effect_text.strip())
+        side_effect_text = side_effect_text.replace("x", "")
+        side_effect_text = side_effect_text.strip()
+        # assert selected_side_effect in side_effect_text.strip(), f"{selected_side_effect} is not in {side_effect_text.strip()}"
+        print(f"selected side effect is {side_effect_text}")
+
+    def fill_up_review_form_ff_off(self, meds, no_of_pills, dose_per_pill):
+        review_text = "Meds taken, Review Approved"
+        self.type_and_trigger('newCommentInput', review_text)
+        self.wait_for_element('span_Comment')
+        self.click('span_Comment')
+        assert self.is_element_present('span_MARK_AS_ADHERENT'), "Mark As Adherence is not present"
+
+        now = datetime.now()
+        formatted_now = now.strftime(f"%a - %b %d, %Y - %I:%M %p")
+        drug_name = self.get_text('div_drug-name')
+        drug_details = self.get_text('div_drug-details')
+        text = str(dose_per_pill)+"mg/"+str(no_of_pills)+" pills"
+        actual = self.normalize(drug_details)
+        expected = self.normalize(text)
+        assert expected in actual, f"Expected '{text}' not found in:\n{drug_details}"
+        # assert drug_details == text, f"{drug_details} doesnot match {text}"
+        print(f"{drug_details} present in {text}")
+        assert meds == drug_name, f"{meds} not in {drug_name}"
+        print(f"{meds} matches {drug_name}")
+        timestamp_text = self.get_text('span_commented_timestamp')
+        self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=2)
+        # assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
+        print(f"{str(formatted_now)} is in {timestamp_text}")
+
+        full_text = self.get_text('div_commented_user_timestamp')
+        assert review_text in full_text, f"{review_text} not in {full_text}"
+        print(f"{review_text} is in {full_text}")
+
+        self.click_robust('span_MARK_AS_ADHERENT')
+        time.sleep(2)
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Ok")
+            self.wait_for_overlays_to_clear(5)
+        except Exception:
+            print("popup not present after save")
+        return now, formatted_now, review_text

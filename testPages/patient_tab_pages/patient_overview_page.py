@@ -83,6 +83,35 @@ class PatientOverviewPage(BasePage):
         print("All drug details are correctly displayed.")
 
 
+    def check_calendar_and_doses_off_before(self, med_name, start_date, total_dose):
+        taken_doses = self.days_completed(start_date)
+        left_doses = int(total_dose)-int(taken_doses)
+        print(f"Total pills: {total_dose}, Taken doses: {taken_doses}, Left Doses: {left_doses}")
+
+        dose_status = self.get_attribute('div_cal_today_dose_schedule', 'class', strict=True)
+        print(dose_status)
+        assert not "taken-dose-icon" == dose_status, f"taken-dose-icon matching current status {dose_status}"
+        print(f"taken-dose-icon matching current status {dose_status}")
+
+        drug_name = self.get_text('td_drug_name')
+        assert drug_name == med_name, f"{drug_name} not matching {med_name}"
+        drug_taken = self.get_text('td_drug_taken')
+        assert not str(drug_taken) == str(taken_doses), f"{drug_taken} matching {taken_doses}"
+
+    def check_calendar_and_doses_off_after(self, med_name, start_date, total_dose):
+        taken_doses = self.days_completed(start_date)
+        left_doses = int(total_dose)-int(taken_doses)
+        print(f"Total pills: {total_dose}, Taken doses: {taken_doses}, Left Doses: {left_doses}")
+
+        dose_status = self.get_attribute('div_cal_today_dose_schedule', 'class', strict=True)
+        print(dose_status)
+        assert not "taken-dose-icon" == dose_status, f"taken-dose-icon matching current status {dose_status}"
+        print(f"taken-dose-icon matching current status {dose_status}")
+        drug_name = self.get_text('td_drug_name')
+        assert drug_name == med_name, f"{drug_name} not matching {med_name}"
+        drug_taken = self.get_text('td_drug_taken')
+        assert str(drug_taken) == str(taken_doses), f"{drug_taken} not matching {taken_doses}"
+
     def check_calendar_presence(self):
         self.wait_for_element('div_calendar')
         assert self.is_element_visible('div_calendar'), "Calender is not present"

@@ -40,6 +40,32 @@ class PatientAdherencePage(BasePage):
         assert tabname == "Adherence", "Adherence tab is not opened"
         print("Opened tab is Adherence")
 
+    def verify_patient_adherence_dose_status(self, status, flag=True):
+        text = self.kendo_dd_get_selected_text('doseStatus')
+        if flag == True:
+            assert str(text).strip() == status, f"{status} is not selected"
+            print(f"{status} is selected")
+        else:
+            assert not str(text).strip() == status, f"{status} is selected"
+            print(f"{status} is not selected")
+
+    def set_patient_adherence_dose_status(self, status):
+        self.kendo_dd_select_text_old('doseStatus', status)
+        text = self.kendo_dd_get_selected_text('doseStatus')
+        assert str(text).strip() == status, f"{status} is not selected"
+        print(f"{status} is selected")
+
+    def submit_changes(self):
+        self.click_robust('span_SUBMIT_REVIEW')
+        time.sleep(2)
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Ok")
+            self.wait_for_overlays_to_clear(5)
+        except Exception:
+            print("popup not present after save")
+        time.sleep(5)
+
     def check_calendar_and_comment_for_adherence(self, now, formatted_now, review_text):
         self.wait_for_element('span_cal_today_date')
         self.click('span_cal_today_date' , strict=True)
