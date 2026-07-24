@@ -137,7 +137,8 @@ class PatientVideoPage(BasePage):
 
         self.select_dose_status("Taken")
         side_effect = self.fill_up_side_effects()
-        self.click_robust('span_SUBMIT_REVIEW')
+        self.scroll_to_element('span_SUBMIT_REVIEW')
+        self.click_rendered('span_SUBMIT_REVIEW')
         time.sleep(2)
         try:
             self.kendo_dialog_wait_open()  # no title constraint

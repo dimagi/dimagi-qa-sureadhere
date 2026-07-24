@@ -2569,14 +2569,14 @@
     "class": "adherence-options",
     "tag": "div",
     "text": "SUBMIT REVIEW",
-    "xpath": "//div[contains(normalize-space(text()), 'SUBMIT REVIEW')]"
+    "xpath": "//event-modal//div[contains(normalize-space(text()), 'SUBMIT REVIEW')]"
   },
   "button_SUBMIT_REVIEW": {
     "class": "k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid",
     "type": "submit",
     "tag": "button",
     "text": "SUBMIT REVIEW",
-    "xpath": "//button[contains(normalize-space(text()), 'SUBMIT REVIEW')]"
+    "xpath": "//event-modal//button[contains(normalize-space(text()), 'SUBMIT REVIEW')]"
   },
   "span_SUBMIT_REVIEW": {
     "class": "k-button-text",
