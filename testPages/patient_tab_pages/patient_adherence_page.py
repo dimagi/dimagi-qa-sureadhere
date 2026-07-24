@@ -55,6 +55,12 @@ class PatientAdherencePage(BasePage):
         assert str(text).strip() == status, f"{status} is not selected"
         print(f"{status} is selected")
 
+    def set_patient_adherence_saved_status(self, status):
+        self.kendo_dd_select_text_old('kendo-dropdown-saved_status', status)
+        text = self.kendo_dd_get_selected_text('kendo-dropdown-saved_status')
+        assert str(text).strip() == status, f"{status} is not selected"
+        print(f"{status} is selected")
+
     def submit_changes(self):
         self.click_robust('span_SUBMIT_REVIEW')
         time.sleep(2)

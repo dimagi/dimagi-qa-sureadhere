@@ -105,7 +105,7 @@ class PatientOverviewPage(BasePage):
 
         dose_status = self.get_attribute('div_cal_today_dose_schedule', 'class', strict=True)
         print(dose_status)
-        assert not "taken-dose-icon" == dose_status, f"taken-dose-icon matching current status {dose_status}"
+        assert "taken-dose-icon" == dose_status, f"taken-dose-icon matching current status {dose_status}"
         print(f"taken-dose-icon matching current status {dose_status}")
         drug_name = self.get_text('td_drug_name')
         assert drug_name == med_name, f"{drug_name} not matching {med_name}"
