@@ -6,12 +6,12 @@ name: SureAdhere Tests - Extended
 on:
 #  schedule:
 #    - cron: '30 11 * * 4'
-  push:
-    branches-ignore:
-      - main   # run on all branches except master
-  pull_request:
-    branches-ignore:
-      - main   # ignore PRs targeting master
+#  push:
+#    branches-ignore:
+#      - main   # run on all branches except master
+#  pull_request:
+#    branches-ignore:
+#      - main   # ignore PRs targeting master
   workflow_dispatch:
     inputs:
       environment:
