@@ -2313,7 +2313,7 @@
     "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
     "tag": "kendo-dropdownlist",
     "text": "Open",
-    "xpath": "//kendo-dropdownlist[@id='doseStatus']"
+    "xpath": "//event-modal//kendo-dropdownlist[@id='doseStatus']"
   },
   "k-cb15f12e-43fb-477b-ab5f-d18bed8b463c": {
     "id": "k-cb15f12e-43fb-477b-ab5f-d18bed8b463c",
@@ -2582,13 +2582,13 @@
     "class": "k-button-text",
     "tag": "span",
     "text": "SUBMIT REVIEW",
-    "xpath": "//span[contains(normalize-space(text()), 'SUBMIT REVIEW')]"
+    "xpath": "//event-modal//span[contains(normalize-space(text()), 'SUBMIT REVIEW')]"
   },
   "span_Comment": {
     "class": "k-button-text",
     "tag": "span",
     "text": "COMMENT",
-    "xpath": "//span[contains(normalize-space(text()), 'COMMENT')]"
+    "xpath": "//event-modal//span[contains(normalize-space(text()), 'COMMENT')]"
   },
   "popover__497": {
     "tag": "popover",
@@ -4661,7 +4661,7 @@
     "class": "k-input-inner",
     "type": "text",
     "tag": "input",
-    "xpath": "//input[@placeholder='Add side effect ...']"
+    "xpath": "//event-modal//input[@placeholder='Add side effect ...']"
   },
   "li_current-side-effects": {
     "class": "side-effect-item ng-star-inserted",

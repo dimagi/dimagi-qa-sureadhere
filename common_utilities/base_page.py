@@ -1062,7 +1062,16 @@ class BasePage:
         for css in ("button[aria-label]", ".k-input-button", ".k-select", "button.k-button-icon"):
             f = root.find_elements(By.CSS_SELECTOR, css)
             if f: btn = f[0]; break
-        (btn or root).click()
+        target = btn or root
+        try:
+            target.click()
+        except ElementClickInterceptedException:
+            # layout may still be settling (e.g. a just-submitted comment reflowing the page)
+            self.wait_for_overlays_to_clear(3)
+            try:
+                target.click()
+            except ElementClickInterceptedException:
+                self.driver.execute_script("arguments[0].click();", target)
         WebDriverWait(self.driver, timeout).until(lambda d: self._dd_is_open(root))
 
     def _dd_get_display_text(self, root) -> str:

@@ -223,7 +223,9 @@ class test_module_03(BaseCase):
         now, formatted_now, review_text, side_effect = p_vdo.fill_up_review_form_ff_on(d['drug_name'], d['total_pills'],
                                                                           d['dose_per_pill'])
         p_vdo.close_form()
+
         p_adhere.verify_patient_adherence_page()
+        p_adhere.verify_patient_adherence_dose_status("Taken", True)
         p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
 
         p_overview.open_patient_overview_page()
@@ -327,6 +329,8 @@ class test_module_03(BaseCase):
         p_adhere.set_patient_adherence_dose_status("Open")
         p_adhere.submit_changes()
 
+        # side_effect = p_adhere.fillup_side_effects()
+
         p_overview.open_patient_overview_page()
         p_overview.verify_patient_overview_page()
         p_overview.check_calendar_and_doses_off_before(d['drug_name'], d['start_date'], d['total_pills'])
@@ -336,7 +340,7 @@ class test_module_03(BaseCase):
         login.after_logout()
 
         self.__class__.data.update(
-            {"commented_timestamp": formatted_now, "commented_text": review_text, "side_effect": side_effect
+            {"commented_timestamp": formatted_now, "commented_text": review_text,
              }
             )
 

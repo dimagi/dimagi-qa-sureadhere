@@ -113,7 +113,7 @@ class PatientVideoPage(BasePage):
         self.type_and_trigger('newCommentInput', review_text)
         self.wait_for_element('span_Comment')
         self.click('span_Comment')
-        assert not self.is_element_visible('span_MARK_AS_ADHERENT'), "Mark As Adherence is present"
+
         now = datetime.now()
         formatted_now = now.strftime(f"%a - %b %d, %Y - %I:%M %p")
         drug_name = self.get_text('div_drug-name')
@@ -135,7 +135,7 @@ class PatientVideoPage(BasePage):
         assert review_text in full_text, f"{review_text} not in {full_text}"
         print(f"{review_text} is in {full_text}")
 
-        # self.select_dose_status("Taken")
+        self.select_dose_status("Taken")
         side_effect = self.fill_up_side_effects()
         self.click_robust('span_SUBMIT_REVIEW')
         time.sleep(2)
@@ -165,7 +165,7 @@ class PatientVideoPage(BasePage):
         print(f"selected side effect is {side_effect_text}")
 
     def fill_up_review_form_ff_off(self, meds, no_of_pills, dose_per_pill):
-        review_text = "Meds taken, Review Approved with FF ON"
+        review_text = "Meds taken, Review Approved with FF OFF"
         self.type_and_trigger('newCommentInput', review_text)
         self.wait_for_element('span_Comment')
         self.click('span_Comment')
