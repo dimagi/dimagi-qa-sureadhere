@@ -172,13 +172,10 @@ class PatientVideoPage(BasePage):
         self.kendo_dd_select_text_old("kendo-dropdownlist-observation_method", obs_method)
         return drug_time, obs_method
 
-
-
     def get_time_now(self):
         now = datetime.now()
         time_now = now.time().strftime("%I:%M %p")
-        date_now = now.strftime("%b %d, %Y")
-        date_now = self.format_mdY(date_now)
+        date_now = now.strftime("%b %d, %Y").replace(" 0"," ")
         print(time_now)
         print(date_now)
         return date_now, time_now
