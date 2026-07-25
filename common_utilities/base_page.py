@@ -2084,6 +2084,8 @@ class BasePage:
             return dt.strftime("%b %#d, %Y")
 
     def format_hMp(self, dt):
+        if isinstance(dt, str):
+            dt = datetime.strptime(dt, "%I:%M %p")
         try:
             return dt.strftime("%-I:%M %p")  # Unix
         except ValueError:
