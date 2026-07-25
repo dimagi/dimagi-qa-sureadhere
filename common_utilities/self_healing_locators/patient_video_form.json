@@ -4737,7 +4737,21 @@
     "id": "timepicker-1",
     "placeholder": "Set Time",
     "tag": "input",
-    "xpath": "//input[@placeholder='Set Time']"
+    "xpath": "//kendo-timepicker[contains(@id,'doseTime')]//input[@placeholder='Set Time']"
+  },
+  "last_meal_time": {
+    "class": "k-input-inner",
+    "id": "timepicker-1",
+    "placeholder": "Set Time",
+    "tag": "input",
+    "xpath": "//kendo-timepicker[contains(@id,'lastMealTime')]//input[@placeholder='Set Time']"
+  },
+  "last_meal_date": {
+    "class": "k-input-inner",
+    "id": "timepicker-1",
+    "placeholder": "Set Time",
+    "tag": "input",
+    "xpath": "//kendo-datepicker[contains(@id,'lastMealDate')]//input[@placeholder='Set Date']"
   },
   "kendo-dropdownlist-ate_in_last_hour": {
     "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",

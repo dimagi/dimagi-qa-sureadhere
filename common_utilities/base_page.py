@@ -638,8 +638,11 @@ class BasePage:
         self.sb.refresh_page()
         self.wait_for_page_to_load()
 
-    def type(self, logical_name: str, value: str, timeout: int = CLICK_TIMEOUT):
-        sel = self.resolve(logical_name)
+    def type(self, logical_name: str, value: str, timeout: int = CLICK_TIMEOUT, strict=False):
+        if strict == False:
+            sel = self.resolve(logical_name)
+        else:
+            sel = self.resolve_strict(logical_name)
         self.sb.wait_for_element(sel, timeout=timeout)
         # self.sb.highlight(sel)
         self.sb.type(sel, value)

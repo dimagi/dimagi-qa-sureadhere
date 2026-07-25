@@ -2916,13 +2916,6 @@
     "text": "Edit",
     "xpath": "//span[contains(normalize-space(text()), 'Edit')]"
   },
-  "set_time": {
-    "class": "k-input-inner",
-    "id": "timepicker-1",
-    "placeholder": "Set Time",
-    "tag": "input",
-    "xpath": "//input[@placeholder='Set Time']"
-  },
   "kendo-dropdownlist-ate_in_last_hour": {
     "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
     "tag": "kendo-dropdownlist",
@@ -2947,5 +2940,26 @@
       "class": "per-drug-summary-value",
       "tag": "span",
       "xpath": "//span[contains(.,'Observation method')]/following-sibling::span[contains(@class, 'per-drug-summary-value')]"
+  },
+  "set_time": {
+    "class": "k-input-inner",
+    "id": "timepicker-1",
+    "placeholder": "Set Time",
+    "tag": "input",
+    "xpath": "//kendo-timepicker[contains(@id,'doseTime')]//input[@placeholder='Set Time']"
+  },
+  "last_meal_time": {
+    "class": "k-input-inner",
+    "id": "timepicker-1",
+    "placeholder": "Set Time",
+    "tag": "input",
+    "xpath": "//kendo-timepicker[contains(@id,'lastMealTime')]//input[@placeholder='Set Time']"
+  },
+  "last_meal_date": {
+    "class": "k-input-inner",
+    "id": "timepicker-1",
+    "placeholder": "Set Time",
+    "tag": "input",
+    "xpath": "//kendo-datepicker[contains(@id,'lastMealDate')]//input[@placeholder='Set Date']"
   }
 }

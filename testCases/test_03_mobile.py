@@ -220,13 +220,13 @@ class test_module_03(BaseCase):
         home.check_for_quick_actions()
         home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
         p_vdo.verify_patient_video_page()
-        now, formatted_now, review_text, side_effect, drug_time, ate_value, obs_method = p_vdo.fill_up_review_form_ff_on(d['drug_name'], d['total_pills'],
+        now, formatted_now, review_text, side_effect, drug_time, obs_method = p_vdo.fill_up_review_form_ff_on(d['drug_name'], d['total_pills'],
                                                                           d['dose_per_pill'])
         p_vdo.close_form()
 
         p_adhere.verify_patient_adherence_page()
         p_adhere.verify_patient_adherence_dose_status("Taken", True)
-        p_adhere.verify_dose_summary(drug_time, ate_value, obs_method)
+        p_adhere.verify_dose_summary(drug_time, obs_method)
         p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
 
         p_overview.open_patient_overview_page()

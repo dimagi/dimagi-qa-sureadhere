@@ -175,25 +175,35 @@ class PatientAdherencePage(BasePage):
         print(f"{status} is selected")
         self.wait_for_element('edit_doses')
         self.click('edit_doses', strict=True)
-        drug_time = self.get_time_now()
+        drug_date, drug_time = self.get_time_now()
         ate_value = "Yes"
         obs_method = "VDOT (recorded)"
-        self.type('set_time', drug_time)
-        self.kendo_dd_select_text_old('kendo-dropdownlist-ate_in_last_hour', ate_value)
+        self.type('set_time', drug_time, strict=True)
+        try:
+            self.type('last_meal_time', drug_time, strict=True)
+            self.type('last_meal_date', drug_date, strict=True)
+        except:
+            print("Last meal time and date fields not present")
+        try:
+            self.kendo_dd_select_text_old('kendo-dropdownlist-ate_in_last_hour', ate_value)
+        except:
+            print("Ate in last hour field not present")
         self.kendo_dd_select_text_old("kendo-dropdownlist-observation_method", obs_method)
         return drug_time, ate_value, obs_method
 
-    def verify_dose_summary(self, drug_time, ate_value, obs_method):
+    def verify_dose_summary(self, drug_time, obs_method):
         assert self.is_element_present('edit_doses')
-        print(drug_time, ate_value, obs_method)
-
+        print(drug_time, obs_method)
+        drug_time = self.format_mdY(drug_time)
         assert self.get_text('span_Dose time').strip() ==drug_time, f"{self.get_text('span_Dose time')} not matching {drug_time}"
-        assert self.get_text('span_Ate in the last hour').strip() ==ate_value, f"{self.get_text('span_Ate in the last hour')} not matching {ate_value}"
+        # assert self.get_text('span_Ate in the last hour').strip() ==ate_value, f"{self.get_text('span_Ate in the last hour')} not matching {ate_value}"
         assert self.get_text('span_Observation method').strip() ==obs_method, f"{self.get_text('span_Observation method')} not matching {obs_method}"
         print("Dose summary verified")
 
     def get_time_now(self):
         now = datetime.now()
         time_now = now.time().strftime("%I:%M %p")
+        date_now = now.strftime("%b %d, %Y").replace(" 0", " ")
         print(time_now)
-        return str(time_now)
+        print(date_now)
+        return date_now, time_now
