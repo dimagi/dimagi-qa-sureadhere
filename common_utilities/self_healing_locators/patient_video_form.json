@@ -2581,8 +2581,8 @@
   "span_SUBMIT_REVIEW": {
     "class": "k-button-text",
     "tag": "span",
-    "text": "SUBMIT REVIEW",
-    "xpath": "//event-modal//span[contains(normalize-space(text()), 'SUBMIT REVIEW')]"
+    "text": "Submit review",
+    "xpath": "//event-modal//span[contains(normalize-space(text()), 'Submit review')]"
   },
   "span_Comment": {
     "class": "k-button-text",
