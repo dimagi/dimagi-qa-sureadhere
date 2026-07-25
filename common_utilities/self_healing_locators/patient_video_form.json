@@ -4725,5 +4725,28 @@
     "tag": "div",
     "text": "Your account does not have access to this video",
     "xpath": "//div[contains(normalize-space(text()), 'Your account does not have access to this video')]"
+  },
+  "edit_doses": {
+    "class": "per-drug-edit-button ng-star-inserted",
+    "tag": "span",
+    "text": "Edit",
+    "xpath": "//span[contains(normalize-space(text()), 'Edit')]"
+  },
+  "set_time": {
+    "class": "k-input-inner",
+    "id": "timepicker-1",
+    "placeholder": "Set Time",
+    "tag": "input",
+    "xpath": "//input[@placeholder='Set Time']"
+  },
+  "kendo-dropdownlist-ate_in_last_hour": {
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "xpath": "//label[contains(normalize-space(text()), 'Ate in the last hour')]//following-sibling::kendo-dropdownlist"
+  },
+  "kendo-dropdownlist-observation_method": {
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "xpath": "//label[contains(normalize-space(text()), 'Observation method')]//following-sibling::kendo-dropdownlist"
   }
 }

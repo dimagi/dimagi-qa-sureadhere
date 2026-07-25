@@ -1,6 +1,6 @@
 import random
 import time
-from datetime import date
+from datetime import date, datetime
 
 from common_utilities.base_page import BasePage
 from common_utilities.generate_random_string import fetch_random_string, fetch_random_digit
@@ -150,3 +150,31 @@ class PatientAdherencePage(BasePage):
         print(value)
         assert str(value) == str(date_selected), f"{value} did not match {date_selected}"
         print(f"{value} matched {date_selected}")
+
+    def add_dose_status(self, status):
+        self.kendo_dd_select_text_old("kendo-dropdown-saved_status", status)
+        text = self.kendo_dd_get_selected_text('kendo-dropdown-saved_status')
+        assert str(text).strip() == status, f"{status} is not selected"
+        print(f"{status} is selected")
+        self.wait_for_element('edit_doses')
+        self.click('edit_doses', strict=True)
+        drug_time = self.get_time_now()
+        ate_value = "Yes"
+        obs_method = "VDOT (recorded)"
+        self.type('set_time', drug_time)
+        self.kendo_dd_select_text_old('kendo-dropdownlist-ate_in_last_hour', ate_value)
+        self.kendo_dd_select_text_old("kendo-dropdownlist-observation_method", obs_method)
+        return drug_time, ate_value, obs_method
+
+    def verify_dose_summary(self, drug_time, ate_value, obs_method):
+        assert self.is_element_present('edit_doses')
+        assert self.is_element_visible_rendered('span_dose_summary', text=drug_time)
+        assert self.is_element_visible_rendered('span_dose_summary', text=ate_value)
+        assert self.is_element_visible_rendered('span_dose_summary', text=obs_method)
+        print("Dose summary verified")
+
+    def get_time_now(self):
+        now = datetime.now()
+        time_now = now.time().strftime("%I:%M %p")
+        print(time_now)
+        return str(time_now)

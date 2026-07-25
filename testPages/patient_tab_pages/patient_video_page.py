@@ -136,6 +136,7 @@ class PatientVideoPage(BasePage):
         print(f"{review_text} is in {full_text}")
 
         self.select_dose_status("Taken")
+        drug_time, ate_value, obs_method = self.add_dose_status("Taken")
         side_effect = self.fill_up_side_effects()
         self.scroll_to_element('span_SUBMIT_REVIEW')
         self.click('span_SUBMIT_REVIEW', strict=True)
@@ -146,7 +147,31 @@ class PatientVideoPage(BasePage):
             self.wait_for_overlays_to_clear(5)
         except Exception:
             print("popup not present after save")
-        return now, formatted_now, review_text, side_effect
+        return now, formatted_now, review_text, side_effect, drug_time, ate_value, obs_method
+
+    def add_dose_status(self, status):
+        self.kendo_dd_select_text_old("kendo-dropdown-saved_status", status)
+        text = self.kendo_dd_get_selected_text('kendo-dropdown-saved_status')
+        assert str(text).strip() == status, f"{status} is not selected"
+        print(f"{status} is selected")
+        self.wait_for_element('edit_doses')
+        self.click('edit_doses', strict=True)
+        drug_time = self.get_time_now()
+        ate_value = "Yes"
+        obs_method = "VDOT (recorded)"
+        self.type('set_time', drug_time)
+        self.kendo_dd_select_text_old('kendo-dropdownlist-ate_in_last_hour', ate_value)
+        self.kendo_dd_select_text_old("kendo-dropdownlist-observation_method", obs_method)
+        return drug_time, ate_value, obs_method
+
+
+
+    def get_time_now(self):
+        now = datetime.now()
+        time_now = now.time().strftime("%I:%M %p")
+        print(time_now)
+        return str(time_now)
+
 
     def select_dose_status(self, status):
         self.kendo_dd_select_text_old('doseStatus', status)
