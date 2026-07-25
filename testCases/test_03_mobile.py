@@ -230,7 +230,7 @@ class test_module_03(BaseCase):
 
         p_overview.open_patient_overview_page()
         p_overview.verify_patient_overview_page()
-        p_overview.check_calendar_and_doses(d['commented_timestamp'], d['commented_text'], d['drug_name'], d['start_date'], d['total_pills'])
+        p_overview.check_calendar_and_doses(formatted_now, review_text, d['drug_name'], d['start_date'], d['total_pills'])
 
         p_adhere.open_patient_adherence_page()
         p_adhere.verify_patient_adherence_page()
