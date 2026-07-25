@@ -2234,7 +2234,7 @@
     "class": "adh-custom-dropdown k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
     "tag": "kendo-dropdownlist",
     "text": "Open",
-    "xpath": "//kendo-dropdownlist[@id='saved_status_0']"
+    "xpath": "//event-modal//kendo-dropdownlist[@id='saved_status_0']"
   },
   "k-f38bbf06-957f-47c5-a8a2-70c36de91c81": {
     "id": "k-f38bbf06-957f-47c5-a8a2-70c36de91c81",

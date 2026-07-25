@@ -171,7 +171,7 @@ class test_module_03(BaseCase):
     )
     @pytest.mark.tcid("mobile_and_web_5, mobile_and_web_6")
     @pytest.mark.smoketest
-    @pytest.mark.dependency(name="tc_mobile_3_on", depends=["tc_mobile_1", "tc_mobile_2"], scope="class")
+    @pytest.mark.dependency(name="tc_mobile_3_on",  depends=["tc_mobile_1", "tc_mobile_2"], scope="class")
     def test_case_02a_review_video_and_adherence_ff_on(self):
         login = LoginPage(self, "login")
         self._login_once()
@@ -243,8 +243,6 @@ class test_module_03(BaseCase):
         p_overview.verify_patient_overview_page()
         p_overview.check_calendar_and_doses_off_before(d['drug_name'], d['start_date'], d['total_pills'])
 
-        # side_effect = p_adhere.fillup_side_effects()
-        # p_vdo.close_form()
         self.__class__.data.update(
             {"commented_timestamp": formatted_now, "commented_text": review_text, "side_effect": side_effect
              }
@@ -255,7 +253,7 @@ class test_module_03(BaseCase):
         )
     @pytest.mark.tcid("mobile_and_web_5, mobile_and_web_6")
     @pytest.mark.smoketest
-    @pytest.mark.dependency(name="tc_mobile_3_off", depends=["tc_mobile_1", "tc_mobile_2, tc_mobile_3_on"], scope="class")
+    @pytest.mark.dependency(name="tc_mobile_3_off", depends=["tc_mobile_1", "tc_mobile_2", "tc_mobile_3_on"], scope="class")
     def test_case_02b_review_video_and_adherence_ff_off(self):
         login = LoginPage(self, "login")
         self._login_once()
@@ -268,6 +266,7 @@ class test_module_03(BaseCase):
         p_overview = PatientOverviewPage(self, 'patient_overview')
 
         d = self.__class__.data
+
         if "banner" in self.settings["url"]:
             default_client = UserData.client[0]
         elif "rogers" in self.settings["url"]:
@@ -307,35 +306,11 @@ class test_module_03(BaseCase):
         now, formatted_now, review_text=p_vdo.fill_up_review_form_ff_off(d['drug_name'], d['total_pills'],d['dose_per_pill'])
         p_vdo.close_form()
         p_adhere.verify_patient_adherence_page()
-        p_adhere.verify_patient_adherence_dose_status("Taken", False)
-        # p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
-        # side_effect = p_adhere.fillup_side_effects()
-        # p_vdo.close_form()
-
-        p_overview.open_patient_overview_page()
-        p_overview.verify_patient_overview_page()
-        p_overview.check_calendar_and_doses_off_before(d['drug_name'], d['start_date'], d['total_pills'])
-
-        p_adhere.open_patient_adherence_page()
-        p_adhere.verify_patient_adherence_page()
-        p_adhere.set_patient_adherence_dose_status("Taken")
-        drug_time, ate_value, obs_method = p_adhere.add_dose_status("Taken")
-        p_adhere.submit_changes()
-
-        p_overview.open_patient_overview_page()
-        p_overview.verify_patient_overview_page()
-        p_overview.check_calendar_and_doses_off_after(d['drug_name'], d['start_date'], d['total_pills'])
-
-        p_adhere.open_patient_adherence_page()
-        p_adhere.verify_patient_adherence_page()
-        p_adhere.set_patient_adherence_dose_status("Open")
-        p_adhere.submit_changes()
-
-        # side_effect = p_adhere.fillup_side_effects()
-
-        p_overview.open_patient_overview_page()
-        p_overview.verify_patient_overview_page()
-        p_overview.check_calendar_and_doses_off_before(d['drug_name'], d['start_date'], d['total_pills'])
+        p_adhere.verify_patient_adherence_dose_status("Taken", True)
+        p_adhere.verify_patient_adherence_dose_saved_status("Taken", True)
+        p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
+        p_adhere.verify_side_effect(d['side_effect'])
+        p_vdo.close_form()
 
         home.click_admin_profile_button()
         profile.logout_user()

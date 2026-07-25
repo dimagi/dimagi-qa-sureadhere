@@ -49,6 +49,15 @@ class PatientAdherencePage(BasePage):
             assert not str(text).strip() == status, f"{status} is selected"
             print(f"{status} is not selected")
 
+    def verify_patient_adherence_dose_saved_status(self, status, flag=True):
+        text = self.kendo_dd_get_selected_text('kendo-dropdown-saved_status')
+        if flag == True:
+            assert str(text).strip() == status, f"{status} is not selected"
+            print(f"{status} is selected")
+        else:
+            assert not str(text).strip() == status, f"{status} is selected"
+            print(f"{status} is not selected")
+
     def set_patient_adherence_dose_status(self, status):
         self.kendo_dd_select_text_old('doseStatus', status)
         text = self.kendo_dd_get_selected_text('doseStatus')
@@ -145,6 +154,14 @@ class PatientAdherencePage(BasePage):
     def open_video_event(self):
         self.click('div_event_item')
 
+    def verify_side_effect(self, side_effect):
+        side_effect_text = self.get_text('li_current-side-effects')
+        print(side_effect_text.strip())
+        side_effect_text = side_effect_text.replace("x", "")
+        side_effect_text = side_effect_text.strip()
+        assert side_effect in side_effect_text.strip(), f"{side_effect} is not in {side_effect_text.strip()}"
+        print(f"selected side effect is {side_effect_text}")
+
     def verify_selected_date(self, date_selected):
         value = self.get_text('div_selected_date', strict=True)
         print(value)
@@ -168,9 +185,11 @@ class PatientAdherencePage(BasePage):
 
     def verify_dose_summary(self, drug_time, ate_value, obs_method):
         assert self.is_element_present('edit_doses')
-        assert self.is_element_visible_rendered('span_dose_summary', text=drug_time)
-        assert self.is_element_visible_rendered('span_dose_summary', text=ate_value)
-        assert self.is_element_visible_rendered('span_dose_summary', text=obs_method)
+        print(drug_time, ate_value, obs_method)
+
+        assert self.get_text('span_Dose time').strip() ==drug_time, f"{self.get_text('span_Dose time')} not matching {drug_time}"
+        assert self.get_text('span_Ate in the last hour').strip() ==ate_value, f"{self.get_text('span_Ate in the last hour')} not matching {ate_value}"
+        assert self.get_text('span_Observation method').strip() ==obs_method, f"{self.get_text('span_Observation method')} not matching {obs_method}"
         print("Dose summary verified")
 
     def get_time_now(self):

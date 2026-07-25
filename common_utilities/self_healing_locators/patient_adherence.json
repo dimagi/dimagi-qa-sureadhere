@@ -2933,9 +2933,19 @@
     "tag": "kendo-dropdownlist",
     "xpath": "//label[contains(normalize-space(text()), 'Observation method')]//following-sibling::kendo-dropdownlist"
   },
-  "span_drug_summary": {
+  "span_Dose time": {
     "class": "per-drug-summary-value",
     "tag": "span",
-    "xpath_template": "//span[contains(@class, 'per-drug-summary-value')][contains(.,{text})]"
+    "xpath": "//span[contains(.,'Dose time')]/following-sibling::span[contains(@class, 'per-drug-summary-value')]"
+  },
+  "span_Ate in the last hour": {
+      "class": "per-drug-summary-value",
+      "tag": "span",
+      "xpath": "//span[contains(.,'Ate in the last hour')]/following-sibling::span[contains(@class, 'per-drug-summary-value')]"
+  },
+  "span_Observation method": {
+      "class": "per-drug-summary-value",
+      "tag": "span",
+      "xpath": "//span[contains(.,'Observation method')]/following-sibling::span[contains(@class, 'per-drug-summary-value')]"
   }
 }
