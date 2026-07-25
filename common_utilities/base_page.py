@@ -2083,6 +2083,12 @@ class BasePage:
         except ValueError:
             return dt.strftime("%b %#d, %Y")
 
+    def format_hMp(self, dt):
+        try:
+            return dt.strftime("%-I:%M %p")  # Unix
+        except ValueError:
+            return dt.strftime("%#I:%M %p")  # Windows
+
     def format_full_mdY(self, dt):
         if isinstance(dt, str):
             dt = datetime.strptime(dt, "%Y-%m-%d")

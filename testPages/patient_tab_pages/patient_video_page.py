@@ -136,7 +136,7 @@ class PatientVideoPage(BasePage):
         print(f"{review_text} is in {full_text}")
 
         self.select_dose_status("Taken")
-        drug_time, ate_value, obs_method = self.add_dose_status("Taken")
+        drug_time, obs_method = self.add_dose_status("Taken")
         side_effect = self.fill_up_side_effects()
         self.scroll_to_element('span_SUBMIT_REVIEW')
         self.click('span_SUBMIT_REVIEW', strict=True)
@@ -147,7 +147,7 @@ class PatientVideoPage(BasePage):
             self.wait_for_overlays_to_clear(5)
         except Exception:
             print("popup not present after save")
-        return now, formatted_now, review_text, side_effect, drug_time, ate_value, obs_method
+        return now, formatted_now, review_text, side_effect, drug_time, obs_method
 
     def add_dose_status(self, status):
         self.kendo_dd_select_text_old("kendo-dropdown-saved_status", status)
@@ -177,7 +177,8 @@ class PatientVideoPage(BasePage):
     def get_time_now(self):
         now = datetime.now()
         time_now = now.time().strftime("%I:%M %p")
-        date_now = now.strftime("%b %d, %Y").replace(" 0", " ")
+        date_now = now.strftime("%b %d, %Y")
+        date_now = self.format_mdY(date_now)
         print(time_now)
         print(date_now)
         return date_now, time_now

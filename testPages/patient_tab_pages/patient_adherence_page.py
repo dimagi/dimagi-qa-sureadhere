@@ -189,12 +189,12 @@ class PatientAdherencePage(BasePage):
         except:
             print("Ate in last hour field not present")
         self.kendo_dd_select_text_old("kendo-dropdownlist-observation_method", obs_method)
-        return drug_time, ate_value, obs_method
+        return drug_time, obs_method
 
     def verify_dose_summary(self, drug_time, obs_method):
         assert self.is_element_present('edit_doses')
         print(drug_time, obs_method)
-        drug_time = self.format_mdY(drug_time)
+        drug_time = self.format_hMp(drug_time)
         assert self.get_text('span_Dose time').strip() ==drug_time, f"{self.get_text('span_Dose time')} not matching {drug_time}"
         # assert self.get_text('span_Ate in the last hour').strip() ==ate_value, f"{self.get_text('span_Ate in the last hour')} not matching {ate_value}"
         assert self.get_text('span_Observation method').strip() ==obs_method, f"{self.get_text('span_Observation method')} not matching {obs_method}"
@@ -203,7 +203,8 @@ class PatientAdherencePage(BasePage):
     def get_time_now(self):
         now = datetime.now()
         time_now = now.time().strftime("%I:%M %p")
-        date_now = now.strftime("%b %d, %Y").replace(" 0", " ")
+        date_now = now.strftime("%b %d, %Y")
+        date_now = self.format_mdY(date_now)
         print(time_now)
         print(date_now)
         return date_now, time_now
