@@ -19,6 +19,14 @@ class PatientAdherencePage(BasePage):
             self.kendo_dialog_click_button("Ok")
         except Exception:
             print("popup not present")
+        self.wait_for_page_to_load()
+        self.wait_for_element('k-opened-tabstrip-tab')
+        self.unheal_all('k-opened-tabstrip-tab')
+        time.sleep(3)
+        tabname = self.get_text('k-opened-tabstrip-tab')
+        print(tabname)
+        assert tabname == "Adherence", "Adherence tab is not opened"
+        print("Opened tab is Adherence")
 
     def verify_regimen_name_presence(self, name):
         assert self.is_element_present_rendered('span_regimen_name', text=name), f"{name} is not present"

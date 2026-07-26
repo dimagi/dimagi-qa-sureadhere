@@ -22,6 +22,13 @@ class PatientOverviewPage(BasePage):
             self.kendo_dialog_click_button("Ok")
         except Exception:
             print("popup not present")
+        self.wait_for_page_to_load()
+        self.wait_for_element('k-opened-tabstrip-tab')
+        time.sleep(3)
+        tabname = self.get_text('k-opened-tabstrip-tab')
+        print(tabname)
+        assert tabname == "Overview", "Overview tab is not opened"
+        print("Opened tab is Overview")
 
     def verify_patient_overview_page(self):
         time.sleep(5)

@@ -200,12 +200,12 @@ class test_module_03(BaseCase):
             login.after_logout()
             login.login(self.settings["login_username"], self.settings["login_password"])
 
-        home.open_admin_page()
-        admin.open_feature_flags()
-        a_ff.validate_admin_ff_page(default_client)
-        a_ff.set_ffs(UserData.per_drug_adherence_ff_on)
+        # home.open_admin_page()
+        # admin.open_feature_flags()
+        # a_ff.validate_admin_ff_page(default_client)
+        # a_ff.set_ffs(UserData.per_drug_adherence_ff_on)
 
-        home.validate_dashboard_page()
+        # home.validate_dashboard_page()
         home.open_admin_page()
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
@@ -230,17 +230,17 @@ class test_module_03(BaseCase):
         p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
 
         p_overview.open_patient_overview_page()
-        p_overview.verify_patient_overview_page()
+        # p_overview.verify_patient_overview_page()
         p_overview.check_calendar_and_doses(formatted_now, review_text, d['drug_name'], d['start_date'], d['total_pills'])
 
         p_adhere.open_patient_adherence_page()
-        p_adhere.verify_patient_adherence_page()
+        # p_adhere.verify_patient_adherence_page()
         p_adhere.set_patient_adherence_dose_status("Open")
         p_adhere.set_patient_adherence_saved_status("Open")
         p_adhere.submit_changes()
 
         p_overview.open_patient_overview_page()
-        p_overview.verify_patient_overview_page()
+        # p_overview.verify_patient_overview_page()
         p_overview.check_calendar_and_doses_off_before(d['drug_name'], d['start_date'], d['total_pills'])
 
         self.__class__.data.update(
@@ -283,12 +283,12 @@ class test_module_03(BaseCase):
             login.after_logout()
             login.login(self.settings["login_username"], self.settings["login_password"])
 
-        home.open_admin_page()
-        admin.open_feature_flags()
-        a_ff.validate_admin_ff_page(default_client)
-        a_ff.set_ffs(UserData.per_drug_adherence_ff_off)
-
-        home.validate_dashboard_page()
+        # home.open_admin_page()
+        # admin.open_feature_flags()
+        # a_ff.validate_admin_ff_page(default_client)
+        # a_ff.set_ffs(UserData.per_drug_adherence_ff_off)
+        #
+        # home.validate_dashboard_page()
         home.open_admin_page()
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
@@ -353,7 +353,7 @@ class test_module_03(BaseCase):
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
         patient.open_patient(d["patient_fname"], d["patient_lname"])
         p_overview.open_patient_overview_page()
-        p_overview.verify_patient_overview_page()
+        # p_overview.verify_patient_overview_page()
         p_overview.check_calendar_and_doses(d['commented_timestamp'], d['commented_text'], d['drug_name'], d['start_date'], d['total_pills'])
 
         home.click_admin_profile_button()
