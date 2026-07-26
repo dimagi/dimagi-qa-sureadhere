@@ -212,7 +212,11 @@ class test_module_03(BaseCase):
         a_ff.validate_admin_ff_page(default_client)
         a_ff.double_check_ff(UserData.per_drug_adherence_ff_on)
 
-        home.open_dashboard_page()
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+        login.login(self.settings["login_username"], self.settings["login_password"])
+
         home.validate_dashboard_page()
         home.check_for_quick_actions()
         home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])

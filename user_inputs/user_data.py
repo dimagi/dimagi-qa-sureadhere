@@ -35,7 +35,7 @@ class UserData:
         "Automatic Opt In for SMS": "OFF",
         "Patient MRN validated with lookup": "OFF",
         "Medication Event Reminder Monitor": "OFF",
-        "Per Drug Adherence": "OFF",
+        "Per Drug Adherence": "ON",
         "Events panel - inline dose preview": "OFF",
         "Unlinking and re-linking Video events": "OFF",
         }
