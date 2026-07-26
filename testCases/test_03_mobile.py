@@ -200,12 +200,12 @@ class test_module_03(BaseCase):
             login.after_logout()
             login.login(self.settings["login_username"], self.settings["login_password"])
 
-        # home.open_admin_page()
-        # admin.open_feature_flags()
-        # a_ff.validate_admin_ff_page(default_client)
-        # a_ff.set_ffs(UserData.per_drug_adherence_ff_on)
+        home.open_admin_page()
+        admin.open_feature_flags()
+        a_ff.validate_admin_ff_page(default_client)
+        a_ff.set_ffs(UserData.per_drug_adherence_ff_on)
 
-        # home.validate_dashboard_page()
+        home.open_dashboard_page()
         home.open_admin_page()
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
@@ -283,11 +283,12 @@ class test_module_03(BaseCase):
             login.after_logout()
             login.login(self.settings["login_username"], self.settings["login_password"])
 
-        # home.open_admin_page()
-        # admin.open_feature_flags()
-        # a_ff.validate_admin_ff_page(default_client)
-        # a_ff.set_ffs(UserData.per_drug_adherence_ff_off)
-        #
+        home.open_admin_page()
+        admin.open_feature_flags()
+        a_ff.validate_admin_ff_page(default_client)
+        a_ff.set_ffs(UserData.per_drug_adherence_ff_off)
+
+        home.open_dashboard_page()
         # home.validate_dashboard_page()
         home.open_admin_page()
         admin.open_feature_flags()
