@@ -182,6 +182,7 @@ class test_module_03(BaseCase):
         a_ff = AdminFFPage(self, 'feature_flags')
         admin = AdminPage(self, 'admin')
         p_overview = PatientOverviewPage(self, 'patient_overview')
+        patient = ManagePatientPage(self, "patients")
 
         d = self.__class__.data
         if "banner" in self.settings["url"]:
@@ -211,11 +212,7 @@ class test_module_03(BaseCase):
         a_ff.validate_admin_ff_page(default_client)
         a_ff.double_check_ff(UserData.per_drug_adherence_ff_on)
 
-        home.click_admin_profile_button()
-        profile.logout_user()
-        login.after_logout()
-        login.login(self.settings["login_username"], self.settings["login_password"])
-
+        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.check_for_quick_actions()
         home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
@@ -232,6 +229,16 @@ class test_module_03(BaseCase):
         p_overview.open_patient_overview_page()
         # p_overview.verify_patient_overview_page()
         p_overview.check_calendar_and_doses(formatted_now, review_text, d['drug_name'], d['start_date'], d['total_pills'])
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+        login.login(self.settings["login_username"], self.settings["login_password"])
+
+        home.open_manage_patient_page()
+        patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
+        patient.open_patient(d["patient_fname"], d["patient_lname"])
+
 
         p_adhere.open_patient_adherence_page()
         # p_adhere.verify_patient_adherence_page()
