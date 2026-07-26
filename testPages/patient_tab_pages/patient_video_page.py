@@ -140,7 +140,7 @@ class PatientVideoPage(BasePage):
         side_effect = self.fill_up_side_effects()
         self.scroll_to_element('span_SUBMIT_REVIEW')
         self.click('span_SUBMIT_REVIEW', strict=True)
-        time.sleep(2)
+        time.sleep(5)
         try:
             self.kendo_dialog_wait_open()  # no title constraint
             self.kendo_dialog_click_button("Ok")
