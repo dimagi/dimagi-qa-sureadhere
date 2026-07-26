@@ -201,8 +201,9 @@ class PatientVideoPage(BasePage):
 
     def fill_up_review_form_ff_off(self, meds, no_of_pills, dose_per_pill):
         review_text = "Meds taken, Review Approved with FF OFF"
-        self.click('newCommentInput')
-        self.type_and_trigger('newCommentInput', review_text)
+        time.sleep(2)
+        # self.type_and_trigger('newCommentInput', review_text)
+        self.type('newCommentInput', review_text+Keys.TAB, strict=True)
         time.sleep(2)
         self.wait_for_element('span_Comment')
         self.click('span_Comment')
