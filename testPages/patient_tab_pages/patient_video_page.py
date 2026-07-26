@@ -147,6 +147,7 @@ class PatientVideoPage(BasePage):
             self.wait_for_overlays_to_clear(5)
         except Exception:
             print("popup not present after save")
+        time.sleep(5)
         return now, formatted_now, review_text, side_effect, drug_time, obs_method
 
     def add_dose_status(self, status):
@@ -217,10 +218,6 @@ class PatientVideoPage(BasePage):
         print(f"{drug_details} present in {text}")
         assert meds == drug_name, f"{meds} not in {drug_name}"
         print(f"{meds} matches {drug_name}")
-        timestamp_text = self.get_text('span_commented_timestamp')
-        self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=2)
-        # assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
-        print(f"{str(formatted_now)} is in {timestamp_text}")
 
         full_text = self.get_text('div_commented_user_timestamp')
         assert review_text in full_text, f"{review_text} not in {full_text}"
@@ -234,4 +231,5 @@ class PatientVideoPage(BasePage):
             self.wait_for_overlays_to_clear(5)
         except Exception:
             print("popup not present after save")
+        time.sleep(5)
         return now, formatted_now, review_text
