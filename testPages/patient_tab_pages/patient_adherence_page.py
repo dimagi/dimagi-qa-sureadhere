@@ -111,7 +111,7 @@ class PatientAdherencePage(BasePage):
         # assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
         print(f"{str(formatted_now)} is in {timestamp_text}")
 
-        full_text = self.get_text('div_commented_user_timestamp')
+        full_text = self.get_text_rendered('div_commented_user_timestamp', text=review_text)
         assert review_text in full_text, f"{review_text} not in {full_text}"
         print(f"{review_text} is in {full_text}")
 

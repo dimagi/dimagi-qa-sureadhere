@@ -2555,16 +2555,15 @@
     "tag": "div",
     "xpath": "(//div[@class='comment-options'])[last()]"
   },
-  "div_commented_user_timestamp":{
+"div_commented_user_timestamp":{
     "class": "comment-item ng-star-inserted",
     "tag": "div",
-    "xpath": "(//event-modal//div[@class='comment-item ng-star-inserted'])[last()]"
+    "xpath_template": "//event-modal//div[@class='comment-item ng-star-inserted']//div[contains(.,{text})]"
   },
   "span_commented_timestamp":{
     "tag": "h5",
-    "xpath": "(//event-modal//div[@class='comment-item ng-star-inserted']//h5)[last()]"
+    "xpath_template": "//event-modal//div[@class='comment-item ng-star-inserted']//div[contains(.,{text})]//preceding-sibling::h5"
   },
-
   "div_SUBMIT_REVIEW": {
     "class": "adherence-options",
     "tag": "div",

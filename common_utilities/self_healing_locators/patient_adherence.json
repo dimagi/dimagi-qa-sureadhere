@@ -862,7 +862,7 @@
     "div_commented_user_timestamp":{
     "class": "comment-item ng-star-inserted",
     "tag": "div",
-    "xpath": "(//div[@class='comment-item ng-star-inserted'])[last()]"
+    "xpath_template": "//div[@class='comment-item ng-star-inserted']//div[contains(.,{text})]"
   },
   "span_commented_timestamp":{
     "tag": "h5",

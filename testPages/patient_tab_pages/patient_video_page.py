@@ -130,14 +130,15 @@ class PatientVideoPage(BasePage):
         print(f"{drug_details} present in {text}")
         assert meds == drug_name, f"{meds} not in {drug_name}"
         print(f"{meds} matches {drug_name}")
-        timestamp_text = self.get_text('span_commented_timestamp', strict=True)
+        timestamp_text = self.get_text_rendered('span_commented_timestamp', text=review_text)
         self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=2)
         # assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
         print(f"{str(formatted_now)} is in {timestamp_text}")
 
-        full_text = self.get_text('div_commented_user_timestamp')
+        full_text = self.get_text_rendered('div_commented_user_timestamp', text=review_text)
         assert review_text in full_text, f"{review_text} not in {full_text}"
         print(f"{review_text} is in {full_text}")
+
 
         if rerun_count != 0 and self.kendo_dd_get_selected_text('doseStatus') == "Taken":
             print("Dose Status already selected")
@@ -234,7 +235,12 @@ class PatientVideoPage(BasePage):
         assert meds == drug_name, f"{meds} not in {drug_name}"
         print(f"{meds} matches {drug_name}")
 
-        full_text = self.get_text('div_commented_user_timestamp')
+        timestamp_text = self.get_text_rendered('span_commented_timestamp', text=review_text)
+        self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=2)
+        # assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
+        print(f"{str(formatted_now)} is in {timestamp_text}")
+
+        full_text = self.get_text_rendered('div_commented_user_timestamp', text=review_text)
         assert review_text in full_text, f"{review_text} not in {full_text}"
         print(f"{review_text} is in {full_text}")
 
