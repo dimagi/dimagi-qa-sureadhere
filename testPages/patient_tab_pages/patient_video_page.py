@@ -2,6 +2,7 @@ import random
 import time
 from datetime import datetime
 
+from pdbp import side_effects_free
 from selenium.webdriver import Keys
 
 from common_utilities.base_page import BasePage
@@ -138,8 +139,7 @@ class PatientVideoPage(BasePage):
         full_text = self.get_text_rendered('div_commented_user_timestamp', text=review_text)
         assert review_text in full_text, f"{review_text} not in {full_text}"
         print(f"{review_text} is in {full_text}")
-
-
+        side_effect = ""
         if rerun_count != 0 and self.kendo_dd_get_selected_text('doseStatus') == "Taken":
             print("Dose Status already selected")
         else:
@@ -148,7 +148,13 @@ class PatientVideoPage(BasePage):
             print("Saved Drug Status already set")
         else:
             drug_time, obs_method = self.add_dose_status("Taken")
+        if rerun_count !=0:
             side_effect = self.fill_up_side_effects()
+        else:
+            side_effect_text = self.get_text('li_current-side-effects', strict=True)
+            print(side_effect_text.strip())
+            side_effect_text = side_effect_text.replace("x", "")
+            side_effect = side_effect_text.strip()
         self.scroll_to_element('span_SUBMIT_REVIEW')
         self.click('span_SUBMIT_REVIEW', strict=True)
         time.sleep(5)
@@ -209,6 +215,7 @@ class PatientVideoPage(BasePage):
         side_effect_text = side_effect_text.strip()
         # assert selected_side_effect in side_effect_text.strip(), f"{selected_side_effect} is not in {side_effect_text.strip()}"
         print(f"selected side effect is {side_effect_text}")
+        return side_effect_text
 
     def fill_up_review_form_ff_off(self, meds, no_of_pills, dose_per_pill ):
         review_text = "Meds taken, Review Approved with FF OFF"
