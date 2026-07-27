@@ -866,7 +866,7 @@
   },
   "span_commented_timestamp":{
     "tag": "h5",
-    "xpath": "(//div[@class='comment-item ng-star-inserted']//h5)[last()]"
+    "xpath_template": "//div[@class='comment-item ng-star-inserted']//div[contains(.,{text})]//preceding-sibling::h5"
   },
   "div_Wednesday_178": {
     "class": "cal-cell cal-future ng-star-inserted",
