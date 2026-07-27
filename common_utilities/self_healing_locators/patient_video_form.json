@@ -2588,7 +2588,7 @@
     "class": "k-button-text",
     "tag": "span",
     "text": "COMMENT",
-    "xpath": "//event-modal//span[contains(normalize-space(text()), 'COMMENT')]"
+    "xpath": "//event-modal//span[contains(normalize-space(text()), 'Comment')]"
   },
   "popover__497": {
     "tag": "popover",

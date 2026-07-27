@@ -53,18 +53,22 @@ class PatientAdherencePage(BasePage):
         if flag == True:
             assert str(text).strip() == status, f"{status} is not selected"
             print(f"{status} is selected")
+            return True
         else:
             assert not str(text).strip() == status, f"{status} is selected"
             print(f"{status} is not selected")
+            return False
 
     def verify_patient_adherence_dose_saved_status(self, status, flag=True):
         text = self.kendo_dd_get_selected_text('kendo-dropdown-saved_status')
         if flag == True:
             assert str(text).strip() == status, f"{status} is not selected"
             print(f"{status} is selected")
+            return True
         else:
             assert not str(text).strip() == status, f"{status} is selected"
             print(f"{status} is not selected")
+            return False
 
     def set_patient_adherence_dose_status(self, status):
         self.kendo_dd_select_text_old('doseStatus', status)
@@ -102,7 +106,7 @@ class PatientAdherencePage(BasePage):
         print(f"taken-dose-icon/open-dose-icon matching current status {dose_status}")
         assert self.is_element_present('span_cal_today_video_status', strict=True), f"video icon not present"
         print("video icon is present")
-        timestamp_text = self.get_text('span_commented_timestamp')
+        timestamp_text = self.get_text('span_commented_timestamp', strict=True)
         self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=2)
         # assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
         print(f"{str(formatted_now)} is in {timestamp_text}")
@@ -215,3 +219,7 @@ class PatientAdherencePage(BasePage):
         print(time_now)
         print(date_now)
         return date_now, time_now
+
+    def open_video_form(self):
+        self.wait_for_element('div_video-icon')
+        self.click('div_video-icon')

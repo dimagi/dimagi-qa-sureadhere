@@ -108,7 +108,7 @@ class PatientVideoPage(BasePage):
         print("Video error is present")
 
 
-    def fill_up_review_form_ff_on(self, meds, no_of_pills, dose_per_pill):
+    def fill_up_review_form_ff_on(self, meds, no_of_pills, dose_per_pill, rerun_count=0):
         review_text = "Meds taken, Review Approved with FF ON"
         self.unheal_all('newCommentInput')
         self.unheal('newCommentInput')
@@ -116,7 +116,7 @@ class PatientVideoPage(BasePage):
         self.unheal_all('span_Comment')
         self.unheal('span_Comment')
         self.wait_for_element('span_Comment')
-        self.click('span_Comment')
+        self.click('span_Comment', strict=True)
 
         now = datetime.now()
         formatted_now = now.strftime(f"%a - %b %d, %Y - %I:%M %p")
@@ -130,7 +130,7 @@ class PatientVideoPage(BasePage):
         print(f"{drug_details} present in {text}")
         assert meds == drug_name, f"{meds} not in {drug_name}"
         print(f"{meds} matches {drug_name}")
-        timestamp_text = self.get_text('span_commented_timestamp')
+        timestamp_text = self.get_text('span_commented_timestamp', strict=True)
         self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=2)
         # assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
         print(f"{str(formatted_now)} is in {timestamp_text}")
@@ -139,9 +139,15 @@ class PatientVideoPage(BasePage):
         assert review_text in full_text, f"{review_text} not in {full_text}"
         print(f"{review_text} is in {full_text}")
 
-        self.select_dose_status("Taken")
-        drug_time, obs_method = self.add_dose_status("Taken")
-        side_effect = self.fill_up_side_effects()
+        if rerun_count != 0 and self.kendo_dd_get_selected_text('doseStatus') == "Taken":
+            print("Dose Status already selected")
+        else:
+            self.select_dose_status("Taken")
+        if rerun_count != 0 and self.kendo_dd_get_selected_text('kendo-dropdown-saved_status') == "Taken":
+            print("Saved Drug Status already set")
+        else:
+            drug_time, obs_method = self.add_dose_status("Taken")
+            side_effect = self.fill_up_side_effects()
         self.scroll_to_element('span_SUBMIT_REVIEW')
         self.click('span_SUBMIT_REVIEW', strict=True)
         time.sleep(5)
@@ -203,18 +209,16 @@ class PatientVideoPage(BasePage):
         # assert selected_side_effect in side_effect_text.strip(), f"{selected_side_effect} is not in {side_effect_text.strip()}"
         print(f"selected side effect is {side_effect_text}")
 
-    def fill_up_review_form_ff_off(self, meds, no_of_pills, dose_per_pill):
+    def fill_up_review_form_ff_off(self, meds, no_of_pills, dose_per_pill ):
         review_text = "Meds taken, Review Approved with FF OFF"
         time.sleep(2)
         self.unheal_all('newCommentInput')
         self.unheal('newCommentInput')
         self.type_and_trigger('newCommentInput', review_text, strict=True)
         # self.type('newCommentInput', review_text+Keys.TAB, strict=True)
-        time.sleep(2)
         self.unheal_all('span_Comment')
-        self.unheal('span_Comment')
         self.wait_for_element('span_Comment')
-        self.click('span_Comment')
+        self.click('span_Comment', strict=True)
         assert self.is_element_visible('span_MARK_AS_ADHERENT'), "Mark As Adherence is not present"
 
         now = datetime.now()

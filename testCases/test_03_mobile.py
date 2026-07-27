@@ -173,6 +173,7 @@ class test_module_03(BaseCase):
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_mobile_3_on",  depends=["tc_mobile_1", "tc_mobile_2"], scope="class")
     def test_case_02a_review_video_and_adherence_ff_on(self):
+        rerun_count = getattr(self, "rerun_count", 0)
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
@@ -216,14 +217,26 @@ class test_module_03(BaseCase):
         profile.logout_user()
         login.after_logout()
         login.login(self.settings["login_username"], self.settings["login_password"])
-
         home.validate_dashboard_page()
-        home.check_for_quick_actions()
-        home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
-        p_vdo.verify_patient_video_page()
-        now, formatted_now, review_text, side_effect, drug_time, obs_method = p_vdo.fill_up_review_form_ff_on(d['drug_name'], d['total_pills'],
-                                                                          d['dose_per_pill'])
-        p_vdo.close_form()
+
+        if rerun_count == 0:
+            home.check_for_quick_actions()
+            home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
+            p_vdo.verify_patient_video_page()
+            now, formatted_now, review_text, side_effect, drug_time, obs_method = p_vdo.fill_up_review_form_ff_on(d['drug_name'], d['total_pills'],
+                                                                              d['dose_per_pill'], rerun_count=rerun_count)
+        # p_vdo.close_form()
+        else:
+            home.open_manage_patient_page()
+            patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
+            patient.open_patient(d["patient_fname"], d["patient_lname"])
+
+            p_adhere.open_patient_adherence_page()
+            p_adhere.open_video_form()
+            p_vdo.verify_patient_video_page()
+            now, formatted_now, review_text, side_effect, drug_time, obs_method = p_vdo.fill_up_review_form_ff_on(
+                d['drug_name'], d['total_pills'],
+                d['dose_per_pill'], rerun_count=rerun_count)
 
         p_adhere.verify_patient_adherence_page()
         p_adhere.verify_patient_adherence_dose_status("Taken", True)
@@ -266,6 +279,7 @@ class test_module_03(BaseCase):
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_mobile_3_off", depends=["tc_mobile_1", "tc_mobile_2", "tc_mobile_3_on"], scope="class")
     def test_case_02b_review_video_and_adherence_ff_off(self):
+        rerun_count = getattr(self, "rerun_count", 0)
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
@@ -275,6 +289,7 @@ class test_module_03(BaseCase):
         a_ff = AdminFFPage(self, 'feature_flags')
         admin = AdminPage(self, 'admin')
         p_overview = PatientOverviewPage(self, 'patient_overview')
+        patient = ManagePatientPage(self, "patients")
 
         d = self.__class__.data
 
@@ -311,16 +326,37 @@ class test_module_03(BaseCase):
         login.after_logout()
         login.login(self.settings["login_username"], self.settings["login_password"])
 
+        def _review_video_and_verify_adherence():
+            p_vdo.verify_patient_video_page()
+            now, formatted_now, review_text = p_vdo.fill_up_review_form_ff_off(
+                d['drug_name'], d['total_pills'], d['dose_per_pill']
+                )
+            p_adhere.verify_patient_adherence_page()
+            p_adhere.verify_patient_adherence_dose_status("Taken", True)
+            p_adhere.verify_patient_adherence_dose_saved_status("Taken", True)
+            p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
+            return formatted_now, review_text
+
         home.validate_dashboard_page()
-        home.check_for_quick_actions()
-        home.check_for_video_review(d["patient_fname"]+" "+d["patient_lname"], d['SA_ID'])
-        p_vdo.verify_patient_video_page()
-        now, formatted_now, review_text=p_vdo.fill_up_review_form_ff_off(d['drug_name'], d['total_pills'],d['dose_per_pill'])
-        p_vdo.close_form()
-        p_adhere.verify_patient_adherence_page()
-        p_adhere.verify_patient_adherence_dose_status("Taken", True)
-        p_adhere.verify_patient_adherence_dose_saved_status("Taken", True)
-        p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
+        if rerun_count == 0:
+            home.check_for_quick_actions()
+            home.check_for_video_review(d["patient_fname"]+" "+d["patient_lname"], d['SA_ID'])
+            formatted_now, review_text = _review_video_and_verify_adherence()
+        # p_vdo.close_form()
+        else:
+            home.open_manage_patient_page()
+            patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
+            patient.open_patient(d["patient_fname"], d["patient_lname"])
+
+            p_adhere.open_patient_adherence_page()
+            if p_adhere.verify_patient_adherence_dose_status("Taken", True) and p_adhere.verify_patient_adherence_dose_saved_status("Taken", True):
+                p_adhere.open_video_form()
+                formatted_now, review_text = _review_video_and_verify_adherence()
+            else:
+                print("Already Marked as Adherent")
+                formatted_now, review_text = d.get("commented_timestamp"), d.get("commented_text")
+
+
         p_adhere.verify_side_effect(d['side_effect'])
         p_vdo.close_form()
 

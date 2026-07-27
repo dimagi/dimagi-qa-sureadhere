@@ -2751,7 +2751,7 @@
     "tag": "div",
     "xpath": "//div[@class='col-2 d-flex justify-content-center']"
   },
-  "div__517": {
+  "div_video-icon": {
     "class": "video-icon",
     "tag": "div",
     "xpath": "//div[@class='video-icon']"
