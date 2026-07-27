@@ -113,6 +113,8 @@ class PatientVideoPage(BasePage):
         self.unheal_all('newCommentInput')
         self.unheal('newCommentInput')
         self.type_and_trigger('newCommentInput', review_text, strict=True)
+        self.unheal_all('span_Comment')
+        self.unheal('span_Comment')
         self.wait_for_element('span_Comment')
         self.click('span_Comment')
 
@@ -212,7 +214,7 @@ class PatientVideoPage(BasePage):
         self.unheal_all('span_Comment')
         self.unheal('span_Comment')
         self.wait_for_element('span_Comment')
-        self.click('span_Comment', strict=True)
+        self.click('span_Comment')
         assert self.is_element_visible('span_MARK_AS_ADHERENT'), "Mark As Adherence is not present"
 
         now = datetime.now()
