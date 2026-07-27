@@ -242,7 +242,7 @@ class test_module_03(BaseCase):
         p_adhere.verify_patient_adherence_dose_status("Taken", True)
         p_adhere.verify_dose_summary(drug_time, obs_method)
         p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
-
+        p_adhere.verify_side_effect(side_effect)
         p_overview.open_patient_overview_page()
         # p_overview.verify_patient_overview_page()
         p_overview.check_calendar_and_doses(formatted_now, review_text, d['drug_name'], d['start_date'], d['total_pills'])
@@ -356,9 +356,7 @@ class test_module_03(BaseCase):
                 print("Already Marked as Adherent")
                 formatted_now, review_text = d.get("commented_timestamp"), d.get("commented_text")
 
-
-        p_adhere.verify_side_effect(d['side_effect'])
-        p_vdo.close_form()
+        # p_vdo.close_form()
 
         home.click_admin_profile_button()
         profile.logout_user()

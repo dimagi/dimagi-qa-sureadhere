@@ -50,6 +50,7 @@ class PatientReportsPage(BasePage):
         print("Opened tab is Reports")
 
     def verify_comment_and_side_effect(self, comment, side_effect):
+        print(comment, side_effect)
         self.click('a_Summary_side_effects_and_comments')
         time.sleep(5)
         self.wait_for_page_to_load()

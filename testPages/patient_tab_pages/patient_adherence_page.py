@@ -167,7 +167,7 @@ class PatientAdherencePage(BasePage):
         self.click('div_event_item')
 
     def verify_side_effect(self, side_effect):
-        side_effect_text = self.get_text('li_current-side-effects')
+        side_effect_text = self.get_text('li_current-side-effects', strict=True)
         print(side_effect_text.strip())
         side_effect_text = side_effect_text.replace("x", "")
         side_effect_text = side_effect_text.strip()
