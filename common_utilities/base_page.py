@@ -654,9 +654,9 @@ class BasePage:
             print(f"   ... {i + 1} minute(s) passed")
 
     def type_and_trigger(self, logical_name: str, text: str, *,
-                         timeout: int = 15, blur: bool = True, clear_first: bool = True):
+                         timeout: int = 15, blur: bool = True, clear_first: bool = True, strict: bool = False):
         """Type into a text field/textarea and fire the events Kendo expects."""
-        sel = self.resolve(logical_name)
+        sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
         el = self._get_webelement(sel, timeout=timeout)
 
         # bring into view & focus

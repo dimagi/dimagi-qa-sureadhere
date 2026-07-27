@@ -110,7 +110,9 @@ class PatientVideoPage(BasePage):
 
     def fill_up_review_form_ff_on(self, meds, no_of_pills, dose_per_pill):
         review_text = "Meds taken, Review Approved with FF ON"
-        self.type_and_trigger('newCommentInput', review_text)
+        self.unheal_all('newCommentInput')
+        self.unheal('newCommentInput')
+        self.type_and_trigger('newCommentInput', review_text, strict=True)
         self.wait_for_element('span_Comment')
         self.click('span_Comment')
 
@@ -202,11 +204,15 @@ class PatientVideoPage(BasePage):
     def fill_up_review_form_ff_off(self, meds, no_of_pills, dose_per_pill):
         review_text = "Meds taken, Review Approved with FF OFF"
         time.sleep(2)
-        # self.type_and_trigger('newCommentInput', review_text)
-        self.type('newCommentInput', review_text+Keys.TAB, strict=True)
+        self.unheal_all('newCommentInput')
+        self.unheal('newCommentInput')
+        self.type_and_trigger('newCommentInput', review_text, strict=True)
+        # self.type('newCommentInput', review_text+Keys.TAB, strict=True)
         time.sleep(2)
+        self.unheal_all('span_Comment')
+        self.unheal('span_Comment')
         self.wait_for_element('span_Comment')
-        self.click('span_Comment')
+        self.click('span_Comment', strict=True)
         assert self.is_element_visible('span_MARK_AS_ADHERENT'), "Mark As Adherence is not present"
 
         now = datetime.now()
