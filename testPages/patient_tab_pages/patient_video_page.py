@@ -148,7 +148,7 @@ class PatientVideoPage(BasePage):
             print("Saved Drug Status already set")
         else:
             drug_time, obs_method = self.add_dose_status("Taken")
-        if rerun_count !=0:
+        if rerun_count == 0:
             side_effect = self.fill_up_side_effects()
         else:
             side_effect_text = self.get_text('li_current-side-effects', strict=True)
