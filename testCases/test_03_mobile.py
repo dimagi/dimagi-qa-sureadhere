@@ -411,7 +411,7 @@ class test_module_03(BaseCase):
         )
     @pytest.mark.tcid("mobile_and_web_8")
     @pytest.mark.smoketest
-    @pytest.mark.dependency(name="tc_mobile_5", depends=["tc_mobile_1", "tc_mobile_2", "tc_mobile_3"], scope="class")
+    @pytest.mark.dependency(name="tc_mobile_5", depends=["tc_mobile_1", "tc_mobile_2", "tc_mobile_3_on", "tc_mobile_3_off"], scope="class")
     def test_case_04_review_reports(self):
         login = LoginPage(self, "login")
         self._login_once()
