@@ -261,3 +261,8 @@ class PatientVideoPage(BasePage):
             print("popup not present after save")
         time.sleep(5)
         return now, formatted_now, review_text
+
+    def check_for_video_link(self):
+        time.sleep(3)
+        flag = self.is_element_visible('video_unlink', strict=True)
+        return flag

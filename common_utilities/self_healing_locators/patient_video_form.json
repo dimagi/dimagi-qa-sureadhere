@@ -4761,5 +4761,10 @@
     "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
     "tag": "kendo-dropdownlist",
     "xpath": "//label[contains(normalize-space(text()), 'Observation method')]//following-sibling::kendo-dropdownlist"
+  },
+  "video_unlink": {
+    "tag": "h5",
+    "text": "This event is not currently linked to a dose. To enter dose details, please link this event to a dose and re-open this window.",
+    "xpath": "//h5[contains(., 'This event is not currently linked to a dose. To enter dose details, please link this event to a dose and re-open this window.')]"
   }
 }

@@ -223,3 +223,12 @@ class PatientAdherencePage(BasePage):
     def open_video_form(self):
         self.wait_for_element('div_video-icon')
         self.click('div_video-icon')
+
+    def check_video_link_checkbox(self):
+        self.wait_for_element('span_All')
+        self.click('span_All')
+        time.sleep(3)
+        self.wait_for_element("input_eventIsLinked_chb_0")
+        self.click('input_eventIsLinked_chb_0', strict=True)
+        time.sleep(3)
+        self.submit_changes()

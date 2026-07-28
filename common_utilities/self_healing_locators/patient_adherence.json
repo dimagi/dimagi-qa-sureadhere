@@ -2681,7 +2681,7 @@
     "text": "All",
     "xpath": "//li[@id='k-tabstrip-tab-ffb18f8c-1409-4130-b888-249ccd810a80-1']"
   },
-  "span_All_505": {
+  "span_All": {
     "class": "k-link ng-star-inserted",
     "tag": "span",
     "text": "All",
@@ -2733,6 +2733,12 @@
     "class": "k-checkbox-label k-label",
     "tag": "label",
     "xpath": "//label[@class='k-checkbox-label k-label']"
+  },
+  "input_eventIsLinked_chb_0":{
+    "id": "eventIsLinked_chb_0",
+    "class": "k-checkbox k-checkbox-md ng-untouched ng-pristine ng-valid",
+    "tag": "input",
+    "xpath": "//input[contains(@id,'eventIsLinked_chb_0')]"
   },
   "div_Tuesday, S_514": {
     "class": "col-10",

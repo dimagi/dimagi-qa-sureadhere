@@ -223,6 +223,14 @@ class test_module_03(BaseCase):
             home.check_for_quick_actions()
             home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
             p_vdo.verify_patient_video_page()
+            flag = p_vdo.check_for_video_link()
+            if flag == True:
+                p_vdo.close_form()
+                p_adhere.check_video_link_checkbox()
+                p_adhere.open_video_form()
+                p_vdo.verify_patient_video_page()
+            else:
+                print("video is linked already")
             now, formatted_now, review_text, side_effect, drug_time, obs_method = p_vdo.fill_up_review_form_ff_on(d['drug_name'], d['total_pills'],
                                                                               d['dose_per_pill'], rerun_count=rerun_count)
         # p_vdo.close_form()
@@ -234,6 +242,14 @@ class test_module_03(BaseCase):
             p_adhere.open_patient_adherence_page()
             p_adhere.open_video_form()
             p_vdo.verify_patient_video_page()
+            flag = p_vdo.check_for_video_link()
+            if flag == True:
+                p_vdo.close_form()
+                p_adhere.check_video_link_checkbox()
+                p_adhere.open_video_form()
+                p_vdo.verify_patient_video_page()
+            else:
+                print("video is linked already")
             now, formatted_now, review_text, side_effect, drug_time, obs_method = p_vdo.fill_up_review_form_ff_on(
                 d['drug_name'], d['total_pills'],
                 d['dose_per_pill'], rerun_count=rerun_count)
@@ -328,9 +344,18 @@ class test_module_03(BaseCase):
 
         def _review_video_and_verify_adherence():
             p_vdo.verify_patient_video_page()
+            flag = p_vdo.check_for_video_link()
+            if flag == True:
+                p_vdo.close_form()
+                p_adhere.check_video_link_checkbox()
+                p_adhere.open_video_form()
+                p_vdo.verify_patient_video_page()
+            else:
+                print("video is linked already")
             now, formatted_now, review_text = p_vdo.fill_up_review_form_ff_off(
                 d['drug_name'], d['total_pills'], d['dose_per_pill']
                 )
+
             p_adhere.verify_patient_adherence_page()
             p_adhere.verify_patient_adherence_dose_status("Taken", True)
             p_adhere.verify_patient_adherence_dose_saved_status("Taken", True)
