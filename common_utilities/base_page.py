@@ -638,8 +638,11 @@ class BasePage:
         self.sb.refresh_page()
         self.wait_for_page_to_load()
 
-    def type(self, logical_name: str, value: str, timeout: int = CLICK_TIMEOUT):
-        sel = self.resolve(logical_name)
+    def type(self, logical_name: str, value: str, timeout: int = CLICK_TIMEOUT, strict=False):
+        if strict == False:
+            sel = self.resolve(logical_name)
+        else:
+            sel = self.resolve_strict(logical_name)
         self.sb.wait_for_element(sel, timeout=timeout)
         # self.sb.highlight(sel)
         self.sb.type(sel, value)
@@ -651,9 +654,9 @@ class BasePage:
             print(f"   ... {i + 1} minute(s) passed")
 
     def type_and_trigger(self, logical_name: str, text: str, *,
-                         timeout: int = 15, blur: bool = True, clear_first: bool = True):
+                         timeout: int = 15, blur: bool = True, clear_first: bool = True, strict: bool = False):
         """Type into a text field/textarea and fire the events Kendo expects."""
-        sel = self.resolve(logical_name)
+        sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
         el = self._get_webelement(sel, timeout=timeout)
 
         # bring into view & focus
@@ -1062,7 +1065,16 @@ class BasePage:
         for css in ("button[aria-label]", ".k-input-button", ".k-select", "button.k-button-icon"):
             f = root.find_elements(By.CSS_SELECTOR, css)
             if f: btn = f[0]; break
-        (btn or root).click()
+        target = btn or root
+        try:
+            target.click()
+        except ElementClickInterceptedException:
+            # layout may still be settling (e.g. a just-submitted comment reflowing the page)
+            self.wait_for_overlays_to_clear(3)
+            try:
+                target.click()
+            except ElementClickInterceptedException:
+                self.driver.execute_script("arguments[0].click();", target)
         WebDriverWait(self.driver, timeout).until(lambda d: self._dd_is_open(root))
 
     def _dd_get_display_text(self, root) -> str:
@@ -2070,6 +2082,14 @@ class BasePage:
             return dt.strftime("%b %-d, %Y")  # Unix
         except ValueError:
             return dt.strftime("%b %#d, %Y")
+
+    def format_hMp(self, dt):
+        if isinstance(dt, str):
+            dt = datetime.strptime(dt, "%I:%M %p")
+        try:
+            return dt.strftime("%-I:%M %p")  # Unix
+        except ValueError:
+            return dt.strftime("%#I:%M %p")  # Windows
 
     def format_full_mdY(self, dt):
         if isinstance(dt, str):

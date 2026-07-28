@@ -2234,7 +2234,7 @@
     "class": "adh-custom-dropdown k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
     "tag": "kendo-dropdownlist",
     "text": "Open",
-    "xpath": "//kendo-dropdownlist[@id='saved_status_0']"
+    "xpath": "//event-modal//kendo-dropdownlist[@id='saved_status_0']"
   },
   "k-f38bbf06-957f-47c5-a8a2-70c36de91c81": {
     "id": "k-f38bbf06-957f-47c5-a8a2-70c36de91c81",
@@ -2313,7 +2313,7 @@
     "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
     "tag": "kendo-dropdownlist",
     "text": "Open",
-    "xpath": "//kendo-dropdownlist[@id='doseStatus']"
+    "xpath": "//event-modal//kendo-dropdownlist[@id='doseStatus']"
   },
   "k-cb15f12e-43fb-477b-ab5f-d18bed8b463c": {
     "id": "k-cb15f12e-43fb-477b-ab5f-d18bed8b463c",
@@ -2555,40 +2555,39 @@
     "tag": "div",
     "xpath": "(//div[@class='comment-options'])[last()]"
   },
-  "div_commented_user_timestamp":{
+"div_commented_user_timestamp":{
     "class": "comment-item ng-star-inserted",
     "tag": "div",
-    "xpath": "(//event-modal//div[@class='comment-item ng-star-inserted'])[last()]"
+    "xpath_template": "//event-modal//div[@class='comment-item ng-star-inserted']//div[contains(.,{text})]"
   },
   "span_commented_timestamp":{
     "tag": "h5",
-    "xpath": "(//event-modal//div[@class='comment-item ng-star-inserted']//h5)[last()]"
+    "xpath_template": "//event-modal//div[@class='comment-item ng-star-inserted']//div[contains(.,{text})]//preceding-sibling::h5"
   },
-
   "div_SUBMIT_REVIEW": {
     "class": "adherence-options",
     "tag": "div",
     "text": "SUBMIT REVIEW",
-    "xpath": "//div[contains(normalize-space(text()), 'SUBMIT REVIEW')]"
+    "xpath": "//event-modal//div[contains(normalize-space(text()), 'SUBMIT REVIEW')]"
   },
   "button_SUBMIT_REVIEW": {
     "class": "k-button k-button-md k-rounded-md k-button-solid-primary k-button-solid",
     "type": "submit",
     "tag": "button",
     "text": "SUBMIT REVIEW",
-    "xpath": "//button[contains(normalize-space(text()), 'SUBMIT REVIEW')]"
+    "xpath": "//event-modal//button[contains(normalize-space(text()), 'SUBMIT REVIEW')]"
   },
   "span_SUBMIT_REVIEW": {
     "class": "k-button-text",
     "tag": "span",
-    "text": "SUBMIT REVIEW",
-    "xpath": "//span[contains(normalize-space(text()), 'SUBMIT REVIEW')]"
+    "text": "Submit review",
+    "xpath": "//event-modal//span[contains(normalize-space(text()), 'Submit review')]"
   },
   "span_Comment": {
     "class": "k-button-text",
     "tag": "span",
     "text": "COMMENT",
-    "xpath": "//span[contains(normalize-space(text()), 'COMMENT')]"
+    "xpath": "//event-modal//span[contains(normalize-space(text()), 'Comment')]"
   },
   "popover__497": {
     "tag": "popover",
@@ -4661,7 +4660,7 @@
     "class": "k-input-inner",
     "type": "text",
     "tag": "input",
-    "xpath": "//input[@placeholder='Add side effect ...']"
+    "xpath": "//event-modal//input[@placeholder='Add side effect ...']"
   },
   "li_current-side-effects": {
     "class": "side-effect-item ng-star-inserted",
@@ -4725,5 +4724,47 @@
     "tag": "div",
     "text": "Your account does not have access to this video",
     "xpath": "//div[contains(normalize-space(text()), 'Your account does not have access to this video')]"
+  },
+  "edit_doses": {
+    "class": "per-drug-edit-button ng-star-inserted",
+    "tag": "span",
+    "text": "Edit",
+    "xpath": "//span[contains(normalize-space(text()), 'Edit')]"
+  },
+  "set_time": {
+    "class": "k-input-inner",
+    "id": "timepicker-1",
+    "placeholder": "Set Time",
+    "tag": "input",
+    "xpath": "//kendo-timepicker[contains(@id,'doseTime')]//input[@placeholder='Set Time']"
+  },
+  "last_meal_time": {
+    "class": "k-input-inner",
+    "id": "timepicker-1",
+    "placeholder": "Set Time",
+    "tag": "input",
+    "xpath": "//kendo-timepicker[contains(@id,'lastMealTime')]//input[@placeholder='Set Time']"
+  },
+  "last_meal_date": {
+    "class": "k-input-inner",
+    "id": "timepicker-1",
+    "placeholder": "Set Time",
+    "tag": "input",
+    "xpath": "//kendo-datepicker[contains(@id,'lastMealDate')]//input[@placeholder='Set Date']"
+  },
+  "kendo-dropdownlist-ate_in_last_hour": {
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "xpath": "//label[contains(normalize-space(text()), 'Ate in the last hour')]//following-sibling::kendo-dropdownlist"
+  },
+  "kendo-dropdownlist-observation_method": {
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "xpath": "//label[contains(normalize-space(text()), 'Observation method')]//following-sibling::kendo-dropdownlist"
+  },
+  "video_unlink": {
+    "tag": "h5",
+    "text": "This event is not currently linked to a dose. To enter dose details, please link this event to a dose and re-open this window.",
+    "xpath": "//h5[contains(., 'This event is not currently linked to a dose. To enter dose details, please link this event to a dose and re-open this window.')]"
   }
 }

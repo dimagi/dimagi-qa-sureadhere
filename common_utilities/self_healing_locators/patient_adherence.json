@@ -862,11 +862,11 @@
     "div_commented_user_timestamp":{
     "class": "comment-item ng-star-inserted",
     "tag": "div",
-    "xpath": "(//div[@class='comment-item ng-star-inserted'])[last()]"
+    "xpath_template": "//div[@class='comment-item ng-star-inserted']//div[contains(.,{text})]"
   },
   "span_commented_timestamp":{
     "tag": "h5",
-    "xpath": "(//div[@class='comment-item ng-star-inserted']//h5)[last()]"
+    "xpath_template": "//div[@class='comment-item ng-star-inserted']//div[contains(.,{text})]//preceding-sibling::h5"
   },
   "div_Wednesday_178": {
     "class": "cal-cell cal-future ng-star-inserted",
@@ -2681,7 +2681,7 @@
     "text": "All",
     "xpath": "//li[@id='k-tabstrip-tab-ffb18f8c-1409-4130-b888-249ccd810a80-1']"
   },
-  "span_All_505": {
+  "span_All": {
     "class": "k-link ng-star-inserted",
     "tag": "span",
     "text": "All",
@@ -2734,6 +2734,12 @@
     "tag": "label",
     "xpath": "//label[@class='k-checkbox-label k-label']"
   },
+  "input_eventIsLinked_chb_0":{
+    "id": "eventIsLinked_chb_0",
+    "class": "k-checkbox k-checkbox-md ng-untouched ng-pristine ng-valid",
+    "tag": "input",
+    "xpath": "//input[contains(@id,'eventIsLinked_chb_0')]"
+  },
   "div_Tuesday, S_514": {
     "class": "col-10",
     "tag": "div",
@@ -2751,7 +2757,7 @@
     "tag": "div",
     "xpath": "//div[@class='col-2 d-flex justify-content-center']"
   },
-  "div__517": {
+  "div_video-icon": {
     "class": "video-icon",
     "tag": "div",
     "xpath": "//div[@class='video-icon']"
@@ -2909,5 +2915,57 @@
     "class": "event-item",
     "tag": "div",
     "xpath": "//div[contains(@class,'event-item')]"
+  },
+  "edit_doses": {
+    "class": "per-drug-edit-button ng-star-inserted",
+    "tag": "span",
+    "text": "Edit",
+    "xpath": "//span[contains(normalize-space(text()), 'Edit')]"
+  },
+  "kendo-dropdownlist-ate_in_last_hour": {
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "xpath": "//label[contains(normalize-space(text()), 'Ate in the last hour')]//following-sibling::kendo-dropdownlist"
+  },
+  "kendo-dropdownlist-observation_method": {
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "xpath": "//label[contains(normalize-space(text()), 'Observation method')]//following-sibling::kendo-dropdownlist"
+  },
+  "span_Dose time": {
+    "class": "per-drug-summary-value",
+    "tag": "span",
+    "xpath": "//span[contains(.,'Dose time')]/following-sibling::span[contains(@class, 'per-drug-summary-value')]"
+  },
+  "span_Ate in the last hour": {
+      "class": "per-drug-summary-value",
+      "tag": "span",
+      "xpath": "//span[contains(.,'Ate in the last hour')]/following-sibling::span[contains(@class, 'per-drug-summary-value')]"
+  },
+  "span_Observation method": {
+      "class": "per-drug-summary-value",
+      "tag": "span",
+      "xpath": "//span[contains(.,'Observation method')]/following-sibling::span[contains(@class, 'per-drug-summary-value')]"
+  },
+  "set_time": {
+    "class": "k-input-inner",
+    "id": "timepicker-1",
+    "placeholder": "Set Time",
+    "tag": "input",
+    "xpath": "//kendo-timepicker[contains(@id,'doseTime')]//input[@placeholder='Set Time']"
+  },
+  "last_meal_time": {
+    "class": "k-input-inner",
+    "id": "timepicker-1",
+    "placeholder": "Set Time",
+    "tag": "input",
+    "xpath": "//kendo-timepicker[contains(@id,'lastMealTime')]//input[@placeholder='Set Time']"
+  },
+  "last_meal_date": {
+    "class": "k-input-inner",
+    "id": "timepicker-1",
+    "placeholder": "Set Time",
+    "tag": "input",
+    "xpath": "//kendo-datepicker[contains(@id,'lastMealDate')]//input[@placeholder='Set Date']"
   }
 }

@@ -22,6 +22,13 @@ class PatientOverviewPage(BasePage):
             self.kendo_dialog_click_button("Ok")
         except Exception:
             print("popup not present")
+        self.wait_for_page_to_load()
+        self.wait_for_element('k-opened-tabstrip-tab')
+        time.sleep(3)
+        tabname = self.get_text('k-opened-tabstrip-tab')
+        print(tabname)
+        assert tabname == "Overview", "Overview tab is not opened"
+        print("Opened tab is Overview")
 
     def verify_patient_overview_page(self):
         time.sleep(5)
@@ -82,6 +89,35 @@ class PatientOverviewPage(BasePage):
 
         print("All drug details are correctly displayed.")
 
+
+    def check_calendar_and_doses_off_before(self, med_name, start_date, total_dose):
+        taken_doses = self.days_completed(start_date)
+        left_doses = int(total_dose)-int(taken_doses)
+        print(f"Total pills: {total_dose}, Taken doses: {taken_doses}, Left Doses: {left_doses}")
+
+        dose_status = self.get_attribute('div_cal_today_dose_schedule', 'class', strict=True)
+        print(dose_status)
+        assert not "taken-dose-icon" == dose_status, f"taken-dose-icon matching current status {dose_status}"
+        print(f"taken-dose-icon matching current status {dose_status}")
+
+        drug_name = self.get_text('td_drug_name')
+        assert drug_name == med_name, f"{drug_name} not matching {med_name}"
+        drug_taken = self.get_text('td_drug_taken')
+        assert not str(drug_taken) == str(taken_doses), f"{drug_taken} matching {taken_doses}"
+
+    def check_calendar_and_doses_off_after(self, med_name, start_date, total_dose):
+        taken_doses = self.days_completed(start_date)
+        left_doses = int(total_dose)-int(taken_doses)
+        print(f"Total pills: {total_dose}, Taken doses: {taken_doses}, Left Doses: {left_doses}")
+
+        dose_status = self.get_attribute('div_cal_today_dose_schedule', 'class', strict=True)
+        print(dose_status)
+        assert "taken-dose-icon" == dose_status, f"taken-dose-icon matching current status {dose_status}"
+        print(f"taken-dose-icon matching current status {dose_status}")
+        drug_name = self.get_text('td_drug_name')
+        assert drug_name == med_name, f"{drug_name} not matching {med_name}"
+        drug_taken = self.get_text('td_drug_taken')
+        assert str(drug_taken) == str(taken_doses), f"{drug_taken} not matching {taken_doses}"
 
     def check_calendar_presence(self):
         self.wait_for_element('div_calendar')

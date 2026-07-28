@@ -2305,5 +2305,10 @@
     "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Pill Count')]]//descendant::kendo-switch"
+  },
+  "kendo-switch_Per Drug Adherence": {
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Per Drug Adherence')]]//descendant::kendo-switch"
   }
 }

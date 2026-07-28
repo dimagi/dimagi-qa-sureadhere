@@ -37,7 +37,7 @@ class UserData:
         "Medication Event Reminder Monitor": "OFF",
         "Per Drug Adherence": "OFF",
         "Events panel - inline dose preview": "OFF",
-        "Unlinking and re-linking Video events": "OFF"
+        "Unlinking and re-linking Video events": "OFF",
         }
     pill_count_ff_on = {
         "Pill Count": "ON",
@@ -45,6 +45,14 @@ class UserData:
     pill_count_ff_off = {
         "Pill Count": "OFF",
         }
+
+    per_drug_adherence_ff_on = {
+        "Per Drug Adherence": "ON",
+        }
+    per_drug_adherence_ff_off = {
+        "Per Drug Adherence": "OFF",
+        }
+
     regimen_approval_ff_off = {
         "Regimen approval workflow": "OFF",
         }
