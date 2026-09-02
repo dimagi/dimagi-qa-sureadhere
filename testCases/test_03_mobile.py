@@ -160,7 +160,7 @@ class test_module_03(BaseCase):
         web_msg = p_message.send_message()
         mobile.read_messages(web_msg)
         if flag == False:
-            vdo_upload_date, vdo_upload_time = mobile.record_video_and_submit(d['drug_name'], d["dose_per_pill"])
+            vdo_upload_date, vdo_upload_time = mobile.record_video_and_submit(d['drug_name'], d["total_pills"])
             mobile.close_android_driver()
             self.__class__.data.update({
                 "video_upload_date": vdo_upload_date,
