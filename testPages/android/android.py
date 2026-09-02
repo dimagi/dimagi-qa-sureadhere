@@ -359,9 +359,10 @@ class Android:
         else:
             print("No last ate screen")
         if self.is_present((AppiumBy.XPATH, self.support_provider_yes)):
-            flag = random.choice(['yes','no'])
-            xpath = getattr(self, f"support_provider_{flag}")
-            self.click_xpath(xpath)
+            # flag = random.choice(['yes','no'])
+            # xpath = getattr(self, f"support_provider_{flag}")
+            # self.click_xpath(xpath)
+            self.click_xpath(self.support_provider_yes)
             print("Support provider screen is present")
             # self.click_xpath(f"self.support_provider_{flag}")
         else:
