@@ -75,7 +75,7 @@ class Android:
         bs_key = settings["bs_key"]
 
         # apk_path = Path(PathSettings.ROOT) / "user_inputs" / "app-release3.2.14-symptoms.apk"
-        apk_path = Path(PathSettings.ROOT) / "user_inputs" / "app-release3.3.2.apk"
+        apk_path = Path(PathSettings.ROOT) / "user_inputs" / "app-release3.4.8.apk"
 
         print(f"[DEBUG] __file__={__file__}")
         print(f"[DEBUG] PROJECT_ROOT={PathSettings.ROOT}")
