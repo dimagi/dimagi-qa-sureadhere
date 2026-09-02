@@ -269,6 +269,7 @@ class test_module_03(BaseCase):
 
         p_adhere.verify_patient_adherence_page()
         p_adhere.verify_patient_adherence_dose_status("Taken", True)
+        p_adhere.verify_auto_filled_tag()
         p_adhere.verify_dose_summary(drug_time, obs_method)
         p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
         p_adhere.verify_side_effect(side_effect)

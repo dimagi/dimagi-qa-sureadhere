@@ -31,7 +31,7 @@ class UserData:
         "Self Report - pills taken with food": "ON",
         "Self Report - pills with food": "ON",
         "Self Report - pills with provider present": "ON",
-        "Regimen approval workflow": "OFF",
+        "Regimen approval workflow": "ON",
         "Automatic Opt In for SMS": "OFF",
         "Patient MRN validated with lookup": "OFF",
         "Medication Event Reminder Monitor": "OFF",
