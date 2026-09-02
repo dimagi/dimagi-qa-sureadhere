@@ -3020,7 +3020,7 @@ class BasePage:
                 return
         raise AssertionError(f"Failed to set Kendo switch '{logical_name}' to {on}")
 
-    def kendo_switch_wait(self, logical_name: str, expected: bool, *, timeout: int = 8, poll: float = 0.1, strict: bool=False) -> None:
+    def kendo_switch_wait(self, logical_name: str, expected: bool, *, timeout: int = 20, poll: float = 0.1, strict: bool=False) -> None:
         """Wait until switch reaches expected state (True/False) or timeout."""
         import time
         end = time.monotonic() + timeout

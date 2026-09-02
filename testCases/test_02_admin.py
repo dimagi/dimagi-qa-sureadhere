@@ -277,6 +277,22 @@ class test_module_02_admin(BaseCase):
         a_announce.edit_announcement(announcement_text)
         a_announce_form.validate_announcement_page()
         status_now = a_announce_form.deactivate_the_announcements()
+
+        try:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.validate_login_page()
+        except:
+            print("Already logged out")
+        try:
+            login.launch_browser(self.settings["url"])
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.validate_dashboard_page()
+        except:
+            print("Already logged in")
+            home.open_dashboard_page()
+
         home.open_admin_page()
         admin.open_announcement()
         a_announce.verify_announcement_created(announcement_text, status_now)

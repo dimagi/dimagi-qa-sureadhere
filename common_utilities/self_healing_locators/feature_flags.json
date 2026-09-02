@@ -2315,5 +2315,10 @@
     "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
     "tag": "kendo-switch",
     "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Patient MRN validated with lookup')]]//descendant::kendo-switch"
+  },
+  "kendo-switch_Food question boolean mode": {
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Food question boolean mode')]]//descendant::kendo-switch"
   }
 }
