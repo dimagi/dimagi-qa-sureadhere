@@ -123,6 +123,7 @@ class test_module_03(BaseCase):
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_mobile_2",depends= ["tc_mobile_1"],scope="class")
     def test_case_01_mobile_login_and_message(self):
+        rerun_count = getattr(self, "rerun_count", 0)
         login = LoginPage(self, "login")
         self._login_once()
         self.mobile = Android(self.settings)
@@ -138,10 +139,13 @@ class test_module_03(BaseCase):
 
         login.login(self.settings["login_username"], self.settings["login_password"])
 
+        d = self.__class__.data
+
         home.open_dashboard_page()
         home.validate_dashboard_page()
-
-        d = self.__class__.data
+        home.open_dashboard_page()
+        home.check_for_quick_actions()
+        flag = home.check_for_review_presence(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
 
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
@@ -155,8 +159,17 @@ class test_module_03(BaseCase):
         p_message.read_last_message(mob_msg)
         web_msg = p_message.send_message()
         mobile.read_messages(web_msg)
-        vdo_upload_date, vdo_upload_time = mobile.record_video_and_submit(d['drug_name'])
-        mobile.close_android_driver()
+        if flag == False:
+            vdo_upload_date, vdo_upload_time = mobile.record_video_and_submit(d['drug_name'], d["dose_per_pill"])
+            mobile.close_android_driver()
+            self.__class__.data.update({
+                "video_upload_date": vdo_upload_date,
+                "video_upload_time": vdo_upload_time,
+            })
+        else:
+            print("video already uploaded")
+            vdo_upload_date = d.get("video_upload_date")
+            vdo_upload_time = d.get("video_upload_time")
         home.click_admin_profile_button()
         profile.logout_user()
         login.after_logout()

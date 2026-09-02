@@ -28,9 +28,9 @@ class UserData:
         "In-App Messaging": "ON",
         "Video capture for VDOT": "ON",
         "REVAMPED REGIMEN": "ON",
-        "Self Report - pills taken with food": "OFF",
-        "Self Report - pills with food": "OFF",
-        "Self Report - pills with provider present": "OFF",
+        "Self Report - pills taken with food": "ON",
+        "Self Report - pills with food": "ON",
+        "Self Report - pills with provider present": "ON",
         "Regimen approval workflow": "OFF",
         "Automatic Opt In for SMS": "OFF",
         "Patient MRN validated with lookup": "OFF",
@@ -38,6 +38,7 @@ class UserData:
         "Per Drug Adherence": "OFF",
         "Events panel - inline dose preview": "OFF",
         "Unlinking and re-linking Video events": "OFF",
+        "Food question boolean mode": "ON"
         }
     pill_count_ff_on = {
         "Pill Count": "ON",
@@ -112,5 +113,6 @@ class UserData:
 
     overview_doses_table_columns=['taken', 'not_taken', 'scheduled', 'held', 'challenge', 'rescheduled']
     observation_method = 'Recorded VDOT'
+    obs_in_person = 'In-Person DOT'
     quick_actions =['new video', 'missed review', 'low review rate']
     adherence_dropdown =['Last 7 days', 'Last 30 days']

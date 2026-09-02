@@ -4766,5 +4766,21 @@
     "tag": "h5",
     "text": "This event is not currently linked to a dose. To enter dose details, please link this event to a dose and re-open this window.",
     "xpath": "//h5[contains(., 'This event is not currently linked to a dose. To enter dose details, please link this event to a dose and re-open this window.')]"
+  },
+  "auto_filled_tag": {
+    "class": "badge rounded-pill text-bg-warning px-2 py-1 autofill-badge",
+    "tag": "span",
+    "text": "Auto-filled",
+    "xpath": "//event-modal//span[@class='badge rounded-pill text-bg-warning px-2 py-1 autofill-badge']"
+  },
+  "span_Observation method": {
+      "class": "per-drug-summary-value",
+      "tag": "span",
+      "xpath": "//event-modal//span[contains(.,'Observation method')]/following-sibling::span[contains(@class, 'per-drug-summary-value')]"
+  },
+  "span_Ate in the last hour": {
+      "class": "per-drug-summary-value",
+      "tag": "span",
+      "xpath": "//event-modal//span[contains(.,'Ate in the last hour')]/following-sibling::span[contains(@class, 'per-drug-summary-value')]"
   }
 }

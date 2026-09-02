@@ -2967,5 +2967,11 @@
     "placeholder": "Set Time",
     "tag": "input",
     "xpath": "//kendo-datepicker[contains(@id,'lastMealDate')]//input[@placeholder='Set Date']"
+  },
+  "auto_filled_tag": {
+    "class": "badge rounded-pill text-bg-warning px-2 py-1 autofill-badge",
+    "tag": "span",
+    "text": "Auto-filled",
+    "xpath": "//span[@class='badge rounded-pill text-bg-warning px-2 py-1 autofill-badge']"
   }
 }

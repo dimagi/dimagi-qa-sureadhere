@@ -140,14 +140,24 @@ class PatientVideoPage(BasePage):
         assert review_text in full_text, f"{review_text} not in {full_text}"
         print(f"{review_text} is in {full_text}")
         side_effect = ""
-        if rerun_count != 0 and self.kendo_dd_get_selected_text('doseStatus') == "Taken":
-            print("Dose Status already selected")
-        else:
-            self.select_dose_status("Taken")
-        if rerun_count != 0 and self.kendo_dd_get_selected_text('kendo-dropdown-saved_status') == "Taken":
-            print("Saved Drug Status already set")
-        else:
-            drug_time, obs_method = self.add_dose_status("Taken")
+        # if rerun_count != 0 and self.kendo_dd_get_selected_text('doseStatus') == "Taken":
+        #     print("Dose Status already selected")
+        # else:
+        #     self.select_dose_status("Taken")
+        assert self.is_element_present("auto_filled_tag", strict=True)
+        # if rerun_count != 0 and self.kendo_dd_get_selected_text('kendo-dropdown-saved_status') == "Taken":
+        #     print("Saved Drug Status already set")
+        # else:
+        #     drug_time, obs_method = self.add_dose_status("Taken")
+        assert self.is_element_present('edit_doses')
+        drug_time=self.get_text('span_Dose time')
+        # assert self.get_text('span_Ate in the last hour').strip() ==ate_value, f"{self.get_text('span_Ate in the last hour')} not matching {ate_value}"
+        assert self.get_text(
+            'span_Observation method', strict=True).strip() == UserData.obs_in_person, f"{self.get_text('span_Observation method')} not matching {UserData.obs_in_person}"
+        assert self.get_text(
+            'span_Ate in the last hour',
+            strict=True).strip() == "Yes", f"{self.get_text('span_Ate in the last hour')} not matching Yes"
+        print("Dose summary verified")
         if rerun_count == 0:
             side_effect = self.fill_up_side_effects()
         else:
@@ -165,7 +175,7 @@ class PatientVideoPage(BasePage):
         except Exception:
             print("popup not present after save")
         time.sleep(5)
-        return now, formatted_now, review_text, side_effect, drug_time, obs_method
+        return now, formatted_now, review_text, side_effect, drug_time, UserData.obs_in_person
 
     def add_dose_status(self, status):
         self.kendo_dd_select_text_old("kendo-dropdown-saved_status", status)

@@ -208,7 +208,7 @@ class PatientAdherencePage(BasePage):
         print(drug_time, obs_method)
         drug_time = self.format_hMp(drug_time)
         assert self.get_text('span_Dose time').strip() ==drug_time, f"{self.get_text('span_Dose time')} not matching {drug_time}"
-        # assert self.get_text('span_Ate in the last hour').strip() ==ate_value, f"{self.get_text('span_Ate in the last hour')} not matching {ate_value}"
+        assert self.get_text('span_Ate in the last hour').strip() =="Yes", f"{self.get_text('span_Ate in the last hour')} not matching Yes"
         assert self.get_text('span_Observation method').strip() ==obs_method, f"{self.get_text('span_Observation method')} not matching {obs_method}"
         print("Dose summary verified")
 

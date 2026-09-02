@@ -125,6 +125,30 @@ class HomePage(BasePage):
             # Only runs if the loop completes without 'break'
             print(f"No matching SA ID found for {sa_id}")
 
+    def check_for_review_presence(self, pat_name, sa_id):
+        self.unheal('span-patient-video-review')
+        self.unheal_all('span-patient-video-review')
+        self.wait_for_element('additional_videos', strict=True)
+        self.click('additional_videos', strict=True)
+        time.sleep(5)
+        list_name = self.find_elements('span-video-patient_name')
+        list_review = self.find_elements('span-patient-video-review')
+        list_sa_id = self.find_elements('span-patient-sa-id-review')
+        print(len(list_name), len(list_review), len(list_sa_id))
+        for vids, sa_id_value in zip(list_review, list_sa_id):
+            sa_id_text = sa_id_value.text.strip()
+            if sa_id in sa_id_text:
+                print(f"{sa_id} is present. Matches {sa_id_text}")
+                return True
+                break  # stop looping after success
+            else:
+                print(f"{sa_id} does not match {sa_id_text}")
+                return False
+        else:
+            # Only runs if the loop completes without 'break'
+            print(f"No matching SA ID found for {sa_id}")
+            return False
+
     def verify_announcement(self, announcement_text, flag=True):
         time.sleep(5)
         self.wait_for_element('div_alert', 100)
