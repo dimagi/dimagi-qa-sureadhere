@@ -4773,6 +4773,11 @@
     "text": "Auto-filled",
     "xpath": "//event-modal//span[@class='badge rounded-pill text-bg-warning px-2 py-1 autofill-badge']"
   },
+  "span_Dose time": {
+      "class": "per-drug-summary-value",
+      "tag": "span",
+      "xpath": "//event-modal//span[contains(.,'Dose time')]/following-sibling::span[contains(@class, 'per-drug-summary-value')]"
+  },
   "span_Observation method": {
       "class": "per-drug-summary-value",
       "tag": "span",

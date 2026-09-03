@@ -144,13 +144,14 @@ class PatientVideoPage(BasePage):
         #     print("Dose Status already selected")
         # else:
         #     self.select_dose_status("Taken")
-        assert self.is_element_present("auto_filled_tag", strict=True, timeout=15)
+        assert self.is_element_present("auto_filled_tag", strict=True, timeout=15), "auto_filled_tag not present"
+        print("auto_filled_tag present on page")
         # if rerun_count != 0 and self.kendo_dd_get_selected_text('kendo-dropdown-saved_status') == "Taken":
         #     print("Saved Drug Status already set")
         # else:
         #     drug_time, obs_method = self.add_dose_status("Taken")
-        assert self.is_element_present('edit_doses')
-        drug_time=self.get_text('span_Dose time')
+        assert self.is_element_present('edit_doses', strict=True)
+        drug_time=self.get_text('span_Dose time', strict=True)
         # assert self.get_text('span_Ate in the last hour').strip() ==ate_value, f"{self.get_text('span_Ate in the last hour')} not matching {ate_value}"
         assert self.get_text(
             'span_Observation method', strict=True).strip() == UserData.obs_in_person, f"{self.get_text('span_Observation method')} not matching {UserData.obs_in_person}"

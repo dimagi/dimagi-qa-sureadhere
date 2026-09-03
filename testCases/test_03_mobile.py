@@ -161,6 +161,11 @@ class test_module_03(BaseCase):
         mobile.read_messages(web_msg)
         if flag == False:
             vdo_upload_date, vdo_upload_time = mobile.record_video_and_submit(d['drug_name'], d["total_pills"])
+            # Self-report submits the same data the video wizard already records for this
+            # dose; calling both creates duplicate self-report events for the same dose,
+            # which the matcher treats as ambiguous ("multiple covering reports") and
+            # suppresses the auto-filled tag entirely.
+            # mobile.self_report_and_submit(d['drug_name'], d["total_pills"])
             mobile.close_android_driver()
             self.__class__.data.update({
                 "video_upload_date": vdo_upload_date,

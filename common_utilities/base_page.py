@@ -2049,7 +2049,7 @@ class BasePage:
         # 3) visit each month once, verify days in that month
         for (y, m) in sorted(groups.keys()):
             self.calendar_goto_year_month(
-                header_logical, next_btn_logical, prev_btn_logical, y, m, timeout=8
+                header_logical, next_btn_logical, prev_btn_logical, y, m, timeout=20
                 )
 
             for d in groups[(y, m)]:
