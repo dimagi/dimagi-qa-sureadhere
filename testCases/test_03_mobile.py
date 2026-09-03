@@ -75,7 +75,7 @@ class test_module_03(BaseCase):
             default_site_manager = UserData.site_manager[1]
             
         login.login(default_staff_email, UserData.pwd)
-        qhome.open_dashboard_page()
+        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.click_add_user()
         user.add_patient()
