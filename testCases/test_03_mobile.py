@@ -91,7 +91,7 @@ class test_module_03(BaseCase):
                                                                       )
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
-        start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule(time_of_drug=True)
+        start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule()
 
         try:
             home.open_dashboard_page()
