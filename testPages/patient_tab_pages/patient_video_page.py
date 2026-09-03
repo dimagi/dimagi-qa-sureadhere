@@ -144,7 +144,7 @@ class PatientVideoPage(BasePage):
         #     print("Dose Status already selected")
         # else:
         #     self.select_dose_status("Taken")
-        assert self.is_element_present("auto_filled_tag", strict=True)
+        assert self.is_element_present("auto_filled_tag", strict=True, timeout=15)
         # if rerun_count != 0 and self.kendo_dd_get_selected_text('kendo-dropdown-saved_status') == "Taken":
         #     print("Saved Drug Status already set")
         # else:

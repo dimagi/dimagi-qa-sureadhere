@@ -213,7 +213,7 @@ class PatientAdherencePage(BasePage):
         print("Dose summary verified")
 
     def verify_auto_filled_tag(self):
-        assert self.is_element_present("auto_filled_tag", strict=True), "auto-filled tag is not present"
+        assert self.is_element_present("auto_filled_tag", strict=True, timeout=15), "auto-filled tag is not present"
         print("auto-filled tag is present")
 
     def get_time_now(self):

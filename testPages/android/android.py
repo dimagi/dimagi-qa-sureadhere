@@ -349,9 +349,9 @@ class Android:
         time.sleep(1)
         self.click_xpath(self.submit)
         time.sleep(2)
-        if self.is_present((AppiumBy.XPATH, self.food_eaten_yes)):
+        if self.is_present((AppiumBy.XPATH, self.last_ate)):
             print("Last ate screen is present")
-            self.click_xpath(self.food_eaten_yes)
+            self.click_xpath(self.last_ate)
             time.sleep(1)
         elif self.is_present((AppiumBy.XPATH, self.submit)):
             self.click_xpath(self.submit)
@@ -387,7 +387,7 @@ class Android:
         assert str(list_count[2].text) != "0", f"Completed tab has no new item"
         print(f"Completed tab has new item. Completed count {list_count[2].text}" )
         self.click((AppiumBy.ACCESSIBILITY_ID, self.go_back))
-
+        time.sleep(30)
         return date_upload, time_upload
 
     def get_date_and_time(self, text: str):

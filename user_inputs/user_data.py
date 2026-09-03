@@ -9,7 +9,7 @@ class UserData:
     regimen_repeats_weekdays = "Weekdays"
     regimen_drugs = ["Ofloxacin", "Drug 2"]
     no_of_pills = 7
-    dose_per_pill = 2
+    dose_per_pill = 1
     admin_disease = ["Depression", "Hepatitis C", "Ebola"]
     admin_drug = ["Levofloxacin", "Rifapentine", "Truvada", "Stribild"]
     # default_staff_email = ["automation.user.banner@gmail.com", "automation.user.rogers@gmail.com", "automation.user.secure@gmail.com", "automation.user.eu@gmail.com"]
@@ -31,11 +31,11 @@ class UserData:
         "Self Report - pills taken with food": "ON",
         "Self Report - pills with food": "ON",
         "Self Report - pills with provider present": "ON",
-        "Regimen approval workflow": "ON",
+        "Regimen approval workflow": "OFF",
         "Automatic Opt In for SMS": "OFF",
         "Patient MRN validated with lookup": "OFF",
         "Medication Event Reminder Monitor": "OFF",
-        "Per Drug Adherence": "OFF",
+        "Per Drug Adherence": "ON",
         "Events panel - inline dose preview": "OFF",
         "Unlinking and re-linking Video events": "OFF",
         "Food question boolean mode": "ON"
@@ -60,6 +60,16 @@ class UserData:
     regimen_approval_ff_on = {
         "Regimen approval workflow": "ON",
         }
+    self_report_ff_off = {
+        "Self Report - pills taken with food": "OFF",
+        "Self Report - pills with food": "OFF",
+        "Self Report - pills with provider present": "OFF",
+    }
+    self_report_ff_on = {
+        "Self Report - pills taken with food": "ON",
+        "Self Report - pills with food": "ON",
+        "Self Report - pills with provider present": "ON",
+    }
     invalid_password = "12auto34test!"
     inactive_user_email = "automation.inactive@gmail.com"
     inactive_user_email_rogers = "automation.inactive+test@gmail.com"

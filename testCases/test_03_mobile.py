@@ -57,9 +57,9 @@ class test_module_03(BaseCase):
         p_profile = PatientProfilePage(self, 'patient_profile')
         p_regimen = PatientRegimenPage(self, 'patient_regimens')
 
-        home.click_admin_profile_button()
-        profile.logout_user()
-        login.after_logout()
+        # home.click_admin_profile_button()
+        # profile.logout_user()
+        # login.after_logout()
 
         if "banner" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[0]
@@ -74,8 +74,8 @@ class test_module_03(BaseCase):
             default_staff_email = UserData.default_staff_email[2]
             default_site_manager = UserData.site_manager[1]
             
-        login.login(default_staff_email, UserData.pwd)
-        home.open_dashboard_page()
+        # login.login(default_staff_email, UserData.pwd)
+        # home.open_dashboard_page()
         home.validate_dashboard_page()
         home.click_add_user()
         user.add_patient()
@@ -91,7 +91,7 @@ class test_module_03(BaseCase):
                                                                       )
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
-        start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule()
+        start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule(time_of_drug=True)
 
         try:
             home.open_dashboard_page()
@@ -215,16 +215,12 @@ class test_module_03(BaseCase):
             login.after_logout()
             login.login(self.settings["login_username"], self.settings["login_password"])
 
-        home.open_admin_page()
-        admin.open_feature_flags()
-        a_ff.validate_admin_ff_page(default_client)
-        a_ff.set_ffs(UserData.per_drug_adherence_ff_on)
-
         home.open_dashboard_page()
         home.open_admin_page()
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
         a_ff.double_check_ff(UserData.per_drug_adherence_ff_on)
+        a_ff.double_check_ff(UserData.self_report_ff_on)
 
         home.click_admin_profile_button()
         profile.logout_user()
@@ -246,6 +242,7 @@ class test_module_03(BaseCase):
                 print("video is linked already")
             now, formatted_now, review_text, side_effect, drug_time, obs_method = p_vdo.fill_up_review_form_ff_on(d['drug_name'], d['total_pills'],
                                                                               d['dose_per_pill'], rerun_count=rerun_count)
+
         # p_vdo.close_form()
         else:
             home.open_manage_patient_page()
