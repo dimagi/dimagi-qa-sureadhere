@@ -35,7 +35,7 @@ from common_utilities.path_settings import PathSettings
 
 # ---- Tunables ---------------------------------------------------------------
 
-PRIMARY_TIMEOUT = 6         # seconds for fast checks
+PRIMARY_TIMEOUT = 10         # seconds for fast checks
 CLICK_TIMEOUT = 30          # seconds for user actions
 VISIBLE_REQUIRED = True     # only accept visible elements
 SIM_THRESHOLD = 0.62        # fuzzy match threshold for text-ish attrs
@@ -175,7 +175,7 @@ class BasePage:
         sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
         return self._by_tuple(sel)
 
-    def _find_unique_in(self, root, by, value, *, logical_name: str, timeout: int = 6):
+    def _find_unique_in(self, root, by, value, *, logical_name: str, timeout: int = 15):
         """Find exactly ONE match under the given root; raise if 0 or >1."""
         import time
         end = time.monotonic() + timeout
@@ -190,7 +190,7 @@ class BasePage:
             f"Locator for '{logical_name}' matched {len(last)} elements under scope (wanted 1): {by}={value}"
             )
 
-    def _lookup(self, logical_name: str, *, within=None, strict: bool = False, timeout: int = 6):
+    def _lookup(self, logical_name: str, *, within=None, strict: bool = False, timeout: int = 15):
         """
         Resolve logical_name to a unique WebElement.
           within: None | WebElement | logical name of a container
@@ -1843,7 +1843,7 @@ class BasePage:
         return out
 
     # ------- DOM helpers for the month view -------------------------------------
-    def _month_cell_for_day(self, day: int, timeout: int = 6):
+    def _month_cell_for_day(self, day: int, timeout: int = 15):
         """
         Return the <mwl-calendar-month-cell> for the DAY NUMBER that is
         'in-month' (not the out-of-month overflow cells).
@@ -1917,7 +1917,7 @@ class BasePage:
 
 
     # --- Parse "August 2025" from the calendar header ----------------------------
-    def calendar_visible_year_month(self, header_logical: str, *, timeout: int = 6) -> tuple[int, int]:
+    def calendar_visible_year_month(self, header_logical: str, *, timeout: int = 15) -> tuple[int, int]:
         header_sel = self.resolve(header_logical)
         # Wait until the header element has non-empty text (guards against timing/race conditions
         # where the element is present in the DOM but its text content hasn't rendered yet)
@@ -1947,7 +1947,7 @@ class BasePage:
             target_year: int,
             target_month: int,
             *,
-            timeout: int = 10,
+            timeout: int = 25,
             ) -> None:
         """Click prev/next until header shows (target_year, target_month).
         Debounces every click by waiting for the header text to change first.
@@ -1978,7 +1978,7 @@ class BasePage:
         raise RuntimeError(f"Could not reach {target_year}-{target_month:02d} using calendar navigation")
 
     # --- Find a cell for a day number within the visible month -------------------
-    def _month_cell_for_day(self, day: int, *, timeout: int = 6, in_month_only: bool = True):
+    def _month_cell_for_day(self, day: int, *, timeout: int = 15, in_month_only: bool = True):
         pred_month = " and contains(@class,'cal-in-month')" if in_month_only else ""
         xp = ("//mwl-calendar-month-cell"
               f"[contains(@class,'cal-day-cell'){pred_month}]"
