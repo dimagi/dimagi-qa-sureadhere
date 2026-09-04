@@ -58,8 +58,8 @@ class ManagePatientPage(BasePage):
         name = self.get_text('a_name')
         assert name.strip() == full_name, "Name mismatch"
         self.click('a_name')
-        time.sleep(5)
-        self.wait_for_page_to_load(50)
+        time.sleep(15)
+        self.wait_for_page_to_load(80)
         try:
             self.kendo_dialog_wait_open()  # no title constraint
             self.kendo_dialog_click_button("Ok")

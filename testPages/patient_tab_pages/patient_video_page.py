@@ -310,3 +310,14 @@ class PatientVideoPage(BasePage):
         time.sleep(3)
         flag = self.is_element_visible('video_unlink', strict=True)
         return flag
+
+    def add_comment(self, text):
+        self.wait_for_element('newCommentInput', strict=True)
+        review_text = "Meds taken, Review Approved with FF ON"
+        self.type_and_trigger('newCommentInput', review_text, strict=True)
+        self.unheal_all('span_Comment')
+        self.unheal('span_Comment')
+        self.wait_for_element('span_Comment')
+        self.click('span_Comment', strict=True)
+        time.sleep(2)
+        return review_text
