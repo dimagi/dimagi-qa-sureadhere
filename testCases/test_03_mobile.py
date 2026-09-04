@@ -57,9 +57,9 @@ class test_module_03(BaseCase):
         p_profile = PatientProfilePage(self, 'patient_profile')
         p_regimen = PatientRegimenPage(self, 'patient_regimens')
 
-        # home.click_admin_profile_button()
-        # profile.logout_user()
-        # login.after_logout()
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
 
         if "banner" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[0]
@@ -74,8 +74,8 @@ class test_module_03(BaseCase):
             default_staff_email = UserData.default_staff_email[2]
             default_site_manager = UserData.site_manager[1]
             
-        # login.login(default_staff_email, UserData.pwd)
-        # home.open_dashboard_page()
+        login.login(default_staff_email, UserData.pwd)
+        home.open_dashboard_page()
         home.validate_dashboard_page()
         home.click_add_user()
         user.add_patient()
