@@ -868,6 +868,12 @@
     "tag": "h5",
     "xpath_template": "//div[@class='comment-item ng-star-inserted']//div[contains(.,{text})]//preceding-sibling::h5"
   },
+  "span_Comment": {
+    "class": "k-button-text",
+    "tag": "span",
+    "text": "COMMENT",
+    "xpath": "//span[contains(normalize-space(text()), 'Comment')]"
+  },
   "div_Wednesday_178": {
     "class": "cal-cell cal-future ng-star-inserted",
     "tag": "div",

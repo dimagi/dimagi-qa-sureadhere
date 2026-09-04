@@ -91,7 +91,7 @@ class test_module_03(BaseCase):
                                                                       )
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
-        start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule()
+        start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule(time_of_drug=True)
 
         try:
             home.open_dashboard_page()
@@ -245,7 +245,7 @@ class test_module_03(BaseCase):
                 p_vdo.verify_patient_video_page()
             else:
                 print("video is linked already")
-            now, formatted_now, review_text, side_effect, drug_time, obs_method = p_vdo.fill_up_review_form_ff_on(d['drug_name'], d['total_pills'],
+            now, formatted_now, drug_time, obs_method = p_vdo.fill_up_review_form_ff_on(d['drug_name'], d['total_pills'],
                                                                               d['dose_per_pill'], rerun_count=rerun_count)
 
         # p_vdo.close_form()
@@ -265,15 +265,20 @@ class test_module_03(BaseCase):
                 p_vdo.verify_patient_video_page()
             else:
                 print("video is linked already")
-            now, formatted_now, review_text, side_effect, drug_time, obs_method = p_vdo.fill_up_review_form_ff_on(
+            now, formatted_now, drug_time, obs_method = p_vdo.fill_up_review_form_ff_on(
                 d['drug_name'], d['total_pills'],
                 d['dose_per_pill'], rerun_count=rerun_count)
 
+        p_vdo.close_form()
         p_adhere.verify_patient_adherence_page()
         p_adhere.verify_patient_adherence_dose_status("Taken", True)
         p_adhere.verify_auto_filled_tag()
         p_adhere.verify_dose_summary(drug_time, obs_method)
+        review_text = p_adhere.add_comment(UserData.review_text_on)
+        side_effect = p_adhere.fillup_side_effects()
+        p_adhere.submit_changes()
         p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
+        p_vdo.close_form()
         p_adhere.verify_side_effect(side_effect)
         p_overview.open_patient_overview_page()
         # p_overview.verify_patient_overview_page()

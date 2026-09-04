@@ -65,17 +65,15 @@ class AdminFFPage(BasePage):
             element = f"kendo-switch_{ff}"
             if self.is_element_present(element, strict=True):
                 print(f"element {element} is present")
-                flag = self.get_attribute(element, 'aria-checked')
+                flag = self.kendo_switch_is_on(element, strict=True)
                 print(f"element is {element} and current selection is {flag}")
                 target = True if toggle == "ON" else False
-                if toggle == "ON" and flag == False:
-                    target = True
-                    self.click(element)
-                elif toggle == "OFF" and flag == True:
-                    target = False
-                    self.click(element)
+                if flag == target:
+                    print(f"{element} already set to {target}")
                 else:
-                    print(f"toggle {toggle} and toggle {toggle} matching")
+                    self.kendo_switch_set(element, target, strict=True)
+                    time.sleep(2)
+                    self.kendo_switch_wait(element, target, timeout=8, strict=True)
                 now_on = self.kendo_switch_is_on(element, strict=True)
                 print(f"[switch] {element}: now_on={now_on}")
                 assert now_on == target, f"Switch '{element}' did not change to {target}"

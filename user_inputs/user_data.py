@@ -126,3 +126,5 @@ class UserData:
     obs_in_person = 'In-Person DOT'
     quick_actions =['new video', 'missed review', 'low review rate']
     adherence_dropdown =['Last 7 days', 'Last 30 days']
+    review_text_on = "Meds taken, Review Approved with FF ON"
+    review_text_off = "Meds taken, Review Approved with FF OFF"
