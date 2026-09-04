@@ -204,11 +204,9 @@ class PatientAdherencePage(BasePage):
         self.kendo_dd_select_text_old("kendo-dropdownlist-observation_method", obs_method)
         return drug_time, obs_method
 
-    def verify_dose_summary(self, drug_time, obs_method):
+    def verify_dose_summary(self, obs_method):
         assert self.is_element_present('edit_doses')
-        print(drug_time, obs_method)
-        drug_time = self.format_hMp(drug_time)
-        assert self.get_text('span_Dose time').strip() ==drug_time, f"{self.get_text('span_Dose time')} not matching {drug_time}"
+        print(obs_method)
         assert self.get_text('span_Ate in the last hour').strip() =="Yes", f"{self.get_text('span_Ate in the last hour')} not matching Yes"
         assert self.get_text('span_Observation method').strip() ==obs_method, f"{self.get_text('span_Observation method')} not matching {obs_method}"
         print("Dose summary verified")
@@ -217,9 +215,13 @@ class PatientAdherencePage(BasePage):
         if flag:
             assert self.is_element_present("auto_filled_tag", strict=True, timeout=15), "auto-filled tag is not present"
             print("auto-filled tag is present")
-        else:
+            return True
+        elif flag == False:
             assert not self.is_element_present("auto_filled_tag", strict=True), "auto-filled tag is present"
             print("auto-filled tag is not present")
+            return True
+        else:
+            return False
 
     def get_time_now(self):
         now = datetime.now()

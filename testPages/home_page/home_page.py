@@ -119,12 +119,15 @@ class HomePage(BasePage):
                 vids.click()
                 time.sleep(6)
                 self.wait_for_page_to_load(80)
+                return True
                 break  # stop looping after success
             else:
                 print(f"{sa_id} does not match {sa_id_text}")
+                return False
         else:
             # Only runs if the loop completes without 'break'
             print(f"No matching SA ID found for {sa_id}")
+            return False
 
     def check_for_review_presence(self, pat_name, sa_id):
         self.unheal('span-patient-video-review')
