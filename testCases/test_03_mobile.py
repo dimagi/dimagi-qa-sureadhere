@@ -272,14 +272,36 @@ class test_module_03(BaseCase):
         p_vdo.close_form()
         p_adhere.verify_patient_adherence_page()
         p_adhere.verify_patient_adherence_dose_status("Taken", True)
-        p_adhere.verify_auto_filled_tag()
         p_adhere.verify_dose_summary(drug_time, obs_method)
+        p_adhere.verify_auto_filled_tag()
+        p_adhere.open_video_form()
+        p_vdo.verify_patient_video_page()
+        p_vdo.close_form()
+        p_adhere.verify_patient_adherence_page()
+        p_adhere.verify_auto_filled_tag(flag=False)
+
+
         review_text = p_adhere.add_comment(UserData.review_text_on)
         side_effect = p_adhere.fillup_side_effects()
         p_adhere.submit_changes()
+        p_adhere.verify_side_effect(side_effect)
         p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
         p_vdo.close_form()
-        p_adhere.verify_side_effect(side_effect)
+
+        try:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+        except Exception:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+
+        home.open_manage_patient_page()
+        patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
+        patient.open_patient(d["patient_fname"], d["patient_lname"])
+
         p_overview.open_patient_overview_page()
         # p_overview.verify_patient_overview_page()
         p_overview.check_calendar_and_doses(formatted_now, review_text, d['drug_name'], d['start_date'], d['total_pills'])

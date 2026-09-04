@@ -212,9 +212,13 @@ class PatientAdherencePage(BasePage):
         assert self.get_text('span_Observation method').strip() ==obs_method, f"{self.get_text('span_Observation method')} not matching {obs_method}"
         print("Dose summary verified")
 
-    def verify_auto_filled_tag(self):
-        assert self.is_element_present("auto_filled_tag", strict=True, timeout=15), "auto-filled tag is not present"
-        print("auto-filled tag is present")
+    def verify_auto_filled_tag(self, flag=True):
+        if flag:
+            assert self.is_element_present("auto_filled_tag", strict=True, timeout=15), "auto-filled tag is not present"
+            print("auto-filled tag is present")
+        else:
+            assert not self.is_element_present("auto_filled_tag", strict=True), "auto-filled tag is present"
+            print("auto-filled tag is not present")
 
     def get_time_now(self):
         now = datetime.now()

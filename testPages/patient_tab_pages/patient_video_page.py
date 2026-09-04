@@ -189,6 +189,28 @@ class PatientVideoPage(BasePage):
         time.sleep(5)
         return now, formatted_now, drug_time, UserData.obs_in_person
 
+    def submit_form(self):
+        self.scroll_to_element('span_SUBMIT_REVIEW', strict=True)
+        sel_debug = self.resolve_strict('span_SUBMIT_REVIEW')
+        el_debug = self.sb.driver.find_element(By.XPATH, sel_debug)
+        print(f"DEBUG before click: tag={el_debug.tag_name} text={el_debug.text!r} "
+              f"displayed={el_debug.is_displayed()} enabled={el_debug.is_enabled()} "
+              f"class={el_debug.get_attribute('class')!r}")
+        self.sb.save_screenshot("debug_before_submit_review.png")
+        self.js_click('span_SUBMIT_REVIEW', strict=True)
+        print("DEBUG: js_click on span_SUBMIT_REVIEW returned without exception")
+        time.sleep(2)
+        self.sb.save_screenshot("debug_after_submit_review.png")
+        time.sleep(3)
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Ok")
+            self.wait_for_overlays_to_clear(5)
+        except Exception:
+            print("popup not present after save")
+        self.close_form()
+        time.sleep(5)
+
     def add_dose_status(self, status):
         self.kendo_dd_select_text_old("kendo-dropdown-saved_status", status)
         text = self.kendo_dd_get_selected_text('kendo-dropdown-saved_status')
