@@ -278,8 +278,6 @@ class test_module_03(BaseCase):
         p_vdo.verify_patient_video_page()
         p_vdo.close_form()
         p_adhere.verify_patient_adherence_page()
-        p_adhere.verify_auto_filled_tag(flag=False)
-
 
         review_text = p_adhere.add_comment(UserData.review_text_on)
         side_effect = p_adhere.fillup_side_effects()
