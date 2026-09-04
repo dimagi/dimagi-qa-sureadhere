@@ -25,6 +25,7 @@ class AdminPage(BasePage):
 
         if self.kendo_dd_get_selected_text('kendo-dropdownlist-input-value-Client') != site_manager:
             self.kendo_dd_select_text_old('kendo-dropdownlist-input-value-Client', site_manager)
+            time.sleep(3)
         else:
             print("Site already selected")
 

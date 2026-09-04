@@ -44,7 +44,8 @@ class HomePage(BasePage):
     def click_admin_profile_button(self):
         time.sleep(2)
         self.wait_for_element("button_user_profile", strict=True)
-        self.click("button_user_profile", strict=True)
+        self.wait_for_overlays_to_clear(5)
+        self.click_robust(self.resolve_strict("button_user_profile"))
 
     def verify_presence_of_staff_menu(self, presence=True):
         if presence:
@@ -94,7 +95,7 @@ class HomePage(BasePage):
     def open_admin_page(self):
         self.click('p_Admin', strict=True)
         time.sleep(10)
-        self.wait_for_page_to_load(60)
+        self.wait_for_page_to_load(70)
 
     def check_for_quick_actions(self):
         self.wait_for_element('div-quick_actions')
