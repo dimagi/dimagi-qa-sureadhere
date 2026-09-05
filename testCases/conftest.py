@@ -97,10 +97,6 @@ def inject_settings_to_self(request, settings):
 @pytest.fixture(scope="session", autouse=True)
 def configure_sb(settings):
     sb_config.settings.BROWSER = settings.get("browser", "chrome")
-    # Use a portable Chromium binary instead of Google Chrome.
-    # SeleniumBase auto-downloads it on first run (same as it does for chromedriver) --
-    # no prior Chromium installation needed, locally or in CI.
-    sb_config.binary_location = "_chromium_"
     sb_config.settings.WINDOW_SIZE = "1920,1080"
     sb_config.settings.WINDOW_POSITION = "0,0"
     sb_config.settings.DATA_DIR = str(PathSettings.DOWNLOAD_PATH)
@@ -359,7 +355,6 @@ def driver(request, settings):
         browser=settings.get("browser", "chrome"),
         headless=settings.get("CI") == "true",
         chrome_options=chrome_options,
-        binary_location="_chromium_",
     )
     driver.set_window_position(0, 0)
     driver.set_window_size(1920, 1080)
@@ -379,7 +374,6 @@ def two_drivers(driver, settings):
         browser=settings.get("browser", "chrome"),
         headless=settings.get("CI") == "true",
         chrome_options=chrome_options,
-        binary_location="_chromium_",
     )
     incog.set_window_position(1300, 0)
     incog.set_window_size(1280, 900)
