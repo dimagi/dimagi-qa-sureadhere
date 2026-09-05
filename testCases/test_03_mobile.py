@@ -257,8 +257,18 @@ class test_module_03(BaseCase):
         p_adhere.verify_patient_adherence_dose_status("Taken", True)
         p_adhere.verify_dose_summary(UserData.obs_in_person)
         p_vdo.close_form()
-        home.open_dashboard_page()
-        home.validate_dashboard_page()
+
+        try:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+        except Exception:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+            
         home.check_for_quick_actions()
         home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
         p_vdo.verify_patient_video_page()
