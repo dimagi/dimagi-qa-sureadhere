@@ -267,8 +267,6 @@ class test_module_03(BaseCase):
                 rerun_count=rerun_count)
         p_vdo.close_form()
 
-        p_adhere.verify_patient_adherence_page()
-        p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
 
 
         # if rerun_count == 0:
@@ -333,6 +331,9 @@ class test_module_03(BaseCase):
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
         patient.open_patient(d["patient_fname"], d["patient_lname"])
+        p_adhere.verify_patient_adherence_page()
+        p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
+
         # p_adhere.open_patient_adherence_page()
         # p_adhere.verify_patient_adherence_page()
         # p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
