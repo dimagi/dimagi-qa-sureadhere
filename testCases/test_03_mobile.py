@@ -268,7 +268,7 @@ class test_module_03(BaseCase):
             login.login(self.settings["login_username"], self.settings["login_password"])
             home.open_dashboard_page()
             home.validate_dashboard_page()
-            
+
         home.check_for_quick_actions()
         home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
         p_vdo.verify_patient_video_page()
@@ -277,55 +277,6 @@ class test_module_03(BaseCase):
                 d['dose_per_pill'],
                 rerun_count=rerun_count)
         p_vdo.close_form()
-
-        # if rerun_count == 0:
-        #     home.check_for_quick_actions()
-        #     home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
-        #     p_vdo.verify_patient_video_page()
-        #     flag = p_vdo.check_for_video_link()
-        #     if flag == True:
-        #         p_vdo.close_form()
-        #         p_adhere.check_video_link_checkbox()
-        #         p_adhere.open_video_form()
-        #         p_vdo.verify_patient_video_page()
-        #     else:
-        #         print("video is linked already")
-        #     now, formatted_now, drug_time, obs_method = p_vdo.fill_up_review_form_ff_on(d['drug_name'], d['total_pills'],
-        #                                                                       d['dose_per_pill'], rerun_count=rerun_count)
-        #
-        # # p_vdo.close_form()
-        # else:
-        #     home.open_manage_patient_page()
-        #     patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
-        #     patient.open_patient(d["patient_fname"], d["patient_lname"])
-        #
-        #     p_adhere.open_patient_adherence_page()
-        #     p_adhere.open_video_form()
-        #     p_vdo.verify_patient_video_page()
-        #     flag = p_vdo.check_for_video_link()
-        #     if flag == True:
-        #         p_vdo.close_form()
-        #         p_adhere.check_video_link_checkbox()
-        #         p_adhere.open_video_form()
-        #         p_vdo.verify_patient_video_page()
-        #     else:
-        #         print("video is linked already")
-        #     now, formatted_now, drug_time, obs_method = p_vdo.fill_up_review_form_ff_on(
-        #         d['drug_name'], d['total_pills'],
-        #         d['dose_per_pill'], rerun_count=rerun_count)
-        #
-        # p_vdo.close_form()
-        # p_adhere.verify_patient_adherence_page()
-        # p_adhere.verify_patient_adherence_dose_status("Taken", True)
-        # p_adhere.verify_dose_summary(drug_time, obs_method)
-        # p_adhere.verify_auto_filled_tag()
-        # p_adhere.open_video_form()
-        # p_vdo.verify_patient_video_page()
-        # review_text = p_vdo.add_comment(UserData.review_text_on)
-        # side_effect = p_vdo.fill_up_side_effects()
-        # p_vdo.submit_form()
-        # p_vdo.close_form()
-
         try:
             home.click_admin_profile_button()
             profile.logout_user()
@@ -343,23 +294,9 @@ class test_module_03(BaseCase):
         p_adhere.verify_patient_adherence_page()
         p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
 
-        # p_adhere.open_patient_adherence_page()
-        # p_adhere.verify_patient_adherence_page()
-        # p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
-
         p_overview.open_patient_overview_page()
         p_overview.verify_patient_overview_page()
         p_overview.check_calendar_and_doses(formatted_now, review_text, d['drug_name'], d['start_date'], d['total_pills'])
-
-        # home.click_admin_profile_button()
-        # profile.logout_user()
-        # login.after_logout()
-        # login.login(self.settings["login_username"], self.settings["login_password"])
-
-        # home.open_manage_patient_page()
-        # patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
-        # patient.open_patient(d["patient_fname"], d["patient_lname"])
-        #
 
         p_adhere.open_patient_adherence_page()
         # p_adhere.verify_patient_adherence_page()
@@ -367,13 +304,18 @@ class test_module_03(BaseCase):
         p_adhere.set_patient_adherence_saved_status("Open")
         p_adhere.submit_changes()
 
-        p_overview.open_patient_overview_page()
-        # p_overview.verify_patient_overview_page()
-        p_overview.check_calendar_and_doses_off_before(d['drug_name'], d['start_date'], d['total_pills'])
-
         home.click_admin_profile_button()
         profile.logout_user()
         login.after_logout()
+        login.login(self.settings["login_username"], self.settings["login_password"])
+
+        home.open_manage_patient_page()
+        patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
+        patient.open_patient(d["patient_fname"], d["patient_lname"])
+
+        p_overview.open_patient_overview_page()
+        # p_overview.verify_patient_overview_page()
+        p_overview.check_calendar_and_doses_off_before(d['drug_name'], d['start_date'], d['total_pills'])
 
         self.__class__.data.update(
             {"commented_timestamp": formatted_now, "auto_filled": auto_filled, "commented_text": review_text, "side_effect": side_effect
