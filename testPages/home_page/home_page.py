@@ -102,7 +102,7 @@ class HomePage(BasePage):
         time.sleep(5)
         print("Quick Actions is present")
 
-    def check_for_video_review(self, pat_name, sa_id):
+    def check_for_video_review(self, pat_name, sa_id, flag=True):
         self.unheal('span-patient-video-review')
         self.unheal_all('span-patient-video-review')
         self.wait_for_element('additional_videos', strict=True)
@@ -116,9 +116,10 @@ class HomePage(BasePage):
             sa_id_text = sa_id_value.text.strip()
             if sa_id in sa_id_text:
                 print(f"{sa_id} is present. Matches {sa_id_text}")
-                vids.click()
-                time.sleep(6)
-                self.wait_for_page_to_load(80)
+                if flag:
+                    vids.click()
+                    time.sleep(6)
+                    self.wait_for_page_to_load(80)
                 return True
                 break  # stop looping after success
             else:

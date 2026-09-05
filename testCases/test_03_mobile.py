@@ -225,13 +225,14 @@ class test_module_03(BaseCase):
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
         a_ff.double_check_ff(UserData.per_drug_adherence_ff_on)
-        a_ff.double_check_ff(UserData.self_report_ff_on)
 
         home.click_admin_profile_button()
         profile.logout_user()
         login.after_logout()
         login.login(self.settings["login_username"], self.settings["login_password"])
         home.validate_dashboard_page()
+        home.check_for_quick_actions()
+        home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'], flag=False)
 
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
@@ -255,7 +256,7 @@ class test_module_03(BaseCase):
                 assert False
         p_adhere.verify_patient_adherence_dose_status("Taken", True)
         p_adhere.verify_dose_summary(UserData.obs_in_person)
-
+        p_vdo.close_form()
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.check_for_quick_actions()
@@ -266,8 +267,6 @@ class test_module_03(BaseCase):
                 d['dose_per_pill'],
                 rerun_count=rerun_count)
         p_vdo.close_form()
-
-
 
         # if rerun_count == 0:
         #     home.check_for_quick_actions()
