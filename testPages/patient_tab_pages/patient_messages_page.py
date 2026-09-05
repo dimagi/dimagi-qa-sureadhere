@@ -37,9 +37,13 @@ class PatientMessagesPage(BasePage):
         self.wait_for_element('button_send_button')
         print("Opened tab is Messages")
 
-    def read_last_message(self, msg):
+    def read_last_message(self, msg, timeout=30, poll_interval=2):
+        deadline = time.time() + timeout
         new_text = self.get_last_received_message()
-        assert msg in new_text, f"Messages mismatch. {msg} not in {new_text}"
+        while msg not in (new_text or "") and time.time() < deadline:
+            time.sleep(poll_interval)
+            new_text = self.get_last_received_message()
+        assert msg in (new_text or ""), f"Messages mismatch. {msg} not in {new_text}"
         print(f"{msg} found in {new_text}")
 
     def send_message(self):

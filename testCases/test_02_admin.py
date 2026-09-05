@@ -182,6 +182,10 @@ class test_module_02_admin(BaseCase):
         drug_switch_now, drug_name = a_drug.toggle_for_drugs(d['drug_name'], "OFF")
 
         try:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.login(self.settings["login_username"], self.settings["login_password"])
             home.open_dashboard_page()
         except Exception:
             login.login(self.settings["login_username"], self.settings["login_password"])

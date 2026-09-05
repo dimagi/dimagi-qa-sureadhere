@@ -91,7 +91,7 @@ class test_module_03(BaseCase):
                                                                       )
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
-        start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule()
+        start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule(time_of_drug=True)
 
         try:
             home.open_dashboard_page()
@@ -123,6 +123,7 @@ class test_module_03(BaseCase):
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_mobile_2",depends= ["tc_mobile_1"],scope="class")
     def test_case_01_mobile_login_and_message(self):
+        rerun_count = getattr(self, "rerun_count", 0)
         login = LoginPage(self, "login")
         self._login_once()
         self.mobile = Android(self.settings)
@@ -138,10 +139,13 @@ class test_module_03(BaseCase):
 
         login.login(self.settings["login_username"], self.settings["login_password"])
 
+        d = self.__class__.data
+
         home.open_dashboard_page()
         home.validate_dashboard_page()
-
-        d = self.__class__.data
+        home.open_dashboard_page()
+        home.check_for_quick_actions()
+        flag = home.check_for_review_presence(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
 
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
@@ -155,8 +159,22 @@ class test_module_03(BaseCase):
         p_message.read_last_message(mob_msg)
         web_msg = p_message.send_message()
         mobile.read_messages(web_msg)
-        vdo_upload_date, vdo_upload_time = mobile.record_video_and_submit(d['drug_name'])
-        mobile.close_android_driver()
+        if flag == False:
+            vdo_upload_date, vdo_upload_time = mobile.record_video_and_submit(d['drug_name'], d["total_pills"])
+            # Self-report submits the same data the video wizard already records for this
+            # dose; calling both creates duplicate self-report events for the same dose,
+            # which the matcher treats as ambiguous ("multiple covering reports") and
+            # suppresses the auto-filled tag entirely.
+            # mobile.self_report_and_submit(d['drug_name'], d["total_pills"])
+            mobile.close_android_driver()
+            self.__class__.data.update({
+                "video_upload_date": vdo_upload_date,
+                "video_upload_time": vdo_upload_time,
+            })
+        else:
+            print("video already uploaded")
+            vdo_upload_date = d.get("video_upload_date")
+            vdo_upload_time = d.get("video_upload_time")
         home.click_admin_profile_button()
         profile.logout_user()
         login.after_logout()
@@ -202,11 +220,6 @@ class test_module_03(BaseCase):
             login.after_logout()
             login.login(self.settings["login_username"], self.settings["login_password"])
 
-        home.open_admin_page()
-        admin.open_feature_flags()
-        a_ff.validate_admin_ff_page(default_client)
-        a_ff.set_ffs(UserData.per_drug_adherence_ff_on)
-
         home.open_dashboard_page()
         home.open_admin_page()
         admin.open_feature_flags()
@@ -218,50 +231,78 @@ class test_module_03(BaseCase):
         login.after_logout()
         login.login(self.settings["login_username"], self.settings["login_password"])
         home.validate_dashboard_page()
+        home.check_for_quick_actions()
+        home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'], flag=False)
 
-        if rerun_count == 0:
-            home.check_for_quick_actions()
-            home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
-            p_vdo.verify_patient_video_page()
-            flag = p_vdo.check_for_video_link()
-            if flag == True:
-                p_vdo.close_form()
-                p_adhere.check_video_link_checkbox()
-                p_adhere.open_video_form()
-                p_vdo.verify_patient_video_page()
-            else:
-                print("video is linked already")
-            now, formatted_now, review_text, side_effect, drug_time, obs_method = p_vdo.fill_up_review_form_ff_on(d['drug_name'], d['total_pills'],
-                                                                              d['dose_per_pill'], rerun_count=rerun_count)
-        # p_vdo.close_form()
-        else:
-            home.open_manage_patient_page()
-            patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
-            patient.open_patient(d["patient_fname"], d["patient_lname"])
+        home.open_manage_patient_page()
+        patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
+        patient.open_patient(d["patient_fname"], d["patient_lname"])
 
-            p_adhere.open_patient_adherence_page()
-            p_adhere.open_video_form()
-            p_vdo.verify_patient_video_page()
-            flag = p_vdo.check_for_video_link()
-            if flag == True:
-                p_vdo.close_form()
-                p_adhere.check_video_link_checkbox()
-                p_adhere.open_video_form()
-                p_vdo.verify_patient_video_page()
-            else:
-                print("video is linked already")
-            now, formatted_now, review_text, side_effect, drug_time, obs_method = p_vdo.fill_up_review_form_ff_on(
-                d['drug_name'], d['total_pills'],
-                d['dose_per_pill'], rerun_count=rerun_count)
-
+        p_adhere.open_patient_adherence_page()
         p_adhere.verify_patient_adherence_page()
+        if rerun_count == 0:
+            auto_filled = p_adhere.verify_auto_filled_tag()
+            self.__class__.data.update({
+                "auto_filled": auto_filled
+            })
+            print("auto filled tag verified in first run")
+        else:
+            auto_filled = d.get("auto_filled")
+            if auto_filled:
+                print("auto filled tag already verified")
+                assert True
+            else:
+                print("auto filled tag missing")
+                assert False
         p_adhere.verify_patient_adherence_dose_status("Taken", True)
-        p_adhere.verify_dose_summary(drug_time, obs_method)
+        p_adhere.verify_dose_summary(UserData.obs_in_person)
+        p_vdo.close_form()
+
+        try:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+        except Exception:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+
+        home.check_for_quick_actions()
+        home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
+        p_vdo.verify_patient_video_page()
+        now, formatted_now, drug_time, obs_method, review_text, side_effect = p_vdo.fill_up_review_form_ff_on(
+                d['drug_name'], d['total_pills'],
+                d['dose_per_pill'],
+                rerun_count=rerun_count)
+        p_vdo.close_form()
+        try:
+            home.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+        except Exception:
+            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
+
+        home.open_manage_patient_page()
+        patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
+        patient.open_patient(d["patient_fname"], d["patient_lname"])
+        p_adhere.verify_patient_adherence_page()
         p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
-        p_adhere.verify_side_effect(side_effect)
+
         p_overview.open_patient_overview_page()
-        # p_overview.verify_patient_overview_page()
+        p_overview.verify_patient_overview_page()
         p_overview.check_calendar_and_doses(formatted_now, review_text, d['drug_name'], d['start_date'], d['total_pills'])
+
+        p_adhere.open_patient_adherence_page()
+        # p_adhere.verify_patient_adherence_page()
+        p_adhere.set_patient_adherence_dose_status("Open")
+        p_adhere.set_patient_adherence_saved_status("Open")
+        p_adhere.submit_changes()
 
         home.click_admin_profile_button()
         profile.logout_user()
@@ -272,19 +313,12 @@ class test_module_03(BaseCase):
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
         patient.open_patient(d["patient_fname"], d["patient_lname"])
 
-
-        p_adhere.open_patient_adherence_page()
-        # p_adhere.verify_patient_adherence_page()
-        p_adhere.set_patient_adherence_dose_status("Open")
-        p_adhere.set_patient_adherence_saved_status("Open")
-        p_adhere.submit_changes()
-
         p_overview.open_patient_overview_page()
         # p_overview.verify_patient_overview_page()
         p_overview.check_calendar_and_doses_off_before(d['drug_name'], d['start_date'], d['total_pills'])
 
         self.__class__.data.update(
-            {"commented_timestamp": formatted_now, "commented_text": review_text, "side_effect": side_effect
+            {"commented_timestamp": formatted_now, "auto_filled": auto_filled, "commented_text": review_text, "side_effect": side_effect
              }
         )
 

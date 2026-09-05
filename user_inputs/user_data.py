@@ -9,7 +9,7 @@ class UserData:
     regimen_repeats_weekdays = "Weekdays"
     regimen_drugs = ["Ofloxacin", "Drug 2"]
     no_of_pills = 7
-    dose_per_pill = 2
+    dose_per_pill = 1
     admin_disease = ["Depression", "Hepatitis C", "Ebola"]
     admin_drug = ["Levofloxacin", "Rifapentine", "Truvada", "Stribild"]
     # default_staff_email = ["automation.user.banner@gmail.com", "automation.user.rogers@gmail.com", "automation.user.secure@gmail.com", "automation.user.eu@gmail.com"]
@@ -28,16 +28,17 @@ class UserData:
         "In-App Messaging": "ON",
         "Video capture for VDOT": "ON",
         "REVAMPED REGIMEN": "ON",
-        "Self Report - pills taken with food": "OFF",
-        "Self Report - pills with food": "OFF",
-        "Self Report - pills with provider present": "OFF",
+        "Self Report - pills taken with food": "ON",
+        "Self Report - pills with food": "ON",
+        "Self Report - pills with provider present": "ON",
         "Regimen approval workflow": "OFF",
         "Automatic Opt In for SMS": "OFF",
         "Patient MRN validated with lookup": "OFF",
         "Medication Event Reminder Monitor": "OFF",
-        "Per Drug Adherence": "OFF",
+        "Per Drug Adherence": "ON",
         "Events panel - inline dose preview": "OFF",
         "Unlinking and re-linking Video events": "OFF",
+        "Food question boolean mode": "ON"
         }
     pill_count_ff_on = {
         "Pill Count": "ON",
@@ -59,6 +60,16 @@ class UserData:
     regimen_approval_ff_on = {
         "Regimen approval workflow": "ON",
         }
+    self_report_ff_off = {
+        "Self Report - pills taken with food": "OFF",
+        "Self Report - pills with food": "OFF",
+        "Self Report - pills with provider present": "OFF",
+    }
+    self_report_ff_on = {
+        "Self Report - pills taken with food": "ON",
+        "Self Report - pills with food": "ON",
+        "Self Report - pills with provider present": "ON",
+    }
     invalid_password = "12auto34test!"
     inactive_user_email = "automation.inactive@gmail.com"
     inactive_user_email_rogers = "automation.inactive+test@gmail.com"
@@ -112,5 +123,8 @@ class UserData:
 
     overview_doses_table_columns=['taken', 'not_taken', 'scheduled', 'held', 'challenge', 'rescheduled']
     observation_method = 'Recorded VDOT'
+    obs_in_person = 'In-Person DOT'
     quick_actions =['new video', 'missed review', 'low review rate']
     adherence_dropdown =['Last 7 days', 'Last 30 days']
+    review_text_on = "Meds taken, Review Approved with FF ON"
+    review_text_off = "Meds taken, Review Approved with FF OFF"

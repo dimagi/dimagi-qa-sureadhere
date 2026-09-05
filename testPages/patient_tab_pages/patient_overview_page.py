@@ -16,7 +16,8 @@ class PatientOverviewPage(BasePage):
 
 
     def open_patient_overview_page(self):
-        self.click('k-tabstrip-tab-Overview')
+        self.wait_for_overlays_to_clear(5)
+        self.click_robust('k-tabstrip-tab-Overview')
         try:
             self.kendo_dialog_wait_open()  # no title constraint
             self.kendo_dialog_click_button("Ok")

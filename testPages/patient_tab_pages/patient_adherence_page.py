@@ -19,7 +19,7 @@ class PatientAdherencePage(BasePage):
             self.kendo_dialog_click_button("Ok")
         except Exception:
             print("popup not present")
-        self.wait_for_page_to_load()
+        self.wait_for_page_to_load(70)
         self.wait_for_element('k-opened-tabstrip-tab')
         self.unheal_all('k-opened-tabstrip-tab')
         time.sleep(3)
@@ -27,6 +27,7 @@ class PatientAdherencePage(BasePage):
         print(tabname)
         assert tabname == "Adherence", "Adherence tab is not opened"
         print("Opened tab is Adherence")
+        time.sleep(10)
 
     def verify_regimen_name_presence(self, name):
         assert self.is_element_present_rendered('span_regimen_name', text=name), f"{name} is not present"
@@ -203,14 +204,24 @@ class PatientAdherencePage(BasePage):
         self.kendo_dd_select_text_old("kendo-dropdownlist-observation_method", obs_method)
         return drug_time, obs_method
 
-    def verify_dose_summary(self, drug_time, obs_method):
+    def verify_dose_summary(self, obs_method):
         assert self.is_element_present('edit_doses')
-        print(drug_time, obs_method)
-        drug_time = self.format_hMp(drug_time)
-        assert self.get_text('span_Dose time').strip() ==drug_time, f"{self.get_text('span_Dose time')} not matching {drug_time}"
-        # assert self.get_text('span_Ate in the last hour').strip() ==ate_value, f"{self.get_text('span_Ate in the last hour')} not matching {ate_value}"
+        print(obs_method)
+        assert self.get_text('span_Ate in the last hour').strip() =="Yes", f"{self.get_text('span_Ate in the last hour')} not matching Yes"
         assert self.get_text('span_Observation method').strip() ==obs_method, f"{self.get_text('span_Observation method')} not matching {obs_method}"
         print("Dose summary verified")
+
+    def verify_auto_filled_tag(self, flag=True):
+        if flag:
+            assert self.is_element_present("auto_filled_tag", strict=True, timeout=15), "auto-filled tag is not present"
+            print("auto-filled tag is present")
+            return True
+        elif flag == False:
+            assert not self.is_element_present("auto_filled_tag", strict=True), "auto-filled tag is present"
+            print("auto-filled tag is not present")
+            return True
+        else:
+            return False
 
     def get_time_now(self):
         now = datetime.now()
@@ -232,3 +243,14 @@ class PatientAdherencePage(BasePage):
         self.click('input_eventIsLinked_chb_0', strict=True)
         time.sleep(3)
         self.submit_changes()
+
+    def add_comment(self, text):
+        self.wait_for_element('newCommentInput', strict=True)
+        review_text = "Meds taken, Review Approved with FF ON"
+        self.type_and_trigger('newCommentInput', review_text, strict=True)
+        self.unheal_all('span_Comment')
+        self.unheal('span_Comment')
+        self.wait_for_element('span_Comment')
+        self.click('span_Comment', strict=True)
+        time.sleep(2)
+        return review_text

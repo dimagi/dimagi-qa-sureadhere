@@ -1,3 +1,4 @@
+import random
 from datetime import datetime
 from pathlib import Path
 
@@ -18,20 +19,57 @@ from user_inputs.user_data import UserData
 """"Contains test page elements and functions related to the app installation and form submission on mobile"""
 
 
-import os, json, subprocess
+import os, json, subprocess, hashlib
+
+
+def compute_file_md5(path: str) -> str:
+    h = hashlib.md5()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def bstack_get_cached_app_url(custom_id: str, bs_user: str, bs_key: str) -> str | None:
+    """Return the bs:// app_url already uploaded under custom_id, or None if not found."""
+    try:
+        res = subprocess.run(
+            ["curl", "-sS", "-u", f"{bs_user}:{bs_key}",
+             f"https://api-cloud.browserstack.com/app-automate/recent_apps/{custom_id}"],
+            capture_output=True, text=True, timeout=30,
+            )
+        if res.returncode != 0:
+            return None
+        payload = json.loads(res.stdout.strip() or "[]")
+    except Exception:
+        return None
+    if isinstance(payload, list) and payload:
+        app_url = payload[0].get("app_url")
+        if isinstance(app_url, str) and app_url.startswith("bs://"):
+            return app_url
+    return None
+
 
 def bstack_upload_apk_with_curl(apk_path: str, bs_user: str, bs_key: str, custom_id: str | None = None) -> str:
     """
     Uploads an APK to BrowserStack App Automate using curl and returns the bs:// app_url.
     - apk_path: absolute/relative path to your APK (e.g., user_inputs/sureadhere.apk)
     - bs_user / bs_key: BrowserStack credentials
-    - custom_id (optional): stable alias so your code can keep referring to the same id
+    - custom_id (optional): stable alias so your code can keep referring to the same id.
+      When set, checks BrowserStack for an app already uploaded under this id and
+      reuses it instead of re-uploading the (unchanged) file.
     Raises RuntimeError on any failure.
     """
     apk_path = os.path.abspath(apk_path)
     print(apk_path)
     if not os.path.exists(apk_path):
         raise RuntimeError(f"APK not found at: {apk_path}")
+
+    if custom_id:
+        cached_url = bstack_get_cached_app_url(custom_id, bs_user, bs_key)
+        if cached_url:
+            print(f"Reusing already-uploaded APK ({custom_id}): {cached_url}")
+            return cached_url
 
     cmd = [
         "curl", "-sS",
@@ -74,18 +112,24 @@ class Android:
         bs_key = settings["bs_key"]
 
         # apk_path = Path(PathSettings.ROOT) / "user_inputs" / "app-release3.2.14-symptoms.apk"
-        apk_path = Path(PathSettings.ROOT) / "user_inputs" / "app-release3.3.2.apk"
+        apk_path = Path(PathSettings.ROOT) / "user_inputs" / "app-release3.4.8.apk"
 
         print(f"[DEBUG] __file__={__file__}")
         print(f"[DEBUG] PROJECT_ROOT={PathSettings.ROOT}")
         print(f"[DEBUG] APK_PATH={apk_path}")
         assert os.path.exists(apk_path), f"APK not found at: {apk_path}"
 
+        # Derive the custom_id from the file's own content so a changed APK
+        # (even under the same filename) automatically gets a fresh upload,
+        # while an unchanged APK reuses the same BrowserStack app across runs.
+        apk_hash = compute_file_md5(apk_path)[:12]
+        custom_id = f"sureadhere-{apk_hash}"
+
         bs_app_url = bstack_upload_apk_with_curl(
             apk_path=apk_path,  # <-- your pulled file
             bs_user=bs_user,
             bs_key=bs_key,
-            # custom_id="sureadhere-local"  # optional but handy
+            custom_id=custom_id,
             )
         self.options = UiAutomator2Options().load_capabilities({
             # Specify device and os_version for testing
@@ -103,10 +147,11 @@ class Android:
             # Set other BrowserStack capabilities
             'bstack:options': {
                 "projectName": "SureAdhere - Project",
-                "buildName": "Build SA",
+                "buildName": f"Build SA - {settings.get('domain', 'unknown')}",
                 "sessionName": "SureAdhere Tests",
                 "userName": bs_user,
-                "accessKey": bs_key
+                "accessKey": bs_key,
+                "interactiveDebugging": True,
 
             }
         })
@@ -127,14 +172,17 @@ class Android:
         self.pin = "com.dimagi.sureadhere:id/pin"
         self.login_button = "com.dimagi.sureadhere:id/login_button"
         self.take_video = "//android.widget.TextView[@text='Take Video']"
+        self.calendar = "//android.widget.TextView[@text='Calendar']"
+        self.today_circle = "com.dimagi.sureadhere:id/today_circle"
         self.start_tracking = "//android.widget.Button[@text='Start Tracking']"
         self.grant_permission = "//android.widget.Button[@text='Grant Permission']"
         self.submit = "//android.widget.Button[@text='Submit']"
-        self.last_ate = "//android.widget.TextView[@text='Within the last hour']"
+        self.last_ate = "//android.widget.Button[contains(@text,'Within the last hour')]"
         self.submit_complete = "//android.widget.TextView[@text='Submission complete']"
         self.submission_status = "//android.widget.TextView[@text='Submission Status']"
         self.status = "//android.widget.TextView[@text='Status']"
         self.messages = "//android.widget.TextView[@text='Messages']"
+        self.self_report = "//android.widget.TextView[@text='Self-Report']"
         self.outgoing_message = "com.dimagi.sureadhere:id/outgoing_message"
         self.send_button = "com.dimagi.sureadhere:id/send_button"
         self.incoming_message = "com.dimagi.sureadhere:id/content"
@@ -151,6 +199,10 @@ class Android:
         self.status_counts = "com.dimagi.sureadhere:id/count"
         self.status_labels = "com.dimagi.sureadhere:id/label"
         self.expanded_area = "com.dimagi.sureadhere:id/expanded"
+        self.food_eaten_yes = "//android.widget.Button[@resource-id='com.dimagi.sureadhere:id/yes_button']"
+        self.food_eaten_no = "//android.widget.Button[@resource-id='com.dimagi.sureadhere:id/no_button']"
+        self.support_provider_yes = "//android.widget.Button[@text='Yes']"
+        self.support_provider_no = "//android.widget.Button[@text='No']"
 
 
     def click_xpath(self, locator):
@@ -171,6 +223,7 @@ class Android:
 
     def send_text_id(self, locator, user_input):
         element = self.driver.find_element(AppiumBy.ID, locator)
+        element.click()
         element.send_keys(user_input)
 
     def get_text(self, locator):
@@ -310,11 +363,17 @@ class Android:
         self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.take_video)))
 
 
-    def record_video_and_submit(self, med_name, record_secs: int = 6, timeout: int = 90):
+    def record_video_and_submit(self, med_name, doses, record_secs: int = 6, timeout: int = 90):
         # --- app flow ---
+        # self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.take_video)))
+        # self.click_xpath(self.take_video)
+        self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.take_video)))
+        self.click_xpath(self.calendar)
+        time.sleep(1)
+        self.wait.until(EC.visibility_of_element_located((AppiumBy.ID, self.today_circle)))
+        self.click_id(self.today_circle)
         self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.take_video)))
         self.click_xpath(self.take_video)
-        time.sleep(1)
         self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.start_tracking)))
         self.click_xpath(self.start_tracking)
         time.sleep(1)
@@ -330,7 +389,12 @@ class Android:
         text_med = self.get_text((AppiumBy.ID, self.med_name))
         assert text_med == med_name
         if self.is_present((AppiumBy.ID, self.pill_count)):
-            self.send_text_id(self.pill_count, "1")
+            self.send_text_id(self.pill_count, doses)
+            try:
+                self.driver.hide_keyboard()
+            except Exception:
+                print("Keyboard not present to hide")
+            time.sleep(3)
         else:
             print("pill count field is not present")
         time.sleep(1)
@@ -339,8 +403,22 @@ class Android:
         if self.is_present((AppiumBy.XPATH, self.last_ate)):
             print("Last ate screen is present")
             self.click_xpath(self.last_ate)
+            time.sleep(2)
+        elif self.is_present((AppiumBy.XPATH, self.submit)):
+            self.click_xpath(self.submit)
+            time.sleep(2)
         else:
             print("No last ate screen")
+        if self.is_present((AppiumBy.XPATH, self.support_provider_yes)):
+            # flag = random.choice(['yes','no'])
+            # xpath = getattr(self, f"support_provider_{flag}")
+            # self.click_xpath(xpath)
+            self.click_xpath(self.support_provider_yes)
+            print("Support provider screen is present")
+            time.sleep(2)
+            # self.click_xpath(f"self.support_provider_{flag}")
+        else:
+            print("No Support provider screen")
         time.sleep(10)
         self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.submission_status)))
         half, full = self.today_date()
@@ -361,10 +439,56 @@ class Android:
         assert str(list_count[2].text) != "0", f"Completed tab has no new item"
         print(f"Completed tab has new item. Completed count {list_count[2].text}" )
         self.click((AppiumBy.ACCESSIBILITY_ID, self.go_back))
-
-
-
         return date_upload, time_upload
+
+    def self_report_and_submit(self, med_name, doses, record_secs: int = 6, timeout: int = 90):
+        self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.calendar)))
+        self.click_xpath(self.calendar)
+        time.sleep(1)
+        self.wait.until(EC.visibility_of_element_located((AppiumBy.ID, self.today_circle)))
+        self.click_id(self.today_circle)
+        self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.self_report)))
+        self.click_xpath(self.self_report)
+        self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.start_tracking)))
+        self.click_xpath(self.start_tracking)
+        time.sleep(1)
+
+        text_med = self.get_text((AppiumBy.ID, self.med_name))
+        assert text_med == med_name
+        if self.is_present((AppiumBy.ID, self.pill_count)):
+            self.send_text_id(self.pill_count, doses)
+            try:
+                self.driver.hide_keyboard()
+            except Exception:
+                print("Keyboard not present to hide")
+            time.sleep(3)
+        else:
+            print("pill count field is not present")
+        time.sleep(1)
+        self.click_xpath(self.submit)
+        time.sleep(2)
+        if self.is_present((AppiumBy.XPATH, self.last_ate)):
+            print("Last ate screen is present")
+            self.click_xpath(self.last_ate)
+            time.sleep(2)
+        elif self.is_present((AppiumBy.XPATH, self.submit)):
+            self.click_xpath(self.submit)
+            time.sleep(2)
+        else:
+            print("No last ate screen")
+        if self.is_present((AppiumBy.XPATH, self.support_provider_yes)):
+            # flag = random.choice(['yes','no'])
+            # xpath = getattr(self, f"support_provider_{flag}")
+            # self.click_xpath(xpath)
+            self.click_xpath(self.support_provider_yes)
+            print("Support provider screen is present")
+            time.sleep(2)
+            # self.click_xpath(f"self.support_provider_{flag}")
+        else:
+            print("No Support provider screen")
+        time.sleep(10)
+        self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.submission_status)))
+
 
     def get_date_and_time(self, text: str):
         raw = text.replace("Uploaded on ", "")
@@ -406,12 +530,16 @@ class Android:
         self.click((AppiumBy.ACCESSIBILITY_ID, self.go_back))
         return send_text
 
-    def read_messages(self, msg):
+    def read_messages(self, msg, timeout=30, poll_interval=2):
         time.sleep(10)
         self.wait.until(EC.visibility_of_element_located((AppiumBy.XPATH, self.messages)))
         self.click_xpath(self.messages)
-        new_text=self.get_last_message_text()
-        assert msg in new_text, f"Messages mismatch. {msg} not in {new_text}"
+        deadline = time.time() + timeout
+        new_text = self.get_last_message_text()
+        while msg not in (new_text or "") and time.time() < deadline:
+            time.sleep(poll_interval)
+            new_text = self.get_last_message_text()
+        assert msg in (new_text or ""), f"Messages mismatch. {msg} not in {new_text}"
         print(f"{msg} found in {new_text}")
 
         self.click((AppiumBy.ACCESSIBILITY_ID, self.go_back))
@@ -551,6 +679,13 @@ class Android:
         return None
     
     def close_android_driver(self):
+        try:
+            self.driver.execute_script(
+                'browserstack_executor: {"action": "setSessionStatus", '
+                '"arguments": {"status": "passed", "reason": "Mobile flow completed successfully"}}'
+            )
+        except Exception as e:
+            print(f"Failed to set BrowserStack session status: {e}")
         self.driver.quit()
 
     def convert_date_format_safe(self, date_str: str) -> str:

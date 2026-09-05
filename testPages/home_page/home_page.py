@@ -44,7 +44,8 @@ class HomePage(BasePage):
     def click_admin_profile_button(self):
         time.sleep(2)
         self.wait_for_element("button_user_profile", strict=True)
-        self.click("button_user_profile", strict=True)
+        self.wait_for_overlays_to_clear(5)
+        self.click_robust(self.resolve_strict("button_user_profile"))
 
     def verify_presence_of_staff_menu(self, presence=True):
         if presence:
@@ -94,14 +95,14 @@ class HomePage(BasePage):
     def open_admin_page(self):
         self.click('p_Admin', strict=True)
         time.sleep(10)
-        self.wait_for_page_to_load(60)
+        self.wait_for_page_to_load(70)
 
     def check_for_quick_actions(self):
         self.wait_for_element('div-quick_actions')
         time.sleep(5)
         print("Quick Actions is present")
 
-    def check_for_video_review(self, pat_name, sa_id):
+    def check_for_video_review(self, pat_name, sa_id, flag=True):
         self.unheal('span-patient-video-review')
         self.unheal_all('span-patient-video-review')
         self.wait_for_element('additional_videos', strict=True)
@@ -115,15 +116,43 @@ class HomePage(BasePage):
             sa_id_text = sa_id_value.text.strip()
             if sa_id in sa_id_text:
                 print(f"{sa_id} is present. Matches {sa_id_text}")
-                vids.click()
-                time.sleep(6)
-                self.wait_for_page_to_load(80)
+                if flag:
+                    vids.click()
+                    time.sleep(6)
+                    self.wait_for_page_to_load(80)
+                return True
                 break  # stop looping after success
             else:
                 print(f"{sa_id} does not match {sa_id_text}")
+                return False
         else:
             # Only runs if the loop completes without 'break'
             print(f"No matching SA ID found for {sa_id}")
+            return False
+
+    def check_for_review_presence(self, pat_name, sa_id):
+        self.unheal('span-patient-video-review')
+        self.unheal_all('span-patient-video-review')
+        self.wait_for_element('additional_videos', strict=True)
+        self.click('additional_videos', strict=True)
+        time.sleep(5)
+        list_name = self.find_elements('span-video-patient_name')
+        list_review = self.find_elements('span-patient-video-review')
+        list_sa_id = self.find_elements('span-patient-sa-id-review')
+        print(len(list_name), len(list_review), len(list_sa_id))
+        for vids, sa_id_value in zip(list_review, list_sa_id):
+            sa_id_text = sa_id_value.text.strip()
+            if sa_id in sa_id_text:
+                print(f"{sa_id} is present. Matches {sa_id_text}")
+                return True
+                break  # stop looping after success
+            else:
+                print(f"{sa_id} does not match {sa_id_text}")
+                return False
+        else:
+            # Only runs if the loop completes without 'break'
+            print(f"No matching SA ID found for {sa_id}")
+            return False
 
     def verify_announcement(self, announcement_text, flag=True):
         time.sleep(5)

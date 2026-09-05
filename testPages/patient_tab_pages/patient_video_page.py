@@ -4,6 +4,7 @@ from datetime import datetime
 
 from pdbp import side_effects_free
 from selenium.webdriver import Keys
+from selenium.webdriver.common.by import By
 
 from common_utilities.base_page import BasePage
 from common_utilities.generate_random_string import fetch_random_string, fetch_random_digit
@@ -133,7 +134,7 @@ class PatientVideoPage(BasePage):
         print(f"{meds} matches {drug_name}")
         timestamp_text = self.get_text_rendered('span_commented_timestamp', text=review_text)
         self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=2)
-        # assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
+        assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
         print(f"{str(formatted_now)} is in {timestamp_text}")
 
         full_text = self.get_text_rendered('div_commented_user_timestamp', text=review_text)
@@ -144,10 +145,18 @@ class PatientVideoPage(BasePage):
             print("Dose Status already selected")
         else:
             self.select_dose_status("Taken")
-        if rerun_count != 0 and self.kendo_dd_get_selected_text('kendo-dropdown-saved_status') == "Taken":
-            print("Saved Drug Status already set")
-        else:
-            drug_time, obs_method = self.add_dose_status("Taken")
+        assert self.is_element_present("auto_filled_tag", strict=True, timeout=15), "auto_filled_tag not present"
+        print("auto_filled_tag present on page")
+        assert self.is_element_present('edit_doses')
+
+        drug_time = self.get_text('span_Dose time', strict=True)
+        obs_method = UserData.obs_in_person
+        assert self.get_text(
+            'span_Ate in the last hour', strict=True).strip() == "Yes", f"{self.get_text('span_Ate in the last hour')} not matching Yes"
+        assert self.get_text(
+            'span_Observation method', strict=True).strip() == obs_method, f"{self.get_text('span_Observation method')} not matching {obs_method}"
+        print("Dose summary verified")
+
         if rerun_count == 0:
             side_effect = self.fill_up_side_effects()
         else:
@@ -155,17 +164,49 @@ class PatientVideoPage(BasePage):
             print(side_effect_text.strip())
             side_effect_text = side_effect_text.replace("x", "")
             side_effect = side_effect_text.strip()
-        self.scroll_to_element('span_SUBMIT_REVIEW')
-        self.click('span_SUBMIT_REVIEW', strict=True)
-        time.sleep(5)
+        self.scroll_to_element('span_SUBMIT_REVIEW', strict=True)
+        sel_debug = self.resolve_strict('span_SUBMIT_REVIEW')
+        el_debug = self.sb.driver.find_element(By.XPATH, sel_debug)
+        print(f"DEBUG before click: tag={el_debug.tag_name} text={el_debug.text!r} "
+              f"displayed={el_debug.is_displayed()} enabled={el_debug.is_enabled()} "
+              f"class={el_debug.get_attribute('class')!r}")
+        self.sb.save_screenshot("debug_before_submit_review.png")
+        self.js_click('span_SUBMIT_REVIEW', strict=True)
+        print("DEBUG: js_click on span_SUBMIT_REVIEW returned without exception")
+        time.sleep(2)
+        self.sb.save_screenshot("debug_after_submit_review.png")
+        time.sleep(3)
         try:
             self.kendo_dialog_wait_open()  # no title constraint
             self.kendo_dialog_click_button("Ok")
             self.wait_for_overlays_to_clear(5)
         except Exception:
             print("popup not present after save")
+        self.close_form()
         time.sleep(5)
-        return now, formatted_now, review_text, side_effect, drug_time, obs_method
+        return now, formatted_now, drug_time, UserData.obs_in_person, review_text, side_effect
+
+    def submit_form(self):
+        self.scroll_to_element('span_SUBMIT_REVIEW', strict=True)
+        sel_debug = self.resolve_strict('span_SUBMIT_REVIEW')
+        el_debug = self.sb.driver.find_element(By.XPATH, sel_debug)
+        print(f"DEBUG before click: tag={el_debug.tag_name} text={el_debug.text!r} "
+              f"displayed={el_debug.is_displayed()} enabled={el_debug.is_enabled()} "
+              f"class={el_debug.get_attribute('class')!r}")
+        self.sb.save_screenshot("debug_before_submit_review.png")
+        self.js_click('span_SUBMIT_REVIEW', strict=True)
+        print("DEBUG: js_click on span_SUBMIT_REVIEW returned without exception")
+        time.sleep(2)
+        self.sb.save_screenshot("debug_after_submit_review.png")
+        time.sleep(3)
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Ok")
+            self.wait_for_overlays_to_clear(5)
+        except Exception:
+            print("popup not present after save")
+        self.close_form()
+        time.sleep(5)
 
     def add_dose_status(self, status):
         self.kendo_dd_select_text_old("kendo-dropdown-saved_status", status)
@@ -173,7 +214,8 @@ class PatientVideoPage(BasePage):
         assert str(text).strip() == status, f"{status} is not selected"
         print(f"{status} is selected")
         self.wait_for_element('edit_doses')
-        self.click('edit_doses', strict=True)
+        self.wait_for_overlays_to_clear(5)
+        self.click_robust(self.resolve_strict('edit_doses'))
         drug_date, drug_time = self.get_time_now()
         ate_value = "Yes"
         obs_method = "VDOT (recorded)"
@@ -266,3 +308,14 @@ class PatientVideoPage(BasePage):
         time.sleep(3)
         flag = self.is_element_visible('video_unlink', strict=True)
         return flag
+
+    def add_comment(self, text):
+        self.wait_for_element('newCommentInput', strict=True)
+        review_text = "Meds taken, Review Approved with FF ON"
+        self.type_and_trigger('newCommentInput', review_text, strict=True)
+        self.unheal_all('span_Comment')
+        self.unheal('span_Comment')
+        self.wait_for_element('span_Comment')
+        self.click('span_Comment', strict=True)
+        time.sleep(2)
+        return review_text
