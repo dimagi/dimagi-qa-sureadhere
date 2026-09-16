@@ -119,6 +119,8 @@ jobs:
             --browser=chrome --headless --headless2 \
             --reruns 1 \
             --dashboard --html=presetup_report-${{ matrix.environment }}.html --tb=short --maxfail=1
+          echo "=== Feature flag API probe (common_utilities/feature_flag_api.py) ==="
+          cat ff_api_probe_${{ matrix.environment }}.txt || echo "(no probe output file -- probe() may not have run)"
           pytest -vv -m smoketest \
             --browser=chrome --headless --headless2 \
             --reruns 1 -n 3 --dist=loadscope\

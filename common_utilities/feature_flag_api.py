@@ -26,6 +26,8 @@ import time
 
 import requests
 
+from common_utilities.path_settings import PathSettings
+
 TOKEN_STORAGE_KEY = "auth_token"
 
 
@@ -70,42 +72,66 @@ def iam_base_url(app_url: str) -> str:
     return app_url.rstrip("/") + "/iam"
 
 
-def probe(driver, app_url: str) -> None:
+def _probe_output_path(env: str) -> str:
+    return os.path.join(PathSettings.ROOT, f"ff_api_probe_{env}.txt")
+
+
+def probe(driver, app_url: str, env: str | None = None) -> None:
     """Read-only reconnaissance: extract the token, decode its claims, and
-    try the feature-flag GET endpoints, printing everything. Never raises
-    past its own try/except -- safe to call from any test without risking
-    the actual test's outcome. Delete once set_feature_flag() is built and
-    verified from what this prints."""
-    try:
-        token = extract_auth_token(driver)
-        print(f"[ff_api probe] got token, length={len(token)}")
-    except FeatureFlagApiError as e:
-        print(f"[ff_api probe] FAILED to extract token: {e}")
-        return
+    try the feature-flag GET endpoints. Never raises past its own
+    try/except -- safe to call from any test without risking the actual
+    test's outcome. Delete once set_feature_flag() is built and verified
+    from what this writes.
+
+    Written to ff_api_probe_<env>.txt (not just printed): pytest only
+    shows captured stdout for FAILING tests by default, and this runs
+    inside a test that's expected to pass, so print() alone would never
+    actually surface in the CI log.
+    """
+    env = env or os.environ.get("DIMAGIQA_ENV", "default_env")
+    lines = []
+
+    def log(msg):
+        print(msg)
+        lines.append(msg)
 
     try:
-        claims = decode_jwt_claims(token)
-        print(f"[ff_api probe] JWT claims: {json.dumps(claims)}")
-    except FeatureFlagApiError as e:
-        print(f"[ff_api probe] FAILED to decode claims: {e}")
-        claims = {}
-
-    base = iam_base_url(app_url)
-    headers = {"Authorization": f"Bearer {token}"}
-
-    try:
-        resp = requests.get(f"{base}/Features", headers=headers, timeout=15)
-        print(f"[ff_api probe] GET {base}/Features -> {resp.status_code}: {resp.text[:2000]}")
-    except Exception as e:
-        print(f"[ff_api probe] GET {base}/Features FAILED: {e}")
-
-    candidate_client_ids = sorted({
-        v for k, v in claims.items()
-        if isinstance(v, (int, str)) and "client" in k.lower()
-    } | {1, 2, 3, 4})  # small numeric fallback guesses if no claim matches
-    for cid in candidate_client_ids:
         try:
-            resp = requests.get(f"{base}/ClientFeatures", params={"clientId": cid}, headers=headers, timeout=15)
-            print(f"[ff_api probe] GET {base}/ClientFeatures?clientId={cid} -> {resp.status_code}: {resp.text[:1500]}")
+            token = extract_auth_token(driver)
+            log(f"[ff_api probe] got token, length={len(token)}")
+        except FeatureFlagApiError as e:
+            log(f"[ff_api probe] FAILED to extract token: {e}")
+            return
+
+        try:
+            claims = decode_jwt_claims(token)
+            log(f"[ff_api probe] JWT claims: {json.dumps(claims)}")
+        except FeatureFlagApiError as e:
+            log(f"[ff_api probe] FAILED to decode claims: {e}")
+            claims = {}
+
+        base = iam_base_url(app_url)
+        headers = {"Authorization": f"Bearer {token}"}
+
+        try:
+            resp = requests.get(f"{base}/Features", headers=headers, timeout=15)
+            log(f"[ff_api probe] GET {base}/Features -> {resp.status_code}: {resp.text[:2000]}")
         except Exception as e:
-            print(f"[ff_api probe] GET {base}/ClientFeatures?clientId={cid} FAILED: {e}")
+            log(f"[ff_api probe] GET {base}/Features FAILED: {e}")
+
+        candidate_client_ids = sorted({
+            v for k, v in claims.items()
+            if isinstance(v, (int, str)) and "client" in k.lower()
+        } | {1, 2, 3, 4})  # small numeric fallback guesses if no claim matches
+        for cid in candidate_client_ids:
+            try:
+                resp = requests.get(f"{base}/ClientFeatures", params={"clientId": cid}, headers=headers, timeout=15)
+                log(f"[ff_api probe] GET {base}/ClientFeatures?clientId={cid} -> {resp.status_code}: {resp.text[:1500]}")
+            except Exception as e:
+                log(f"[ff_api probe] GET {base}/ClientFeatures?clientId={cid} FAILED: {e}")
+    finally:
+        try:
+            with open(_probe_output_path(env), "w", encoding="utf-8") as f:
+                f.write("\n".join(lines) + "\n")
+        except Exception as e:
+            print(f"[ff_api probe] could not write probe output file: {e}")
