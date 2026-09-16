@@ -22,6 +22,7 @@ from common_utilities.path_settings import PathSettings
 
 GREEN = ":large_green_circle:"
 RED = ":red_circle:"
+YELLOW = ":large_yellow_circle:"  # mustard, matches the "Skipped" slice color (#fad000) in the summary chart
 
 # Canonical, ordered checklist -- (key, label template). `label` uses
 # str.format placeholders that get filled from the values passed to
@@ -147,9 +148,11 @@ def render_slack_report(env: str, server: str, client: str, release: str = "") -
     for key, label_tmpl in STEP_TEMPLATE:
         result = steps.get(key)
         if result is None:
-            # A checklist item nobody reported on: treat as not-yet-verified
-            # rather than silently dropping it from the report.
-            icon = RED
+            # A checklist item nobody reported on this run -- typically a
+            # test skipped via pytest-dependency after an earlier step in
+            # the chain failed. Distinct mustard/yellow, not red: it wasn't
+            # actively verified as broken, it just never ran.
+            icon = YELLOW
             overall_pass = False
         else:
             icon = GREEN if result["passed"] else RED
