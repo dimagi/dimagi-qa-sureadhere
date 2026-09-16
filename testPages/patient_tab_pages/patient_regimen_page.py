@@ -416,8 +416,8 @@ class PatientRegimenPage(BasePage):
             if doses:
                 self.type_and_trigger('input_Dose_per_pill', str(doses), blur=False)
 
-            pills_entered = self.get_value('input_Number_of_pills')
-            dose_entered = self.get_value('input_Dose_per_pill')
+            pills_entered = int(self.get_value('input_Number_of_pills'))
+            dose_entered = int(self.get_value('input_Dose_per_pill'))
 
             total_pills = self.get_text('div_Total_dose_text')
             assert total_pills == str(pills_entered * dose_entered
@@ -431,6 +431,13 @@ class PatientRegimenPage(BasePage):
             text_date_format = self.format_mdY(text_date)
             end_date = self.future_date(date, 5)
             self.type('enddate', date)
+
+        if self.is_element_present('changeDate'):
+            # Editing an existing schedule now requires an explicit
+            # "when should this change take effect" date -- use the same
+            # date as the edit's own start date above.
+            self.type('changeDate', date)
+            time.sleep(1)
 
         self.click('button_SAVE_DRUG', strict=True)
         time.sleep(5)
