@@ -77,3 +77,13 @@ class test_module_00_presetup(BaseCase):
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
         a_ff.double_check_ff(UserData.ff, flag)
+
+        # Reconnaissance only -- gathering real data (token shape, API base
+        # URL, client id) to design a direct feature-flag API call that can
+        # replace this UI-click flow. Never allowed to affect this test's
+        # outcome; see common_utilities/feature_flag_api.py.
+        try:
+            from common_utilities.feature_flag_api import probe
+            probe(self.driver, self.settings["url"])
+        except Exception as e:
+            print(f"[ff_api probe] unexpected error, ignoring: {e}")
