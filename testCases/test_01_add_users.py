@@ -267,7 +267,7 @@ class test_module_01_users(BaseCase):
 
         d = self.__class__.data  # shared dict
 
-        home.ensure_logged_in()
+        home.force_relogin()
 
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
@@ -277,7 +277,7 @@ class test_module_01_users(BaseCase):
         with checklist_step("regimen_created"), perf_budget("create_regimen"):
             start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule()
 
-        home.ensure_logged_in()
+        home.force_relogin()
 
         with checklist_step("regimen_edited"), perf_budget("edit_regimen"):
             home.open_manage_patient_page()

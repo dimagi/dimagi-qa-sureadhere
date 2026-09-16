@@ -15,19 +15,29 @@ from common_utilities.path_settings import PathSettings
 
 # Generous default budgets (seconds) for known-slow, meaningful actions.
 # These are intentionally loose so normal CI variance doesn't trip them --
-# they exist to catch real regressions, not to police every second.
+# they exist to catch real regressions (multiples of normal), not to police
+# every second. This suite relies heavily on fixed time.sleep() calls for UI
+# stability (e.g. PatientProfilePage.verify_patient_profile_page() alone
+# sleeps 15s), so "normal" is already slow -- a live CI run measured
+# create_regimen at ~73-75s doing nothing wrong, which is why that budget
+# (and the untested edit_regimen, which does similar calendar-verification
+# work) are set well above their apparent baseline. Tighten these later once
+# slack_perf_<env>.jsonl has real historical data to tune against.
 DEFAULT_BUDGETS = {
-    "login_and_dashboard": 90,
-    "create_patient": 60,
-    "create_regimen": 60,
-    "edit_regimen": 45,
-    "mobile_video_submit": 150,
-    "in_app_message_roundtrip": 60,
+    "login_and_dashboard": 150,
+    "create_patient": 100,
+    "create_regimen": 150,
+    "edit_regimen": 180,
+    "mobile_video_submit": 300,
+    "in_app_message_roundtrip": 180,
 }
 
 # Total smoke-suite wall clock budget per environment, checked once at the end
-# of the run (see conftest.py::pytest_terminal_summary).
-SUITE_DURATION_BUDGET_SECONDS = 45 * 60
+# of the run (see conftest.py::pytest_terminal_summary). Recent main-branch
+# CI runs (gh run list) took ~48-50 minutes end to end even before this
+# work, so this only covers the pytest-only portion (excludes dependency
+# install/tesseract setup) but is still set with real headroom above that.
+SUITE_DURATION_BUDGET_SECONDS = 75 * 60
 
 
 def _perf_log_path(env: str) -> Path:

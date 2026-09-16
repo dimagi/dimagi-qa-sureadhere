@@ -218,7 +218,7 @@ class test_module_03(BaseCase):
             default_client = UserData.client[3]
         else:
             default_client = UserData.client[2]
-        home.ensure_logged_in()
+        home.force_relogin()
 
         home.open_dashboard_page()
         home.open_admin_page()
@@ -259,7 +259,7 @@ class test_module_03(BaseCase):
             p_adhere.verify_dose_summary(UserData.obs_in_person)
         p_vdo.close_form()
 
-        home.ensure_logged_in()
+        home.force_relogin()
 
         home.check_for_quick_actions()
         home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
@@ -270,7 +270,7 @@ class test_module_03(BaseCase):
                     d['dose_per_pill'],
                     rerun_count=rerun_count)
         p_vdo.close_form()
-        home.ensure_logged_in()
+        home.force_relogin()
 
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
@@ -335,7 +335,7 @@ class test_module_03(BaseCase):
             default_client = UserData.client[3]
         else:
             default_client = UserData.client[2]
-        home.ensure_logged_in()
+        home.force_relogin()
 
         home.open_admin_page()
         admin.open_feature_flags()
@@ -455,7 +455,7 @@ class test_module_03(BaseCase):
 
         p_vdo.close_form()
 
-        home.ensure_logged_in()
+        home.force_relogin()
 
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])

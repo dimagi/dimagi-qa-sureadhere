@@ -80,7 +80,7 @@ class test_module_02_admin(BaseCase):
         admin.expand_drugs()
         drug_switch, drug_name = a_drug.toggle_for_drugs(selected_drug, "ON")
 
-        home.ensure_logged_in()
+        home.force_relogin()
 
         home.open_admin_page()
         admin.validate_admin_page(default_client)
@@ -121,7 +121,7 @@ class test_module_02_admin(BaseCase):
         else:
             default_client = UserData.client[2]
 
-        home.ensure_logged_in()
+        home.force_relogin()
 
         home.open_manage_patient_page()
         patient.search_test_patients()
@@ -154,7 +154,7 @@ class test_module_02_admin(BaseCase):
         admin.expand_drugs()
         drug_switch_now, drug_name = a_drug.toggle_for_drugs(d['drug_name'], "OFF")
 
-        home.ensure_logged_in()
+        home.force_relogin()
 
         home.open_admin_page()
         admin.validate_admin_page(default_client)
@@ -164,7 +164,7 @@ class test_module_02_admin(BaseCase):
         print(f"Before: {d['disease_switch']}, Drug Name: {disease_name}, After: {disease_switch_now}")
         print(f"Before: {d['drug_switch']}, Drug Name: {d['drug_name']}, After: {drug_switch_now}")
 
-        home.ensure_logged_in()
+        home.force_relogin()
 
 
         home.open_manage_patient_page()
@@ -202,7 +202,7 @@ class test_module_02_admin(BaseCase):
         else:
             default_client = UserData.client[2]
 
-        home.ensure_logged_in()
+        home.force_relogin()
 
         home.validate_dashboard_page()
         home.open_admin_page()
@@ -224,7 +224,7 @@ class test_module_02_admin(BaseCase):
         a_announce_form.validate_announcement_page()
         status_now = a_announce_form.deactivate_the_announcements()
 
-        home.ensure_logged_in()
+        home.force_relogin()
 
         home.open_admin_page()
         admin.open_announcement()

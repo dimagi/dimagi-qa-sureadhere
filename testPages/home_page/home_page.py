@@ -37,6 +37,34 @@ class HomePage(BasePage):
             login.login(settings["login_username"], settings["login_password"])
             self.validate_dashboard_page()
 
+    def force_relogin(self):
+        """Unconditionally log out and back in for a genuinely fresh session.
+
+        Some admin/feature-flag pages don't reliably re-render (stale Kendo
+        dropdown state) after repeated client-side navigation alone -- a
+        real logout+login cycle was already happening every time at these
+        call sites in the old code (it wasn't a defensive try/except, the
+        try block itself unconditionally logged in/out first), so this is a
+        deduplication of that existing behavior, not a new recovery path.
+        Use ensure_logged_in() instead wherever the old code only re-logged
+        in reactively, after an action actually failed.
+        """
+        from testPages.login_page.login_page import LoginPage
+        from testPages.user_profile.user_profile_page import UserProfilePage
+
+        settings = self.sb.settings
+        login = LoginPage(self.sb, "login")
+        profile = UserProfilePage(self.sb, "user")
+        try:
+            self.click_admin_profile_button()
+            profile.logout_user()
+            login.after_logout()
+        except Exception:
+            print("[force_relogin] Already logged out or profile menu unavailable")
+        login.login(settings["login_username"], settings["login_password"])
+        self.open_dashboard_page()
+        self.validate_dashboard_page()
+
     def validate_dashboard_page(self, timeout=150):
         self.wait_for_page_to_load(timeout)
         self.verify_page_title("SureAdhere", 60)
