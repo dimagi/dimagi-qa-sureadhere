@@ -381,7 +381,13 @@ class PatientRegimenPage(BasePage):
 
         self.wait_for_page_to_load(50)
         time.sleep(4)
-        self.click_rendered('edit_against_drug', text=drug_name)
+        # click_rendered() has no retry/overlay handling; this edit button
+        # was reported to sometimes not actually register the click (no
+        # exception, but the edit form never opens) -- click_robust() adds
+        # scroll-into-view, overlay-clearing, and a JS-click fallback on top
+        # of the same locator.
+        self.click_robust(self.render_xpath('edit_against_drug', text=drug_name), by='xpath')
+        self.wait_for_element('startdate')
 
         if past_date:
             date = self.past_date()

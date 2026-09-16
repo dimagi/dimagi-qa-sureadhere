@@ -198,12 +198,10 @@ class test_module_03(BaseCase):
     @pytest.mark.dependency(name="tc_mobile_3_on",  depends=["tc_mobile_1", "tc_mobile_2"], scope="class")
     def test_case_02a_dose_submitted_pda_enabled_and_auto_complete_in_person(self):
         rerun_count = getattr(self, "rerun_count", 0)
-        login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
         p_vdo = PatientVideoPage(self, 'patient_video_form')
         p_adhere = PatientAdherencePage(self, 'patient_adherence')
-        profile = UserProfilePage(self, "user")
         a_ff = AdminFFPage(self, 'feature_flags')
         admin = AdminPage(self, 'admin')
         p_overview = PatientOverviewPage(self, 'patient_overview')
@@ -226,11 +224,7 @@ class test_module_03(BaseCase):
         a_ff.validate_admin_ff_page(default_client)
         a_ff.double_check_ff(UserData.per_drug_adherence_ff_on)
 
-        home.click_admin_profile_button()
-        profile.logout_user()
-        login.after_logout()
-        login.login(self.settings["login_username"], self.settings["login_password"])
-        home.validate_dashboard_page()
+        home.force_relogin()
         home.check_for_quick_actions()
         home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'], flag=False)
 
@@ -288,10 +282,12 @@ class test_module_03(BaseCase):
         p_adhere.set_patient_adherence_saved_status("Open")
         p_adhere.submit_changes()
 
-        home.click_admin_profile_button()
-        profile.logout_user()
-        login.after_logout()
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        # By this point the test has been running long enough that the
+        # ~5 minute IAM token can have silently expired mid-flow (the app
+        # logs the user out on its own, not from any action here) -- this
+        # was an unconditional logout+login before, which assumes the
+        # session is still alive; force_relogin() tolerates either state.
+        home.force_relogin()
 
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
@@ -349,10 +345,7 @@ class test_module_03(BaseCase):
         a_ff.validate_admin_ff_page(default_client)
         a_ff.double_check_ff(UserData.per_drug_adherence_ff_off)
 
-        home.click_admin_profile_button()
-        profile.logout_user()
-        login.after_logout()
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        home.force_relogin()
 
         def _review_video_and_verify_adherence():
             p_vdo.verify_patient_video_page()

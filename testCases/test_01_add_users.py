@@ -285,7 +285,14 @@ class test_module_01_users(BaseCase):
             patient.open_patient(d["patient_fname"], d["patient_lname"])
             p_regimen.open_patient_regimen_page()
             p_regimen.verify_patient_regimen_page()
-            p_regimen.edit_schedule(med_name, no_of_pills=no_of_pill, doses=dose_per_pill)
+            # create_new_schedule() was called with no explicit no_of_pills/doses
+            # override above, so it used UserData's defaults; its 5th return
+            # value is the *total* dose (pills * dose_per_pill), not the
+            # per-pill dose other callers of this tuple need it to be (see
+            # PatientVideoPage.fill_up_review_form_ff_on/off's "Xmg/Ypills"
+            # text, which matches the real UI showing total dose there) --
+            # pass the real per-pill value directly instead of that field.
+            p_regimen.edit_schedule(med_name, no_of_pills=no_of_pill, doses=UserData.dose_per_pill)
 
         home.validate_dashboard_page()
         home.open_manage_patient_page()

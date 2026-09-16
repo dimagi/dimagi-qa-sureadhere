@@ -131,10 +131,7 @@ class test_module_02_admin(BaseCase):
         p_regimen.verify_diseases_present(d['disease_name'], d['disease_switch'])
         p_regimen.verify_drugs_present(d['drug_name'], d['drug_switch'])
 
-        home.click_admin_profile_button()
-        profile.logout_user()
-        login.after_logout()
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        home.force_relogin()
 
         home.validate_dashboard_page()
         home.open_admin_page()
