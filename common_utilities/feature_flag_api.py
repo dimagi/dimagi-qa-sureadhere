@@ -62,6 +62,23 @@ def decode_jwt_claims(token: str) -> dict:
         raise FeatureFlagApiError(f"Could not decode JWT claims: {e}")
 
 
+def discover_iam_urls_from_performance_log(driver) -> list[str]:
+    """Return real network request URLs the page has already made that look
+    like they hit the IAM API, read from the browser's own Performance API
+    (window.performance.getEntriesByType('resource')). By the time probe()
+    runs, the preceding UI-based feature-flag toggle has already made a
+    real call to whatever the actual IAM endpoint is -- this sidesteps
+    guessing the base URL/port entirely."""
+    try:
+        urls = driver.execute_script(
+            "return performance.getEntriesByType('resource').map(r => r.name);"
+        ) or []
+    except Exception:
+        return []
+    needles = ("iam", "feature", "clientfeature")
+    return sorted({u for u in urls if any(n in u.lower() for n in needles)})
+
+
 def iam_base_url(app_url: str) -> str:
     override = os.environ.get("DIMAGIQA_IAM_BASE_URL")
     if override:
@@ -110,25 +127,41 @@ def probe(driver, app_url: str, env: str | None = None) -> None:
             log(f"[ff_api probe] FAILED to decode claims: {e}")
             claims = {}
 
-        base = iam_base_url(app_url)
-        headers = {"Authorization": f"Bearer {token}"}
+        discovered = discover_iam_urls_from_performance_log(driver)
+        log(f"[ff_api probe] performance-log URLs matching iam/feature: {discovered}")
 
-        try:
-            resp = requests.get(f"{base}/Features", headers=headers, timeout=15)
-            log(f"[ff_api probe] GET {base}/Features -> {resp.status_code}: {resp.text[:2000]}")
-        except Exception as e:
-            log(f"[ff_api probe] GET {base}/Features FAILED: {e}")
+        # Build base-URL candidates: any real IAM origin found in network
+        # traffic (strip back to the host, e.g. "https://x.y.com" from a
+        # full request URL) plus the same-origin path guess as a fallback.
+        discovered_bases = set()
+        for u in discovered:
+            try:
+                from urllib.parse import urlsplit
+                parts = urlsplit(u)
+                discovered_bases.add(f"{parts.scheme}://{parts.netloc}/iam")
+            except Exception:
+                pass
+        bases = list(discovered_bases) + [iam_base_url(app_url)]
+        headers = {"Authorization": f"Bearer {token}"}
 
         candidate_client_ids = sorted({
             v for k, v in claims.items()
             if isinstance(v, (int, str)) and "client" in k.lower()
         } | {1, 2, 3, 4})  # small numeric fallback guesses if no claim matches
-        for cid in candidate_client_ids:
+
+        for base in bases:
             try:
-                resp = requests.get(f"{base}/ClientFeatures", params={"clientId": cid}, headers=headers, timeout=15)
-                log(f"[ff_api probe] GET {base}/ClientFeatures?clientId={cid} -> {resp.status_code}: {resp.text[:1500]}")
+                resp = requests.get(f"{base}/Features", headers=headers, timeout=15)
+                log(f"[ff_api probe] GET {base}/Features -> {resp.status_code}: {resp.text[:2000]}")
             except Exception as e:
-                log(f"[ff_api probe] GET {base}/ClientFeatures?clientId={cid} FAILED: {e}")
+                log(f"[ff_api probe] GET {base}/Features FAILED: {e}")
+
+            for cid in candidate_client_ids:
+                try:
+                    resp = requests.get(f"{base}/ClientFeatures", params={"clientId": cid}, headers=headers, timeout=15)
+                    log(f"[ff_api probe] GET {base}/ClientFeatures?clientId={cid} -> {resp.status_code}: {resp.text[:1500]}")
+                except Exception as e:
+                    log(f"[ff_api probe] GET {base}/ClientFeatures?clientId={cid} FAILED: {e}")
     finally:
         try:
             with open(_probe_output_path(env), "w", encoding="utf-8") as f:
