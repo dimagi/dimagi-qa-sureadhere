@@ -70,20 +70,30 @@ class test_module_00_presetup(BaseCase):
         home.open_admin_page()
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
-        a_ff.set_ffs(UserData.ff, flag)
+
+        # Set flags via the IAM API where possible (seconds instead of the
+        # multi-minute click-through-and-reload UI cycle); whatever it
+        # can't handle this run falls back to the exact UI flow that ran
+        # here before. This can never make the test less reliable than
+        # before -- worst case, set_flags_done is empty and behavior is
+        # identical to the old code. See common_utilities/feature_flag_api.py.
+        set_flags_done = {}
+        try:
+            from common_utilities.feature_flag_api import set_feature_flags_via_api
+            set_flags_done = set_feature_flags_via_api(self.driver, self.settings["url"], UserData.ff)
+        except Exception as e:
+            print(f"[ff_api set] unexpected error, falling back to UI for all flags: {e}")
+        remaining_ff = {k: v for k, v in UserData.ff.items() if k not in set_flags_done}
+        if remaining_ff:
+            print(f"[ff_api set] {len(set_flags_done)}/{len(UserData.ff)} flags set via API; "
+                  f"using the UI for the remaining {len(remaining_ff)}")
+            a_ff.set_ffs(remaining_ff, flag)
+        else:
+            print(f"[ff_api set] all {len(UserData.ff)} flags set via API")
+
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_admin_page()
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
         a_ff.double_check_ff(UserData.ff, flag)
-
-        # Reconnaissance only -- gathering real data (token shape, API base
-        # URL, client id) to design a direct feature-flag API call that can
-        # replace this UI-click flow. Never allowed to affect this test's
-        # outcome; see common_utilities/feature_flag_api.py.
-        try:
-            from common_utilities.feature_flag_api import probe
-            probe(self.driver, self.settings["url"])
-        except Exception as e:
-            print(f"[ff_api probe] unexpected error, ignoring: {e}")

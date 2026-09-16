@@ -292,7 +292,12 @@ class test_module_01_users(BaseCase):
             # PatientVideoPage.fill_up_review_form_ff_on/off's "Xmg/Ypills"
             # text, which matches the real UI showing total dose there) --
             # pass the real per-pill value directly instead of that field.
-            p_regimen.edit_schedule(med_name, no_of_pills=no_of_pill, doses=UserData.dose_per_pill)
+            # end_date=True: without it, edit_schedule() never touches the
+            # end-date field and the edited schedule collapses to a single
+            # day (start == end), which is what caused the calendar
+            # verification inside edit_schedule() to find every day after
+            # the start date missing its dot.
+            p_regimen.edit_schedule(med_name, no_of_pills=no_of_pill, doses=UserData.dose_per_pill, end_date=True)
 
         home.validate_dashboard_page()
         home.open_manage_patient_page()

@@ -218,11 +218,24 @@ class test_module_03(BaseCase):
             default_client = UserData.client[2]
         home.force_relogin()
 
-        home.open_dashboard_page()
-        home.open_admin_page()
-        admin.open_feature_flags()
-        a_ff.validate_admin_ff_page(default_client)
-        a_ff.double_check_ff(UserData.per_drug_adherence_ff_on)
+        # Verify (not set -- this flag is already ON from presetup) via the
+        # IAM API instead of navigating the full Admin > Feature Flags page,
+        # which costs a dashboard+admin+feature-flags page-load cycle just
+        # to confirm a value nothing here is trying to change. Only falls
+        # back to the UI (which can also correct a mismatch) if the API
+        # can't confirm it.
+        ff_confirmed = {}
+        try:
+            from common_utilities.feature_flag_api import verify_feature_flags_via_api
+            ff_confirmed = verify_feature_flags_via_api(self.driver, self.settings["url"], UserData.per_drug_adherence_ff_on)
+        except Exception as e:
+            print(f"[ff_api verify] unexpected error, falling back to UI: {e}")
+        if len(ff_confirmed) < len(UserData.per_drug_adherence_ff_on):
+            home.open_dashboard_page()
+            home.open_admin_page()
+            admin.open_feature_flags()
+            a_ff.validate_admin_ff_page(default_client)
+            a_ff.double_check_ff(UserData.per_drug_adherence_ff_on)
 
         home.force_relogin()
         home.check_for_quick_actions()
