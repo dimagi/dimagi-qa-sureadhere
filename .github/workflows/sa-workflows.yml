@@ -23,6 +23,11 @@ on:
           - securevoteu (EU Prod)
           - secure (US Prod)
           - all_no_rogers
+      release_version:
+        description: 'Release version to show in the Slack report header (e.g. 3.7.6.1). Leave blank to omit.'
+        required: false
+        default: ''
+        type: string
 
 concurrency:
   group: sa-tests-${{ github.ref }}
@@ -253,17 +258,18 @@ jobs:
       - name: Upload Combined Chart to Slack
         if: ${{ !cancelled() && steps.configure_slack.outputs.result != '' }}
         env:
-          SLACK_TOKEN:    ${{ secrets.SLACK_QA_BOT_TOKEN }}
-          SLACK_CHANNEL:  ${{ steps.configure_slack.outputs.result }}
-          JOB_STATUS:     ${{ job.status }}
-          ENV_DISPLAY:    ${{ steps.env_display.outputs.display_name }}
-          PASSED:         ${{ steps.parse_counts.outputs.PASSED }}
-          FAILED:         ${{ steps.parse_counts.outputs.FAILED }}
-          ERROR:          ${{ steps.parse_counts.outputs.ERROR }}
-          SKIPPED:        ${{ steps.parse_counts.outputs.SKIPPED }}
-          XFAIL:          ${{ steps.parse_counts.outputs.XFAIL }}
-          ARTIFACT_ID:    ${{ steps.artifact-upload-step.outputs.artifact-id }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          SLACK_TOKEN:      ${{ secrets.SLACK_QA_BOT_TOKEN }}
+          SLACK_CHANNEL:    ${{ steps.configure_slack.outputs.result }}
+          JOB_STATUS:       ${{ job.status }}
+          ENV_DISPLAY:      ${{ steps.env_display.outputs.display_name }}
+          RELEASE_VERSION:  ${{ github.event.inputs.release_version }}
+          PASSED:           ${{ steps.parse_counts.outputs.PASSED }}
+          FAILED:           ${{ steps.parse_counts.outputs.FAILED }}
+          ERROR:            ${{ steps.parse_counts.outputs.ERROR }}
+          SKIPPED:          ${{ steps.parse_counts.outputs.SKIPPED }}
+          XFAIL:            ${{ steps.parse_counts.outputs.XFAIL }}
+          ARTIFACT_ID:      ${{ steps.artifact-upload-step.outputs.artifact-id }}
+          OPENAI_API_KEY:   ${{ secrets.OPENAI_API_KEY }}
         run: |
           pip install --quiet slack_sdk
           python - <<'PY'
@@ -277,8 +283,10 @@ jobs:
               print("Slack token/channel not configured — skipping")
               raise SystemExit(0)
 
-          job_status  = os.environ.get("JOB_STATUS", "failure")
-          env_display = os.environ.get("ENV_DISPLAY", "")
+          job_status      = os.environ.get("JOB_STATUS", "failure")
+          env_display     = os.environ.get("ENV_DISPLAY", "")
+          release_version = os.environ.get("RELEASE_VERSION", "").strip()
+          dimagiqa_env    = os.environ.get("DIMAGIQA_ENV", "")
           passed      = os.environ.get("PASSED", "0")
           failed      = os.environ.get("FAILED", "0")
           error       = os.environ.get("ERROR", "0")
@@ -301,9 +309,27 @@ jobs:
           }
           event_label = event_map.get(event, event.upper() or "UNKNOWN")
 
+          # The smoke suite (testCases/conftest.py::pytest_terminal_summary)
+          # renders the project team's exact checklist template to this file.
+          # Fall back to the old passed/failed summary if it's missing for
+          # any reason (e.g. the pytest run crashed before writing it).
+          checklist_path = pathlib.Path(f"slack_summary_{dimagiqa_env}.txt")
+          if checklist_path.exists():
+              checklist_text = checklist_path.read_text(encoding="utf-8").strip()
+              if release_version:
+                  checklist_text = checklist_text.replace(
+                      f"Smoke Tests - {env_display} -",
+                      f"Smoke Tests - {env_display} Release {release_version} -",
+                      1,
+                  )
+              body = checklist_text
+          else:
+              print(f"{checklist_path} not found -- falling back to the plain pass/fail summary")
+              body = f"*Passed:* {passed}  *Failed:* {failed}  *Error:* {error}  *Skipped:* {skipped}  *XFail:* {xfail}"
+
           message = (
               f"{status_icon} 📊 *[{env_display}] {workflow} Run #{run_number} — {event_label}*\n\n"
-              f"*Passed:* {passed}  *Failed:* {failed}  *Error:* {error}  *Skipped:* {skipped}  *XFail:* {xfail}\n\n"
+              f"{body}\n\n"
               f"📎 *Artifact:* <{artifact_url}|Download here>\n"
               f"🔗 *Dashboard:* https://dimagi.github.io/dimagi-qa-sureadhere/"
           )

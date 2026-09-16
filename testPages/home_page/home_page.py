@@ -9,6 +9,34 @@ class HomePage(BasePage):
     def __init__(self, sb, page_name):
         super().__init__(sb, page_name=page_name)
 
+    def ensure_logged_in(self):
+        """Get back to a validated dashboard from wherever the browser is.
+
+        The SureAdhere IAM access token has a ~5 minute lifetime; if the
+        app's silent refresh doesn't fire in time (headless CI can be
+        unreliable here), the session can drop mid-test regardless of
+        whether the browser was idle. This single helper replaces the
+        many scattered ``try: <action> except: login.login(...)`` blocks
+        that used to guard every page transition against that drop.
+        """
+        from testPages.login_page.login_page import LoginPage
+
+        settings = self.sb.settings
+        login = LoginPage(self.sb, "login")
+        if login.is_element_visible("next"):
+            # Already sitting on the login page -- log straight back in.
+            login.login(settings["login_username"], settings["login_password"])
+            self.validate_dashboard_page()
+            return
+        try:
+            self.open_dashboard_page()
+            self.validate_dashboard_page()
+        except Exception:
+            # Last resort: fresh page load, mirrors _relogin() in conftest.py.
+            login.launch_browser(settings["url"])
+            login.login(settings["login_username"], settings["login_password"])
+            self.validate_dashboard_page()
+
     def validate_dashboard_page(self, timeout=150):
         self.wait_for_page_to_load(timeout)
         self.verify_page_title("SureAdhere", 60)

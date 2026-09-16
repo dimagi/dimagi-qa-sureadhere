@@ -44,13 +44,11 @@ class test_module_02_admin(BaseCase):
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_admin_1", scope="class")
     def test_case_01_edit_disease_and_drugs(self):
-        login = LoginPage(self, "login")
         self._login_once()
         a_disease = AdminDiseasePage(self, 'admin_diseases')
         home = HomePage(self, "dashboard")
         admin = AdminPage(self, 'admin')
         a_drug = AdminDrugPage(self, 'admin_drugs')
-        profile = UserProfilePage(self, "user")
 
         selected_disease = random.choice(UserData.admin_disease)
         selected_drug = random.choice(UserData.admin_drug)
@@ -63,13 +61,7 @@ class test_module_02_admin(BaseCase):
         else:
             default_client = UserData.client[2]
 
-        try:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-        except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
+        home.ensure_logged_in()
 
         home.open_admin_page()
         admin.validate_admin_page(default_client)
@@ -88,15 +80,7 @@ class test_module_02_admin(BaseCase):
         admin.expand_drugs()
         drug_switch, drug_name = a_drug.toggle_for_drugs(selected_drug, "ON")
 
-        try:
-            home.click_admin_profile_button()
-            profile.logout_user()
-            login.after_logout()
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
-        except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
+        home.ensure_logged_in()
 
         home.open_admin_page()
         admin.validate_admin_page(default_client)
@@ -137,19 +121,8 @@ class test_module_02_admin(BaseCase):
         else:
             default_client = UserData.client[2]
 
-        try:
-            home.click_admin_profile_button()
-            profile.logout_user()
-            login.after_logout()
-        except:
-            print("Logged out already")
+        home.ensure_logged_in()
 
-        try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-        except:
-            print("Not the Login Page")
-
-        home.open_dashboard_page()
         home.open_manage_patient_page()
         patient.search_test_patients()
         patient.open_first_patient()
@@ -181,15 +154,7 @@ class test_module_02_admin(BaseCase):
         admin.expand_drugs()
         drug_switch_now, drug_name = a_drug.toggle_for_drugs(d['drug_name'], "OFF")
 
-        try:
-            home.click_admin_profile_button()
-            profile.logout_user()
-            login.after_logout()
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
-        except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
+        home.ensure_logged_in()
 
         home.open_admin_page()
         admin.validate_admin_page(default_client)
@@ -199,15 +164,7 @@ class test_module_02_admin(BaseCase):
         print(f"Before: {d['disease_switch']}, Drug Name: {disease_name}, After: {disease_switch_now}")
         print(f"Before: {d['drug_switch']}, Drug Name: {d['drug_name']}, After: {drug_switch_now}")
 
-        try:
-            home.click_admin_profile_button()
-            profile.logout_user()
-            login.after_logout()
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
-        except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
+        home.ensure_logged_in()
 
 
         home.open_manage_patient_page()
@@ -230,9 +187,7 @@ class test_module_02_admin(BaseCase):
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_admin_3", scope="class")
     def test_case_03_admin_announcement(self):
-        login = LoginPage(self, "login")
         self._login_once()
-        profile = UserProfilePage(self, "user")
         home = HomePage(self, "dashboard")
         admin = AdminPage(self, 'admin')
         a_announce = AdminAnnouncementPage(self, 'announcements')
@@ -247,20 +202,7 @@ class test_module_02_admin(BaseCase):
         else:
             default_client = UserData.client[2]
 
-        try:
-            home.click_admin_profile_button()
-            profile.logout_user()
-            login.after_logout()
-            login.validate_login_page()
-        except:
-            print("Already logged out")
-        try:
-            login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.validate_dashboard_page()
-        except:
-            print("Already logged in")
-            home.open_dashboard_page()
+        home.ensure_logged_in()
 
         home.validate_dashboard_page()
         home.open_admin_page()
@@ -282,20 +224,7 @@ class test_module_02_admin(BaseCase):
         a_announce_form.validate_announcement_page()
         status_now = a_announce_form.deactivate_the_announcements()
 
-        try:
-            home.click_admin_profile_button()
-            profile.logout_user()
-            login.after_logout()
-            login.validate_login_page()
-        except:
-            print("Already logged out")
-        try:
-            login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.validate_dashboard_page()
-        except:
-            print("Already logged in")
-            home.open_dashboard_page()
+        home.ensure_logged_in()
 
         home.open_admin_page()
         admin.open_announcement()
