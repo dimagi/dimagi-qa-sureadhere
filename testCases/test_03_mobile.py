@@ -196,8 +196,15 @@ class test_module_03(BaseCase):
     @pytest.mark.tcid("mobile_and_web_5, mobile_and_web_6")
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_mobile_3_on",  depends=["tc_mobile_1", "tc_mobile_2"], scope="class")
+    @pytest.mark.flaky(reruns=0)
     def test_case_02a_dose_submitted_pda_enabled_and_auto_complete_in_person(self):
-        rerun_count = getattr(self, "rerun_count", 0)
+        # No automatic rerun for this test (see @pytest.mark.flaky(reruns=0) above):
+        # the "Taken" dose status it checks for is a one-shot side effect of an
+        # earlier mobile auto-complete action, and this test's own cleanup resets
+        # it back to "Open" near the end (line ~294) for test_case_02b. A from-
+        # scratch rerun can't recreate "Taken" -- it would just fail on a stale
+        # precondition instead of the real problem. A genuine failure should be
+        # reported once, clearly, rather than masked by a guaranteed-false retry.
         self._login_once()
         home = HomePage(self, "dashboard")
         p_vdo = PatientVideoPage(self, 'patient_video_form')
@@ -248,20 +255,7 @@ class test_module_03(BaseCase):
         p_adhere.open_patient_adherence_page()
         p_adhere.verify_patient_adherence_page()
         with checklist_step("auto_complete_in_person"):
-            if rerun_count == 0:
-                auto_filled = p_adhere.verify_auto_filled_tag()
-                self.__class__.data.update({
-                    "auto_filled": auto_filled
-                })
-                print("auto filled tag verified in first run")
-            else:
-                auto_filled = d.get("auto_filled")
-                if auto_filled:
-                    print("auto filled tag already verified")
-                    assert True
-                else:
-                    print("auto filled tag missing")
-                    assert False
+            auto_filled = p_adhere.verify_auto_filled_tag()
             p_adhere.verify_patient_adherence_dose_status("Taken", True)
             p_adhere.verify_dose_summary(UserData.obs_in_person)
         p_vdo.close_form()
@@ -274,8 +268,7 @@ class test_module_03(BaseCase):
         with checklist_step("dose_submitted_pda_on"):
             now, formatted_now, drug_time, obs_method, review_text, side_effect = p_vdo.fill_up_review_form_ff_on(
                     d['drug_name'], d['total_pills'],
-                    d['dose_per_pill'],
-                    rerun_count=rerun_count)
+                    d['dose_per_pill'])
         p_vdo.close_form()
         home.force_relogin()
 
