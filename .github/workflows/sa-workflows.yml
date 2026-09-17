@@ -443,6 +443,27 @@ jobs:
               bodyFile = './common_utilities/mail_templates/email_fail.md'
             }
 
+            // Same checklist text the Slack step posts (testCases/conftest.py's
+            // pytest_terminal_summary writes it) -- without this the email only
+            // ever said "PASSED"/"FAILED, check the attachment", with no way to
+            // tell what actually happened (e.g. a perf/duration budget breach)
+            // short of downloading and opening the report.
+            let checklistBody = ''
+            try {
+              const checklistPath = `./slack_summary_${CC_ENV}.txt`
+              let checklistText = await fs.readFile(checklistPath, 'utf8')
+              checklistText = checklistText
+                .replace(/:large_green_circle:/g, '🟢')
+                .replace(/:red_circle:/g, '🔴')
+                .replace(/:large_yellow_circle:/g, '🟡')
+                .trim()
+              // Markdown collapses single newlines into one paragraph --
+              // double them so each checklist line stays on its own line.
+              checklistBody = checklistText.replace(/\n/g, '\n\n')
+            } catch (e) {
+              console.log(`Could not read checklist summary for email: ${e}`)
+            }
+
             let actionRunLink = context.payload.repository.html_url + `/actions/runs/${context.runId}`
             let testSuite = 'SureAdhere Tests'
             let bodyContent = await fs.readFile(bodyFile, 'utf8')
@@ -450,6 +471,7 @@ jobs:
                 .replace(/{{runNumber}}/g, context.runNumber)
                 .replace(/{{environment}}/g, envDisplay)
                 .replace(/{{testSuite}}/g, testSuite)
+                .replace(/{{checklistBody}}/g, checklistBody)
             
             let receivers = 'qa-automation@dimagi.com'
             if (context.eventName !== "pull_request" || context.eventName !== "push") {
