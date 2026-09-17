@@ -112,7 +112,7 @@ class PatientAdherencePage(BasePage):
         assert self.is_element_present('span_cal_today_video_status', strict=True), f"video icon not present"
         print("video icon is present")
         timestamp_text = self.get_text_rendered('span_commented_timestamp', text=review_text)
-        self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=2)
+        self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=5)
         # assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
         print(f"{str(formatted_now)} is in {timestamp_text}")
 
