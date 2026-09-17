@@ -411,6 +411,8 @@ def pytest_runtest_setup(item):
         worker_id = getattr(item.config, "workerinput", {}).get("workerid", "master")
         if worker_id != "master":
             pytest.skip("Presetup runs only on master node")
+    from common_utilities.perf import set_current_test
+    set_current_test(item.name)
 
 @pytest.fixture(scope="function")
 def driver(request, settings):

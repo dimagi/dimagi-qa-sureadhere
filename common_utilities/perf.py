@@ -48,10 +48,23 @@ def _current_env() -> str:
     return os.environ.get("DIMAGIQA_ENV", "default_env")
 
 
+# Set once per test by conftest.py's pytest_runtest_setup (item.name), so a
+# perf_budget failure can be attributed to the test it happened in without
+# every call site having to pass that in itself. Process-local is fine here
+# -- each pytest-xdist worker only ever runs one test at a time.
+_current_test_name = "unknown_test"
+
+
+def set_current_test(name: str) -> None:
+    global _current_test_name
+    _current_test_name = name
+
+
 def record_perf(key: str, elapsed_s: float, budget_s: float, passed: bool, env: str | None = None) -> None:
     env = env or _current_env()
     entry = {
         "key": key,
+        "test": _current_test_name,
         "elapsed_s": round(elapsed_s, 2),
         "budget_s": budget_s,
         "passed": bool(passed),
@@ -117,3 +130,21 @@ def read_perf_results(env: str) -> list[dict]:
             except json.JSONDecodeError:
                 continue
     return results
+
+
+def read_perf_failures(env: str) -> list[dict]:
+    """One entry per (test, key) that ever breached its budget, across every
+    attempt -- a rerun later finishing within budget doesn't erase the fact
+    that the first attempt was genuinely slow, so this deliberately doesn't
+    use "last write wins" the way the checklist steps do."""
+    seen = set()
+    failures = []
+    for entry in read_perf_results(env):
+        if entry.get("passed"):
+            continue
+        dedupe_key = (entry.get("test", "unknown_test"), entry.get("key"))
+        if dedupe_key in seen:
+            continue
+        seen.add(dedupe_key)
+        failures.append(entry)
+    return failures

@@ -186,4 +186,21 @@ def render_slack_report(env: str, server: str, client: str, release: str = "") -
         lines.append(f"{icon} {label}")
 
     lines.append(f"Summary: {'PASS' if overall_pass else 'FAIL'}")
+
+    # A perf_budget breach on a first attempt that a rerun later passes
+    # cleanly leaves no trace in the checklist above (steps use last-write-
+    # wins, so the rerun's clean timing silently overwrites the earlier
+    # failure) -- surface it here regardless of whether the test ultimately
+    # passed, since the slowness genuinely happened.
+    from common_utilities.perf import read_perf_failures
+    perf_failures = read_perf_failures(env)
+    if perf_failures:
+        lines.append("")
+        lines.append("Performance issues:")
+        for failure in perf_failures:
+            lines.append(
+                f"- {failure.get('test', 'unknown_test')}: '{failure['key']}' took "
+                f"{failure['elapsed_s']:.1f}s, exceeding the {failure['budget_s']:.0f}s budget"
+            )
+
     return "\n".join(lines)
