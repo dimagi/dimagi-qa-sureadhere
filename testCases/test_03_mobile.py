@@ -284,6 +284,7 @@ class test_module_03(BaseCase):
 
         p_adhere.open_patient_adherence_page()
         # p_adhere.verify_patient_adherence_page()
+        p_adhere.open_today_dose_edit()
         p_adhere.set_patient_adherence_dose_status("Open")
         p_adhere.set_patient_adherence_saved_status("Open")
         p_adhere.submit_changes()

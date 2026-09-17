@@ -75,6 +75,17 @@ class PatientAdherencePage(BasePage):
             print(f"{status} is not selected")
             return False
 
+    def open_today_dose_edit(self):
+        # doseStatus / kendo-dropdown-saved_status only reflect today's actual
+        # dose entry once this panel is opened (see fillup_side_effects, the
+        # only other place that edits them) -- selecting them beforehand can
+        # silently hit a stale/unrelated dropdown instance, so the change
+        # never persists even though the read-back assertion still passes.
+        self.click('span_cal_today_date')
+        time.sleep(2)
+        self.wait_for_element('kendo-dropdown-saved_status')
+        self.wait_for_element('doseStatus')
+
     def set_patient_adherence_dose_status(self, status):
         self.kendo_dd_select_text_old('doseStatus', status)
         text = self.kendo_dd_get_selected_text('doseStatus')
