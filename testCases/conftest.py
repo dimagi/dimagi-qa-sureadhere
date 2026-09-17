@@ -334,8 +334,15 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
     # presetup pass has no checklist data yet and renders an all-red draft,
     # which the smoketest pass's later invocation overwrites with the real
     # result -- harmless since the two runs are sequential, not concurrent.
-    from common_utilities.step_reporter import render_slack_report
+    from common_utilities.step_reporter import render_slack_report, report_step
     from common_utilities.perf import read_perf_results, SUITE_DURATION_BUDGET_SECONDS
+
+    # "All pages loading fine" is a catch-all for the run as a whole, not
+    # tied to one specific action -- green only when nothing in this
+    # invocation failed or errored, so it doesn't stay mustard forever on
+    # an otherwise-clean run just because nobody called report_step() for
+    # it from inside a test.
+    report_step("all_pages_loading", not failed and not error, env=env)
 
     server = STEP_ENV_DISPLAY_NAMES.get(env, env)
     client = _client_for_env(env)
