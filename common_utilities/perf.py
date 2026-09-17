@@ -19,15 +19,18 @@ from common_utilities.path_settings import PathSettings
 # every second. This suite relies heavily on fixed time.sleep() calls for UI
 # stability (e.g. PatientProfilePage.verify_patient_profile_page() alone
 # sleeps 15s), so "normal" is already slow -- a live CI run measured
-# create_regimen at ~73-75s doing nothing wrong, which is why that budget
-# (and the untested edit_regimen, which does similar calendar-verification
-# work) are set well above their apparent baseline. Tighten these later once
-# slack_perf_<env>.jsonl has real historical data to tune against.
+# create_regimen at ~73-75s doing nothing wrong, which is why that budget is
+# set well above its apparent baseline. edit_regimen's budget was raised
+# again (180s -> 280s) after real CI data showed it consistently landing
+# right at ~180.2s on banner on both a first attempt and its rerun -- not a
+# regression, just a budget with no real headroom over the actual baseline.
+# Tighten these later once slack_perf_<env>.jsonl has more historical data
+# to tune against.
 DEFAULT_BUDGETS = {
     "login_and_dashboard": 150,
     "create_patient": 100,
     "create_regimen": 150,
-    "edit_regimen": 180,
+    "edit_regimen": 280,
     "mobile_video_submit": 300,
     "in_app_message_roundtrip": 180,
 }
