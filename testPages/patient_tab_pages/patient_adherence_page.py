@@ -50,7 +50,11 @@ class PatientAdherencePage(BasePage):
         print("Opened tab is Adherence")
 
     def verify_patient_adherence_dose_status(self, status, flag=True):
-        text = self.kendo_dd_get_selected_text('doseStatus')
+        # Default kendo_dd_get_selected_text() timeout (10s) has been seen
+        # timing out on this specific dropdown on securevoteu (EU) -- give
+        # it more headroom rather than raising the shared default, which
+        # would affect every other call site across the codebase.
+        text = self.kendo_dd_get_selected_text('doseStatus', timeout=30)
         if flag == True:
             assert str(text).strip() == status, f"{status} is not selected"
             print(f"{status} is selected")
@@ -61,7 +65,7 @@ class PatientAdherencePage(BasePage):
             return False
 
     def verify_patient_adherence_dose_saved_status(self, status, flag=True):
-        text = self.kendo_dd_get_selected_text('kendo-dropdown-saved_status')
+        text = self.kendo_dd_get_selected_text('kendo-dropdown-saved_status', timeout=30)
         if flag == True:
             assert str(text).strip() == status, f"{status} is not selected"
             print(f"{status} is selected")
