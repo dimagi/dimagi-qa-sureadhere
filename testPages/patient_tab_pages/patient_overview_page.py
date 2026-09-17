@@ -96,7 +96,20 @@ class PatientOverviewPage(BasePage):
         left_doses = int(total_dose)-int(taken_doses)
         print(f"Total pills: {total_dose}, Taken doses: {taken_doses}, Left Doses: {left_doses}")
 
+        # The page was just opened right after resetting the dose status to
+        # "Open" elsewhere, so it can have loaded before that reset finished
+        # propagating server-side -- a plain re-read of the same DOM won't
+        # pick up a later change, so refresh and re-check a few times before
+        # failing.
         dose_status = self.get_attribute('div_cal_today_dose_schedule', 'class', strict=True)
+        for attempt in range(4):
+            if dose_status != "taken-dose-icon":
+                break
+            print(f"dose status still 'taken-dose-icon' (attempt {attempt + 1}), refreshing to pick up the reset")
+            time.sleep(5)
+            self.refresh()
+            self.wait_for_element('div_cal_today_dose_schedule')
+            dose_status = self.get_attribute('div_cal_today_dose_schedule', 'class', strict=True)
         print(dose_status)
         assert not "taken-dose-icon" == dose_status, f"taken-dose-icon matching current status {dose_status}"
         print(f"taken-dose-icon matching current status {dose_status}")
