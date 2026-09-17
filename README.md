@@ -86,11 +86,20 @@ Summary: FAIL
 - 🟢 green — that step ran and passed.
 - 🔴 red — that step ran and failed.
 - 🟡 mustard/yellow — that step never ran at all (usually because an earlier step in its dependency chain failed or was skipped), so it wasn't actively verified as broken, it just never got the chance to run.
-- `Summary` is `PASS` only when every step is green **and** no performance budget was breached (see below) — a single mustard/red line, or a run that took far longer than usual, flips it to `FAIL` even when pytest's own pass/fail counts alone wouldn't have caught it. This is also what actually fails the CI job now, not just pytest's exit code.
+- `Summary` is `PASS` only when every step is green **and** the overall suite didn't run far longer than usual (see the suite-duration budget below) — a single mustard/red line, or a run that took far longer than usual, flips it to `FAIL` even when pytest's own pass/fail counts alone wouldn't have caught it. This is also what actually fails the CI job now, not just pytest's exit code.
 - The exact same checklist text is also included in the result email (previously the email only ever said a generic "PASSED"/"FAILED, check the attachment").
 - The canonical, ordered list of checklist steps and their labels lives in `common_utilities/step_reporter.py` (`STEP_TEMPLATE`) — that's the place to add, rename, or reorder a line.
 
-**Performance budgets**: a handful of the slowest, most meaningful actions (patient/regimen creation, mobile video submission, in-app messaging round-trip, login) are timed via `common_utilities/perf.py`'s `perf_budget`, plus one overall suite-duration budget checked at the end of the run. Exceeding a budget fails that step loudly (and therefore the checklist line and `Summary`) instead of silently tolerating a slowdown.
+**Performance budgets**: a handful of the slowest, most meaningful actions (patient/regimen creation, mobile video submission, in-app messaging round-trip, login) are timed via `common_utilities/perf.py`'s `perf_budget`, plus one overall suite-duration budget checked at the end of the run. Exceeding an individual action's budget fails that test loudly instead of silently tolerating a slowdown — that failure shows up as its own red checklist line, unless a rerun then finishes within budget, in which case the checklist line itself goes back to green (only the suite-duration budget directly forces `Summary: FAIL`).
+
+That's exactly why a real slowdown could otherwise vanish from the report the moment a rerun happens to land inside a faster window. To close that gap, a **`Performance issues:`** section is appended after `Summary` whenever any action breached its budget on *any* attempt, even one a rerun later passed cleanly — listing the test name and the reason, e.g.:
+
+```
+Performance issues:
+- test_case_06_regimen_created_and_edited: 'edit_regimen' took 180.2s, exceeding the 180s budget
+```
+
+This section is omitted entirely when there are no perf issues to report.
 
  -  You should be able to find the zipped results in the **Artifacts** section, of the corresponding run (after a run is complete).
 
