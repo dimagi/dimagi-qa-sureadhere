@@ -150,6 +150,25 @@ jobs:
             echo "::set-output name=${line%=*}::${line#*=}"
           done < sa_test_counts_${{ matrix.environment }}.txt
 
+      - name: Fail the job if the checklist Summary says FAIL
+        # pytest itself exits 0 when a test is only SKIPPED (e.g. a step
+        # skipped because a cross-worker dependency it needed never ran) --
+        # so job.status (and everything downstream that reads it: the Slack
+        # ✅/❌ icon, the pass/fail email) can show green even though
+        # conftest.py's own pytest_terminal_summary correctly determined the
+        # checklist is incomplete and wrote "Summary: FAIL". Make that the
+        # one authoritative source: fail the job for real when it says so.
+        # A no-op if the file is missing (e.g. presetup itself already
+        # failed the run before smoketest ever wrote it) -- that case is
+        # already a real job failure on its own.
+        if: always()
+        run: |
+          FILE="slack_summary_${{ matrix.environment }}.txt"
+          if [ -f "$FILE" ] && grep -q "^Summary: FAIL$" "$FILE"; then
+            echo "::error::Checklist Summary says FAIL for ${{ matrix.environment }} (see $FILE)"
+            exit 1
+          fi
+
       - name: Zip reports for email
         if: always()
         run: |
@@ -211,7 +230,19 @@ jobs:
                       if k == "FAILED": data["failed"] = v
                       if k == "SKIPPED": data["skipped"] = v
 
-          data["status"] = "fail" if data["failed"] > 0 else "pass"
+          # data["failed"] alone misses a checklist step that never ran at
+          # all (e.g. skipped because of an unmet dependency) -- the
+          # checklist's own "Summary: PASS/FAIL" line (written by
+          # conftest.py's pytest_terminal_summary) is the authoritative
+          # source, matching what fails the job itself further down this
+          # workflow.
+          summary_path = f"slack_summary_{env}.txt"
+          if os.path.exists(summary_path):
+              with open(summary_path) as f:
+                  summary_text = f.read()
+              data["status"] = "fail" if "Summary: FAIL" in summary_text else "pass"
+          else:
+              data["status"] = "fail" if data["failed"] > 0 else "pass"
 
           with open("metrics_out/run_summary.json", "w") as f:
               json.dump(data, f)

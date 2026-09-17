@@ -390,7 +390,17 @@ class test_module_01_users(BaseCase):
 
     @pytest.mark.tcid("mobile_and_web_5, mobile_and_web_6")
     @pytest.mark.smoketest
-    @pytest.mark.dependency(name="tc_users_8", depends=["tc_users_7", "tc_mobile_3_on"], scope="session")
+    # "tc_mobile_3_on" deliberately left out of depends=[...]: pytest-dependency
+    # tracks results per xdist worker process, and tc_mobile_3_on (test_case_02a)
+    # runs in test_03_mobile.py's worker, a different process from this one --
+    # so this worker never sees it recorded as passed even when it genuinely
+    # has finished, causing an instant, incorrect skip (confirmed via a real
+    # run: tc_mobile_3_on passed at 09:31:52, this test still got skipped at
+    # 09:35:09 with reason "depends on tc_mobile_3_on"). wait_for_step() below
+    # -- which polls the real shared per-environment file instead of relying on
+    # pytest-dependency's per-worker registry -- is what actually enforces
+    # that ordering correctly.
+    @pytest.mark.dependency(name="tc_users_8", depends=["tc_users_7"], scope="class")
     def test_case_08_dose_submitted_pda_disabled_and_auto_complete_self_report(self):
         rerun_count = getattr(self, "rerun_count", 0)
         login = LoginPage(self, "login")
