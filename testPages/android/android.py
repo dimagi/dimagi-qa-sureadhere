@@ -6,7 +6,7 @@ from appium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException, NoSuchElementException
+from selenium.common.exceptions import TimeoutException, NoSuchElementException, WebDriverException
 
 from appium.options.android import UiAutomator2Options
 from appium.webdriver.common.appiumby import AppiumBy
@@ -157,11 +157,30 @@ class Android:
         })
 
         # Initialize the remote Webdriver using BrowserStack remote URL
-        # and desired capabilities defined above
-        self.driver = webdriver.Remote(
-            "https://hub-cloud.browserstack.com:443/wd/hub",
-            options=self.options
-        )
+        # and desired capabilities defined above.
+        #
+        # BROWSERSTACK_QUEUE_SIZE_EXCEEDED means the account's parallel-
+        # session limit is full -- confirmed happening from OTHER test
+        # suites/projects sharing the same BrowserStack account (not this
+        # suite's own two sequential mobile sessions competing with each
+        # other), so it's genuinely transient: retry with a wait, since a
+        # slot is likely to free up as some other suite's session finishes,
+        # rather than losing the whole ~40-50min run to it immediately.
+        max_attempts = 4
+        retry_wait_s = 60
+        for attempt in range(1, max_attempts + 1):
+            try:
+                self.driver = webdriver.Remote(
+                    "https://hub-cloud.browserstack.com:443/wd/hub",
+                    options=self.options
+                )
+                break
+            except WebDriverException as e:
+                if "QUEUE_SIZE_EXCEEDED" not in str(e) or attempt == max_attempts:
+                    raise
+                print(f"[BrowserStack] Queue full (attempt {attempt}/{max_attempts}), "
+                      f"waiting {retry_wait_s}s before retrying: {e}")
+                time.sleep(retry_wait_s)
         self.driver.implicitly_wait(10)
         self.wait = WebDriverWait(self.driver, 50)
 
