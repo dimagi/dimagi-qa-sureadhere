@@ -8,6 +8,15 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+    # No "synchronize": without restricting types, this defaults to
+    # [opened, synchronize, reopened], so it auto-fires this whole ~50min,
+    # 3-environment suite on every single push to a branch with an open PR
+    # -- identical in scope to the all_no_rogers workflow_dispatch option.
+    # Confirmed happening live: pushing while iterating on a PR kept
+    # launching a duplicate full run alongside each manual dispatch. Run
+    # once when a PR opens/reopens; leave verifying further pushes to an
+    # explicit workflow_dispatch instead of an automatic one per commit.
+    types: [ opened, reopened ]
   repository_dispatch:
     types: [ deploy_success ]
   workflow_dispatch:
