@@ -1919,22 +1919,33 @@ class BasePage:
     # --- Parse "August 2025" from the calendar header ----------------------------
     def calendar_visible_year_month(self, header_logical: str, *, timeout: int = 15) -> tuple[int, int]:
         header_sel = self.resolve(header_logical)
-        # Wait until the header element has non-empty text (guards against timing/race conditions
-        # where the element is present in the DOM but its text content hasn't rendered yet)
-        try:
-            WebDriverWait(self.driver, timeout).until(
-                lambda d: (self._get_webelement(header_sel, timeout=timeout).text or "").strip()
-            )
-        except Exception:
-            pass  # fall through to raise the descriptive RuntimeError below
-        hdr = self._get_webelement(header_sel, timeout=timeout)
-        text = (hdr.text or "").strip()
+        months = {m: i for i, m in enumerate(calendar.month_name) if m}  # {"January":1,...}
+
+        # The header can go briefly blank mid-transition when Kendo re-renders
+        # it after a month-navigation click, so a single wait-then-read can
+        # still catch it empty even though the wait itself saw non-empty text
+        # a moment earlier (two separate reads of a moving target). Retry the
+        # whole wait+read together instead of trusting one read after the wait.
+        deadline = time.time() + timeout
+        text = ""
+        while time.time() < deadline:
+            try:
+                WebDriverWait(self.driver, max(1, deadline - time.time())).until(
+                    lambda d: (self._get_webelement(header_sel, timeout=timeout).text or "").strip()
+                )
+            except Exception:
+                break  # fall through to raise the descriptive RuntimeError below
+            hdr = self._get_webelement(header_sel, timeout=timeout)
+            text = (hdr.text or "").strip()
+            if len(text.split()) >= 2:
+                break
+            time.sleep(0.5)
+
         # expect "August 2025" or similar
         parts = text.split()
         if len(parts) < 2:
             raise RuntimeError(f"Cannot parse month+year from header: {text!r}")
         month_name, year_s = parts[0], parts[-1]
-        months = {m: i for i, m in enumerate(calendar.month_name) if m}  # {"January":1,...}
         return int(year_s), months[month_name]
 
     from selenium.webdriver.support.ui import WebDriverWait
