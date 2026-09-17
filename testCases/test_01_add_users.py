@@ -2,13 +2,19 @@ import pytest
 from seleniumbase import BaseCase
 
 from common_utilities.perf import perf_budget
-from common_utilities.step_reporter import checklist_step, report_values
+from common_utilities.step_reporter import checklist_step, report_values, wait_for_step
+from testPages.admin_page.admin_ff_page import AdminFFPage
+from testPages.admin_page.admin_page import AdminPage
+from testPages.android.android import Android
 from testPages.home_page.home_page import HomePage
 from testPages.login_page.login_page import LoginPage
 from testPages.manage_staff_page.manage_staff_page import ManageStaffPage
 from testPages.manage_patient_page.manage_patient_page import ManagePatientPage
+from testPages.patient_tab_pages.patient_adherence_page import PatientAdherencePage
+from testPages.patient_tab_pages.patient_messages_page import PatientMessagesPage
 from testPages.patient_tab_pages.patient_profile_page import PatientProfilePage
 from testPages.patient_tab_pages.patient_regimen_page import PatientRegimenPage
+from testPages.patient_tab_pages.patient_video_page import PatientVideoPage
 from testPages.user_page.user_page import UserPage
 from testPages.user_page.user_patient_page import UserPatientPage
 from testPages.user_page.user_staff_page import UserStaffPage
@@ -308,3 +314,171 @@ class test_module_01_users(BaseCase):
             )
         print(self.data)
 
+    @pytest.mark.tcid("mobile_and_web_1, mobile_and_web_2, mobile_and_web_3, mobile_and_web_4")
+    @pytest.mark.smoketest
+    @pytest.mark.dependency(name="tc_users_7",
+                            depends=["tc_users_1", "tc_users_2", "tc_users_3", "tc_users_4", "tc_users_5", "tc_users_6"],
+                            scope="session")
+    def test_case_07_add_video_to_second_patient(self):
+        rerun_count = getattr(self, "rerun_count", 0)
+        login = LoginPage(self, "login")
+        self._login_once()
+        self.mobile = Android(self.settings)
+        mobile = self.mobile
+        home = HomePage(self, "dashboard")
+        profile = UserProfilePage(self, "user")
+        patient = ManagePatientPage(self, "patients")
+        p_message = PatientMessagesPage(self, 'patient_messagess')
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+
+        login.login(self.settings["login_username"], self.settings["login_password"])
+
+        d = self.__class__.data
+
+        home.open_dashboard_page()
+        home.validate_dashboard_page()
+        home.open_dashboard_page()
+        home.check_for_quick_actions()
+        flag = home.check_for_review_presence(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
+
+        home.open_manage_patient_page()
+        patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
+        patient.open_patient(d["patient_fname"], d["patient_lname"])
+
+        with checklist_step("mobile_login"):
+            report_values({"device_type": "Google Pixel 9 (Android)"})
+            mobile.select_environment(self.settings['url'])
+            mobile.login_patient(d['patient_username'], d['patient_pin'])
+
+        with checklist_step("video_submitted"):
+            if flag == False:
+                with perf_budget("mobile_video_submit"):
+                    vdo_upload_date, vdo_upload_time = mobile.record_video_and_submit(d['drug_name'], d["total_pills"])
+                # Self-report submits the same data the video wizard already records for this
+                # dose; calling both creates duplicate self-report events for the same dose,
+                # which the matcher treats as ambiguous ("multiple covering reports") and
+                # suppresses the auto-filled tag entirely.
+                # mobile.self_report_and_submit(d['drug_name'], d["total_pills"])
+                mobile.close_android_driver()
+                self.__class__.data.update({
+                    "video_upload_date": vdo_upload_date,
+                    "video_upload_time": vdo_upload_time,
+                })
+            else:
+                print("video already uploaded")
+                vdo_upload_date = d.get("video_upload_date")
+                vdo_upload_time = d.get("video_upload_time")
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+        self.__class__.data.update(
+            {"video_upload_date": vdo_upload_date,
+             "video_upload_time": vdo_upload_time
+             }
+        )
+        # The Slack checklist labels for the steps test_case_08 reports
+        # (auto_complete_self_report / dose_submitted_pda_off) show this
+        # patient's SA-ID -- report_values() is the only cross-worker path
+        # for that (conftest.py's pytest_terminal_summary renders the report
+        # from a different process), even though test_case_08 itself reads
+        # this patient's data straight from self.__class__.data since it's
+        # in the same class.
+        report_values({"patient2_sa_id": d["SA_ID"]})
+
+    @pytest.mark.tcid("mobile_and_web_5, mobile_and_web_6")
+    @pytest.mark.smoketest
+    @pytest.mark.dependency(name="tc_users_8", depends=["tc_users_7", "tc_mobile_3_on"], scope="session")
+    def test_case_08_dose_submitted_pda_disabled_and_auto_complete_self_report(self):
+        rerun_count = getattr(self, "rerun_count", 0)
+        login = LoginPage(self, "login")
+        self._login_once()
+        home = HomePage(self, "dashboard")
+        p_vdo = PatientVideoPage(self, 'patient_video_form')
+        p_adhere = PatientAdherencePage(self, 'patient_adherence')
+        profile = UserProfilePage(self, "user")
+        a_ff = AdminFFPage(self, 'feature_flags')
+        admin = AdminPage(self, 'admin')
+        patient = ManagePatientPage(self, "patients")
+
+        # test_case_02a (test_03_mobile.py) runs in a different xdist worker
+        # process and toggles the same environment-wide Per Drug Adherence
+        # flag ON -- pytest-dependency's depends=[...] above can't reliably
+        # block on it across processes, so wait on the shared per-environment
+        # step file directly before flipping that same flag OFF here.
+        wait_for_step("dose_submitted_pda_on")
+        d = self.__class__.data
+
+        if "banner" in self.settings["url"]:
+            default_client = UserData.client[0]
+        elif "rogers" in self.settings["url"]:
+            default_client = UserData.client[1]
+        elif "securevoteu" in self.settings["url"]:
+            default_client = UserData.client[3]
+        else:
+            default_client = UserData.client[2]
+        home.force_relogin()
+
+        home.open_admin_page()
+        admin.open_feature_flags()
+        a_ff.validate_admin_ff_page(default_client)
+        a_ff.set_ffs(UserData.per_drug_adherence_ff_off)
+
+        home.open_dashboard_page()
+        # home.validate_dashboard_page()
+        home.open_admin_page()
+        admin.open_feature_flags()
+        a_ff.validate_admin_ff_page(default_client)
+        a_ff.double_check_ff(UserData.per_drug_adherence_ff_off)
+
+        home.force_relogin()
+
+        def _review_video_and_verify_adherence():
+            p_vdo.verify_patient_video_page()
+            flag = p_vdo.check_for_video_link()
+            if flag == True:
+                p_vdo.close_form()
+                p_adhere.check_video_link_checkbox()
+                p_adhere.open_video_form()
+                p_vdo.verify_patient_video_page()
+            else:
+                print("video is linked already")
+            now, formatted_now, review_text = p_vdo.fill_up_review_form_ff_off(
+                d['drug_name'], d['total_pills'], d['dose_per_pill']
+                )
+
+            p_adhere.verify_patient_adherence_page()
+            p_adhere.verify_patient_adherence_dose_status("Taken", True)
+            p_adhere.verify_patient_adherence_dose_saved_status("Taken", True)
+            p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
+            return formatted_now, review_text
+
+        home.validate_dashboard_page()
+        with checklist_step("dose_submitted_pda_off"), checklist_step("auto_complete_self_report"):
+            if rerun_count == 0:
+                home.check_for_quick_actions()
+                home.check_for_video_review(d["patient_fname"]+" "+d["patient_lname"], d['SA_ID'])
+                formatted_now, review_text = _review_video_and_verify_adherence()
+            else:
+                home.open_manage_patient_page()
+                patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
+                patient.open_patient(d["patient_fname"], d["patient_lname"])
+
+                p_adhere.open_patient_adherence_page()
+                if p_adhere.verify_patient_adherence_dose_status("Taken", True) and p_adhere.verify_patient_adherence_dose_saved_status("Taken", True):
+                    p_adhere.open_video_form()
+                    formatted_now, review_text = _review_video_and_verify_adherence()
+                else:
+                    print("Already Marked as Adherent")
+                    formatted_now, review_text = d.get("commented_timestamp"), d.get("commented_text")
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
+
+        self.__class__.data.update(
+            {"commented_timestamp": formatted_now, "commented_text": review_text,
+             }
+            )

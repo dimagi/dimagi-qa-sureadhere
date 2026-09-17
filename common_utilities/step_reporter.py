@@ -43,9 +43,9 @@ STEP_TEMPLATE = [
     ("mobile_data_on_web", "Mobile data looks good on the web (Video functions all tested)"),
     ("dose_submitted_pda_on", "Dose submitted with Per Drug Adherence (36) enabled"),
     ("auto_complete_in_person", "Test Per Drug Auto Complete - In Person Visit - Provider Yes (SA-{mobile_patient_sa_id})"),
-    ("auto_complete_self_report", "Test Per Drug Auto Complete - Self Report - Provider No (SA-{mobile_patient_sa_id})"),
+    ("auto_complete_self_report", "Test Per Drug Auto Complete - Self Report - Provider No (SA-{patient2_sa_id})"),
     ("taken_count_updated", "Taken count updated correctly on overview tab"),
-    ("dose_submitted_pda_off", "Dose submitted with Per Drug Adherence (36) disabled (SA-{mobile_patient_sa_id})"),
+    ("dose_submitted_pda_off", "Dose submitted with Per Drug Adherence (36) disabled (SA-{patient2_sa_id})"),
     ("all_pages_loading", "All pages loading fine."),
 ]
 STEP_KEYS = {key for key, _ in STEP_TEMPLATE}
@@ -136,6 +136,23 @@ def read_step_results(env: str) -> tuple[dict, dict]:
                 if prev is None or entry["ts"] >= prev.get("ts", 0):
                     steps[entry["key"]] = entry
     return steps, values
+
+
+def wait_for_step(key: str, timeout: int = 900, poll_interval: int = 10, env: str | None = None) -> None:
+    """Block until `key` has been recorded by report_step()/checklist_step()
+    -- pass or fail, either counts as done. Used to sequence a test in one
+    xdist worker after a test in a different file/class whose completion
+    pytest-dependency's `depends=[...]` can't reliably order across worker
+    processes."""
+    env = env or _current_env()
+    deadline = time.time() + timeout
+    while True:
+        steps, _ = read_step_results(env)
+        if key in steps:
+            return
+        if time.time() >= deadline:
+            raise AssertionError(f"Timed out after {timeout}s waiting for checklist step '{key}' to be recorded")
+        time.sleep(poll_interval)
 
 
 def render_slack_report(env: str, server: str, client: str, release: str = "") -> str:
