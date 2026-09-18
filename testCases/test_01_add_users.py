@@ -264,6 +264,7 @@ class test_module_01_users(BaseCase):
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_users_6", depends=["tc_users_1", "tc_users_2", "tc_users_3", "tc_users_4", "tc_users_5"], scope="class")
     def test_case_06_regimen_created_and_edited(self):
+        rerun_count = getattr(self, "rerun_count", 0)
         self._login_once()
         home = HomePage(self, "dashboard")
         staff = ManageStaffPage(self, "staff")
@@ -285,9 +286,12 @@ class test_module_01_users(BaseCase):
         # LATER step, e.g. the calendar verification) is still there --
         # create_new_schedule() would then add a second drug to the same
         # regimen instead of replacing it, and nothing downstream expects
-        # more than one. Delete any existing schedule first; a no-op on a
-        # genuine first attempt.
-        p_regimen.delete_schedule()
+        # more than one. Only needed on a rerun -- skip it on a genuine
+        # first attempt (calling it unconditionally was seen leaving the
+        # Regimen page in a state where the calendar header came up blank
+        # even on a first attempt).
+        if rerun_count != 0:
+            p_regimen.delete_schedule()
         with checklist_step("regimen_created"), perf_budget("create_regimen"):
             start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule()
 
