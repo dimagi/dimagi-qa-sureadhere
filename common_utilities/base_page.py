@@ -2059,8 +2059,14 @@ class BasePage:
 
         # 3) visit each month once, verify days in that month
         for (y, m) in sorted(groups.keys()):
+            # 20s wasn't always enough on banner: seen exhausting that full
+            # window with a genuinely still-blank calendar header (not a
+            # brief render flicker -- login/navigation/form-fill all
+            # succeeded on both the first attempt and its rerun, only this
+            # read timed out both times), right after create_new_schedule()
+            # already waits ~20s post-creation before ever reaching here.
             self.calendar_goto_year_month(
-                header_logical, next_btn_logical, prev_btn_logical, y, m, timeout=20
+                header_logical, next_btn_logical, prev_btn_logical, y, m, timeout=45
                 )
 
             for d in groups[(y, m)]:
