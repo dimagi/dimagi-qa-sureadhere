@@ -1,4 +1,5 @@
 import random
+import time
 
 import pytest
 from seleniumbase import BaseCase
@@ -243,6 +244,18 @@ class test_module_03(BaseCase):
             admin.open_feature_flags()
             a_ff.validate_admin_ff_page(default_client)
             a_ff.double_check_ff(UserData.per_drug_adherence_ff_on)
+        else:
+            # The skipped Admin > Feature Flags UI cycle above wasn't just
+            # extra navigation main always paid for -- it also incidentally
+            # gave the backend a dashboard+admin+feature-flags page-load's
+            # worth of wall-clock time to finish linking test_case_01's just
+            # -submitted video to this dose before we check for the
+            # auto-filled tag. Taking the fast API path removes that buffer;
+            # restore roughly the same amount of time explicitly instead of
+            # letting this race the backend.
+            print("[ff_api verify] all flags confirmed via API; waiting to give the backend the same "
+                  "processing time the skipped UI page-load cycle would have")
+            time.sleep(30)
 
         home.force_relogin()
         home.check_for_quick_actions()
