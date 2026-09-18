@@ -242,10 +242,22 @@ class PatientProfilePage(BasePage):
         self.click_robust('button_SEND/RESET')
 
         self.kendo_dialog_wait_open()
-        text = self.kendo_dialog_get_text()
+        # kendo_dialog_get_text() only waits for the dialog to be present, not
+        # for its content to finish rendering -- it can still be read before
+        # the "...: <PIN>" text has appeared, giving a string with no colon
+        # and an IndexError on pin[1] below. Retry the read itself.
+        text = ""
+        deadline = time.time() + 10
+        while time.time() < deadline:
+            text = self.kendo_dialog_get_text()
+            if ":" in text:
+                break
+            time.sleep(0.5)
         print(text)
 
         pin = text.split(":")
+        if len(pin) < 2:
+            raise RuntimeError(f"Cannot parse PIN from dialog text: {text!r}")
         pin = pin[1].strip()
         print(pin)
         self.kendo_dialog_click_button("Ok")

@@ -6,7 +6,7 @@ from appium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException, NoSuchElementException
+from selenium.common.exceptions import TimeoutException, NoSuchElementException, WebDriverException
 
 from appium.options.android import UiAutomator2Options
 from appium.webdriver.common.appiumby import AppiumBy
@@ -157,11 +157,30 @@ class Android:
         })
 
         # Initialize the remote Webdriver using BrowserStack remote URL
-        # and desired capabilities defined above
-        self.driver = webdriver.Remote(
-            "https://hub-cloud.browserstack.com:443/wd/hub",
-            options=self.options
-        )
+        # and desired capabilities defined above.
+        #
+        # BROWSERSTACK_QUEUE_SIZE_EXCEEDED means the account's parallel-
+        # session limit is full -- confirmed happening from OTHER test
+        # suites/projects sharing the same BrowserStack account (not this
+        # suite's own two sequential mobile sessions competing with each
+        # other), so it's genuinely transient: retry with a wait, since a
+        # slot is likely to free up as some other suite's session finishes,
+        # rather than losing the whole ~40-50min run to it immediately.
+        max_attempts = 4
+        retry_wait_s = 60
+        for attempt in range(1, max_attempts + 1):
+            try:
+                self.driver = webdriver.Remote(
+                    "https://hub-cloud.browserstack.com:443/wd/hub",
+                    options=self.options
+                )
+                break
+            except WebDriverException as e:
+                if "QUEUE_SIZE_EXCEEDED" not in str(e) or attempt == max_attempts:
+                    raise
+                print(f"[BrowserStack] Queue full (attempt {attempt}/{max_attempts}), "
+                      f"waiting {retry_wait_s}s before retrying: {e}")
+                time.sleep(retry_wait_s)
         self.driver.implicitly_wait(10)
         self.wait = WebDriverWait(self.driver, 50)
 
@@ -523,10 +542,29 @@ class Android:
         self.click_xpath(self.messages)
         self.wait.until(EC.visibility_of_element_located((AppiumBy.ID, self.outgoing_message)))
         send_text = "Sending from phone "+fetch_random_string()
-        self.send_message_and_verify(send_text)
-        time.sleep(3)
-        print(self.get_last_message_text())
-        print(self.get_last_outgoing_text())
+
+        # send_message_and_verify()'s own check only confirms a messages
+        # container is present, not that THIS text actually landed as the
+        # newest outgoing message -- a silent send failure (seen for real on
+        # secure: a rerun's new send never delivered, but this method still
+        # returned normally, so the web side kept polling for text that had
+        # never actually been sent) would go completely undetected. Verify
+        # the outgoing text itself and retry the type+send if it doesn't match.
+        max_attempts = 3
+        for attempt in range(1, max_attempts + 1):
+            self.send_message_and_verify(send_text)
+            time.sleep(3)
+            outgoing = self.get_last_outgoing_text()
+            print(f"[send_messages] attempt {attempt}: last outgoing = {outgoing!r}")
+            if outgoing and send_text in outgoing:
+                break
+            print(f"[send_messages] send not confirmed (attempt {attempt}/{max_attempts}), retrying")
+        else:
+            raise AssertionError(
+                f"Mobile message '{send_text}' never appeared as the last outgoing message "
+                f"after {max_attempts} attempts"
+            )
+
         self.click((AppiumBy.ACCESSIBILITY_ID, self.go_back))
         return send_text
 

@@ -8,6 +8,15 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+    # No "synchronize": without restricting types, this defaults to
+    # [opened, synchronize, reopened], so it auto-fires this whole ~50min,
+    # 3-environment suite on every single push to a branch with an open PR
+    # -- identical in scope to the all_no_rogers workflow_dispatch option.
+    # Confirmed happening live: pushing while iterating on a PR kept
+    # launching a duplicate full run alongside each manual dispatch. Run
+    # once when a PR opens/reopens; leave verifying further pushes to an
+    # explicit workflow_dispatch instead of an automatic one per commit.
+    types: [ opened, reopened ]
   repository_dispatch:
     types: [ deploy_success ]
   workflow_dispatch:
@@ -23,9 +32,24 @@ on:
           - securevoteu (EU Prod)
           - secure (US Prod)
           - all_no_rogers
+      release_version:
+        description: 'Release version to show in the Slack report header (e.g. 3.7.6.1). Leave blank to omit.'
+        required: false
+        default: ''
+        type: string
 
 concurrency:
-  group: sa-tests-${{ github.ref }}
+  # github.ref differs by trigger type for the same branch -- a push event
+  # resolves to refs/heads/<branch>, but a pull_request event (fired
+  # automatically on every push to a branch with an open PR) resolves to
+  # refs/pull/<n>/merge instead. That put push/workflow_dispatch runs and
+  # pull_request runs for the same commit into different concurrency groups,
+  # so the newer run never cancelled the older one and both ran side by side.
+  # github.head_ref is only set for pull_request events (plain branch name,
+  # e.g. "my-branch") and falls back to github.ref_name for every other
+  # trigger -- NOT github.ref, which would still carry the "refs/heads/"
+  # prefix and fail to match head_ref's plain name.
+  group: sa-tests-${{ github.head_ref || github.ref_name }}
   cancel-in-progress: true
 
 jobs:
@@ -114,6 +138,8 @@ jobs:
             --browser=chrome --headless --headless2 \
             --reruns 1 \
             --dashboard --html=presetup_report-${{ matrix.environment }}.html --tb=short --maxfail=1
+          echo "=== Feature flag API probe (common_utilities/feature_flag_api.py) ==="
+          cat ff_api_probe_${{ matrix.environment }}.txt || echo "(no probe output file -- probe() may not have run)"
           pytest -vv -m smoketest \
             --browser=chrome --headless --headless2 \
             --reruns 1 -n 3 --dist=loadscope\
@@ -142,6 +168,25 @@ jobs:
           while IFS= read -r line; do
             echo "::set-output name=${line%=*}::${line#*=}"
           done < sa_test_counts_${{ matrix.environment }}.txt
+
+      - name: Fail the job if the checklist Summary says FAIL
+        # pytest itself exits 0 when a test is only SKIPPED (e.g. a step
+        # skipped because a cross-worker dependency it needed never ran) --
+        # so job.status (and everything downstream that reads it: the Slack
+        # ✅/❌ icon, the pass/fail email) can show green even though
+        # conftest.py's own pytest_terminal_summary correctly determined the
+        # checklist is incomplete and wrote "Summary: FAIL". Make that the
+        # one authoritative source: fail the job for real when it says so.
+        # A no-op if the file is missing (e.g. presetup itself already
+        # failed the run before smoketest ever wrote it) -- that case is
+        # already a real job failure on its own.
+        if: always()
+        run: |
+          FILE="slack_summary_${{ matrix.environment }}.txt"
+          if [ -f "$FILE" ] && grep -q "^Summary: FAIL$" "$FILE"; then
+            echo "::error::Checklist Summary says FAIL for ${{ matrix.environment }} (see $FILE)"
+            exit 1
+          fi
 
       - name: Zip reports for email
         if: always()
@@ -204,7 +249,19 @@ jobs:
                       if k == "FAILED": data["failed"] = v
                       if k == "SKIPPED": data["skipped"] = v
 
-          data["status"] = "fail" if data["failed"] > 0 else "pass"
+          # data["failed"] alone misses a checklist step that never ran at
+          # all (e.g. skipped because of an unmet dependency) -- the
+          # checklist's own "Summary: PASS/FAIL" line (written by
+          # conftest.py's pytest_terminal_summary) is the authoritative
+          # source, matching what fails the job itself further down this
+          # workflow.
+          summary_path = f"slack_summary_{env}.txt"
+          if os.path.exists(summary_path):
+              with open(summary_path) as f:
+                  summary_text = f.read()
+              data["status"] = "fail" if "Summary: FAIL" in summary_text else "pass"
+          else:
+              data["status"] = "fail" if data["failed"] > 0 else "pass"
 
           with open("metrics_out/run_summary.json", "w") as f:
               json.dump(data, f)
@@ -253,17 +310,18 @@ jobs:
       - name: Upload Combined Chart to Slack
         if: ${{ !cancelled() && steps.configure_slack.outputs.result != '' }}
         env:
-          SLACK_TOKEN:    ${{ secrets.SLACK_QA_BOT_TOKEN }}
-          SLACK_CHANNEL:  ${{ steps.configure_slack.outputs.result }}
-          JOB_STATUS:     ${{ job.status }}
-          ENV_DISPLAY:    ${{ steps.env_display.outputs.display_name }}
-          PASSED:         ${{ steps.parse_counts.outputs.PASSED }}
-          FAILED:         ${{ steps.parse_counts.outputs.FAILED }}
-          ERROR:          ${{ steps.parse_counts.outputs.ERROR }}
-          SKIPPED:        ${{ steps.parse_counts.outputs.SKIPPED }}
-          XFAIL:          ${{ steps.parse_counts.outputs.XFAIL }}
-          ARTIFACT_ID:    ${{ steps.artifact-upload-step.outputs.artifact-id }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          SLACK_TOKEN:      ${{ secrets.SLACK_QA_BOT_TOKEN }}
+          SLACK_CHANNEL:    ${{ steps.configure_slack.outputs.result }}
+          JOB_STATUS:       ${{ job.status }}
+          ENV_DISPLAY:      ${{ steps.env_display.outputs.display_name }}
+          RELEASE_VERSION:  ${{ github.event.inputs.release_version }}
+          PASSED:           ${{ steps.parse_counts.outputs.PASSED }}
+          FAILED:           ${{ steps.parse_counts.outputs.FAILED }}
+          ERROR:            ${{ steps.parse_counts.outputs.ERROR }}
+          SKIPPED:          ${{ steps.parse_counts.outputs.SKIPPED }}
+          XFAIL:            ${{ steps.parse_counts.outputs.XFAIL }}
+          ARTIFACT_ID:      ${{ steps.artifact-upload-step.outputs.artifact-id }}
+          OPENAI_API_KEY:   ${{ secrets.OPENAI_API_KEY }}
         run: |
           pip install --quiet slack_sdk
           python - <<'PY'
@@ -277,8 +335,10 @@ jobs:
               print("Slack token/channel not configured — skipping")
               raise SystemExit(0)
 
-          job_status  = os.environ.get("JOB_STATUS", "failure")
-          env_display = os.environ.get("ENV_DISPLAY", "")
+          job_status      = os.environ.get("JOB_STATUS", "failure")
+          env_display     = os.environ.get("ENV_DISPLAY", "")
+          release_version = os.environ.get("RELEASE_VERSION", "").strip()
+          dimagiqa_env    = os.environ.get("DIMAGIQA_ENV", "")
           passed      = os.environ.get("PASSED", "0")
           failed      = os.environ.get("FAILED", "0")
           error       = os.environ.get("ERROR", "0")
@@ -301,9 +361,27 @@ jobs:
           }
           event_label = event_map.get(event, event.upper() or "UNKNOWN")
 
+          # The smoke suite (testCases/conftest.py::pytest_terminal_summary)
+          # renders the project team's exact checklist template to this file.
+          # Fall back to the old passed/failed summary if it's missing for
+          # any reason (e.g. the pytest run crashed before writing it).
+          checklist_path = pathlib.Path(f"slack_summary_{dimagiqa_env}.txt")
+          if checklist_path.exists():
+              checklist_text = checklist_path.read_text(encoding="utf-8").strip()
+              if release_version:
+                  checklist_text = checklist_text.replace(
+                      f"Smoke Tests - {env_display} -",
+                      f"Smoke Tests - {env_display} Release {release_version} -",
+                      1,
+                  )
+              body = checklist_text
+          else:
+              print(f"{checklist_path} not found -- falling back to the plain pass/fail summary")
+              body = f"*Passed:* {passed}  *Failed:* {failed}  *Error:* {error}  *Skipped:* {skipped}  *XFail:* {xfail}"
+
           message = (
               f"{status_icon} 📊 *[{env_display}] {workflow} Run #{run_number} — {event_label}*\n\n"
-              f"*Passed:* {passed}  *Failed:* {failed}  *Error:* {error}  *Skipped:* {skipped}  *XFail:* {xfail}\n\n"
+              f"{body}\n\n"
               f"📎 *Artifact:* <{artifact_url}|Download here>\n"
               f"🔗 *Dashboard:* https://dimagi.github.io/dimagi-qa-sureadhere/"
           )
@@ -384,6 +462,27 @@ jobs:
               bodyFile = './common_utilities/mail_templates/email_fail.md'
             }
 
+            // Same checklist text the Slack step posts (testCases/conftest.py's
+            // pytest_terminal_summary writes it) -- without this the email only
+            // ever said "PASSED"/"FAILED, check the attachment", with no way to
+            // tell what actually happened (e.g. a perf/duration budget breach)
+            // short of downloading and opening the report.
+            let checklistBody = ''
+            try {
+              const checklistPath = `./slack_summary_${CC_ENV}.txt`
+              let checklistText = await fs.readFile(checklistPath, 'utf8')
+              checklistText = checklistText
+                .replace(/:large_green_circle:/g, '🟢')
+                .replace(/:red_circle:/g, '🔴')
+                .replace(/:large_yellow_circle:/g, '🟡')
+                .trim()
+              // Markdown collapses single newlines into one paragraph --
+              // double them so each checklist line stays on its own line.
+              checklistBody = checklistText.replace(/\n/g, '\n\n')
+            } catch (e) {
+              console.log(`Could not read checklist summary for email: ${e}`)
+            }
+
             let actionRunLink = context.payload.repository.html_url + `/actions/runs/${context.runId}`
             let testSuite = 'SureAdhere Tests'
             let bodyContent = await fs.readFile(bodyFile, 'utf8')
@@ -391,6 +490,7 @@ jobs:
                 .replace(/{{runNumber}}/g, context.runNumber)
                 .replace(/{{environment}}/g, envDisplay)
                 .replace(/{{testSuite}}/g, testSuite)
+                .replace(/{{checklistBody}}/g, checklistBody)
             
             let receivers = 'qa-automation@dimagi.com'
             if (context.eventName !== "pull_request" || context.eventName !== "push") {

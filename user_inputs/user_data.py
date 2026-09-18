@@ -38,7 +38,8 @@ class UserData:
         "Per Drug Adherence": "ON",
         "Events panel - inline dose preview": "OFF",
         "Unlinking and re-linking Video events": "OFF",
-        "Food question boolean mode": "ON"
+        "Food question boolean mode": "ON",
+        "Self Report - calendar": "ON"
         }
     pill_count_ff_on = {
         "Pill Count": "ON",

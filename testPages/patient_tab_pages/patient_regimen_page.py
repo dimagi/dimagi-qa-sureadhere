@@ -165,9 +165,14 @@ class PatientRegimenPage(BasePage):
                 if d and d.strip()
                    and ',' not in d
                    and '/' not in d
-                   and ' ' not in d
+                   # Up to two words (a space-separated name like "Drug A" is
+                   # fine); anything else that isn't a plain space is still
+                   # rejected, and 3+ word names are excluded too -- some
+                   # diseases only offer multi-word drugs, which used to leave
+                   # nothing to choose from under the old single-word-only rule.
+                   and len(d.strip().split()) <= 2
                    and 'Sofosbuvir' not in d
-                   and 'Quabodepistat' not in d# optional: single-word only
+                   and 'Quabodepistat' not in d
                    and (donot_add_drug is None or donot_add_drug not in d)
                 ]
 
@@ -381,7 +386,13 @@ class PatientRegimenPage(BasePage):
 
         self.wait_for_page_to_load(50)
         time.sleep(4)
-        self.click_rendered('edit_against_drug', text=drug_name)
+        # click_rendered() has no retry/overlay handling; this edit button
+        # was reported to sometimes not actually register the click (no
+        # exception, but the edit form never opens) -- click_robust() adds
+        # scroll-into-view, overlay-clearing, and a JS-click fallback on top
+        # of the same locator.
+        self.click_robust(self.render_xpath('edit_against_drug', text=drug_name), by='xpath')
+        self.wait_for_element('startdate')
 
         if past_date:
             date = self.past_date()
@@ -389,7 +400,14 @@ class PatientRegimenPage(BasePage):
             date = self.today_date()
         self.wait_for_element('timepicker')
 
-        self.type('startdate', date)
+        # startdate is a native date input that's already pre-filled with
+        # the existing schedule's date here (unlike create_new_schedule(),
+        # where it starts empty) -- plain type() doesn't reliably clear it
+        # first, which corrupted the value into something like "20" instead
+        # of "2026-09-20" ("Invalid date format"). type_and_trigger() does
+        # a real clear + native-event dispatch, same as used below for the
+        # pill/dose fields.
+        self.type_and_trigger('startdate', date, blur=False)
         time.sleep(1)
 
         if time_of_drug:
@@ -416,8 +434,8 @@ class PatientRegimenPage(BasePage):
             if doses:
                 self.type_and_trigger('input_Dose_per_pill', str(doses), blur=False)
 
-            pills_entered = self.get_value('input_Number_of_pills')
-            dose_entered = self.get_value('input_Dose_per_pill')
+            pills_entered = int(self.get_value('input_Number_of_pills'))
+            dose_entered = int(self.get_value('input_Dose_per_pill'))
 
             total_pills = self.get_text('div_Total_dose_text')
             assert total_pills == str(pills_entered * dose_entered
@@ -426,11 +444,33 @@ class PatientRegimenPage(BasePage):
             print(pills_entered, dose_entered)
 
 
+        # text_date_format (start date, display text e.g. "Sep 16, 2026") is
+        # used unconditionally in the assertions at the end of this method,
+        # regardless of the end_date flag -- compute it unconditionally too.
+        text_date_format = self.format_mdY(datetime.strptime(date, "%Y-%m-%d"))
+
         if end_date:
-            text_date = datetime.strptime(date, "%Y-%m-%d")
-            text_date_format = self.format_mdY(text_date)
-            end_date = self.future_date(date, 5)
-            self.type('enddate', date)
+            # Previously broken three ways: future_date() only takes a day
+            # count (not a start date + count, so this raised TypeError if
+            # it ever actually ran), its result was never used, and the
+            # start date was typed into 'enddate' instead -- collapsing the
+            # schedule to a single day, which is why calendar verification
+            # below found dots missing for every day after the start date.
+            # no_of_weeks=1 matches the weeks=1 passed to
+            # calendar_verify_dots_multi_month() further down.
+            end_date_iso = (datetime.strptime(date, "%Y-%m-%d") + timedelta(days=6)).strftime("%Y-%m-%d")
+            self.type_and_trigger('enddate', end_date_iso, blur=False)
+            time.sleep(1)
+            end_date = self.format_mdY(datetime.strptime(end_date_iso, "%Y-%m-%d"))
+
+        if self.is_element_present('changeDate'):
+            # Editing an existing schedule now requires an explicit
+            # "when should this change take effect" date -- use the same
+            # date as the edit's own start date above. Same native-date-
+            # input class of field as startdate/enddate above, so use the
+            # same robust clear + native-event dispatch.
+            self.type_and_trigger('changeDate', date, blur=False)
+            time.sleep(1)
 
         self.click('button_SAVE_DRUG', strict=True)
         time.sleep(5)

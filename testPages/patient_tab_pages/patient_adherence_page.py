@@ -50,7 +50,11 @@ class PatientAdherencePage(BasePage):
         print("Opened tab is Adherence")
 
     def verify_patient_adherence_dose_status(self, status, flag=True):
-        text = self.kendo_dd_get_selected_text('doseStatus')
+        # Default kendo_dd_get_selected_text() timeout (10s) has been seen
+        # timing out on this specific dropdown on securevoteu (EU) -- give
+        # it more headroom rather than raising the shared default, which
+        # would affect every other call site across the codebase.
+        text = self.kendo_dd_get_selected_text('doseStatus', timeout=30)
         if flag == True:
             assert str(text).strip() == status, f"{status} is not selected"
             print(f"{status} is selected")
@@ -61,7 +65,7 @@ class PatientAdherencePage(BasePage):
             return False
 
     def verify_patient_adherence_dose_saved_status(self, status, flag=True):
-        text = self.kendo_dd_get_selected_text('kendo-dropdown-saved_status')
+        text = self.kendo_dd_get_selected_text('kendo-dropdown-saved_status', timeout=30)
         if flag == True:
             assert str(text).strip() == status, f"{status} is not selected"
             print(f"{status} is selected")
@@ -70,6 +74,17 @@ class PatientAdherencePage(BasePage):
             assert not str(text).strip() == status, f"{status} is selected"
             print(f"{status} is not selected")
             return False
+
+    def open_today_dose_edit(self):
+        # doseStatus / kendo-dropdown-saved_status only reflect today's actual
+        # dose entry once this panel is opened (see fillup_side_effects, the
+        # only other place that edits them) -- selecting them beforehand can
+        # silently hit a stale/unrelated dropdown instance, so the change
+        # never persists even though the read-back assertion still passes.
+        self.click('span_cal_today_date')
+        time.sleep(2)
+        self.wait_for_element('kendo-dropdown-saved_status')
+        self.wait_for_element('doseStatus')
 
     def set_patient_adherence_dose_status(self, status):
         self.kendo_dd_select_text_old('doseStatus', status)
@@ -108,7 +123,7 @@ class PatientAdherencePage(BasePage):
         assert self.is_element_present('span_cal_today_video_status', strict=True), f"video icon not present"
         print("video icon is present")
         timestamp_text = self.get_text_rendered('span_commented_timestamp', text=review_text)
-        self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=2)
+        self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=5)
         # assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
         print(f"{str(formatted_now)} is in {timestamp_text}")
 

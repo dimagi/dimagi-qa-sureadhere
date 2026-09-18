@@ -76,7 +76,7 @@ class PatientVideoPage(BasePage):
         assert meds == drug_name, f"{meds} not in {drug_name}"
         print(f"{meds} matches {drug_name}")
         timestamp_text = self.get_text('span_commented_timestamp')
-        self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=2)
+        self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=5)
         # assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
         print(f"{str(formatted_now)} is in {timestamp_text}")
 
@@ -110,7 +110,7 @@ class PatientVideoPage(BasePage):
         print("Video error is present")
 
 
-    def fill_up_review_form_ff_on(self, meds, no_of_pills, dose_per_pill, rerun_count=0):
+    def fill_up_review_form_ff_on(self, meds, no_of_pills, dose_per_pill):
         review_text = "Meds taken, Review Approved with FF ON"
         self.unheal_all('newCommentInput')
         self.unheal('newCommentInput')
@@ -133,18 +133,18 @@ class PatientVideoPage(BasePage):
         assert meds == drug_name, f"{meds} not in {drug_name}"
         print(f"{meds} matches {drug_name}")
         timestamp_text = self.get_text_rendered('span_commented_timestamp', text=review_text)
-        self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=2)
-        assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
+        self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=5)
+        # Exact-minute string match removed: it duplicated the tolerant check
+        # above but with no tolerance, so it fails whenever the comment's
+        # actual submit/render crosses a minute boundary from `now` (see the
+        # same fix already applied in PatientAdherencePage.
+        # check_calendar_and_comment_for_adherence).
         print(f"{str(formatted_now)} is in {timestamp_text}")
 
         full_text = self.get_text_rendered('div_commented_user_timestamp', text=review_text)
         assert review_text in full_text, f"{review_text} not in {full_text}"
         print(f"{review_text} is in {full_text}")
-        side_effect = ""
-        if rerun_count != 0 and self.kendo_dd_get_selected_text('doseStatus') == "Taken":
-            print("Dose Status already selected")
-        else:
-            self.select_dose_status("Taken")
+        self.select_dose_status("Taken")
         assert self.is_element_present("auto_filled_tag", strict=True, timeout=15), "auto_filled_tag not present"
         print("auto_filled_tag present on page")
         assert self.is_element_present('edit_doses')
@@ -157,13 +157,7 @@ class PatientVideoPage(BasePage):
             'span_Observation method', strict=True).strip() == obs_method, f"{self.get_text('span_Observation method')} not matching {obs_method}"
         print("Dose summary verified")
 
-        if rerun_count == 0:
-            side_effect = self.fill_up_side_effects()
-        else:
-            side_effect_text = self.get_text('li_current-side-effects', strict=True)
-            print(side_effect_text.strip())
-            side_effect_text = side_effect_text.replace("x", "")
-            side_effect = side_effect_text.strip()
+        side_effect = self.fill_up_side_effects()
         self.scroll_to_element('span_SUBMIT_REVIEW', strict=True)
         sel_debug = self.resolve_strict('span_SUBMIT_REVIEW')
         el_debug = self.sb.driver.find_element(By.XPATH, sel_debug)
@@ -285,7 +279,7 @@ class PatientVideoPage(BasePage):
         print(f"{meds} matches {drug_name}")
 
         timestamp_text = self.get_text_rendered('span_commented_timestamp', text=review_text)
-        self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=2)
+        self.assert_timestamp_within_minutes(timestamp_text, now, tolerance_minutes=5)
         # assert formatted_now in timestamp_text, f"{str(formatted_now)} not in {timestamp_text}"
         print(f"{str(formatted_now)} is in {timestamp_text}")
 

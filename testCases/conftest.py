@@ -2,6 +2,7 @@ import os
 import base64
 import pytest
 import sys
+import time
 from pathlib import Path
 from seleniumbase import Driver
 from seleniumbase import config as sb_config
@@ -265,6 +266,39 @@ def _combine_charts(pie_path, bar_path, combined_path):
     print(f"[charts] Combined chart saved -> {combined_path}")
 
 
+_MASTER_SESSION_START = None
+
+
+def pytest_sessionstart(session):
+    """Record wall-clock start time on the xdist master (or the lone
+    process when not running under xdist) so pytest_terminal_summary can
+    check the total suite duration against SUITE_DURATION_BUDGET_SECONDS."""
+    global _MASTER_SESSION_START
+    if not hasattr(session.config, "workerinput"):
+        _MASTER_SESSION_START = time.time()
+
+
+STEP_ENV_DISPLAY_NAMES = {
+    "banner": "Staging",
+    "rogers": "QA",
+    "secure": "US Prod",
+    "securevoteu": "EU Prod",
+}
+
+# Mirrors the per-environment client selection already duplicated across the
+# smoketest files (see e.g. testCases/test_02_admin.py) -- UserData.client
+# indices: [0]=banner, [1]=rogers, [2]=secure/default, [3]=securevoteu.
+def _client_for_env(env: str) -> str:
+    from user_inputs.user_data import UserData
+    if env == "banner":
+        return UserData.client[0]
+    if env == "rogers":
+        return UserData.client[1]
+    if env == "securevoteu":
+        return UserData.client[3]
+    return UserData.client[2]
+
+
 def pytest_terminal_summary(terminalreporter, exitstatus, config):
     # Collect test counts
     passed = terminalreporter.stats.get('passed', [])
@@ -294,6 +328,42 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
         "skipped": len(skipped),
         "reruns":  len(reruns),
     })
+
+    # Render the exact Slack checklist template requested by the project
+    # team. The workflow runs pytest twice (presetup, then smoketest); the
+    # presetup pass has no checklist data yet and renders an all-red draft,
+    # which the smoketest pass's later invocation overwrites with the real
+    # result -- harmless since the two runs are sequential, not concurrent.
+    from common_utilities.step_reporter import render_slack_report, report_step
+    from common_utilities.perf import read_perf_results, SUITE_DURATION_BUDGET_SECONDS
+
+    # "All pages loading fine" is a catch-all for the run as a whole, not
+    # tied to one specific action -- green only when nothing in this
+    # invocation failed or errored, so it doesn't stay mustard forever on
+    # an otherwise-clean run just because nobody called report_step() for
+    # it from inside a test.
+    report_step("all_pages_loading", not failed and not error, env=env)
+
+    server = STEP_ENV_DISPLAY_NAMES.get(env, env)
+    client = _client_for_env(env)
+    report_text = render_slack_report(env, server=server, client=client)
+
+    if _MASTER_SESSION_START is not None:
+        duration_s = time.time() - _MASTER_SESSION_START
+        if duration_s > SUITE_DURATION_BUDGET_SECONDS:
+            mins, budget_mins = duration_s / 60, SUITE_DURATION_BUDGET_SECONDS / 60
+            report_text = report_text.replace(
+                "Summary: PASS",
+                f":red_circle: Suite duration {mins:.1f}m exceeded the {budget_mins:.0f}m budget\nSummary: FAIL",
+            )
+
+    perf_failures = [r for r in read_perf_results(env) if not r["passed"]]
+    if perf_failures:
+        print(f"[perf] {len(perf_failures)} performance budget(s) breached for {env}: {perf_failures}")
+
+    with open(f"slack_summary_{env}.txt", "w", encoding="utf-8") as f:
+        f.write(report_text)
+    print(f"[slack] Checklist report written -> slack_summary_{env}.txt")
 
 @pytest.fixture(scope="session", autouse=True)
 def global_presetup_fixture():
@@ -341,6 +411,8 @@ def pytest_runtest_setup(item):
         worker_id = getattr(item.config, "workerinput", {}).get("workerid", "master")
         if worker_id != "master":
             pytest.skip("Presetup runs only on master node")
+    from common_utilities.perf import set_current_test
+    set_current_test(item.name)
 
 @pytest.fixture(scope="function")
 def driver(request, settings):
