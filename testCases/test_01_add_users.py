@@ -280,6 +280,14 @@ class test_module_01_users(BaseCase):
         patient.open_patient(d["patient_fname"], d["patient_lname"])
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
+        # A pytest rerun re-executes this whole method from scratch, but a
+        # schedule the first attempt already created (before failing on a
+        # LATER step, e.g. the calendar verification) is still there --
+        # create_new_schedule() would then add a second drug to the same
+        # regimen instead of replacing it, and nothing downstream expects
+        # more than one. Delete any existing schedule first; a no-op on a
+        # genuine first attempt.
+        p_regimen.delete_schedule()
         with checklist_step("regimen_created"), perf_budget("create_regimen"):
             start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule()
 
