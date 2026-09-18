@@ -401,8 +401,17 @@ class test_module_01_users(BaseCase):
     # pytest-dependency's per-worker registry -- is what actually enforces
     # that ordering correctly.
     @pytest.mark.dependency(name="tc_users_8", depends=["tc_users_7"], scope="class")
+    @pytest.mark.flaky(reruns=0)
     def test_case_08_dose_submitted_pda_disabled_and_auto_complete_self_report(self):
-        rerun_count = getattr(self, "rerun_count", 0)
+        # No automatic rerun (see @pytest.mark.flaky(reruns=0) above): the
+        # rerun_count != 0 branch this test used to have took a shorter
+        # navigation path straight into the dose-status check, without the
+        # fuller page-load verification the first-attempt path does --
+        # confirmed as the real cause of a live failure ("No working locator
+        # found for 'doseStatus'": the Adherence page was still showing its
+        # loading spinner). Same fix as test_case_02a: always take the one,
+        # fully-verified path instead of a rerun-only shortcut that can hit
+        # the page before it's ready.
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
@@ -411,7 +420,6 @@ class test_module_01_users(BaseCase):
         profile = UserProfilePage(self, "user")
         a_ff = AdminFFPage(self, 'feature_flags')
         admin = AdminPage(self, 'admin')
-        patient = ManagePatientPage(self, "patients")
 
         # test_case_02a (test_03_mobile.py) runs in a different xdist worker
         # process and toggles the same environment-wide Per Drug Adherence
@@ -467,22 +475,9 @@ class test_module_01_users(BaseCase):
 
         home.validate_dashboard_page()
         with checklist_step("dose_submitted_pda_off"), checklist_step("auto_complete_self_report"):
-            if rerun_count == 0:
-                home.check_for_quick_actions()
-                home.check_for_video_review(d["patient_fname"]+" "+d["patient_lname"], d['SA_ID'])
-                formatted_now, review_text = _review_video_and_verify_adherence()
-            else:
-                home.open_manage_patient_page()
-                patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
-                patient.open_patient(d["patient_fname"], d["patient_lname"])
-
-                p_adhere.open_patient_adherence_page()
-                if p_adhere.verify_patient_adherence_dose_status("Taken", True) and p_adhere.verify_patient_adherence_dose_saved_status("Taken", True):
-                    p_adhere.open_video_form()
-                    formatted_now, review_text = _review_video_and_verify_adherence()
-                else:
-                    print("Already Marked as Adherent")
-                    formatted_now, review_text = d.get("commented_timestamp"), d.get("commented_text")
+            home.check_for_quick_actions()
+            home.check_for_video_review(d["patient_fname"]+" "+d["patient_lname"], d['SA_ID'])
+            formatted_now, review_text = _review_video_and_verify_adherence()
 
         home.click_admin_profile_button()
         profile.logout_user()
