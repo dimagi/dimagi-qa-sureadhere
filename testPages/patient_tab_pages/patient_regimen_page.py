@@ -165,9 +165,14 @@ class PatientRegimenPage(BasePage):
                 if d and d.strip()
                    and ',' not in d
                    and '/' not in d
-                   and ' ' not in d
+                   # Up to two words (a space-separated name like "Drug A" is
+                   # fine); anything else that isn't a plain space is still
+                   # rejected, and 3+ word names are excluded too -- some
+                   # diseases only offer multi-word drugs, which used to leave
+                   # nothing to choose from under the old single-word-only rule.
+                   and len(d.strip().split()) <= 2
                    and 'Sofosbuvir' not in d
-                   and 'Quabodepistat' not in d# optional: single-word only
+                   and 'Quabodepistat' not in d
                    and (donot_add_drug is None or donot_add_drug not in d)
                 ]
 
