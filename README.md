@@ -90,16 +90,24 @@ Summary: FAIL
 - The exact same checklist text is also included in the result email (previously the email only ever said a generic "PASSED"/"FAILED, check the attachment").
 - The canonical, ordered list of checklist steps and their labels lives in `common_utilities/step_reporter.py` (`STEP_TEMPLATE`) — that's the place to add, rename, or reorder a line.
 
-**Performance budgets**: a handful of the slowest, most meaningful actions (patient/regimen creation, mobile video submission, in-app messaging round-trip, login) are timed via `common_utilities/perf.py`'s `perf_budget`, plus one overall suite-duration budget checked at the end of the run. Exceeding an individual action's budget fails that test loudly instead of silently tolerating a slowdown — that failure shows up as its own red checklist line, unless a rerun then finishes within budget, in which case the checklist line itself goes back to green (only the suite-duration budget directly forces `Summary: FAIL`).
+**Performance budgets**: a handful of the slowest, most meaningful actions (login to dashboard, patient/regimen creation, mobile video submission, in-app messaging round-trip) are timed via `common_utilities/perf.py`'s `perf_budget`, plus one overall suite-duration budget checked at the end of the run. Each measurement records:
 
-That's exactly why a real slowdown could otherwise vanish from the report the moment a rerun happens to land inside a faster window. To close that gap, a **`Performance issues:`** section is appended after `Summary` whenever any action breached its budget on *any* attempt, even one a rerun later passed cleanly — listing the test name and the reason, e.g.:
+- `elapsed_s` - raw wall clock, judged against the step's budget (`DEFAULT_BUDGETS`).
+- `fixed_sleep_s` - time spent in this repo's own literal `time.sleep(<number>)` calls during the step, and `active_s = elapsed_s - fixed_sleep_s`, i.e. time actually spent waiting on the app. Polling/backoff sleeps with a variable argument and SeleniumBase's own waits still count as active time.
+- the browser's own per-endpoint timings for every XHR/fetch call the step made (Resource Timing API), written to `slack_api_<env>.jsonl`.
+
+A budget breach no longer fails the test mid-run (so a slow step can't hide the rest of that test's functional checks or trigger a rerun of it). Instead it forces `Summary: FAIL` and is listed in a **`Performance issues:`** section after `Summary`, from whichever attempt it happened on, e.g.:
 
 ```
 Performance issues:
-- test_case_06_regimen_created_and_edited: 'edit_regimen' took 180.2s, exceeding the 180s budget
+- test_case_06_regimen_created_and_edited: 'edit_regimen' took 280.2s, exceeding the 280s budget
 ```
 
-This section is omitted entirely when there are no perf issues to report.
+A **`Performance warnings (do not fail the run):`** section lists breaches of BrowserStack-dependent steps (`NOISY_KEYS`, currently `mobile_video_submit`) and **trend warnings**: a step whose `active_s` is more than `TREND_WARN_FACTOR` (1.5x) its median over the last 10 runs on that environment. The history comes from the metrics branch's `metrics/runs.jsonl`, which the workflow fetches as `perf_history.jsonl` before the run; each run's `run_summary.json` now carries a `perf` list and the 25 slowest API endpoints (`api`) so the next run, and the dashboard, can use them.
+
+Every web test (smoke and extended) also records the API calls it made, and the end of the run prints the slowest endpoints by p95 and writes them all to `perf_api_summary_<env>.json`. The perf/API files are included in the zipped artifacts.
+
+Both sections are omitted entirely when there is nothing to report.
 
  -  You should be able to find the zipped results in the **Artifacts** section, of the corresponding run (after a run is complete).
 

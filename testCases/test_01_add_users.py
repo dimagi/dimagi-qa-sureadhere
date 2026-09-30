@@ -150,12 +150,12 @@ class test_module_01_users(BaseCase):
             login.after_logout()
         except:
             print("Already logged out")
-        with checklist_step("login_new_staff"):
+        with checklist_step("login_new_staff"), perf_budget("login_and_dashboard", driver=self.driver):
             login.login(d["email"], UserData.pwd)
             home.validate_dashboard_page()
         home.click_add_user()
         user.add_patient()
-        with checklist_step("patient_created"), perf_budget("create_patient"):
+        with checklist_step("patient_created"), perf_budget("create_patient", driver=self.driver):
             pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(d['site'], rerun_count=rerun_count)
             p_profile.verify_patient_profile_page()
             sa_id = p_profile.verify_patient_profile_details(pfname, plname, mrn, pemail, username, phn, phn_country, d['site'], sa_id=True)
@@ -292,12 +292,12 @@ class test_module_01_users(BaseCase):
         # even on a first attempt).
         if rerun_count != 0:
             p_regimen.delete_schedule()
-        with checklist_step("regimen_created"), perf_budget("create_regimen"):
+        with checklist_step("regimen_created"), perf_budget("create_regimen", driver=self.driver):
             start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule()
 
         home.force_relogin()
 
-        with checklist_step("regimen_edited"), perf_budget("edit_regimen"):
+        with checklist_step("regimen_edited"), perf_budget("edit_regimen", driver=self.driver):
             home.open_manage_patient_page()
             patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
             patient.open_patient(d["patient_fname"], d["patient_lname"])

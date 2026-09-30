@@ -276,6 +276,40 @@ def pytest_sessionstart(session):
     global _MASTER_SESSION_START
     if not hasattr(session.config, "workerinput"):
         _MASTER_SESSION_START = time.time()
+        # Perf/API logs are append-only across xdist workers, so clear them
+        # once per session up front -- otherwise a local run keeps reporting
+        # every earlier run's breaches too.
+        from common_utilities.perf import reset_perf_logs
+        reset_perf_logs(os.environ.get("DIMAGIQA_ENV", "default_env"))
+
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_call(item):
+    """After every web test, record the XHR/fetch timings the browser saw
+    during it (see common_utilities/perf.py::collect_api_timings). This
+    gives every test -- including the extended suite, which has no
+    perf_budget blocks -- per-endpoint API timings at the cost of one
+    execute_script call."""
+    yield
+    # BaseCase's tearDown has already cleared self.driver by now; with
+    # --reuse-class-session (pytest.ini) the still-open browser is kept on
+    # sb_config.shared_driver instead.
+    driver = getattr(getattr(item, "instance", None), "driver", None) or getattr(sb_config, "shared_driver", None)
+    if driver is not None:
+        from common_utilities.perf import collect_api_timings
+        collect_api_timings(driver, scope=item.name, mark="test")
+
+
+def pytest_sessionfinish(session, exitstatus):
+    """perf_budget records breaches instead of failing the test mid-run, so
+    fail the session here to keep a local run's exit code honest. (In CI
+    the job is failed from the Slack summary's "Summary: FAIL" line.)"""
+    if hasattr(session.config, "workerinput"):
+        return
+    from common_utilities.perf import read_perf_failures
+    env = os.environ.get("DIMAGIQA_ENV", "default_env")
+    if read_perf_failures(env) and session.exitstatus == 0:
+        session.exitstatus = 1
 
 
 STEP_ENV_DISPLAY_NAMES = {
@@ -335,7 +369,9 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
     # which the smoketest pass's later invocation overwrites with the real
     # result -- harmless since the two runs are sequential, not concurrent.
     from common_utilities.step_reporter import render_slack_report, report_step
-    from common_utilities.perf import read_perf_results, SUITE_DURATION_BUDGET_SECONDS
+    from common_utilities.perf import (
+        read_perf_failures, write_api_summary, api_summary_path, SUITE_DURATION_BUDGET_SECONDS,
+    )
 
     # "All pages loading fine" is a catch-all for the run as a whole, not
     # tied to one specific action -- green only when nothing in this
@@ -357,9 +393,16 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
                 f":red_circle: Suite duration {mins:.1f}m exceeded the {budget_mins:.0f}m budget\nSummary: FAIL",
             )
 
-    perf_failures = [r for r in read_perf_results(env) if not r["passed"]]
+    perf_failures = read_perf_failures(env)
     if perf_failures:
         print(f"[perf] {len(perf_failures)} performance budget(s) breached for {env}: {perf_failures}")
+
+    api_rows = write_api_summary(env)
+    if api_rows:
+        print(f"[perf] Slowest API endpoints by p95 for {env} (full list -> {api_summary_path(env).name}):")
+        for row in api_rows[:10]:
+            print(f"  p95 {row['p95_ms']:>6}ms  p50 {row['p50_ms']:>6}ms  max {row['max_ms']:>6}ms  "
+                  f"n={row['n']:<4} {row['endpoint']}")
 
     with open(f"slack_summary_{env}.txt", "w", encoding="utf-8") as f:
         f.write(report_text)

@@ -114,6 +114,17 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y tesseract-ocr tesseract-ocr-eng
 
+      # common_utilities/perf.py compares each perf_budget step's active
+      # time to the median of recent runs, read from the metrics branch's
+      # runs.jsonl (every run_summary.json the collector has ingested). No
+      # history just means no trend warnings -- never fails the run.
+      - name: Fetch perf history for trend comparison
+        continue-on-error: true
+        run: |
+          git fetch --depth=1 origin metrics
+          git show FETCH_HEAD:metrics/runs.jsonl > perf_history.jsonl
+          echo "perf_history.jsonl: $(wc -l < perf_history.jsonl) run(s)"
+
       - name: SureAdhere Tests with pytest
         env:
           DIMAGIQA_ENV: ${{ matrix.environment }}
@@ -192,7 +203,8 @@ jobs:
         if: always()
         run: |
           rm -f sbase-artifacts-${{ matrix.environment }}.zip || true
-          zip -r sbase-artifacts-${{ matrix.environment }}.zip report-${{ matrix.environment }}.html latest_logs dashboard.html presetup_report-${{ matrix.environment }}.html
+          zip -r sbase-artifacts-${{ matrix.environment }}.zip report-${{ matrix.environment }}.html latest_logs dashboard.html presetup_report-${{ matrix.environment }}.html \
+            slack_perf_${{ matrix.environment }}.jsonl slack_api_${{ matrix.environment }}.jsonl perf_api_summary_${{ matrix.environment }}.json || true
 
       - name: Upload reports & logs
         id: artifact-upload-step
@@ -262,6 +274,27 @@ jobs:
               data["status"] = "fail" if "Summary: FAIL" in summary_text else "pass"
           else:
               data["status"] = "fail" if data["failed"] > 0 else "pass"
+
+          # Perf data for the dashboard and for the next run's trend check
+          # (perf.py::load_baseline reads data["perf"] back from runs.jsonl).
+          # Kept small on purpose: every run_summary.json is appended to the
+          # metrics branch forever.
+          perf_keep = ("key", "test", "elapsed_s", "fixed_sleep_s", "active_s", "budget_s", "passed", "noisy")
+          perf_path = f"slack_perf_{env}.jsonl"
+          data["perf"] = []
+          if os.path.exists(perf_path):
+              with open(perf_path, encoding="utf-8") as f:
+                  for line in f:
+                      try:
+                          entry = json.loads(line)
+                      except ValueError:
+                          continue
+                      data["perf"].append({k: entry.get(k) for k in perf_keep})
+          api_path = f"perf_api_summary_{env}.json"
+          data["api"] = []
+          if os.path.exists(api_path):
+              with open(api_path, encoding="utf-8") as f:
+                  data["api"] = json.load(f)[:25]
 
           with open("metrics_out/run_summary.json", "w") as f:
               json.dump(data, f)

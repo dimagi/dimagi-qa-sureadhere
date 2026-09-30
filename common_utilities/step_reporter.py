@@ -185,15 +185,17 @@ def render_slack_report(env: str, server: str, client: str, release: str = "") -
                 label = label.replace(f"{{{k}}}", str(values[k]))
         lines.append(f"{icon} {label}")
 
+    # perf_budget no longer fails the test itself (so a slow step can't hide
+    # the rest of that test's functional checks), which means a breach
+    # leaves no trace in the checklist above -- it forces Summary: FAIL
+    # here instead, and is listed below on whichever attempt it happened.
+    from common_utilities.perf import read_perf_failures, read_perf_warnings
+    perf_failures = read_perf_failures(env)
+    perf_warnings = read_perf_warnings(env)
+    overall_pass = overall_pass and not perf_failures
+
     lines.append(f"Summary: {'PASS' if overall_pass else 'FAIL'}")
 
-    # A perf_budget breach on a first attempt that a rerun later passes
-    # cleanly leaves no trace in the checklist above (steps use last-write-
-    # wins, so the rerun's clean timing silently overwrites the earlier
-    # failure) -- surface it here regardless of whether the test ultimately
-    # passed, since the slowness genuinely happened.
-    from common_utilities.perf import read_perf_failures
-    perf_failures = read_perf_failures(env)
     if perf_failures:
         lines.append("")
         lines.append("Performance issues:")
@@ -202,5 +204,21 @@ def render_slack_report(env: str, server: str, client: str, release: str = "") -
                 f"- {failure.get('test', 'unknown_test')}: '{failure['key']}' took "
                 f"{failure['elapsed_s']:.1f}s, exceeding the {failure['budget_s']:.0f}s budget"
             )
+
+    if perf_warnings:
+        lines.append("")
+        lines.append("Performance warnings (do not fail the run):")
+        for warning in perf_warnings:
+            test_name = warning.get("test", "unknown_test")
+            if warning.get("noisy") and not warning.get("passed"):
+                lines.append(
+                    f"- {test_name}: '{warning['key']}' took {warning['elapsed_s']:.1f}s, over the "
+                    f"{warning['budget_s']:.0f}s budget (BrowserStack-dependent step)"
+                )
+            if warning.get("trend_warning"):
+                lines.append(
+                    f"- {test_name}: '{warning['key']}' active time {warning['active_s']:.1f}s is "
+                    f"{warning['trend_ratio']:.1f}x its recent median of {warning['baseline_active_s']:.1f}s"
+                )
 
     return "\n".join(lines)

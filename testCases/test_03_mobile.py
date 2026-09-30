@@ -77,12 +77,13 @@ class test_module_03(BaseCase):
             default_staff_email = UserData.default_staff_email[2]
             default_site_manager = UserData.site_manager[1]
             
-        login.login(default_staff_email, UserData.pwd)
-        home.open_dashboard_page()
-        home.validate_dashboard_page()
+        with perf_budget("login_and_dashboard", driver=self.driver):
+            login.login(default_staff_email, UserData.pwd)
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
         home.click_add_user()
         user.add_patient()
-        with perf_budget("create_patient"):
+        with perf_budget("create_patient", driver=self.driver):
             pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(default_site_manager, mob='mob', rerun_count=rerun_count)
             p_profile.verify_patient_profile_page()
             sa_id = p_profile.verify_patient_profile_details(pfname, plname, mrn, pemail, username, phn, phn_country,
@@ -105,7 +106,7 @@ class test_module_03(BaseCase):
         # needed on a rerun -- skip it on a genuine first attempt.
         if rerun_count != 0:
             p_regimen.delete_schedule()
-        with perf_budget("create_regimen"):
+        with perf_budget("create_regimen", driver=self.driver):
             start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule(time_of_drug=True)
 
         home.ensure_logged_in()
@@ -165,7 +166,7 @@ class test_module_03(BaseCase):
             mobile.select_environment(self.settings['url'])
             mobile.login_patient(d['patient_username'], d['patient_pin'])
 
-        with checklist_step("in_app_messaging"), perf_budget("in_app_message_roundtrip"):
+        with checklist_step("in_app_messaging"), perf_budget("in_app_message_roundtrip", driver=self.driver):
             mob_msg = mobile.send_messages()
             p_message.open_patient_messages_page()
             p_message.verify_patient_messages_page()
