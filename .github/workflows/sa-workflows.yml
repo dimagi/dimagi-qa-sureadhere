@@ -451,37 +451,69 @@ jobs:
           png_path = "slack_charts/summary_combined.png"
           parent_ts = None
 
-          if pathlib.Path(png_path).exists():
+          # Slack's gateway sometimes times out (HTTP 504, raised as a plain
+          # urllib error, not SlackApiError) -- that crashed this step and
+          # dropped the whole report once. So: retry the chart upload, then
+          # fall back to a text-only message, and never post twice (a timed-
+          # out request can still have gone through).
+          run_marker = f"[{env_display}] {workflow} Run #{run_number}"
+
+          def find_posted_ts():
               try:
-                  client.files_upload_v2(
-                      file=png_path,
-                      filename="summary_combined.png",
-                      title="Test Summary",
-                      channel=channel,
-                      initial_comment=message,
-                  )
-                  print("Chart + summary posted to Slack")
-                  time.sleep(2)
+                  now = time.time()
+                  history = client.conversations_history(channel=channel, limit=10)
+                  for msg in history.get("messages", []):
+                      if now - float(msg.get("ts", 0)) < 300 and run_marker in (msg.get("text", "") or ""):
+                          return msg["ts"]
+              except Exception as ts_err:
+                  print(f"Could not read channel history: {ts_err}")
+              return None
+
+          posted = False
+          if pathlib.Path(png_path).exists():
+              for attempt in range(1, 4):
                   try:
-                      now = time.time()
-                      history = client.conversations_history(channel=channel, limit=5)
-                      for msg in history.get("messages", []):
-                          if now - float(msg.get("ts", 0)) < 60 and msg.get("files"):
-                              if env_display.upper() in (msg.get("text", "") or "").upper():
-                                  parent_ts = msg["ts"]
-                                  break
-                  except Exception as ts_err:
-                      print(f"Could not get ts for threading: {ts_err}")
-              except SlackApiError as e:
-                  print(f"files_upload_v2 failed: {e}")
+                      client.files_upload_v2(
+                          file=png_path,
+                          filename="summary_combined.png",
+                          title="Test Summary",
+                          channel=channel,
+                          initial_comment=message,
+                      )
+                      print("Chart + summary posted to Slack")
+                      posted = True
+                      time.sleep(2)
+                      parent_ts = find_posted_ts()
+                      break
+                  except Exception as e:
+                      print(f"files_upload_v2 attempt {attempt} failed: {e}")
+                      time.sleep(15 * attempt)
+                      parent_ts = find_posted_ts()
+                      if parent_ts:
+                          print("The report did reach Slack despite the error -- not posting again")
+                          posted = True
+                          break
           else:
               print(f"Chart not found at {png_path}, falling back to text message")
-              try:
-                  resp = client.chat_postMessage(channel=channel, text=message, mrkdwn=True)
-                  parent_ts = resp["ts"]
-              except SlackApiError as e:
-                  print(f"chat_postMessage failed: {e}")
-                  raise SystemExit(0)
+
+          if not posted:
+              for attempt in range(1, 4):
+                  try:
+                      resp = client.chat_postMessage(channel=channel, text=message, mrkdwn=True)
+                      parent_ts = resp["ts"]
+                      posted = True
+                      print("Summary posted to Slack as a text message (without the chart)")
+                      break
+                  except Exception as e:
+                      print(f"chat_postMessage attempt {attempt} failed: {e}")
+                      time.sleep(15 * attempt)
+                      parent_ts = find_posted_ts()
+                      if parent_ts:
+                          posted = True
+                          break
+          if not posted:
+              print("::warning::Could not post the report to Slack after several attempts")
+              raise SystemExit(0)
 
           report = pathlib.Path("ai_failure_report.md")
           if parent_ts and report.exists() and int(failed or 0) > 0:
