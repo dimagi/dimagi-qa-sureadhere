@@ -368,10 +368,9 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
     # presetup pass has no checklist data yet and renders an all-red draft,
     # which the smoketest pass's later invocation overwrites with the real
     # result -- harmless since the two runs are sequential, not concurrent.
-    from common_utilities.step_reporter import render_slack_report, report_step
-    from common_utilities.perf import (
-        read_perf_failures, write_api_summary, api_summary_path, SUITE_DURATION_BUDGET_SECONDS,
-    )
+    import json
+    from common_utilities.step_reporter import build_slack_report, report_step
+    from common_utilities.perf import read_perf_failures, write_api_summary, api_summary_path
 
     # "All pages loading fine" is a catch-all for the run as a whole, not
     # tied to one specific action -- green only when nothing in this
@@ -382,16 +381,14 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
 
     server = STEP_ENV_DISPLAY_NAMES.get(env, env)
     client = _client_for_env(env)
-    report_text = render_slack_report(env, server=server, client=client)
-
-    if _MASTER_SESSION_START is not None:
-        duration_s = time.time() - _MASTER_SESSION_START
-        if duration_s > SUITE_DURATION_BUDGET_SECONDS:
-            mins, budget_mins = duration_s / 60, SUITE_DURATION_BUDGET_SECONDS / 60
-            report_text = report_text.replace(
-                "Summary: PASS",
-                f":red_circle: Suite duration {mins:.1f}m exceeded the {budget_mins:.0f}m budget\nSummary: FAIL",
-            )
+    duration_s = time.time() - _MASTER_SESSION_START if _MASTER_SESSION_START is not None else None
+    report = build_slack_report(env, server=server, client=client, suite_duration_s=duration_s)
+    report_text = report["text"]
+    # Read by the workflow for the Slack header ("Smoke tests: Passed |
+    # Performance: Slow"), the email subject, the job status and the
+    # dashboard's run summary.
+    with open(f"slack_status_{env}.json", "w", encoding="utf-8") as f:
+        json.dump({"smoke": report["smoke"], "performance": report["performance"]}, f)
 
     perf_failures = read_perf_failures(env)
     if perf_failures:

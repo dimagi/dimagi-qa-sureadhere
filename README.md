@@ -90,27 +90,35 @@ Summary: FAIL
 - The exact same checklist text is also included in the result email (previously the email only ever said a generic "PASSED"/"FAILED, check the attachment").
 - The canonical, ordered list of checklist steps and their labels lives in `common_utilities/step_reporter.py` (`STEP_TEMPLATE`) — that's the place to add, rename, or reorder a line.
 
-**Performance check**: the Slack report starts with a performance block, placed before the checklist template:
+**Performance check**: the smoke run reports two separate results, **smoke tests** (the checklist) and **performance**, so a slow run is never mistaken for a broken release, or the other way round. The Slack header states both:
 
 ```
-Performance check: FAIL
-:large_green_circle: Login to dashboard: 41s (limit 150s)
-:large_green_circle: Create patient: 38s (limit 100s)
-:red_circle: Edit regimen: 291s (limit 280s) - too slow in test_case_06_regimen_created_and_edited
-:large_yellow_circle: Mobile video submit: 320s (limit 300s) - BrowserStack-dependent, warning only
-:red_circle: API response times: 1 slow endpoint(s) out of 23
-      - /treatment/patients: p95 4.2s over 12 calls (limit 3s)
-
-Smoke Tests - Staging - Client: ...
-...
-Summary: FAIL
+❌ 📊 [Staging] SureAdhere Tests Run #739 — MANUAL TRIGGER
+Smoke tests: ✅ Passed   |   Performance: ❌ Slow
 ```
 
-- **Step timings**: `common_utilities/perf.py`'s `perf_budget` times login to dashboard, patient and regimen creation and editing, the in-app messaging round trip and mobile video submission. Each step's limit is in `DEFAULT_BUDGETS`. A line shows the worst time across tests and attempts, because a rerun that finishes in time doesn't erase a slow first attempt.
-- **API response times**: the browser's own timings for every backend XHR/fetch call made during the run (Resource Timing API) are checked. An endpoint fails when its p95 is over 3s across 3 or more calls, or when any single call takes over 10s (`API_*` constants in `perf.py`). All endpoint timings are written to `perf_api_summary_<env>.json`.
-- **Red fails the run**: any red line forces `Summary: FAIL`, which fails the CI job. A slow step doesn't fail the test itself, so the rest of that test's functional checks still run and it isn't rerun just for being slow. `mobile_video_submit` depends on BrowserStack's devices and network, so it is warning-only (`NOISY_KEYS`).
-- **Slower than usual (warning only)**: a step that takes more than 1.5x its median over the last 10 runs on that environment gets a warning. The history comes from the metrics branch's `metrics/runs.jsonl`, which the workflow fetches as `perf_history.jsonl`.
-- **The overall suite-duration budget** is still checked at the end of the run.
+The checklist comes first, unchanged, with its own `Summary` covering the smoke tests only. The performance result follows it in a box, written in plain language:
+
+```
+PERFORMANCE: ❌ SLOW - see the lines marked ❌
+
+✅ Login to dashboard ........... 36s     (expected under 2m 30s)
+✅ Create patient ............... 41s     (expected under 1m 40s)
+✅ Edit regimen ................. 2m 34s  (expected under 4m 40s)
+✅ Whole smoke run .............. 38m     (expected under 1h 15m)
+❌ Server responses: 10 of 59 kinds of request were slow
+     - Messaging: recent messages: usually 20.3s (expected under 3s)
+     - Dashboard: late video submissions: usually 7.7s (expected under 3s)
+```
+
+- **Action times**: `common_utilities/perf.py`'s `perf_budget` times login to dashboard, patient and regimen creation and editing, the in-app messaging round trip and mobile video submission. The limits are in `DEFAULT_BUDGETS`, and the whole run's duration is checked against `SUITE_DURATION_BUDGET_SECONDS`. Each line shows the worst time across tests and attempts, so a rerun that finishes in time doesn't hide a slow first attempt.
+- **Server responses**: the browser's own timings for every backend call made during the run are checked. A kind of request fails when it is *usually* slow (median over 3s across 3 or more calls) or when any single request takes over 10s (`API_*` constants in `perf.py`). Names come from `friendly_endpoint()`. The full per-endpoint numbers are in `perf_api_summary_<env>.json` in the report attachment and in the job log.
+- **Warnings (⚠️)** never fail the run:
+  - mobile video submission, which depends on BrowserStack's devices and network (`NOISY_KEYS`);
+  - a step that didn't complete, which the checklist already reports;
+  - "slower than usual": more than 1.5x the median of the last 10 runs on that environment. The history comes from the metrics branch's `metrics/runs.jsonl`, fetched as `perf_history.jsonl`.
+- **Job status**: both results are written to `slack_status_<env>.json`. The job fails if either one fails, and the email subject says which (e.g. "Smoke PASSED, Performance SLOW"). The dashboard's `run_summary.json` records `smoke_status` and `perf_status`.
+- **A slow step doesn't fail its test**, so the rest of that test's functional checks still run, and it isn't rerun just for being slow.
 
 **Waiting for the app instead of fixed sleeps**: the long fixed `time.sleep()` calls on the timed paths were there because the app really is slow to load. They are replaced with `BasePage.wait_for_app_idle(timeout=<old sleep>)`. It waits *up to* the old sleep time but returns as soon as the page has loaded, no API call is in flight, no Kendo loading indicator is showing and the network has been quiet for 1.5s. In the worst case a step takes exactly as long as before; otherwise the step timings now show how long the app actually took. The test log prints an `[app-idle]` line for each wait. If a step turns flaky after this change, put that one `time.sleep()` back.
 

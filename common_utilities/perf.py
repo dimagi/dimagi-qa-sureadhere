@@ -95,17 +95,21 @@ STEP_LABELS = {
 }
 
 # Backend API check (see api_breaches). Only endpoints with one of these
-# path segments count as backend calls -- third-party scripts, telemetry
+# path segments (or a "...service" segment, e.g. messagingservice,
+# reportservice) count as backend calls -- third-party scripts, telemetry
 # and static files are ignored.
 API_SERVICE_SEGMENTS = {"treatment", "iam", "reporting", "messaging", "merm", "session", "video", "vdot"}
 # SignalR (in-app chat) can fall back to long-polling, whose requests stay
 # open on purpose.
 API_IGNORED_SEGMENTS = {"chathub", "negotiate", "signalr"}
-# Fail when an endpoint called at least API_MIN_CALLS_FOR_P95 times has a
-# p95 above API_P95_BUDGET_MS, or when any single call takes longer than
-# API_SINGLE_CALL_BUDGET_MS.
-API_P95_BUDGET_MS = 3000
-API_MIN_CALLS_FOR_P95 = 3
+# Fail when an endpoint is *usually* slow -- its median over at least
+# API_MIN_CALLS_FOR_TYPICAL calls is above API_TYPICAL_BUDGET_MS -- or when
+# any single call takes longer than API_SINGLE_CALL_BUDGET_MS. (Not p95: the
+# first CI run showed one burst of ~6s calls on every dashboard widget at
+# once while their typical time was 0.3-1.2s, and with only ~5 calls per
+# endpoint p95 is just the slowest call.)
+API_TYPICAL_BUDGET_MS = 3000
+API_MIN_CALLS_FOR_TYPICAL = 3
 API_SINGLE_CALL_BUDGET_MS = 10000
 
 
@@ -348,23 +352,79 @@ def write_api_summary(env: str) -> list[dict]:
 
 def is_backend_endpoint(endpoint: str) -> bool:
     segments = {seg.lower() for seg in endpoint.split("?")[0].split("/") if seg}
-    return bool(segments & API_SERVICE_SEGMENTS) and not (segments & API_IGNORED_SEGMENTS)
+    is_service = bool(segments & API_SERVICE_SEGMENTS) or any(seg.endswith("service") for seg in segments)
+    return is_service and not (segments & API_IGNORED_SEGMENTS)
+
+
+# Plain-English names for the Slack report (people reading it shouldn't
+# need to know API paths); anything not listed is humanised generically.
+_ENDPOINT_NAMES = {
+    "/treatment/patients": "Patient list",
+    "/treatment/doses?SearchParamsType=grid": "Dose grid",
+    "/treatment/doses": "Doses",
+    "/treatment/lookup_lists": "Lookup lists",
+    "/treatment/dictionaries": "Reference lists",
+    "/iam/GetIamTokenByAAD": "Sign-in",
+    "/iam/RefreshToken": "Session refresh",
+    "/messagingservice/messages/get-recent-messages": "Messaging: recent messages",
+    "/messagingservice/messages/make-patient-messages-read": "Messaging: mark messages as read",
+    "/messagingservice/recipients": "Messaging: recipients list",
+    "/reportservice/client_reports": "Reports list",
+}
+_SERVICE_NAMES = {
+    "treatment": "Treatment", "iam": "Accounts", "messagingservice": "Messaging",
+    "reportservice": "Reports", "merm": "MERM", "video": "Video",
+}
+
+
+def friendly_endpoint(endpoint: str) -> str:
+    if endpoint in _ENDPOINT_NAMES:
+        return _ENDPOINT_NAMES[endpoint]
+    path, _, query = endpoint.partition("?")
+    if path == "/treatment/videos" and query.startswith("SearchParamsType="):
+        return "Dashboard: " + query.split("=", 1)[1].replace("_", " ")
+    if path in _ENDPOINT_NAMES:
+        return _ENDPOINT_NAMES[path]
+    segments = [seg for seg in path.split("/") if seg and seg != "{id}"]
+    service = _SERVICE_NAMES.get(segments[0].lower(), segments[0]) if segments else "API"
+    rest = " ".join(seg.replace("_", " ").replace("-", " ") for seg in segments[1:])
+    name = f"{service}: {rest}" if rest else service
+    if query.startswith(("SearchParamsType=", "EntityName=")):
+        name += f" ({query.split('=', 1)[1].replace('_', ' ')})"
+    return name
+
+
+def fmt_duration(seconds: float) -> str:
+    """15s / 2m 34s / 1h 5m -- readable at a glance in Slack."""
+    seconds = int(round(seconds))
+    if seconds < 60:
+        return f"{seconds}s"
+    if seconds < 3600:
+        m, s = divmod(seconds, 60)
+        return f"{m}m {s}s" if s else f"{m}m"
+    h, rem = divmod(seconds, 3600)
+    return f"{h}h {rem // 60}m" if rem // 60 else f"{h}h"
 
 
 def api_breaches(rows: list[dict]) -> list[dict]:
-    """Backend endpoints that breached the API budgets, each row annotated
-    with a human-readable `reason`."""
+    """Backend endpoints that breached the API budgets, slowest first, each
+    row annotated with a plain-English `reason`."""
     breaches = []
     for row in rows:
         if not is_backend_endpoint(row["endpoint"]):
             continue
-        if row["n"] >= API_MIN_CALLS_FOR_P95 and row["p95_ms"] > API_P95_BUDGET_MS:
-            reason = f"p95 {row['p95_ms'] / 1000:.1f}s over {row['n']} calls (limit {API_P95_BUDGET_MS / 1000:.0f}s)"
+        if row["n"] >= API_MIN_CALLS_FOR_TYPICAL and row["p50_ms"] > API_TYPICAL_BUDGET_MS:
+            reason = (f"usually {row['p50_ms'] / 1000:.1f}s "
+                      f"(expected under {API_TYPICAL_BUDGET_MS / 1000:.0f}s)")
+            worst = row["p50_ms"]
         elif row["max_ms"] > API_SINGLE_CALL_BUDGET_MS:
-            reason = f"one call took {row['max_ms'] / 1000:.1f}s (limit {API_SINGLE_CALL_BUDGET_MS / 1000:.0f}s)"
+            reason = (f"one request took {row['max_ms'] / 1000:.0f}s "
+                      f"(expected under {API_SINGLE_CALL_BUDGET_MS / 1000:.0f}s)")
+            worst = row["max_ms"]
         else:
             continue
-        breaches.append(dict(row, reason=reason))
+        breaches.append(dict(row, reason=reason, _worst=worst))
+    breaches.sort(key=lambda r: r["_worst"], reverse=True)
     return breaches
 
 
