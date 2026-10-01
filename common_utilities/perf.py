@@ -253,17 +253,25 @@ return out;
 # multiplexed /treatment/videos dashboard endpoint) are kept in the
 # endpoint name; every other query param is dropped.
 _DISCRIMINATING_PARAMS = ("SearchParamsType", "EntityName")
-_ID_SEGMENT_RE = re.compile(r"^(\d+|[0-9a-fA-F]{8}-?[0-9a-fA-F]{4}-?[0-9a-fA-F]{4}-?[0-9a-fA-F]{4}-?[0-9a-fA-F]{12})$")
+# This repo is public, so endpoint names end up in public CI logs,
+# artifacts, the metrics branch and the GH Pages dashboard. Only plain word
+# segments (e.g. "treatment", "patients", "GetByEmail") are kept; anything
+# else -- ids, emails, names, MRNs, encoded values, tokens -- becomes {id}.
+# Hosts and query values are never kept, except the enum-like values of
+# _DISCRIMINATING_PARAMS, which must themselves be plain words.
+_SAFE_SEGMENT_RE = re.compile(r"^[A-Za-z][A-Za-z_-]{0,39}$")
+_SAFE_QUERY_VALUE_RE = re.compile(r"^[A-Za-z_]{1,40}$")
 # Keep each JSONL line well under PIPE_BUF (see _append_line).
 _MAX_DURATIONS_PER_LINE = 100
 
 
 def normalize_endpoint(url: str) -> str:
     parts = urlsplit(url)
-    segments = ["{id}" if _ID_SEGMENT_RE.match(s) else s for s in parts.path.split("/")]
+    segments = [s if (not s or _SAFE_SEGMENT_RE.match(s)) else "{id}" for s in parts.path.split("/")]
     endpoint = "/".join(segments) or "/"
     query = parse_qs(parts.query)
-    kept = [f"{p}={query[p][0]}" for p in _DISCRIMINATING_PARAMS if p in query]
+    kept = [f"{p}={query[p][0]}" for p in _DISCRIMINATING_PARAMS
+            if p in query and _SAFE_QUERY_VALUE_RE.match(query[p][0])]
     if kept:
         endpoint += "?" + "&".join(kept)
     return endpoint
