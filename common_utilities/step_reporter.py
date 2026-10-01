@@ -166,7 +166,10 @@ def wait_for_step(key: str, timeout: int = 900, poll_interval: int = 10, env: st
 
 
 PERF_OK, PERF_BAD, PERF_WARN = "\u2705", "\u274c", "\u26a0\ufe0f"  # inside a code block, so real emoji
-MAX_SLOW_ENDPOINTS_SHOWN = 5
+# Every slow kind of request is listed (Slack code blocks can't scroll;
+# Slack folds a long message behind "Show more" itself). The cap is only a
+# safety net against a pathological run blowing past Slack's size limit.
+MAX_SLOW_ENDPOINTS_SHOWN = 50
 
 
 def render_performance_block(env: str, suite_duration_s: float | None = None) -> tuple[list[str], bool]:

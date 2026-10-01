@@ -439,8 +439,11 @@ jobs:
               print(f"{checklist_path} not found -- falling back to the plain pass/fail summary")
               body = f"*Passed:* {passed}  *Failed:* {failed}  *Error:* {error}  *Skipped:* {skipped}  *XFail:* {xfail}"
 
+          # The results line already shows a tick/cross for each part, so
+          # the leading one is only used when that line is missing.
+          lead_icon = "" if results_line else f"{status_icon} "
           message = (
-              f"{status_icon} 📊 *[{env_display}] {workflow} Run #{run_number} — {event_label}*\n"
+              f"{lead_icon}📊 *[{env_display}] {workflow} Run #{run_number} — {event_label}*\n"
               f"{results_line}\n"
               f"{body}\n\n"
               f"📎 *Artifact:* <{artifact_url}|Download here>\n"
