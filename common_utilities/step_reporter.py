@@ -236,9 +236,8 @@ def render_performance_block(env: str, suite_duration_s: float | None = None) ->
             lines.append(f"{PERF_WARN} Slower than usual: {label} took {perf.fmt_duration(w['elapsed_s'])} "
                          f"(usually {perf.fmt_duration(w['baseline_elapsed_s'])})")
 
-    lines += ["", "Full details: see the performance report "
-                  f"({PERFORMANCE_REPORT_NAME.format(env=env)}) in this message's thread "
-                  "and in the report attachment."]
+    lines += ["", "Full details: see the Performance report link below "
+                  f"(also {PERFORMANCE_REPORT_NAME.format(env=env)} in the report attachment)."]
     title = (f"PERFORMANCE: {PERF_OK} OK - everything loaded within the expected time" if passed
              else f"PERFORMANCE: {PERF_BAD} SLOW - see the lines marked {PERF_BAD}")
     return [title, ""] + lines, passed

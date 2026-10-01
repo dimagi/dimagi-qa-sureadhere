@@ -157,6 +157,23 @@ jobs:
             --dashboard --html=report-${{ matrix.environment }}.html --tb=short \
             --junitxml=report-${{ matrix.environment }}.xml
 
+      - name: Publish performance report
+        # Shown on the run's summary page, which the Slack message links to
+        # as "Performance report: View here" (one section per environment).
+        if: always()
+        run: |
+          FILE="performance_report_${{ matrix.environment }}.txt"
+          if [ -f "$FILE" ]; then
+            {
+              echo "## Performance report - ${{ matrix.environment }}"
+              echo '```'
+              cat "$FILE"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "No performance report was written for ${{ matrix.environment }}" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: AI Failure Analysis
         if: always()
         env:
@@ -415,6 +432,9 @@ jobs:
                   f"*Performance:* {'✅ OK' if perf_ok else '❌ Slow'}\n"
               )
           artifact_url = f"{server}/{repo}/actions/runs/{run_id}/artifacts/{artifact_id}"
+          # The run's summary page, where each environment's job writes its full
+          # performance report (see "Publish performance report" above).
+          perf_report_url = f"{server}/{repo}/actions/runs/{run_id}"
           event_map = {
               "schedule": "SCHEDULED TRIGGER", "workflow_dispatch": "MANUAL TRIGGER",
               "push": "PUSH/PULL", "pull_request": "PUSH/PULL",
@@ -448,6 +468,7 @@ jobs:
               f"{results_line}\n"
               f"{body}\n\n"
               f"📎 *Artifact:* <{artifact_url}|Download here>\n"
+              f"📈 *Performance report:* <{perf_report_url}|View here>\n"
               f"🔗 *Dashboard:* https://dimagi.github.io/dimagi-qa-sureadhere/"
           )
 
@@ -518,27 +539,6 @@ jobs:
           if not posted:
               print("::warning::Could not post the report to Slack after several attempts")
               raise SystemExit(0)
-
-          # The full performance report the message's performance box points to.
-          perf_report = pathlib.Path(f"performance_report_{dimagiqa_env}.txt")
-          if parent_ts and perf_report.exists():
-              for attempt in range(1, 4):
-                  try:
-                      client.files_upload_v2(
-                          file=str(perf_report),
-                          filename=perf_report.name,
-                          title=f"Performance report - {env_display}",
-                          channel=channel,
-                          thread_ts=parent_ts,
-                          initial_comment=f"📈 *Performance report — {env_display}* (full details)",
-                      )
-                      print("Performance report posted as thread reply")
-                      break
-                  except Exception as e:
-                      print(f"Performance report upload attempt {attempt} failed: {e}")
-                      time.sleep(15 * attempt)
-          elif perf_report.exists():
-              print("No parent message found -- performance report not posted (it's in the artifact zip)")
 
           report = pathlib.Path("ai_failure_report.md")
           if parent_ts and report.exists() and int(failed or 0) > 0:
