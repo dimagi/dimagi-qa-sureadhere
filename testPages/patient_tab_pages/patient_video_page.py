@@ -145,7 +145,9 @@ class PatientVideoPage(BasePage):
         assert review_text in full_text, f"{review_text} not in {full_text}"
         print(f"{review_text} is in {full_text}")
         self.select_dose_status("Taken")
-        assert self.is_element_present("auto_filled_tag", strict=True, timeout=15), "auto_filled_tag not present"
+        # 45s, not 15s: on banner this can take longer than 15s to show
+        # (failed once in run 36850652990); only matters when it's slow.
+        assert self.is_element_present("auto_filled_tag", strict=True, timeout=45), "auto_filled_tag not present"
         print("auto_filled_tag present on page")
         assert self.is_element_present('edit_doses')
 

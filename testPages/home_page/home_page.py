@@ -176,6 +176,12 @@ class HomePage(BasePage):
                     vids.click()
                     time.sleep(6)
                     self.wait_for_page_to_load(80)
+                    # The review form fills its fields (incl. the auto-fill
+                    # from patient submissions) from API calls that take
+                    # 8-19s on banner. Login/dashboard no longer always wait
+                    # their full 45s, so that buffer is gone -- wait here for
+                    # the form's own data instead (returns early when done).
+                    self.wait_for_app_idle(timeout=30, label="video review form")
                 return True
                 break  # stop looping after success
             else:

@@ -418,7 +418,7 @@ def api_breaches(rows: list[dict]) -> list[dict]:
                       f"(expected under {API_TYPICAL_BUDGET_MS / 1000:.0f}s)")
             worst = row["p50_ms"]
         elif row["max_ms"] > API_SINGLE_CALL_BUDGET_MS:
-            reason = (f"one request took {row['max_ms'] / 1000:.0f}s "
+            reason = (f"one request took {row['max_ms'] / 1000:.1f}s "
                       f"(expected under {API_SINGLE_CALL_BUDGET_MS / 1000:.0f}s)")
             worst = row["max_ms"]
         else:
