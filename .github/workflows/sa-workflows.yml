@@ -172,6 +172,7 @@ jobs:
             } >> "$GITHUB_STEP_SUMMARY"
           else
             echo "No performance report was written for ${{ matrix.environment }}" >> "$GITHUB_STEP_SUMMARY"
+            echo "No performance report was written for this run (the test run ended before it could be created)." > "$FILE"
           fi
 
       - name: AI Failure Analysis
@@ -605,6 +606,11 @@ jobs:
               // Markdown collapses single newlines into one paragraph --
               // double them so each checklist line stays on its own line,
               // except inside the ``` performance box, which is kept as-is.
+              // The Slack box ends by pointing to Slack's "Performance report"
+              // link; in the email the report is attached instead.
+              checklistText = checklistText.replace(
+                /^Full details: see the Performance report link below.*$/m,
+                `Full details: see the attached performance report (performance_report_${CC_ENV}.txt).`)
               checklistBody = checklistText.split('```')
                 .map((part, i) => i % 2 === 1 ? '```' + part + '```' : part.replace(/\n/g, '\n\n'))
                 .join('')
@@ -644,5 +650,5 @@ jobs:
           from: <${{secrets.DIMAGIQA_MAIL_USERNAME}}>
           html_body: ${{ fromJSON(steps.configure_email.outputs.result).body }}
           convert_markdown: true
-          attachments: sbase-artifacts-${{ matrix.environment }}.zip
+          attachments: sbase-artifacts-${{ matrix.environment }}.zip,performance_report_${{ matrix.environment }}.txt
           in_reply_to: ${{ fromJSON(steps.configure_email.outputs.result).reference }}
