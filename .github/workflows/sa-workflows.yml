@@ -216,6 +216,7 @@ jobs:
         run: |
           rm -f sbase-artifacts-${{ matrix.environment }}.zip || true
           zip -r sbase-artifacts-${{ matrix.environment }}.zip report-${{ matrix.environment }}.html latest_logs dashboard.html presetup_report-${{ matrix.environment }}.html \
+            performance_report_${{ matrix.environment }}.txt \
             slack_perf_${{ matrix.environment }}.jsonl slack_api_${{ matrix.environment }}.jsonl perf_api_summary_${{ matrix.environment }}.json || true
 
       - name: Upload reports & logs
@@ -517,6 +518,27 @@ jobs:
           if not posted:
               print("::warning::Could not post the report to Slack after several attempts")
               raise SystemExit(0)
+
+          # The full performance report the message's performance box points to.
+          perf_report = pathlib.Path(f"performance_report_{dimagiqa_env}.txt")
+          if parent_ts and perf_report.exists():
+              for attempt in range(1, 4):
+                  try:
+                      client.files_upload_v2(
+                          file=str(perf_report),
+                          filename=perf_report.name,
+                          title=f"Performance report - {env_display}",
+                          channel=channel,
+                          thread_ts=parent_ts,
+                          initial_comment=f"📈 *Performance report — {env_display}* (full details)",
+                      )
+                      print("Performance report posted as thread reply")
+                      break
+                  except Exception as e:
+                      print(f"Performance report upload attempt {attempt} failed: {e}")
+                      time.sleep(15 * attempt)
+          elif perf_report.exists():
+              print("No parent message found -- performance report not posted (it's in the artifact zip)")
 
           report = pathlib.Path("ai_failure_report.md")
           if parent_ts and report.exists() and int(failed or 0) > 0:

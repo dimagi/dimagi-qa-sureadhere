@@ -166,10 +166,8 @@ def wait_for_step(key: str, timeout: int = 900, poll_interval: int = 10, env: st
 
 
 PERF_OK, PERF_BAD, PERF_WARN = "\u2705", "\u274c", "\u26a0\ufe0f"  # inside a code block, so real emoji
-# Every slow kind of request is listed (Slack code blocks can't scroll;
-# Slack folds a long message behind "Show more" itself). The cap is only a
-# safety net against a pathological run blowing past Slack's size limit.
-MAX_SLOW_ENDPOINTS_SHOWN = 50
+MAX_SLOW_ENDPOINTS_SHOWN = 10
+PERFORMANCE_REPORT_NAME = "performance_report_{env}.txt"
 
 
 def render_performance_block(env: str, suite_duration_s: float | None = None) -> tuple[list[str], bool]:
@@ -228,7 +226,7 @@ def render_performance_block(env: str, suite_duration_s: float | None = None) ->
         for row in slow[:MAX_SLOW_ENDPOINTS_SHOWN]:
             lines.append(f"     - {perf.friendly_endpoint(row['endpoint'])}: {row['reason']}")
         if len(slow) > MAX_SLOW_ENDPOINTS_SHOWN:
-            lines.append(f"     - ...and {len(slow) - MAX_SLOW_ENDPOINTS_SHOWN} more (details in the report attachment)")
+            lines.append(f"     - ...and {len(slow) - MAX_SLOW_ENDPOINTS_SHOWN} more")
     else:
         lines.append(f"{PERF_OK} Server responses: all {len(api_rows)} kinds of request were quick")
 
@@ -238,9 +236,87 @@ def render_performance_block(env: str, suite_duration_s: float | None = None) ->
             lines.append(f"{PERF_WARN} Slower than usual: {label} took {perf.fmt_duration(w['elapsed_s'])} "
                          f"(usually {perf.fmt_duration(w['baseline_elapsed_s'])})")
 
+    lines += ["", "Full details: see the performance report "
+                  f"({PERFORMANCE_REPORT_NAME.format(env=env)}) in this message's thread "
+                  "and in the report attachment."]
     title = (f"PERFORMANCE: {PERF_OK} OK - everything loaded within the expected time" if passed
              else f"PERFORMANCE: {PERF_BAD} SLOW - see the lines marked {PERF_BAD}")
     return [title, ""] + lines, passed
+
+
+def render_performance_report(env: str, server: str, suite_duration_s: float | None = None) -> str:
+    """The full performance report (plain text, posted in the Slack thread
+    and included in the report zip): every timed measurement including
+    reruns, and every kind of server request with its numbers -- the
+    detail the Slack box leaves out."""
+    import datetime
+    from common_utilities import perf
+
+    _, passed = render_performance_block(env, suite_duration_s)
+    now = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    out = [
+        f"SureAdhere performance report - {server} - {now}",
+        f"Result: {'OK - everything within the expected time' if passed else 'SLOW - see the items marked SLOW'}",
+        "",
+    ]
+
+    # 1. Actions
+    out += ["1. HOW LONG EACH ACTION TOOK", ""]
+    results = perf.read_perf_results(env)
+    if results:
+        out.append(f"   {'Action':<30} {'Time':>8}   {'Expected':<14} {'Result':<8} Test")
+        seen = set()
+        order = {k: i for i, k in enumerate(perf.STEP_LABELS)}
+        for e in sorted(results, key=lambda e: (order.get(e["key"], 99), e.get("ts", 0))):
+            label = perf.STEP_LABELS.get(e["key"], e["key"])
+            attempt = (e.get("test"), e["key"])
+            rerun = " (rerun)" if attempt in seen else ""
+            seen.add(attempt)
+            if e.get("passed"):
+                result = "OK"
+            elif e["key"] in perf.NOISY_KEYS:
+                result = "WARNING"
+            else:
+                result = "SLOW"
+            out.append(f"   {label:<30} {perf.fmt_duration(e['elapsed_s']):>8}   "
+                       f"under {perf.fmt_duration(e['budget_s']):<8} {result:<8} {e.get('test', '')}{rerun}")
+        missing = [perf.STEP_LABELS[k] for k in perf.STEP_LABELS if k not in {e["key"] for e in results}]
+        if missing:
+            out.append(f"   Not measured (the step did not complete): {', '.join(missing)}")
+    else:
+        out.append("   No actions were measured in this run.")
+    if suite_duration_s is not None:
+        budget = perf.SUITE_DURATION_BUDGET_SECONDS
+        out += ["", f"   Whole smoke run: {perf.fmt_duration(suite_duration_s)} "
+                    f"(expected under {perf.fmt_duration(budget)}) - {'SLOW' if suite_duration_s > budget else 'OK'}"]
+
+    # 2. Server responses
+    api_rows = [r for r in perf.summarize_api_timings(env) if perf.is_backend_endpoint(r["endpoint"])]
+    slow = {r["endpoint"]: r["reason"] for r in perf.api_breaches(api_rows)}
+    out += ["", "", f"2. SERVER RESPONSE TIMES ({len(api_rows)} kinds of request, {len(slow)} slow)", "",
+            f"   A kind of request is SLOW when it usually takes more than "
+            f"{perf.API_TYPICAL_BUDGET_MS / 1000:.0f}s (over {perf.API_MIN_CALLS_FOR_TYPICAL}+ requests),",
+            f"   or when any single request takes more than {perf.API_SINGLE_CALL_BUDGET_MS / 1000:.0f}s.", ""]
+    if api_rows:
+        out.append(f"   {'Request':<60} {'Calls':>5} {'Usually':>8} {'Slowest':>8}   Result")
+        ordered = sorted(api_rows, key=lambda r: (r["endpoint"] not in slow, -r["max_ms"]))
+        for r in ordered:
+            result = f"SLOW - {slow[r['endpoint']]}" if r["endpoint"] in slow else "OK"
+            out.append(f"   {perf.friendly_endpoint(r['endpoint'])[:60]:<60} {r['n']:>5} "
+                       f"{r['p50_ms'] / 1000:>7.1f}s {r['max_ms'] / 1000:>7.1f}s   {result}")
+    else:
+        out.append("   No server requests were recorded.")
+
+    # 3. Trend
+    trend = [w for w in perf.read_perf_warnings(env) if w.get("trend_warning")]
+    out += ["", "", "3. SLOWER THAN USUAL (warning only)", ""]
+    if trend:
+        for w in trend:
+            out.append(f"   {perf.STEP_LABELS.get(w['key'], w['key'])}: {perf.fmt_duration(w['elapsed_s'])}, "
+                       f"usually {perf.fmt_duration(w['baseline_elapsed_s'])} on recent runs")
+    else:
+        out.append("   Nothing was noticeably slower than on recent runs.")
+    return "\n".join(out) + "\n"
 
 
 def build_slack_report(env: str, server: str, client: str, release: str = "",

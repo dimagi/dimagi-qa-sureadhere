@@ -384,6 +384,10 @@ def friendly_endpoint(endpoint: str) -> str:
     if path == "/treatment/videos" and query.startswith("SearchParamsType="):
         return "Dashboard: " + query.split("=", 1)[1].replace("_", " ")
     if path in _ENDPOINT_NAMES:
+        # Keep the request type, so e.g. different reference lists or dose
+        # views don't all show up under one name.
+        if query.startswith(("SearchParamsType=", "EntityName=")):
+            return f"{_ENDPOINT_NAMES[path]} ({query.split('=', 1)[1].replace('_', ' ')})"
         return _ENDPOINT_NAMES[path]
     segments = [seg for seg in path.split("/") if seg and seg != "{id}"]
     service = _SERVICE_NAMES.get(segments[0].lower(), segments[0]) if segments else "API"

@@ -369,7 +369,9 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
     # which the smoketest pass's later invocation overwrites with the real
     # result -- harmless since the two runs are sequential, not concurrent.
     import json
-    from common_utilities.step_reporter import build_slack_report, report_step
+    from common_utilities.step_reporter import (
+        build_slack_report, report_step, render_performance_report, PERFORMANCE_REPORT_NAME,
+    )
     from common_utilities.perf import read_perf_failures, write_api_summary, api_summary_path
 
     # "All pages loading fine" is a catch-all for the run as a whole, not
@@ -389,6 +391,10 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
     # dashboard's run summary.
     with open(f"slack_status_{env}.json", "w", encoding="utf-8") as f:
         json.dump({"smoke": report["smoke"], "performance": report["performance"]}, f)
+    # Full performance details the Slack box points to (posted in the Slack
+    # thread and zipped with the reports).
+    with open(PERFORMANCE_REPORT_NAME.format(env=env), "w", encoding="utf-8") as f:
+        f.write(render_performance_report(env, server=server, suite_duration_s=duration_s))
 
     perf_failures = read_perf_failures(env)
     if perf_failures:
