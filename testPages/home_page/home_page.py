@@ -71,7 +71,7 @@ class HomePage(BasePage):
         self.wait_for_element("p_Dashboard", 100, strict=True)
         assert self.is_element_visible("p_Dashboard", strict=True), "Its is not the Dashboard"
         print("This is the Dashboard")
-        time.sleep(10)
+        self.wait_for_app_idle(timeout=10, label="dashboard")
 
     def validate_not_dashboard_page(self):
         self.wait_for_page_to_load()
@@ -90,7 +90,7 @@ class HomePage(BasePage):
     def open_dashboard_page(self):
         self.click('p_Dashboard', strict=True)
         self.wait_for_page_to_load(60)
-        time.sleep(10)
+        self.wait_for_app_idle(timeout=10, label="open dashboard")
 
     def open_reports_page(self):
         self.click('p_Reports', strict=True)

@@ -25,7 +25,7 @@ class ManagePatientPage(BasePage):
     def search_patient(self, fname, lname, mrn, username, sa_id, start=None, end=None, dose=None):
         full_name = fname+" "+lname
         self.type('input_search_patient', full_name)
-        time.sleep(10)
+        self.wait_for_app_idle(timeout=10, label="patient search")
         self.wait_for_page_to_load()
         self.wait_for_element('tbody_patient')
         self.wait_for_element('td_name')
@@ -58,7 +58,7 @@ class ManagePatientPage(BasePage):
         name = self.get_text('a_name')
         assert name.strip() == full_name, "Name mismatch"
         self.click('a_name')
-        time.sleep(15)
+        self.wait_for_app_idle(timeout=15, label="open patient")
         self.wait_for_page_to_load(80)
         try:
             self.kendo_dialog_wait_open()  # no title constraint

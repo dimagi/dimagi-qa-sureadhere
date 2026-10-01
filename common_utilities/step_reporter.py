@@ -5,7 +5,13 @@ milestone actually happens. Each call appends one JSON line to a
 per-environment JSONL file (safe to call concurrently from pytest-xdist
 worker processes -- see the note in common_utilities/perf.py). At the end of
 the run, conftest.py's `pytest_terminal_summary` reads the file and renders
-the exact Slack template requested by the project team:
+a performance block (see render_performance_block) followed by the exact
+Slack template requested by the project team:
+
+    Performance check: <PASS/FAIL>
+    :large_green_circle: Login to dashboard: 42s (limit 150s)
+    ...
+    :large_green_circle: API response times: 24 endpoints within limits (...)
 
     Smoke Tests - <server><release> - Client: <client name>
     :large_green_circle: Logged in, existing staff (<username>)
@@ -155,12 +161,83 @@ def wait_for_step(key: str, timeout: int = 900, poll_interval: int = 10, env: st
         time.sleep(poll_interval)
 
 
+def render_performance_block(env: str) -> tuple[list[str], bool]:
+    """The performance validation shown at the top of the Slack report:
+    one line per timed step (worst measurement across tests and attempts,
+    since a rerun finishing in time doesn't erase a slow first attempt),
+    one line for backend API response times, then any trend warnings.
+    Returns (lines, passed)."""
+    from common_utilities import perf
+
+    results = perf.read_perf_results(env)
+    by_key: dict[str, list[dict]] = {}
+    for entry in results:
+        by_key.setdefault(entry.get("key"), []).append(entry)
+
+    passed = True
+    step_lines = []
+    ordered_keys = list(perf.STEP_LABELS) + sorted(k for k in by_key if k not in perf.STEP_LABELS)
+    for key in ordered_keys:
+        label = perf.STEP_LABELS.get(key, key)
+        entries = by_key.get(key)
+        if not entries:
+            # The step never completed (its functional check failed or was
+            # skipped), which the checklist below already reports.
+            step_lines.append(f"{YELLOW} {label}: not measured")
+            continue
+        worst = max(entries, key=lambda e: e["elapsed_s"])
+        breached = [e for e in entries if not e.get("passed")]
+        text = f"{label}: {worst['elapsed_s']:.0f}s (limit {worst['budget_s']:.0f}s)"
+        if breached and key in perf.NOISY_KEYS:
+            step_lines.append(f"{YELLOW} {text} - BrowserStack-dependent, warning only")
+        elif breached:
+            passed = False
+            step_lines.append(f"{RED} {text} - too slow in {worst.get('test', 'unknown_test')}")
+        else:
+            step_lines.append(f"{GREEN} {text}")
+
+    api_rows = [r for r in perf.summarize_api_timings(env) if perf.is_backend_endpoint(r["endpoint"])]
+    api_breaches = perf.api_breaches(api_rows)
+    if not api_rows:
+        step_lines.append(f"{YELLOW} API response times: no backend API calls recorded")
+    elif api_breaches:
+        passed = False
+        step_lines.append(f"{RED} API response times: {len(api_breaches)} slow endpoint(s) out of {len(api_rows)}")
+        for row in api_breaches:
+            step_lines.append(f"      - {row['endpoint']}: {row['reason']}")
+    else:
+        slowest = max(api_rows, key=lambda r: r["p95_ms"])
+        step_lines.append(
+            f"{GREEN} API response times: {len(api_rows)} endpoints within limits "
+            f"(slowest p95 {slowest['p95_ms'] / 1000:.1f}s, {slowest['endpoint']})"
+        )
+
+    lines = [f"Performance check: {'PASS' if passed else 'FAIL'}"] + step_lines
+
+    trend = [w for w in perf.read_perf_warnings(env) if w.get("trend_warning")]
+    if trend:
+        lines.append("Slower than usual (warning only):")
+        for w in trend:
+            label = perf.STEP_LABELS.get(w["key"], w["key"])
+            lines.append(
+                f"      - {label}: {w['elapsed_s']:.0f}s, {w['trend_ratio']:.1f}x its recent median "
+                f"of {w['baseline_elapsed_s']:.0f}s"
+            )
+    return lines, passed
+
+
 def render_slack_report(env: str, server: str, client: str, release: str = "") -> str:
-    """Render the exact Slack checklist template for this environment."""
+    """Render the performance block followed by the exact Slack checklist
+    template for this environment."""
     steps, values = read_step_results(env)
     header = f"Smoke Tests - {server}{release} - Client: {client}"
 
-    lines = [header]
+    # perf_budget doesn't fail the test itself (so a slow step can't hide
+    # the rest of that test's functional checks); a performance failure
+    # shows up in this block and forces Summary: FAIL below instead.
+    perf_lines, perf_passed = render_performance_block(env)
+
+    lines = perf_lines + ["", header]
     overall_pass = True
     for key, label_tmpl in STEP_TEMPLATE:
         result = steps.get(key)
@@ -185,40 +262,6 @@ def render_slack_report(env: str, server: str, client: str, release: str = "") -
                 label = label.replace(f"{{{k}}}", str(values[k]))
         lines.append(f"{icon} {label}")
 
-    # perf_budget no longer fails the test itself (so a slow step can't hide
-    # the rest of that test's functional checks), which means a breach
-    # leaves no trace in the checklist above -- it forces Summary: FAIL
-    # here instead, and is listed below on whichever attempt it happened.
-    from common_utilities.perf import read_perf_failures, read_perf_warnings
-    perf_failures = read_perf_failures(env)
-    perf_warnings = read_perf_warnings(env)
-    overall_pass = overall_pass and not perf_failures
-
+    overall_pass = overall_pass and perf_passed
     lines.append(f"Summary: {'PASS' if overall_pass else 'FAIL'}")
-
-    if perf_failures:
-        lines.append("")
-        lines.append("Performance issues:")
-        for failure in perf_failures:
-            lines.append(
-                f"- {failure.get('test', 'unknown_test')}: '{failure['key']}' took "
-                f"{failure['elapsed_s']:.1f}s, exceeding the {failure['budget_s']:.0f}s budget"
-            )
-
-    if perf_warnings:
-        lines.append("")
-        lines.append("Performance warnings (do not fail the run):")
-        for warning in perf_warnings:
-            test_name = warning.get("test", "unknown_test")
-            if warning.get("noisy") and not warning.get("passed"):
-                lines.append(
-                    f"- {test_name}: '{warning['key']}' took {warning['elapsed_s']:.1f}s, over the "
-                    f"{warning['budget_s']:.0f}s budget (BrowserStack-dependent step)"
-                )
-            if warning.get("trend_warning"):
-                lines.append(
-                    f"- {test_name}: '{warning['key']}' active time {warning['active_s']:.1f}s is "
-                    f"{warning['trend_ratio']:.1f}x its recent median of {warning['baseline_active_s']:.1f}s"
-                )
-
     return "\n".join(lines)

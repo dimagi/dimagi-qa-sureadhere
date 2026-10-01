@@ -7,21 +7,23 @@ recorded and reported at the end of the run (Summary: FAIL + non-zero exit
 code) rather than raised mid-test, so a slow step doesn't abort the rest of
 that test's functional checks or trigger a --reruns retry of the whole test.
 
-Three things are measured on top of the raw wall clock:
+Budgets are judged on the raw wall clock (elapsed_s). The big fixed
+sleeps on the timed paths were there because the app really is slow to
+load; they've been replaced with BasePage.wait_for_app_idle(), which waits
+*up to* the same time but stops as soon as the app is idle, so elapsed_s
+now tracks how long the app actually took. On top of that:
 
-1. Fixed sleeps: time spent in literal `time.sleep(<number>)` calls made
-   from this repo's own code during the block is tracked separately, so
-   `active_s = elapsed_s - fixed_sleep_s` reflects the app (plus real
-   polling waits) rather than the test script's hard-coded pauses. Sleeps
-   with a variable argument (poll intervals, retry backoffs) and anything
-   inside SeleniumBase/Selenium itself still count as active time, since
-   those are waiting on the app.
+1. Fixed sleeps: time still spent in literal `time.sleep(<number>)` calls
+   from this repo's own code during the block is recorded as
+   fixed_sleep_s -- a diagnostic showing how much of a step is still
+   hard-coded padding, not part of the pass/fail verdict.
 2. API timings: when a `driver` is passed, the browser's own Resource
    Timing entries for XHR/fetch calls made during the block are recorded
    per endpoint (see collect_api_timings). conftest.py also does this per
-   test for every web test, so extended tests get API timings for free.
+   test for every web test. api_breaches() fails the run when a backend
+   endpoint is consistently slow.
 3. Trend vs history: if a perf_history.jsonl (the metrics branch's
-   runs.jsonl, fetched by the workflow) is present, active_s is compared
+   runs.jsonl, fetched by the workflow) is present, elapsed_s is compared
    to the median of recent runs and a slowdown is flagged as a warning.
 """
 
@@ -50,8 +52,8 @@ from common_utilities.path_settings import PathSettings
 # again (180s -> 280s) after real CI data showed it consistently landing
 # right at ~180.2s on banner on both a first attempt and its rerun -- not a
 # regression, just a budget with no real headroom over the actual baseline.
-# The finer-grained signal is the active_s trend check against history
-# (TREND_WARN_FACTOR below); tighten these once that has enough data.
+# Tighten these once the trend history (TREND_WARN_FACTOR below) shows
+# what normal looks like now that the big fixed sleeps are bounded waits.
 DEFAULT_BUDGETS = {
     "login_and_dashboard": 150,
     "create_patient": 100,
@@ -68,7 +70,7 @@ DEFAULT_BUDGETS = {
 # install/tesseract setup) but is still set with real headroom above that.
 SUITE_DURATION_BUDGET_SECONDS = 75 * 60
 
-# A step whose active_s exceeds this multiple of its historical median is
+# A step whose elapsed_s exceeds this multiple of its historical median is
 # flagged as a trend warning (reported, never fails the run on its own).
 TREND_WARN_FACTOR = 1.5
 # Need at least this many historical samples before trusting a median.
@@ -81,6 +83,30 @@ TREND_WINDOW = 10
 NOISY_KEYS = {"mobile_video_submit"}
 
 PERF_HISTORY_FILE = "perf_history.jsonl"
+
+# Friendly names for the Slack performance block, in display order.
+STEP_LABELS = {
+    "login_and_dashboard": "Login to dashboard",
+    "create_patient": "Create patient",
+    "create_regimen": "Create regimen",
+    "edit_regimen": "Edit regimen",
+    "in_app_message_roundtrip": "In-app messaging round trip",
+    "mobile_video_submit": "Mobile video submit",
+}
+
+# Backend API check (see api_breaches). Only endpoints with one of these
+# path segments count as backend calls -- third-party scripts, telemetry
+# and static files are ignored.
+API_SERVICE_SEGMENTS = {"treatment", "iam", "reporting", "messaging", "merm", "session", "video", "vdot"}
+# SignalR (in-app chat) can fall back to long-polling, whose requests stay
+# open on purpose.
+API_IGNORED_SEGMENTS = {"chathub", "negotiate", "signalr"}
+# Fail when an endpoint called at least API_MIN_CALLS_FOR_P95 times has a
+# p95 above API_P95_BUDGET_MS, or when any single call takes longer than
+# API_SINGLE_CALL_BUDGET_MS.
+API_P95_BUDGET_MS = 3000
+API_MIN_CALLS_FOR_P95 = 3
+API_SINGLE_CALL_BUDGET_MS = 10000
 
 
 def _perf_log_path(env: str) -> Path:
@@ -312,6 +338,28 @@ def write_api_summary(env: str) -> list[dict]:
     return rows
 
 
+def is_backend_endpoint(endpoint: str) -> bool:
+    segments = {seg.lower() for seg in endpoint.split("?")[0].split("/") if seg}
+    return bool(segments & API_SERVICE_SEGMENTS) and not (segments & API_IGNORED_SEGMENTS)
+
+
+def api_breaches(rows: list[dict]) -> list[dict]:
+    """Backend endpoints that breached the API budgets, each row annotated
+    with a human-readable `reason`."""
+    breaches = []
+    for row in rows:
+        if not is_backend_endpoint(row["endpoint"]):
+            continue
+        if row["n"] >= API_MIN_CALLS_FOR_P95 and row["p95_ms"] > API_P95_BUDGET_MS:
+            reason = f"p95 {row['p95_ms'] / 1000:.1f}s over {row['n']} calls (limit {API_P95_BUDGET_MS / 1000:.0f}s)"
+        elif row["max_ms"] > API_SINGLE_CALL_BUDGET_MS:
+            reason = f"one call took {row['max_ms'] / 1000:.1f}s (limit {API_SINGLE_CALL_BUDGET_MS / 1000:.0f}s)"
+        else:
+            continue
+        breaches.append(dict(row, reason=reason))
+    return breaches
+
+
 # ---------------------------------------------------------------------------
 # Historical baseline
 # ---------------------------------------------------------------------------
@@ -320,7 +368,7 @@ _baseline_cache: dict[str, dict[str, float]] = {}
 
 
 def load_baseline(env: str) -> dict[str, float]:
-    """Median active_s per perf key over the last TREND_WINDOW runs for this
+    """Median elapsed_s per perf key over the last TREND_WINDOW runs for this
     env, from perf_history.jsonl (one run_summary.json object per line, as
     stored on the metrics branch). Keys with too few samples are omitted.
     Returns {} when there's no history file."""
@@ -331,9 +379,9 @@ def load_baseline(env: str) -> dict[str, float]:
         if run.get("env") != env:
             continue
         for entry in run.get("perf") or []:
-            if entry.get("active_s") is None or not entry.get("key"):
+            if entry.get("elapsed_s") is None or not entry.get("key"):
                 continue
-            samples.setdefault(entry["key"], []).append(float(entry["active_s"]))
+            samples.setdefault(entry["key"], []).append(float(entry["elapsed_s"]))
     baseline = {
         key: statistics.median(values[-TREND_WINDOW:])
         for key, values in samples.items()
@@ -350,13 +398,11 @@ def load_baseline(env: str) -> dict[str, float]:
 def record_perf(key: str, elapsed_s: float, budget_s: float, passed: bool, env: str | None = None,
                 fixed_sleep_s: float = 0.0, **extra) -> dict:
     env = env or _current_env()
-    active_s = max(elapsed_s - fixed_sleep_s, 0.0)
     entry = {
         "key": key,
         "test": _current_test_name,
         "elapsed_s": round(elapsed_s, 2),
         "fixed_sleep_s": round(fixed_sleep_s, 2),
-        "active_s": round(active_s, 2),
         "budget_s": budget_s,
         "passed": bool(passed),
         "ts": time.time(),
@@ -413,13 +459,12 @@ class perf_budget:
 
         passed = elapsed <= self.threshold_s
         noisy = self.key in NOISY_KEYS
-        active_s = max(elapsed - self.fixed_sleep_s, 0.0)
         extra = {"noisy": noisy, "api_calls": api_calls}
         median = load_baseline(env).get(self.key)
         if median:
-            ratio = active_s / median if median > 0 else 0.0
+            ratio = elapsed / median if median > 0 else 0.0
             extra.update({
-                "baseline_active_s": round(median, 2),
+                "baseline_elapsed_s": round(median, 2),
                 "trend_ratio": round(ratio, 2),
                 "trend_warning": ratio > TREND_WARN_FACTOR,
             })
@@ -429,8 +474,8 @@ class perf_budget:
                     fixed_sleep_s=self.fixed_sleep_s, **extra)
 
         print(
-            f"[PERF] '{self.key}' elapsed {elapsed:.1f}s (fixed sleeps {self.fixed_sleep_s:.1f}s, "
-            f"active {active_s:.1f}s), budget {self.threshold_s:.0f}s, {api_calls} API call(s)"
+            f"[PERF] '{self.key}' took {elapsed:.1f}s (of which fixed sleeps {self.fixed_sleep_s:.1f}s), "
+            f"budget {self.threshold_s:.0f}s, {api_calls} API call(s)"
         )
         if not passed:
             message = f"[PERF] '{self.key}' took {elapsed:.1f}s, exceeding the {self.threshold_s:.0f}s budget"
@@ -466,7 +511,7 @@ def read_perf_failures(env: str, include_noisy: bool = False) -> list[dict]:
 
 
 def read_perf_warnings(env: str) -> list[dict]:
-    """Noisy-step budget breaches plus trend warnings (active time well
+    """Noisy-step budget breaches plus trend warnings (step time well
     above the historical median) -- reported, but never fail the run."""
     seen = set()
     warnings = []

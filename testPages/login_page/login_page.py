@@ -24,7 +24,7 @@ class LoginPage(BasePage):
         time.sleep(5)
         self.wait_for_invisible("next")
         self.wait_for_page_to_load(150)
-        time.sleep(35)
+        self.wait_for_app_idle(timeout=35, label="login")
         print("Logged in successfully with valid Credentials")
 
     def after_logout(self):

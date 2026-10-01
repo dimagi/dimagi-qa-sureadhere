@@ -90,24 +90,29 @@ Summary: FAIL
 - The exact same checklist text is also included in the result email (previously the email only ever said a generic "PASSED"/"FAILED, check the attachment").
 - The canonical, ordered list of checklist steps and their labels lives in `common_utilities/step_reporter.py` (`STEP_TEMPLATE`) — that's the place to add, rename, or reorder a line.
 
-**Performance budgets**: a handful of the slowest, most meaningful actions (login to dashboard, patient/regimen creation, mobile video submission, in-app messaging round-trip) are timed via `common_utilities/perf.py`'s `perf_budget`, plus one overall suite-duration budget checked at the end of the run. Each measurement records:
-
-- `elapsed_s` - raw wall clock, judged against the step's budget (`DEFAULT_BUDGETS`).
-- `fixed_sleep_s` - time spent in this repo's own literal `time.sleep(<number>)` calls during the step, and `active_s = elapsed_s - fixed_sleep_s`, i.e. time actually spent waiting on the app. Polling/backoff sleeps with a variable argument and SeleniumBase's own waits still count as active time.
-- the browser's own per-endpoint timings for every XHR/fetch call the step made (Resource Timing API), written to `slack_api_<env>.jsonl`.
-
-A budget breach no longer fails the test mid-run (so a slow step can't hide the rest of that test's functional checks or trigger a rerun of it). Instead it forces `Summary: FAIL` and is listed in a **`Performance issues:`** section after `Summary`, from whichever attempt it happened on, e.g.:
+**Performance check**: the Slack report starts with a performance block, placed before the checklist template:
 
 ```
-Performance issues:
-- test_case_06_regimen_created_and_edited: 'edit_regimen' took 280.2s, exceeding the 280s budget
+Performance check: FAIL
+:large_green_circle: Login to dashboard: 41s (limit 150s)
+:large_green_circle: Create patient: 38s (limit 100s)
+:red_circle: Edit regimen: 291s (limit 280s) - too slow in test_case_06_regimen_created_and_edited
+:large_yellow_circle: Mobile video submit: 320s (limit 300s) - BrowserStack-dependent, warning only
+:red_circle: API response times: 1 slow endpoint(s) out of 23
+      - /treatment/patients: p95 4.2s over 12 calls (limit 3s)
+
+Smoke Tests - Staging - Client: ...
+...
+Summary: FAIL
 ```
 
-A **`Performance warnings (do not fail the run):`** section lists breaches of BrowserStack-dependent steps (`NOISY_KEYS`, currently `mobile_video_submit`) and **trend warnings**: a step whose `active_s` is more than `TREND_WARN_FACTOR` (1.5x) its median over the last 10 runs on that environment. The history comes from the metrics branch's `metrics/runs.jsonl`, which the workflow fetches as `perf_history.jsonl` before the run; each run's `run_summary.json` now carries a `perf` list and the 25 slowest API endpoints (`api`) so the next run, and the dashboard, can use them.
+- **Step timings**: `common_utilities/perf.py`'s `perf_budget` times login to dashboard, patient and regimen creation and editing, the in-app messaging round trip and mobile video submission. Each step's limit is in `DEFAULT_BUDGETS`. A line shows the worst time across tests and attempts, because a rerun that finishes in time doesn't erase a slow first attempt.
+- **API response times**: the browser's own timings for every backend XHR/fetch call made during the run (Resource Timing API) are checked. An endpoint fails when its p95 is over 3s across 3 or more calls, or when any single call takes over 10s (`API_*` constants in `perf.py`). All endpoint timings are written to `perf_api_summary_<env>.json`.
+- **Red fails the run**: any red line forces `Summary: FAIL`, which fails the CI job. A slow step doesn't fail the test itself, so the rest of that test's functional checks still run and it isn't rerun just for being slow. `mobile_video_submit` depends on BrowserStack's devices and network, so it is warning-only (`NOISY_KEYS`).
+- **Slower than usual (warning only)**: a step that takes more than 1.5x its median over the last 10 runs on that environment gets a warning. The history comes from the metrics branch's `metrics/runs.jsonl`, which the workflow fetches as `perf_history.jsonl`.
+- **The overall suite-duration budget** is still checked at the end of the run.
 
-Every web test (smoke and extended) also records the API calls it made, and the end of the run prints the slowest endpoints by p95 and writes them all to `perf_api_summary_<env>.json`. The perf/API files are included in the zipped artifacts.
-
-Both sections are omitted entirely when there is nothing to report.
+**Waiting for the app instead of fixed sleeps**: the long fixed `time.sleep()` calls on the timed paths were there because the app really is slow to load. They are replaced with `BasePage.wait_for_app_idle(timeout=<old sleep>)`. It waits *up to* the old sleep time but returns as soon as the page has loaded, no API call is in flight, no Kendo loading indicator is showing and the network has been quiet for 1.5s. In the worst case a step takes exactly as long as before; otherwise the step timings now show how long the app actually took. The test log prints an `[app-idle]` line for each wait. If a step turns flaky after this change, put that one `time.sleep()` back.
 
  -  You should be able to find the zipped results in the **Artifacts** section, of the corresponding run (after a run is complete).
 
