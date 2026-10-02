@@ -164,7 +164,7 @@ It is shown in three places:
 - The result email contains the same checklist and performance box. Its subject says both results (for example "Smoke PASSED, Performance SLOW"), and it attaches the reports zip and the performance report.
 - The dashboard's `run_summary.json` records `smoke_status` and `perf_status`, plus the timing data used for the "slower than usual" check.
 - Posting to Slack is retried if Slack errors or times out, falling back to a text-only message if the chart upload keeps failing. It checks the channel first, so a report is never posted twice.
-- **Public repo:** this repo and its CI logs, artifacts and dashboard are public. Recorded endpoint names keep only plain word path segments. IDs, emails, names and any other values are replaced with `{id}`, and hosts and query values are dropped (`normalize_endpoint()` in `perf.py`).
+- **Public repo:** this repo and its CI logs, artifacts and dashboard are public. Recorded endpoint names keep only the app's own route words (`_KNOWN_ROUTE_SEGMENTS` in `perf.py`). Every other path segment becomes `{id}`: IDs, emails, MRNs, tokens, and also plain words like a name. Hosts and query values are dropped. A new route that isn't in the list still works, but shows up as `{id}` until its word is added.
 
 ### Waiting for the app instead of fixed sleeps
 

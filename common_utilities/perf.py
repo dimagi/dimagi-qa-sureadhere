@@ -258,12 +258,33 @@ return out;
 # endpoint name; every other query param is dropped.
 _DISCRIMINATING_PARAMS = ("SearchParamsType", "EntityName")
 # This repo is public, so endpoint names end up in public CI logs,
-# artifacts, the metrics branch and the GH Pages dashboard. Only plain word
-# segments (e.g. "treatment", "patients", "GetByEmail") are kept; anything
-# else -- ids, emails, names, MRNs, encoded values, tokens -- becomes {id}.
+# artifacts, the metrics branch and the GH Pages dashboard. Only path
+# segments in _KNOWN_ROUTE_SEGMENTS -- the app's own route words -- are
+# kept; every other segment becomes {id}: ids, emails, MRNs, encoded
+# values, tokens, and also plain words such as a name or free-text slug.
 # Hosts and query values are never kept, except the enum-like values of
 # _DISCRIMINATING_PARAMS, which must themselves be plain words.
-_SAFE_SEGMENT_RE = re.compile(r"^[A-Za-z][A-Za-z_-]{0,39}$")
+#
+# The list is every route segment the SureAdhere app was seen calling
+# across staging, US Prod and EU Prod smoke runs (Oct 2026). A route not
+# listed here still works -- it just shows up as {id} (e.g.
+# "/treatment/{id}") until its word is added below.
+_KNOWN_ROUTE_SEGMENTS = frozenset({
+    # services
+    "treatment", "iam", "messagingservice", "reportservice", "api",
+    # treatment
+    "adherence", "adherence_recorded_dates", "care-preferences", "client-features", "comments",
+    "defaults", "dictionaries", "diseases", "doses", "drug_adherence_records", "drugs",
+    "get_unassigned_devices_by_client", "lookup_lists", "merms", "patient", "patients",
+    "pin-reset", "rave-drugs", "regimen_name", "regimens", "regimens_prototype", "schedule",
+    "sideeffects", "staff", "videos", "virtual_visits", "chathub", "negotiate",
+    # iam
+    "Announcement", "GetIamTokenByAAD", "RefreshToken", "refreshToken", "clientfeatures",
+    "clients", "rave-env", "sites", "users",
+    # messaging / reports
+    "get-recent-messages", "make-patient-messages-read", "messages", "recipients", "send-msg",
+    "client_reports", "reports", "data",
+})
 _SAFE_QUERY_VALUE_RE = re.compile(r"^[A-Za-z_]{1,40}$")
 # Keep each JSONL line well under PIPE_BUF (see _append_line).
 _MAX_DURATIONS_PER_LINE = 100
@@ -271,7 +292,7 @@ _MAX_DURATIONS_PER_LINE = 100
 
 def normalize_endpoint(url: str) -> str:
     parts = urlsplit(url)
-    segments = [s if (not s or _SAFE_SEGMENT_RE.match(s)) else "{id}" for s in parts.path.split("/")]
+    segments = [s if (not s or s in _KNOWN_ROUTE_SEGMENTS) else "{id}" for s in parts.path.split("/")]
     endpoint = "/".join(segments) or "/"
     query = parse_qs(parts.query)
     kept = [f"{p}={query[p][0]}" for p in _DISCRIMINATING_PARAMS
