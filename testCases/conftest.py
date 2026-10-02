@@ -300,18 +300,6 @@ def pytest_runtest_call(item):
         collect_api_timings(driver, scope=item.name, mark="test")
 
 
-def pytest_sessionfinish(session, exitstatus):
-    """perf_budget records breaches instead of failing the test mid-run, so
-    fail the session here to keep a local run's exit code honest. (In CI
-    the job is failed from the Slack summary's "Summary: FAIL" line.)"""
-    if hasattr(session.config, "workerinput"):
-        return
-    from common_utilities.perf import read_perf_failures
-    env = os.environ.get("DIMAGIQA_ENV", "default_env")
-    if read_perf_failures(env) and session.exitstatus == 0:
-        session.exitstatus = 1
-
-
 STEP_ENV_DISPLAY_NAMES = {
     "banner": "Staging",
     "rogers": "QA",

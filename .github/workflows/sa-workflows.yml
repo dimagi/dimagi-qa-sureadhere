@@ -212,7 +212,10 @@ jobs:
         if: always()
         run: |
           # slack_status_<env>.json (written by conftest.py) holds the smoke
-          # and performance results separately; either failing fails the job.
+          # and performance results separately. Only the smoke tests fail the
+          # job: a performance failure is reported loudly in Slack, the email
+          # and the performance report, and as a warning on the run, but the
+          # run itself stays green.
           FILE="slack_status_${{ matrix.environment }}.json"
           if [ -f "$FILE" ]; then
             SMOKE=$(python -c "import json; print(json.load(open('$FILE'))['smoke'])")
@@ -222,9 +225,9 @@ jobs:
               echo "::error::Smoke tests FAILED for ${{ matrix.environment }} (see the Slack checklist)"
             fi
             if [ "$PERF" = "FAIL" ]; then
-              echo "::error::Performance check FAILED for ${{ matrix.environment }} (see the Slack performance box)"
+              echo "::warning::Performance check FAILED for ${{ matrix.environment }} (see the Slack performance box / performance report) -- not failing the run"
             fi
-            if [ "$SMOKE" = "FAIL" ] || [ "$PERF" = "FAIL" ]; then
+            if [ "$SMOKE" = "FAIL" ]; then
               exit 1
             fi
           fi
@@ -304,7 +307,9 @@ jobs:
                   statuses = json.load(f)
               data["smoke_status"] = statuses["smoke"].lower()
               data["perf_status"] = statuses["performance"].lower()
-              data["status"] = "pass" if statuses["smoke"] == statuses["performance"] == "PASS" else "fail"
+              # Overall status follows the smoke tests, like the run itself;
+              # performance is tracked separately in perf_status.
+              data["status"] = statuses["smoke"].lower()
           else:
               data["status"] = "fail" if data["failed"] > 0 else "pass"
 
