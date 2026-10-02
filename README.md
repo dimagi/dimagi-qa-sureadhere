@@ -113,7 +113,7 @@ Summary: FAIL
 - 🟢 green: that step ran and passed.
 - 🔴 red: that step ran and failed.
 - 🟡 mustard/yellow: that step never ran at all, usually because an earlier step in its dependency chain failed or was skipped. It wasn't actively verified as broken; it just never got the chance to run.
-- `Summary` covers the **smoke tests only**. It is `PASS` only when every step is green. A single mustard or red line flips it to `FAIL`, even when pytest's own pass/fail counts wouldn't have caught it.
+- `Summary` covers the **smoke tests only**. It is `PASS` only when every step is green. A single mustard or red line flips it to `FAIL`, even when pytest's own pass/fail counts wouldn't have caught it. A smoke `FAIL` is what fails the CI run.
 - The canonical, ordered list of checklist steps and their labels lives in `common_utilities/step_reporter.py` (`STEP_TEMPLATE`). That's the place to add, rename or reorder a line.
 
 ### Performance
@@ -145,6 +145,7 @@ Full details: see the Performance report link below (also performance_report_ban
   - a step that didn't complete, which the checklist already reports;
   - "slower than usual": more than 1.5x the median of the last 10 runs on that environment. The history comes from the metrics branch's `metrics/runs.jsonl`, which the workflow fetches as `perf_history.jsonl` before the run.
 - **A slow step doesn't fail its test**, so the rest of that test's functional checks still run, and the test isn't rerun just for being slow.
+- **Performance never fails the CI run.** A slow run is reported in Slack, the email and the performance report, and as a ⚠️ warning on the run, but the run stays green if the smoke tests passed.
 
 **Full performance report**: every run also writes `performance_report_<env>.txt` with all the details the box leaves out:
 - every timed action from every test, with reruns marked;
