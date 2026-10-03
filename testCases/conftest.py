@@ -276,6 +276,28 @@ def pytest_sessionstart(session):
     global _MASTER_SESSION_START
     if not hasattr(session.config, "workerinput"):
         _MASTER_SESSION_START = time.time()
+        # Perf/API logs are append-only across xdist workers, so clear them
+        # once per session up front -- otherwise a local run keeps reporting
+        # every earlier run's breaches too.
+        from common_utilities.perf import reset_perf_logs
+        reset_perf_logs(os.environ.get("DIMAGIQA_ENV", "default_env"))
+
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_call(item):
+    """After every web test, record the XHR/fetch timings the browser saw
+    during it (see common_utilities/perf.py::collect_api_timings). This
+    gives every test -- including the extended suite, which has no
+    perf_budget blocks -- per-endpoint API timings at the cost of one
+    execute_script call."""
+    yield
+    # BaseCase's tearDown has already cleared self.driver by now; with
+    # --reuse-class-session (pytest.ini) the still-open browser is kept on
+    # sb_config.shared_driver instead.
+    driver = getattr(getattr(item, "instance", None), "driver", None) or getattr(sb_config, "shared_driver", None)
+    if driver is not None:
+        from common_utilities.perf import collect_api_timings
+        collect_api_timings(driver, scope=item.name, mark="test")
 
 
 STEP_ENV_DISPLAY_NAMES = {
@@ -334,8 +356,11 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
     # presetup pass has no checklist data yet and renders an all-red draft,
     # which the smoketest pass's later invocation overwrites with the real
     # result -- harmless since the two runs are sequential, not concurrent.
-    from common_utilities.step_reporter import render_slack_report, report_step
-    from common_utilities.perf import read_perf_results, SUITE_DURATION_BUDGET_SECONDS
+    import json
+    from common_utilities.step_reporter import (
+        build_slack_report, report_step, render_performance_report, PERFORMANCE_REPORT_NAME,
+    )
+    from common_utilities.perf import read_perf_failures, write_api_summary, api_summary_path
 
     # "All pages loading fine" is a catch-all for the run as a whole, not
     # tied to one specific action -- green only when nothing in this
@@ -346,20 +371,29 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
 
     server = STEP_ENV_DISPLAY_NAMES.get(env, env)
     client = _client_for_env(env)
-    report_text = render_slack_report(env, server=server, client=client)
+    duration_s = time.time() - _MASTER_SESSION_START if _MASTER_SESSION_START is not None else None
+    report = build_slack_report(env, server=server, client=client, suite_duration_s=duration_s)
+    report_text = report["text"]
+    # Read by the workflow for the Slack header ("Smoke tests: Passed |
+    # Performance: Slow"), the email subject, the job status and the
+    # dashboard's run summary.
+    with open(f"slack_status_{env}.json", "w", encoding="utf-8") as f:
+        json.dump({"smoke": report["smoke"], "performance": report["performance"]}, f)
+    # Full performance details the Slack box points to (posted in the Slack
+    # thread and zipped with the reports).
+    with open(PERFORMANCE_REPORT_NAME.format(env=env), "w", encoding="utf-8") as f:
+        f.write(render_performance_report(env, server=server, suite_duration_s=duration_s))
 
-    if _MASTER_SESSION_START is not None:
-        duration_s = time.time() - _MASTER_SESSION_START
-        if duration_s > SUITE_DURATION_BUDGET_SECONDS:
-            mins, budget_mins = duration_s / 60, SUITE_DURATION_BUDGET_SECONDS / 60
-            report_text = report_text.replace(
-                "Summary: PASS",
-                f":red_circle: Suite duration {mins:.1f}m exceeded the {budget_mins:.0f}m budget\nSummary: FAIL",
-            )
-
-    perf_failures = [r for r in read_perf_results(env) if not r["passed"]]
+    perf_failures = read_perf_failures(env)
     if perf_failures:
         print(f"[perf] {len(perf_failures)} performance budget(s) breached for {env}: {perf_failures}")
+
+    api_rows = write_api_summary(env)
+    if api_rows:
+        print(f"[perf] Slowest API endpoints by p95 for {env} (full list -> {api_summary_path(env).name}):")
+        for row in api_rows[:10]:
+            print(f"  p95 {row['p95_ms']:>6}ms  p50 {row['p50_ms']:>6}ms  max {row['max_ms']:>6}ms  "
+                  f"n={row['n']:<4} {row['endpoint']}")
 
     with open(f"slack_summary_{env}.txt", "w", encoding="utf-8") as f:
         f.write(report_text)

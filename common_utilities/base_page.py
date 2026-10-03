@@ -760,11 +760,95 @@ class BasePage:
             return False
 
     def launch_url(self, url: str):
+        self._install_net_hook()
         self.sb.open(url)
         self.sb.wait_for_ready_state_complete(timeout=CLICK_TIMEOUT)
 
     def wait_for_page_to_load(self, timeout=50):
         self.sb.wait_for_ready_state_complete(timeout=timeout)
+
+    # Counts in-flight XHR/fetch calls (hooked on first use per document) and
+    # reports whether one of the app's loading indicators is visible. The
+    # indicator selectors are the ones e2e-parity's v3 page objects wait on
+    # (spinner-absolute-100, kendo-loader, data-testid="...-loader"), plus
+    # Kendo's generic loading mask.
+    _NET_HOOK_JS = """
+    if (!window.__qaNet) {
+      const net = window.__qaNet = {inflight: 0};
+      const done = () => { net.inflight = Math.max(0, net.inflight - 1); };
+      const origSend = XMLHttpRequest.prototype.send;
+      XMLHttpRequest.prototype.send = function () {
+        net.inflight++;
+        this.addEventListener('loadend', done);
+        return origSend.apply(this, arguments);
+      };
+      if (window.fetch) {
+        const origFetch = window.fetch;
+        window.fetch = function () {
+          net.inflight++;
+          return origFetch.apply(this, arguments).finally(done);
+        };
+      }
+    }
+    """
+    _APP_IDLE_JS = _NET_HOOK_JS + """
+    const loaders = '.spinner-absolute-100, kendo-loader, [data-testid$="-loader"], .k-loading-mask, .k-i-loading';
+    const spinner = Array.from(document.querySelectorAll(loaders)).some(el => el.offsetParent !== null);
+    return {ready: document.readyState === 'complete', inflight: window.__qaNet.inflight, spinner: spinner};
+    """
+
+    def _install_net_hook(self):
+        """Register the in-flight counter with Chrome so it runs at the start
+        of every new document, before the app's own scripts -- otherwise
+        calls fired while a page boots (e.g. right after the login redirect)
+        are never counted. Once per browser session; harmless elsewhere."""
+        driver = self.sb.driver
+        if getattr(driver, "_qa_net_hook_installed", False):
+            return
+        try:
+            driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {"source": self._NET_HOOK_JS})
+            driver._qa_net_hook_installed = True
+        except Exception:
+            pass
+
+    def wait_for_app_idle(self, timeout=10, settle_ms=1500, min_wait=2, label=""):
+        """Replacement for a fixed time.sleep(timeout) that was there because
+        the app is slow to load: waits *up to* `timeout` seconds, but returns
+        as soon as the page has been settled -- loaded, no API call in
+        flight, no loading indicator visible -- for `settle_ms` in a row.
+        (Not "network idle": the dashboard polls the API indefinitely, so a
+        quiet network may never happen; a short poll request is rarely in
+        flight when sampled.) Never returns before `min_wait` (requests that
+        started before the hook was installed, debounced searches). Never
+        raises -- on timeout it behaves exactly like the old sleep."""
+        start = time.monotonic()
+        poll = 0.25
+        settled_since = None
+        self._install_net_hook()
+        state = None
+        while True:
+            now = time.monotonic()
+            elapsed = now - start
+            try:
+                state = self.sb.driver.execute_script(self._APP_IDLE_JS)
+            except Exception as e:
+                state = {"error": type(e).__name__}
+            settled = (
+                isinstance(state, dict) and state.get("ready")
+                and not state.get("inflight") and not state.get("spinner")
+            )
+            if not settled:
+                settled_since = None
+            elif settled_since is None:
+                settled_since = now
+            if (settled_since is not None and (now - settled_since) * 1000 >= settle_ms
+                    and elapsed >= min_wait):
+                print(f"[app-idle] {label or 'page'} idle after {elapsed:.1f}s (max {timeout}s)")
+                return True
+            if elapsed >= timeout:
+                print(f"[app-idle] {label or 'page'} not idle after {timeout}s, continuing: {state}")
+                return False
+            time.sleep(poll)
 
     def verify_page_title(self, title, timeout=50):
         WebDriverWait(self.sb.driver, timeout).until(EC.title_contains(title))

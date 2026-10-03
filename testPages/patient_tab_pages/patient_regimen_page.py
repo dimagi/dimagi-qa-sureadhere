@@ -44,7 +44,7 @@ class PatientRegimenPage(BasePage):
         self.wait_for_element('input_regimen_name' )
         self.wait_for_element('button_NEW_SCHEDULE')
         print("Opened tab is Regimen")
-        time.sleep(10)
+        self.wait_for_app_idle(timeout=10, label="regimen tab")
 
 
     def today_date(self):
@@ -214,7 +214,7 @@ class PatientRegimenPage(BasePage):
         else:
             total_pills = 0
         self.click_robust('button_CREATE')
-        time.sleep(15)
+        self.wait_for_app_idle(timeout=15, label="create schedule")
         self.wait_for_page_to_load(100)
         time.sleep(5)
 

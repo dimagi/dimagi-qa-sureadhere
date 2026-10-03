@@ -5,12 +5,22 @@ milestone actually happens. Each call appends one JSON line to a
 per-environment JSONL file (safe to call concurrently from pytest-xdist
 worker processes -- see the note in common_utilities/perf.py). At the end of
 the run, conftest.py's `pytest_terminal_summary` reads the file and renders
-the exact Slack template requested by the project team:
+the exact Slack template requested by the project team, followed by a
+separate performance box (see render_performance_block):
 
     Smoke Tests - <server><release> - Client: <client name>
     :large_green_circle: Logged in, existing staff (<username>)
     ...
-    Summary: <PASS/FAIL>
+    Summary: <PASS/FAIL>          <- smoke tests only
+
+    ```
+    PERFORMANCE: OK / SLOW
+    ...
+    ```
+
+The two results are reported separately (slack_status_<env>.json) so the
+Slack header can say e.g. "Smoke tests: Passed | Performance: Slow"
+instead of one combined pass/fail.
 """
 
 import json
@@ -155,13 +165,169 @@ def wait_for_step(key: str, timeout: int = 900, poll_interval: int = 10, env: st
         time.sleep(poll_interval)
 
 
-def render_slack_report(env: str, server: str, client: str, release: str = "") -> str:
-    """Render the exact Slack checklist template for this environment."""
+PERF_OK, PERF_BAD, PERF_WARN = "\u2705", "\u274c", "\u26a0\ufe0f"  # inside a code block, so real emoji
+MAX_SLOW_ENDPOINTS_SHOWN = 10
+PERFORMANCE_REPORT_NAME = "performance_report_{env}.txt"
+
+
+def render_performance_block(env: str, suite_duration_s: float | None = None) -> tuple[list[str], bool]:
+    """The plain-English performance box shown after the checklist: one line
+    per timed action (worst measurement across tests and attempts, since a
+    rerun finishing in time doesn't erase a slow first attempt), the whole
+    run's duration, server response times, then "slower than usual"
+    warnings. Returns (lines, passed). Technical detail (endpoints, p95s)
+    stays in the log and the report attachment, not here."""
+    from common_utilities import perf
+
+    by_key: dict[str, list[dict]] = {}
+    for entry in perf.read_perf_results(env):
+        by_key.setdefault(entry.get("key"), []).append(entry)
+
+    rows = []  # (icon, label, value, note)
+    passed = True
+    ordered_keys = list(perf.STEP_LABELS) + sorted(k for k in by_key if k not in perf.STEP_LABELS)
+    for key in ordered_keys:
+        label = perf.STEP_LABELS.get(key, key)
+        entries = by_key.get(key)
+        if not entries:
+            rows.append((PERF_WARN, label, "not measured", "the step did not complete - see the checklist"))
+            continue
+        worst = max(entries, key=lambda e: e["elapsed_s"])
+        value = perf.fmt_duration(worst["elapsed_s"])
+        expected = f"expected under {perf.fmt_duration(worst['budget_s'])}"
+        breached = any(not e.get("passed") for e in entries)
+        if breached and key in perf.NOISY_KEYS:
+            rows.append((PERF_WARN, label, value, f"{expected}; depends on BrowserStack, not counted"))
+        elif breached:
+            passed = False
+            rows.append((PERF_BAD, label, value, f"{expected} - TOO SLOW"))
+        else:
+            rows.append((PERF_OK, label, value, expected))
+
+    if suite_duration_s is not None:
+        budget = perf.SUITE_DURATION_BUDGET_SECONDS
+        too_long = suite_duration_s > budget
+        passed = passed and not too_long
+        rows.append((PERF_BAD if too_long else PERF_OK, "Whole smoke run", perf.fmt_duration(suite_duration_s),
+                     f"expected under {perf.fmt_duration(budget)}" + (" - TOO SLOW" if too_long else "")))
+
+    width = max(len(label) for _, label, _, _ in rows) + 3
+    value_width = max(len(value) for _, _, value, _ in rows) + 2
+    lines = [f"{icon} {(label + ' ').ljust(width, '.')} {value.ljust(value_width)}({note})"
+             for icon, label, value, note in rows]
+
+    api_rows = [r for r in perf.summarize_api_timings(env) if perf.is_backend_endpoint(r["endpoint"])]
+    slow = perf.api_breaches(api_rows)
+    if not api_rows:
+        lines.append(f"{PERF_WARN} Server responses: none recorded")
+    elif slow:
+        passed = False
+        lines.append(f"{PERF_BAD} Server responses: {len(slow)} of {len(api_rows)} kinds of request were slow")
+        for row in slow[:MAX_SLOW_ENDPOINTS_SHOWN]:
+            lines.append(f"     - {perf.friendly_endpoint(row['endpoint'])}: {row['reason']}")
+        if len(slow) > MAX_SLOW_ENDPOINTS_SHOWN:
+            lines.append(f"     - ...and {len(slow) - MAX_SLOW_ENDPOINTS_SHOWN} more")
+    else:
+        lines.append(f"{PERF_OK} Server responses: all {len(api_rows)} kinds of request were quick")
+
+    for w in perf.read_perf_warnings(env):
+        if w.get("trend_warning"):
+            label = perf.STEP_LABELS.get(w["key"], w["key"])
+            lines.append(f"{PERF_WARN} Slower than usual: {label} took {perf.fmt_duration(w['elapsed_s'])} "
+                         f"(usually {perf.fmt_duration(w['baseline_elapsed_s'])})")
+
+    lines += ["", "Full details: see the Performance report link below "
+                  f"(also {PERFORMANCE_REPORT_NAME.format(env=env)} in the report attachment)."]
+    title = (f"PERFORMANCE: {PERF_OK} OK - everything loaded within the expected time" if passed
+             else f"PERFORMANCE: {PERF_BAD} SLOW - see the lines marked {PERF_BAD}")
+    return [title, ""] + lines, passed
+
+
+def render_performance_report(env: str, server: str, suite_duration_s: float | None = None) -> str:
+    """The full performance report (plain text, posted in the Slack thread
+    and included in the report zip): every timed measurement including
+    reruns, and every kind of server request with its numbers -- the
+    detail the Slack box leaves out."""
+    import datetime
+    from common_utilities import perf
+
+    _, passed = render_performance_block(env, suite_duration_s)
+    now = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    out = [
+        f"SureAdhere performance report - {server} - {now}",
+        f"Result: {'OK - everything within the expected time' if passed else 'SLOW - see the items marked SLOW'}",
+        "",
+    ]
+
+    # 1. Actions
+    out += ["1. HOW LONG EACH ACTION TOOK", ""]
+    results = perf.read_perf_results(env)
+    if results:
+        out.append(f"   {'Action':<30} {'Time':>8}   {'Expected':<14} {'Result':<8} Test")
+        seen = set()
+        order = {k: i for i, k in enumerate(perf.STEP_LABELS)}
+        for e in sorted(results, key=lambda e: (order.get(e["key"], 99), e.get("ts", 0))):
+            label = perf.STEP_LABELS.get(e["key"], e["key"])
+            attempt = (e.get("test"), e["key"])
+            rerun = " (rerun)" if attempt in seen else ""
+            seen.add(attempt)
+            if e.get("passed"):
+                result = "OK"
+            elif e["key"] in perf.NOISY_KEYS:
+                result = "WARNING"
+            else:
+                result = "SLOW"
+            out.append(f"   {label:<30} {perf.fmt_duration(e['elapsed_s']):>8}   "
+                       f"under {perf.fmt_duration(e['budget_s']):<8} {result:<8} {e.get('test', '')}{rerun}")
+        missing = [perf.STEP_LABELS[k] for k in perf.STEP_LABELS if k not in {e["key"] for e in results}]
+        if missing:
+            out.append(f"   Not measured (the step did not complete): {', '.join(missing)}")
+    else:
+        out.append("   No actions were measured in this run.")
+    if suite_duration_s is not None:
+        budget = perf.SUITE_DURATION_BUDGET_SECONDS
+        out += ["", f"   Whole smoke run: {perf.fmt_duration(suite_duration_s)} "
+                    f"(expected under {perf.fmt_duration(budget)}) - {'SLOW' if suite_duration_s > budget else 'OK'}"]
+
+    # 2. Server responses
+    api_rows = [r for r in perf.summarize_api_timings(env) if perf.is_backend_endpoint(r["endpoint"])]
+    slow = {r["endpoint"]: r["reason"] for r in perf.api_breaches(api_rows)}
+    out += ["", "", f"2. SERVER RESPONSE TIMES ({len(api_rows)} kinds of request, {len(slow)} slow)", "",
+            f"   A kind of request is SLOW when it usually takes more than "
+            f"{perf.API_TYPICAL_BUDGET_MS / 1000:.0f}s (over {perf.API_MIN_CALLS_FOR_TYPICAL}+ requests),",
+            f"   or when any single request takes more than {perf.API_SINGLE_CALL_BUDGET_MS / 1000:.0f}s.", ""]
+    if api_rows:
+        out.append(f"   {'Request':<60} {'Calls':>5} {'Usually':>8} {'Slowest':>8}   Result")
+        ordered = sorted(api_rows, key=lambda r: (r["endpoint"] not in slow, -r["max_ms"]))
+        for r in ordered:
+            result = f"SLOW - {slow[r['endpoint']]}" if r["endpoint"] in slow else "OK"
+            out.append(f"   {perf.friendly_endpoint(r['endpoint'])[:60]:<60} {r['n']:>5} "
+                       f"{r['p50_ms'] / 1000:>7.1f}s {r['max_ms'] / 1000:>7.1f}s   {result}")
+    else:
+        out.append("   No server requests were recorded.")
+
+    # 3. Trend
+    trend = [w for w in perf.read_perf_warnings(env) if w.get("trend_warning")]
+    out += ["", "", "3. SLOWER THAN USUAL (warning only)", ""]
+    if trend:
+        for w in trend:
+            out.append(f"   {perf.STEP_LABELS.get(w['key'], w['key'])}: {perf.fmt_duration(w['elapsed_s'])}, "
+                       f"usually {perf.fmt_duration(w['baseline_elapsed_s'])} on recent runs")
+    else:
+        out.append("   Nothing was noticeably slower than on recent runs.")
+    return "\n".join(out) + "\n"
+
+
+def build_slack_report(env: str, server: str, client: str, release: str = "",
+                       suite_duration_s: float | None = None) -> dict:
+    """The smoke checklist (with its own Summary, smoke tests only), then the
+    performance box. Returns {"text", "smoke", "performance"} with each
+    status "PASS"/"FAIL"."""
     steps, values = read_step_results(env)
     header = f"Smoke Tests - {server}{release} - Client: {client}"
 
     lines = [header]
-    overall_pass = True
+    smoke_pass = True
     for key, label_tmpl in STEP_TEMPLATE:
         result = steps.get(key)
         if result is None:
@@ -170,10 +336,10 @@ def render_slack_report(env: str, server: str, client: str, release: str = "") -
             # the chain failed. Distinct mustard/yellow, not red: it wasn't
             # actively verified as broken, it just never ran.
             icon = YELLOW
-            overall_pass = False
+            smoke_pass = False
         else:
             icon = GREEN if result["passed"] else RED
-            overall_pass = overall_pass and result["passed"]
+            smoke_pass = smoke_pass and result["passed"]
         try:
             label = label_tmpl.format(**values)
         except KeyError:
@@ -184,23 +350,20 @@ def render_slack_report(env: str, server: str, client: str, release: str = "") -
             for k in values:
                 label = label.replace(f"{{{k}}}", str(values[k]))
         lines.append(f"{icon} {label}")
+    lines.append(f"Summary: {'PASS' if smoke_pass else 'FAIL'}")
 
-    lines.append(f"Summary: {'PASS' if overall_pass else 'FAIL'}")
+    # A slow step doesn't fail its test (so it can't hide the rest of that
+    # test's functional checks); it's reported in this box instead, and
+    # both results drive the Slack header and the job status.
+    perf_lines, perf_pass = render_performance_block(env, suite_duration_s)
+    lines += ["", "```"] + perf_lines + ["```"]
+    return {
+        "text": "\n".join(lines),
+        "smoke": "PASS" if smoke_pass else "FAIL",
+        "performance": "PASS" if perf_pass else "FAIL",
+    }
 
-    # A perf_budget breach on a first attempt that a rerun later passes
-    # cleanly leaves no trace in the checklist above (steps use last-write-
-    # wins, so the rerun's clean timing silently overwrites the earlier
-    # failure) -- surface it here regardless of whether the test ultimately
-    # passed, since the slowness genuinely happened.
-    from common_utilities.perf import read_perf_failures
-    perf_failures = read_perf_failures(env)
-    if perf_failures:
-        lines.append("")
-        lines.append("Performance issues:")
-        for failure in perf_failures:
-            lines.append(
-                f"- {failure.get('test', 'unknown_test')}: '{failure['key']}' took "
-                f"{failure['elapsed_s']:.1f}s, exceeding the {failure['budget_s']:.0f}s budget"
-            )
 
-    return "\n".join(lines)
+def render_slack_report(env: str, server: str, client: str, release: str = "",
+                        suite_duration_s: float | None = None) -> str:
+    return build_slack_report(env, server, client, release, suite_duration_s)["text"]

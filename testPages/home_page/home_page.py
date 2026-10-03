@@ -71,7 +71,7 @@ class HomePage(BasePage):
         self.wait_for_element("p_Dashboard", 100, strict=True)
         assert self.is_element_visible("p_Dashboard", strict=True), "Its is not the Dashboard"
         print("This is the Dashboard")
-        time.sleep(10)
+        self.wait_for_app_idle(timeout=10, label="dashboard")
 
     def validate_not_dashboard_page(self):
         self.wait_for_page_to_load()
@@ -90,7 +90,7 @@ class HomePage(BasePage):
     def open_dashboard_page(self):
         self.click('p_Dashboard', strict=True)
         self.wait_for_page_to_load(60)
-        time.sleep(10)
+        self.wait_for_app_idle(timeout=10, label="open dashboard")
 
     def open_reports_page(self):
         self.click('p_Reports', strict=True)
@@ -176,6 +176,12 @@ class HomePage(BasePage):
                     vids.click()
                     time.sleep(6)
                     self.wait_for_page_to_load(80)
+                    # The review form fills its fields (incl. the auto-fill
+                    # from patient submissions) from API calls that take
+                    # 8-19s on banner. Login/dashboard no longer always wait
+                    # their full 45s, so that buffer is gone -- wait here for
+                    # the form's own data instead (returns early when done).
+                    self.wait_for_app_idle(timeout=30, label="video review form")
                 return True
                 break  # stop looping after success
             else:
