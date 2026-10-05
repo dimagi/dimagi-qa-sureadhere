@@ -70,9 +70,14 @@ DEFAULT_BUDGETS = {
 # install/tesseract setup) but is still set with real headroom above that.
 SUITE_DURATION_BUDGET_SECONDS = 75 * 60
 
-# A step whose elapsed_s exceeds this multiple of its historical median is
-# flagged as a trend warning (reported, never fails the run on its own).
+# Compared with the median of the same step on recent runs (same env):
+# - over TREND_WARN_FACTOR x is a "slower than usual" warning;
+# - TREND_FAIL_FACTOR x or more (100% slower) is a regression and fails the
+#   performance check -- a big jump like that is often an early sign of an
+#   expensive query, especially right after a release.
+# Neither fails the CI run itself (only smoke tests do).
 TREND_WARN_FACTOR = 1.5
+TREND_FAIL_FACTOR = 2.0
 # Need at least this many historical samples before trusting a median.
 TREND_MIN_SAMPLES = 5
 # Only the most recent N historical samples per step feed the median.
@@ -560,6 +565,9 @@ class perf_budget:
                 "baseline_elapsed_s": round(median, 2),
                 "trend_ratio": round(ratio, 2),
                 "trend_warning": ratio > TREND_WARN_FACTOR,
+                # Not for noisy (BrowserStack-dependent) steps, which stay
+                # warning-only.
+                "trend_regression": ratio >= TREND_FAIL_FACTOR and not noisy,
             })
         # A noisy key's breach is still recorded (passed=False) but flagged
         # so it's reported as a warning rather than failing the run.
@@ -601,6 +609,22 @@ def read_perf_failures(env: str, include_noisy: bool = False) -> list[dict]:
         seen.add(dedupe_key)
         failures.append(entry)
     return failures
+
+
+def read_perf_regressions(env: str) -> list[dict]:
+    """One entry per (test, key) that took TREND_FAIL_FACTOR x or more its
+    recent median -- a performance failure, not just a warning."""
+    seen = set()
+    regressions = []
+    for entry in read_perf_results(env):
+        if not entry.get("trend_regression"):
+            continue
+        dedupe_key = (entry.get("test", "unknown_test"), entry.get("key"))
+        if dedupe_key in seen:
+            continue
+        seen.add(dedupe_key)
+        regressions.append(entry)
+    return regressions
 
 
 def read_perf_warnings(env: str) -> list[dict]:
