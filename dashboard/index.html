@@ -135,13 +135,13 @@
     .perf-legend i { display:inline-block; width:10px; height:10px; border-radius:50%; }
     .perf-legend i.line { width:18px; height:0; border-radius:0; border-top:2px dashed #52514e; }
     .perf-legend i.line.reg { border-top-color:#d03b3b; }
-    .perf-grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:14px; }
-    @media (max-width: 1100px) { .perf-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 700px)  { .perf-grid { grid-template-columns:1fr; } }
-    .perf-cell { border:1px solid #eee; border-radius:12px; padding:10px 12px; }
-    .perf-cell h3 { font-size:14px; margin:0; color:#111; }
-    .perf-cell .sub { font-size:12px; color:#52514e; margin:2px 0 6px; min-height:16px; }
-    .perf-cell canvas { height:200px !important; }
+    .perf-grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:18px; }
+    @media (max-width: 900px) { .perf-grid { grid-template-columns:1fr; } }
+    .perf-cell { border:1px solid #eee; border-radius:12px; padding:14px 16px; }
+    .perf-cell h3 { font-size:17px; margin:0; color:#111; }
+    .perf-cell .sub { font-size:14px; color:#52514e; margin:4px 0 10px; min-height:18px; }
+    .perf-cell canvas { height:300px !important; }
+    .perf-legend { font-size:13px !important; }
     .perf-empty { color:#777; font-size:14px; padding:8px 0; }
 
     /* Section links (Confluence-style): <dashboard>/#<section-id> shows only that section */
@@ -915,7 +915,7 @@
           datasets: [
             { label: "time", data: pts.map(p => p.worst), borderColor: "#898781", borderWidth: 2, tension: 0,
               pointBackgroundColor: pts.map(p => ST[p.st]), pointBorderColor: "#fff", pointBorderWidth: 2,
-              pointRadius: pts.map((p, i) => i === pts.length - 1 ? 7 : 5), pointHoverRadius: 8, pointHitRadius: 12 },
+              pointRadius: pts.map((p, i) => i === pts.length - 1 ? 9 : 6), pointHoverRadius: 10, pointHitRadius: 14 },
             { label: "usual", data: usualLine, borderColor: "#52514e", borderWidth: 1.2, borderDash: [4, 3],
               pointRadius: 0, pointHitRadius: 0 },
             { label: "2x usual", data: twoX, borderColor: "#d03b3b", borderWidth: 1.2, borderDash: [4, 3],
@@ -929,6 +929,7 @@
           plugins: {
             legend: { display: false },
             tooltip: {
+              titleFont: { size: 13 }, bodyFont: { size: 13 }, footerFont: { size: 12 }, padding: 10,
               filter: item => item.datasetIndex === 0,
               callbacks: {
                 title: items => labels[items[0].dataIndex] + "  ·  " + (pts[items[0].dataIndex].r.trigger || ""),
@@ -944,8 +945,8 @@
             }
           },
           scales: {
-            x: { ticks: { ...AXIS_TICKS, maxTicksLimit: 4, maxRotation: 0, color: "#898781" }, grid: { display: false } },
-            y: { beginAtZero: true, suggestedMax: latestUsual ? latestUsual * TREND_FAIL * 1.12 : undefined, ticks: { ...AXIS_TICKS, maxTicksLimit: 4, color: "#898781", callback: v => v ? fmtDur(v) : "0" },
+            x: { ticks: { font: { size: 12 }, padding: 4, maxTicksLimit: 5, maxRotation: 0, color: "#52514e" }, grid: { display: false } },
+            y: { beginAtZero: true, suggestedMax: latestUsual ? latestUsual * TREND_FAIL * 1.12 : undefined, ticks: { font: { size: 12 }, padding: 4, maxTicksLimit: 5, color: "#52514e", callback: v => v ? fmtDur(v) : "0" },
                  grid: { color: "#e1e0d9" } }
           }
         }
