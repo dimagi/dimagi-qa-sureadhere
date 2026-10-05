@@ -383,6 +383,9 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
     # thread and zipped with the reports).
     with open(PERFORMANCE_REPORT_NAME.format(env=env), "w", encoding="utf-8") as f:
         f.write(render_performance_report(env, server=server, suite_duration_s=duration_s))
+    # Trend chart (this run vs recent runs) posted with the Slack message.
+    from common_utilities.perf_trend_chart import render_perf_trend_chart
+    render_perf_trend_chart(env, server, Path("slack_charts") / f"perf_trend_{env}.png")
 
     perf_failures = read_perf_failures(env)
     if perf_failures:

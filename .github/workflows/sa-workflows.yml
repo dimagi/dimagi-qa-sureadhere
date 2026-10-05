@@ -246,7 +246,7 @@ jobs:
         run: |
           rm -f sbase-artifacts-${{ matrix.environment }}.zip || true
           zip -r sbase-artifacts-${{ matrix.environment }}.zip report-${{ matrix.environment }}.html latest_logs dashboard.html presetup_report-${{ matrix.environment }}.html \
-            performance_report_${{ matrix.environment }}.txt \
+            performance_report_${{ matrix.environment }}.txt slack_charts/perf_trend_${{ matrix.environment }}.png \
             slack_perf_${{ matrix.environment }}.jsonl slack_api_${{ matrix.environment }}.jsonl perf_api_summary_${{ matrix.environment }}.json || true
 
       - name: Upload reports & logs
@@ -508,6 +508,13 @@ jobs:
 
           client = WebClient(token=token)
           png_path = "slack_charts/summary_combined.png"
+          # Both charts go in the same message: the test summary, and the
+          # performance trend (this run vs recent runs) when it was rendered.
+          uploads = [{"file": png_path, "filename": "summary_combined.png", "title": "Test Summary"}]
+          trend_png = pathlib.Path(f"slack_charts/perf_trend_{dimagiqa_env}.png")
+          if trend_png.exists():
+              uploads.append({"file": str(trend_png), "filename": trend_png.name,
+                              "title": f"Performance trend - {env_display}"})
           parent_ts = None
 
           # Slack's gateway sometimes times out (HTTP 504, raised as a plain
@@ -533,9 +540,7 @@ jobs:
               for attempt in range(1, 4):
                   try:
                       client.files_upload_v2(
-                          file=png_path,
-                          filename="summary_combined.png",
-                          title="Test Summary",
+                          file_uploads=uploads,
                           channel=channel,
                           initial_comment=message,
                       )

@@ -165,6 +165,14 @@ It is shown in three places:
 - **Email**: the file is attached, and the box's last line reads "see the attached performance report" instead.
 - **Artifacts**: the file is inside the reports zip, along with the raw data (`slack_perf_<env>.jsonl`, `slack_api_<env>.jsonl`, `perf_api_summary_<env>.json`).
 
+**Performance trend chart**: the Slack message also carries a second image next to the test-summary chart, `slack_charts/perf_trend_<env>.png`, drawn by `common_utilities/perf_trend_chart.py`. The same image is in the reports zip.
+- There is one small panel per timed action, showing its time on recent runs of that environment (grey) and this run (a large dot).
+- The dot's colour follows the performance check: green is normal, amber is slower than usual (1.5x), red is a regression (2x) or over its limit.
+- Dashed lines mark the usual time (median of the last 10) and 2x usual, where a regression starts.
+- An action without enough history yet says "building history".
+
+The same trend is on the [dashboard](https://dimagi.github.io/dimagi-qa-sureadhere/), under **Performance trend**. There it's interactive: pick an environment, hover a point for its numbers, and click to open the run. It follows the dashboard's time-window and trigger filters.
+
 ### Status, email and dashboard
 
 - Both results are written to `slack_status_<env>.json`. **Only the smoke tests decide whether the CI run passes.** A performance failure is shown in Slack, the email and the performance report, and as a warning annotation on the run, but the run stays green. The dashboard's overall status follows the smoke tests too.
