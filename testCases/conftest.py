@@ -2,12 +2,15 @@ import os
 import base64
 import pytest
 import sys
+import time
 from pathlib import Path
 from seleniumbase import Driver
 from seleniumbase import config as sb_config
 from common_utilities.load_settings import load_settings
 from common_utilities.path_settings import PathSettings
 from selenium.webdriver.chrome.options import Options
+import matplotlib.pyplot as plt
+from PIL import Image
 
 # ---------------------
 # Load environment settings
@@ -27,6 +30,61 @@ def _inject_values(request, rerun_count):
     inst = getattr(request, "instance", None)
     if inst is not None:
         inst.rerun_count = rerun_count
+
+
+def _relogin(inst):
+    """Re-establish a logged-in session on test reruns.
+
+    If the browser is already on the login page, login directly.
+    Otherwise logout first, then login.
+    Falls back to a fresh URL load if either path raises an exception.
+    """
+    from testPages.login_page.login_page import LoginPage
+    from testPages.home_page.home_page import HomePage
+    from testPages.user_profile.user_profile_page import UserProfilePage
+
+    login = LoginPage(inst, "login")
+    home = HomePage(inst, "dashboard")
+    settings = inst.settings
+
+    try:
+        if login.is_element_visible("next"):
+            print("[rerun] Already on login page — logging in directly")
+            login.login(settings["login_username"], settings["login_password"])
+        else:
+            print("[rerun] Not on login page — logging out first, then logging in")
+            home.click_admin_profile_button()
+            profile = UserProfilePage(inst, "user")
+            profile.logout_user()
+            login.after_logout()
+            login.login(settings["login_username"], settings["login_password"])
+        home.validate_dashboard_page()
+    except Exception as e:
+        print(f"[rerun] Re-login via current page failed ({e}), retrying via URL...")
+        login.launch_browser(settings["url"])
+        login.login(settings["login_username"], settings["login_password"])
+        home.validate_dashboard_page()
+
+
+@pytest.fixture(autouse=True)
+def _relogin_on_rerun(request, rerun_count):
+    inst = getattr(request, "instance", None)
+    if inst is None or rerun_count == 0:
+        yield
+        return
+
+    # Autouse fixtures run before BaseCase.setUp() initializes the driver, so
+    # calling SeleniumBase methods here would raise OutOfScopeException.
+    # Instead, wrap setUp() so the relogin runs immediately after the driver
+    # is ready.
+    original_setUp = inst.setUp
+
+    def patched_setUp():
+        original_setUp()
+        _relogin(inst)
+
+    inst.setUp = patched_setUp
+    yield
 
 
 @pytest.fixture(autouse=True)
@@ -81,10 +139,21 @@ def pytest_configure(config):
 # Screenshot capture on failure (also adds to HTML report)
 # ---------------------
 def _capture_screenshot(driver):
-    return base64.b64encode(driver.get_screenshot_as_png()).decode("utf-8")
+    if not driver:
+        return None
+    try:
+        png = driver.get_screenshot_as_png()
+        if not png:
+            return None
+        return base64.b64encode(png).decode("utf-8")
+    except Exception as e:
+        print(f"[WARN] Screenshot capture failed: {e}")
+        return None
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item):
+    pytest_html = item.config.pluginmanager.getplugin("html")
+
     outcome = yield
     report = outcome.get_result()
     # NOTE: Only works if you are using BaseCase-based test class (self.driver)
@@ -107,20 +176,150 @@ def pytest_runtest_makereport(item):
             f'</div>'
         )
         extra = getattr(report, "extra", [])
-        extra.append(
-            item.config.pluginmanager.getplugin("html").extras.html(link_html)
-            )
-        report.extra = extra
+        if pytest_html:
+            extra.append(pytest_html.extras.html(link_html))
+            report.extra = extra
 
-    if report.when in ("call", "teardown") and report.failed and driver_instance:
-        screen_img = _capture_screenshot(driver_instance)
-        html_content = (
-            f'<div><img src="data:image/png;base64,{screen_img}" alt="screenshot" '
-            f'style="width:600px;height:300px;" onclick="window.open(this.src)" align="right"/></div>'
-        )
+    if report.when in ("call", "teardown") and report.failed:
         extra = getattr(report, "extra", [])
-        extra.append(item.config.pluginmanager.getplugin("html").extras.html(html_content))
-        report.extra = extra
+
+        if driver_instance:
+            screen_img = _capture_screenshot(driver_instance)
+            if screen_img and pytest_html:
+                extra.append(pytest_html.extras.image(screen_img, "Web Screenshot"))
+
+        mobile_instance = getattr(item.instance, "mobile", None)
+        mobile_driver = getattr(mobile_instance, "driver", None) if mobile_instance else None
+        if mobile_driver:
+            mob_img = _capture_screenshot(mobile_driver)
+            if mob_img and pytest_html:
+                extra.append(pytest_html.extras.image(mob_img, "Mobile Screenshot"))
+
+        if extra != getattr(report, "extra", []):
+            report.extra = extra
+
+def save_summary_charts(stats):
+    out_dir = Path("slack_charts")
+    out_dir.mkdir(exist_ok=True)
+
+    passed  = stats.get("passed", 0)
+    failed  = stats.get("failed", 0)
+    skipped = stats.get("skipped", 0)
+    reruns  = stats.get("reruns", 0)
+
+    # Pie / donut chart
+    fig, ax = plt.subplots()
+    ax.pie(
+        [passed, failed, skipped],
+        labels=None,
+        colors=["#66bb6a", "#ef5350", "#fad000"],
+        startangle=90,
+        wedgeprops=dict(width=0.4),
+    )
+    ax.axis("equal")
+    ax.set_title("Test Summary")
+    ax.legend(
+        [f"Passed: {passed}", f"Failed: {failed}", f"Skipped: {skipped}"],
+        loc="lower center",
+        ncol=3,
+        bbox_to_anchor=(0.5, -0.15),
+    )
+    fig.savefig(out_dir / "summary_pie.png", bbox_inches="tight")
+    plt.close(fig)
+
+    # Bar chart (only when there are failures or reruns)
+    bar_path = None
+    if failed > 0 or reruns > 0:
+        fig, ax = plt.subplots()
+        bars = ax.bar(["Failed", "Reruns"], [failed, reruns], color=["#ef5350", "#ffa726"])
+        ax.set_ylabel("Number of Tests")
+        ax.set_title("Failures and Reruns")
+        ax.legend(
+            [bars[0], bars[1]],
+            [f"Failed: {failed}", f"Reruns: {reruns}"],
+            loc="lower center",
+            ncol=2,
+            bbox_to_anchor=(0.5, -0.15),
+        )
+        bar_path = out_dir / "summary_bar.png"
+        fig.savefig(bar_path, bbox_inches="tight")
+        plt.close(fig)
+
+    _combine_charts(
+        pie_path=out_dir / "summary_pie.png",
+        bar_path=bar_path,
+        combined_path=out_dir / "summary_combined.png",
+    )
+
+
+def _combine_charts(pie_path, bar_path, combined_path):
+    pie = Image.open(pie_path)
+    if bar_path and Path(bar_path).exists():
+        bar = Image.open(bar_path)
+        bar = bar.resize((bar.width * pie.height // bar.height, pie.height))
+        combined = Image.new("RGB", (pie.width + bar.width, pie.height), (255, 255, 255))
+        combined.paste(pie, (0, 0))
+        combined.paste(bar, (pie.width, 0))
+    else:
+        combined = pie.copy()
+    combined.save(combined_path)
+    print(f"[charts] Combined chart saved -> {combined_path}")
+
+
+_MASTER_SESSION_START = None
+
+
+def pytest_sessionstart(session):
+    """Record wall-clock start time on the xdist master (or the lone
+    process when not running under xdist) so pytest_terminal_summary can
+    check the total suite duration against SUITE_DURATION_BUDGET_SECONDS."""
+    global _MASTER_SESSION_START
+    if not hasattr(session.config, "workerinput"):
+        _MASTER_SESSION_START = time.time()
+        # Perf/API logs are append-only across xdist workers, so clear them
+        # once per session up front -- otherwise a local run keeps reporting
+        # every earlier run's breaches too.
+        from common_utilities.perf import reset_perf_logs
+        reset_perf_logs(os.environ.get("DIMAGIQA_ENV", "default_env"))
+
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_call(item):
+    """After every web test, record the XHR/fetch timings the browser saw
+    during it (see common_utilities/perf.py::collect_api_timings). This
+    gives every test -- including the extended suite, which has no
+    perf_budget blocks -- per-endpoint API timings at the cost of one
+    execute_script call."""
+    yield
+    # BaseCase's tearDown has already cleared self.driver by now; with
+    # --reuse-class-session (pytest.ini) the still-open browser is kept on
+    # sb_config.shared_driver instead.
+    driver = getattr(getattr(item, "instance", None), "driver", None) or getattr(sb_config, "shared_driver", None)
+    if driver is not None:
+        from common_utilities.perf import collect_api_timings
+        collect_api_timings(driver, scope=item.name, mark="test")
+
+
+STEP_ENV_DISPLAY_NAMES = {
+    "banner": "Staging",
+    "rogers": "QA",
+    "secure": "US Prod",
+    "securevoteu": "EU Prod",
+}
+
+# Mirrors the per-environment client selection already duplicated across the
+# smoketest files (see e.g. testCases/test_02_admin.py) -- UserData.client
+# indices: [0]=banner, [1]=rogers, [2]=secure/default, [3]=securevoteu.
+def _client_for_env(env: str) -> str:
+    from user_inputs.user_data import UserData
+    if env == "banner":
+        return UserData.client[0]
+    if env == "rogers":
+        return UserData.client[1]
+    if env == "securevoteu":
+        return UserData.client[3]
+    return UserData.client[2]
+
 
 def pytest_terminal_summary(terminalreporter, exitstatus, config):
     # Collect test counts
@@ -129,6 +328,7 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
     error = terminalreporter.stats.get('error', [])
     skipped = terminalreporter.stats.get('skipped', [])
     xfail = terminalreporter.stats.get('xfail', [])
+    reruns = terminalreporter.stats.get('rerun', [])
 
     env = os.environ.get("DIMAGIQA_ENV", "default_env")
 
@@ -143,6 +343,62 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
         f.write(f'SKIPPED={len(skipped)}\n')
         f.write(f'XFAIL={len(xfail)}\n')
 
+    # Generate summary charts for Slack
+    save_summary_charts({
+        "passed":  len(passed),
+        "failed":  len(failed),
+        "skipped": len(skipped),
+        "reruns":  len(reruns),
+    })
+
+    # Render the exact Slack checklist template requested by the project
+    # team. The workflow runs pytest twice (presetup, then smoketest); the
+    # presetup pass has no checklist data yet and renders an all-red draft,
+    # which the smoketest pass's later invocation overwrites with the real
+    # result -- harmless since the two runs are sequential, not concurrent.
+    import json
+    from common_utilities.step_reporter import (
+        build_slack_report, report_step, render_performance_report, PERFORMANCE_REPORT_NAME,
+    )
+    from common_utilities.perf import read_perf_failures, write_api_summary, api_summary_path
+
+    # "All pages loading fine" is a catch-all for the run as a whole, not
+    # tied to one specific action -- green only when nothing in this
+    # invocation failed or errored, so it doesn't stay mustard forever on
+    # an otherwise-clean run just because nobody called report_step() for
+    # it from inside a test.
+    report_step("all_pages_loading", not failed and not error, env=env)
+
+    server = STEP_ENV_DISPLAY_NAMES.get(env, env)
+    client = _client_for_env(env)
+    duration_s = time.time() - _MASTER_SESSION_START if _MASTER_SESSION_START is not None else None
+    report = build_slack_report(env, server=server, client=client, suite_duration_s=duration_s)
+    report_text = report["text"]
+    # Read by the workflow for the Slack header ("Smoke tests: Passed |
+    # Performance: Slow"), the email subject, the job status and the
+    # dashboard's run summary.
+    with open(f"slack_status_{env}.json", "w", encoding="utf-8") as f:
+        json.dump({"smoke": report["smoke"], "performance": report["performance"]}, f)
+    # Full performance details the Slack box points to (posted in the Slack
+    # thread and zipped with the reports).
+    with open(PERFORMANCE_REPORT_NAME.format(env=env), "w", encoding="utf-8") as f:
+        f.write(render_performance_report(env, server=server, suite_duration_s=duration_s))
+
+    perf_failures = read_perf_failures(env)
+    if perf_failures:
+        print(f"[perf] {len(perf_failures)} performance budget(s) breached for {env}: {perf_failures}")
+
+    api_rows = write_api_summary(env)
+    if api_rows:
+        print(f"[perf] Slowest API endpoints by p95 for {env} (full list -> {api_summary_path(env).name}):")
+        for row in api_rows[:10]:
+            print(f"  p95 {row['p95_ms']:>6}ms  p50 {row['p50_ms']:>6}ms  max {row['max_ms']:>6}ms  "
+                  f"n={row['n']:<4} {row['endpoint']}")
+
+    with open(f"slack_summary_{env}.txt", "w", encoding="utf-8") as f:
+        f.write(report_text)
+    print(f"[slack] Checklist report written -> slack_summary_{env}.txt")
+
 @pytest.fixture(scope="session", autouse=True)
 def global_presetup_fixture():
     """Truly run once before any tests (even with xdist)."""
@@ -150,6 +406,14 @@ def global_presetup_fixture():
     # Your setup logic here
     yield
     print("\n>>> Global presetup teardown after all tests <<<")
+
+
+def _uses_adminff(fspath) -> bool:
+    """Return True if the module instantiates AdminFFPage anywhere."""
+    try:
+        return "AdminFFPage(" in Path(fspath).read_text(encoding="utf-8")
+    except OSError:
+        return False
 
 
 def pytest_collection_modifyitems(config, items):
@@ -164,12 +428,25 @@ def pytest_collection_modifyitems(config, items):
         # For everything else, make it depend on presetup
         item.add_marker(pytest.mark.dependency(depends=["presetup"]))
 
+    # Any module that instantiates AdminFFPage toggles feature flags and must
+    # run last so it doesn't interfere with other parallel tests.
+    adminff_files = {item.fspath for item in items if _uses_adminff(item.fspath)}
+    regular, last = [], []
+    for item in items:
+        if item.fspath in adminff_files:
+            last.append(item)
+        else:
+            regular.append(item)
+    items[:] = regular + last
+
 
 def pytest_runtest_setup(item):
     if item.get_closest_marker("run_on_main_process"):
         worker_id = getattr(item.config, "workerinput", {}).get("workerid", "master")
         if worker_id != "master":
             pytest.skip("Presetup runs only on master node")
+    from common_utilities.perf import set_current_test
+    set_current_test(item.name)
 
 @pytest.fixture(scope="function")
 def driver(request, settings):

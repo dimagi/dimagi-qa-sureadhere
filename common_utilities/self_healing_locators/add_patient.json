@@ -2095,5 +2095,23 @@
     "class": "ng-star-inserted",
     "tag": "kendo-resize-sensor",
     "xpath": "//kendo-resize-sensor[@class='ng-star-inserted']"
+  },
+  "missing_username": {
+    "class": "alert alert-danger ng-star-inserted",
+    "tag": "div",
+    "text": "Username is required and should be minimum 1 to 21 characters. It can contain letters,numbers and may contain the following symbols: '_', '-'.",
+    "xpath": "//div[contains(normalize-space(text()), 'Username is required and should be minimum 1 to 21 characters')]"
+  },
+  "missing_mrn": {
+    "class": "alert alert-danger ng-star-inserted",
+    "tag": "div",
+    "text": "Valid MRN/ID required.",
+    "xpath": "//div[contains(normalize-space(text()), 'Valid MRN\/ID required.')]"
+  },
+  "missing_phone_number": {
+    "class": "alert alert-danger ng-star-inserted",
+    "tag": "div",
+    "text": "Valid phone number is required.",
+    "xpath": "//div[contains(normalize-space(text()), 'Valid phone number is required.')]"
   }
 }

@@ -22,9 +22,12 @@ class AdminPage(BasePage):
         self.wait_for_element('kendo-expansionpanel_Drugs')
         self.wait_for_element('kendo-expansionpanel_Languages')
 
+        self.unheal_all('kendo-dropdownlist-input-value-Client')
+        self.unheal('kendo-dropdownlist-input-value-Client')
 
         if self.kendo_dd_get_selected_text('kendo-dropdownlist-input-value-Client') != site_manager:
             self.kendo_dd_select_text_old('kendo-dropdownlist-input-value-Client', site_manager)
+            time.sleep(3)
         else:
             print("Site already selected")
 
@@ -84,8 +87,31 @@ class AdminPage(BasePage):
         assert "Announcements" == text.strip(), "Announcements is not opened"
         print("Announcements is opened")
 
+    def open_config_lookup(self):
+        self.click('k-tabstrip-tab-Configurable Lookups', strict=True)
+        time.sleep(5)
+        self.wait_for_page_to_load()
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Continue")
+        except Exception:
+            print("popup not present")
+        text =  self.get_text('k-opened-tabstrip-tab')
+        print(text)
+        assert "Configurable Lookups" == text.strip(), "Configurable Lookups is not opened"
+        print("Configurable Lookups is opened")
+
     def open_feature_flags(self):
         self.click('k-tabstrip-tab-Feature_Flags')
+        self.wait_for_page_to_load()
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Continue")
+        except Exception:
+            print("popup not present")
+
+    def open_reports_by_clients(self):
+        self.click('k-tabstrip-tab-Reports by Clients')
         self.wait_for_page_to_load()
         try:
             self.kendo_dialog_wait_open()  # no title constraint

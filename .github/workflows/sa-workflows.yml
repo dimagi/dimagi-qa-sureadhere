@@ -8,6 +8,15 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+    # No "synchronize": without restricting types, this defaults to
+    # [opened, synchronize, reopened], so it auto-fires this whole ~50min,
+    # 3-environment suite on every single push to a branch with an open PR
+    # -- identical in scope to the all_no_rogers workflow_dispatch option.
+    # Confirmed happening live: pushing while iterating on a PR kept
+    # launching a duplicate full run alongside each manual dispatch. Run
+    # once when a PR opens/reopens; leave verifying further pushes to an
+    # explicit workflow_dispatch instead of an automatic one per commit.
+    types: [ opened, reopened ]
   repository_dispatch:
     types: [ deploy_success ]
   workflow_dispatch:
@@ -15,17 +24,32 @@ on:
       environment:
         description: 'Environment to run tests against'
         required: true
-        default: 'banner'
+        default: 'banner (Staging)'
         type: choice
         options:
-          - banner
-          - rogers
-          - securevoteu
-          - secure
+          - banner (Staging)
+          - rogers (QA)
+          - securevoteu (EU Prod)
+          - secure (US Prod)
           - all_no_rogers
+      release_version:
+        description: 'Release version to show in the Slack report header (e.g. 3.7.6.1). Leave blank to omit.'
+        required: false
+        default: ''
+        type: string
 
 concurrency:
-  group: sa-tests-${{ github.ref }}
+  # github.ref differs by trigger type for the same branch -- a push event
+  # resolves to refs/heads/<branch>, but a pull_request event (fired
+  # automatically on every push to a branch with an open PR) resolves to
+  # refs/pull/<n>/merge instead. That put push/workflow_dispatch runs and
+  # pull_request runs for the same commit into different concurrency groups,
+  # so the newer run never cancelled the older one and both ran side by side.
+  # github.head_ref is only set for pull_request events (plain branch name,
+  # e.g. "my-branch") and falls back to github.ref_name for every other
+  # trigger -- NOT github.ref, which would still carry the "refs/heads/"
+  # prefix and fail to match head_ref's plain name.
+  group: sa-tests-${{ github.head_ref || github.ref_name }}
   cancel-in-progress: true
 
 jobs:
@@ -50,10 +74,12 @@ jobs:
       - id: set-matrix-manual
         if: ${{ github.event_name == 'workflow_dispatch' }}
         run: |
-          if [ "${{ inputs.environment }}" = "all_no_rogers" ]; then
+          env_input="${{ inputs.environment }}"
+          env_key="${env_input%% (*}"
+          if [ "$env_key" = "all_no_rogers" ]; then
             echo "::set-output name=matrix::{\"environment\": [\"banner\", \"securevoteu\", \"secure\"]}"
           else
-            echo "::set-output name=matrix::{\"environment\": [\"${{ inputs.environment }}\"]}"
+            echo "::set-output name=matrix::{\"environment\": [\"$env_key\"]}"
           fi
       - id: set-matrix-deploy
         if: ${{ github.event_name == 'repository_dispatch' }}
@@ -88,33 +114,80 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y tesseract-ocr tesseract-ocr-eng
 
+      # common_utilities/perf.py compares each perf_budget step's active
+      # time to the median of recent runs, read from the metrics branch's
+      # runs.jsonl (every run_summary.json the collector has ingested). No
+      # history just means no trend warnings -- never fails the run.
+      - name: Fetch perf history for trend comparison
+        continue-on-error: true
+        run: |
+          git fetch --depth=1 origin metrics
+          git show FETCH_HEAD:metrics/runs.jsonl > perf_history.jsonl
+          echo "perf_history.jsonl: $(wc -l < perf_history.jsonl) run(s)"
+
       - name: SureAdhere Tests with pytest
         env:
           DIMAGIQA_ENV: ${{ matrix.environment }}
           DIMAGIQA_LOGIN_USERNAME: ${{ secrets.DIMAGIQA_LOGIN_USERNAME }}
           DIMAGIQA_LOGIN_PASSWORD: ${{ secrets.DIMAGIQA_LOGIN_PASSWORD }}
-          DIMAGIQA_ADMIN_USERNAME: ${{ secrets.DIMAGIQA_ADMIN_USERNAME }}
+          DIMAGIQA_ADMIN_USERNAME: ${{ secrets[format('DIMAGIQA_ADMIN_{0}_USERNAME', matrix.environment)] }}
           DIMAGIQA_ADMIN_PASSWORD: ${{ secrets.DIMAGIQA_ADMIN_PASSWORD }}
           DIMAGIQA_BS_USER: ${{ secrets.DIMAGIQA_BS_USER }}
           DIMAGIQA_BS_KEY: ${{ secrets.DIMAGIQA_BS_KEY }}
           DIMAGIQA_SA_IMAP_PASSWORD: ${{ secrets.DIMAGIQA_SA_IMAP_PASSWORD }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
         run: |
           echo "client_payload: ${{ toJson(github.event.client_payload) }}"
           echo "matrix environment: ${{ matrix.environment }}"
           echo "NOW=$(date +'%m-%d %H:%M')" >> $GITHUB_ENV
           echo "DIMAGIQA_ENV=${{ matrix.environment }}" >> $GITHUB_ENV
-          echo ${{env.NOW}}
-          echo ${{env.DIMAGIQA_ENV}}
+          echo "${{env.NOW}}"
+          echo "${{env.DIMAGIQA_ENV}}"
           google-chrome --version || true
           pytest -vv -m presetup\
             --browser=chrome --headless --headless2 \
             --reruns 1 \
             --dashboard --html=presetup_report-${{ matrix.environment }}.html --tb=short --maxfail=1
+          echo "=== Feature flag API probe (common_utilities/feature_flag_api.py) ==="
+          cat ff_api_probe_${{ matrix.environment }}.txt || echo "(no probe output file -- probe() may not have run)"
           pytest -vv -m smoketest \
             --browser=chrome --headless --headless2 \
             --reruns 1 -n 3 --dist=loadscope\
-            --dashboard --html=report-${{ matrix.environment }}.html --tb=short
+            --dashboard --html=report-${{ matrix.environment }}.html --tb=short \
+            --junitxml=report-${{ matrix.environment }}.xml
+
+      - name: Publish performance report
+        # Shown on the run's summary page, which the Slack message links to
+        # as "Performance report: View here" (one section per environment).
+        if: always()
+        run: |
+          FILE="performance_report_${{ matrix.environment }}.txt"
+          if [ -f "$FILE" ]; then
+            {
+              echo "## Performance report - ${{ matrix.environment }}"
+              echo '```'
+              cat "$FILE"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "No performance report was written for ${{ matrix.environment }}" >> "$GITHUB_STEP_SUMMARY"
+            echo "No performance report was written for this run (the test run ended before it could be created)." > "$FILE"
+          fi
+
+      - name: AI Failure Analysis
+        if: always()
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python utils/ai_failure_analyst.py report-${{ matrix.environment }}.xml
+
+      - name: Upload AI Failure Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-failure-report-${{ matrix.environment }}
+          path: ai_failure_report.md
+          if-no-files-found: ignore
 
       - name: Parse test counts
         id: parse_counts
@@ -125,11 +198,47 @@ jobs:
             echo "::set-output name=${line%=*}::${line#*=}"
           done < sa_test_counts_${{ matrix.environment }}.txt
 
+      - name: Fail the job if the checklist Summary says FAIL
+        # pytest itself exits 0 when a test is only SKIPPED (e.g. a step
+        # skipped because a cross-worker dependency it needed never ran) --
+        # so job.status (and everything downstream that reads it: the Slack
+        # ✅/❌ icon, the pass/fail email) can show green even though
+        # conftest.py's own pytest_terminal_summary correctly determined the
+        # checklist is incomplete and wrote "Summary: FAIL". Make that the
+        # one authoritative source: fail the job for real when it says so.
+        # A no-op if the file is missing (e.g. presetup itself already
+        # failed the run before smoketest ever wrote it) -- that case is
+        # already a real job failure on its own.
+        if: always()
+        run: |
+          # slack_status_<env>.json (written by conftest.py) holds the smoke
+          # and performance results separately. Only the smoke tests fail the
+          # job: a performance failure is reported loudly in Slack, the email
+          # and the performance report, and as a warning on the run, but the
+          # run itself stays green.
+          FILE="slack_status_${{ matrix.environment }}.json"
+          if [ -f "$FILE" ]; then
+            SMOKE=$(python -c "import json; print(json.load(open('$FILE'))['smoke'])")
+            PERF=$(python -c "import json; print(json.load(open('$FILE'))['performance'])")
+            echo "Smoke tests: $SMOKE, Performance: $PERF"
+            if [ "$SMOKE" = "FAIL" ]; then
+              echo "::error::Smoke tests FAILED for ${{ matrix.environment }} (see the Slack checklist)"
+            fi
+            if [ "$PERF" = "FAIL" ]; then
+              echo "::warning::Performance check FAILED for ${{ matrix.environment }} (see the Slack performance box / performance report) -- not failing the run"
+            fi
+            if [ "$SMOKE" = "FAIL" ]; then
+              exit 1
+            fi
+          fi
+
       - name: Zip reports for email
         if: always()
         run: |
           rm -f sbase-artifacts-${{ matrix.environment }}.zip || true
-          zip -r sbase-artifacts-${{ matrix.environment }}.zip report-${{ matrix.environment }}.html latest_logs dashboard.html presetup_report-${{ matrix.environment }}.html
+          zip -r sbase-artifacts-${{ matrix.environment }}.zip report-${{ matrix.environment }}.html latest_logs dashboard.html presetup_report-${{ matrix.environment }}.html \
+            performance_report_${{ matrix.environment }}.txt \
+            slack_perf_${{ matrix.environment }}.jsonl slack_api_${{ matrix.environment }}.jsonl perf_api_summary_${{ matrix.environment }}.json || true
 
       - name: Upload reports & logs
         id: artifact-upload-step
@@ -186,7 +295,44 @@ jobs:
                       if k == "FAILED": data["failed"] = v
                       if k == "SKIPPED": data["skipped"] = v
 
-          data["status"] = "fail" if data["failed"] > 0 else "pass"
+          # data["failed"] alone misses a checklist step that never ran at
+          # all (e.g. skipped because of an unmet dependency) -- the
+          # checklist's own "Summary: PASS/FAIL" line (written by
+          # conftest.py's pytest_terminal_summary) is the authoritative
+          # source, matching what fails the job itself further down this
+          # workflow.
+          status_path = f"slack_status_{env}.json"
+          if os.path.exists(status_path):
+              with open(status_path) as f:
+                  statuses = json.load(f)
+              data["smoke_status"] = statuses["smoke"].lower()
+              data["perf_status"] = statuses["performance"].lower()
+              # Overall status follows the smoke tests, like the run itself;
+              # performance is tracked separately in perf_status.
+              data["status"] = statuses["smoke"].lower()
+          else:
+              data["status"] = "fail" if data["failed"] > 0 else "pass"
+
+          # Perf data for the dashboard and for the next run's trend check
+          # (perf.py::load_baseline reads data["perf"] back from runs.jsonl).
+          # Kept small on purpose: every run_summary.json is appended to the
+          # metrics branch forever.
+          perf_keep = ("key", "test", "elapsed_s", "fixed_sleep_s", "budget_s", "passed", "noisy")
+          perf_path = f"slack_perf_{env}.jsonl"
+          data["perf"] = []
+          if os.path.exists(perf_path):
+              with open(perf_path, encoding="utf-8") as f:
+                  for line in f:
+                      try:
+                          entry = json.loads(line)
+                      except ValueError:
+                          continue
+                      data["perf"].append({k: entry.get(k) for k in perf_keep})
+          api_path = f"perf_api_summary_{env}.json"
+          data["api"] = []
+          if os.path.exists(api_path):
+              with open(api_path, encoding="utf-8") as f:
+                  data["api"] = json.load(f)[:25]
 
           with open("metrics_out/run_summary.json", "w") as f:
               json.dump(data, f)
@@ -215,189 +361,208 @@ jobs:
           esac
 
       - name: Set slack vars
-        if: ${{ always() }}
+        if: ${{ !cancelled() }}
         id: configure_slack
         uses: actions/github-script@v6
         env:
-            JOB_STATUS: ${{ job.status }}
-            CC_ENV: ${{ matrix.environment }}
             CC_EVENT: ${{ github.event_name }}
         with:
           result-encoding: string
           script: |
-            const {CC_ENV, JOB_STATUS, CC_EVENT} = process.env
-            let SLACK_WEBHOOK_URL = '${{ secrets.SLACK_WEBHOOK_URL_SA }}'
+            const {CC_EVENT} = process.env
             if (CC_EVENT == 'repository_dispatch') {
-              SLACK_WEBHOOK_URL = '${{ secrets.SLACK_WEBHOOK_URL_SA_RELEASE }}'
-              console.log( "Triggered on deploy")
-            } else if (CC_EVENT != 'repository_dispatch') {
-              SLACK_WEBHOOK_URL = '${{ secrets.SLACK_WEBHOOK_URL_SA }}'
-              console.log( "Not triggered on deploy")
+              console.log("Triggered on deploy")
+              return '${{ secrets.SLACK_CHANNEL_ID_SA_RELEASE }}'
             } else {
-              SLACK_WEBHOOK_URL = ''
-              console.log("No notification sent")
+              console.log("Not triggered on deploy")
+              return '${{ secrets.SLACK_CHANNEL_ID_SA_RELEASE }}'
             }
 
-            return SLACK_WEBHOOK_URL
-
-
-      - name: Build artifact URL
-        id: artifact_url
+      - name: Upload Combined Chart to Slack
+        if: ${{ !cancelled() && steps.configure_slack.outputs.result != '' }}
+        env:
+          SLACK_TOKEN:      ${{ secrets.SLACK_QA_BOT_TOKEN }}
+          SLACK_CHANNEL:    ${{ steps.configure_slack.outputs.result }}
+          JOB_STATUS:       ${{ job.status }}
+          ENV_DISPLAY:      ${{ steps.env_display.outputs.display_name }}
+          RELEASE_VERSION:  ${{ github.event.inputs.release_version }}
+          PASSED:           ${{ steps.parse_counts.outputs.PASSED }}
+          FAILED:           ${{ steps.parse_counts.outputs.FAILED }}
+          ERROR:            ${{ steps.parse_counts.outputs.ERROR }}
+          SKIPPED:          ${{ steps.parse_counts.outputs.SKIPPED }}
+          XFAIL:            ${{ steps.parse_counts.outputs.XFAIL }}
+          ARTIFACT_ID:      ${{ steps.artifact-upload-step.outputs.artifact-id }}
+          OPENAI_API_KEY:   ${{ secrets.OPENAI_API_KEY }}
         run: |
-          echo "url=https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}" >> $GITHUB_OUTPUT
+          pip install --quiet slack_sdk
+          python - <<'PY'
+          import os, pathlib, time
+          from slack_sdk import WebClient
+          from slack_sdk.errors import SlackApiError
 
-      - name: Post to Slack channel on Failure
-        id: slack_fail
-        uses: slackapi/slack-github-action@v1.23.0
-        if: ${{ steps.configure_slack.outputs.result != '' && failure() }}
-        with:
-          payload: |
-            {
-            	"attachments": [
-            		{
-            			"color": "#FF0000",
-            			"blocks": [
-            				{
-            					"type": "section",
-            					"text": {
-            						"type": "mrkdwn",
-            						"text": " Hola :bye_boo: \n*${{ github.workflow }} Run #${{ github.run_number }}* were just triggered by ${{ github.event_name }}! \n"
-            					}
-            				},
-            				{
-            					"type": "section",
-            					"text": {
-            						"type": "mrkdwn",
-            						"text": "*Passed:* ${{ steps.parse_counts.outputs.PASSED }} *Failed:* ${{ steps.parse_counts.outputs.FAILED }} *Error:* ${{ steps.parse_counts.outputs.ERROR }} *Skipped:* ${{ steps.parse_counts.outputs.SKIPPED }} *XFail:* ${{ steps.parse_counts.outputs.XFAIL }}\n"
-            					}
-            				},
-            				{
-            					"type": "context",
-            					"elements": [
-            						{
-            							"type": "mrkdwn",
-            							"text": "*Environment: *\n ${{ steps.env_display.outputs.display_name }}  \n"
-            						},
-            						{
-            							"type": "mrkdwn",
-            							"text": " "
-            						},
-            						{
-            							"type": "mrkdwn",
-            							"text": "*Status: *\n ${{ job.status }}  :x:"
-            						}
-            					]
-            				},
-            				{
-            					"type": "section",
-            					"text": {
-            						"type": "mrkdwn",
-            						"text": "Here's the corresponding report :arrow_right::arrow_right:"
-            					},
-            					"accessory": {
-            						"type": "button",
-            						"text": {
-            							"type": "plain_text",
-            							"text": "Click to Downlaod",
-            							"emoji": true
-            						},
-            						"value": "click_me_123",
-            						"url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}",
-            						"action_id": "button-action",
-            						"style": "danger"
-            					}
-            				},
-            				{
-            					"type": "section",
-            					"text": {
-            						"type": "mrkdwn",
-            						"text": "🔗 *Dashboard:* https://dimagi.github.io/dimagi-qa-sureadhere/"
-            					}
-            				}
-            			]
-            		}
-            	]
-            }
-        env:
-          SLACK_WEBHOOK_URL: ${{ steps.configure_slack.outputs.result }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          token   = os.environ.get("SLACK_TOKEN", "")
+          channel = os.environ.get("SLACK_CHANNEL", "")
+          if not token or not channel:
+              print("Slack token/channel not configured — skipping")
+              raise SystemExit(0)
 
-      - name: Post to Slack channel on Success
-        id: slack_pass
-        uses: slackapi/slack-github-action@v1.23.0
-        if: ${{ steps.configure_slack.outputs.result != '' && success() }}
-        with:
-          payload: |
-            {
-            	"attachments": [
-            		{
-            			"color": "#36a64f",
-            			"blocks": [
-            				{
-            					"type": "section",
-            					"text": {
-            						"type": "mrkdwn",
-            						"text": " Hola :bye_boo: \n*${{ github.workflow }} Run #${{ github.run_number }}* were just triggered by ${{ github.event_name }}! \n"
-            					}
-            				},
-            				{
-            					"type": "section",
-            					"text": {
-            						"type": "mrkdwn",
-            						"text": "*Passed:* ${{ steps.parse_counts.outputs.PASSED }} *Failed:* ${{ steps.parse_counts.outputs.FAILED }} *Error:* ${{ steps.parse_counts.outputs.ERROR }} *Skipped:* ${{ steps.parse_counts.outputs.SKIPPED }} *XFail:* ${{ steps.parse_counts.outputs.XFAIL }}\n"
-            					}
-            				},
-            				{
-            					"type": "context",
-            					"elements": [
-            						{
-            							"type": "mrkdwn",
-            							"text": "*Environment: *\n ${{ steps.env_display.outputs.display_name }}  \n"
-            						},
-            						{
-            							"type": "mrkdwn",
-            							"text": " "
-            						},
-            						{
-            							"type": "mrkdwn",
-            							"text": "*Status: *\n ${{ job.status }}  :white_check_mark:"
-            						}
-            					]
-            				},
-            				{
-            					"type": "section",
-            					"text": {
-            						"type": "mrkdwn",
-            						"text": "Here's the corresponding report :arrow_right::arrow_right:"
-            					},
-            					"accessory": {
-            						"type": "button",
-            						"text": {
-            							"type": "plain_text",
-            							"text": "Click to Download",
-            							"emoji": true
-            						},
-            						"value": "click_me_123",
-            						"url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}",
-            						"action_id": "button-action",
-            						"style": "primary"
-            					}
-            				},
-            				{
-            					"type": "section",
-            					"text": {
-            						"type": "mrkdwn",
-            						"text": "🔗 *Dashboard:* https://dimagi.github.io/dimagi-qa-sureadhere/"
-            					}
-            				}
-            			]
-            		}
-            	]
-            }
+          job_status      = os.environ.get("JOB_STATUS", "failure")
+          env_display     = os.environ.get("ENV_DISPLAY", "")
+          release_version = os.environ.get("RELEASE_VERSION", "").strip()
+          dimagiqa_env    = os.environ.get("DIMAGIQA_ENV", "")
+          passed      = os.environ.get("PASSED", "0")
+          failed      = os.environ.get("FAILED", "0")
+          error       = os.environ.get("ERROR", "0")
+          skipped     = os.environ.get("SKIPPED", "0")
+          xfail       = os.environ.get("XFAIL", "0")
+          run_number  = os.environ.get("GITHUB_RUN_NUMBER", "")
+          run_id      = os.environ.get("GITHUB_RUN_ID", "")
+          repo        = os.environ.get("GITHUB_REPOSITORY", "")
+          server      = os.environ.get("GITHUB_SERVER_URL", "https://github.com")
+          artifact_id = os.environ.get("ARTIFACT_ID", "")
+          workflow    = os.environ.get("GITHUB_WORKFLOW", "SureAdhere Tests")
+          event       = os.environ.get("GITHUB_EVENT_NAME", "")
 
-        env:
-          SLACK_WEBHOOK_URL: ${{ steps.configure_slack.outputs.result }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          status_icon  = "✅" if job_status == "success" else "❌"
+          # Say which part failed, so "smoke passed but it was slow" doesn't
+          # read as a broken release (conftest.py writes this file).
+          results_line = ""
+          status_file = pathlib.Path(f"slack_status_{dimagiqa_env}.json")
+          if status_file.exists():
+              import json
+              statuses = json.loads(status_file.read_text(encoding="utf-8"))
+              smoke_ok = statuses.get("smoke") == "PASS"
+              perf_ok = statuses.get("performance") == "PASS"
+              results_line = (
+                  f"*Smoke tests:* {'✅ Passed' if smoke_ok else '❌ Failed'}   |   "
+                  f"*Performance:* {'✅ OK' if perf_ok else '❌ Slow'}\n"
+              )
+          artifact_url = f"{server}/{repo}/actions/runs/{run_id}/artifacts/{artifact_id}"
+          # The run's summary page, where each environment's job writes its full
+          # performance report (see "Publish performance report" above).
+          perf_report_url = f"{server}/{repo}/actions/runs/{run_id}"
+          event_map = {
+              "schedule": "SCHEDULED TRIGGER", "workflow_dispatch": "MANUAL TRIGGER",
+              "push": "PUSH/PULL", "pull_request": "PUSH/PULL",
+              "repository_dispatch": "DEPLOY_SUCCESS",
+          }
+          event_label = event_map.get(event, event.upper() or "UNKNOWN")
+
+          # The smoke suite (testCases/conftest.py::pytest_terminal_summary)
+          # renders the project team's exact checklist template to this file.
+          # Fall back to the old passed/failed summary if it's missing for
+          # any reason (e.g. the pytest run crashed before writing it).
+          checklist_path = pathlib.Path(f"slack_summary_{dimagiqa_env}.txt")
+          if checklist_path.exists():
+              checklist_text = checklist_path.read_text(encoding="utf-8").strip()
+              if release_version:
+                  checklist_text = checklist_text.replace(
+                      f"Smoke Tests - {env_display} -",
+                      f"Smoke Tests - {env_display} Release {release_version} -",
+                      1,
+                  )
+              body = checklist_text
+          else:
+              print(f"{checklist_path} not found -- falling back to the plain pass/fail summary")
+              body = f"*Passed:* {passed}  *Failed:* {failed}  *Error:* {error}  *Skipped:* {skipped}  *XFail:* {xfail}"
+
+          # The results line already shows a tick/cross for each part, so
+          # the leading one is only used when that line is missing.
+          lead_icon = "" if results_line else f"{status_icon} "
+          message = (
+              f"{lead_icon}📊 *[{env_display}] {workflow} Run #{run_number} — {event_label}*\n"
+              f"{results_line}\n"
+              f"{body}\n\n"
+              f"📎 *Artifact:* <{artifact_url}|Download here>\n"
+              f"📈 *Performance report:* <{perf_report_url}|View here>\n"
+              f"🔗 *Dashboard:* https://dimagi.github.io/dimagi-qa-sureadhere/"
+          )
+
+          client = WebClient(token=token)
+          png_path = "slack_charts/summary_combined.png"
+          parent_ts = None
+
+          # Slack's gateway sometimes times out (HTTP 504, raised as a plain
+          # urllib error, not SlackApiError) -- that crashed this step and
+          # dropped the whole report once. So: retry the chart upload, then
+          # fall back to a text-only message, and never post twice (a timed-
+          # out request can still have gone through).
+          run_marker = f"[{env_display}] {workflow} Run #{run_number}"
+
+          def find_posted_ts():
+              try:
+                  now = time.time()
+                  history = client.conversations_history(channel=channel, limit=10)
+                  for msg in history.get("messages", []):
+                      if now - float(msg.get("ts", 0)) < 300 and run_marker in (msg.get("text", "") or ""):
+                          return msg["ts"]
+              except Exception as ts_err:
+                  print(f"Could not read channel history: {ts_err}")
+              return None
+
+          posted = False
+          if pathlib.Path(png_path).exists():
+              for attempt in range(1, 4):
+                  try:
+                      client.files_upload_v2(
+                          file=png_path,
+                          filename="summary_combined.png",
+                          title="Test Summary",
+                          channel=channel,
+                          initial_comment=message,
+                      )
+                      print("Chart + summary posted to Slack")
+                      posted = True
+                      time.sleep(2)
+                      parent_ts = find_posted_ts()
+                      break
+                  except Exception as e:
+                      print(f"files_upload_v2 attempt {attempt} failed: {e}")
+                      time.sleep(15 * attempt)
+                      parent_ts = find_posted_ts()
+                      if parent_ts:
+                          print("The report did reach Slack despite the error -- not posting again")
+                          posted = True
+                          break
+          else:
+              print(f"Chart not found at {png_path}, falling back to text message")
+
+          if not posted:
+              for attempt in range(1, 4):
+                  try:
+                      resp = client.chat_postMessage(channel=channel, text=message, mrkdwn=True)
+                      parent_ts = resp["ts"]
+                      posted = True
+                      print("Summary posted to Slack as a text message (without the chart)")
+                      break
+                  except Exception as e:
+                      print(f"chat_postMessage attempt {attempt} failed: {e}")
+                      time.sleep(15 * attempt)
+                      parent_ts = find_posted_ts()
+                      if parent_ts:
+                          posted = True
+                          break
+          if not posted:
+              print("::warning::Could not post the report to Slack after several attempts")
+              raise SystemExit(0)
+
+          report = pathlib.Path("ai_failure_report.md")
+          if parent_ts and report.exists() and int(failed or 0) > 0:
+              content = report.read_text(encoding="utf-8").strip()
+              if content and "No failures" not in content:
+                  if len(content) > 3000:
+                      content = content[:3000] + "\n... [see artifact for full report]"
+                  try:
+                      client.chat_postMessage(
+                          channel=channel,
+                          thread_ts=parent_ts,
+                          text=f"🤖 *AI Failure Analysis — {env_display}*\n\n{content}",
+                          mrkdwn=True,
+                      )
+                      print("AI analysis posted as thread reply")
+                  except Exception as e:
+                      print(f"AI thread post failed: {e}")
+          PY
 
       - name: Set email vars
         if: ${{ success() || failure() }}
@@ -412,13 +577,50 @@ jobs:
             const {JOB_STATUS, NOW, CC_ENV, GITHUB_HEAD_REF} = process.env
             const envLabels = {banner: "Staging", rogers: "QA", secure: "US Prod", securevoteu: "EU Prod"}
             const envDisplay = envLabels[CC_ENV] || CC_ENV
-            const prefix = `[${envDisplay}] SureAdhere Tests - ${JOB_STATUS.toUpperCase()} - Run #${context.runNumber}`
+            let resultLabel = JOB_STATUS.toUpperCase()
+            try {
+              const statuses = JSON.parse(await fs.readFile(`./slack_status_${CC_ENV}.json`, 'utf8'))
+              resultLabel = `Smoke ${statuses.smoke === 'PASS' ? 'PASSED' : 'FAILED'}, ` +
+                            `Performance ${statuses.performance === 'PASS' ? 'OK' : 'SLOW'}`
+            } catch (e) {
+              console.log(`Could not read result statuses for email: ${e}`)
+            }
+            const prefix = `[${envDisplay}] SureAdhere Tests - ${resultLabel} - Run #${context.runNumber}`
             const suffix = `at ${NOW}`
             let subject = `${prefix} on branch "${GITHUB_HEAD_REF}" ${suffix}`
 
             let bodyFile = './common_utilities/mail_templates/email_pass.md'
             if (JOB_STATUS !== 'success') {
               bodyFile = './common_utilities/mail_templates/email_fail.md'
+            }
+
+            // Same checklist text the Slack step posts (testCases/conftest.py's
+            // pytest_terminal_summary writes it) -- without this the email only
+            // ever said "PASSED"/"FAILED, check the attachment", with no way to
+            // tell what actually happened (e.g. a perf/duration budget breach)
+            // short of downloading and opening the report.
+            let checklistBody = ''
+            try {
+              const checklistPath = `./slack_summary_${CC_ENV}.txt`
+              let checklistText = await fs.readFile(checklistPath, 'utf8')
+              checklistText = checklistText
+                .replace(/:large_green_circle:/g, '🟢')
+                .replace(/:red_circle:/g, '🔴')
+                .replace(/:large_yellow_circle:/g, '🟡')
+                .trim()
+              // Markdown collapses single newlines into one paragraph --
+              // double them so each checklist line stays on its own line,
+              // except inside the ``` performance box, which is kept as-is.
+              // The Slack box ends by pointing to Slack's "Performance report"
+              // link; in the email the report is attached instead.
+              checklistText = checklistText.replace(
+                /^Full details: see the Performance report link below.*$/m,
+                `Full details: see the attached performance report (performance_report_${CC_ENV}.txt).`)
+              checklistBody = checklistText.split('```')
+                .map((part, i) => i % 2 === 1 ? '```' + part + '```' : part.replace(/\n/g, '\n\n'))
+                .join('')
+            } catch (e) {
+              console.log(`Could not read checklist summary for email: ${e}`)
             }
 
             let actionRunLink = context.payload.repository.html_url + `/actions/runs/${context.runId}`
@@ -428,6 +630,7 @@ jobs:
                 .replace(/{{runNumber}}/g, context.runNumber)
                 .replace(/{{environment}}/g, envDisplay)
                 .replace(/{{testSuite}}/g, testSuite)
+                .replace(/{{checklistBody}}/g, checklistBody)
             
             let receivers = 'qa-automation@dimagi.com'
             if (context.eventName !== "pull_request" || context.eventName !== "push") {
@@ -452,5 +655,5 @@ jobs:
           from: <${{secrets.DIMAGIQA_MAIL_USERNAME}}>
           html_body: ${{ fromJSON(steps.configure_email.outputs.result).body }}
           convert_markdown: true
-          attachments: sbase-artifacts-${{ matrix.environment }}.zip
+          attachments: sbase-artifacts-${{ matrix.environment }}.zip,performance_report_${{ matrix.environment }}.txt
           in_reply_to: ${{ fromJSON(steps.configure_email.outputs.result).reference }}

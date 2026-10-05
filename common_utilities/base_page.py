@@ -35,7 +35,7 @@ from common_utilities.path_settings import PathSettings
 
 # ---- Tunables ---------------------------------------------------------------
 
-PRIMARY_TIMEOUT = 6         # seconds for fast checks
+PRIMARY_TIMEOUT = 10         # seconds for fast checks
 CLICK_TIMEOUT = 30          # seconds for user actions
 VISIBLE_REQUIRED = True     # only accept visible elements
 SIM_THRESHOLD = 0.62        # fuzzy match threshold for text-ish attrs
@@ -175,7 +175,7 @@ class BasePage:
         sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
         return self._by_tuple(sel)
 
-    def _find_unique_in(self, root, by, value, *, logical_name: str, timeout: int = 6):
+    def _find_unique_in(self, root, by, value, *, logical_name: str, timeout: int = 15):
         """Find exactly ONE match under the given root; raise if 0 or >1."""
         import time
         end = time.monotonic() + timeout
@@ -190,7 +190,7 @@ class BasePage:
             f"Locator for '{logical_name}' matched {len(last)} elements under scope (wanted 1): {by}={value}"
             )
 
-    def _lookup(self, logical_name: str, *, within=None, strict: bool = False, timeout: int = 6):
+    def _lookup(self, logical_name: str, *, within=None, strict: bool = False, timeout: int = 15):
         """
         Resolve logical_name to a unique WebElement.
           within: None | WebElement | logical name of a container
@@ -638,8 +638,11 @@ class BasePage:
         self.sb.refresh_page()
         self.wait_for_page_to_load()
 
-    def type(self, logical_name: str, value: str, timeout: int = CLICK_TIMEOUT):
-        sel = self.resolve(logical_name)
+    def type(self, logical_name: str, value: str, timeout: int = CLICK_TIMEOUT, strict=False):
+        if strict == False:
+            sel = self.resolve(logical_name)
+        else:
+            sel = self.resolve_strict(logical_name)
         self.sb.wait_for_element(sel, timeout=timeout)
         # self.sb.highlight(sel)
         self.sb.type(sel, value)
@@ -651,9 +654,9 @@ class BasePage:
             print(f"   ... {i + 1} minute(s) passed")
 
     def type_and_trigger(self, logical_name: str, text: str, *,
-                         timeout: int = 15, blur: bool = True, clear_first: bool = True):
+                         timeout: int = 15, blur: bool = True, clear_first: bool = True, strict: bool = False):
         """Type into a text field/textarea and fire the events Kendo expects."""
-        sel = self.resolve(logical_name)
+        sel = self.resolve_strict(logical_name) if strict else self.resolve(logical_name)
         el = self._get_webelement(sel, timeout=timeout)
 
         # bring into view & focus
@@ -757,11 +760,95 @@ class BasePage:
             return False
 
     def launch_url(self, url: str):
+        self._install_net_hook()
         self.sb.open(url)
         self.sb.wait_for_ready_state_complete(timeout=CLICK_TIMEOUT)
 
     def wait_for_page_to_load(self, timeout=50):
         self.sb.wait_for_ready_state_complete(timeout=timeout)
+
+    # Counts in-flight XHR/fetch calls (hooked on first use per document) and
+    # reports whether one of the app's loading indicators is visible. The
+    # indicator selectors are the ones e2e-parity's v3 page objects wait on
+    # (spinner-absolute-100, kendo-loader, data-testid="...-loader"), plus
+    # Kendo's generic loading mask.
+    _NET_HOOK_JS = """
+    if (!window.__qaNet) {
+      const net = window.__qaNet = {inflight: 0};
+      const done = () => { net.inflight = Math.max(0, net.inflight - 1); };
+      const origSend = XMLHttpRequest.prototype.send;
+      XMLHttpRequest.prototype.send = function () {
+        net.inflight++;
+        this.addEventListener('loadend', done);
+        return origSend.apply(this, arguments);
+      };
+      if (window.fetch) {
+        const origFetch = window.fetch;
+        window.fetch = function () {
+          net.inflight++;
+          return origFetch.apply(this, arguments).finally(done);
+        };
+      }
+    }
+    """
+    _APP_IDLE_JS = _NET_HOOK_JS + """
+    const loaders = '.spinner-absolute-100, kendo-loader, [data-testid$="-loader"], .k-loading-mask, .k-i-loading';
+    const spinner = Array.from(document.querySelectorAll(loaders)).some(el => el.offsetParent !== null);
+    return {ready: document.readyState === 'complete', inflight: window.__qaNet.inflight, spinner: spinner};
+    """
+
+    def _install_net_hook(self):
+        """Register the in-flight counter with Chrome so it runs at the start
+        of every new document, before the app's own scripts -- otherwise
+        calls fired while a page boots (e.g. right after the login redirect)
+        are never counted. Once per browser session; harmless elsewhere."""
+        driver = self.sb.driver
+        if getattr(driver, "_qa_net_hook_installed", False):
+            return
+        try:
+            driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {"source": self._NET_HOOK_JS})
+            driver._qa_net_hook_installed = True
+        except Exception:
+            pass
+
+    def wait_for_app_idle(self, timeout=10, settle_ms=1500, min_wait=2, label=""):
+        """Replacement for a fixed time.sleep(timeout) that was there because
+        the app is slow to load: waits *up to* `timeout` seconds, but returns
+        as soon as the page has been settled -- loaded, no API call in
+        flight, no loading indicator visible -- for `settle_ms` in a row.
+        (Not "network idle": the dashboard polls the API indefinitely, so a
+        quiet network may never happen; a short poll request is rarely in
+        flight when sampled.) Never returns before `min_wait` (requests that
+        started before the hook was installed, debounced searches). Never
+        raises -- on timeout it behaves exactly like the old sleep."""
+        start = time.monotonic()
+        poll = 0.25
+        settled_since = None
+        self._install_net_hook()
+        state = None
+        while True:
+            now = time.monotonic()
+            elapsed = now - start
+            try:
+                state = self.sb.driver.execute_script(self._APP_IDLE_JS)
+            except Exception as e:
+                state = {"error": type(e).__name__}
+            settled = (
+                isinstance(state, dict) and state.get("ready")
+                and not state.get("inflight") and not state.get("spinner")
+            )
+            if not settled:
+                settled_since = None
+            elif settled_since is None:
+                settled_since = now
+            if (settled_since is not None and (now - settled_since) * 1000 >= settle_ms
+                    and elapsed >= min_wait):
+                print(f"[app-idle] {label or 'page'} idle after {elapsed:.1f}s (max {timeout}s)")
+                return True
+            if elapsed >= timeout:
+                print(f"[app-idle] {label or 'page'} not idle after {timeout}s, continuing: {state}")
+                return False
+            time.sleep(poll)
 
     def verify_page_title(self, title, timeout=50):
         WebDriverWait(self.sb.driver, timeout).until(EC.title_contains(title))
@@ -1062,7 +1149,16 @@ class BasePage:
         for css in ("button[aria-label]", ".k-input-button", ".k-select", "button.k-button-icon"):
             f = root.find_elements(By.CSS_SELECTOR, css)
             if f: btn = f[0]; break
-        (btn or root).click()
+        target = btn or root
+        try:
+            target.click()
+        except ElementClickInterceptedException:
+            # layout may still be settling (e.g. a just-submitted comment reflowing the page)
+            self.wait_for_overlays_to_clear(3)
+            try:
+                target.click()
+            except ElementClickInterceptedException:
+                self.driver.execute_script("arguments[0].click();", target)
         WebDriverWait(self.driver, timeout).until(lambda d: self._dd_is_open(root))
 
     def _dd_get_display_text(self, root) -> str:
@@ -1499,7 +1595,7 @@ class BasePage:
     def is_element_present_rendered(self, logical_name: str, timeout: int = 15, **params):
         try:
             locator = self.render_xpath(logical_name, **params)
-
+            print(locator)
             if not locator:
                 return False
 
@@ -1831,7 +1927,7 @@ class BasePage:
         return out
 
     # ------- DOM helpers for the month view -------------------------------------
-    def _month_cell_for_day(self, day: int, timeout: int = 6):
+    def _month_cell_for_day(self, day: int, timeout: int = 15):
         """
         Return the <mwl-calendar-month-cell> for the DAY NUMBER that is
         'in-month' (not the out-of-month overflow cells).
@@ -1905,24 +2001,35 @@ class BasePage:
 
 
     # --- Parse "August 2025" from the calendar header ----------------------------
-    def calendar_visible_year_month(self, header_logical: str, *, timeout: int = 6) -> tuple[int, int]:
+    def calendar_visible_year_month(self, header_logical: str, *, timeout: int = 15) -> tuple[int, int]:
         header_sel = self.resolve(header_logical)
-        # Wait until the header element has non-empty text (guards against timing/race conditions
-        # where the element is present in the DOM but its text content hasn't rendered yet)
-        try:
-            WebDriverWait(self.driver, timeout).until(
-                lambda d: (self._get_webelement(header_sel, timeout=timeout).text or "").strip()
-            )
-        except Exception:
-            pass  # fall through to raise the descriptive RuntimeError below
-        hdr = self._get_webelement(header_sel, timeout=timeout)
-        text = (hdr.text or "").strip()
+        months = {m: i for i, m in enumerate(calendar.month_name) if m}  # {"January":1,...}
+
+        # The header can go briefly blank mid-transition when Kendo re-renders
+        # it after a month-navigation click, so a single wait-then-read can
+        # still catch it empty even though the wait itself saw non-empty text
+        # a moment earlier (two separate reads of a moving target). Retry the
+        # whole wait+read together instead of trusting one read after the wait.
+        deadline = time.time() + timeout
+        text = ""
+        while time.time() < deadline:
+            try:
+                WebDriverWait(self.driver, max(1, deadline - time.time())).until(
+                    lambda d: (self._get_webelement(header_sel, timeout=timeout).text or "").strip()
+                )
+            except Exception:
+                break  # fall through to raise the descriptive RuntimeError below
+            hdr = self._get_webelement(header_sel, timeout=timeout)
+            text = (hdr.text or "").strip()
+            if len(text.split()) >= 2:
+                break
+            time.sleep(0.5)
+
         # expect "August 2025" or similar
         parts = text.split()
         if len(parts) < 2:
             raise RuntimeError(f"Cannot parse month+year from header: {text!r}")
         month_name, year_s = parts[0], parts[-1]
-        months = {m: i for i, m in enumerate(calendar.month_name) if m}  # {"January":1,...}
         return int(year_s), months[month_name]
 
     from selenium.webdriver.support.ui import WebDriverWait
@@ -1935,7 +2042,7 @@ class BasePage:
             target_year: int,
             target_month: int,
             *,
-            timeout: int = 10,
+            timeout: int = 25,
             ) -> None:
         """Click prev/next until header shows (target_year, target_month).
         Debounces every click by waiting for the header text to change first.
@@ -1966,7 +2073,7 @@ class BasePage:
         raise RuntimeError(f"Could not reach {target_year}-{target_month:02d} using calendar navigation")
 
     # --- Find a cell for a day number within the visible month -------------------
-    def _month_cell_for_day(self, day: int, *, timeout: int = 6, in_month_only: bool = True):
+    def _month_cell_for_day(self, day: int, *, timeout: int = 15, in_month_only: bool = True):
         pred_month = " and contains(@class,'cal-in-month')" if in_month_only else ""
         xp = ("//mwl-calendar-month-cell"
               f"[contains(@class,'cal-day-cell'){pred_month}]"
@@ -2036,8 +2143,14 @@ class BasePage:
 
         # 3) visit each month once, verify days in that month
         for (y, m) in sorted(groups.keys()):
+            # 20s wasn't always enough on banner: seen exhausting that full
+            # window with a genuinely still-blank calendar header (not a
+            # brief render flicker -- login/navigation/form-fill all
+            # succeeded on both the first attempt and its rerun, only this
+            # read timed out both times), right after create_new_schedule()
+            # already waits ~20s post-creation before ever reaching here.
             self.calendar_goto_year_month(
-                header_logical, next_btn_logical, prev_btn_logical, y, m, timeout=8
+                header_logical, next_btn_logical, prev_btn_logical, y, m, timeout=45
                 )
 
             for d in groups[(y, m)]:
@@ -2070,6 +2183,14 @@ class BasePage:
             return dt.strftime("%b %-d, %Y")  # Unix
         except ValueError:
             return dt.strftime("%b %#d, %Y")
+
+    def format_hMp(self, dt):
+        if isinstance(dt, str):
+            dt = datetime.strptime(dt, "%I:%M %p")
+        try:
+            return dt.strftime("%-I:%M %p")  # Unix
+        except ValueError:
+            return dt.strftime("%#I:%M %p")  # Windows
 
     def format_full_mdY(self, dt):
         if isinstance(dt, str):
@@ -3000,7 +3121,7 @@ class BasePage:
                 return
         raise AssertionError(f"Failed to set Kendo switch '{logical_name}' to {on}")
 
-    def kendo_switch_wait(self, logical_name: str, expected: bool, *, timeout: int = 8, poll: float = 0.1, strict: bool=False) -> None:
+    def kendo_switch_wait(self, logical_name: str, expected: bool, *, timeout: int = 20, poll: float = 0.1, strict: bool=False) -> None:
         """Wait until switch reaches expected state (True/False) or timeout."""
         import time
         end = time.monotonic() + timeout

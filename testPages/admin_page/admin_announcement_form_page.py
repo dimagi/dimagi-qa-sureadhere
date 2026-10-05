@@ -65,8 +65,13 @@ class AdminAnnouncementFormPage(BasePage):
         date_time = datetime.now().strftime("%B %d, %Y %I:%M %p")
         print(date_time)
         announcement_text = f"Announcement created via automation on {date_time}"
-        self.wait_for_element('kendo-multiselect_Select_Client')
-        self.click('kendo-multiselect_Select_Client')
+        # kendo_select() already waits for and opens this dropdown itself (via
+        # the inner input). A separate click on the outer kendo-multiselect
+        # wrapper beforehand was redundant and could toggle the dropdown back
+        # closed right before kendo_select tried to pick an option from it --
+        # its own reopen fallback (ALT+ARROW_DOWN) isn't reliable enough to
+        # guarantee recovery, which matched a real CI failure where the
+        # announcement saved with no client tagged at all.
         self.kendo_select("k-input-Select Client", text=client)
         # self.switch_to_frame('iframe')
         with self.within_frame('iframe'):

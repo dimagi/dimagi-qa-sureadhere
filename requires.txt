@@ -1,6 +1,6 @@
 ## Stores information about all the libraries, modules, and packages that are used in this project.
 
-seleniumbase
+seleniumbase==4.51.1
 flake8
 pandas
 openpyxl
@@ -22,3 +22,5 @@ pdf2image
 pytesseract
 pillow
 opencv-python
+openai
+slack_sdk

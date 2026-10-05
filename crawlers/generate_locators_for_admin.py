@@ -217,7 +217,7 @@ def login_to_app(driver, settings):
     driver.find_element(By.ID, "email").send_keys("demouser2@demo.sureadhere.com")
     driver.find_element(By.ID, "password").send_keys("heyHEYhey!")
     driver.find_element(By.ID, "next").click()
-    wait.until(EC.presence_of_element_located((By.XPATH, "//p[.='Dashboard']")))
+    wait.until(EC.presence_of_element_located((By.XPATH, "//span[.='Home']")))
 
 
 def cancel_page(driver):
@@ -264,9 +264,9 @@ def main():
     driver = webdriver.Chrome(options=chrome_options)
     try:
         login_to_app(driver, settings)
-        time.sleep(5)
-        driver.find_element(By.XPATH, "//p[text()='Admin']").click()
-        time.sleep(5)
+        time.sleep(15)
+        driver.find_element(By.XPATH, "//span[contains(@class,'nav-label') and contains(.,'Admin')]").click()
+        time.sleep(10)
 
 
 
@@ -276,7 +276,8 @@ def main():
             # "admin_drugs": "//div[@role='button'][contains(.,'Drugs')]",
             # "admin_languages": "//div[@role='button'][contains(.,'Languages')]",
             # "admin_site_languages": "//div[@role='button'][contains(.,'Site Languages')]",
-            "admin_observation_types": "//div[@role='button'][contains(.,'Observation Types')]",
+            # "admin_observation_types": "//div[@role='button'][contains(.,'Observation Types')]",
+            "reports_by_client": "//li/span[.='Reports by Clients']",
             # "admin_side_effects": "//div[@role='button'][contains(.,'Side Effects')]",
 
             # Add more

@@ -1,23 +1,26 @@
 class UserData:
 
     phone_number = "(000) 000-0000"
-    site_manager = ["Site_1_US", "Menlo Park", "Durban"]
+    site_manager = ["Site_1_US", "Menlo Park", "Cape Town"]#"Durban"]
     pwd = "abc@123456"
     regimen_disease = ["Diabetes", "Active TB"]
     med_time = "08:00 AM"
     regimen_repeats = "Daily"
+    regimen_repeats_weekdays = "Weekdays"
     regimen_drugs = ["Ofloxacin", "Drug 2"]
     no_of_pills = 7
-    dose_per_pill = 2
+    dose_per_pill = 1
     admin_disease = ["Depression", "Hepatitis C", "Ebola"]
     admin_drug = ["Levofloxacin", "Rifapentine", "Truvada", "Stribild"]
-    default_staff_email = ["automation.user.banner@gmail.com", "automation.user.rogers@gmail.com", "automation.user.secure@gmail.com", "automation.user.eu@gmail.com"]
+    # default_staff_email = ["automation.user.banner@gmail.com", "automation.user.rogers@gmail.com", "automation.user.secure@gmail.com", "automation.user.eu@gmail.com"]
+    default_staff_email = ["sureadhere.automation.user+banner@gmail.com", "automation.user.rogers@gmail.com", "sureadhere.automation.user+secure@gmail.com", "sureadhere.automation.user+eu@gmail.com"]
     default_staff_name = "Automation Testuser"
+
     med_status = "Taken"
     provider_observation = "Patient"
     side_effect = ["Anxiety", "Depression", "Irritability", "Insomnia"]
     colour_code = "#730099"
-    client = ["Client_Test_1_US", "Client_1_US", "St. Eligius", "EU Demo Client 2"]
+    client = ["Client_Test_1_US", "Client_1_US", "St. Eligius", "EU Demo Client 1"]
     ff = {
         "Patient Self Reporting": "ON",
         "Side Effects": "ON",
@@ -25,13 +28,49 @@ class UserData:
         "In-App Messaging": "ON",
         "Video capture for VDOT": "ON",
         "REVAMPED REGIMEN": "ON",
+        "Self Report - pills taken with food": "ON",
+        "Self Report - pills with food": "ON",
+        "Self Report - pills with provider present": "ON",
+        "Regimen approval workflow": "OFF",
+        "Automatic Opt In for SMS": "OFF",
+        "Patient MRN validated with lookup": "OFF",
+        "Medication Event Reminder Monitor": "OFF",
+        "Per Drug Adherence": "ON",
+        "Events panel - inline dose preview": "OFF",
+        "Unlinking and re-linking Video events": "OFF",
+        "Food question boolean mode": "ON",
+        "Self Report - calendar": "ON"
+        }
+    pill_count_ff_on = {
+        "Pill Count": "ON",
+        }
+    pill_count_ff_off = {
+        "Pill Count": "OFF",
+        }
+
+    per_drug_adherence_ff_on = {
+        "Per Drug Adherence": "ON",
+        }
+    per_drug_adherence_ff_off = {
+        "Per Drug Adherence": "OFF",
+        }
+
+    regimen_approval_ff_off = {
+        "Regimen approval workflow": "OFF",
+        }
+    regimen_approval_ff_on = {
+        "Regimen approval workflow": "ON",
+        }
+    self_report_ff_off = {
         "Self Report - pills taken with food": "OFF",
         "Self Report - pills with food": "OFF",
         "Self Report - pills with provider present": "OFF",
-        "Regimen approval workflow": "OFF",
-        "Automatic Opt In for SMS": "OFF",
-        "Patient MRN validated with lookup": "OFF"
-        }
+    }
+    self_report_ff_on = {
+        "Self Report - pills taken with food": "ON",
+        "Self Report - pills with food": "ON",
+        "Self Report - pills with provider present": "ON",
+    }
     invalid_password = "12auto34test!"
     inactive_user_email = "automation.inactive@gmail.com"
     inactive_user_email_rogers = "automation.inactive+test@gmail.com"
@@ -50,24 +89,28 @@ class UserData:
     account_block_error_message = "Your account is temporarily locked to prevent unauthorized use. Try again later."
     client_1_patient_details = {
         "others": ["pat_cl1 automation", "cl1123", "pat_cl1_auto", "pat_cl1_auto@test.com"],
+        "securevoteu": ["pat_cl1 automation", "cl1123", "pat_cl1_auto_eu", "pat_cl1_auto@test.com"],
         "rogers": ["pat_cl1 automation", "cl1123", "pat_cl1_auto", "pat_cl1_auto_test@test.com"]
         }
     client_2_patient_details = {
         "others": ["pat_cl2 automation", "cl2123", "pat_cl2_auto", "pat_cl2_auto@test.com"],
+        "securevoteu": ["pat_cl2 automation", "cl2123", "pat_cl2_auto_eu", "pat_cl2_auto@test.com"],
         "rogers": ["pat_cl2 automation", "cl2123", "pat_cl2_auto", "pat_cl12auto_test@test.com"]
         }
     client_env = {
         "clients_banner": ["Site_1_US", "Site_2_US"],
         "clients_rogers": ["Site_1_US", "Site_2_UK"],
-        "clients_securevoteu": ["Durban", "Kimberley"],
+        "clients_securevoteu": ["Cape Town", "Joburg"],# ["Durban", "Kimberley"],
         "clients_secure": ["Menlo Park", "Palo Alto"]
         }
     client_1_staff_details = {
         "others": ["Staff CL1", "sureadhere.automation.user+scl1@gmail.com"],
+        "securevoteu": ["Staff CL1", "sureadhere.automation.user+scl1@gmail.com"],
         "rogers": ["Staff CL1", "sureadhere.automation.user+test+scl1@gmail.com"]
         }
     client_2_staff_details = {
         "others": ["Staff CL2", "sureadhere.automation.user+scl2@gmail.com"],
+        "securevoteu": ["Staff CL2", "sureadhere.automation.user+scl2@gmail.com"],
         "rogers": ["Staff CL2", "sureadhere.automation.user+test+scl2@gmail.com"]
         }
     email_error = "Error: This email address is already being used for another staff account. Each staff user must have a unique email address."
@@ -75,3 +118,14 @@ class UserData:
     default_managers = ['PM', 'SM', 'TM', 'SS']
     access_warning = "You don't have access to edit this patient"
     global_reports = ['User access', 'Most recent patient videos', 'Monthly video count by patient']
+    patient_list_columns = [ "Name","UserName","Treatment progress","Est. doses remaining","MRN","SA-ID","Start date","End date"]
+    per_user_reports = ["Patient Videos", "Summary DOT Record", "Dose Status", "7 Days Adherence", "Summary Event Record", "Summary Side Effects and Comments"]
+    pill_count_drug = 'Quabodepistat'
+
+    overview_doses_table_columns=['taken', 'not_taken', 'scheduled', 'held', 'challenge', 'rescheduled']
+    observation_method = 'Recorded VDOT'
+    obs_in_person = 'In-Person DOT'
+    quick_actions =['new video', 'missed review', 'low review rate']
+    adherence_dropdown =['Last 7 days', 'Last 30 days']
+    review_text_on = "Meds taken, Review Approved with FF ON"
+    review_text_off = "Meds taken, Review Approved with FF OFF"

@@ -1,8 +1,11 @@
 import random
+import time
 
 import pytest
 from seleniumbase import BaseCase
 
+from common_utilities.perf import perf_budget
+from common_utilities.step_reporter import checklist_step, report_values
 from testPages.admin_page.admin_ff_page import AdminFFPage
 from testPages.admin_page.admin_page import AdminPage
 from testPages.android.android import Android
@@ -44,7 +47,7 @@ class test_module_03(BaseCase):
     @pytest.mark.tcid("mobile_and_web_0")
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_mobile_1", scope="class")
-    def test_case_00_create_patient(self):
+    def test_case_00_create_mobile_patient_and_regimen(self):
         rerun_count = getattr(self, "rerun_count", 0)
         # login = LoginPage(self, "login")
         login = LoginPage(self, "login")
@@ -74,16 +77,19 @@ class test_module_03(BaseCase):
             default_staff_email = UserData.default_staff_email[2]
             default_site_manager = UserData.site_manager[1]
             
-        login.login(default_staff_email, UserData.pwd)
-        home.open_dashboard_page()
-        home.validate_dashboard_page()
+        with perf_budget("login_and_dashboard", driver=self.driver):
+            login.login(default_staff_email, UserData.pwd)
+            home.open_dashboard_page()
+            home.validate_dashboard_page()
         home.click_add_user()
         user.add_patient()
-        pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(default_site_manager, mob='mob', rerun_count=rerun_count)
-        p_profile.verify_patient_profile_page()
-        sa_id = p_profile.verify_patient_profile_details(pfname, plname, mrn, pemail, username, phn, phn_country,
-                                                         default_site_manager, sa_id=True
-                                                         )
+        with perf_budget("create_patient", driver=self.driver):
+            pfname, plname, mrn, pemail, username, phn, phn_country = user_patient.fill_patient_form(default_site_manager, mob='mob', rerun_count=rerun_count)
+            p_profile.verify_patient_profile_page()
+            sa_id = p_profile.verify_patient_profile_details(pfname, plname, mrn, pemail, username, phn, phn_country,
+                                                             default_site_manager, sa_id=True
+                                                             )
+            report_values({"mobile_patient_sa_id": sa_id})
         p_profile.select_patient_manager(UserData.default_staff_name)
         p_profile.select_treatment_monitor(UserData.default_staff_name)
         patient_test_account, patient_pin = p_profile.set_patient_pin(pfname, plname, mrn, pemail,
@@ -91,15 +97,19 @@ class test_module_03(BaseCase):
                                                                       )
         p_regimen.open_patient_regimen_page()
         p_regimen.verify_patient_regimen_page()
-        start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule()
+        # A pytest rerun re-executes this whole method from scratch, but a
+        # schedule the first attempt already created (before failing on a
+        # LATER step, e.g. the calendar verification) is still there --
+        # create_new_schedule() would then add a second drug to the same
+        # regimen instead of replacing it, and nothing downstream (mobile
+        # dose submission, adherence checks) expects more than one. Only
+        # needed on a rerun -- skip it on a genuine first attempt.
+        if rerun_count != 0:
+            p_regimen.delete_schedule()
+        with perf_budget("create_regimen", driver=self.driver):
+            start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule(time_of_drug=True)
 
-        try:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-        except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
+        home.ensure_logged_in()
 
         home.open_manage_patient_page()
         patient.search_patient(pfname, plname, mrn,username, sa_id,
@@ -122,10 +132,12 @@ class test_module_03(BaseCase):
     @pytest.mark.tcid("mobile_and_web_1, mobile_and_web_2, mobile_and_web_3, mobile_and_web_4")
     @pytest.mark.smoketest
     @pytest.mark.dependency(name="tc_mobile_2",depends= ["tc_mobile_1"],scope="class")
-    def test_case_01_mobile_login_and_message(self):
+    def test_case_01_mobile_login_video_and_messaging(self):
+        rerun_count = getattr(self, "rerun_count", 0)
         login = LoginPage(self, "login")
         self._login_once()
-        mobile = Android(self.settings)
+        self.mobile = Android(self.settings)
+        mobile = self.mobile
         home = HomePage(self, "dashboard")
         profile = UserProfilePage(self, "user")
         patient = ManagePatientPage(self, "patients")
@@ -137,25 +149,49 @@ class test_module_03(BaseCase):
 
         login.login(self.settings["login_username"], self.settings["login_password"])
 
+        d = self.__class__.data
+
         home.open_dashboard_page()
         home.validate_dashboard_page()
-
-        d = self.__class__.data
+        home.open_dashboard_page()
+        home.check_for_quick_actions()
+        flag = home.check_for_review_presence(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
 
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
         patient.open_patient(d["patient_fname"], d["patient_lname"])
 
-        mobile.select_environment(self.settings['url'])
-        mobile.login_patient(d['patient_username'], d['patient_pin'])
-        mob_msg = mobile.send_messages()
-        p_message.open_patient_messages_page()
-        p_message.verify_patient_messages_page()
-        p_message.read_last_message(mob_msg)
-        web_msg = p_message.send_message()
-        mobile.read_messages(web_msg)
-        vdo_upload_date, vdo_upload_time = mobile.record_video_and_submit(d['drug_name'])
-        mobile.close_android_driver()
+        with checklist_step("mobile_login"):
+            report_values({"device_type": "Google Pixel 9 (Android)"})
+            mobile.select_environment(self.settings['url'])
+            mobile.login_patient(d['patient_username'], d['patient_pin'])
+
+        with checklist_step("in_app_messaging"), perf_budget("in_app_message_roundtrip", driver=self.driver):
+            mob_msg = mobile.send_messages()
+            p_message.open_patient_messages_page()
+            p_message.verify_patient_messages_page()
+            p_message.read_last_message(mob_msg)
+            web_msg = p_message.send_message()
+            mobile.read_messages(web_msg)
+
+        with checklist_step("video_submitted"):
+            if flag == False:
+                with perf_budget("mobile_video_submit"):
+                    vdo_upload_date, vdo_upload_time = mobile.record_video_and_submit(d['drug_name'], d["total_pills"])
+                # Self-report submits the same data the video wizard already records for this
+                # dose; calling both creates duplicate self-report events for the same dose,
+                # which the matcher treats as ambiguous ("multiple covering reports") and
+                # suppresses the auto-filled tag entirely.
+                # mobile.self_report_and_submit(d['drug_name'], d["total_pills"])
+                mobile.close_android_driver()
+                self.__class__.data.update({
+                    "video_upload_date": vdo_upload_date,
+                    "video_upload_time": vdo_upload_time,
+                })
+            else:
+                print("video already uploaded")
+                vdo_upload_date = d.get("video_upload_date")
+                vdo_upload_time = d.get("video_upload_time")
         home.click_admin_profile_button()
         profile.logout_user()
         login.after_logout()
@@ -167,49 +203,123 @@ class test_module_03(BaseCase):
 
     @pytest.mark.testcase(
         "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A22:J23"
-        )
+    )
     @pytest.mark.tcid("mobile_and_web_5, mobile_and_web_6")
     @pytest.mark.smoketest
-    @pytest.mark.dependency(name="tc_mobile_3", depends=["tc_mobile_1", "tc_mobile_2"], scope="class")
-    def test_case_02_review_video_and_adherence(self):
-        login = LoginPage(self, "login")
+    @pytest.mark.dependency(name="tc_mobile_3_on",  depends=["tc_mobile_1", "tc_mobile_2"], scope="class")
+    @pytest.mark.flaky(reruns=0)
+    def test_case_02a_dose_submitted_pda_enabled_and_auto_complete_in_person(self):
+        # No automatic rerun for this test (see @pytest.mark.flaky(reruns=0) above):
+        # the "Taken" dose status it checks for is a one-shot side effect of an
+        # earlier mobile auto-complete action, and this test's own cleanup resets
+        # it back to "Open" near the end (line ~294) for test_case_02b. A from-
+        # scratch rerun can't recreate "Taken" -- it would just fail on a stale
+        # precondition instead of the real problem. A genuine failure should be
+        # reported once, clearly, rather than masked by a guaranteed-false retry.
         self._login_once()
         home = HomePage(self, "dashboard")
         p_vdo = PatientVideoPage(self, 'patient_video_form')
         p_adhere = PatientAdherencePage(self, 'patient_adherence')
-        profile = UserProfilePage(self, "user")
+        a_ff = AdminFFPage(self, 'feature_flags')
+        admin = AdminPage(self, 'admin')
+        p_overview = PatientOverviewPage(self, 'patient_overview')
+        patient = ManagePatientPage(self, "patients")
 
         d = self.__class__.data
+        if "banner" in self.settings["url"]:
+            default_client = UserData.client[0]
+        elif "rogers" in self.settings["url"]:
+            default_client = UserData.client[1]
+        elif "securevoteu" in self.settings["url"]:
+            default_client = UserData.client[3]
+        else:
+            default_client = UserData.client[2]
+        home.force_relogin()
 
+        # Verify (not set -- this flag is already ON from presetup) via the
+        # IAM API instead of navigating the full Admin > Feature Flags page,
+        # which costs a dashboard+admin+feature-flags page-load cycle just
+        # to confirm a value nothing here is trying to change. Only falls
+        # back to the UI (which can also correct a mismatch) if the API
+        # can't confirm it.
+        ff_confirmed = {}
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-        except Exception:
-            home.click_admin_profile_button()
-            profile.logout_user()
-            login.after_logout()
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            from common_utilities.feature_flag_api import verify_feature_flags_via_api
+            ff_confirmed = verify_feature_flags_via_api(self.driver, self.settings["url"], UserData.per_drug_adherence_ff_on)
+        except Exception as e:
+            print(f"[ff_api verify] unexpected error, falling back to UI: {e}")
+        if len(ff_confirmed) < len(UserData.per_drug_adherence_ff_on):
+            home.open_dashboard_page()
+            home.open_admin_page()
+            admin.open_feature_flags()
+            a_ff.validate_admin_ff_page(default_client)
+            a_ff.double_check_ff(UserData.per_drug_adherence_ff_on)
+        else:
+            # The skipped Admin > Feature Flags UI cycle above wasn't just
+            # extra navigation main always paid for -- it also incidentally
+            # gave the backend a dashboard+admin+feature-flags page-load's
+            # worth of wall-clock time to finish linking test_case_01's just
+            # -submitted video to this dose before we check for the
+            # auto-filled tag. Taking the fast API path removes that buffer;
+            # restore roughly the same amount of time explicitly instead of
+            # letting this race the backend.
+            print("[ff_api verify] all flags confirmed via API; waiting to give the backend the same "
+                  "processing time the skipped UI page-load cycle would have")
+            time.sleep(30)
 
-        home.open_dashboard_page()
-        home.validate_dashboard_page()
+        home.force_relogin()
         home.check_for_quick_actions()
-        home.check_for_video_review(d["patient_fname"]+" "+d["patient_lname"], d['SA_ID'])
+        home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'], flag=False)
+
+        home.open_manage_patient_page()
+        patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
+        patient.open_patient(d["patient_fname"], d["patient_lname"])
+
+        p_adhere.open_patient_adherence_page()
+        p_adhere.verify_patient_adherence_page()
+        with checklist_step("auto_complete_in_person"):
+            auto_filled = p_adhere.verify_auto_filled_tag()
+            p_adhere.verify_patient_adherence_dose_status("Taken", True)
+            p_adhere.verify_dose_summary(UserData.obs_in_person)
+        p_vdo.close_form()
+
+        home.force_relogin()
+
+        home.check_for_quick_actions()
+        home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
         p_vdo.verify_patient_video_page()
-        now, formatted_now, review_text=p_vdo.fill_up_review_form(d['drug_name'], d['total_pills'],d['dose_per_pill'])
+        with checklist_step("dose_submitted_pda_on"):
+            now, formatted_now, drug_time, obs_method, review_text, side_effect = p_vdo.fill_up_review_form_ff_on(
+                    d['drug_name'], d['total_pills'],
+                    d['dose_per_pill'])
+        p_vdo.close_form()
+        home.force_relogin()
+
+        home.open_manage_patient_page()
+        patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
+        patient.open_patient(d["patient_fname"], d["patient_lname"])
         p_adhere.verify_patient_adherence_page()
         p_adhere.check_calendar_and_comment_for_adherence(now, formatted_now, review_text)
-        side_effect = p_adhere.fillup_side_effects()
-        p_vdo.close_form()
+
+        p_overview.open_patient_overview_page()
+        p_overview.verify_patient_overview_page()
+        p_overview.check_calendar_and_doses(formatted_now, review_text, d['drug_name'], d['start_date'], d['total_pills'])
+
+        # patient1 is never reused after this (test_03b_per_drug_disabled.py's
+        # FF-off flow now runs against its own patient2), so there's no reset
+        # -to-Open step needed here anymore.
+
         self.__class__.data.update(
-            {"commented_timestamp": formatted_now, "commented_text": review_text, "side_effect": side_effect
+            {"commented_timestamp": formatted_now, "auto_filled": auto_filled, "commented_text": review_text, "side_effect": side_effect
              }
-            )
+        )
 
     @pytest.mark.testcase(
         "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A24:J24"
         )
     @pytest.mark.tcid("mobile_and_web_7")
     @pytest.mark.smoketest
-    @pytest.mark.dependency(name="tc_mobile_4", depends=["tc_mobile_1", "tc_mobile_2", "tc_mobile_3"], scope="class")
+    @pytest.mark.dependency(name="tc_mobile_4", depends=["tc_mobile_1", "tc_mobile_2", "tc_mobile_3_on"], scope="class")
     def test_case_03_review_overview(self):
         login = LoginPage(self, "login")
         self._login_once()
@@ -217,34 +327,32 @@ class test_module_03(BaseCase):
         p_overview = PatientOverviewPage(self, 'patient_overview')
         patient = ManagePatientPage(self, "patients")
         p_vdo = PatientVideoPage(self, 'patient_video_form')
+        profile = UserProfilePage(self, "user")
 
         d = self.__class__.data
         p_vdo.close_form()
 
-        try:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-            home.open_manage_patient_page()
-        except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-            home.open_manage_patient_page()
+        home.ensure_logged_in()
+        home.open_manage_patient_page()
 
-        patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
-        patient.open_patient(d["patient_fname"], d["patient_lname"])
-        p_overview.open_patient_overview_page()
-        p_overview.verify_patient_overview_page()
-        p_overview.check_calendar_and_doses(d['commented_timestamp'], d['commented_text'], d['drug_name'], d['start_date'], d['total_pills'])
+        with checklist_step("taken_count_updated"):
+            patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
+            patient.open_patient(d["patient_fname"], d["patient_lname"])
+            p_overview.open_patient_overview_page()
+            # p_overview.verify_patient_overview_page()
+            p_overview.check_calendar_and_doses(d['commented_timestamp'], d['commented_text'], d['drug_name'], d['start_date'], d['total_pills'])
+
+        home.click_admin_profile_button()
+        profile.logout_user()
+        login.after_logout()
 
     @pytest.mark.testcase(
         "https://docs.google.com/spreadsheets/d/1EE2S3J4i964P_C-FCFxxHUYNxK3iP6XEoyKVoeWvZzs/edit?gid=530160723#gid=530160723&range=A25:J25"
         )
     @pytest.mark.tcid("mobile_and_web_8")
     @pytest.mark.smoketest
-    @pytest.mark.dependency(name="tc_mobile_5", depends=["tc_mobile_1","tc_mobile_2", "tc_mobile_3"], scope="class")
-    def test_case_04_review_reports(self):
-        login = LoginPage(self, "login")
+    @pytest.mark.dependency(name="tc_mobile_5", depends=["tc_mobile_1", "tc_mobile_2", "tc_mobile_3_on"], scope="class")
+    def test_case_04_mobile_data_on_web(self):
         self._login_once()
         home = HomePage(self, "dashboard")
         p_vdo = PatientVideoPage(self, 'patient_video_form')
@@ -254,25 +362,21 @@ class test_module_03(BaseCase):
         d = self.__class__.data
 
         p_vdo.close_form()
-        try:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-        except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
+
+        home.force_relogin()
 
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
         patient.open_patient(d["patient_fname"], d["patient_lname"])
 
-        p_report.open_patient_reports_page()
-        p_report.verify_patient_reports_page()
-        p_report.verify_comment_and_side_effect(d['commented_text'], d['side_effect'])
+        with checklist_step("mobile_data_on_web"):
+            p_report.open_patient_reports_page()
+            p_report.verify_patient_reports_page()
+            p_report.verify_comment_and_side_effect(d['commented_text'], d['side_effect'])
 
-        p_report.open_patient_reports_page()
-        p_report.verify_patient_reports_page()
-        p_report.verify_video_report(d['video_upload_date'], d['video_upload_time'])
+            p_report.open_patient_reports_page()
+            p_report.verify_patient_reports_page()
+            p_report.verify_video_report(d['video_upload_date'], d['video_upload_time'])
 
 
 

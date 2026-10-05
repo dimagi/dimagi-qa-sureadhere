@@ -2300,5 +2300,30 @@
     "class": "k-switch-thumb k-rounded-full",
     "tag": "span",
     "xpath": "//span[@class='k-switch-thumb k-rounded-full']"
+  },
+  "kendo-switch_Pill Count": {
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Pill Count')]]//descendant::kendo-switch"
+  },
+  "kendo-switch_Per Drug Adherence": {
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Per Drug Adherence')]]//descendant::kendo-switch"
+  },
+  "kendo-switch_Patient MRN validated with lookup": {
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Patient MRN validated with lookup')]]//descendant::kendo-switch"
+  },
+  "kendo-switch_Food question boolean mode": {
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Food question boolean mode')]]//descendant::kendo-switch"
+  },
+  "kendo-switch_Self Report - calendar": {
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//div[@class='row list-item'][.//div[contains(normalize-space(text()), 'Self Report - calendar')]]//descendant::kendo-switch"
   }
 }

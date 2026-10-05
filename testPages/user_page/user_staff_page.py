@@ -199,7 +199,7 @@ class UserStaffPage(BasePage):
             self.type('password', "xxx")
         if email_test:
             self.type('email', UserData.reset_email_address)
-        self.click('button_SUBMIT')
+        self.click_robust('button_SUBMIT')
         if password_test:
             self.wait_for_element('staff_error_message')
             text = self.get_text('staff_error_message')
@@ -215,6 +215,12 @@ class UserStaffPage(BasePage):
         self.cancel_form()
 
     def cancel_form(self):
+        time.sleep(2)
+        try:
+            self.kendo_dialog_wait_open()  # no title constraint
+            self.kendo_dialog_click_button("Ok")
+        except Exception:
+            print("popup not present")
         time.sleep(2)
         self.kendo_dialog_close()
         time.sleep(5)

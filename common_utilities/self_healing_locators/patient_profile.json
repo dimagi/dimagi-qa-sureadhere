@@ -564,7 +564,7 @@
     "xpath": "//li[contains(@id,'k-tabstrip-tab') and @aria-selected='true']//div/span"
   },
   "k-tabstrip-tab-Profile": {
-    "class": "ng-tns-c655264150-1 k-item k-state-default ng-star-inserted k-active",
+    "class": "k-item k-state-default ng-star-inserted k-active",
     "tag": "li",
     "text": "Profile",
     "xpath": "//li[contains(@id,'k-tabstrip-tab')]//span[contains(normalize-space(text()), 'Profile')]"
@@ -1060,6 +1060,18 @@
     "tag": "kendo-dropdownlist",
     "xpath": "//kendo-dropdownlist[@id='k-56428529-132f-4e0c-8429-5a69a48ac64c']"
   },
+  "kendo-dropdownlist-alt-phone-country": {
+    "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
+    "tag": "kendo-dropdownlist",
+    "xpath": "//label[contains(normalize-space(text()), 'Alternate phone country')]/following-sibling::kendo-dropdownlist"
+  },
+  "alt_phone_number": {
+    "name": "alternate_phone_number",
+    "class": "k-input k-textbox k-phone-input ng-untouched ng-valid ng-dirty",
+    "type": "text",
+    "tag": "input",
+    "xpath": "//input[@name='alternate_phone_number']"
+  },
   "k-0c182717-b987-45ce-a42d-fa1ec03f80d6": {
     "id": "k-0c182717-b987-45ce-a42d-fa1ec03f80d6",
     "class": "k-input-inner",
@@ -1150,17 +1162,15 @@
     "text": "Preferred language English",
     "xpath": "//div[contains(normalize-space(text()), 'Preferred language\nEnglish')]"
   },
-  "label_Preferred _236": {
+  "label_Preferred_language": {
     "tag": "label",
     "text": "Preferred language",
     "xpath": "//label[contains(normalize-space(text()), 'Preferred language')]"
   },
-  "k-faa1f812-60a9-46a5-b163-493b2be8cbfd": {
-    "id": "k-faa1f812-60a9-46a5-b163-493b2be8cbfd",
+  "kendo-dropdownlist-preferred-language": {
     "class": "k-picker-md k-rounded-md k-picker-solid k-dropdownlist k-picker ng-untouched ng-pristine ng-valid",
     "tag": "kendo-dropdownlist",
-    "text": "English",
-    "xpath": "//kendo-dropdownlist[@id='k-faa1f812-60a9-46a5-b163-493b2be8cbfd']"
+    "xpath": "//label[contains(normalize-space(text()), 'Preferred language')]//following-sibling::kendo-dropdownlist"
   },
   "k-913fb7a4-3d34-4729-8d91-7daffef1ccf4": {
     "id": "k-913fb7a4-3d34-4729-8d91-7daffef1ccf4",
@@ -1612,14 +1622,14 @@
     "text": "SEND/RESET PIN",
     "xpath": "//span[@class='k-button-text' and contains(normalize-space(text()), 'SEND/RESET PIN')]"
   },
-  "button_CANCEL_322": {
+  "button_CANCEL": {
     "class": "mx-1 k-button k-button-md k-rounded-md k-button-solid-base k-button-solid",
-    "type": "submit",
     "tag": "button",
     "text": "CANCEL",
+    "role": "button",
     "xpath": "//button[contains(normalize-space(text()), 'CANCEL')]"
   },
-  "span_CANCEL_323": {
+  "span_CANCEL": {
     "class": "k-button-text",
     "tag": "span",
     "text": "CANCEL",
@@ -1666,5 +1676,29 @@
   "popover__331": {
     "tag": "popover",
     "xpath": "//popover"
+  },
+  "kendo-switch_Reminder settings": {
+    "class": "k-switch ng-untouched ng-pristine ng-valid k-switch-md k-rounded-full",
+    "tag": "kendo-switch",
+    "xpath": "//div[./b[contains(normalize-space(text()), 'Reminder settings')]]//following-sibling::div//kendo-switch"
+  },
+  "missing_mrn": {
+    "class": "alert alert-danger ng-star-inserted",
+    "tag": "div",
+    "text": "Valid MRN/ID required.",
+    "xpath": "//div[contains(normalize-space(text()), 'Valid MRN\/ID required.')]"
+  },
+  "missing_phone_number": {
+    "class": "alert alert-danger ng-star-inserted",
+    "tag": "div",
+    "text": "Valid phone number is required.",
+    "xpath": "//div[contains(normalize-space(text()), 'Valid phone number is required.')]"
+  },
+  "invalid_email": {
+    "class": "alert alert-danger ng-star-inserted",
+    "tag": "div",
+    "text": "Valid email is required.",
+    "xpath": "//div[contains(normalize-space(text()), 'Valid email is required.')]"
   }
+
 }

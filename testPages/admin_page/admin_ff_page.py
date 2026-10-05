@@ -35,7 +35,7 @@ class AdminFFPage(BasePage):
         # print(f"Correct Client {client} is not present")
         print(f"Admin Feature Flag opened with Client {text}")
 
-    def set_ffs(self, ff_dict, flag_ff):
+    def set_ffs(self, ff_dict, flag_ff=None):
         for ff, toggle in ff_dict.items():
             print(ff, toggle)
             target = True if toggle == "ON" else False
@@ -59,23 +59,21 @@ class AdminFFPage(BasePage):
                 print(f"element {element} is not present")
         time.sleep(10)
 
-    def double_check_ff(self, ff_dict, flag_ff):
+    def double_check_ff(self, ff_dict, flag_ff=None):
         for ff, toggle in ff_dict.items():
             print(f"Current parameters: {ff}, {toggle}")
             element = f"kendo-switch_{ff}"
             if self.is_element_present(element, strict=True):
                 print(f"element {element} is present")
-                flag = self.get_attribute(element, 'aria-checked')
+                flag = self.kendo_switch_is_on(element, strict=True)
                 print(f"element is {element} and current selection is {flag}")
                 target = True if toggle == "ON" else False
-                if toggle == "ON" and flag == False:
-                    target = True
-                    self.click(element)
-                elif toggle == "OFF" and flag == True:
-                    target = False
-                    self.click(element)
+                if flag == target:
+                    print(f"{element} already set to {target}")
                 else:
-                    print(f"toggle {toggle} and toggle {toggle} matching")
+                    self.kendo_switch_set(element, target, strict=True)
+                    time.sleep(2)
+                    self.kendo_switch_wait(element, target, timeout=8, strict=True)
                 now_on = self.kendo_switch_is_on(element, strict=True)
                 print(f"[switch] {element}: now_on={now_on}")
                 assert now_on == target, f"Switch '{element}' did not change to {target}"

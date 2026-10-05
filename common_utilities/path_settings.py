@@ -14,10 +14,7 @@ class PathSettings:
     else:
         DOWNLOAD_PATH = Path('~/Downloads').expanduser()
 
-    if os.environ.get("CI") == "true":
-        ROOT = os.path.abspath(os.pardir) + "/dimagi-qa-sureadhere"
-    else:
-        ROOT = os.path.abspath(os.pardir)
+    ROOT = os.path.dirname(BASE_DIR)
 
     @staticmethod
     def _get_tesseract_path():
