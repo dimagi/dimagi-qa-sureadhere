@@ -128,6 +128,22 @@
     a:hover { text-decoration: underline; }
     .muted { color: #777; }
 
+    /* Performance trend (small multiples) */
+    .perf-head { display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center; justify-content:space-between; }
+    .perf-legend { display:flex; flex-wrap:wrap; gap:6px 16px; font-size:12px; color:#52514e; }
+    .perf-legend span { display:inline-flex; align-items:center; gap:6px; }
+    .perf-legend i { display:inline-block; width:10px; height:10px; border-radius:50%; }
+    .perf-legend i.line { width:18px; height:0; border-radius:0; border-top:2px dashed #52514e; }
+    .perf-legend i.line.reg { border-top-color:#d03b3b; }
+    .perf-grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:14px; }
+    @media (max-width: 1100px) { .perf-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 700px)  { .perf-grid { grid-template-columns:1fr; } }
+    .perf-cell { border:1px solid #eee; border-radius:12px; padding:10px 12px; }
+    .perf-cell h3 { font-size:14px; margin:0; color:#111; }
+    .perf-cell .sub { font-size:12px; color:#52514e; margin:2px 0 6px; min-height:16px; }
+    .perf-cell canvas { height:200px !important; }
+    .perf-empty { color:#777; font-size:14px; padding:8px 0; }
+
     .other-dashboards {
       display: flex;
       gap: 12px;
@@ -211,6 +227,31 @@
     <div class="card"><h3>Pass count</h3><div class="value" id="passCount">0</div></div>
     <div class="card"><h3>Skip count</h3><div class="value" id="skipCount">0</div></div>
     <div class="card"><h3>Reruns</h3><div class="value" id="rerunCount">0</div></div>
+    <div class="card"><h3>Slow performance runs</h3><div class="value" id="perfSlowRuns">0</div></div>
+  </div>
+
+  <!-- Performance trend: each timed action vs its recent runs -->
+  <div class="box" style="margin-bottom:22px;">
+    <div class="perf-head">
+      <h2 style="margin:0;">Performance trend &mdash; each action vs its recent runs</h2>
+      <label style="font-size:14px; display:flex; gap:8px; align-items:center;">Environment:
+        <select id="perfEnv"></select>
+      </label>
+    </div>
+    <div class="muted" style="font-size:13px;">
+      Smoke-run time of each action per run (worst attempt). Compared with the median of that action's last 10
+      measurements on the same environment: 2x or more is a regression. Mobile video submit is BrowserStack-dependent
+      and stays a warning. Uses the time window and trigger filters above; hover a point for details, click to open the run.
+    </div>
+    <div class="perf-legend">
+      <span><i style="background:#0ca30c"></i>normal</span>
+      <span><i style="background:#fab219"></i>slower than usual (1.5x) / video over limit</span>
+      <span><i style="background:#d03b3b"></i>regression (2x) / over limit</span>
+      <span><i style="background:#c3c2b7"></i>not enough history yet</span>
+      <span><i class="line"></i>usual (median of last 10)</span>
+      <span><i class="line reg"></i>2x usual = regression</span>
+    </div>
+    <div id="perfGrid" class="perf-grid"></div>
   </div>
 
   <!-- ROW 1: Pass + Fail pies -->
@@ -296,6 +337,7 @@
           <th>Suite</th>
           <th>Trigger</th>
           <th>Status</th>
+          <th>Performance</th>
           <th>Fail</th>
           <th>Reruns</th>
         </tr>
@@ -464,6 +506,7 @@
     $("failCount").textContent = d.reduce((a,r)=>a+(r.failed||0),0);
     $("skipCount").textContent = d.reduce((a,r)=>a+(r.skipped||0),0);
     $("rerunCount").textContent= d.reduce((a,r)=>a+(r.rerun_count||0),0);
+    $("perfSlowRuns").textContent = d.filter(r => r.perf_status === "fail").length;
   }
 
   // ---- Pass by Environment pie
@@ -733,10 +776,163 @@
           <td>${r.suite || ""}</td>
           <td>${r.trigger || ""}</td>
           <td>${r.status || ""}</td>
+          <td>${r.perf_status === "fail" ? "slow" : r.perf_status === "pass" ? "ok" : `<span class="muted">&#8212;</span>`}</td>
           <td>${r.failed ?? 0}</td>
           <td>${r.rerun_count ?? 0}</td>
         </tr>
       `;
+    }
+  }
+
+  // ---- Performance trend (mirrors common_utilities/perf.py's rule)
+  const PERF_ACTIONS = [
+    ["login_and_dashboard", "Login to dashboard"],
+    ["create_patient", "Create patient"],
+    ["create_regimen", "Create regimen"],
+    ["edit_regimen", "Edit regimen"],
+    ["in_app_message_roundtrip", "In-app messaging round trip"],
+    ["mobile_video_submit", "Mobile video submit"],
+  ];
+  const PERF_NOISY = new Set(["mobile_video_submit"]);   // BrowserStack-dependent: warning only
+  const TREND_WINDOW = 10, TREND_MIN_SAMPLES = 5, TREND_WARN = 1.5, TREND_FAIL = 2.0;
+  const ST = { good: "#0ca30c", warning: "#fab219", critical: "#d03b3b", none: "#c3c2b7" };
+  const ST_LABEL = { good: "normal", warning: "slower than usual", critical: "regression / over limit", none: "not enough history yet" };
+
+  function fmtDur(sec) {
+    sec = Math.round(sec);
+    if (sec < 60) return `${sec}s`;
+    if (sec < 3600) { const m = Math.floor(sec / 60), s = sec % 60; return s ? `${m}m ${s}s` : `${m}m`; }
+    const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60);
+    return m ? `${h}h ${m}m` : `${h}h`;
+  }
+  function median(a) {
+    const s = a.slice().sort((x, y) => x - y), n = s.length;
+    return n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2;
+  }
+  function runUrl(r) {
+    return r.github && r.github.run_url ? r.github.run_url
+      : (r.github && r.github.run_id && r.github.repository)
+        ? `https://github.com/${r.github.repository}/actions/runs/${r.github.run_id}` : "";
+  }
+
+  // All runs with perf data for an env, oldest first, ignoring the time window
+  // so a run's "usual" always looks back over its own real history.
+  function perfHistory(env) {
+    return raw.filter(r => r.env === env && Array.isArray(r.perf) && r.perf.length)
+      .sort((a, b) => new Date(a.timestamp_utc) - new Date(b.timestamp_utc));
+  }
+
+  function initPerfEnv() {
+    const sel = $("perfEnv");
+    const envs = ENV_ORDER.filter(e => raw.some(r => r.env === e && Array.isArray(r.perf) && r.perf.length));
+    sel.innerHTML = "";
+    for (const e of envs) sel.add(new Option(envLabel(e), e));
+    if (envs.includes("banner")) sel.value = "banner";
+    sel.addEventListener("change", () => renderPerfTrend(filtered()));
+    // Follow the global environment filter when it names one environment.
+    $("envFilter").addEventListener("change", () => {
+      const v = $("envFilter").value;
+      if (v !== "All" && envs.includes(v)) { sel.value = v; renderPerfTrend(filtered()); }
+    });
+  }
+
+  function renderPerfTrend(d) {
+    const env = $("perfEnv").value;
+    const grid = $("perfGrid");
+    for (const id of Object.keys(charts)) if (id.startsWith("perf_")) { charts[id].destroy(); delete charts[id]; }
+    grid.innerHTML = "";
+    if (!env) { grid.innerHTML = `<div class="perf-empty">No performance data recorded yet.</div>`; return; }
+
+    const visible = new Set(d.filter(r => r.env === env).map(r => r.github && r.github.run_id ? r.github.run_id : r.timestamp_utc));
+    const history = perfHistory(env);
+
+    for (const [key, label] of PERF_ACTIONS) {
+      const samples = [];                // every earlier measurement (all tests), like perf.load_baseline
+      const pts = [];
+      for (const r of history) {
+        const entries = r.perf.filter(e => e.key === key && e.elapsed_s != null);
+        if (!entries.length) continue;
+        const prior = samples.slice(-TREND_WINDOW);
+        const usual = prior.length >= TREND_MIN_SAMPLES ? median(prior) : null;
+        const worst = entries.reduce((m, e) => Math.max(m, e.elapsed_s), 0);
+        const overLimit = entries.some(e => e.passed === false);
+        const ratio = usual ? worst / usual : null;
+        let st = usual ? "good" : "none";
+        if (ratio !== null && ratio > TREND_WARN) st = "warning";
+        if (ratio !== null && ratio >= TREND_FAIL) st = PERF_NOISY.has(key) ? "warning" : "critical";
+        if (overLimit) st = PERF_NOISY.has(key) ? (st === "critical" ? st : "warning") : "critical";
+        const id = r.github && r.github.run_id ? r.github.run_id : r.timestamp_utc;
+        if (visible.has(id)) pts.push({ r, worst, usual, ratio, st, budget: entries[0].budget_s, overLimit });
+        for (const e of entries) samples.push(e.elapsed_s);
+      }
+
+      const cell = document.createElement("div");
+      cell.className = "perf-cell";
+      const canvasId = `perf_${key}`;
+      const last = pts[pts.length - 1];
+      let sub = "No runs in this time window.";
+      if (last) {
+        sub = `latest ${fmtDur(last.worst)}`;
+        if (last.ratio !== null) sub += ` · ${last.ratio.toFixed(1)}x usual`;
+        else sub += " · building history";
+        if (last.st === "critical") sub += last.ratio !== null && last.ratio >= TREND_FAIL ? " · ▲ regression" : " · ▲ over limit";
+        else if (last.st === "warning") sub += " · ● slower than usual";
+      }
+      cell.innerHTML = `<h3>${label}</h3><div class="sub">${sub}</div><canvas id="${canvasId}"></canvas>`;
+      grid.appendChild(cell);
+      if (!pts.length) { cell.querySelector("canvas").remove(); continue; }
+
+      const labels = pts.map(p => {
+        const t = new Date(p.r.timestamp_utc);
+        return `${t.toLocaleString("en-US", { month: "short" })} ${t.getDate()} ${String(t.getHours()).padStart(2, "0")}:${String(t.getMinutes()).padStart(2, "0")}`;
+      });
+      // Reference lines at the latest "usual" across the whole panel, so a
+      // reader sees each point against today's baseline and the 2x mark.
+      const latestUsual = [...pts].reverse().find(p => p.usual)?.usual ?? null;
+      const usualLine = pts.map(() => latestUsual);
+      const twoX = pts.map(() => latestUsual ? latestUsual * TREND_FAIL : null);
+      draw(canvasId, {
+        type: "line",
+        data: {
+          labels,
+          datasets: [
+            { label: "time", data: pts.map(p => p.worst), borderColor: "#898781", borderWidth: 2, tension: 0,
+              pointBackgroundColor: pts.map(p => ST[p.st]), pointBorderColor: "#fff", pointBorderWidth: 2,
+              pointRadius: pts.map((p, i) => i === pts.length - 1 ? 7 : 5), pointHoverRadius: 8, pointHitRadius: 12 },
+            { label: "usual", data: usualLine, borderColor: "#52514e", borderWidth: 1.2, borderDash: [4, 3],
+              pointRadius: 0, pointHitRadius: 0 },
+            { label: "2x usual", data: twoX, borderColor: "#d03b3b", borderWidth: 1.2, borderDash: [4, 3],
+              pointRadius: 0, pointHitRadius: 0 },
+          ]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false, animation: false,
+          interaction: { mode: "index", intersect: false },
+          onClick: (evt, els) => { if (els.length) { const u = runUrl(pts[els[0].index].r); if (u) window.open(u, "_blank"); } },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              filter: item => item.datasetIndex === 0,
+              callbacks: {
+                title: items => labels[items[0].dataIndex] + "  ·  " + (pts[items[0].dataIndex].r.trigger || ""),
+                label: item => {
+                  const p = pts[item.dataIndex];
+                  const lines = [`time ${fmtDur(p.worst)} (limit ${fmtDur(p.budget)})`];
+                  lines.push(p.usual ? `usual ${fmtDur(p.usual)} · ${p.ratio.toFixed(1)}x` : "not enough history yet");
+                  lines.push(ST_LABEL[p.st]);
+                  return lines;
+                },
+                footer: () => "click to open the run"
+              }
+            }
+          },
+          scales: {
+            x: { ticks: { ...AXIS_TICKS, maxTicksLimit: 4, maxRotation: 0, color: "#898781" }, grid: { display: false } },
+            y: { beginAtZero: true, suggestedMax: latestUsual ? latestUsual * TREND_FAIL * 1.12 : undefined, ticks: { ...AXIS_TICKS, maxTicksLimit: 4, color: "#898781", callback: v => v ? fmtDur(v) : "0" },
+                 grid: { color: "#e1e0d9" } }
+          }
+        }
+      });
     }
   }
 
@@ -750,6 +946,7 @@
     renderTriggerPies(d);
     renderSuiteBars(d);
     renderTables(d);
+    renderPerfTrend(d);
   }
 
   function initFiltersFromData() {
@@ -811,6 +1008,7 @@
       }));
 
     initFiltersFromData();
+    initPerfEnv();
     renderAll();
   }
 
