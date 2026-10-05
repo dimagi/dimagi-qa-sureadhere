@@ -165,13 +165,11 @@ It is shown in three places:
 - **Email**: the file is attached, and the box's last line reads "see the attached performance report" instead.
 - **Artifacts**: the file is inside the reports zip, along with the raw data (`slack_perf_<env>.jsonl`, `slack_api_<env>.jsonl`, `perf_api_summary_<env>.json`).
 
-**Performance trend chart**: the Slack message also carries a second image next to the test-summary chart, `slack_charts/perf_trend_<env>.png`, drawn by `common_utilities/perf_trend_chart.py`. The same image is in the reports zip.
-- There is one small panel per timed action, showing its time on recent runs of that environment (grey) and this run (a large dot).
-- The dot's colour follows the performance check: green is normal, amber is slower than usual (1.5x), red is a regression (2x) or over its limit.
+**Performance trend**: the Slack message and the email both have a 📉 **Performance trend** link. It opens the [dashboard](https://dimagi.github.io/dimagi-qa-sureadhere/) directly at its **Performance trend** section, with the run's environment already selected (`?perf_env=<env>#performance-trend`).
+- There is one small chart per timed action, showing its time on each recent run of that environment.
+- Each run's dot is coloured by the performance check: green is normal, amber is slower than usual (1.5x), red is a regression (2x) or over its limit, and grey means not enough history yet.
 - Dashed lines mark the usual time (median of the last 10) and 2x usual, where a regression starts.
-- An action without enough history yet says "building history".
-
-The same trend is on the [dashboard](https://dimagi.github.io/dimagi-qa-sureadhere/), under **Performance trend**. There it's interactive: pick an environment, hover a point for its numbers, and click to open the run. It follows the dashboard's time-window and trigger filters.
+- Hover a point for its numbers, or click it to open the run. The section follows the dashboard's time-window and trigger filters.
 
 ### Status, email and dashboard
 

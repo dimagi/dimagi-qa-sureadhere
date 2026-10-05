@@ -246,7 +246,7 @@ jobs:
         run: |
           rm -f sbase-artifacts-${{ matrix.environment }}.zip || true
           zip -r sbase-artifacts-${{ matrix.environment }}.zip report-${{ matrix.environment }}.html latest_logs dashboard.html presetup_report-${{ matrix.environment }}.html \
-            performance_report_${{ matrix.environment }}.txt slack_charts/perf_trend_${{ matrix.environment }}.png \
+            performance_report_${{ matrix.environment }}.txt \
             slack_perf_${{ matrix.environment }}.jsonl slack_api_${{ matrix.environment }}.jsonl perf_api_summary_${{ matrix.environment }}.json || true
 
       - name: Upload reports & logs
@@ -469,6 +469,9 @@ jobs:
           # The run's summary page, where each environment's job writes its full
           # performance report (see "Publish performance report" above).
           perf_report_url = f"{server}/{repo}/actions/runs/{run_id}"
+          # The dashboard's performance trend section for this environment
+          # (each action vs its recent runs), instead of attaching a chart.
+          perf_trend_url = f"https://dimagi.github.io/dimagi-qa-sureadhere/?perf_env={dimagiqa_env}#performance-trend"
           event_map = {
               "schedule": "SCHEDULED TRIGGER", "workflow_dispatch": "MANUAL TRIGGER",
               "push": "PUSH/PULL", "pull_request": "PUSH/PULL",
@@ -503,18 +506,12 @@ jobs:
               f"{body}\n\n"
               f"📎 *Artifact:* <{artifact_url}|Download here>\n"
               f"📈 *Performance report:* <{perf_report_url}|View here>\n"
+              f"📉 *Performance trend:* <{perf_trend_url}|View here>\n"
               f"🔗 *Dashboard:* https://dimagi.github.io/dimagi-qa-sureadhere/"
           )
 
           client = WebClient(token=token)
           png_path = "slack_charts/summary_combined.png"
-          # Both charts go in the same message: the test summary, and the
-          # performance trend (this run vs recent runs) when it was rendered.
-          uploads = [{"file": png_path, "filename": "summary_combined.png", "title": "Test Summary"}]
-          trend_png = pathlib.Path(f"slack_charts/perf_trend_{dimagiqa_env}.png")
-          if trend_png.exists():
-              uploads.append({"file": str(trend_png), "filename": trend_png.name,
-                              "title": f"Performance trend - {env_display}"})
           parent_ts = None
 
           # Slack's gateway sometimes times out (HTTP 504, raised as a plain
@@ -540,7 +537,9 @@ jobs:
               for attempt in range(1, 4):
                   try:
                       client.files_upload_v2(
-                          file_uploads=uploads,
+                          file=png_path,
+                          filename="summary_combined.png",
+                          title="Test Summary",
                           channel=channel,
                           initial_comment=message,
                       )
@@ -652,6 +651,8 @@ jobs:
               checklistBody = checklistText.split('```')
                 .map((part, i) => i % 2 === 1 ? '```' + part + '```' : part.replace(/\n/g, '\n\n'))
                 .join('')
+              // Direct link to the dashboard's performance trend for this env.
+              checklistBody += `\n\n📉 [View the performance trend](https://dimagi.github.io/dimagi-qa-sureadhere/?perf_env=${CC_ENV}#performance-trend) (each action vs its recent runs)`
             } catch (e) {
               console.log(`Could not read checklist summary for email: ${e}`)
             }
