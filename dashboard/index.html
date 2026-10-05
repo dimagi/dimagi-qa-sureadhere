@@ -230,8 +230,9 @@
     <div class="card"><h3>Slow performance runs</h3><div class="value" id="perfSlowRuns">0</div></div>
   </div>
 
-  <!-- Performance trend: each timed action vs its recent runs -->
-  <div class="box" style="margin-bottom:22px;">
+  <!-- Performance trend: each timed action vs its recent runs.
+       Linked from the Slack/email reports as ?perf_env=<env>#performance-trend -->
+  <div class="box" id="performance-trend" style="margin-bottom:22px; scroll-margin-top:12px;">
     <div class="perf-head">
       <h2 style="margin:0;">Performance trend &mdash; each action vs its recent runs</h2>
       <label style="font-size:14px; display:flex; gap:8px; align-items:center;">Environment:
@@ -827,7 +828,10 @@
     const envs = ENV_ORDER.filter(e => raw.some(r => r.env === e && Array.isArray(r.perf) && r.perf.length));
     sel.innerHTML = "";
     for (const e of envs) sel.add(new Option(envLabel(e), e));
-    if (envs.includes("banner")) sel.value = "banner";
+    // ?perf_env=<env> (from the Slack/email "Performance trend" link) picks the env.
+    const wanted = new URLSearchParams(location.search).get("perf_env");
+    if (wanted && envs.includes(wanted)) sel.value = wanted;
+    else if (envs.includes("banner")) sel.value = "banner";
     sel.addEventListener("change", () => renderPerfTrend(filtered()));
     // Follow the global environment filter when it names one environment.
     $("envFilter").addEventListener("change", () => {
@@ -1010,6 +1014,9 @@
     initFiltersFromData();
     initPerfEnv();
     renderAll();
+    if (location.hash === "#performance-trend") {
+      requestAnimationFrame(() => $("performance-trend").scrollIntoView({ block: "start" }));
+    }
   }
 
   loadData();
