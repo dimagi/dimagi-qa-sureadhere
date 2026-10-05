@@ -25,6 +25,15 @@ on:
           - securevoteu (EU Prod)
           - secure (US Prod)
           - all_no_rogers
+      slack_channel:
+        description: 'Slack channel for the report. auto = runs on main go to the release channel, runs on other branches go to #qa-branch-test-results'
+        required: false
+        default: 'auto'
+        type: choice
+        options:
+          - auto
+          - release channel
+          - branch test channel
 
 concurrency:
   group: sa-tests-${{ github.ref }}
@@ -227,10 +236,38 @@ jobs:
         if: ${{ !cancelled() }}
         id: configure_slack
         uses: actions/github-script@v6
+        env:
+            CC_EVENT: ${{ github.event_name }}
+            CC_REF: ${{ github.ref_name }}
+            CC_CHOICE: ${{ github.event.inputs.slack_channel }}
+            RELEASE_CHANNEL: ${{ secrets.SLACK_CHANNEL_ID_SA_RELEASE }}
+            BRANCH_CHANNEL: ${{ secrets.SLACK_CHANNEL_ID_BRANCH_TEST }}
         with:
           result-encoding: string
           script: |
-            return '${{ secrets.SLACK_CHANNEL_ID_SA_RELEASE }}'
+            // Only official runs go to the release channel: post-deploy runs,
+            // and manual runs from main (unless overridden with the
+            // "slack_channel" input). PR runs, merges to main and runs on
+            // other branches go to #qa-branch-test-results, so testing a
+            // branch doesn't flood the release channel.
+            const {CC_EVENT, CC_REF, CC_CHOICE, RELEASE_CHANNEL, BRANCH_CHANNEL} = process.env
+            const choice = CC_CHOICE || 'auto'
+            let target
+            if (CC_EVENT === 'repository_dispatch') {
+              target = 'release'
+            } else if (CC_EVENT === 'workflow_dispatch') {
+              if (choice === 'release channel') target = 'release'
+              else if (choice === 'branch test channel') target = 'branch'
+              else target = CC_REF === 'main' ? 'release' : 'branch'
+            } else {
+              target = 'branch'  // pull_request, push (merge to main)
+            }
+            if (target === 'branch' && !BRANCH_CHANNEL) {
+              core.warning('SLACK_CHANNEL_ID_BRANCH_TEST is not set -- posting to the release channel instead')
+              target = 'release'
+            }
+            console.log(`event=${CC_EVENT} ref=${CC_REF} slack_channel=${choice} -> ${target} channel`)
+            return target === 'release' ? RELEASE_CHANNEL : BRANCH_CHANNEL
 
       - name: Upload Combined Chart to Slack
         if: ${{ !cancelled() && steps.configure_slack.outputs.result != '' }}
