@@ -144,6 +144,11 @@
     .perf-cell canvas { height:200px !important; }
     .perf-empty { color:#777; font-size:14px; padding:8px 0; }
 
+    /* Performance-only view: ?perf_env=<env> (the Slack/email "Performance trend" link) */
+    .perf-only-link { display:none; margin: 4px 0 14px; font-size:14px; }
+    body.perf-only > :not(.keep-perf) { display:none !important; }
+    body.perf-only .perf-only-link { display:block; }
+
     .other-dashboards {
       display: flex;
       gap: 12px;
@@ -172,7 +177,10 @@
 </head>
 
 <body>
-  <h1>SureAdhere Automation Dashboard</h1>
+  <h1 class="keep-perf">SureAdhere Automation Dashboard</h1>
+  <div class="perf-only-link keep-perf">
+    Showing performance trends only. <a href="./">&larr; Open the full dashboard</a>
+  </div>
   <div class="subtle">Data source: <code>data/runs.jsonl</code></div>
 
   <div class="other-dashboards">
@@ -180,9 +188,9 @@
     <a href="https://dimagi.github.io/dimagi-qa-ccc/" target="_blank" rel="noopener">Connect Dashboard ↗</a>
   </div>
 
-  <div id="err" class="error"></div>
+  <div id="err" class="error keep-perf"></div>
 
-  <div class="filters">
+  <div class="filters keep-perf">
     <label>Suite:
       <select id="suiteFilter">
         <option value="All">All</option>
@@ -232,7 +240,7 @@
 
   <!-- Performance trend: each timed action vs its recent runs.
        Linked from the Slack/email reports as ?perf_env=<env>#performance-trend -->
-  <div class="box" id="performance-trend" style="margin-bottom:22px; scroll-margin-top:12px;">
+  <div class="box keep-perf" id="performance-trend" style="margin-bottom:22px; scroll-margin-top:12px;">
     <div class="perf-head">
       <h2 style="margin:0;">Performance trend &mdash; each action vs its recent runs</h2>
       <label style="font-size:14px; display:flex; gap:8px; align-items:center;">Environment:
@@ -412,6 +420,10 @@
   };
 
   const $ = (id) => document.getElementById(id);
+  {
+    const qs = new URLSearchParams(location.search);
+    if (qs.has("perf_env") || qs.get("view") === "performance") document.body.classList.add("perf-only");
+  }
   const errBox = $("err");
 
   let raw = [];
@@ -1014,7 +1026,8 @@
     initFiltersFromData();
     initPerfEnv();
     renderAll();
-    if (location.hash === "#performance-trend") {
+    // In the performance-only view there's nothing to scroll past.
+    if (location.hash === "#performance-trend" && !document.body.classList.contains("perf-only")) {
       requestAnimationFrame(() => $("performance-trend").scrollIntoView({ block: "start" }));
     }
   }
