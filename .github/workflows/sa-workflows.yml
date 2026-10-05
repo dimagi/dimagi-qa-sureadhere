@@ -471,7 +471,7 @@ jobs:
           perf_report_url = f"{server}/{repo}/actions/runs/{run_id}"
           # The dashboard's performance trend section for this environment
           # (each action vs its recent runs), instead of attaching a chart.
-          perf_trend_url = f"https://dimagi.github.io/dimagi-qa-sureadhere/?perf_env={dimagiqa_env}"
+          perf_trend_url = f"https://dimagi.github.io/dimagi-qa-sureadhere/?perf_env={dimagiqa_env}#performance-trend"
           event_map = {
               "schedule": "SCHEDULED TRIGGER", "workflow_dispatch": "MANUAL TRIGGER",
               "push": "PUSH/PULL", "pull_request": "PUSH/PULL",
@@ -652,7 +652,7 @@ jobs:
                 .map((part, i) => i % 2 === 1 ? '```' + part + '```' : part.replace(/\n/g, '\n\n'))
                 .join('')
               // Direct link to the dashboard's performance trend for this env.
-              checklistBody += `\n\n📉 [View the performance trend](https://dimagi.github.io/dimagi-qa-sureadhere/?perf_env=${CC_ENV}) (each action vs its recent runs)`
+              checklistBody += `\n\n📉 [View the performance trend](https://dimagi.github.io/dimagi-qa-sureadhere/?perf_env=${CC_ENV}#performance-trend) (each action vs its recent runs)`
             } catch (e) {
               console.log(`Could not read checklist summary for email: ${e}`)
             }
