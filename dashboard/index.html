@@ -144,10 +144,14 @@
     .perf-cell canvas { height:200px !important; }
     .perf-empty { color:#777; font-size:14px; padding:8px 0; }
 
-    /* Performance-only view: ?perf_env=<env> (the Slack/email "Performance trend" link) */
-    .perf-only-link { display:none; margin: 4px 0 14px; font-size:14px; }
-    body.perf-only > :not(.keep-perf) { display:none !important; }
-    body.perf-only .perf-only-link { display:block; }
+    /* Section links (Confluence-style): <dashboard>/#<section-id> shows only that section */
+    .section-link { visibility:hidden; margin-left:8px; font-size:15px; font-weight:400; text-decoration:none; color:#898781; }
+    .box h2:hover .section-link, .section-link:focus { visibility:visible; }
+    .section-link.copied::after { content:" link copied"; font-size:12px; color:#52514e; }
+    .focus-bar { display:none; margin: 0 0 14px; font-size:14px; color:#52514e; }
+    body.focus .focus-bar { display:block; }
+    .focus-hidden { display:none !important; }
+    body.focus .grid2 { grid-template-columns: 1fr; }
 
     .other-dashboards {
       display: flex;
@@ -177,10 +181,11 @@
 </head>
 
 <body>
-  <h1 class="keep-perf">SureAdhere Automation Dashboard</h1>
-  <div class="perf-only-link keep-perf">
-    Showing performance trends only. <a href="./">&larr; Open the full dashboard</a>
+  <div class="focus-bar">
+    <a href="./" id="focusBack">&larr; Full dashboard</a>
+    &nbsp;·&nbsp; SureAdhere Automation Dashboard &nbsp;·&nbsp; <span id="focusTitle"></span>
   </div>
+  <h1>SureAdhere Automation Dashboard</h1>
   <div class="subtle">Data source: <code>data/runs.jsonl</code></div>
 
   <div class="other-dashboards">
@@ -188,9 +193,9 @@
     <a href="https://dimagi.github.io/dimagi-qa-ccc/" target="_blank" rel="noopener">Connect Dashboard ↗</a>
   </div>
 
-  <div id="err" class="error keep-perf"></div>
+  <div id="err" class="error"></div>
 
-  <div class="filters keep-perf">
+  <div class="filters">
     <label>Suite:
       <select id="suiteFilter">
         <option value="All">All</option>
@@ -240,7 +245,7 @@
 
   <!-- Performance trend: each timed action vs its recent runs.
        Linked from the Slack/email reports as ?perf_env=<env>#performance-trend -->
-  <div class="box keep-perf" id="performance-trend" style="margin-bottom:22px; scroll-margin-top:12px;">
+  <div class="box" id="performance-trend" style="margin-bottom:22px; scroll-margin-top:12px;">
     <div class="perf-head">
       <h2 style="margin:0;">Performance trend &mdash; each action vs its recent runs</h2>
       <label style="font-size:14px; display:flex; gap:8px; align-items:center;">Environment:
@@ -250,7 +255,7 @@
     <div class="muted" style="font-size:13px;">
       Smoke-run time of each action per run (worst attempt). Compared with the median of that action's last 10
       measurements on the same environment: 2x or more is a regression. Mobile video submit is BrowserStack-dependent
-      and stays a warning. Uses the time window and trigger filters above; hover a point for details, click to open the run.
+      and stays a warning. Follows the dashboard's time-window and trigger filters (last 7 days by default); hover a point for details, click to open the run.
     </div>
     <div class="perf-legend">
       <span><i style="background:#0ca30c"></i>normal</span>
@@ -265,14 +270,14 @@
 
   <!-- ROW 1: Pass + Fail pies -->
   <div class="grid2">
-    <div class="box">
+    <div class="box" id="pass-by-environment">
       <h2>Pass by Environment</h2>
       <div class="pieWrap">
         <canvas id="passEnvPie"></canvas>
       </div>
     </div>
 
-    <div class="box">
+    <div class="box" id="fail-by-environment">
       <h2>Fail by Environment</h2>
       <div class="pieWrap">
         <canvas id="failEnvPie"></canvas>
@@ -281,7 +286,7 @@
   </div>
 
   <!-- ROW 2: Quarterly trend -->
-  <div class="box" style="margin-top:22px;">
+  <div class="box" id="quarterly-fail-rate" style="margin-top:22px;">
     <h2>Quarterly Fail Rate Trend</h2>
     <div class="muted">Fail rate (%) across quarters for current filters.</div>
     <canvas id="quarterTrend"></canvas>
@@ -289,13 +294,13 @@
 
   <!-- ROW 3: Pass vs Fail bar + 4 per-env pie charts -->
   <div class="grid2" style="margin-top:22px;">
-    <div class="box">
+    <div class="box" id="pass-vs-fail-by-environment">
       <h2>Pass vs Fail by Environment</h2>
       <div class="muted">Number of passed and failed runs per environment.</div>
       <canvas id="envBars"></canvas>
     </div>
 
-    <div class="box">
+    <div class="box" id="pass-fail-by-trigger">
       <h2>Pass / Fail split by Trigger Type</h2>
       <div class="muted">Proportion of passed vs failed runs per workflow trigger.</div>
       <div class="env-pies-grid" style="justify-items: center;">
@@ -311,13 +316,13 @@
     </div>
   </div>
 
-  <div class="box" style="margin-top:22px;">
+  <div class="box" id="pass-fail-by-suite" style="margin-top:22px;">
     <h2>Pass / Fail by Suite (runs)</h2>
     <div class="muted">Shows top 10 suites by total runs in current filters.</div>
     <canvas id="suiteBars"></canvas>
   </div>
 
-  <div class="box" style="margin-top:22px;">
+  <div class="box" id="failed-runs" style="margin-top:22px;">
     <h2>&#10060; Failed Runs (click to open GitHub run)</h2>
     <table>
       <thead>
@@ -335,7 +340,7 @@
     </table>
   </div>
 
-  <div class="box" style="margin-top:22px;">
+  <div class="box" id="recent-runs" style="margin-top:22px;">
     <h2>Recent Runs (filtered)</h2>
     <table>
       <thead>
@@ -420,10 +425,6 @@
   };
 
   const $ = (id) => document.getElementById(id);
-  {
-    const qs = new URLSearchParams(location.search);
-    if (qs.has("perf_env") || qs.get("view") === "performance") document.body.classList.add("perf-only");
-  }
   const errBox = $("err");
 
   let raw = [];
@@ -952,6 +953,50 @@
     }
   }
 
+  // ---- Section links (Confluence-style)
+  // Each section's heading gets a link icon; <dashboard>/#<id> shows that
+  // section on its own. Clicking the icon copies the link and opens it.
+  function initSectionLinks() {
+    for (const box of document.querySelectorAll(".box[id]")) {
+      const h2 = box.querySelector("h2");
+      if (!h2 || h2.querySelector(".section-link")) continue;
+      const a = document.createElement("a");
+      a.className = "section-link";
+      a.href = "#" + box.id;
+      a.title = "Link to this section";
+      a.setAttribute("aria-label", "Link to this section");
+      a.textContent = "🔗";
+      a.addEventListener("click", () => {
+        const url = location.href.split("#")[0] + "#" + box.id;
+        if (navigator.clipboard) navigator.clipboard.writeText(url).catch(() => {});
+        a.classList.add("copied");
+        setTimeout(() => a.classList.remove("copied"), 1500);
+      });
+      h2.appendChild(a);
+    }
+    window.addEventListener("hashchange", () => { applyFocus(); renderAll(); });
+  }
+
+  function applyFocus() {
+    for (const el of document.querySelectorAll(".focus-hidden")) el.classList.remove("focus-hidden");
+    const id = decodeURIComponent(location.hash.slice(1));
+    const target = id ? document.getElementById(id) : null;
+    const focused = !!(target && target.classList.contains("box"));
+    document.body.classList.toggle("focus", focused);
+    if (!focused) return;
+    // Hide everything except the target section and the elements containing it.
+    for (let el = target; el && el !== document.body; el = el.parentElement) {
+      for (const sib of el.parentElement.children) {
+        if (sib !== el && !sib.classList.contains("focus-bar") && sib.tagName !== "SCRIPT") sib.classList.add("focus-hidden");
+      }
+    }
+    const h2 = target.querySelector("h2");
+    $("focusTitle").textContent = h2 ? h2.firstChild.textContent.trim() : id;
+    // Keep ?perf_env etc. but drop the #section when going back.
+    $("focusBack").href = location.pathname + location.search;
+    window.scrollTo(0, 0);
+  }
+
   function renderAll() {
     const d = filtered();
     renderKPIs(d);
@@ -1025,11 +1070,9 @@
 
     initFiltersFromData();
     initPerfEnv();
+    initSectionLinks();
+    applyFocus();
     renderAll();
-    // In the performance-only view there's nothing to scroll past.
-    if (location.hash === "#performance-trend" && !document.body.classList.contains("perf-only")) {
-      requestAnimationFrame(() => $("performance-trend").scrollIntoView({ block: "start" }));
-    }
   }
 
   loadData();
