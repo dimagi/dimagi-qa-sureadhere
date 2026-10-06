@@ -230,8 +230,15 @@ def render_performance_block(env: str, suite_duration_s: float | None = None) ->
     else:
         lines.append(f"{PERF_OK} Server responses: all {len(api_rows)} kinds of request were quick")
 
+    regressions = perf.read_perf_regressions(env)
+    regressed = {(r.get("test"), r["key"]) for r in regressions}
+    for r in regressions:
+        passed = False
+        label = perf.STEP_LABELS.get(r["key"], r["key"])
+        lines.append(f"{PERF_BAD} Much slower than usual: {label} took {perf.fmt_duration(r['elapsed_s'])}, "
+                     f"{r['trend_ratio']:.1f}x its usual {perf.fmt_duration(r['baseline_elapsed_s'])} - REGRESSION")
     for w in perf.read_perf_warnings(env):
-        if w.get("trend_warning"):
+        if w.get("trend_warning") and (w.get("test"), w["key"]) not in regressed:
             label = perf.STEP_LABELS.get(w["key"], w["key"])
             lines.append(f"{PERF_WARN} Slower than usual: {label} took {perf.fmt_duration(w['elapsed_s'])} "
                          f"(usually {perf.fmt_duration(w['baseline_elapsed_s'])})")
@@ -308,11 +315,15 @@ def render_performance_report(env: str, server: str, suite_duration_s: float | N
 
     # 3. Trend
     trend = [w for w in perf.read_perf_warnings(env) if w.get("trend_warning")]
-    out += ["", "", "3. SLOWER THAN USUAL (warning only)", ""]
+    out += ["", "", "3. COMPARED WITH RECENT RUNS", "",
+            f"   SLOW (regression) when an action takes {perf.TREND_FAIL_FACTOR:g}x or more its usual time "
+            f"(median of the last {perf.TREND_WINDOW} runs);",
+            f"   warning only from {perf.TREND_WARN_FACTOR:g}x.", ""]
     if trend:
         for w in trend:
+            result = "SLOW - regression" if w.get("trend_regression") else "warning"
             out.append(f"   {perf.STEP_LABELS.get(w['key'], w['key'])}: {perf.fmt_duration(w['elapsed_s'])}, "
-                       f"usually {perf.fmt_duration(w['baseline_elapsed_s'])} on recent runs")
+                       f"{w['trend_ratio']:.1f}x its usual {perf.fmt_duration(w['baseline_elapsed_s'])} - {result}")
     else:
         out.append("   Nothing was noticeably slower than on recent runs.")
     return "\n".join(out) + "\n"

@@ -49,11 +49,15 @@ To manually trigger the script,
   - Run workflow
   - Use workflow from ```main```
   - Use the environment as desired
+  - **Slack channel**: leave it on `auto` (runs on `main` post to the release channel, runs on any other branch post to **#qa-branch-test-results**), or pick `release channel` / `branch test channel` to override
   - Run!
 
 ## Script Results
 
- -  Every run (pass or fail) posts a results message to the Slack channel **#qa-sureadhere-automated-test-results**, with the summary chart image attached.
+ -  Every run (pass or fail) posts a results message to Slack, with the summary chart image attached:
+    - **#qa-sureadhere-automated-test-results** (the release channel): post-deploy runs, and manual runs from `main`.
+    - **#qa-branch-test-results**: pull request runs, merges to `main`, and runs on any other branch, so testing changes doesn't flood the release channel. This channel is shared by QA scripts from other repos too.
+    - A manual run can override this with the `slack_channel` option. The channel IDs are the `SLACK_CHANNEL_ID_SA_RELEASE` and `SLACK_CHANNEL_ID_BRANCH_TEST` secrets, and QA-Bot must be a member of both channels.
 
 <img width="517" height="172" alt="image" src="https://github.com/user-attachments/assets/20248e98-84df-4217-accb-b176fc3c8107" />
 
@@ -140,29 +144,39 @@ Full details: see the Performance report link below (also performance_report_ban
 
 - **Action times**: `common_utilities/perf.py`'s `perf_budget` times six actions: login to dashboard, patient creation, regimen creation and editing, the in-app messaging round trip, and mobile video submission. The limits are in `DEFAULT_BUDGETS`, and the whole run's duration is checked against `SUITE_DURATION_BUDGET_SECONDS`. Each line shows the worst time across tests and attempts, so a rerun that finishes in time doesn't hide a slow first attempt.
 - **Server responses**: the browser's own timings for every backend call made during the run are checked. A kind of request is slow when it *usually* takes over 3s (its median, across 3 or more calls) or when any single request takes over 10s (the `API_*` constants in `perf.py`). The box lists the 10 slowest (`MAX_SLOW_ENDPOINTS_SHOWN`), then "...and N more". Names come from `friendly_endpoint()`.
-- **Warnings (⚠️)** never fail the run:
-  - mobile video submission, which depends on BrowserStack's devices and network (`NOISY_KEYS`);
+- **Compared with recent runs**: each action is also compared with its median over the last 10 runs on that environment. The history comes from the metrics branch's `metrics/runs.jsonl`, which the workflow fetches as `perf_history.jsonl` before the run.
+  - **2x or more** (`TREND_FAIL_FACTOR`) is a **regression** (❌ "Much slower than usual … REGRESSION"). It fails the performance check, because a jump like that is often an early sign of an expensive query, especially right after a release.
+  - **1.5x–2x** (`TREND_WARN_FACTOR`) is a ⚠️ "slower than usual" warning.
+  - The comparison starts once an action has at least 5 earlier measurements on that environment (`TREND_MIN_SAMPLES`).
+- **Warnings (⚠️)** never fail the performance check:
+  - mobile video submission, which depends on BrowserStack's devices and network (`NOISY_KEYS`). This includes its comparison with recent runs;
   - a step that didn't complete, which the checklist already reports;
-  - "slower than usual": more than 1.5x the median of the last 10 runs on that environment. The history comes from the metrics branch's `metrics/runs.jsonl`, which the workflow fetches as `perf_history.jsonl` before the run.
+  - "slower than usual" (1.5x–2x, see above).
 - **A slow step doesn't fail its test**, so the rest of that test's functional checks still run, and the test isn't rerun just for being slow.
 - **Performance never fails the CI run.** A slow run is reported in Slack, the email and the performance report, and as a ⚠️ warning on the run, but the run stays green if the smoke tests passed.
 
 **Full performance report**: every run also writes `performance_report_<env>.txt` with all the details the box leaves out:
 - every timed action from every test, with reruns marked;
 - every kind of server request with its number of calls, usual time, slowest time and result;
-- any "slower than usual" warnings.
+- the comparison with recent runs, including any regressions and "slower than usual" warnings.
 
 It is shown in three places:
 - **Slack**: the 📈 **Performance report: View here** link opens the run's GitHub summary page, where each environment has its own section.
 - **Email**: the file is attached, and the box's last line reads "see the attached performance report" instead.
 - **Artifacts**: the file is inside the reports zip, along with the raw data (`slack_perf_<env>.jsonl`, `slack_api_<env>.jsonl`, `perf_api_summary_<env>.json`).
 
+**Performance trend**: the Slack message and the email both have a 📉 **Performance trend** link. It opens just the **Performance trend** section of the [dashboard](https://dimagi.github.io/dimagi-qa-sureadhere/), with the run's environment already selected (`?perf_env=<env>#performance-trend`). The full dashboard is one click away. Every dashboard section has its own link like this: hover a section heading and click 🔗.
+- There is one small chart per timed action, showing its time on each recent run of that environment.
+- Each run's dot is coloured by the performance check: green is normal, amber is slower than usual (1.5x), red is a regression (2x) or over its limit, and grey means not enough history yet.
+- Dashed lines mark the usual time (median of the last 10) and 2x usual, where a regression starts.
+- Hover a point for its numbers, or click it to open the run. The section follows the dashboard's time-window and trigger filters.
+
 ### Status, email and dashboard
 
 - Both results are written to `slack_status_<env>.json`. **Only the smoke tests decide whether the CI run passes.** A performance failure is shown in Slack, the email and the performance report, and as a warning annotation on the run, but the run stays green. The dashboard's overall status follows the smoke tests too.
 - The Slack header shows ✅/❌ for each result. The single leading icon is only used if the status file is missing, for example if pytest crashed.
 - The result email contains the same checklist and performance box. Its subject says both results (for example "Smoke PASSED, Performance SLOW"), and it attaches the reports zip and the performance report.
-- The dashboard's `run_summary.json` records `smoke_status` and `perf_status`, plus the timing data used for the "slower than usual" check.
+- The dashboard's `run_summary.json` records `smoke_status` and `perf_status`, plus the timing data used for the comparison with recent runs.
 - Posting to Slack is retried if Slack errors or times out, falling back to a text-only message if the chart upload keeps failing. It checks the channel first, so a report is never posted twice.
 - **Public repo:** this repo and its CI logs, artifacts and dashboard are public. Recorded endpoint names keep only the app's own route words (`_KNOWN_ROUTE_SEGMENTS` in `perf.py`). Every other path segment becomes `{id}`: IDs, emails, MRNs, tokens, and also plain words like a name. Hosts and query values are dropped. A new route that isn't in the list still works, but shows up as `{id}` until its word is added.
 

@@ -37,6 +37,15 @@ on:
         required: false
         default: ''
         type: string
+      slack_channel:
+        description: 'Slack channel for the report. auto = runs on main go to the release channel, runs on other branches go to #qa-branch-test-results'
+        required: false
+        default: 'auto'
+        type: choice
+        options:
+          - auto
+          - release channel
+          - branch test channel
 
 concurrency:
   # github.ref differs by trigger type for the same branch -- a push event
@@ -366,17 +375,36 @@ jobs:
         uses: actions/github-script@v6
         env:
             CC_EVENT: ${{ github.event_name }}
+            CC_REF: ${{ github.ref_name }}
+            CC_CHOICE: ${{ github.event.inputs.slack_channel }}
+            RELEASE_CHANNEL: ${{ secrets.SLACK_CHANNEL_ID_SA_RELEASE }}
+            BRANCH_CHANNEL: ${{ secrets.SLACK_CHANNEL_ID_BRANCH_TEST }}
         with:
           result-encoding: string
           script: |
-            const {CC_EVENT} = process.env
-            if (CC_EVENT == 'repository_dispatch') {
-              console.log("Triggered on deploy")
-              return '${{ secrets.SLACK_CHANNEL_ID_SA_RELEASE }}'
+            // Only official runs go to the release channel: post-deploy runs,
+            // and manual runs from main (unless overridden with the
+            // "slack_channel" input). PR runs, merges to main and runs on
+            // other branches go to #qa-branch-test-results, so testing a
+            // branch doesn't flood the release channel.
+            const {CC_EVENT, CC_REF, CC_CHOICE, RELEASE_CHANNEL, BRANCH_CHANNEL} = process.env
+            const choice = CC_CHOICE || 'auto'
+            let target
+            if (CC_EVENT === 'repository_dispatch') {
+              target = 'release'
+            } else if (CC_EVENT === 'workflow_dispatch') {
+              if (choice === 'release channel') target = 'release'
+              else if (choice === 'branch test channel') target = 'branch'
+              else target = CC_REF === 'main' ? 'release' : 'branch'
             } else {
-              console.log("Not triggered on deploy")
-              return '${{ secrets.SLACK_CHANNEL_ID_SA_RELEASE }}'
+              target = 'branch'  // pull_request, push (merge to main)
             }
+            if (target === 'branch' && !BRANCH_CHANNEL) {
+              core.warning('SLACK_CHANNEL_ID_BRANCH_TEST is not set -- posting to the release channel instead')
+              target = 'release'
+            }
+            console.log(`event=${CC_EVENT} ref=${CC_REF} slack_channel=${choice} -> ${target} channel`)
+            return target === 'release' ? RELEASE_CHANNEL : BRANCH_CHANNEL
 
       - name: Upload Combined Chart to Slack
         if: ${{ !cancelled() && steps.configure_slack.outputs.result != '' }}
@@ -441,6 +469,9 @@ jobs:
           # The run's summary page, where each environment's job writes its full
           # performance report (see "Publish performance report" above).
           perf_report_url = f"{server}/{repo}/actions/runs/{run_id}"
+          # The dashboard's performance trend section for this environment
+          # (each action vs its recent runs), instead of attaching a chart.
+          perf_trend_url = f"https://dimagi.github.io/dimagi-qa-sureadhere/?perf_env={dimagiqa_env}#performance-trend"
           event_map = {
               "schedule": "SCHEDULED TRIGGER", "workflow_dispatch": "MANUAL TRIGGER",
               "push": "PUSH/PULL", "pull_request": "PUSH/PULL",
@@ -475,6 +506,7 @@ jobs:
               f"{body}\n\n"
               f"📎 *Artifact:* <{artifact_url}|Download here>\n"
               f"📈 *Performance report:* <{perf_report_url}|View here>\n"
+              f"📉 *Performance trend:* <{perf_trend_url}|View here>\n"
               f"🔗 *Dashboard:* https://dimagi.github.io/dimagi-qa-sureadhere/"
           )
 
@@ -619,6 +651,8 @@ jobs:
               checklistBody = checklistText.split('```')
                 .map((part, i) => i % 2 === 1 ? '```' + part + '```' : part.replace(/\n/g, '\n\n'))
                 .join('')
+              // Direct link to the dashboard's performance trend for this env.
+              checklistBody += `\n\n📉 [View the performance trend](https://dimagi.github.io/dimagi-qa-sureadhere/?perf_env=${CC_ENV}#performance-trend) (each action vs its recent runs)`
             } catch (e) {
               console.log(`Could not read checklist summary for email: ${e}`)
             }
