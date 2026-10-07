@@ -5,6 +5,7 @@ import pytest
 from seleniumbase import BaseCase
 
 from common_utilities.perf import perf_budget
+from common_utilities.feature_flag_api import assert_feature_flag_still
 from common_utilities.step_reporter import checklist_step, report_values
 from testPages.admin_page.admin_ff_page import AdminFFPage
 from testPages.admin_page.admin_page import AdminPage
@@ -278,6 +279,10 @@ class test_module_03(BaseCase):
         p_adhere.open_patient_adherence_page()
         p_adhere.verify_patient_adherence_page()
         with checklist_step("auto_complete_in_person"):
+            # Failsafe: the flag was set ON at the start of this test, but it's
+            # environment-wide and can be flipped from outside the run.
+            assert_feature_flag_still(self.driver, self.settings["url"], "Per Drug Adherence", True,
+                                      before="the adherence page auto-fill check")
             auto_filled = p_adhere.verify_auto_filled_tag()
             p_adhere.verify_patient_adherence_dose_status("Taken", True)
             p_adhere.verify_dose_summary(UserData.obs_in_person)
@@ -289,6 +294,8 @@ class test_module_03(BaseCase):
         home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
         p_vdo.verify_patient_video_page()
         with checklist_step("dose_submitted_pda_on"):
+            assert_feature_flag_still(self.driver, self.settings["url"], "Per Drug Adherence", True,
+                                      before="the video review (Per Drug Adherence ON)")
             now, formatted_now, drug_time, obs_method, review_text, side_effect = p_vdo.fill_up_review_form_ff_on(
                     d['drug_name'], d['total_pills'],
                     d['dose_per_pill'])

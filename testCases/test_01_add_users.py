@@ -2,6 +2,7 @@ import pytest
 from seleniumbase import BaseCase
 
 from common_utilities.perf import perf_budget
+from common_utilities.feature_flag_api import assert_feature_flag_still
 from common_utilities.step_reporter import checklist_step, report_values, wait_for_step
 from testPages.admin_page.admin_ff_page import AdminFFPage
 from testPages.admin_page.admin_page import AdminPage
@@ -487,6 +488,10 @@ class test_module_01_users(BaseCase):
 
         home.validate_dashboard_page()
         with checklist_step("dose_submitted_pda_off"), checklist_step("auto_complete_self_report"):
+            # Failsafe: the flag was set OFF above, but it's environment-wide
+            # and can be flipped from outside the run.
+            assert_feature_flag_still(self.driver, self.settings["url"], "Per Drug Adherence", False,
+                                      before="the video review (Per Drug Adherence OFF)")
             home.check_for_quick_actions()
             home.check_for_video_review(d["patient_fname"]+" "+d["patient_lname"], d['SA_ID'])
             formatted_now, review_text = _review_video_and_verify_adherence()
