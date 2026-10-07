@@ -2,7 +2,6 @@ import pytest
 from seleniumbase import BaseCase
 
 from common_utilities.perf import perf_budget
-from common_utilities.feature_flag_api import assert_feature_flag_still
 from common_utilities.step_reporter import checklist_step, report_values, wait_for_step
 from testPages.admin_page.admin_ff_page import AdminFFPage
 from testPages.admin_page.admin_page import AdminPage
@@ -465,11 +464,6 @@ class test_module_01_users(BaseCase):
         a_ff.double_check_ff(UserData.per_drug_adherence_ff_off)
 
         home.force_relogin()
-        # Failsafe: confirm Per Drug Adherence really is OFF before the test
-        # goes on, so a flag flipped from outside the run fails here with
-        # that reason instead of later in the review form.
-        assert_feature_flag_still(self.driver, self.settings["url"], "Per Drug Adherence", False,
-                                  before="the start of this test's checks")
 
         def _review_video_and_verify_adherence():
             p_vdo.verify_patient_video_page()

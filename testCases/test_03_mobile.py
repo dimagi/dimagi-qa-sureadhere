@@ -237,6 +237,12 @@ class test_module_03(BaseCase):
             default_client = UserData.client[2]
         home.force_relogin()
 
+        # Failsafe: this test needs Per Drug Adherence ON (presetup sets it).
+        # If it isn't ON, fail right here with that reason instead of later
+        # with "auto-filled tag not present".
+        assert_feature_flag_still(self.driver, self.settings["url"], "Per Drug Adherence", True,
+                                  before="the start of this test")
+
         # Verify (not set -- this flag is already ON from presetup) via the
         # IAM API instead of navigating the full Admin > Feature Flags page,
         # which costs a dashboard+admin+feature-flags page-load cycle just
@@ -269,11 +275,6 @@ class test_module_03(BaseCase):
             time.sleep(30)
 
         home.force_relogin()
-        # Failsafe: confirm Per Drug Adherence really is ON before the test
-        # goes on -- if it isn't, fail here with that reason instead of later
-        # with "auto-filled tag not present".
-        assert_feature_flag_still(self.driver, self.settings["url"], "Per Drug Adherence", True,
-                                  before="the start of this test's checks")
         home.check_for_quick_actions()
         home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'], flag=False)
 

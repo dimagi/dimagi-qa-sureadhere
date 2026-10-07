@@ -287,8 +287,8 @@ def read_feature_flag_via_api(driver, app_url: str, name: str):
 
 def assert_feature_flag_still(driver, app_url: str, name: str, expected_on: bool, before: str) -> None:
     """Failsafe for tests that need a flag in a given state: confirm it via the
-    API right after the test sets it, and fail with a clear reason if it
-    isn't in that state.
+    API at the start of the test, and fail with a clear reason if it isn't in
+    that state.
     Without this, a flag flipped by someone else mid-test (admin UI, another
     run against the same environment) only shows up later as a confusing
     UI assertion -- e.g. "auto-filled tag is not present". If the API can't
@@ -297,15 +297,15 @@ def assert_feature_flag_still(driver, app_url: str, name: str, expected_on: bool
     current = read_feature_flag_via_api(driver, app_url, name)
     wanted = "ON" if expected_on else "OFF"
     if current is None:
-        print(f"[ff_api check] could not confirm '{name}' is {wanted} before {before}; continuing")
+        print(f"[ff_api check] could not confirm '{name}' is {wanted} at {before}; continuing")
         return
     if current != expected_on:
         raise AssertionError(
-            f"'{name}' feature flag is {'ON' if current else 'OFF'} before {before}, but this test needs it {wanted} "
-            f"and just set it -- it didn't take effect or was changed outside this run (admin UI or another run "
-            f"against the same environment)"
+            f"'{name}' feature flag is {'ON' if current else 'OFF'} at {before}, but this test needs it {wanted} "
+            f"(presetup sets it) -- it was changed outside this run (admin UI or another run against the same "
+            f"environment)"
         )
-    print(f"[ff_api check] '{name}' still {wanted} before {before}")
+    print(f"[ff_api check] '{name}' is {wanted} at {before}")
 
 
 def set_feature_flags_via_api(driver, app_url: str, ff_dict: dict, env: str | None = None) -> dict:
