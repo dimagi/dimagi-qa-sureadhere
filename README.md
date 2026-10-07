@@ -49,15 +49,18 @@ To manually trigger the script,
   - Run workflow
   - Use workflow from ```main```
   - Use the environment as desired
-  - **Slack channel**: leave it on `auto` (runs on `main` post to the release channel, runs on any other branch post to **#qa-branch-test-results**), or pick `release channel` / `branch test channel` to override
+  - **Slack channel**: leave it on `auto` (runs on `main` post to **#qa-sureadhere-automated-test-results**, runs on any other branch post to **#qa-branch-test-results**), or pick `main channel` / `release planning channel` / `branch test channel` to override. Use `release planning channel` for a post-deploy run you start by hand.
   - Run!
 
 ## Script Results
 
  -  Every run (pass or fail) posts a results message to Slack, with the summary chart image attached:
-    - **#qa-sureadhere-automated-test-results** (the release channel): post-deploy runs, and manual runs from `main`.
-    - **#qa-branch-test-results**: pull request runs, merges to `main`, and runs on any other branch, so testing changes doesn't flood the release channel. This channel is shared by QA scripts from other repos too.
-    - A manual run can override this with the `slack_channel` option. The channel IDs are the `SLACK_CHANNEL_ID_SA_RELEASE` and `SLACK_CHANNEL_ID_BRANCH_TEST` secrets, and QA-Bot must be a member of both channels.
+    - **#sa-release-planning** (`SLACK_CHANNEL_ID_SA_RELEASE`): runs triggered automatically after a deploy (`deploy_success`). Release managers and the devops contractors watch this channel.
+    - **#qa-sureadhere-automated-test-results** (`SLACK_CHANNEL_ID_SA_MAIN`): manual runs from `main`.
+    - **#qa-branch-test-results** (`SLACK_CHANNEL_ID_BRANCH_TEST`): pull request runs, merges to `main`, and runs on any other branch, so testing changes doesn't flood the other channels. This channel is shared by QA scripts from other repos too.
+    - A manual run can override this with the `slack_channel` option.
+    - QA-Bot must be a member of all three channels.
+    - If a channel's secret is missing, the report goes to the main or branch channel with a warning. It is never dropped, and never redirected to #sa-release-planning.
 
 <img width="517" height="172" alt="image" src="https://github.com/user-attachments/assets/20248e98-84df-4217-accb-b176fc3c8107" />
 

@@ -38,13 +38,14 @@ on:
         default: ''
         type: string
       slack_channel:
-        description: 'Slack channel for the report. auto = runs on main go to the release channel, runs on other branches go to #qa-branch-test-results'
+        description: 'Slack channel for the report. auto = runs on main go to the main QA channel, runs on other branches go to #qa-branch-test-results'
         required: false
         default: 'auto'
         type: choice
         options:
           - auto
-          - release channel
+          - main channel
+          - release planning channel
           - branch test channel
 
 concurrency:
@@ -377,34 +378,42 @@ jobs:
             CC_EVENT: ${{ github.event_name }}
             CC_REF: ${{ github.ref_name }}
             CC_CHOICE: ${{ github.event.inputs.slack_channel }}
+            MAIN_CHANNEL: ${{ secrets.SLACK_CHANNEL_ID_SA_MAIN }}
             RELEASE_CHANNEL: ${{ secrets.SLACK_CHANNEL_ID_SA_RELEASE }}
             BRANCH_CHANNEL: ${{ secrets.SLACK_CHANNEL_ID_BRANCH_TEST }}
         with:
           result-encoding: string
           script: |
-            // Only official runs go to the release channel: post-deploy runs,
-            // and manual runs from main (unless overridden with the
-            // "slack_channel" input). PR runs, merges to main and runs on
-            // other branches go to #qa-branch-test-results, so testing a
-            // branch doesn't flood the release channel.
-            const {CC_EVENT, CC_REF, CC_CHOICE, RELEASE_CHANNEL, BRANCH_CHANNEL} = process.env
+            // Post-deploy runs go to #sa-release-planning (SLACK_CHANNEL_ID_SA_RELEASE),
+            // where release managers and devops contractors see them.
+            // Manual runs from main go to the main QA channel (SLACK_CHANNEL_ID_SA_MAIN).
+            // PR runs, merges to main and runs on other branches go to
+            // #qa-branch-test-results (SLACK_CHANNEL_ID_BRANCH_TEST).
+            // A manual run can override this with the "slack_channel" input.
+            const {CC_EVENT, CC_REF, CC_CHOICE, MAIN_CHANNEL, RELEASE_CHANNEL, BRANCH_CHANNEL} = process.env
             const choice = CC_CHOICE || 'auto'
+            const ids = {main: MAIN_CHANNEL, release: RELEASE_CHANNEL, branch: BRANCH_CHANNEL}
+            const names = {main: 'SLACK_CHANNEL_ID_SA_MAIN', release: 'SLACK_CHANNEL_ID_SA_RELEASE', branch: 'SLACK_CHANNEL_ID_BRANCH_TEST'}
             let target
             if (CC_EVENT === 'repository_dispatch') {
               target = 'release'
             } else if (CC_EVENT === 'workflow_dispatch') {
-              if (choice === 'release channel') target = 'release'
+              if (choice === 'main channel') target = 'main'
+              else if (choice === 'release planning channel') target = 'release'
               else if (choice === 'branch test channel') target = 'branch'
-              else target = CC_REF === 'main' ? 'release' : 'branch'
+              else target = CC_REF === 'main' ? 'main' : 'branch'
             } else {
               target = 'branch'  // pull_request, push (merge to main)
             }
-            if (target === 'branch' && !BRANCH_CHANNEL) {
-              core.warning('SLACK_CHANNEL_ID_BRANCH_TEST is not set -- posting to the release channel instead')
-              target = 'release'
+            if (!ids[target]) {
+              // Never drop a report over a missing secret; never fall back to
+              // the release planning channel, which other teams watch.
+              const fallback = ['main', 'branch'].find(t => ids[t])
+              core.warning(`${names[target]} is not set -- posting to ${fallback ? names[fallback] : 'nowhere'} instead`)
+              target = fallback
             }
             console.log(`event=${CC_EVENT} ref=${CC_REF} slack_channel=${choice} -> ${target} channel`)
-            return target === 'release' ? RELEASE_CHANNEL : BRANCH_CHANNEL
+            return target ? ids[target] : ''
 
       - name: Upload Combined Chart to Slack
         if: ${{ !cancelled() && steps.configure_slack.outputs.result != '' }}
