@@ -177,7 +177,12 @@ It is shown in three places:
 ### Status, email and dashboard
 
 - Both results are written to `slack_status_<env>.json`. **Only the smoke tests decide whether the CI run passes.** A performance failure is shown in Slack, the email and the performance report, and as a warning annotation on the run, but the run stays green. The dashboard's overall status follows the smoke tests too.
-- The Slack header shows ✅/❌ for each result. The single leading icon is only used if the status file is missing, for example if pytest crashed.
+- The Slack header shows each result. Smoke tests are ✅ Passed or ❌ Failed. Performance has three states:
+  - ✅ OK
+  - ⚠️ OK, with warnings: still a pass, but the box has ⚠️ lines, such as 1.5x–2x slower than usual or video over its limit
+  - ❌ Slow
+
+  The performance box title and the email subject use the same three states (`slack_status_<env>.json` has `performance_warnings`). The single leading icon is only used if the status file is missing, for example if pytest crashed.
 - The result email contains the same checklist and performance box. Its subject says both results (for example "Smoke PASSED, Performance SLOW"), and it attaches the reports zip and the performance report.
 - The dashboard's `run_summary.json` records `smoke_status` and `perf_status`, plus the timing data used for the comparison with recent runs.
 - Posting to Slack is retried if Slack errors or times out, falling back to a text-only message if the chart upload keeps failing. It checks the channel first, so a report is never posted twice.

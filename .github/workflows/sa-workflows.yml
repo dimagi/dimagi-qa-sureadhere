@@ -470,9 +470,12 @@ jobs:
               statuses = json.loads(status_file.read_text(encoding="utf-8"))
               smoke_ok = statuses.get("smoke") == "PASS"
               perf_ok = statuses.get("performance") == "PASS"
+              perf_label = ("❌ Slow" if not perf_ok
+                            else "⚠️ OK, with warnings" if statuses.get("performance_warnings")
+                            else "✅ OK")
               results_line = (
                   f"*Smoke tests:* {'✅ Passed' if smoke_ok else '❌ Failed'}   |   "
-                  f"*Performance:* {'✅ OK' if perf_ok else '❌ Slow'}\n"
+                  f"*Performance:* {perf_label}\n"
               )
           artifact_url = f"{server}/{repo}/actions/runs/{run_id}/artifacts/{artifact_id}"
           # The run's summary page, where each environment's job writes its full
@@ -622,7 +625,7 @@ jobs:
             try {
               const statuses = JSON.parse(await fs.readFile(`./slack_status_${CC_ENV}.json`, 'utf8'))
               resultLabel = `Smoke ${statuses.smoke === 'PASS' ? 'PASSED' : 'FAILED'}, ` +
-                            `Performance ${statuses.performance === 'PASS' ? 'OK' : 'SLOW'}`
+                            `Performance ${statuses.performance !== 'PASS' ? 'SLOW' : statuses.performance_warnings ? 'OK (with warnings)' : 'OK'}`
             } catch (e) {
               console.log(`Could not read result statuses for email: ${e}`)
             }

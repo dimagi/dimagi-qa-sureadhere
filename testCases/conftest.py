@@ -378,7 +378,8 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
     # Performance: Slow"), the email subject, the job status and the
     # dashboard's run summary.
     with open(f"slack_status_{env}.json", "w", encoding="utf-8") as f:
-        json.dump({"smoke": report["smoke"], "performance": report["performance"]}, f)
+        json.dump({"smoke": report["smoke"], "performance": report["performance"],
+                   "performance_warnings": report["performance_warnings"]}, f)
     # Full performance details the Slack box points to (posted in the Slack
     # thread and zipped with the reports).
     with open(PERFORMANCE_REPORT_NAME.format(env=env), "w", encoding="utf-8") as f:
