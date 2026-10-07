@@ -465,6 +465,11 @@ class test_module_01_users(BaseCase):
         a_ff.double_check_ff(UserData.per_drug_adherence_ff_off)
 
         home.force_relogin()
+        # Failsafe: confirm Per Drug Adherence really is OFF before the test
+        # goes on, so a flag flipped from outside the run fails here with
+        # that reason instead of later in the review form.
+        assert_feature_flag_still(self.driver, self.settings["url"], "Per Drug Adherence", False,
+                                  before="the start of this test's checks")
 
         def _review_video_and_verify_adherence():
             p_vdo.verify_patient_video_page()
@@ -488,10 +493,6 @@ class test_module_01_users(BaseCase):
 
         home.validate_dashboard_page()
         with checklist_step("dose_submitted_pda_off"), checklist_step("auto_complete_self_report"):
-            # Failsafe: the flag was set OFF above, but it's environment-wide
-            # and can be flipped from outside the run.
-            assert_feature_flag_still(self.driver, self.settings["url"], "Per Drug Adherence", False,
-                                      before="the video review (Per Drug Adherence OFF)")
             home.check_for_quick_actions()
             home.check_for_video_review(d["patient_fname"]+" "+d["patient_lname"], d['SA_ID'])
             formatted_now, review_text = _review_video_and_verify_adherence()

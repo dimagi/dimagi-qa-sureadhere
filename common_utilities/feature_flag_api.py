@@ -286,9 +286,9 @@ def read_feature_flag_via_api(driver, app_url: str, name: str):
 
 
 def assert_feature_flag_still(driver, app_url: str, name: str, expected_on: bool, before: str) -> None:
-    """Failsafe for tests that need a flag in a given state for their whole
-    run: re-check it via the API right before the assertions that depend on
-    it, and fail with a clear reason if it changed since the test set it.
+    """Failsafe for tests that need a flag in a given state: confirm it via the
+    API right after the test sets it, and fail with a clear reason if it
+    isn't in that state.
     Without this, a flag flipped by someone else mid-test (admin UI, another
     run against the same environment) only shows up later as a confusing
     UI assertion -- e.g. "auto-filled tag is not present". If the API can't
@@ -301,9 +301,9 @@ def assert_feature_flag_still(driver, app_url: str, name: str, expected_on: bool
         return
     if current != expected_on:
         raise AssertionError(
-            f"'{name}' feature flag is {'ON' if current else 'OFF'} before {before}, but this test set it {wanted} "
-            f"at its start -- it was changed during the test, most likely outside this run (admin UI or another "
-            f"run against the same environment)"
+            f"'{name}' feature flag is {'ON' if current else 'OFF'} before {before}, but this test needs it {wanted} "
+            f"and just set it -- it didn't take effect or was changed outside this run (admin UI or another run "
+            f"against the same environment)"
         )
     print(f"[ff_api check] '{name}' still {wanted} before {before}")
 
