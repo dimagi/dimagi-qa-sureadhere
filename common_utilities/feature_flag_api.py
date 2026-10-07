@@ -263,6 +263,51 @@ def verify_feature_flags_via_api(driver, app_url: str, ff_dict: dict, env: str |
     return confirmed
 
 
+def read_feature_flag_via_api(driver, app_url: str, name: str):
+    """Current state of one flag via the IAM API: True (ON), False (OFF), or
+    None when the API can't tell (no token, flag not found, request failed).
+    Read-only and never raises."""
+    try:
+        token = extract_auth_token(driver)
+        try:
+            claims = decode_jwt_claims(token)
+        except FeatureFlagApiError:
+            claims = {}
+        base = resolve_iam_base(driver, app_url)
+        chosen_cid, entries = _find_client_features(base, token, claims, {name}, lambda m: None)
+        if not chosen_cid:
+            return None
+        for entry in entries:
+            if _entry_name(entry) == name:
+                return _entry_active(entry)
+    except Exception as e:
+        print(f"[ff_api check] could not read '{name}': {e}")
+    return None
+
+
+def assert_feature_flag_still(driver, app_url: str, name: str, expected_on: bool, before: str) -> None:
+    """Failsafe for tests that need a flag in a given state: confirm it via the
+    API at the start of the test, and fail with a clear reason if it isn't in
+    that state.
+    Without this, a flag flipped by someone else mid-test (admin UI, another
+    run against the same environment) only shows up later as a confusing
+    UI assertion -- e.g. "auto-filled tag is not present". If the API can't
+    tell, it logs that and lets the test continue (the UI assertions still run).
+    """
+    current = read_feature_flag_via_api(driver, app_url, name)
+    wanted = "ON" if expected_on else "OFF"
+    if current is None:
+        print(f"[ff_api check] could not confirm '{name}' is {wanted} at {before}; continuing")
+        return
+    if current != expected_on:
+        raise AssertionError(
+            f"'{name}' feature flag is {'ON' if current else 'OFF'} at {before}, but this test needs it {wanted} "
+            f"(presetup sets it) -- it was changed outside this run (admin UI or another run against the same "
+            f"environment)"
+        )
+    print(f"[ff_api check] '{name}' is {wanted} at {before}")
+
+
 def set_feature_flags_via_api(driver, app_url: str, ff_dict: dict, env: str | None = None) -> dict:
     """Set every flag in ff_dict (name -> 'ON'/'OFF') via the IAM API
     instead of clicking through the Admin UI. Returns {name: True} for

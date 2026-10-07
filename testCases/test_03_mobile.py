@@ -5,6 +5,7 @@ import pytest
 from seleniumbase import BaseCase
 
 from common_utilities.perf import perf_budget
+from common_utilities.feature_flag_api import assert_feature_flag_still
 from common_utilities.step_reporter import checklist_step, report_values
 from testPages.admin_page.admin_ff_page import AdminFFPage
 from testPages.admin_page.admin_page import AdminPage
@@ -235,6 +236,12 @@ class test_module_03(BaseCase):
         else:
             default_client = UserData.client[2]
         home.force_relogin()
+
+        # Failsafe: this test needs Per Drug Adherence ON (presetup sets it).
+        # If it isn't ON, fail right here with that reason instead of later
+        # with "auto-filled tag not present".
+        assert_feature_flag_still(self.driver, self.settings["url"], "Per Drug Adherence", True,
+                                  before="the start of this test")
 
         # Verify (not set -- this flag is already ON from presetup) via the
         # IAM API instead of navigating the full Admin > Feature Flags page,
