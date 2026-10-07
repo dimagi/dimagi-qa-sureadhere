@@ -245,9 +245,20 @@ def render_performance_block(env: str, suite_duration_s: float | None = None) ->
 
     lines += ["", "Full details: see the Performance report link below "
                   f"(also {PERFORMANCE_REPORT_NAME.format(env=env)} in the report attachment)."]
-    title = (f"PERFORMANCE: {PERF_OK} OK - everything loaded within the expected time" if passed
-             else f"PERFORMANCE: {PERF_BAD} SLOW - see the lines marked {PERF_BAD}")
+    # Three states: SLOW (a failure), OK with warnings (a pass, but something
+    # needs a look -- e.g. 1.5x-2x slower than usual), or OK.
+    if not passed:
+        title = f"PERFORMANCE: {PERF_BAD} SLOW - see the lines marked {PERF_BAD}"
+    elif has_perf_warnings(lines):
+        title = f"PERFORMANCE: {PERF_WARN} OK - with warnings, see the lines marked {PERF_WARN}"
+    else:
+        title = f"PERFORMANCE: {PERF_OK} OK - everything loaded within the expected time"
     return [title, ""] + lines, passed
+
+
+def has_perf_warnings(lines: list[str]) -> bool:
+    """True when the performance box has any warning (⚠️) line."""
+    return any(line.startswith(PERF_WARN) for line in lines)
 
 
 def render_performance_report(env: str, server: str, suite_duration_s: float | None = None) -> str:
@@ -258,11 +269,11 @@ def render_performance_report(env: str, server: str, suite_duration_s: float | N
     import datetime
     from common_utilities import perf
 
-    _, passed = render_performance_block(env, suite_duration_s)
+    box_lines, passed = render_performance_block(env, suite_duration_s)
     now = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     out = [
         f"SureAdhere performance report - {server} - {now}",
-        f"Result: {'OK - everything within the expected time' if passed else 'SLOW - see the items marked SLOW'}",
+        f"Result: {'SLOW - see the items marked SLOW' if not passed else 'OK - with warnings, see the items marked WARNING or warning' if has_perf_warnings(box_lines[1:]) else 'OK - everything within the expected time'}",
         "",
     ]
 
@@ -372,6 +383,8 @@ def build_slack_report(env: str, server: str, client: str, release: str = "",
         "text": "\n".join(lines),
         "smoke": "PASS" if smoke_pass else "FAIL",
         "performance": "PASS" if perf_pass else "FAIL",
+        # A pass with warnings shows as "⚠️ OK, with warnings" in the header.
+        "performance_warnings": perf_pass and has_perf_warnings(perf_lines[1:]),
     }
 
 

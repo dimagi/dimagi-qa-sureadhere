@@ -49,15 +49,18 @@ To manually trigger the script,
   - Run workflow
   - Use workflow from ```main```
   - Use the environment as desired
-  - **Slack channel**: leave it on `auto` (runs on `main` post to the release channel, runs on any other branch post to **#qa-branch-test-results**), or pick `release channel` / `branch test channel` to override
+  - **Slack channel**: leave it on `auto` (runs on `main` post to **#qa-sureadhere-automated-test-results**, runs on any other branch post to **#qa-branch-test-results**), or pick `main channel` / `release planning channel` / `branch test channel` to override. Use `release planning channel` for a post-deploy run you start by hand.
   - Run!
 
 ## Script Results
 
  -  Every run (pass or fail) posts a results message to Slack, with the summary chart image attached:
-    - **#qa-sureadhere-automated-test-results** (the release channel): post-deploy runs, and manual runs from `main`.
-    - **#qa-branch-test-results**: pull request runs, merges to `main`, and runs on any other branch, so testing changes doesn't flood the release channel. This channel is shared by QA scripts from other repos too.
-    - A manual run can override this with the `slack_channel` option. The channel IDs are the `SLACK_CHANNEL_ID_SA_RELEASE` and `SLACK_CHANNEL_ID_BRANCH_TEST` secrets, and QA-Bot must be a member of both channels.
+    - **#sa-release-planning** (`SLACK_CHANNEL_ID_SA_RELEASE`): runs triggered automatically after a deploy (`deploy_success`). Release managers and the devops contractors watch this channel.
+    - **#qa-sureadhere-automated-test-results** (`SLACK_CHANNEL_ID_SA_MAIN`): manual runs from `main`.
+    - **#qa-branch-test-results** (`SLACK_CHANNEL_ID_BRANCH_TEST`): pull request runs, merges to `main`, and runs on any other branch, so testing changes doesn't flood the other channels. This channel is shared by QA scripts from other repos too.
+    - A manual run can override this with the `slack_channel` option.
+    - QA-Bot must be a member of all three channels.
+    - If a channel's secret is missing, the report goes to the main or branch channel with a warning. It is never dropped, and never redirected to #sa-release-planning.
 
 <img width="517" height="172" alt="image" src="https://github.com/user-attachments/assets/20248e98-84df-4217-accb-b176fc3c8107" />
 
@@ -174,7 +177,12 @@ It is shown in three places:
 ### Status, email and dashboard
 
 - Both results are written to `slack_status_<env>.json`. **Only the smoke tests decide whether the CI run passes.** A performance failure is shown in Slack, the email and the performance report, and as a warning annotation on the run, but the run stays green. The dashboard's overall status follows the smoke tests too.
-- The Slack header shows ✅/❌ for each result. The single leading icon is only used if the status file is missing, for example if pytest crashed.
+- The Slack header shows each result. Smoke tests are ✅ Passed or ❌ Failed. Performance has three states:
+  - ✅ OK
+  - ⚠️ OK, with warnings: still a pass, but the box has ⚠️ lines, such as 1.5x–2x slower than usual or video over its limit
+  - ❌ Slow
+
+  The performance box title and the email subject use the same three states (`slack_status_<env>.json` has `performance_warnings`). The single leading icon is only used if the status file is missing, for example if pytest crashed.
 - The result email contains the same checklist and performance box. Its subject says both results (for example "Smoke PASSED, Performance SLOW"), and it attaches the reports zip and the performance report.
 - The dashboard's `run_summary.json` records `smoke_status` and `perf_status`, plus the timing data used for the comparison with recent runs.
 - Posting to Slack is retried if Slack errors or times out, falling back to a text-only message if the chart upload keeps failing. It checks the channel first, so a report is never posted twice.
