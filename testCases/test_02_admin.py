@@ -24,6 +24,7 @@ from user_inputs.user_data import UserData
 
 class test_module_02_admin(BaseCase):
     data = {}
+    relogin_as = "admin"  # rerun hook in conftest.py logs back in as admin
     _session_ready = False  # guard so we only open/login once
 
     def _login_once(self):
@@ -52,16 +53,17 @@ class test_module_02_admin(BaseCase):
 
         selected_disease = random.choice(UserData.admin_disease)
         selected_drug = random.choice(UserData.admin_drug)
-        if "banner" in self.settings["url"]:
-            default_client = UserData.client[0]
-        elif "rogers" in self.settings["url"]:
-            default_client = UserData.client[1]
-        elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client[3]
-        else:
-            default_client = UserData.client[2]
+        default_client = UserData.client
+        # if "banner" in self.settings["url"]:
+        #     default_client = UserData.client[0]
+        # elif "rogers" in self.settings["url"]:
+        #     default_client = UserData.client[1]
+        # elif "securevoteu" in self.settings["url"]:
+        #     default_client = UserData.client[3]
+        # else:
+        #     default_client = UserData.client[2]
 
-        home.ensure_logged_in()
+        home.ensure_logged_in("admin")
 
         home.open_admin_page()
         admin.validate_admin_page(default_client)
@@ -80,7 +82,7 @@ class test_module_02_admin(BaseCase):
         admin.expand_drugs()
         drug_switch, drug_name = a_drug.toggle_for_drugs(selected_drug, "ON")
 
-        home.force_relogin()
+        home.force_relogin("admin")
 
         home.open_admin_page()
         admin.validate_admin_page(default_client)
@@ -111,17 +113,20 @@ class test_module_02_admin(BaseCase):
 
 
         d = self.__class__.data
+        default_client = UserData.client
+        # Regimen tab runs as the default staff user (Automation Testuser, a Regimen
+        # Editor on every site) -- the client login can only view regimens.
+        default_staff_email = UserData.default_staff_email_for(self.settings["url"])
+        # if "banner" in self.settings["url"]:
+        #     default_client = UserData.client[0]
+        # elif "rogers" in self.settings["url"]:
+        #     default_client = UserData.client[1]
+        # elif "securevoteu" in self.settings["url"]:
+        #     default_client = UserData.client[3]
+        # else:
+        #     default_client = UserData.client[2]
 
-        if "banner" in self.settings["url"]:
-            default_client = UserData.client[0]
-        elif "rogers" in self.settings["url"]:
-            default_client = UserData.client[1]
-        elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client[3]
-        else:
-            default_client = UserData.client[2]
-
-        home.force_relogin()
+        home.force_relogin(username=default_staff_email, password=self.settings["login_password"])
 
         home.open_manage_patient_page()
         patient.search_test_patients()
@@ -131,7 +136,7 @@ class test_module_02_admin(BaseCase):
         p_regimen.verify_diseases_present(d['disease_name'], d['disease_switch'])
         p_regimen.verify_drugs_present(d['drug_name'], d['drug_switch'])
 
-        home.force_relogin()
+        home.force_relogin("admin")
 
         home.validate_dashboard_page()
         home.open_admin_page()
@@ -151,7 +156,7 @@ class test_module_02_admin(BaseCase):
         admin.expand_drugs()
         drug_switch_now, drug_name = a_drug.toggle_for_drugs(d['drug_name'], "OFF")
 
-        home.force_relogin()
+        home.force_relogin("admin")
 
         home.open_admin_page()
         admin.validate_admin_page(default_client)
@@ -161,7 +166,7 @@ class test_module_02_admin(BaseCase):
         print(f"Before: {d['disease_switch']}, Drug Name: {disease_name}, After: {disease_switch_now}")
         print(f"Before: {d['drug_switch']}, Drug Name: {d['drug_name']}, After: {drug_switch_now}")
 
-        home.force_relogin()
+        home.force_relogin(username=default_staff_email, password=self.settings["login_password"])
 
 
         home.open_manage_patient_page()
@@ -189,17 +194,17 @@ class test_module_02_admin(BaseCase):
         admin = AdminPage(self, 'admin')
         a_announce = AdminAnnouncementPage(self, 'announcements')
         a_announce_form = AdminAnnouncementFormPage(self, 'admin_announcement_form')
+        default_client = UserData.client
+        # if "banner" in self.settings["url"]:
+        #     default_client = UserData.client[0]
+        # elif "rogers" in self.settings["url"]:
+        #     default_client = UserData.client[1]
+        # elif "securevoteu" in self.settings["url"]:
+        #     default_client = UserData.client[3]
+        # else:
+        #     default_client = UserData.client[2]
 
-        if "banner" in self.settings["url"]:
-            default_client = UserData.client[0]
-        elif "rogers" in self.settings["url"]:
-            default_client = UserData.client[1]
-        elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client[3]
-        else:
-            default_client = UserData.client[2]
-
-        home.force_relogin()
+        home.force_relogin("admin")
 
         home.validate_dashboard_page()
         home.open_admin_page()
@@ -211,17 +216,20 @@ class test_module_02_admin(BaseCase):
         home.open_admin_page()
         admin.open_announcement()
         a_announce.verify_announcement_created(announcement_text, status, client)
+
+        home.force_relogin()
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.verify_announcement(announcement_text)
 
+        home.force_relogin("admin")
         home.open_admin_page()
         admin.open_announcement()
         a_announce.edit_announcement(announcement_text)
         a_announce_form.validate_announcement_page()
         status_now = a_announce_form.deactivate_the_announcements()
 
-        home.force_relogin()
+        home.force_relogin("admin")
 
         home.open_admin_page()
         admin.open_announcement()

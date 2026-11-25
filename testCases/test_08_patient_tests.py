@@ -474,7 +474,7 @@ class test_module_08_patient_tests(BaseCase):
         else:
             default_staff_email = UserData.default_staff_email[2]
 
-        login.login(default_staff_email, UserData.pwd)
+        login.login(default_staff_email, self.settings["login_password"])
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
         patient.search_test_patients("pat_fnmob")
@@ -566,7 +566,7 @@ class test_module_08_patient_tests(BaseCase):
         else:
             default_staff_email = UserData.default_staff_email[2]
 
-        login.login(default_staff_email, UserData.pwd)
+        login.login(default_staff_email, self.settings["login_password"])
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
         patient.search_test_patients("pat_fnmob")

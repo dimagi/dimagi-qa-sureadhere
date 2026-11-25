@@ -33,7 +33,7 @@ class test_module_01_users(BaseCase):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         login.launch_browser(self.settings["url"])
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
@@ -49,12 +49,14 @@ class test_module_01_users(BaseCase):
         staff = ManageStaffPage(self, "staff")
         user_staff = UserStaffPage(self, "add_staff")
         login = LoginPage(self, "login")
-        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+
+        default_site_manager = UserData.site_manager
+        # if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
+        #     default_site_manager = UserData.site_manager[0]
+        # elif "securevoteu" in self.settings["url"]:
+        #     default_site_manager = UserData.site_manager[2]
+        # else:
+        #     default_site_manager = UserData.site_manager[1]
         rerun_count = getattr(self, "rerun_count", 0)
         try:
             user_staff.cancel_form()
@@ -62,7 +64,7 @@ class test_module_01_users(BaseCase):
             print("Form is already closed")
 
         with checklist_step("login_existing_staff"):
-            report_values({"admin_username": self.settings["login_username"]})
+            report_values({"client_username": self.settings["client_username"]})
             home.ensure_logged_in()
 
         home.click_add_user()
@@ -274,7 +276,9 @@ class test_module_01_users(BaseCase):
 
         d = self.__class__.data  # shared dict
 
-        home.force_relogin()
+        # Regimen work runs as the patient's staff user (created in TC01 as a
+        # Regimen Editor) -- the client login can only view regimens.
+        home.force_relogin(username=d["email"], password=UserData.pwd)
 
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
@@ -295,7 +299,7 @@ class test_module_01_users(BaseCase):
         with checklist_step("regimen_created"), perf_budget("create_regimen", driver=self.driver):
             start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule()
 
-        home.force_relogin()
+        home.force_relogin(username=d["email"], password=UserData.pwd)
 
         with checklist_step("regimen_edited"), perf_budget("edit_regimen", driver=self.driver):
             home.open_manage_patient_page()
@@ -346,7 +350,7 @@ class test_module_01_users(BaseCase):
         profile.logout_user()
         login.after_logout()
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
 
         d = self.__class__.data
 
@@ -440,16 +444,16 @@ class test_module_01_users(BaseCase):
         # step file directly before flipping that same flag OFF here.
         wait_for_step("dose_submitted_pda_on")
         d = self.__class__.data
-
-        if "banner" in self.settings["url"]:
-            default_client = UserData.client[0]
-        elif "rogers" in self.settings["url"]:
-            default_client = UserData.client[1]
-        elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client[3]
-        else:
-            default_client = UserData.client[2]
-        home.force_relogin()
+        default_client = UserData.client
+        # if "banner" in self.settings["url"]:
+        #     default_client = UserData.client[0]
+        # elif "rogers" in self.settings["url"]:
+        #     default_client = UserData.client[1]
+        # elif "securevoteu" in self.settings["url"]:
+        #     default_client = UserData.client[3]
+        # else:
+        #     default_client = UserData.client[2]
+        home.force_relogin("admin")
 
         home.open_admin_page()
         admin.open_feature_flags()

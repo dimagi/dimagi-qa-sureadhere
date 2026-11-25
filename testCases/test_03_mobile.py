@@ -38,7 +38,7 @@ class test_module_03(BaseCase):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         login.launch_browser(self.settings["url"])
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
@@ -65,21 +65,22 @@ class test_module_03(BaseCase):
         profile.logout_user()
         login.after_logout()
 
+        default_site_manager = UserData.site_manager
         if "banner" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[0]
-            default_site_manager = UserData.site_manager[0]
+            # default_site_manager = UserData.site_manager[0]
         elif "rogers" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[1]
-            default_site_manager = UserData.site_manager[0]
+            # default_site_manager = UserData.site_manager[0]
         elif "securevoteu" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[3]
-            default_site_manager = UserData.site_manager[2]
+            # default_site_manager = UserData.site_manager[2]
         else:
             default_staff_email = UserData.default_staff_email[2]
-            default_site_manager = UserData.site_manager[1]
+            # default_site_manager = UserData.site_manager[1]
             
         with perf_budget("login_and_dashboard", driver=self.driver):
-            login.login(default_staff_email, UserData.pwd)
+            login.login(default_staff_email, self.settings["login_password"])
             home.open_dashboard_page()
             home.validate_dashboard_page()
         home.click_add_user()
@@ -110,7 +111,8 @@ class test_module_03(BaseCase):
         with perf_budget("create_regimen", driver=self.driver):
             start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule(time_of_drug=True)
 
-        home.ensure_logged_in()
+        home.force_relogin()
+        # home.ensure_logged_in()
 
         home.open_manage_patient_page()
         patient.search_patient(pfname, plname, mrn,username, sa_id,
@@ -148,7 +150,7 @@ class test_module_03(BaseCase):
         profile.logout_user()
         login.after_logout()
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
 
         d = self.__class__.data
 
@@ -227,15 +229,16 @@ class test_module_03(BaseCase):
         patient = ManagePatientPage(self, "patients")
 
         d = self.__class__.data
-        if "banner" in self.settings["url"]:
-            default_client = UserData.client[0]
-        elif "rogers" in self.settings["url"]:
-            default_client = UserData.client[1]
-        elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client[3]
-        else:
-            default_client = UserData.client[2]
-        home.force_relogin()
+        default_client = UserData.client
+        # if "banner" in self.settings["url"]:
+        #     default_client = UserData.client[0]
+        # elif "rogers" in self.settings["url"]:
+        #     default_client = UserData.client[1]
+        # elif "securevoteu" in self.settings["url"]:
+        #     default_client = UserData.client[3]
+        # else:
+        #     default_client = UserData.client[2]
+        home.force_relogin("admin")
 
         # Failsafe: this test needs Per Drug Adherence ON (presetup sets it).
         # If it isn't ON, fail right here with that reason instead of later

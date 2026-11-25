@@ -1,7 +1,7 @@
 class UserData:
 
     phone_number = "(000) 000-0000"
-    site_manager = ["Site_1_US", "Menlo Park", "Cape Town"]#"Durban"]
+    site_manager = "Site_1_QA" #["Site_1_US", "Menlo Park", "Cape Town"]#"Durban"]
     pwd = "abc@123456"
     regimen_disease = ["Diabetes", "Active TB"]
     med_time = "08:00 AM"
@@ -13,14 +13,28 @@ class UserData:
     admin_disease = ["Depression", "Hepatitis C", "Ebola"]
     admin_drug = ["Levofloxacin", "Rifapentine", "Truvada", "Stribild"]
     # default_staff_email = ["automation.user.banner@gmail.com", "automation.user.rogers@gmail.com", "automation.user.secure@gmail.com", "automation.user.eu@gmail.com"]
-    default_staff_email = ["sureadhere.automation.user+banner@gmail.com", "automation.user.rogers@gmail.com", "sureadhere.automation.user+secure@gmail.com", "sureadhere.automation.user+eu@gmail.com"]
+    # default_staff_email = ["sureadhere.automation.user+banner@gmail.com", "automation.user.rogers@gmail.com", "sureadhere.automation.user+secure@gmail.com", "sureadhere.automation.user+eu@gmail.com"]
+    default_staff_email = ["sureadhere.automation.user+staging@gmail.com", "sureadhere.automation.user+qa@gmail.com",
+                           "sureadhere.automation.user+usprod@gmail.com", "sureadhere.automation.user+euprod@gmail.com"]
     default_staff_name = "Automation Testuser"
+
+    @staticmethod
+    def default_staff_email_for(url):
+        """Default staff (Automation Testuser) email for the environment in url."""
+        if "banner" in url:
+            return UserData.default_staff_email[0]
+        if "rogers" in url:
+            return UserData.default_staff_email[1]
+        if "securevoteu" in url:
+            return UserData.default_staff_email[3]
+        return UserData.default_staff_email[2]
 
     med_status = "Taken"
     provider_observation = "Patient"
     side_effect = ["Anxiety", "Depression", "Irritability", "Insomnia"]
     colour_code = "#730099"
-    client = ["Client_Test_1_US", "Client_1_US", "St. Eligius", "EU Demo Client 1"]
+    client = "QA_Test_Client_1"
+    #["Client_Test_1_US", "Client_1_US", "St. Eligius", "EU Demo Client 1"]
     ff = {
         "Patient Self Reporting": "ON",
         "Side Effects": "ON",

@@ -72,7 +72,7 @@ def _inject_basic_auth(url: str, user: str | None, pwd: str | None) -> str:
 
 def _load_from_env() -> dict:
     env_keys = [
-        "url", "admin_username", "admin_password",
+        "url", "admin_username", "client_username", "admin_password",
         # "login_username", "login_password",
         "bs_user", "bs_key", "sa_imap_password",
     ]
@@ -93,6 +93,7 @@ def _load_from_env() -> dict:
         # s["login_username"] = s.get("admin_username") if "secure" in env else s.get("login_username")
         # s["login_password"] = s.get("admin_password") if "secure" in env else s.get("login_password")
         s["login_username"] = s.get("admin_username")
+        s["client_username"] = s.get("client_username")
         s["login_password"] = s.get("admin_password")
 
         s["url"] = f"https://{env}.sureadhere{labs}com{suffix}"
@@ -109,7 +110,7 @@ def _load_from_file() -> dict:
     parser.read(cfg_path)
     defaults = parser["default"]
     env_keys = [
-        "url", "admin_username", "admin_password",
+        "url", "admin_username", "client_username", "admin_password",
         # "login_username", "login_password",
         "bs_user", "bs_key", "sa_imap_password"
     ]
@@ -122,6 +123,7 @@ def _load_from_file() -> dict:
         # s["login_username"] = defaults.get("admin_username") if "secure" in base_url else defaults.get("login_username")
         # s["login_password"] = defaults.get("admin_password") if "secure" in base_url else defaults.get("login_password")
         s["login_username"] = defaults.get("admin_username")
+        s["client_username"] = defaults.get("client_username")
         s["login_password"] = defaults.get("admin_password")
 
 
@@ -130,6 +132,7 @@ def _load_from_file() -> dict:
         suffix = ":8008/" if "rogers" in env else "/"
         labs = "labs." if "secure" in env else "."
         s["login_username"] = defaults.get("admin_username") if "secure" in env else defaults.get("login_username")
+        s["client_username"] = defaults.get("client_username") if "secure" in env else defaults.get("client_username")
         s["login_password"] = defaults.get("admin_password") if "secure" in env else defaults.get("login_password")
         s["url"] = f"https://{env}.sureadhere{labs}com{suffix}"
         print(s["url"])

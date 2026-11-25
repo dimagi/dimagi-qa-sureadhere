@@ -25,6 +25,7 @@ from user_inputs.user_data import UserData
 
 class test_module_00_presetup(BaseCase):
 
+    relogin_as = "admin"  # rerun hook in conftest.py logs back in as admin
     _session_ready = False  # guard so we only open/login once
 
     def _login_once(self):
@@ -51,18 +52,14 @@ class test_module_00_presetup(BaseCase):
         admin = AdminPage(self, 'admin')
         a_ff = AdminFFPage(self, 'feature_flags')
 
-
+        default_client = UserData.client
         if "banner" in self.settings["url"]:
-            default_client = UserData.client[0]
             flag = True
         elif "rogers" in self.settings["url"]:
-            default_client = UserData.client[1]
             flag = False
         elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client[3]
             flag = False
         else:
-            default_client = UserData.client[2]
             flag = True
 
         home.open_dashboard_page()

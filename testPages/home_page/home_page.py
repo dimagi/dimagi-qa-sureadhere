@@ -9,8 +9,17 @@ class HomePage(BasePage):
     def __init__(self, sb, page_name):
         super().__init__(sb, page_name=page_name)
 
-    def ensure_logged_in(self):
+    def _username_for(self, as_user):
+        """Admin tab work (feature flags, diseases, drugs, announcements)
+        needs the admin account; everything else runs as the client user."""
+        settings = self.sb.settings
+        return settings["login_username"] if as_user == "admin" else settings["client_username"]
+
+    def ensure_logged_in(self, as_user="client"):
         """Get back to a validated dashboard from wherever the browser is.
+
+        Logs in as the client user by default; pass as_user="admin" where the
+        test needs the admin account.
 
         The SureAdhere IAM access token has a ~5 minute lifetime; if the
         app's silent refresh doesn't fire in time (headless CI can be
@@ -25,7 +34,7 @@ class HomePage(BasePage):
         login = LoginPage(self.sb, "login")
         if login.is_element_visible("next"):
             # Already sitting on the login page -- log straight back in.
-            login.login(settings["login_username"], settings["login_password"])
+            login.login(self._username_for(as_user), settings["login_password"])
             self.validate_dashboard_page()
             return
         try:
@@ -34,10 +43,10 @@ class HomePage(BasePage):
         except Exception:
             # Last resort: fresh page load, mirrors _relogin() in conftest.py.
             login.launch_browser(settings["url"])
-            login.login(settings["login_username"], settings["login_password"])
+            login.login(self._username_for(as_user), settings["login_password"])
             self.validate_dashboard_page()
 
-    def force_relogin(self):
+    def force_relogin(self, as_user="client", username=None, password=None):
         """Unconditionally log out and back in for a genuinely fresh session.
 
         Some admin/feature-flag pages don't reliably re-render (stale Kendo
@@ -61,7 +70,9 @@ class HomePage(BasePage):
             login.after_logout()
         except Exception:
             print("[force_relogin] Already logged out or profile menu unavailable")
-        login.login(settings["login_username"], settings["login_password"])
+        # username/password override as_user -- used where a step has to run
+        # as a specific staff user (e.g. the patient's Regimen Editor).
+        login.login(username or self._username_for(as_user), password or settings["login_password"])
         self.open_dashboard_page()
         self.validate_dashboard_page()
 
@@ -158,11 +169,26 @@ class HomePage(BasePage):
         time.sleep(5)
         print("Quick Actions is present")
 
+    def expand_if_present(self, logical_name, timeout=10):
+        """Click a dashboard "additional ..." expand button if it is shown.
+
+        The button only appears when there are more entries than the section
+        shows by default (e.g. enough video submissions), so on a quiet client
+        it can be missing -- the entries are then already all visible.
+        """
+        try:
+            self.wait_for_element(logical_name, timeout=timeout, strict=True)
+            self.click(logical_name, strict=True)
+            print(f"[{logical_name}] expanded")
+            return True
+        except Exception:
+            print(f"[{logical_name}] expand button not present -- all entries already shown")
+            return False
+
     def check_for_video_review(self, pat_name, sa_id, flag=True):
         self.unheal('span-patient-video-review')
         self.unheal_all('span-patient-video-review')
-        self.wait_for_element('additional_videos', strict=True)
-        self.click('additional_videos', strict=True)
+        self.expand_if_present('additional_videos')
         time.sleep(5)
         list_name = self.find_elements('span-video-patient_name')
         list_review = self.find_elements('span-patient-video-review')
@@ -195,8 +221,7 @@ class HomePage(BasePage):
     def check_for_review_presence(self, pat_name, sa_id):
         self.unheal('span-patient-video-review')
         self.unheal_all('span-patient-video-review')
-        self.wait_for_element('additional_videos', strict=True)
-        self.click('additional_videos', strict=True)
+        self.expand_if_present('additional_videos')
         time.sleep(5)
         list_name = self.find_elements('span-video-patient_name')
         list_review = self.find_elements('span-patient-video-review')
@@ -345,20 +370,17 @@ class HomePage(BasePage):
     def check_for_quick_actions_elements(self, element, select=True):
         name = None
         if 'missed' in element.lower():
-            self.wait_for_element('additional_missed_videos', strict=True)
-            self.click('additional_missed_videos', strict=True)
+            self.expand_if_present('additional_missed_videos')
             time.sleep(5)
             name='span-message-patient'
         elif "new" in element.lower():
-            self.wait_for_element('additional_videos', strict=True)
-            self.click('additional_videos', strict=True)
+            self.expand_if_present('additional_videos')
             time.sleep(5)
             self.unheal('span-patient-video-review')
             self.unheal_all('span-patient-video-review')
             name='span-patient-video-review'
         elif "low" in element.lower():
-            self.wait_for_element('additional_low_review_rate', strict=True)
-            self.click('additional_low_review_rate', strict=True)
+            self.expand_if_present('additional_low_review_rate')
             time.sleep(5)
             name = 'span-email-staff'
         else:
