@@ -169,26 +169,11 @@ class HomePage(BasePage):
         time.sleep(5)
         print("Quick Actions is present")
 
-    def expand_if_present(self, logical_name, timeout=10):
-        """Click a dashboard "additional ..." expand button if it is shown.
-
-        The button only appears when there are more entries than the section
-        shows by default (e.g. enough video submissions), so on a quiet client
-        it can be missing -- the entries are then already all visible.
-        """
-        try:
-            self.wait_for_element(logical_name, timeout=timeout, strict=True)
-            self.click(logical_name, strict=True)
-            print(f"[{logical_name}] expanded")
-            return True
-        except Exception:
-            print(f"[{logical_name}] expand button not present -- all entries already shown")
-            return False
-
     def check_for_video_review(self, pat_name, sa_id, flag=True):
         self.unheal('span-patient-video-review')
         self.unheal_all('span-patient-video-review')
-        self.expand_if_present('additional_videos')
+        self.wait_for_element('additional_videos', strict=True)
+        self.click('additional_videos', strict=True)
         time.sleep(5)
         list_name = self.find_elements('span-video-patient_name')
         list_review = self.find_elements('span-patient-video-review')
@@ -221,7 +206,8 @@ class HomePage(BasePage):
     def check_for_review_presence(self, pat_name, sa_id):
         self.unheal('span-patient-video-review')
         self.unheal_all('span-patient-video-review')
-        self.expand_if_present('additional_videos')
+        self.wait_for_element('additional_videos', strict=True)
+        self.click('additional_videos', strict=True)
         time.sleep(5)
         list_name = self.find_elements('span-video-patient_name')
         list_review = self.find_elements('span-patient-video-review')
@@ -370,17 +356,20 @@ class HomePage(BasePage):
     def check_for_quick_actions_elements(self, element, select=True):
         name = None
         if 'missed' in element.lower():
-            self.expand_if_present('additional_missed_videos')
+            self.wait_for_element('additional_missed_videos', strict=True)
+            self.click('additional_missed_videos', strict=True)
             time.sleep(5)
             name='span-message-patient'
         elif "new" in element.lower():
-            self.expand_if_present('additional_videos')
+            self.wait_for_element('additional_videos', strict=True)
+            self.click('additional_videos', strict=True)
             time.sleep(5)
             self.unheal('span-patient-video-review')
             self.unheal_all('span-patient-video-review')
             name='span-patient-video-review'
         elif "low" in element.lower():
-            self.expand_if_present('additional_low_review_rate')
+            self.wait_for_element('additional_low_review_rate', strict=True)
+            self.click('additional_low_review_rate', strict=True)
             time.sleep(5)
             name = 'span-email-staff'
         else:
