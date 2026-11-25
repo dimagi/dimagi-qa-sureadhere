@@ -188,7 +188,7 @@ class test_module_01_users(BaseCase):
         p_profile = PatientProfilePage(self, 'patient_profile')
 
         d = self.__class__.data  # shared dict
-        home.ensure_logged_in()
+        home.force_relogin(username=d["email"], password=UserData.pwd)  # patient steps run as the staff that created the patient
 
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
@@ -236,7 +236,7 @@ class test_module_01_users(BaseCase):
         p_profile = PatientProfilePage(self, 'patient_profile')
 
         d = self.__class__.data  # shared dict
-        home.ensure_logged_in()
+        home.force_relogin(username=d["email"], password=UserData.pwd)  # patient steps run as the staff that created the patient
 
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
@@ -350,7 +350,7 @@ class test_module_01_users(BaseCase):
         profile.logout_user()
         login.after_logout()
 
-        login.login(self.settings["client_username"], self.settings["login_password"])
+        login.login(self.__class__.data["email"], UserData.pwd)  # staff that created the patient
 
         d = self.__class__.data
 
@@ -467,7 +467,7 @@ class test_module_01_users(BaseCase):
         a_ff.validate_admin_ff_page(default_client)
         a_ff.double_check_ff(UserData.per_drug_adherence_ff_off)
 
-        home.force_relogin()
+        home.force_relogin(username=d["email"], password=UserData.pwd)  # back to the patient's staff after the admin FF step
 
         def _review_video_and_verify_adherence():
             p_vdo.verify_patient_video_page()

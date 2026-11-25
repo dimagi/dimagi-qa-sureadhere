@@ -46,10 +46,17 @@ def _relogin(inst):
     login = LoginPage(inst, "login")
     home = HomePage(inst, "dashboard")
     settings = inst.settings
-    # Admin-only classes (presetup, admin) set relogin_as = "admin";
-    # everything else logs back in as the client user.
-    as_admin = getattr(inst, "relogin_as", "client") == "admin"
-    username = settings["login_username"] if as_admin else settings["client_username"]
+    # Admin-only classes (presetup, admin) set relogin_as = "admin", test_03
+    # sets "default_staff" (its patient's creator); everything else logs back
+    # in as the client user.
+    relogin_as = getattr(inst, "relogin_as", "client")
+    if relogin_as == "admin":
+        username = settings["login_username"]
+    elif relogin_as == "default_staff":
+        from user_inputs.user_data import UserData
+        username = UserData.default_staff_email_for(settings["url"])
+    else:
+        username = settings["client_username"]
 
     try:
         if login.is_element_visible("next"):
