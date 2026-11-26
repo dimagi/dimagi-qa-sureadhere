@@ -8,6 +8,7 @@ from seleniumbase import Driver
 from seleniumbase import config as sb_config
 from common_utilities.load_settings import load_settings
 from common_utilities.path_settings import PathSettings
+from user_inputs.user_data import UserData
 from selenium.webdriver.chrome.options import Options
 import matplotlib.pyplot as plt
 from PIL import Image
@@ -46,23 +47,33 @@ def _relogin(inst):
     login = LoginPage(inst, "login")
     home = HomePage(inst, "dashboard")
     settings = inst.settings
+    # Admin-only classes (presetup, admin) set relogin_as = "admin", test_03
+    # sets "default_staff" (its patient's creator); everything else logs back
+    # in as the client user.
+    relogin_as = getattr(inst, "relogin_as", "client")
+    if relogin_as == "admin":
+        username = settings["login_username"]
+    elif relogin_as == "default_staff":
+        username = UserData.default_staff_email_for(settings["url"])
+    else:
+        username = settings["client_username"]
 
     try:
         if login.is_element_visible("next"):
             print("[rerun] Already on login page — logging in directly")
-            login.login(settings["login_username"], settings["login_password"])
+            login.login(username, settings["login_password"])
         else:
             print("[rerun] Not on login page — logging out first, then logging in")
             home.click_admin_profile_button()
             profile = UserProfilePage(inst, "user")
             profile.logout_user()
             login.after_logout()
-            login.login(settings["login_username"], settings["login_password"])
+            login.login(username, settings["login_password"])
         home.validate_dashboard_page()
     except Exception as e:
         print(f"[rerun] Re-login via current page failed ({e}), retrying via URL...")
         login.launch_browser(settings["url"])
-        login.login(settings["login_username"], settings["login_password"])
+        login.login(username, settings["login_password"])
         home.validate_dashboard_page()
 
 
@@ -307,20 +318,6 @@ STEP_ENV_DISPLAY_NAMES = {
     "securevoteu": "EU Prod",
 }
 
-# Mirrors the per-environment client selection already duplicated across the
-# smoketest files (see e.g. testCases/test_02_admin.py) -- UserData.client
-# indices: [0]=banner, [1]=rogers, [2]=secure/default, [3]=securevoteu.
-def _client_for_env(env: str) -> str:
-    from user_inputs.user_data import UserData
-    if env == "banner":
-        return UserData.client[0]
-    if env == "rogers":
-        return UserData.client[1]
-    if env == "securevoteu":
-        return UserData.client[3]
-    return UserData.client[2]
-
-
 def pytest_terminal_summary(terminalreporter, exitstatus, config):
     # Collect test counts
     passed = terminalreporter.stats.get('passed', [])
@@ -370,7 +367,7 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
     report_step("all_pages_loading", not failed and not error, env=env)
 
     server = STEP_ENV_DISPLAY_NAMES.get(env, env)
-    client = _client_for_env(env)
+    client = UserData.client  # one client on every environment
     duration_s = time.time() - _MASTER_SESSION_START if _MASTER_SESSION_START is not None else None
     report = build_slack_report(env, server=server, client=client, suite_duration_s=duration_s)
     report_text = report["text"]
@@ -417,6 +414,13 @@ def _uses_adminff(fspath) -> bool:
         return False
 
 
+# test_02_admin searches for the "pat_fn" test patients that
+# test_01_add_users creates, so it has to run after test_01. Without this,
+# the AdminFFPage reordering below would put test_02 first, because test_02
+# doesn't use AdminFFPage.
+RUN_AFTER_USERS_MODULES = {"test_02_admin.py"}
+
+
 def pytest_collection_modifyitems(config, items):
     for item in items:
         # Skip if this test itself *defines* the presetup dependency root
@@ -432,13 +436,15 @@ def pytest_collection_modifyitems(config, items):
     # Any module that instantiates AdminFFPage toggles feature flags and must
     # run last so it doesn't interfere with other parallel tests.
     adminff_files = {item.fspath for item in items if _uses_adminff(item.fspath)}
-    regular, last = [], []
+    regular, last, after_users = [], [], []
     for item in items:
-        if item.fspath in adminff_files:
+        if Path(str(item.fspath)).name in RUN_AFTER_USERS_MODULES:
+            after_users.append(item)
+        elif item.fspath in adminff_files:
             last.append(item)
         else:
             regular.append(item)
-    items[:] = regular + last
+    items[:] = regular + last + after_users
 
 
 def pytest_runtest_setup(item):

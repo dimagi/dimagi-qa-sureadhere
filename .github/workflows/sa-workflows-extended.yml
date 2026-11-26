@@ -95,6 +95,7 @@ jobs:
           DIMAGIQA_LOGIN_USERNAME: ${{ secrets.DIMAGIQA_LOGIN_USERNAME }}
           DIMAGIQA_LOGIN_PASSWORD: ${{ secrets.DIMAGIQA_LOGIN_PASSWORD }}
           DIMAGIQA_ADMIN_USERNAME: ${{ secrets[format('DIMAGIQA_ADMIN_{0}_USERNAME', matrix.environment)] }}
+          DIMAGIQA_CLIENT_USERNAME: ${{ secrets[format('DIMAGIQA_CLIENT_{0}_USERNAME', matrix.environment)] }}
           DIMAGIQA_ADMIN_PASSWORD: ${{ secrets.DIMAGIQA_ADMIN_PASSWORD }}
           DIMAGIQA_BS_USER: ${{ secrets.DIMAGIQA_BS_USER }}
           DIMAGIQA_BS_KEY: ${{ secrets.DIMAGIQA_BS_KEY }}

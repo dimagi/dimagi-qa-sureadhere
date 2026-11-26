@@ -27,7 +27,7 @@ class test_module_04_login_tests(BaseCase):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         login.launch_browser(self.settings["url"])
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
@@ -43,12 +43,7 @@ class test_module_04_login_tests(BaseCase):
         profile = UserProfilePage(self, "user")
         login = LoginPage(self, "login")
 
-        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
         rerun_count = getattr(self, "rerun_count", 0)
         home.click_add_user()
         user.add_staff()
@@ -70,7 +65,7 @@ class test_module_04_login_tests(BaseCase):
         home = HomePage(self, "dashboard")
         profile = UserProfilePage(self, "user")
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
         home.validate_dashboard_page()
 
         home.click_admin_profile_button()
@@ -83,7 +78,7 @@ class test_module_04_login_tests(BaseCase):
         self._login_once()
         login = LoginPage(self, "login")
 
-        login.invalid_login(self.settings["login_username"], UserData.invalid_password)
+        login.invalid_login(self.settings["client_username"], UserData.invalid_password)
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_3", scope="class")
@@ -196,7 +191,7 @@ class test_module_04_login_tests(BaseCase):
             login.after_logout()
             login.launch_browser(self.settings["url"])
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
 
         home.validate_dashboard_page()
         home.click_admin_profile_button()

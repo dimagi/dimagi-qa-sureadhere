@@ -1749,8 +1749,8 @@
   "additional_videos": {
     "class": "k-color-subtle k-font-size-sm",
     "tag": "span",
-    "text": "additional new videos",
-    "xpath": "//span[contains(text(),'additional new videos')]/following-sibling::button[@class='expand-button']"
+    "text": "additional new video",
+    "xpath": "//span[contains(text(),'additional new video')]/following-sibling::button[@class='expand-button']"
   },
   "additional_missed_videos": {
     "class": "k-color-subtle k-font-size-sm",

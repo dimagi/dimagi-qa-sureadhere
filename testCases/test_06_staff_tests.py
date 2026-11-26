@@ -26,7 +26,7 @@ class test_module_06_staff_tests(BaseCase):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         login.launch_browser(self.settings["url"])
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
@@ -44,12 +44,7 @@ class test_module_06_staff_tests(BaseCase):
         except:
             print("Form not present")
 
-        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
 
         rerun_count = getattr(self, "rerun_count", 0)
         home.click_add_user()
@@ -72,7 +67,7 @@ class test_module_06_staff_tests(BaseCase):
         except:
             print("Form not present")
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
         except Exception:
             print("Login Page is not present")
         home.click_add_user()
@@ -92,7 +87,7 @@ class test_module_06_staff_tests(BaseCase):
         except:
             print("Form not present")
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
         except Exception:
             print("Login Page is not present")
         home.click_add_user()
@@ -114,15 +109,10 @@ class test_module_06_staff_tests(BaseCase):
         except:
             print("Form not present")
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
         except Exception:
             print("Login Page is not present")
-        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
         rerun_count = getattr(self, "rerun_count", 0)
         home.click_add_user()
         user.add_staff()
@@ -149,15 +139,10 @@ class test_module_06_staff_tests(BaseCase):
         except:
             print("Form not present")
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
         except Exception:
             print("Login Page is not present")
-        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
 
         home.open_dashboard_page()
         home.click_add_user()
@@ -178,7 +163,7 @@ class test_module_06_staff_tests(BaseCase):
         except:
             print("Form not present")
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
         except Exception:
             print("Login Page is not present")
         home.open_dashboard_page()
@@ -201,19 +186,14 @@ class test_module_06_staff_tests(BaseCase):
         user_staff = UserStaffPage(self, "add_staff")
         profile = UserProfilePage(self, "user")
 
-        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
 
         try:
             user_staff.cancel_form()
         except:
             print("Form not present")
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
         except Exception:
             print("Login Page is not present")
         home.click_add_user()
@@ -243,7 +223,7 @@ class test_module_06_staff_tests(BaseCase):
             print("Form not present")
 
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
         except Exception:
             print("Login Screen not present")
 
@@ -295,14 +275,9 @@ class test_module_06_staff_tests(BaseCase):
             user_staff.cancel_form()
         except:
             print("No dialog present")
-        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
         except Exception:
             print("Login Page is not present")
 
@@ -355,7 +330,7 @@ class test_module_06_staff_tests(BaseCase):
         except:
             print("No dialog present")
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
         except Exception:
             print("Login Page is not present")
 
@@ -444,7 +419,7 @@ class test_module_06_staff_tests(BaseCase):
         d = self.__class__.data  # shared dict
 
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
         except Exception:
             print("Login Page is not present")
 
@@ -458,7 +433,7 @@ class test_module_06_staff_tests(BaseCase):
         profile.logout_user()
         login.after_logout()
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
 
         home.open_dashboard_page()
         home.open_manage_staff_page()
@@ -470,7 +445,7 @@ class test_module_06_staff_tests(BaseCase):
         profile.logout_user()
         login.after_logout()
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
 
         home.open_dashboard_page()
         home.open_manage_staff_page()

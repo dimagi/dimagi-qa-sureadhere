@@ -9,8 +9,25 @@ class HomePage(BasePage):
     def __init__(self, sb, page_name):
         super().__init__(sb, page_name=page_name)
 
-    def ensure_logged_in(self):
+    def _username_for(self, as_user):
+        """Login for as_user:
+        - "admin": admin tab work (feature flags, diseases, drugs, announcements)
+        - "default_staff": Automation Testuser, who creates test_03's patients
+        - "client" (default): everything else
+        All three share the admin/client login password."""
+        settings = self.sb.settings
+        if as_user == "admin":
+            return settings["login_username"]
+        if as_user == "default_staff":
+            return UserData.default_staff_email_for(settings["url"])
+        return settings["client_username"]
+
+    def ensure_logged_in(self, as_user="client", username=None, password=None):
         """Get back to a validated dashboard from wherever the browser is.
+
+        Logs in as the client user by default; pass as_user ("admin" /
+        "default_staff") or an explicit username/password (e.g. the staff user
+        that created the patient) where the test needs another account.
 
         The SureAdhere IAM access token has a ~5 minute lifetime; if the
         app's silent refresh doesn't fire in time (headless CI can be
@@ -25,7 +42,7 @@ class HomePage(BasePage):
         login = LoginPage(self.sb, "login")
         if login.is_element_visible("next"):
             # Already sitting on the login page -- log straight back in.
-            login.login(settings["login_username"], settings["login_password"])
+            login.login(username or self._username_for(as_user), password or settings["login_password"])
             self.validate_dashboard_page()
             return
         try:
@@ -34,10 +51,10 @@ class HomePage(BasePage):
         except Exception:
             # Last resort: fresh page load, mirrors _relogin() in conftest.py.
             login.launch_browser(settings["url"])
-            login.login(settings["login_username"], settings["login_password"])
+            login.login(username or self._username_for(as_user), password or settings["login_password"])
             self.validate_dashboard_page()
 
-    def force_relogin(self):
+    def force_relogin(self, as_user="client", username=None, password=None):
         """Unconditionally log out and back in for a genuinely fresh session.
 
         Some admin/feature-flag pages don't reliably re-render (stale Kendo
@@ -61,7 +78,9 @@ class HomePage(BasePage):
             login.after_logout()
         except Exception:
             print("[force_relogin] Already logged out or profile menu unavailable")
-        login.login(settings["login_username"], settings["login_password"])
+        # username/password override as_user -- used where a step has to run
+        # as a specific staff user (e.g. the staff that created the patient).
+        login.login(username or self._username_for(as_user), password or settings["login_password"])
         self.open_dashboard_page()
         self.validate_dashboard_page()
 

@@ -29,6 +29,9 @@ from user_inputs.user_data import UserData
 
 
 class test_module_03(BaseCase):
+    # Patient work runs as the default staff (Automation Testuser) who creates
+    # this class's patient; the conftest rerun hook logs back in as them too.
+    relogin_as = "default_staff"
     _session_ready = False  # guard so we only open/login once
     data = {}
     def _login_once(self):
@@ -38,7 +41,7 @@ class test_module_03(BaseCase):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         login.launch_browser(self.settings["url"])
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(UserData.default_staff_email_for(self.settings["url"]), self.settings["login_password"])
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
@@ -65,21 +68,11 @@ class test_module_03(BaseCase):
         profile.logout_user()
         login.after_logout()
 
-        if "banner" in self.settings["url"]:
-            default_staff_email = UserData.default_staff_email[0]
-            default_site_manager = UserData.site_manager[0]
-        elif "rogers" in self.settings["url"]:
-            default_staff_email = UserData.default_staff_email[1]
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_staff_email = UserData.default_staff_email[3]
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_staff_email = UserData.default_staff_email[2]
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
+        default_staff_email = UserData.default_staff_email_for(self.settings["url"])
             
         with perf_budget("login_and_dashboard", driver=self.driver):
-            login.login(default_staff_email, UserData.pwd)
+            login.login(default_staff_email, self.settings["login_password"])
             home.open_dashboard_page()
             home.validate_dashboard_page()
         home.click_add_user()
@@ -110,7 +103,7 @@ class test_module_03(BaseCase):
         with perf_budget("create_regimen", driver=self.driver):
             start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule(time_of_drug=True)
 
-        home.ensure_logged_in()
+        home.force_relogin("default_staff")
 
         home.open_manage_patient_page()
         patient.search_patient(pfname, plname, mrn,username, sa_id,
@@ -148,7 +141,7 @@ class test_module_03(BaseCase):
         profile.logout_user()
         login.after_logout()
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(UserData.default_staff_email_for(self.settings["url"]), self.settings["login_password"])
 
         d = self.__class__.data
 
@@ -227,15 +220,8 @@ class test_module_03(BaseCase):
         patient = ManagePatientPage(self, "patients")
 
         d = self.__class__.data
-        if "banner" in self.settings["url"]:
-            default_client = UserData.client[0]
-        elif "rogers" in self.settings["url"]:
-            default_client = UserData.client[1]
-        elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client[3]
-        else:
-            default_client = UserData.client[2]
-        home.force_relogin()
+        default_client = UserData.client
+        home.force_relogin("admin")
 
         # Failsafe: this test needs Per Drug Adherence ON (presetup sets it).
         # If it isn't ON, fail right here with that reason instead of later
@@ -274,7 +260,7 @@ class test_module_03(BaseCase):
                   "processing time the skipped UI page-load cycle would have")
             time.sleep(30)
 
-        home.force_relogin()
+        home.force_relogin("default_staff")
         home.check_for_quick_actions()
         home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'], flag=False)
 
@@ -290,7 +276,7 @@ class test_module_03(BaseCase):
             p_adhere.verify_dose_summary(UserData.obs_in_person)
         p_vdo.close_form()
 
-        home.force_relogin()
+        home.force_relogin("default_staff")
 
         home.check_for_quick_actions()
         home.check_for_video_review(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
@@ -300,7 +286,7 @@ class test_module_03(BaseCase):
                     d['drug_name'], d['total_pills'],
                     d['dose_per_pill'])
         p_vdo.close_form()
-        home.force_relogin()
+        home.force_relogin("default_staff")
 
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
@@ -339,7 +325,7 @@ class test_module_03(BaseCase):
         d = self.__class__.data
         p_vdo.close_form()
 
-        home.ensure_logged_in()
+        home.ensure_logged_in("default_staff")
         home.open_manage_patient_page()
 
         with checklist_step("taken_count_updated"):
@@ -370,7 +356,7 @@ class test_module_03(BaseCase):
 
         p_vdo.close_form()
 
-        home.force_relogin()
+        home.force_relogin("default_staff")
 
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])

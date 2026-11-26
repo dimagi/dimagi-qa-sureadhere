@@ -23,6 +23,7 @@ from user_inputs.user_data import UserData
 
 
 class test_module_10_patient_pill_count(BaseCase):
+    relogin_as = "default_staff"  # regimen work needs a Regimen Editor; conftest rerun hook
     data = {}
     _session_ready = False  # guard so we only open/login once
 
@@ -33,7 +34,7 @@ class test_module_10_patient_pill_count(BaseCase):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         login.launch_browser(self.settings["url"])
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(UserData.default_staff_email_for(self.settings["url"]), self.settings["login_password"])
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
@@ -43,20 +44,14 @@ class test_module_10_patient_pill_count(BaseCase):
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
+        home.force_relogin("admin")  # this test runs as admin
         admin = AdminPage(self, 'admin')
         a_ff = AdminFFPage(self, 'feature_flags')
         patient = ManagePatientPage(self, "patients")
         profile = UserProfilePage(self, "user")
         p_pill = PatientPillCountPage(self, 'patient_pill_count')
 
-        if "banner" in self.settings["url"]:
-            default_client = UserData.client[0]
-        elif "rogers" in self.settings["url"]:
-            default_client = UserData.client[1]
-        elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client[3]
-        else:
-            default_client = UserData.client[2]
+        default_client = UserData.client
 
         try:
             home.open_dashboard_page()
@@ -89,13 +84,7 @@ class test_module_10_patient_pill_count(BaseCase):
         a_ff.validate_admin_ff_page(default_client)
         a_ff.set_ffs(UserData.pill_count_ff_on)
 
-        try:
-            home.click_admin_profile_button()
-            profile.logout_user()
-            login.after_logout()
-            login.login(self.settings["login_username"], self.settings["login_password"])
-        except:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+        home.force_relogin("admin")
 
         home.validate_dashboard_page()
         home.open_admin_page()
@@ -129,22 +118,9 @@ class test_module_10_patient_pill_count(BaseCase):
 
         env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
 
-        if "banner" in self.settings["url"]:
-            default_client = UserData.client[0]
-        elif "rogers" in self.settings["url"]:
-            default_client = UserData.client[1]
-        elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client[3]
-        else:
-            default_client = UserData.client[2]
+        default_client = UserData.client
 
-        try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-        except Exception:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
+        home.force_relogin("default_staff")  # this test runs as the default staff (Regimen Editor)
 
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
@@ -153,6 +129,7 @@ class test_module_10_patient_pill_count(BaseCase):
         p_regimen.open_patient_regimen_page()
         p_regimen.delete_schedule()
 
+        home.force_relogin("admin")  # feature flags need the admin login
         home.open_admin_page()
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
@@ -166,10 +143,7 @@ class test_module_10_patient_pill_count(BaseCase):
         a_ff.double_check_ff(UserData.regimen_approval_ff_on)
         a_ff.double_check_ff(UserData.pill_count_ff_on)
 
-        home.click_admin_profile_button()
-        profile.logout_user()
-        login.after_logout()
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        home.force_relogin("default_staff")  # regimen edits need a Regimen Editor
 
         home.open_dashboard_page()
         home.open_manage_patient_page()
@@ -188,6 +162,7 @@ class test_module_10_patient_pill_count(BaseCase):
         p_regimen.verify_patient_regimen_page()
         p_regimen.delete_schedule()
 
+        home.force_relogin("admin")  # feature flags need the admin login
         home.open_admin_page()
         admin.open_feature_flags()
         a_ff.validate_admin_ff_page(default_client)
@@ -219,22 +194,9 @@ class test_module_10_patient_pill_count(BaseCase):
 
         env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
 
-        if "banner" in self.settings["url"]:
-            default_client = UserData.client[0]
-        elif "rogers" in self.settings["url"]:
-            default_client = UserData.client[1]
-        elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client[3]
-        else:
-            default_client = UserData.client[2]
+        default_client = UserData.client
 
-        try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-        except Exception:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
+        home.force_relogin("admin")  # this test runs as admin
 
         home.open_admin_page()
         admin.open_feature_flags()
@@ -248,13 +210,7 @@ class test_module_10_patient_pill_count(BaseCase):
         a_ff.double_check_ff(UserData.regimen_approval_ff_off)
         home.open_dashboard_page()
 
-        try:
-            home.click_admin_profile_button()
-            profile.logout_user()
-            login.after_logout()
-            login.login(self.settings["login_username"], self.settings["login_password"])
-        except:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+        home.force_relogin("admin")
 
 
         home.open_admin_page()
@@ -289,22 +245,10 @@ class test_module_10_patient_pill_count(BaseCase):
 
         # env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
 
-        if "banner" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
 
-        try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-        except Exception:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
+        home.force_relogin("default_staff")  # this test runs as the default staff (Regimen Editor)
+
         # fname = "pat_fn_04b85u_new"
         # lname = "pat_ln_04b85u_new"
         # home.open_dashboard_page()
@@ -359,22 +303,9 @@ class test_module_10_patient_pill_count(BaseCase):
         user_patient = UserPatientPage(self, "add_patient")
         p_profile = PatientProfilePage(self, 'patient_profile')
 
-        if "banner" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
 
-        try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-        except Exception:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
+        home.force_relogin("default_staff")  # this test runs as the default staff (Regimen Editor)
 
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
@@ -414,22 +345,9 @@ class test_module_10_patient_pill_count(BaseCase):
         user_patient = UserPatientPage(self, "add_patient")
         p_profile = PatientProfilePage(self, 'patient_profile')
 
-        if "banner" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
 
-        try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-        except Exception:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
+        home.force_relogin("default_staff")  # this test runs as the default staff (Regimen Editor)
 
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
