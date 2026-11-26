@@ -161,8 +161,8 @@ class test_module_03(BaseCase):
         home.validate_dashboard_page()
         home.open_dashboard_page()
         home.check_for_quick_actions()
-        # flag = home.check_for_review_presence(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
-        flag = True
+        flag = home.check_for_review_presence(d["patient_fname"] + " " + d["patient_lname"], d['SA_ID'])
+
         home.open_manage_patient_page()
         patient.search_patient(d["patient_fname"], d["patient_lname"], d["mrn"], d["patient_username"], d["SA_ID"])
         patient.open_patient(d["patient_fname"], d["patient_lname"])
