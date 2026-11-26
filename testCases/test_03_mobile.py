@@ -104,7 +104,6 @@ class test_module_03(BaseCase):
             start_date, end_date, no_of_pill, med_name, dose_per_pill = p_regimen.create_new_schedule(time_of_drug=True)
 
         home.force_relogin("default_staff")
-        # home.ensure_logged_in()
 
         home.open_manage_patient_page()
         patient.search_patient(pfname, plname, mrn,username, sa_id,

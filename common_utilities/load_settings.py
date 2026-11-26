@@ -219,7 +219,7 @@ def load_settings() -> dict:
         s["CI"] = "true"
         missing = []
         # url + login creds always required
-        for k in ("url", "login_username", "login_password", "sa_imap_password"):
+        for k in ("url", "login_username", "client_username", "login_password", "sa_imap_password"):
             if not s.get(k):
                 missing.append(f"DIMAGIQA_{k.upper()}")
 

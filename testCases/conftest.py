@@ -8,6 +8,7 @@ from seleniumbase import Driver
 from seleniumbase import config as sb_config
 from common_utilities.load_settings import load_settings
 from common_utilities.path_settings import PathSettings
+from user_inputs.user_data import UserData
 from selenium.webdriver.chrome.options import Options
 import matplotlib.pyplot as plt
 from PIL import Image
@@ -53,7 +54,6 @@ def _relogin(inst):
     if relogin_as == "admin":
         username = settings["login_username"]
     elif relogin_as == "default_staff":
-        from user_inputs.user_data import UserData
         username = UserData.default_staff_email_for(settings["url"])
     else:
         username = settings["client_username"]
@@ -318,12 +318,6 @@ STEP_ENV_DISPLAY_NAMES = {
     "securevoteu": "EU Prod",
 }
 
-# UserData.client is now one client name used on every environment.
-def _client_for_env(env: str) -> str:
-    from user_inputs.user_data import UserData
-    return UserData.client
-
-
 def pytest_terminal_summary(terminalreporter, exitstatus, config):
     # Collect test counts
     passed = terminalreporter.stats.get('passed', [])
@@ -373,7 +367,7 @@ def pytest_terminal_summary(terminalreporter, exitstatus, config):
     report_step("all_pages_loading", not failed and not error, env=env)
 
     server = STEP_ENV_DISPLAY_NAMES.get(env, env)
-    client = _client_for_env(env)
+    client = UserData.client  # one client on every environment
     duration_s = time.time() - _MASTER_SESSION_START if _MASTER_SESSION_START is not None else None
     report = build_slack_report(env, server=server, client=client, suite_duration_s=duration_s)
     report_text = report["text"]

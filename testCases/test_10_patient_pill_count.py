@@ -84,13 +84,7 @@ class test_module_10_patient_pill_count(BaseCase):
         a_ff.validate_admin_ff_page(default_client)
         a_ff.set_ffs(UserData.pill_count_ff_on)
 
-        try:
-            home.click_admin_profile_button()
-            profile.logout_user()
-            login.after_logout()
-            login.login(self.settings["login_username"], self.settings["login_password"])
-        except:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+        home.force_relogin("admin")
 
         home.validate_dashboard_page()
         home.open_admin_page()
@@ -126,13 +120,7 @@ class test_module_10_patient_pill_count(BaseCase):
 
         default_client = UserData.client
 
-        try:
-            home.force_relogin("default_staff")  # this test runs as the default staff (Regimen Editor)
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-        except Exception:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
+        home.force_relogin("default_staff")  # this test runs as the default staff (Regimen Editor)
 
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
@@ -208,13 +196,7 @@ class test_module_10_patient_pill_count(BaseCase):
 
         default_client = UserData.client
 
-        try:
-            home.force_relogin("admin")  # this test runs as admin
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-        except Exception:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
+        home.force_relogin("admin")  # this test runs as admin
 
         home.open_admin_page()
         admin.open_feature_flags()
@@ -228,13 +210,7 @@ class test_module_10_patient_pill_count(BaseCase):
         a_ff.double_check_ff(UserData.regimen_approval_ff_off)
         home.open_dashboard_page()
 
-        try:
-            home.click_admin_profile_button()
-            profile.logout_user()
-            login.after_logout()
-            login.login(self.settings["login_username"], self.settings["login_password"])
-        except:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+        home.force_relogin("admin")
 
 
         home.open_admin_page()
@@ -271,13 +247,8 @@ class test_module_10_patient_pill_count(BaseCase):
 
         default_site_manager = UserData.site_manager
 
-        try:
-            home.force_relogin("default_staff")  # this test runs as the default staff (Regimen Editor)
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-        except Exception:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
+        home.force_relogin("default_staff")  # this test runs as the default staff (Regimen Editor)
+
         # fname = "pat_fn_04b85u_new"
         # lname = "pat_ln_04b85u_new"
         # home.open_dashboard_page()
@@ -334,13 +305,7 @@ class test_module_10_patient_pill_count(BaseCase):
 
         default_site_manager = UserData.site_manager
 
-        try:
-            home.force_relogin("default_staff")  # this test runs as the default staff (Regimen Editor)
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-        except Exception:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
+        home.force_relogin("default_staff")  # this test runs as the default staff (Regimen Editor)
 
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
@@ -382,13 +347,7 @@ class test_module_10_patient_pill_count(BaseCase):
 
         default_site_manager = UserData.site_manager
 
-        try:
-            home.force_relogin("default_staff")  # this test runs as the default staff (Regimen Editor)
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-        except Exception:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
+        home.force_relogin("default_staff")  # this test runs as the default staff (Regimen Editor)
 
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()

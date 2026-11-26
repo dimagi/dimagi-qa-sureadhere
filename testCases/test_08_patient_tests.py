@@ -213,14 +213,7 @@ class test_module_08_patient_tests(BaseCase):
         except:
             print("Form is already closed")
 
-        try:
-            home.force_relogin()  # this test runs as the client user
-        except Exception:
-            print("Not in the login page")
-            home.click_admin_profile_button()
-            profile.logout_user()
-            login.after_logout()
-            login.login(self.settings["client_username"], self.settings["login_password"])
+        home.force_relogin()  # this test runs as the client user
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
@@ -296,11 +289,7 @@ class test_module_08_patient_tests(BaseCase):
             user_patient.cancel_patient_form()
         except:
             print("Form is already closed")
-        try:
-            home.force_relogin()  # this test runs as the client user
-            home.validate_dashboard_page()
-        except Exception:
-            print("Not in the login page")
+        home.force_relogin()  # this test runs as the client user
 
         home.open_manage_patient_page()
         page_count_before = patient.get_total_pages()
@@ -335,10 +324,7 @@ class test_module_08_patient_tests(BaseCase):
 
         d = self.__class__.data  # shared dict
 
-        try:
-            home.force_relogin()  # this test runs as the client user
-        except Exception:
-            print("Not in the login page")
+        home.force_relogin()  # this test runs as the client user
 
         try:
             home.open_filter()

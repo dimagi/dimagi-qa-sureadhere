@@ -445,14 +445,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
 
         d = self.__class__.data
 
-        try:
-            home.force_relogin()  # this test runs as the client user
-        except Exception:
-            print("Not in the login page")
-            home.click_admin_profile_button()
-            profile.logout_user()
-            login.after_logout()
-            login.login(self.settings["client_username"], self.settings["login_password"])
+        home.force_relogin()  # this test runs as the client user
 
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()

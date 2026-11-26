@@ -125,13 +125,7 @@ class test_module_11_patient_overview(BaseCase):
 
         d = self.__class__.data
 
-        try:
-            home.force_relogin("default_staff")  # this test runs as the default staff (Regimen Editor)
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-        except Exception:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
+        home.force_relogin("default_staff")  # this test runs as the default staff (Regimen Editor)
 
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
@@ -205,13 +199,7 @@ class test_module_11_patient_overview(BaseCase):
 
         d = self.__class__.data
 
-        try:
-            home.force_relogin()  # this test runs as the client user
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
-        except Exception:
-            home.open_dashboard_page()
-            home.validate_dashboard_page()
+        home.force_relogin()  # this test runs as the client user
 
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()

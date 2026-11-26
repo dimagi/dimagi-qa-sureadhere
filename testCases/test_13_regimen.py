@@ -56,7 +56,6 @@ class test_module_13_regimen(BaseCase):
         p_regimen = PatientRegimenPage(self, 'patient_regimens')
         p_adhere = PatientAdherencePage(self, 'patient_adherence')
 
-        default_staff_email = UserData.default_staff_email_for(self.settings["url"])
         default_site_manager = UserData.site_manager
 
         try:
@@ -125,7 +124,6 @@ class test_module_13_regimen(BaseCase):
         p_adhere = PatientAdherencePage(self, 'patient_adherence')
 
 
-        default_staff_email = UserData.default_staff_email_for(self.settings["url"])
         default_site_manager = UserData.site_manager
 
         try:
@@ -169,7 +167,6 @@ class test_module_13_regimen(BaseCase):
             p_regimen = PatientRegimenPage(self, 'patient_regimens')
             p_adhere = PatientAdherencePage(self, 'patient_adherence')
 
-            default_staff_email = UserData.default_staff_email_for(self.settings["url"])
             default_site_manager = UserData.site_manager
 
             try:
@@ -214,7 +211,6 @@ class test_module_13_regimen(BaseCase):
         p_regimen = PatientRegimenPage(self, 'patient_regimens')
         p_adhere = PatientAdherencePage(self, 'patient_adherence')
 
-        default_staff_email = UserData.default_staff_email_for(self.settings["url"])
         default_site_manager = UserData.site_manager
 
         try:
