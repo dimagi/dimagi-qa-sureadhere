@@ -48,12 +48,7 @@ class test_module_07_staff_manager_roles(BaseCase):
         patient = ManagePatientPage(self, "patients")
 
         env = self.settings['domain'] if self.settings['domain'] in ("rogers", "securevoteu")  else "others"
-        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
 
         rerun_count = getattr(self, "rerun_count", 0)
         if rerun_count != 0:

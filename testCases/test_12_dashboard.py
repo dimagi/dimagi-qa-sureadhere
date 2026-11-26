@@ -48,14 +48,7 @@ class test_module_11_dashboard(BaseCase):
         user = UserPage(self, "add_users")
         home = HomePage(self, "dashboard")
 
-        if "banner" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
 
         try:
             home.open_dashboard_page()
@@ -99,14 +92,7 @@ class test_module_11_dashboard(BaseCase):
         p_message = PatientMessagesPage(self, 'patient_messagess')
 
 
-        if "banner" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
 
         try:
             home.open_dashboard_page()

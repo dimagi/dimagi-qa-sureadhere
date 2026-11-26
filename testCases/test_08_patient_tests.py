@@ -42,14 +42,7 @@ class test_module_08_patient_tests(BaseCase):
         login = LoginPage(self, "login")
         profile = UserProfilePage(self, "user")
 
-        if "banner" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
 
         try:
             user_patient.cancel_form()
@@ -82,14 +75,7 @@ class test_module_08_patient_tests(BaseCase):
         profile = UserProfilePage(self, "user")
         user_patient = UserPatientPage(self, "add_patient")
         p_profile = PatientProfilePage(self, 'patient_profile')
-        if "banner" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
         try:
             user_patient.cancel_patient_form()
         except:
@@ -301,12 +287,7 @@ class test_module_08_patient_tests(BaseCase):
         patient = ManagePatientPage(self, "patients")
         d = self.__class__.data  # shared dict
 
-        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
         try:
             user_patient.cancel_patient_form()
         except:
@@ -403,14 +384,7 @@ class test_module_08_patient_tests(BaseCase):
         admin = AdminPage(self, 'admin')
         a_rbc = AdminReportsByClientsPage(self, 'reports_by_clients')
 
-        if "banner" in self.settings["url"]:
-            default_client = UserData.client[0]
-        elif "rogers" in self.settings["url"]:
-            default_client = UserData.client[1]
-        elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client[3]
-        else:
-            default_client = UserData.client[2]
+        default_client = UserData.client
 
         try:
             home.open_dashboard_page()
@@ -495,14 +469,7 @@ class test_module_08_patient_tests(BaseCase):
         admin = AdminPage(self, 'admin')
         a_rbc = AdminReportsByClientsPage(self, 'reports_by_clients')
 
-        if "banner" in self.settings["url"]:
-            default_client = UserData.client[0]
-        elif "rogers" in self.settings["url"]:
-            default_client = UserData.client[1]
-        elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client[3]
-        else:
-            default_client = UserData.client[2]
+        default_client = UserData.client
 
         try:
             login.launch_browser(self.settings["url"])

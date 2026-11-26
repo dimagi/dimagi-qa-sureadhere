@@ -49,14 +49,7 @@ class test_module_10_patient_pill_count(BaseCase):
         profile = UserProfilePage(self, "user")
         p_pill = PatientPillCountPage(self, 'patient_pill_count')
 
-        if "banner" in self.settings["url"]:
-            default_client = UserData.client[0]
-        elif "rogers" in self.settings["url"]:
-            default_client = UserData.client[1]
-        elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client[3]
-        else:
-            default_client = UserData.client[2]
+        default_client = UserData.client
 
         try:
             home.open_dashboard_page()
@@ -129,14 +122,7 @@ class test_module_10_patient_pill_count(BaseCase):
 
         env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
 
-        if "banner" in self.settings["url"]:
-            default_client = UserData.client[0]
-        elif "rogers" in self.settings["url"]:
-            default_client = UserData.client[1]
-        elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client[3]
-        else:
-            default_client = UserData.client[2]
+        default_client = UserData.client
 
         try:
             login.login(self.settings["login_username"], self.settings["login_password"])
@@ -219,14 +205,7 @@ class test_module_10_patient_pill_count(BaseCase):
 
         env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
 
-        if "banner" in self.settings["url"]:
-            default_client = UserData.client[0]
-        elif "rogers" in self.settings["url"]:
-            default_client = UserData.client[1]
-        elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client[3]
-        else:
-            default_client = UserData.client[2]
+        default_client = UserData.client
 
         try:
             login.login(self.settings["login_username"], self.settings["login_password"])
@@ -289,14 +268,7 @@ class test_module_10_patient_pill_count(BaseCase):
 
         # env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
 
-        if "banner" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
 
         try:
             login.login(self.settings["login_username"], self.settings["login_password"])
@@ -359,14 +331,7 @@ class test_module_10_patient_pill_count(BaseCase):
         user_patient = UserPatientPage(self, "add_patient")
         p_profile = PatientProfilePage(self, 'patient_profile')
 
-        if "banner" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
 
         try:
             login.login(self.settings["login_username"], self.settings["login_password"])
@@ -414,14 +379,7 @@ class test_module_10_patient_pill_count(BaseCase):
         user_patient = UserPatientPage(self, "add_patient")
         p_profile = PatientProfilePage(self, 'patient_profile')
 
-        if "banner" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
 
         try:
             login.login(self.settings["login_username"], self.settings["login_password"])

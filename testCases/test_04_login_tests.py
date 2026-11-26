@@ -43,12 +43,7 @@ class test_module_04_login_tests(BaseCase):
         profile = UserProfilePage(self, "user")
         login = LoginPage(self, "login")
 
-        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
         rerun_count = getattr(self, "rerun_count", 0)
         home.click_add_user()
         user.add_staff()

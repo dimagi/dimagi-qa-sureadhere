@@ -44,12 +44,7 @@ class test_module_06_staff_tests(BaseCase):
         except:
             print("Form not present")
 
-        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
 
         rerun_count = getattr(self, "rerun_count", 0)
         home.click_add_user()
@@ -117,12 +112,7 @@ class test_module_06_staff_tests(BaseCase):
             login.login(self.settings["login_username"], self.settings["login_password"])
         except Exception:
             print("Login Page is not present")
-        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
         rerun_count = getattr(self, "rerun_count", 0)
         home.click_add_user()
         user.add_staff()
@@ -152,12 +142,7 @@ class test_module_06_staff_tests(BaseCase):
             login.login(self.settings["login_username"], self.settings["login_password"])
         except Exception:
             print("Login Page is not present")
-        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
 
         home.open_dashboard_page()
         home.click_add_user()
@@ -201,12 +186,7 @@ class test_module_06_staff_tests(BaseCase):
         user_staff = UserStaffPage(self, "add_staff")
         profile = UserProfilePage(self, "user")
 
-        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
 
         try:
             user_staff.cancel_form()
@@ -295,12 +275,7 @@ class test_module_06_staff_tests(BaseCase):
             user_staff.cancel_form()
         except:
             print("No dialog present")
-        if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
         try:
             login.login(self.settings["login_username"], self.settings["login_password"])
         except Exception:

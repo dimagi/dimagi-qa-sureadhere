@@ -141,14 +141,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         p_message = PatientMessagesPage(self, 'patient_messagess')
 
         env = self.settings['domain'] if self.settings['domain'] == "rogers" else "others"
-        if "banner" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
         try:
             user_patient.cancel_patient_form()
         except:
@@ -401,16 +394,16 @@ class test_module_09_patient_search_and_tabs(BaseCase):
 
 
         if "banner" in self.settings["url"]:
-            default_client = UserData.client[0]
+            default_client = UserData.client
             flag = True
         elif "rogers" in self.settings["url"]:
-            default_client = UserData.client[1]
+            default_client = UserData.client
             flag = False
         elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client[3]
+            default_client = UserData.client
             flag = False
         else:
-            default_client = UserData.client[2]
+            default_client = UserData.client
             flag = True
         try:
             home.open_dashboard_page()
@@ -487,16 +480,16 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         a_ff = AdminFFPage(self, 'feature_flags')
 
         if "banner" in self.settings["url"]:
-            default_client = UserData.client[0]
+            default_client = UserData.client
             flag = True
         elif "rogers" in self.settings["url"]:
-            default_client = UserData.client[1]
+            default_client = UserData.client
             flag = False
         elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client[3]
+            default_client = UserData.client
             flag = False
         else:
-            default_client = UserData.client[2]
+            default_client = UserData.client
             flag = True
 
         try:

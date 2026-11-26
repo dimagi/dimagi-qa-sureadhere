@@ -57,16 +57,16 @@ class test_module_13_regimen(BaseCase):
 
         if "banner" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[0]
-            default_site_manager = UserData.site_manager[0]
+            default_site_manager = UserData.site_manager
         elif "rogers" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[1]
-            default_site_manager = UserData.site_manager[0]
+            default_site_manager = UserData.site_manager
         elif "securevoteu" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[3]
-            default_site_manager = UserData.site_manager[2]
+            default_site_manager = UserData.site_manager
         else:
             default_staff_email = UserData.default_staff_email[2]
-            default_site_manager = UserData.site_manager[1]
+            default_site_manager = UserData.site_manager
 
         try:
             home.open_dashboard_page()
@@ -136,16 +136,16 @@ class test_module_13_regimen(BaseCase):
 
         if "banner" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[0]
-            default_site_manager = UserData.site_manager[0]
+            default_site_manager = UserData.site_manager
         elif "rogers" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[1]
-            default_site_manager = UserData.site_manager[0]
+            default_site_manager = UserData.site_manager
         elif "securevoteu" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[3]
-            default_site_manager = UserData.site_manager[2]
+            default_site_manager = UserData.site_manager
         else:
             default_staff_email = UserData.default_staff_email[2]
-            default_site_manager = UserData.site_manager[1]
+            default_site_manager = UserData.site_manager
 
         try:
             home.open_dashboard_page()
@@ -190,16 +190,16 @@ class test_module_13_regimen(BaseCase):
 
             if "banner" in self.settings["url"]:
                 default_staff_email = UserData.default_staff_email[0]
-                default_site_manager = UserData.site_manager[0]
+                default_site_manager = UserData.site_manager
             elif "rogers" in self.settings["url"]:
                 default_staff_email = UserData.default_staff_email[1]
-                default_site_manager = UserData.site_manager[0]
+                default_site_manager = UserData.site_manager
             elif "securevoteu" in self.settings["url"]:
                 default_staff_email = UserData.default_staff_email[3]
-                default_site_manager = UserData.site_manager[2]
+                default_site_manager = UserData.site_manager
             else:
                 default_staff_email = UserData.default_staff_email[2]
-                default_site_manager = UserData.site_manager[1]
+                default_site_manager = UserData.site_manager
 
             try:
                 home.open_dashboard_page()
@@ -245,16 +245,16 @@ class test_module_13_regimen(BaseCase):
 
         if "banner" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[0]
-            default_site_manager = UserData.site_manager[0]
+            default_site_manager = UserData.site_manager
         elif "rogers" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[1]
-            default_site_manager = UserData.site_manager[0]
+            default_site_manager = UserData.site_manager
         elif "securevoteu" in self.settings["url"]:
             default_staff_email = UserData.default_staff_email[3]
-            default_site_manager = UserData.site_manager[2]
+            default_site_manager = UserData.site_manager
         else:
             default_staff_email = UserData.default_staff_email[2]
-            default_site_manager = UserData.site_manager[1]
+            default_site_manager = UserData.site_manager
 
         try:
             home.open_dashboard_page()

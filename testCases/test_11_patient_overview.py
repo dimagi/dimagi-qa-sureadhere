@@ -57,14 +57,7 @@ class test_module_11_patient_overview(BaseCase):
         p_profile = PatientProfilePage(self, 'patient_profile')
         p_overview = PatientOverviewPage(self, 'patient_overview')
 
-        if "banner" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "rogers" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_site_manager = UserData.site_manager[2]
-        else:
-            default_site_manager = UserData.site_manager[1]
+        default_site_manager = UserData.site_manager
 
         try:
             home.open_dashboard_page()
