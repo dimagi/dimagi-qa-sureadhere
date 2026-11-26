@@ -31,7 +31,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         login.launch_browser(self.settings["url"])
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
@@ -41,6 +41,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         self._login_once()
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
+        home.force_relogin()  # this test runs as the client user
         user = UserPage(self, "add_users")
         user_patient = UserPatientPage(self, "add_patient")
         p_profile = PatientProfilePage(self, 'patient_profile')
@@ -56,7 +57,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
             home.open_dashboard_page()
             home.validate_dashboard_page()
         except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.open_dashboard_page()
             home.validate_dashboard_page()
 
@@ -92,7 +93,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         profile.logout_user()
         login.after_logout()
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
 
         home.open_dashboard_page()
         home.open_manage_patient_page()
@@ -133,6 +134,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         self._login_once()
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
+        home.force_relogin()  # this test runs as the client user
         user = UserPage(self, "add_users")
         user_patient = UserPatientPage(self, "add_patient")
         p_profile = PatientProfilePage(self, 'patient_profile')
@@ -149,7 +151,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
 
         try:
             login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.open_dashboard_page()
             home.validate_dashboard_page()
         except Exception:
@@ -180,7 +182,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         profile.logout_user()
         login.after_logout()
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
 
         home.open_dashboard_page()
         home.open_manage_patient_page()
@@ -206,6 +208,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         self._login_once()
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
+        home.force_relogin()  # this test runs as the client user
         user = UserPage(self, "add_users")
         user_patient = UserPatientPage(self, "add_patient")
         p_profile = PatientProfilePage(self, 'patient_profile')
@@ -224,7 +227,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
             home.validate_dashboard_page()
         except Exception:
             login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.open_dashboard_page()
             home.validate_dashboard_page()
 
@@ -239,7 +242,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         profile.logout_user()
         login.after_logout()
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
 
         home.validate_dashboard_page()
         home.open_manage_patient_page()
@@ -255,6 +258,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         self._login_once()
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
+        home.force_relogin()  # this test runs as the client user
         user = UserPage(self, "add_users")
         user_patient = UserPatientPage(self, "add_patient")
         p_profile = PatientProfilePage(self, 'patient_profile')
@@ -269,7 +273,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
             home.validate_dashboard_page()
         except Exception:
             login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.open_dashboard_page()
             home.validate_dashboard_page()
 
@@ -284,7 +288,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         profile.logout_user()
         login.after_logout()
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
 
         home.validate_dashboard_page()
         home.open_manage_patient_page()
@@ -300,6 +304,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         self._login_once()
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
+        home.force_relogin()  # this test runs as the client user
         user = UserPage(self, "add_users")
         user_patient = UserPatientPage(self, "add_patient")
         p_profile = PatientProfilePage(self, 'patient_profile')
@@ -314,7 +319,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
             home.validate_dashboard_page()
         except Exception:
             login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.open_dashboard_page()
             home.validate_dashboard_page()
 
@@ -329,7 +334,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         profile.logout_user()
         login.after_logout()
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
 
         home.validate_dashboard_page()
         home.open_manage_patient_page()
@@ -345,6 +350,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         self._login_once()
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
+        home.force_relogin()  # this test runs as the client user
         user = UserPage(self, "add_users")
         user_patient = UserPatientPage(self, "add_patient")
         p_profile = PatientProfilePage(self, 'patient_profile')
@@ -359,7 +365,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
             home.validate_dashboard_page()
         except Exception:
             login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.open_dashboard_page()
             home.validate_dashboard_page()
 
@@ -374,7 +380,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         profile.logout_user()
         login.after_logout()
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
 
         home.validate_dashboard_page()
         home.open_manage_patient_page()
@@ -389,21 +395,19 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
+        home.force_relogin("admin")  # this test runs as admin
         admin = AdminPage(self, 'admin')
         a_ff = AdminFFPage(self, 'feature_flags')
 
 
+        default_client = UserData.client
         if "banner" in self.settings["url"]:
-            default_client = UserData.client
             flag = True
         elif "rogers" in self.settings["url"]:
-            default_client = UserData.client
             flag = False
         elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client
             flag = False
         else:
-            default_client = UserData.client
             flag = True
         try:
             home.open_dashboard_page()
@@ -442,13 +446,13 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         d = self.__class__.data
 
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.force_relogin()  # this test runs as the client user
         except Exception:
             print("Not in the login page")
             home.click_admin_profile_button()
             profile.logout_user()
             login.after_logout()
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
 
         home.open_manage_patient_page()
         patient.validate_manage_patient_page()
@@ -461,7 +465,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         profile.logout_user()
         login.after_logout()
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
 
         home.validate_dashboard_page()
         home.open_manage_patient_page()
@@ -476,20 +480,18 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
+        home.force_relogin("admin")  # this test runs as admin
         admin = AdminPage(self, 'admin')
         a_ff = AdminFFPage(self, 'feature_flags')
 
+        default_client = UserData.client
         if "banner" in self.settings["url"]:
-            default_client = UserData.client
             flag = True
         elif "rogers" in self.settings["url"]:
-            default_client = UserData.client
             flag = False
         elif "securevoteu" in self.settings["url"]:
-            default_client = UserData.client
             flag = False
         else:
-            default_client = UserData.client
             flag = True
 
         try:
@@ -521,6 +523,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         self._login_once()
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
+        home.force_relogin()  # this test runs as the client user
         user = UserPage(self, "add_users")
         user_patient = UserPatientPage(self, "add_patient")
         p_profile = PatientProfilePage(self, 'patient_profile')
@@ -535,7 +538,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
             home.validate_dashboard_page()
         except Exception:
             login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.open_dashboard_page()
             home.validate_dashboard_page()
 
@@ -550,7 +553,7 @@ class test_module_09_patient_search_and_tabs(BaseCase):
         profile.logout_user()
         login.after_logout()
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
 
         home.validate_dashboard_page()
         home.open_manage_patient_page()

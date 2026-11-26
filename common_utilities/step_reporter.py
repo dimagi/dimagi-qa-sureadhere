@@ -9,7 +9,7 @@ the exact Slack template requested by the project team, followed by a
 separate performance box (see render_performance_block):
 
     Smoke Tests - <server><release> - Client: <client name>
-    :large_green_circle: Logged in, existing staff (<username>)
+    :large_green_circle: Logged in, client user (<username>)
     ...
     Summary: <PASS/FAIL>          <- smoke tests only
 
@@ -38,7 +38,7 @@ YELLOW = ":large_yellow_circle:"  # mustard, matches the "Skipped" slice color (
 # str.format placeholders that get filled from the values passed to
 # report_step(..., detail=...) / the values dict built in conftest.py.
 STEP_TEMPLATE = [
-    ("login_existing_staff", "Logged in, existing staff ({client_username})"),
+    ("login_existing_staff", "Logged in, client user ({client_username})"),
     ("staff_created", "Staff Created ({new_staff_username})"),
     ("staff_edited", "Staff edited"),
     ("login_new_staff", "Logged in, new staff"),

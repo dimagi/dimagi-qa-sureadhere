@@ -35,7 +35,7 @@ class test_module_11_patient_overview(BaseCase):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         login.launch_browser(self.settings["url"])
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
@@ -47,6 +47,7 @@ class test_module_11_patient_overview(BaseCase):
         self._login_once()
         user = UserPage(self, "add_users")
         home = HomePage(self, "dashboard")
+        home.force_relogin()  # this test runs as the client user
         admin = AdminPage(self, 'admin')
         a_ff = AdminFFPage(self, 'feature_flags')
         patient = ManagePatientPage(self, "patients")
@@ -63,7 +64,7 @@ class test_module_11_patient_overview(BaseCase):
             home.open_dashboard_page()
             home.validate_dashboard_page()
         except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.open_dashboard_page()
             home.validate_dashboard_page()
 
@@ -125,7 +126,7 @@ class test_module_11_patient_overview(BaseCase):
         d = self.__class__.data
 
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.force_relogin("default_staff")  # this test runs as the default staff (Regimen Editor)
             home.open_dashboard_page()
             home.validate_dashboard_page()
         except Exception:
@@ -153,7 +154,7 @@ class test_module_11_patient_overview(BaseCase):
         vdo_upload_date, vdo_upload_time = mobile.record_video_and_submit(med_name)
         mobile.close_android_driver()
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(UserData.default_staff_email_for(self.settings["url"]), self.settings["login_password"])
         home.open_dashboard_page()
 
         home.validate_dashboard_page()
@@ -205,7 +206,7 @@ class test_module_11_patient_overview(BaseCase):
         d = self.__class__.data
 
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.force_relogin()  # this test runs as the client user
             home.open_dashboard_page()
             home.validate_dashboard_page()
         except Exception:

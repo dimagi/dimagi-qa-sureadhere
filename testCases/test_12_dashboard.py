@@ -35,7 +35,7 @@ class test_module_11_dashboard(BaseCase):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         login.launch_browser(self.settings["url"])
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
@@ -54,7 +54,7 @@ class test_module_11_dashboard(BaseCase):
             home.open_dashboard_page()
 
         except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.open_dashboard_page()
 
         home.validate_dashboard_page()
@@ -98,7 +98,7 @@ class test_module_11_dashboard(BaseCase):
             home.open_dashboard_page()
 
         except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.open_dashboard_page()
 
         home.validate_dashboard_page()
@@ -131,7 +131,7 @@ class test_module_11_dashboard(BaseCase):
             home.open_dashboard_page()
 
         except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.open_dashboard_page()
 
         home.validate_dashboard_page()
@@ -165,7 +165,7 @@ class test_module_11_dashboard(BaseCase):
             home.open_dashboard_page()
 
         except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.open_dashboard_page()
 
         home.validate_dashboard_page()
@@ -190,7 +190,7 @@ class test_module_11_dashboard(BaseCase):
             home.open_dashboard_page()
 
         except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.open_dashboard_page()
 
         home.validate_dashboard_page()

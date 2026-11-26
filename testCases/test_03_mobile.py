@@ -69,18 +69,7 @@ class test_module_03(BaseCase):
         login.after_logout()
 
         default_site_manager = UserData.site_manager
-        if "banner" in self.settings["url"]:
-            default_staff_email = UserData.default_staff_email[0]
-            # default_site_manager = UserData.site_manager[0]
-        elif "rogers" in self.settings["url"]:
-            default_staff_email = UserData.default_staff_email[1]
-            # default_site_manager = UserData.site_manager[0]
-        elif "securevoteu" in self.settings["url"]:
-            default_staff_email = UserData.default_staff_email[3]
-            # default_site_manager = UserData.site_manager[2]
-        else:
-            default_staff_email = UserData.default_staff_email[2]
-            # default_site_manager = UserData.site_manager[1]
+        default_staff_email = UserData.default_staff_email_for(self.settings["url"])
             
         with perf_budget("login_and_dashboard", driver=self.driver):
             login.login(default_staff_email, self.settings["login_password"])
@@ -233,14 +222,6 @@ class test_module_03(BaseCase):
 
         d = self.__class__.data
         default_client = UserData.client
-        # if "banner" in self.settings["url"]:
-        #     default_client = UserData.client[0]
-        # elif "rogers" in self.settings["url"]:
-        #     default_client = UserData.client[1]
-        # elif "securevoteu" in self.settings["url"]:
-        #     default_client = UserData.client[3]
-        # else:
-        #     default_client = UserData.client[2]
         home.force_relogin("admin")
 
         # Failsafe: this test needs Per Drug Adherence ON (presetup sets it).

@@ -29,7 +29,7 @@ class test_module_07_staff_manager_roles(BaseCase):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         login.launch_browser(self.settings["url"])
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
@@ -64,7 +64,7 @@ class test_module_07_staff_manager_roles(BaseCase):
             except:
                 print("Already logged out")
             try:
-                login.login(self.settings["login_username"], self.settings["login_password"])
+                login.login(self.settings["client_username"], self.settings["login_password"])
                 home.validate_dashboard_page()
             except:
                 print("Already logged in")
@@ -141,7 +141,7 @@ class test_module_07_staff_manager_roles(BaseCase):
             print("No dialog present")
         try:
             login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.validate_dashboard_page()
         except:
             print("Already logged in")
@@ -218,7 +218,7 @@ class test_module_07_staff_manager_roles(BaseCase):
             print("No dialog present")
         try:
             login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.validate_dashboard_page()
         except:
             print("Already logged in")
@@ -304,7 +304,7 @@ class test_module_07_staff_manager_roles(BaseCase):
                 profile.logout_user()
                 login.after_logout()
                 login.validate_login_page()
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.validate_dashboard_page()
         except:
             print("Already logged in")
@@ -391,7 +391,7 @@ class test_module_07_staff_manager_roles(BaseCase):
             print("Already logged out")
         try:
             login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.validate_dashboard_page()
         except:
             print("Already logged in")
@@ -478,7 +478,7 @@ class test_module_07_staff_manager_roles(BaseCase):
             print("Already logged out")
         try:
             login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.validate_dashboard_page()
         except:
             print("Already logged in")
@@ -570,7 +570,7 @@ class test_module_07_staff_manager_roles(BaseCase):
             print("Already logged out")
         try:
             login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.validate_dashboard_page()
         except:
             print("Already logged in")

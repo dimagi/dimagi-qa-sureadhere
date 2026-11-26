@@ -27,7 +27,7 @@ class test_module_04_login_tests(BaseCase):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         login.launch_browser(self.settings["url"])
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
@@ -65,7 +65,7 @@ class test_module_04_login_tests(BaseCase):
         home = HomePage(self, "dashboard")
         profile = UserProfilePage(self, "user")
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
         home.validate_dashboard_page()
 
         home.click_admin_profile_button()
@@ -78,7 +78,7 @@ class test_module_04_login_tests(BaseCase):
         self._login_once()
         login = LoginPage(self, "login")
 
-        login.invalid_login(self.settings["login_username"], UserData.invalid_password)
+        login.invalid_login(self.settings["client_username"], UserData.invalid_password)
 
     @pytest.mark.extendedtests
     @pytest.mark.dependency(name="tc_login_3", scope="class")
@@ -191,7 +191,7 @@ class test_module_04_login_tests(BaseCase):
             login.after_logout()
             login.launch_browser(self.settings["url"])
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
 
         home.validate_dashboard_page()
         home.click_admin_profile_button()

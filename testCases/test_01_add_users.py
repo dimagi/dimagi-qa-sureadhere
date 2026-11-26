@@ -51,12 +51,6 @@ class test_module_01_users(BaseCase):
         login = LoginPage(self, "login")
 
         default_site_manager = UserData.site_manager
-        # if "banner" in self.settings["url"] or "rogers" in self.settings["url"]:
-        #     default_site_manager = UserData.site_manager[0]
-        # elif "securevoteu" in self.settings["url"]:
-        #     default_site_manager = UserData.site_manager[2]
-        # else:
-        #     default_site_manager = UserData.site_manager[1]
         rerun_count = getattr(self, "rerun_count", 0)
         try:
             user_staff.cancel_form()
@@ -445,14 +439,6 @@ class test_module_01_users(BaseCase):
         wait_for_step("dose_submitted_pda_on")
         d = self.__class__.data
         default_client = UserData.client
-        # if "banner" in self.settings["url"]:
-        #     default_client = UserData.client[0]
-        # elif "rogers" in self.settings["url"]:
-        #     default_client = UserData.client[1]
-        # elif "securevoteu" in self.settings["url"]:
-        #     default_client = UserData.client[3]
-        # else:
-        #     default_client = UserData.client[2]
         home.force_relogin("admin")
 
         home.open_admin_page()

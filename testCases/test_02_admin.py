@@ -54,14 +54,6 @@ class test_module_02_admin(BaseCase):
         selected_disease = random.choice(UserData.admin_disease)
         selected_drug = random.choice(UserData.admin_drug)
         default_client = UserData.client
-        # if "banner" in self.settings["url"]:
-        #     default_client = UserData.client[0]
-        # elif "rogers" in self.settings["url"]:
-        #     default_client = UserData.client[1]
-        # elif "securevoteu" in self.settings["url"]:
-        #     default_client = UserData.client[3]
-        # else:
-        #     default_client = UserData.client[2]
 
         home.ensure_logged_in("admin")
 
@@ -117,14 +109,6 @@ class test_module_02_admin(BaseCase):
         # Regimen tab runs as the default staff user (Automation Testuser, a Regimen
         # Editor on every site) -- the client login can only view regimens.
         default_staff_email = UserData.default_staff_email_for(self.settings["url"])
-        # if "banner" in self.settings["url"]:
-        #     default_client = UserData.client[0]
-        # elif "rogers" in self.settings["url"]:
-        #     default_client = UserData.client[1]
-        # elif "securevoteu" in self.settings["url"]:
-        #     default_client = UserData.client[3]
-        # else:
-        #     default_client = UserData.client[2]
 
         home.force_relogin(username=default_staff_email, password=self.settings["login_password"])
 
@@ -195,14 +179,6 @@ class test_module_02_admin(BaseCase):
         a_announce = AdminAnnouncementPage(self, 'announcements')
         a_announce_form = AdminAnnouncementFormPage(self, 'admin_announcement_form')
         default_client = UserData.client
-        # if "banner" in self.settings["url"]:
-        #     default_client = UserData.client[0]
-        # elif "rogers" in self.settings["url"]:
-        #     default_client = UserData.client[1]
-        # elif "securevoteu" in self.settings["url"]:
-        #     default_client = UserData.client[3]
-        # else:
-        #     default_client = UserData.client[2]
 
         home.force_relogin("admin")
 

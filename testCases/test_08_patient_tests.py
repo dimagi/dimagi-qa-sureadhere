@@ -27,7 +27,7 @@ class test_module_08_patient_tests(BaseCase):
         login = LoginPage(self, "login")
         home = HomePage(self, "dashboard")
         login.launch_browser(self.settings["url"])
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
         home.validate_dashboard_page()
         type(self)._session_ready = True
 
@@ -37,6 +37,7 @@ class test_module_08_patient_tests(BaseCase):
         self._login_once()
         rerun_count = getattr(self, "rerun_count", 0)
         home = HomePage(self, "dashboard")
+        home.force_relogin()  # this test runs as the client user
         user = UserPage(self, "add_users")
         user_patient = UserPatientPage(self, "add_patient")
         login = LoginPage(self, "login")
@@ -54,7 +55,7 @@ class test_module_08_patient_tests(BaseCase):
                 profile.logout_user()
                 login.after_logout()
                 login.validate_login_page()
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.validate_dashboard_page()
         except:
             print("Already logged in")
@@ -71,6 +72,7 @@ class test_module_08_patient_tests(BaseCase):
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
+        home.force_relogin()  # this test runs as the client user
         user = UserPage(self, "add_users")
         profile = UserProfilePage(self, "user")
         user_patient = UserPatientPage(self, "add_patient")
@@ -105,6 +107,7 @@ class test_module_08_patient_tests(BaseCase):
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
+        home.force_relogin()  # this test runs as the client user
         user = UserPage(self, "add_users")
         profile = UserProfilePage(self, "user")
         user_patient = UserPatientPage(self, "add_patient")
@@ -120,7 +123,7 @@ class test_module_08_patient_tests(BaseCase):
         try:
             home.open_dashboard_page()
         except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.open_dashboard_page()
 
         home.validate_dashboard_page()
@@ -145,6 +148,7 @@ class test_module_08_patient_tests(BaseCase):
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
+        home.force_relogin()  # this test runs as the client user
         user = UserPage(self, "add_users")
         profile = UserProfilePage(self, "user")
         user_patient = UserPatientPage(self, "add_patient")
@@ -158,7 +162,7 @@ class test_module_08_patient_tests(BaseCase):
         try:
             home.open_dashboard_page()
         except Exception:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.open_dashboard_page()
 
         home.validate_dashboard_page()
@@ -210,13 +214,13 @@ class test_module_08_patient_tests(BaseCase):
             print("Form is already closed")
 
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.force_relogin()  # this test runs as the client user
         except Exception:
             print("Not in the login page")
             home.click_admin_profile_button()
             profile.logout_user()
             login.after_logout()
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
@@ -250,7 +254,7 @@ class test_module_08_patient_tests(BaseCase):
         home.click_admin_profile_button()
         profile.logout_user()
         login.after_logout()
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
 
         home.open_dashboard_page()
         home.validate_dashboard_page()
@@ -293,7 +297,7 @@ class test_module_08_patient_tests(BaseCase):
         except:
             print("Form is already closed")
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.force_relogin()  # this test runs as the client user
             home.validate_dashboard_page()
         except Exception:
             print("Not in the login page")
@@ -332,7 +336,7 @@ class test_module_08_patient_tests(BaseCase):
         d = self.__class__.data  # shared dict
 
         try:
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            home.force_relogin()  # this test runs as the client user
         except Exception:
             print("Not in the login page")
 
@@ -353,7 +357,7 @@ class test_module_08_patient_tests(BaseCase):
         profile.logout_user()
         login.after_logout()
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
@@ -366,7 +370,7 @@ class test_module_08_patient_tests(BaseCase):
         profile.logout_user()
         login.after_logout()
 
-        login.login(self.settings["login_username"], self.settings["login_password"])
+        login.login(self.settings["client_username"], self.settings["login_password"])
         home.open_dashboard_page()
         home.validate_dashboard_page()
         home.open_manage_patient_page()
@@ -381,6 +385,7 @@ class test_module_08_patient_tests(BaseCase):
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
+        home.force_relogin("admin")  # this test runs as admin
         admin = AdminPage(self, 'admin')
         a_rbc = AdminReportsByClientsPage(self, 'reports_by_clients')
 
@@ -413,6 +418,7 @@ class test_module_08_patient_tests(BaseCase):
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
+        home.force_relogin()  # this test runs as the client user
         admin = AdminPage(self, 'admin')
         a_rbc = AdminReportsByClientsPage(self, 'reports_by_clients')
         patient = ManagePatientPage(self, "patients")
@@ -424,7 +430,7 @@ class test_module_08_patient_tests(BaseCase):
             home.validate_dashboard_page()
         except Exception:
             login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.open_dashboard_page()
             home.validate_dashboard_page()
 
@@ -439,14 +445,7 @@ class test_module_08_patient_tests(BaseCase):
         profile.logout_user()
         login.after_logout()
 
-        if "banner" in self.settings["url"]:
-            default_staff_email = UserData.default_staff_email[0]
-        elif "rogers" in self.settings["url"]:
-            default_staff_email = UserData.default_staff_email[1]
-        elif "securevoteu" in self.settings["url"]:
-            default_staff_email = UserData.default_staff_email[3]
-        else:
-            default_staff_email = UserData.default_staff_email[2]
+        default_staff_email = UserData.default_staff_email_for(self.settings["url"])
 
         login.login(default_staff_email, self.settings["login_password"])
         home.open_manage_patient_page()
@@ -466,6 +465,7 @@ class test_module_08_patient_tests(BaseCase):
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
+        home.force_relogin("admin")  # this test runs as admin
         admin = AdminPage(self, 'admin')
         a_rbc = AdminReportsByClientsPage(self, 'reports_by_clients')
 
@@ -498,6 +498,7 @@ class test_module_08_patient_tests(BaseCase):
         login = LoginPage(self, "login")
         self._login_once()
         home = HomePage(self, "dashboard")
+        home.force_relogin()  # this test runs as the client user
         admin = AdminPage(self, 'admin')
         a_rbc = AdminReportsByClientsPage(self, 'reports_by_clients')
         patient = ManagePatientPage(self, "patients")
@@ -509,7 +510,7 @@ class test_module_08_patient_tests(BaseCase):
             home.validate_dashboard_page()
         except Exception:
             login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.open_dashboard_page()
             home.validate_dashboard_page()
 
@@ -524,14 +525,7 @@ class test_module_08_patient_tests(BaseCase):
         profile.logout_user()
         login.after_logout()
 
-        if "banner" in self.settings["url"]:
-            default_staff_email = UserData.default_staff_email[0]
-        elif "rogers" in self.settings["url"]:
-            default_staff_email = UserData.default_staff_email[1]
-        elif "securevoteu" in self.settings["url"]:
-            default_staff_email = UserData.default_staff_email[3]
-        else:
-            default_staff_email = UserData.default_staff_email[2]
+        default_staff_email = UserData.default_staff_email_for(self.settings["url"])
 
         login.login(default_staff_email, self.settings["login_password"])
         home.open_manage_patient_page()

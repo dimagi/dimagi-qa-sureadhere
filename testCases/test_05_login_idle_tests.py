@@ -27,7 +27,7 @@ class test_module_04_login_tests_inactivity_10_minutes(BaseCase):
         profile = UserProfilePage(self, "user")
         try:
             login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.validate_dashboard_page()
         except Exception:
             print("Login Page is not present")
@@ -47,7 +47,7 @@ class test_module_04_login_tests_inactivity_20_minutes(BaseCase):
 
         try:
             login.launch_browser(self.settings["url"])
-            login.login(self.settings["login_username"], self.settings["login_password"])
+            login.login(self.settings["client_username"], self.settings["login_password"])
             home.validate_dashboard_page()
         except Exception:
             print("Login Page is not present")
